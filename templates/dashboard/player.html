@@ -1,0 +1,137 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Springboard Player - {{ course.title }} | Arshith Springboard{% endblock %}
+
+{% block content %}
+<div class="d-flex flex-column" style="min-height: calc(100vh - 60px);">
+  <div class="bg-dark text-white px-4 py-2 d-flex align-items-center justify-content-between" style="background-color: #0A192F !important;">
+    <div class="d-flex align-items-center gap-3">
+      <a href="{% url 'dashboard' %}" class="btn btn-sm btn-outline-light"><i class="fa-solid fa-arrow-left me-1"></i> Dashboard</a>
+      <span class="badge bg-primary me-2">{{ course.course_code }}</span>
+      <strong class="text-white">{{ course.title }}</strong>
+    </div>
+    <div>
+      <span class="small text-white-50">Progress: <strong id="player-progress" class="text-white">0%</strong></span>
+    </div>
+  </div>
+
+  <div class="d-flex flex-grow-1">
+    <!-- Left Sidebar Checklist -->
+    <div class="bg-white border-end" style="width: 320px; overflow-y: auto;">
+      <div class="p-3 border-bottom bg-light font-weight-bold">Curriculum Lessons</div>
+      <div id="curriculum-tree"></div>
+    </div>
+
+    <!-- Center Content -->
+    <div class="flex-grow-1 p-4 bg-light overflow-y-auto">
+      <div class="ratio ratio-16x9 bg-black rounded shadow mb-4">
+        <video id="player-video" controls class="w-100 h-100">
+          <source id="video-source" src="" type="video/mp4">
+        </video>
+      </div>
+
+      <div class="p-4 bg-white rounded border shadow-sm">
+        <div class="d-flex justify-content-between align-items-center border-bottom pb-3 mb-3">
+          <h4 class="h5 font-weight-bold text-dark mb-0" id="lesson-title">Select a lesson</h4>
+          <button id="btn-complete" class="btn btn-springboard-primary btn-sm" onclick="toggleCompleteCurrentLesson()">
+            <i class="fa-solid fa-circle-check me-1"></i> Mark as Complete
+          </button>
+        </div>
+        <div id="lesson-content" class="text-dark">Select a lesson from the left sidebar checklist.</div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+const courseId = {{ course.id }};
+let playerData = null;
+let allLessons = [];
+let currentIndex = 0;
+
+async function loadPlayerData() {
+  try {
+    playerData = await API.fetch(`/api/player/${courseId}`);
+    document.getElementById('player-progress').innerText = `${playerData.progress_percent}%`;
+    buildTree();
+    if (allLessons.length > 0) selectLesson(0);
+  } catch (err) {
+    API.showToast(err.message, 'error');
+  }
+}
+
+function buildTree() {
+  const tree = document.getElementById('curriculum-tree');
+  tree.innerHTML = '';
+  allLessons = [];
+  let counter = 0;
+
+  (playerData.course.modules || []).forEach(mod => {
+    const modHeader = document.createElement('div');
+    modHeader.className = 'p-3 bg-light border-bottom font-weight-bold small text-dark';
+    modHeader.innerText = mod.title;
+    tree.appendChild(modHeader);
+
+    mod.lessons.forEach(les => {
+      const idx = counter++;
+      les.globalIdx = idx;
+      allLessons.push(les);
+      const done = playerData.completed_lesson_ids.includes(les.id);
+      const el = document.createElement('div');
+      el.className = 'p-3 border-bottom small d-flex justify-content-between align-items-center cursor-pointer';
+      el.id = `les-item-${idx}`;
+      el.onclick = () => selectLesson(idx);
+      el.innerHTML = `
+        <span>${done ? '<i class="fa-solid fa-check text-success me-2"></i>' : '<i class="fa-regular fa-circle me-2 text-muted"></i>'}${les.title}</span>
+        <span class="x-small text-muted">${les.duration_minutes}m</span>
+      `;
+      tree.appendChild(el);
+    });
+  });
+}
+
+function selectLesson(idx) {
+  currentIndex = idx;
+  const les = allLessons[idx];
+  document.querySelectorAll('#curriculum-tree > div').forEach(e => e.classList.remove('bg-info', 'bg-opacity-10'));
+  const active = document.getElementById(`les-item-${idx}`);
+  if (active) active.classList.add('bg-info', 'bg-opacity-10');
+
+  document.getElementById('lesson-title').innerText = les.title;
+  document.getElementById('lesson-content').innerHTML = les.content_html || les.description || 'Lesson content...';
+  if (les.video_url) {
+    document.getElementById('video-source').src = les.video_url;
+    document.getElementById('player-video').load();
+  }
+  const done = playerData.completed_lesson_ids.includes(les.id);
+  const btn = document.getElementById('btn-complete');
+  btn.className = done ? 'btn btn-success btn-sm' : 'btn btn-springboard-primary btn-sm';
+  btn.innerHTML = done ? '<i class="fa-solid fa-check-circle me-1"></i> Completed' : '<i class="fa-solid fa-circle-check me-1"></i> Mark as Complete';
+}
+
+async function toggleCompleteCurrentLesson() {
+  const les = allLessons[currentIndex];
+  const done = playerData.completed_lesson_ids.includes(les.id);
+  try {
+    const res = await API.fetch(`/api/lessons/${les.id}/complete`, {
+      method: 'POST',
+      body: JSON.stringify({ completed: !done })
+    });
+    playerData.progress_percent = res.progress_percent;
+    if (!done) playerData.completed_lesson_ids.push(les.id);
+    else playerData.completed_lesson_ids = playerData.completed_lesson_ids.filter(i => i !== les.id);
+    document.getElementById('player-progress').innerText = `${res.progress_percent}%`;
+    buildTree();
+    selectLesson(currentIndex);
+    API.showToast('Progress updated', 'success');
+  } catch (err) {
+    API.showToast(err.message, 'error');
+  }
+}
+
+document.addEventListener('DOMContentLoaded', loadPlayerData);
+</script>
+{% endblock %}
