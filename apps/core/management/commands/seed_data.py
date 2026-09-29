@@ -157,3 +157,11 @@ class Command(BaseCommand):
         Certificate.objects.get_or_create(user=student, course=py_course, enrollment=enrollment)
 
         self.stdout.write(self.style.SUCCESS("Arshith 4 primary courses seeded successfully!"))
+
+        # Seed Flagship SQL Mastery Course
+        from django.core.management import call_command
+        call_command('seed_sql_course')
+
+        sql_mastery_course = Course.objects.filter(course_code='SQL-MASTERY').first()
+        if sql_mastery_course:
+            Enrollment.objects.get_or_create(user=student, course=sql_mastery_course)
