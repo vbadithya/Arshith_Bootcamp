@@ -4,9 +4,11 @@ from apps.courses.models import Course, Category, Instructor
 from apps.learning.models import Enrollment
 from apps.certificates.models import Certificate
 
+from apps.admin_dashboard.permissions import admin_required
+
 def home_view(request):
     categories = Category.objects.all()
-    featured_courses = Course.objects.filter(status='published', is_featured=True)[:6]
+    featured_courses = Course.objects.filter(status='published').select_related('category', 'instructor').order_by('-created_at')
     trending_courses = Course.objects.filter(status='published').order_by('-rating')[:6]
     return render(request, 'public/home.html', {
         'categories': categories,
@@ -47,6 +49,15 @@ def register_view(request):
         return redirect('/dashboard/')
     return render(request, 'public/register.html')
 
+def admin_login_view(request):
+    if request.user.is_authenticated:
+        is_admin = getattr(request.user, 'role', None) == 'admin' or request.user.is_staff or request.user.is_superuser
+        if is_admin:
+            return redirect('/admin-dashboard/')
+        else:
+            return redirect('/dashboard/')
+    return render(request, 'admin_portal/login.html')
+
 def about_view(request):
     return render(request, 'public/about.html')
 
@@ -64,11 +75,13 @@ def user_dashboard_view(request):
     enrollments = Enrollment.objects.filter(user=request.user).order_by('-last_accessed_at')
     completed_count = enrollments.filter(is_completed=True).count()
     certificates = Certificate.objects.filter(user=request.user)
+    all_courses = Course.objects.filter(status='published').select_related('category', 'instructor').order_by('-created_at')
     return render(request, 'dashboard/user_dashboard.html', {
         'enrollments': enrollments[:4],
         'total_enrolled': enrollments.count(),
         'completed_count': completed_count,
-        'certificates_count': certificates.count()
+        'certificates_count': certificates.count(),
+        'all_courses': all_courses
     })
 
 @login_required
@@ -90,6 +103,7 @@ def verify_certificate_view(request, certificate_id):
     cert = Certificate.objects.filter(certificate_id=certificate_id).first()
     return render(request, 'dashboard/verify_certificate.html', {'certificate': cert, 'certificate_id': certificate_id})
 
-@login_required
+@admin_required
 def admin_dashboard_view(request):
     return render(request, 'admin_portal/dashboard.html')
+

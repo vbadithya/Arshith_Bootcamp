@@ -1,52 +1,2157 @@
 {% extends 'base.html' %}
-{% block title %}ServiceNow Admin Portal | Arshith Springboard{% endblock %}
+{% block title %}Enterprise LMS Admin Dashboard | Arshith Bootcamp{% endblock %}
+
+{% block extra_css %}
+<!-- Chart.js CDN -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<style>
+  .admin-sidebar {
+    width: 260px;
+    background: #0b192c;
+    min-height: calc(100vh - 72px);
+    transition: all 0.3s ease;
+  }
+  .admin-nav-item {
+    color: #94a3b8;
+    padding: 11px 18px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    margin-bottom: 3px;
+  }
+  .admin-nav-item:hover, .admin-nav-item.active {
+    color: #ffffff;
+    background: rgba(0, 196, 159, 0.15);
+    font-weight: 600;
+  }
+  .admin-nav-item.active {
+    border-left: 4px solid #00c49f;
+  }
+  .admin-content-area {
+    flex-grow: 1;
+    background-color: #f8fafc;
+    min-height: calc(100vh - 72px);
+    padding: 28px;
+  }
+  .metric-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    transition: transform 0.2s;
+  }
+  .metric-card:hover {
+    transform: translateY(-2px);
+  }
+  .table-custom th {
+    background: #f1f5f9;
+    color: #475569;
+    font-weight: 700;
+    font-size: 0.82rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-bottom: 2px solid #cbd5e1;
+  }
+  .badge-soft-success { background: #dcfce7; color: #166534; }
+  .badge-soft-warning { background: #fef9c3; color: #854d0e; }
+  .badge-soft-danger { background: #fee2e2; color: #991b1b; }
+  .badge-soft-info { background: #e0f2fe; color: #075985; }
+  .badge-soft-secondary { background: #f1f5f9; color: #475569; }
+</style>
+{% endblock %}
+
 {% block content %}
-<div class="container py-5">
-  <div class="d-flex justify-content-between align-items-center mb-4">
-    <h2 class="font-weight-bold text-dark mb-0">ServiceNow Enterprise Admin Portal</h2>
-    <a href="{% url 'home' %}" class="btn btn-outline-secondary btn-sm">Public View</a>
-  </div>
-  <div class="p-5 bg-white rounded border shadow-sm">
-    <h5 class="font-weight-bold text-dark mb-3">System Metrics Overview</h5>
-    <div class="row g-4" id="admin-metrics">
-      <div class="col-md-3">
-        <div class="p-3 bg-light rounded border text-center">
-          <span class="small text-muted font-weight-bold">Total Users</span>
-          <h4 class="font-weight-bold text-primary mb-0 mt-1" id="m-users">-</h4>
+<div class="d-flex">
+  <!-- Left Sidebar -->
+  <aside class="admin-sidebar p-3 d-none d-md-block shadow-sm">
+    <div class="px-3 py-2 mb-3 border-bottom border-secondary border-opacity-25 text-white">
+      <h6 class="font-weight-bold mb-0 text-success"><i class="fa-solid fa-sliders me-2"></i>LMS Admin Console</h6>
+      <span class="small text-muted">Role: Administrator</span>
+    </div>
+    
+    <nav class="nav flex-column" id="admin-nav-tabs">
+      <a class="admin-nav-item active" href="#overview" data-tab="overview"><i class="fa-solid fa-chart-pie me-2"></i>Overview</a>
+      <a class="admin-nav-item" href="#users" data-tab="users"><i class="fa-solid fa-users me-2"></i>User Management</a>
+      <a class="admin-nav-item" href="#courses" data-tab="courses"><i class="fa-solid fa-book-bookmark me-2"></i>Course Management</a>
+      <a class="admin-nav-item" href="#content" data-tab="content"><i class="fa-solid fa-layer-group me-2"></i>Modules & Lessons</a>
+      <a class="admin-nav-item" href="#categories" data-tab="categories"><i class="fa-solid fa-tags me-2"></i>Categories</a>
+      <a class="admin-nav-item" href="#instructors" data-tab="instructors"><i class="fa-solid fa-user-graduate me-2"></i>Instructors</a>
+      <a class="admin-nav-item" href="#enrollments" data-tab="enrollments"><i class="fa-solid fa-user-check me-2"></i>Enrollments</a>
+      <a class="admin-nav-item" href="#certificates" data-tab="certificates"><i class="fa-solid fa-award me-2"></i>Certificates</a>
+      <a class="admin-nav-item" href="#analytics" data-tab="analytics"><i class="fa-solid fa-chart-line me-2"></i>Reports & Analytics</a>
+      <a class="admin-nav-item" href="#logs" data-tab="logs"><i class="fa-solid fa-list-check me-2"></i>Activity Audit Logs</a>
+      <a class="admin-nav-item" href="#profile" data-tab="profile"><i class="fa-solid fa-user-gear me-2"></i>Admin Profile</a>
+      <a class="admin-nav-item" href="#settings" data-tab="settings"><i class="fa-solid fa-gear me-2"></i>Platform Settings</a>
+      <hr class="text-secondary opacity-25 my-3">
+      <a class="admin-nav-item text-danger js-admin-logout" href="#"><i class="fa-solid fa-right-from-bracket me-2"></i>Logout Session</a>
+    </nav>
+  </aside>
+
+  <!-- Main Content Area -->
+  <main class="admin-content-area">
+    
+    <!-- Top Header Bar -->
+    <div class="d-flex justify-content-between align-items-center mb-4 bg-white p-3 rounded-3 border shadow-sm">
+      <div class="d-flex align-items-center gap-3">
+        <button class="btn btn-sm btn-outline-dark d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileAdminSidebar">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+        <h4 class="font-weight-bold text-dark mb-0" id="current-tab-title">System Overview</h4>
+      </div>
+      <div class="d-flex align-items-center gap-3">
+        <a href="{% url 'home' %}" class="btn btn-sm btn-outline-secondary" target="_blank">
+          <i class="fa-solid fa-external-link me-1"></i> Public Website View
+        </a>
+        <div class="dropdown">
+          <button class="btn btn-sm btn-dark dropdown-toggle font-weight-bold" type="button" data-bs-toggle="dropdown">
+            <i class="fa-solid fa-user-shield me-1 text-success"></i> {{ request.user.full_name|default:request.user.email }}
+          </button>
+          <ul class="dropdown-menu dropdown-menu-end shadow border-0">
+            <li><a class="dropdown-item" href="#profile" onclick="switchTab('profile')"><i class="fa-solid fa-user-gear me-2"></i> Profile</a></li>
+            <li><a class="dropdown-item" href="#settings" onclick="switchTab('settings')"><i class="fa-solid fa-gear me-2"></i> Settings</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item text-danger js-admin-logout" href="#"><i class="fa-solid fa-right-from-bracket me-2"></i> Logout</a></li>
+          </ul>
         </div>
       </div>
-      <div class="col-md-3">
-        <div class="p-3 bg-light rounded border text-center">
-          <span class="small text-muted font-weight-bold">Total Courses</span>
-          <h4 class="font-weight-bold text-success mb-0 mt-1" id="m-courses">-</h4>
+    </div>
+
+    <!-- TAB 1: OVERVIEW -->
+    <div class="tab-pane-content" id="tab-overview">
+      <div class="row g-4 mb-4">
+        <!-- User Cards -->
+        <div class="col-xl-3 col-md-6">
+          <div class="metric-card border-start border-4 border-primary">
+            <div class="d-flex justify-content-between align-items-center">
+              <div>
+                <span class="small text-muted font-weight-bold text-uppercase">Total Users</span>
+                <h3 class="font-weight-bold text-dark mb-0 mt-1" id="ov-users-total">-</h3>
+                <span class="small text-success font-weight-bold" id="ov-users-active-sub">- active</span>
+              </div>
+              <div class="p-3 bg-primary bg-opacity-10 text-primary rounded-circle"><i class="fa-solid fa-users fa-xl"></i></div>
+            </div>
+          </div>
+        </div>
+        <!-- Courses Card -->
+        <div class="col-xl-3 col-md-6">
+          <div class="metric-card border-start border-4 border-success">
+            <div class="d-flex justify-content-between align-items-center">
+              <div>
+                <span class="small text-muted font-weight-bold text-uppercase">Total Courses</span>
+                <h3 class="font-weight-bold text-dark mb-0 mt-1" id="ov-courses-total">-</h3>
+                <span class="small text-muted font-weight-bold" id="ov-courses-pub-sub">- published</span>
+              </div>
+              <div class="p-3 bg-success bg-opacity-10 text-success rounded-circle"><i class="fa-solid fa-book-open fa-xl"></i></div>
+            </div>
+          </div>
+        </div>
+        <!-- Enrollments Card -->
+        <div class="col-xl-3 col-md-6">
+          <div class="metric-card border-start border-4 border-info">
+            <div class="d-flex justify-content-between align-items-center">
+              <div>
+                <span class="small text-muted font-weight-bold text-uppercase">Enrollments</span>
+                <h3 class="font-weight-bold text-dark mb-0 mt-1" id="ov-enrollments-total">-</h3>
+                <span class="small text-info font-weight-bold" id="ov-learning-avg-sub">Avg Progress: -%</span>
+              </div>
+              <div class="p-3 bg-info bg-opacity-10 text-info rounded-circle"><i class="fa-solid fa-graduation-cap fa-xl"></i></div>
+            </div>
+          </div>
+        </div>
+        <!-- Certificates Card -->
+        <div class="col-xl-3 col-md-6">
+          <div class="metric-card border-start border-4 border-warning">
+            <div class="d-flex justify-content-between align-items-center">
+              <div>
+                <span class="small text-muted font-weight-bold text-uppercase">Certificates Issued</span>
+                <h3 class="font-weight-bold text-dark mb-0 mt-1" id="ov-certs-total">-</h3>
+                <span class="small text-warning font-weight-bold" id="ov-certs-month-sub">- issued this month</span>
+              </div>
+              <div class="p-3 bg-warning bg-opacity-10 text-warning rounded-circle"><i class="fa-solid fa-award fa-xl"></i></div>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="col-md-3">
-        <div class="p-3 bg-light rounded border text-center">
-          <span class="small text-muted font-weight-bold">Total Enrollments</span>
-          <h4 class="font-weight-bold text-info mb-0 mt-1" id="m-enrollments">-</h4>
+
+      <!-- Charts & Popular Courses -->
+      <div class="row g-4 mb-4">
+        <div class="col-lg-8">
+          <div class="bg-white p-4 rounded-3 border shadow-sm h-100">
+            <h6 class="font-weight-bold text-dark mb-3"><i class="fa-solid fa-chart-line text-success me-2"></i>Platform Enrollment Popularity</h6>
+            <div style="height: 280px; position: relative;">
+              <canvas id="overviewChart"></canvas>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="bg-white p-4 rounded-3 border shadow-sm h-100">
+            <h6 class="font-weight-bold text-dark mb-3"><i class="fa-solid fa-clock-rotate-left text-info me-2"></i>Recent Audit Activities</h6>
+            <div id="overview-recent-logs" class="list-group list-group-flush small">
+              <!-- Logs populated via JS -->
+            </div>
+          </div>
         </div>
       </div>
-      <div class="col-md-3">
-        <div class="p-3 bg-light rounded border text-center">
-          <span class="small text-muted font-weight-bold">Certificates Issued</span>
-          <h4 class="font-weight-bold text-warning mb-0 mt-1" id="m-certs">-</h4>
+    </div>
+
+    <!-- TAB 2: USER MANAGEMENT -->
+    <div class="tab-pane-content d-none" id="tab-users">
+      <div class="bg-white p-4 rounded-3 border shadow-sm">
+        <div class="d-flex flex-wrap justify-content-between align-items-center gap-3 mb-4">
+          <div class="d-flex gap-2">
+            <input type="text" id="users-search" class="form-control form-control-sm" placeholder="Search name or email..." style="width: 220px;">
+            <select id="users-role-filter" class="form-select form-select-sm" style="width: 140px;">
+              <option value="all">All Roles</option>
+              <option value="student">Student</option>
+              <option value="instructor">Instructor</option>
+              <option value="admin">Admin</option>
+            </select>
+            <select id="users-status-filter" class="form-select form-select-sm" style="width: 140px;">
+              <option value="all">All Status</option>
+              <option value="active">Active</option>
+              <option value="inactive">Inactive</option>
+            </select>
+          </div>
+          <button class="btn btn-sm btn-success font-weight-bold" onclick="openAddUserModal()">
+            <i class="fa-solid fa-user-plus me-1"></i> Add New User
+          </button>
         </div>
+
+        <div class="table-responsive">
+          <table class="table table-hover align-middle table-custom">
+            <thead>
+              <tr>
+                <th>User</th>
+                <th>Role</th>
+                <th>Status</th>
+                <th>Registered Date</th>
+                <th>Enrollments</th>
+                <th>Certificates</th>
+                <th class="text-end">Actions</th>
+              </tr>
+            </thead>
+            <tbody id="users-table-body">
+              <!-- Rendered dynamically -->
+            </tbody>
+          </table>
+        </div>
+        <div id="users-pagination" class="d-flex justify-content-between align-items-center mt-3"></div>
+      </div>
+    </div>
+
+    <!-- TAB 3: COURSE MANAGEMENT -->
+    <div class="tab-pane-content d-none" id="tab-courses">
+      <div class="bg-white p-4 rounded-3 border shadow-sm">
+        <div class="d-flex flex-wrap justify-content-between align-items-center gap-3 mb-4">
+          <div class="d-flex gap-2">
+            <input type="text" id="courses-search" class="form-control form-control-sm" placeholder="Search title or code..." style="width: 220px;">
+            <select id="courses-status-filter" class="form-select form-select-sm" style="width: 140px;">
+              <option value="all">All Statuses</option>
+              <option value="published">Published</option>
+              <option value="draft">Draft</option>
+            </select>
+          </div>
+          <button class="btn btn-sm btn-success font-weight-bold" onclick="openAddCourseModal()">
+            <i class="fa-solid fa-plus me-1"></i> Create New Course
+          </button>
+        </div>
+
+        <div class="table-responsive">
+          <table class="table table-hover align-middle table-custom">
+            <thead>
+              <tr>
+                <th>Course Code</th>
+                <th>Title</th>
+                <th>Category</th>
+                <th>Instructor</th>
+                <th>Status</th>
+                <th>Featured</th>
+                <th>Enrollments</th>
+                <th class="text-end">Actions</th>
+              </tr>
+            </thead>
+            <tbody id="courses-table-body">
+              <!-- Rendered dynamically -->
+            </tbody>
+          </table>
+        </div>
+        <div id="courses-pagination" class="d-flex justify-content-between align-items-center mt-3"></div>
+      </div>
+    </div>
+
+    <!-- TAB 4: MODULES & LESSONS (CONTENT MANAGEMENT) -->
+    <div class="tab-pane-content d-none" id="tab-content">
+      <div class="bg-white p-4 rounded-3 border shadow-sm">
+        <div class="row align-items-center mb-4">
+          <div class="col-md-6">
+            <label class="form-label font-weight-bold text-dark small">Select Course to Manage Curriculum:</label>
+            <select id="content-course-select" class="form-select">
+              <option value="">-- Choose a course --</option>
+            </select>
+          </div>
+          <div class="col-md-6 text-md-end mt-3 mt-md-0" id="content-action-btns" style="display:none;">
+            <button class="btn btn-sm btn-dark me-2" onclick="openAddModuleModal()"><i class="fa-solid fa-folder-plus me-1"></i> Add Module</button>
+            <button class="btn btn-sm btn-success" onclick="openAddLessonModal()"><i class="fa-solid fa-video me-1"></i> Add Lesson</button>
+          </div>
+        </div>
+
+        <div id="curriculum-container">
+          <div class="text-center py-5 text-muted">
+            <i class="fa-solid fa-layer-group fa-3x mb-3 text-secondary opacity-50"></i>
+            <h6>Select a course above to manage its modules and lessons.</h6>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB 5: CATEGORIES -->
+    <div class="tab-pane-content d-none" id="tab-categories">
+      <div class="bg-white p-4 rounded-3 border shadow-sm">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+          <h6 class="font-weight-bold mb-0">Course Categories</h6>
+          <button class="btn btn-sm btn-success font-weight-bold" onclick="openAddCategoryModal()">
+            <i class="fa-solid fa-plus me-1"></i> Add Category
+          </button>
+        </div>
+
+        <div class="table-responsive">
+          <table class="table table-hover align-middle table-custom">
+            <thead>
+              <tr>
+                <th>Icon</th>
+                <th>Category Name</th>
+                <th>Slug</th>
+                <th>Description</th>
+                <th>Courses Attached</th>
+                <th class="text-end">Actions</th>
+              </tr>
+            </thead>
+            <tbody id="categories-table-body">
+              <!-- Rendered dynamically -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB 6: INSTRUCTORS -->
+    <div class="tab-pane-content d-none" id="tab-instructors">
+      <div class="bg-white p-4 rounded-3 border shadow-sm">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+          <h6 class="font-weight-bold mb-0">Platform Instructors</h6>
+          <button class="btn btn-sm btn-success font-weight-bold" onclick="openAddInstructorModal()">
+            <i class="fa-solid fa-user-plus me-1"></i> Add Instructor
+          </button>
+        </div>
+
+        <div class="table-responsive">
+          <table class="table table-hover align-middle table-custom">
+            <thead>
+              <tr>
+                <th>Instructor Name</th>
+                <th>Designation</th>
+                <th>Experience</th>
+                <th>Bio</th>
+                <th>Assigned Courses</th>
+                <th class="text-end">Actions</th>
+              </tr>
+            </thead>
+            <tbody id="instructors-table-body">
+              <!-- Rendered dynamically -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB 7: ENROLLMENTS -->
+    <div class="tab-pane-content d-none" id="tab-enrollments">
+      <div class="bg-white p-4 rounded-3 border shadow-sm">
+        <div class="d-flex flex-wrap justify-content-between align-items-center gap-3 mb-4">
+          <div class="d-flex gap-2">
+            <input type="text" id="enrollments-search" class="form-control form-control-sm" placeholder="Search student or course..." style="width: 220px;">
+            <select id="enrollments-status-filter" class="form-select form-select-sm" style="width: 140px;">
+              <option value="all">All Progress</option>
+              <option value="completed">Completed</option>
+              <option value="in_progress">In Progress</option>
+            </select>
+          </div>
+          <button class="btn btn-sm btn-success font-weight-bold" onclick="openManualEnrollmentModal()">
+            <i class="fa-solid fa-user-plus me-1"></i> Manual Student Enrollment
+          </button>
+        </div>
+
+        <div class="table-responsive">
+          <table class="table table-hover align-middle table-custom">
+            <thead>
+              <tr>
+                <th>Student</th>
+                <th>Course</th>
+                <th>Enrolled Date</th>
+                <th>Progress %</th>
+                <th>Status</th>
+                <th>Certificate</th>
+                <th class="text-end">Actions</th>
+              </tr>
+            </thead>
+            <tbody id="enrollments-table-body">
+              <!-- Rendered dynamically -->
+            </tbody>
+          </table>
+        </div>
+        <div id="enrollments-pagination" class="d-flex justify-content-between align-items-center mt-3"></div>
+      </div>
+    </div>
+
+    <!-- TAB 8: CERTIFICATES -->
+    <div class="tab-pane-content d-none" id="tab-certificates">
+      <div class="bg-white p-4 rounded-3 border shadow-sm">
+        <div class="d-flex flex-wrap justify-content-between align-items-center gap-3 mb-4">
+          <div class="d-flex gap-2">
+            <input type="text" id="certs-search" class="form-control form-control-sm" placeholder="Search Cert ID, student, course..." style="width: 260px;">
+            <select id="certs-status-filter" class="form-select form-select-sm" style="width: 140px;">
+              <option value="all">All Statuses</option>
+              <option value="issued">Issued</option>
+              <option value="revoked">Revoked</option>
+            </select>
+          </div>
+          <button class="btn btn-sm btn-success font-weight-bold" onclick="openGenerateCertModal()">
+            <i class="fa-solid fa-certificate me-1"></i> Issue Certificate
+          </button>
+        </div>
+
+        <div class="table-responsive">
+          <table class="table table-hover align-middle table-custom">
+            <thead>
+              <tr>
+                <th>Certificate ID</th>
+                <th>Student</th>
+                <th>Course</th>
+                <th>Issue Date</th>
+                <th>Status</th>
+                <th class="text-end">Actions</th>
+              </tr>
+            </thead>
+            <tbody id="certs-table-body">
+              <!-- Rendered dynamically -->
+            </tbody>
+          </table>
+        </div>
+        <div id="certs-pagination" class="d-flex justify-content-between align-items-center mt-3"></div>
+      </div>
+    </div>
+
+    <!-- TAB 9: REPORTS & ANALYTICS -->
+    <div class="tab-pane-content d-none" id="tab-analytics">
+      <div class="bg-white p-4 rounded-3 border shadow-sm mb-4">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+          <h6 class="font-weight-bold mb-0">Platform Analytics & Metrics Reports</h6>
+          <select id="analytics-period" class="form-select form-select-sm" style="width: 160px;" onchange="loadAnalyticsData()">
+            <option value="7days">Last 7 Days</option>
+            <option value="30days" selected>Last 30 Days</option>
+            <option value="this_month">This Month</option>
+            <option value="this_year">This Year</option>
+          </select>
+        </div>
+
+        <div class="row g-4 mb-4">
+          <div class="col-md-3">
+            <div class="p-3 bg-light rounded border text-center">
+              <span class="small text-muted font-weight-bold">New Registrations</span>
+              <h4 class="font-weight-bold text-primary mb-0 mt-1" id="an-new-users">-</h4>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="p-3 bg-light rounded border text-center">
+              <span class="small text-muted font-weight-bold">New Enrollments</span>
+              <h4 class="font-weight-bold text-success mb-0 mt-1" id="an-new-enrollments">-</h4>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="p-3 bg-light rounded border text-center">
+              <span class="small text-muted font-weight-bold">Course Completions</span>
+              <h4 class="font-weight-bold text-info mb-0 mt-1" id="an-completions">-</h4>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="p-3 bg-light rounded border text-center">
+              <span class="small text-muted font-weight-bold">Certificates Issued</span>
+              <h4 class="font-weight-bold text-warning mb-0 mt-1" id="an-certs">-</h4>
+            </div>
+          </div>
+        </div>
+
+        <div class="row g-4">
+          <div class="col-md-6">
+            <h6 class="font-weight-bold text-dark mb-3">Course Completion Rates (%)</h6>
+            <div style="height: 250px; position: relative;">
+              <canvas id="completionRateChart"></canvas>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <h6 class="font-weight-bold text-dark mb-3">User Roles Distribution</h6>
+            <div style="height: 250px; position: relative;">
+              <canvas id="rolesPieChart"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB 10: ACTIVITY AUDIT LOGS -->
+    <div class="tab-pane-content d-none" id="tab-logs">
+      <div class="bg-white p-4 rounded-3 border shadow-sm">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+          <input type="text" id="logs-search" class="form-control form-control-sm" placeholder="Search action, email, target..." style="width: 280px;">
+          <span class="small text-muted"><i class="fa-solid fa-shield-halved me-1 text-success"></i> Immutable Administrative Audit Trail</span>
+        </div>
+
+        <div class="table-responsive">
+          <table class="table table-hover align-middle table-custom">
+            <thead>
+              <tr>
+                <th>Timestamp</th>
+                <th>Administrator</th>
+                <th>Action</th>
+                <th>Target Object</th>
+                <th>IP Address</th>
+                <th>Details</th>
+              </tr>
+            </thead>
+            <tbody id="logs-table-body">
+              <!-- Rendered dynamically -->
+            </tbody>
+          </table>
+        </div>
+        <div id="logs-pagination" class="d-flex justify-content-between align-items-center mt-3"></div>
+      </div>
+    </div>
+
+    <!-- TAB 11: ADMIN PROFILE -->
+    <div class="tab-pane-content d-none" id="tab-profile">
+      <div class="row g-4">
+        <div class="col-md-6">
+          <div class="bg-white p-4 rounded-3 border shadow-sm">
+            <h6 class="font-weight-bold mb-3"><i class="fa-solid fa-id-card text-success me-2"></i>Profile Details</h6>
+            <form id="admin-profile-form">
+              <div class="mb-3">
+                <label class="form-label font-weight-bold small">Full Name</label>
+                <input type="text" id="prof-fullname" class="form-control" required>
+              </div>
+              <div class="mb-3">
+                <label class="form-label font-weight-bold small">Email Address</label>
+                <input type="email" id="prof-email" class="form-control" required>
+              </div>
+              <div class="mb-3">
+                <label class="form-label font-weight-bold small">Designation / Title</label>
+                <input type="text" id="prof-designation" class="form-control" placeholder="e.g. Lead Administrator">
+              </div>
+              <div class="mb-3">
+                <label class="form-label font-weight-bold small">Phone Number</label>
+                <input type="text" id="prof-phone" class="form-control">
+              </div>
+              <div class="mb-4">
+                <label class="form-label font-weight-bold small">Bio</label>
+                <textarea id="prof-bio" class="form-control" rows="3"></textarea>
+              </div>
+              <button type="submit" class="btn btn-success font-weight-bold"><i class="fa-solid fa-save me-1"></i> Save Profile</button>
+            </form>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="bg-white p-4 rounded-3 border shadow-sm">
+            <h6 class="font-weight-bold mb-3"><i class="fa-solid fa-key text-warning me-2"></i>Security & Password Change</h6>
+            <form id="admin-password-form">
+              <div class="mb-3">
+                <label class="form-label font-weight-bold small">Current Password</label>
+                <input type="password" id="pass-current" class="form-control" required>
+              </div>
+              <div class="mb-3">
+                <label class="form-label font-weight-bold small">New Password</label>
+                <input type="password" id="pass-new" class="form-control" required minlength="6">
+              </div>
+              <div class="mb-4">
+                <label class="form-label font-weight-bold small">Confirm New Password</label>
+                <input type="password" id="pass-confirm" class="form-control" required minlength="6">
+              </div>
+              <button type="submit" class="btn btn-dark font-weight-bold"><i class="fa-solid fa-lock me-1"></i> Update Password</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB 12: PLATFORM SETTINGS -->
+    <div class="tab-pane-content d-none" id="tab-settings">
+      <div class="bg-white p-4 rounded-3 border shadow-sm col-md-8">
+        <h6 class="font-weight-bold mb-3"><i class="fa-solid fa-sliders text-primary me-2"></i>Platform System Configuration</h6>
+        <form id="admin-settings-form">
+          <div id="settings-fields-container">
+            <!-- Settings fields dynamically populated -->
+          </div>
+          <button type="submit" class="btn btn-success font-weight-bold mt-3"><i class="fa-solid fa-check me-1"></i> Apply System Settings</button>
+        </form>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<!-- ========================================== -->
+<!-- MODALS FOR ALL CRUD & CONFIRMATION ACTIONS -->
+<!-- ========================================== -->
+
+<!-- USER MODAL -->
+<div class="modal fade" id="userModal" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header bg-dark text-white">
+        <h5 class="modal-title" id="userModalTitle">Add User</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <form id="user-form">
+          <input type="hidden" id="user-id">
+          <div class="mb-3">
+            <label class="form-label font-weight-bold small">Full Name</label>
+            <input type="text" id="u-fullname" class="form-control" required>
+          </div>
+          <div class="mb-3">
+            <label class="form-label font-weight-bold small">Email Address</label>
+            <input type="email" id="u-email" class="form-control" required>
+          </div>
+          <div class="mb-3" id="u-password-group">
+            <label class="form-label font-weight-bold small">Password</label>
+            <input type="password" id="u-password" class="form-control" minlength="6">
+          </div>
+          <div class="mb-3">
+            <label class="form-label font-weight-bold small">Role</label>
+            <select id="u-role" class="form-select" required>
+              <option value="student">Student</option>
+              <option value="instructor">Instructor</option>
+              <option value="admin">Administrator</option>
+            </select>
+          </div>
+          <div class="mb-3 form-check">
+            <input type="checkbox" id="u-active" class="form-check-input" checked>
+            <label class="form-check-label font-weight-bold small" for="u-active">Account Active</label>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-success btn-sm font-weight-bold" onclick="saveUser()">Save User</button>
       </div>
     </div>
   </div>
 </div>
+
+<!-- COURSE MODAL -->
+<div class="modal fade" id="courseModal" tabindex="-1">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header bg-dark text-white">
+        <h5 class="modal-title" id="courseModalTitle">Add Course</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <form id="course-form">
+          <input type="hidden" id="course-id">
+          <div class="row g-3">
+            <div class="col-md-8">
+              <label class="form-label font-weight-bold small">Course Title</label>
+              <input type="text" id="c-title" class="form-control" required>
+            </div>
+            <div class="col-md-4">
+              <label class="form-label font-weight-bold small">Course Code</label>
+              <input type="text" id="c-code" class="form-control" placeholder="e.g. CS101" required>
+            </div>
+            <div class="col-md-6">
+              <label class="form-label font-weight-bold small">Category</label>
+              <select id="c-category" class="form-select" required></select>
+            </div>
+            <div class="col-md-6">
+              <label class="form-label font-weight-bold small">Instructor</label>
+              <select id="c-instructor" class="form-select" required></select>
+            </div>
+            <div class="col-md-4">
+              <label class="form-label font-weight-bold small">Difficulty</label>
+              <select id="c-difficulty" class="form-select">
+                <option value="Beginner">Beginner</option>
+                <option value="Intermediate">Intermediate</option>
+                <option value="Advanced">Advanced</option>
+              </select>
+            </div>
+            <div class="col-md-4">
+              <label class="form-label font-weight-bold small">Duration (Hours)</label>
+              <input type="number" step="0.5" id="c-duration" class="form-control" value="10.0">
+            </div>
+            <div class="col-md-4">
+              <label class="form-label font-weight-bold small">Status</label>
+              <select id="c-status" class="form-select">
+                <option value="published">Published</option>
+                <option value="draft">Draft</option>
+              </select>
+            </div>
+            <div class="col-12">
+              <label class="form-label font-weight-bold small">Short Description</label>
+              <input type="text" id="c-short-desc" class="form-control" required>
+            </div>
+            <div class="col-12">
+              <label class="form-label font-weight-bold small">Full Detailed Description</label>
+              <textarea id="c-desc" class="form-control" rows="3" required></textarea>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-success btn-sm font-weight-bold" onclick="saveCourse()">Save Course</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MODULE MODAL -->
+<div class="modal fade" id="moduleModal" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header bg-dark text-white">
+        <h5 class="modal-title" id="moduleModalTitle">Add Module</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <form id="module-form">
+          <input type="hidden" id="module-id">
+          <div class="mb-3">
+            <label class="form-label font-weight-bold small">Module Title</label>
+            <input type="text" id="m-title" class="form-control" required>
+          </div>
+          <div class="mb-3">
+            <label class="form-label font-weight-bold small">Order Number</label>
+            <input type="number" id="m-order" class="form-control" value="1" min="1">
+          </div>
+          <div class="mb-3">
+            <label class="form-label font-weight-bold small">Description</label>
+            <textarea id="m-desc" class="form-control" rows="2"></textarea>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-success btn-sm font-weight-bold" onclick="saveModule()">Save Module</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- LESSON MODAL -->
+<div class="modal fade" id="lessonModal" tabindex="-1">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header bg-dark text-white">
+        <h5 class="modal-title" id="lessonModalTitle">Add Lesson</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <form id="lesson-form">
+          <input type="hidden" id="lesson-id">
+          <div class="row g-3">
+            <div class="col-md-6">
+              <label class="form-label font-weight-bold small">Target Module</label>
+              <select id="l-module" class="form-select" required></select>
+            </div>
+            <div class="col-md-6">
+              <label class="form-label font-weight-bold small">Lesson Title</label>
+              <input type="text" id="l-title" class="form-control" required>
+            </div>
+            <div class="col-md-8">
+              <label class="form-label font-weight-bold small">Video URL (YouTube/Vimeo/MP4)</label>
+              <input type="url" id="l-video" class="form-control" placeholder="https://youtube.com/...">
+            </div>
+            <div class="col-md-2">
+              <label class="form-label font-weight-bold small">Duration (Mins)</label>
+              <input type="number" id="l-duration" class="form-control" value="15">
+            </div>
+            <div class="col-md-2">
+              <label class="form-label font-weight-bold small">Order</label>
+              <input type="number" id="l-order" class="form-control" value="1">
+            </div>
+            <div class="col-12">
+              <label class="form-label font-weight-bold small">Lesson HTML Content</label>
+              <textarea id="l-content" class="form-control" rows="4"></textarea>
+            </div>
+            <div class="col-md-6 form-check ms-2">
+              <input type="checkbox" id="l-preview" class="form-check-input">
+              <label class="form-check-label font-weight-bold small" for="l-preview">Free Preview Lesson</label>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-success btn-sm font-weight-bold" onclick="saveLesson()">Save Lesson</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CATEGORY MODAL -->
+<div class="modal fade" id="categoryModal" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header bg-dark text-white">
+        <h5 class="modal-title" id="categoryModalTitle">Add Category</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <form id="category-form">
+          <input type="hidden" id="category-id">
+          <div class="mb-3">
+            <label class="form-label font-weight-bold small">Category Name</label>
+            <input type="text" id="cat-name" class="form-control" required>
+          </div>
+          <div class="mb-3">
+            <label class="form-label font-weight-bold small">Icon Class (FontAwesome)</label>
+            <input type="text" id="cat-icon" class="form-control" value="fa-folder">
+          </div>
+          <div class="mb-3">
+            <label class="form-label font-weight-bold small">Description</label>
+            <textarea id="cat-desc" class="form-control" rows="2"></textarea>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-success btn-sm font-weight-bold" onclick="saveCategory()">Save Category</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- INSTRUCTOR MODAL -->
+<div class="modal fade" id="instructorModal" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header bg-dark text-white">
+        <h5 class="modal-title" id="instructorModalTitle">Add Instructor</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <form id="instructor-form">
+          <input type="hidden" id="instructor-id">
+          <div class="mb-3">
+            <label class="form-label font-weight-bold small">Instructor Name</label>
+            <input type="text" id="ins-name" class="form-control" required>
+          </div>
+          <div class="mb-3">
+            <label class="form-label font-weight-bold small">Designation</label>
+            <input type="text" id="ins-designation" class="form-control" placeholder="e.g. Senior Tech Lead" required>
+          </div>
+          <div class="mb-3">
+            <label class="form-label font-weight-bold small">Years of Experience</label>
+            <input type="number" id="ins-exp" class="form-control" value="5" min="0">
+          </div>
+          <div class="mb-3">
+            <label class="form-label font-weight-bold small">Biography</label>
+            <textarea id="ins-bio" class="form-control" rows="3" required></textarea>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-success btn-sm font-weight-bold" onclick="saveInstructor()">Save Instructor</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MANUAL ENROLLMENT MODAL -->
+<div class="modal fade" id="enrollmentModal" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header bg-dark text-white">
+        <h5 class="modal-title">Manual Student Enrollment</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <div class="mb-3">
+          <label class="form-label font-weight-bold small">Select Student</label>
+          <select id="enr-user" class="form-select" required></select>
+        </div>
+        <div class="mb-3">
+          <label class="form-label font-weight-bold small">Select Course</label>
+          <select id="enr-course" class="form-select" required></select>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-success btn-sm font-weight-bold" onclick="saveEnrollment()">Enroll Student</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ISSUE CERTIFICATE MODAL -->
+<div class="modal fade" id="certModal" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header bg-dark text-white">
+        <h5 class="modal-title">Issue Course Certificate</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <div class="mb-3">
+          <label class="form-label font-weight-bold small">Select Student Enrollment</label>
+          <select id="cert-enrollment" class="form-select" required></select>
+        </div>
+        <div class="form-check ms-1 mb-3">
+          <input type="checkbox" id="cert-force" class="form-check-input">
+          <label class="form-check-label small font-weight-bold" for="cert-force">Admin Override: Issue certificate even if course is not 100% completed</label>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-success btn-sm font-weight-bold" onclick="saveCertificate()">Generate Certificate</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- DESTRUCTIVE CONFIRMATION MODAL -->
+<div class="modal fade" id="confirmModal" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header bg-danger text-white">
+        <h5 class="modal-title"><i class="fa-solid fa-triangle-exclamation me-2"></i>Confirm Destructive Action</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <p id="confirm-modal-msg" class="mb-0 text-dark font-weight-bold"></p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Cancel</button>
+        <button type="button" id="confirm-modal-btn" class="btn btn-danger btn-sm font-weight-bold">Confirm & Execute</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 {% endblock %}
+
 {% block extra_js %}
 <script>
-document.addEventListener('DOMContentLoaded', async () => {
-  try {
-    const data = await API.fetch('/api/admin/stats');
-    document.getElementById('m-users').innerText = data.metrics.total_users;
-    document.getElementById('m-courses').innerText = data.metrics.total_courses;
-    document.getElementById('m-enrollments').innerText = data.metrics.total_enrollments;
-    document.getElementById('m-certs').innerText = data.metrics.certificates_issued;
-  } catch (err) {}
+let overviewChartInstance = null;
+let completionChartInstance = null;
+let rolesChartInstance = null;
+let currentTab = 'overview';
+
+document.addEventListener('DOMContentLoaded', () => {
+  // Setup tab navigation
+  document.querySelectorAll('#admin-nav-tabs .admin-nav-item').forEach(item => {
+    item.addEventListener('click', (e) => {
+      e.preventDefault();
+      const tab = item.getAttribute('data-tab');
+      switchTab(tab);
+    });
+  });
+
+  // Handle hash in URL if present
+  const hash = window.location.hash.replace('#', '');
+  if (hash) switchTab(hash);
+  else switchTab('overview');
+
+  // Search listeners
+  document.getElementById('users-search')?.addEventListener('input', debounce(() => loadUsers(1), 400));
+  document.getElementById('users-role-filter')?.addEventListener('change', () => loadUsers(1));
+  document.getElementById('users-status-filter')?.addEventListener('change', () => loadUsers(1));
+
+  document.getElementById('courses-search')?.addEventListener('input', debounce(() => loadCourses(1), 400));
+  document.getElementById('courses-status-filter')?.addEventListener('change', () => loadCourses(1));
+
+  document.getElementById('enrollments-search')?.addEventListener('input', debounce(() => loadEnrollments(1), 400));
+  document.getElementById('enrollments-status-filter')?.addEventListener('change', () => loadEnrollments(1));
+
+  document.getElementById('certs-search')?.addEventListener('input', debounce(() => loadCertificates(1), 400));
+  document.getElementById('certs-status-filter')?.addEventListener('change', () => loadCertificates(1));
+
+  document.getElementById('logs-search')?.addEventListener('input', debounce(() => loadActivityLogs(1), 400));
+
+  // Admin Logout button handler
+  document.querySelectorAll('.js-admin-logout').forEach(btn => {
+    btn.addEventListener('click', async (e) => {
+      e.preventDefault();
+      try {
+        await API.fetch('/api/admin/auth/logout', { method: 'POST' });
+      } catch (err) {}
+      window.location.href = '/admin-login/';
+    });
+  });
+
+  // Profile forms
+  document.getElementById('admin-profile-form')?.addEventListener('submit', saveAdminProfile);
+  document.getElementById('admin-password-form')?.addEventListener('submit', changeAdminPassword);
+  document.getElementById('admin-settings-form')?.addEventListener('submit', savePlatformSettings);
 });
+
+function debounce(func, delay) {
+  let timeout;
+  return (...args) => {
+    clearTimeout(timeout);
+    timeout = setTimeout(() => func.apply(this, args), delay);
+  };
+}
+
+function switchTab(tabName) {
+  currentTab = tabName;
+  document.querySelectorAll('#admin-nav-tabs .admin-nav-item').forEach(item => {
+    if (item.getAttribute('data-tab') === tabName) item.classList.add('active');
+    else item.classList.remove('active');
+  });
+
+  document.querySelectorAll('.tab-pane-content').forEach(pane => pane.classList.add('d-none'));
+
+  const activePane = document.getElementById(`tab-${tabName}`);
+  if (activePane) activePane.classList.remove('d-none');
+
+  const titles = {
+    overview: 'System Overview',
+    users: 'User Account Management',
+    courses: 'Course Directory Management',
+    content: 'Curriculum (Modules & Lessons)',
+    categories: 'Course Categories',
+    instructors: 'Instructors Management',
+    enrollments: 'Student Enrollments',
+    certificates: 'Certificates Management',
+    analytics: 'Reports & Analytics',
+    logs: 'Audit Activity Trail',
+    profile: 'Admin Security Profile',
+    settings: 'Platform Settings'
+  };
+  document.getElementById('current-tab-title').innerText = titles[tabName] || 'Admin Dashboard';
+
+  // Load tab-specific data
+  if (tabName === 'overview') loadOverviewData();
+  else if (tabName === 'users') loadUsers(1);
+  else if (tabName === 'courses') loadCourses(1);
+  else if (tabName === 'content') loadContentCourses();
+  else if (tabName === 'categories') loadCategories();
+  else if (tabName === 'instructors') loadInstructors();
+  else if (tabName === 'enrollments') loadEnrollments(1);
+  else if (tabName === 'certificates') loadCertificates(1);
+  else if (tabName === 'analytics') loadAnalyticsData();
+  else if (tabName === 'logs') loadActivityLogs(1);
+  else if (tabName === 'profile') loadAdminProfile();
+  else if (tabName === 'settings') loadPlatformSettings();
+}
+
+// ==========================================
+// OVERVIEW TAB
+// ==========================================
+async function loadOverviewData() {
+  try {
+    const data = await API.fetch('/api/admin/overview');
+    document.getElementById('ov-users-total').innerText = data.users.total;
+    document.getElementById('ov-users-active-sub').innerText = `${data.users.active} active accounts`;
+    document.getElementById('ov-courses-total').innerText = data.courses.total;
+    document.getElementById('ov-courses-pub-sub').innerText = `${data.courses.published} published`;
+    document.getElementById('ov-enrollments-total').innerText = data.learning.total_enrollments;
+    document.getElementById('ov-learning-avg-sub').innerText = `Avg Progress: ${data.learning.avg_progress}%`;
+    document.getElementById('ov-certs-total').innerText = data.certificates.total;
+    document.getElementById('ov-certs-month-sub').innerText = `${data.certificates.issued_this_month} issued this month`;
+
+    // Overview Chart
+    const labels = data.popular_courses.map(c => c.code);
+    const dataset = data.popular_courses.map(c => c.enrollments);
+
+    const ctx = document.getElementById('overviewChart').getContext('2d');
+    if (overviewChartInstance) overviewChartInstance.destroy();
+    overviewChartInstance = new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: labels.length ? labels : ['No Data'],
+        datasets: [{
+          label: 'Enrollments',
+          data: dataset.length ? dataset : [0],
+          backgroundColor: '#00c49f'
+        }]
+      },
+      options: { responsive: true, maintainAspectRatio: false }
+    });
+
+    // Recent Logs
+    const logContainer = document.getElementById('overview-recent-logs');
+    logContainer.innerHTML = data.recent_logs.map(l => `
+      <div class="list-group-item px-0 py-2 border-0 border-bottom">
+        <div class="d-flex justify-content-between align-items-center mb-1">
+          <strong class="text-dark">${l.action}</strong>
+          <span class="text-muted text-xs">${new Date(l.timestamp).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}</span>
+        </div>
+        <p class="mb-0 text-muted small">${l.target_object || ''} ${l.details ? '- ' + l.details : ''}</p>
+      </div>
+    `).join('') || '<p class="text-muted">No recent activities logged.</p>';
+
+  } catch (err) {
+    API.showToast(err.message, 'error');
+  }
+}
+
+// ==========================================
+// USER MANAGEMENT TAB
+// ==========================================
+async function loadUsers(page = 1) {
+  const q = document.getElementById('users-search').value;
+  const role = document.getElementById('users-role-filter').value;
+  const status = document.getElementById('users-status-filter').value;
+
+  try {
+    const data = await API.fetch(`/api/admin/users/?page=${page}&q=${encodeURIComponent(q)}&role=${role}&status=${status}`);
+    const tbody = document.getElementById('users-table-body');
+    tbody.innerHTML = data.results.map(u => `
+      <tr>
+        <td>
+          <div class="font-weight-bold text-dark">${u.full_name}</div>
+          <div class="small text-muted">${u.email}</div>
+        </td>
+        <td>
+          <span class="badge ${u.role === 'admin' ? 'bg-danger' : u.role === 'instructor' ? 'bg-info' : 'bg-secondary'}">
+            ${u.role.toUpperCase()}
+          </span>
+        </td>
+        <td>
+          <span class="badge ${u.is_active ? 'badge-soft-success' : 'badge-soft-danger'}">
+            ${u.is_active ? 'Active' : 'Inactive'}
+          </span>
+        </td>
+        <td class="small text-muted">${new Date(u.created_at).toLocaleDateString()}</td>
+        <td><span class="badge badge-soft-info">${u.enrollments_count}</span></td>
+        <td><span class="badge badge-soft-warning">${u.certificates_count}</span></td>
+        <td class="text-end">
+          <button class="btn btn-sm btn-outline-dark me-1" onclick="openEditUserModal(${u.id})" title="Edit User"><i class="fa-solid fa-pen"></i></button>
+          <button class="btn btn-sm btn-outline-warning me-1" onclick="promptResetUserPassword(${u.id}, '${u.email}')" title="Reset Password"><i class="fa-solid fa-key"></i></button>
+          <button class="btn btn-sm btn-outline-danger" onclick="confirmDeleteUser(${u.id}, '${u.email}')" title="Delete User"><i class="fa-solid fa-trash"></i></button>
+        </td>
+      </tr>
+    `).join('') || '<tr><td colspan="7" class="text-center py-4 text-muted">No users found matching query.</td></tr>';
+
+    renderPagination('users-pagination', data, loadUsers);
+  } catch (err) {
+    API.showToast(err.message, 'error');
+  }
+}
+
+function openAddUserModal() {
+  document.getElementById('userModalTitle').innerText = 'Add New User';
+  document.getElementById('user-id').value = '';
+  document.getElementById('u-fullname').value = '';
+  document.getElementById('u-email').value = '';
+  document.getElementById('u-password').value = '';
+  document.getElementById('u-password-group').style.display = 'block';
+  document.getElementById('u-role').value = 'student';
+  document.getElementById('u-active').checked = true;
+  new bootstrap.Modal(document.getElementById('userModal')).show();
+}
+
+async function openEditUserModal(id) {
+  try {
+    const u = await API.fetch(`/api/admin/users/${id}/`);
+    document.getElementById('userModalTitle').innerText = 'Edit User Details';
+    document.getElementById('user-id').value = u.id;
+    document.getElementById('u-fullname').value = u.full_name;
+    document.getElementById('u-email').value = u.email;
+    document.getElementById('u-password-group').style.display = 'none';
+    document.getElementById('u-role').value = u.role;
+    document.getElementById('u-active').checked = u.is_active;
+    new bootstrap.Modal(document.getElementById('userModal')).show();
+  } catch (err) {
+    API.showToast(err.message, 'error');
+  }
+}
+
+async function saveUser() {
+  const id = document.getElementById('user-id').value;
+  const body = {
+    full_name: document.getElementById('u-fullname').value,
+    email: document.getElementById('u-email').value,
+    role: document.getElementById('u-role').value,
+    is_active: document.getElementById('u-active').checked
+  };
+
+  if (!id) {
+    body.password = document.getElementById('u-password').value;
+  }
+
+  try {
+    const url = id ? `/api/admin/users/${id}/` : '/api/admin/users/';
+    const method = id ? 'PUT' : 'POST';
+    await API.fetch(url, { method, body: JSON.stringify(body) });
+    bootstrap.Modal.getInstance(document.getElementById('userModal')).hide();
+    API.showToast(id ? 'User updated successfully' : 'User created successfully', 'success');
+    loadUsers(1);
+  } catch (err) {
+    API.showToast(err.message, 'error');
+  }
+}
+
+function promptResetUserPassword(id, email) {
+  const newPass = prompt(`Enter new password for ${email} (min 6 characters):`);
+  if (newPass) {
+    API.fetch(`/api/admin/users/${id}/reset-password/`, {
+      method: 'POST',
+      body: JSON.stringify({ new_password: newPass })
+    }).then(res => {
+      API.showToast(res.message, 'success');
+    }).catch(err => {
+      API.showToast(err.message, 'error');
+    });
+  }
+}
+
+function confirmDeleteUser(id, email) {
+  showConfirmModal(`Are you sure you want to permanently delete user "${email}"? This action cannot be undone.`, async () => {
+    try {
+      await API.fetch(`/api/admin/users/${id}/`, { method: 'DELETE' });
+      API.showToast('User deleted successfully', 'success');
+      loadUsers(1);
+    } catch (err) {
+      API.showToast(err.message, 'error');
+    }
+  });
+}
+
+// ==========================================
+// COURSE MANAGEMENT TAB
+// ==========================================
+async function loadCourses(page = 1) {
+  const q = document.getElementById('courses-search').value;
+  const status = document.getElementById('courses-status-filter').value;
+
+  try {
+    const data = await API.fetch(`/api/admin/courses/?page=${page}&q=${encodeURIComponent(q)}&status=${status}`);
+    const tbody = document.getElementById('courses-table-body');
+    tbody.innerHTML = data.results.map(c => `
+      <tr>
+        <td><code class="font-weight-bold text-dark">${c.course_code}</code></td>
+        <td>
+          <div class="font-weight-bold text-dark">${c.title}</div>
+          <div class="small text-muted">${c.short_description.substring(0, 50)}...</div>
+        </td>
+        <td><span class="badge badge-soft-info">${c.category_name}</span></td>
+        <td><span class="small font-weight-bold text-dark">${c.instructor_name}</span></td>
+        <td>
+          <span class="badge ${c.status === 'published' ? 'badge-soft-success' : 'badge-soft-warning'}">
+            ${c.status.toUpperCase()}
+          </span>
+        </td>
+        <td>
+          <button class="btn btn-sm ${c.is_featured ? 'btn-warning' : 'btn-outline-secondary'}" onclick="toggleCourseFeatured(${c.id})">
+            <i class="fa-solid fa-star"></i>
+          </button>
+        </td>
+        <td><span class="badge badge-soft-info">${c.enrollments_count}</span></td>
+        <td class="text-end">
+          <button class="btn btn-sm ${c.status === 'published' ? 'btn-outline-secondary' : 'btn-outline-success'} me-1" onclick="toggleCoursePublish(${c.id})" title="Toggle Publish">
+            <i class="fa-solid ${c.status === 'published' ? 'fa-eye-slash' : 'fa-check'}"></i>
+          </button>
+          <button class="btn btn-sm btn-outline-dark me-1" onclick="openEditCourseModal(${c.id})" title="Edit"><i class="fa-solid fa-pen"></i></button>
+          <button class="btn btn-sm btn-outline-danger" onclick="confirmDeleteCourse(${c.id}, '${c.title}', ${c.enrollments_count})" title="Delete"><i class="fa-solid fa-trash"></i></button>
+        </td>
+      </tr>
+    `).join('') || '<tr><td colspan="8" class="text-center py-4 text-muted">No courses found matching query.</td></tr>';
+
+    renderPagination('courses-pagination', data, loadCourses);
+  } catch (err) {
+    API.showToast(err.message, 'error');
+  }
+}
+
+async function populateCourseDropdowns() {
+  const cats = await API.fetch('/api/admin/categories/');
+  const insts = await API.fetch('/api/admin/instructors/');
+
+  const catSelect = document.getElementById('c-category');
+  const instSelect = document.getElementById('c-instructor');
+
+  catSelect.innerHTML = cats.map(c => `<option value="${c.id}">${c.name}</option>`).join('');
+  instSelect.innerHTML = insts.map(i => `<option value="${i.id}">${i.name} (${i.designation})</option>`).join('');
+}
+
+async function openAddCourseModal() {
+  await populateCourseDropdowns();
+  document.getElementById('courseModalTitle').innerText = 'Create New Course';
+  document.getElementById('course-id').value = '';
+  document.getElementById('c-title').value = '';
+  document.getElementById('c-code').value = '';
+  document.getElementById('c-short-desc').value = '';
+  document.getElementById('c-desc').value = '';
+  document.getElementById('c-duration').value = '10.0';
+  document.getElementById('c-difficulty').value = 'Beginner';
+  document.getElementById('c-status').value = 'published';
+  new bootstrap.Modal(document.getElementById('courseModal')).show();
+}
+
+async function openEditCourseModal(id) {
+  await populateCourseDropdowns();
+  try {
+    const c = await API.fetch(`/api/admin/courses/${id}/`);
+    document.getElementById('courseModalTitle').innerText = 'Edit Course';
+    document.getElementById('course-id').value = c.id;
+    document.getElementById('c-title').value = c.title;
+    document.getElementById('c-code').value = c.course_code;
+    document.getElementById('c-category').value = c.category;
+    document.getElementById('c-instructor').value = c.instructor;
+    document.getElementById('c-short-desc').value = c.short_description;
+    document.getElementById('c-desc').value = c.description;
+    document.getElementById('c-duration').value = c.duration_hours;
+    document.getElementById('c-difficulty').value = c.difficulty;
+    document.getElementById('c-status').value = c.status;
+    new bootstrap.Modal(document.getElementById('courseModal')).show();
+  } catch (err) {
+    API.showToast(err.message, 'error');
+  }
+}
+
+async function saveCourse() {
+  const id = document.getElementById('course-id').value;
+  const title = document.getElementById('c-title').value.trim();
+  const course_code = document.getElementById('c-code').value.trim();
+  const category = document.getElementById('c-category').value;
+  const instructor = document.getElementById('c-instructor').value;
+  const short_description = document.getElementById('c-short-desc').value.trim();
+  let description = document.getElementById('c-desc').value.trim();
+
+  if (!title || !course_code || !category || !instructor) {
+    API.showToast('Please fill in Course Title, Code, Category, and Instructor.', 'error');
+    return;
+  }
+
+  if (!description) {
+    description = short_description || `Comprehensive course on ${title}.`;
+  }
+
+  const body = {
+    title: title,
+    course_code: course_code,
+    category: category,
+    instructor: instructor,
+    short_description: short_description || `Master ${title} with hands-on labs.`,
+    description: description,
+    duration_hours: document.getElementById('c-duration').value || '10.0',
+    difficulty: document.getElementById('c-difficulty').value || 'Beginner',
+    status: document.getElementById('c-status').value || 'published'
+  };
+
+  try {
+    const url = id ? `/api/admin/courses/${id}/` : '/api/admin/courses/';
+    const method = id ? 'PUT' : 'POST';
+    await API.fetch(url, { method, body: JSON.stringify(body) });
+    bootstrap.Modal.getInstance(document.getElementById('courseModal')).hide();
+    API.showToast(id ? 'Course updated successfully' : 'Course created successfully', 'success');
+    loadCourses(1);
+  } catch (err) {
+    API.showToast(err.message || 'API Error creating course', 'error');
+  }
+}
+
+async function toggleCoursePublish(id) {
+  try {
+    const res = await API.fetch(`/api/admin/courses/${id}/toggle-publish/`, { method: 'POST' });
+    API.showToast(res.message, 'success');
+    loadCourses(1);
+  } catch (err) {
+    API.showToast(err.message, 'error');
+  }
+}
+
+async function toggleCourseFeatured(id) {
+  try {
+    const res = await API.fetch(`/api/admin/courses/${id}/toggle-featured/`, { method: 'POST' });
+    API.showToast(res.message, 'success');
+    loadCourses(1);
+  } catch (err) {
+    API.showToast(err.message, 'error');
+  }
+}
+
+function confirmDeleteCourse(id, title, enrollmentsCount) {
+  let warning = `Are you sure you want to delete course "${title}"?`;
+  if (enrollmentsCount > 0) {
+    warning += ` WARNING: This course currently has ${enrollmentsCount} active student enrollment(s). Deleting it will affect student progress.`;
+  }
+  showConfirmModal(warning, async () => {
+    try {
+      await API.fetch(`/api/admin/courses/${id}/?force=true`, { method: 'DELETE' });
+      API.showToast('Course deleted successfully', 'success');
+      loadCourses(1);
+    } catch (err) {
+      API.showToast(err.message, 'error');
+    }
+  });
+}
+
+// ==========================================
+// MODULES & LESSONS (CURRICULUM) TAB
+// ==========================================
+async function loadContentCourses() {
+  const data = await API.fetch('/api/admin/courses/?page_size=100');
+  const select = document.getElementById('content-course-select');
+  select.innerHTML = '<option value="">-- Choose a course --</option>' +
+    data.results.map(c => `<option value="${c.id}">${c.course_code} - ${c.title}</option>`).join('');
+
+  select.onchange = () => {
+    const courseId = select.value;
+    if (courseId) loadCurriculum(courseId);
+    else {
+      document.getElementById('content-action-btns').style.display = 'none';
+      document.getElementById('curriculum-container').innerHTML = `
+        <div class="text-center py-5 text-muted">
+          <i class="fa-solid fa-layer-group fa-3x mb-3 text-secondary opacity-50"></i>
+          <h6>Select a course above to manage its modules and lessons.</h6>
+        </div>`;
+    }
+  };
+}
+
+async function loadCurriculum(courseId) {
+  document.getElementById('content-action-btns').style.display = 'block';
+  try {
+    const course = await API.fetch(`/api/admin/courses/${courseId}/`);
+    const container = document.getElementById('curriculum-container');
+
+    if (!course.modules || course.modules.length === 0) {
+      container.innerHTML = `
+        <div class="alert alert-info d-flex align-items-center">
+          <i class="fa-solid fa-info-circle me-2"></i> No modules created for this course yet. Click "Add Module" to start.
+        </div>`;
+      return;
+    }
+
+    container.innerHTML = course.modules.map(m => `
+      <div class="card mb-3 border border-secondary border-opacity-25 rounded-3">
+        <div class="card-header bg-light d-flex justify-content-between align-items-center py-3">
+          <div>
+            <h6 class="font-weight-bold mb-0 text-dark">
+              <span class="badge bg-dark me-2">Module ${m.order}</span> ${m.title}
+            </h6>
+            <span class="small text-muted">${m.description || ''}</span>
+          </div>
+          <div>
+            <button class="btn btn-sm btn-outline-dark me-1" onclick="openEditModuleModal(${m.id}, '${m.title}', ${m.order}, '${m.description || ''}')"><i class="fa-solid fa-pen"></i> Edit</button>
+            <button class="btn btn-sm btn-outline-danger" onclick="confirmDeleteModule(${m.id}, '${m.title}')"><i class="fa-solid fa-trash"></i> Delete</button>
+          </div>
+        </div>
+        <div class="card-body p-0">
+          <ul class="list-group list-group-flush">
+            ${m.lessons.map(l => `
+              <li class="list-group-item d-flex justify-content-between align-items-center py-2.5">
+                <div>
+                  <i class="fa-solid fa-circle-play text-success me-2"></i>
+                  <strong class="text-dark">${l.title}</strong>
+                  ${l.is_free_preview ? '<span class="badge badge-soft-success ms-2">Free Preview</span>' : ''}
+                  <span class="small text-muted ms-2"><i class="fa-regular fa-clock me-1"></i>${l.duration_minutes} mins</span>
+                </div>
+                <div>
+                  <button class="btn btn-sm btn-link text-dark p-0 me-2" onclick="openEditLessonModal(${l.id})"><i class="fa-solid fa-pen"></i></button>
+                  <button class="btn btn-sm btn-link text-danger p-0" onclick="confirmDeleteLesson(${l.id}, '${l.title}')"><i class="fa-solid fa-trash"></i></button>
+                </div>
+              </li>
+            `).join('') || '<li class="list-group-item text-muted small">No lessons in this module.</li>'}
+          </ul>
+        </div>
+      </div>
+    `).join('');
+
+  } catch (err) {
+    API.showToast(err.message, 'error');
+  }
+}
+
+function openAddModuleModal() {
+  const courseId = document.getElementById('content-course-select').value;
+  if (!courseId) { API.showToast('Please select a course first.', 'warning'); return; }
+  document.getElementById('moduleModalTitle').innerText = 'Add Module';
+  document.getElementById('module-id').value = '';
+  document.getElementById('m-title').value = '';
+  document.getElementById('m-order').value = '1';
+  document.getElementById('m-desc').value = '';
+  new bootstrap.Modal(document.getElementById('moduleModal')).show();
+}
+
+function openEditModuleModal(id, title, order, desc) {
+  document.getElementById('moduleModalTitle').innerText = 'Edit Module';
+  document.getElementById('module-id').value = id;
+  document.getElementById('m-title').value = title;
+  document.getElementById('m-order').value = order;
+  document.getElementById('m-desc').value = desc;
+  new bootstrap.Modal(document.getElementById('moduleModal')).show();
+}
+
+async function saveModule() {
+  const courseId = document.getElementById('content-course-select').value;
+  const id = document.getElementById('module-id').value;
+  const body = {
+    course: courseId,
+    title: document.getElementById('m-title').value,
+    order: document.getElementById('m-order').value,
+    description: document.getElementById('m-desc').value
+  };
+
+  try {
+    const url = id ? `/api/admin/modules/${id}/` : '/api/admin/modules/';
+    const method = id ? 'PUT' : 'POST';
+    await API.fetch(url, { method, body: JSON.stringify(body) });
+    bootstrap.Modal.getInstance(document.getElementById('moduleModal')).hide();
+    API.showToast(id ? 'Module updated' : 'Module added', 'success');
+    loadCurriculum(courseId);
+  } catch (err) {
+    API.showToast(err.message, 'error');
+  }
+}
+
+function confirmDeleteModule(id, title) {
+  const courseId = document.getElementById('content-course-select').value;
+  showConfirmModal(`Delete module "${title}" and all its lessons?`, async () => {
+    try {
+      await API.fetch(`/api/admin/modules/${id}/`, { method: 'DELETE' });
+      API.showToast('Module deleted', 'success');
+      loadCurriculum(courseId);
+    } catch (err) {
+      API.showToast(err.message, 'error');
+    }
+  });
+}
+
+async function populateModuleDropdown() {
+  const courseId = document.getElementById('content-course-select').value;
+  const course = await API.fetch(`/api/admin/courses/${courseId}/`);
+  const select = document.getElementById('l-module');
+  select.innerHTML = course.modules.map(m => `<option value="${m.id}">${m.title}</option>`).join('');
+}
+
+async function openAddLessonModal() {
+  const courseId = document.getElementById('content-course-select').value;
+  if (!courseId) { API.showToast('Please select a course first.', 'warning'); return; }
+  await populateModuleDropdown();
+  document.getElementById('lessonModalTitle').innerText = 'Add Lesson';
+  document.getElementById('lesson-id').value = '';
+  document.getElementById('l-title').value = '';
+  document.getElementById('l-video').value = '';
+  document.getElementById('l-duration').value = '15';
+  document.getElementById('l-order').value = '1';
+  document.getElementById('l-content').value = 'Lesson content details...';
+  document.getElementById('l-preview').checked = false;
+  new bootstrap.Modal(document.getElementById('lessonModal')).show();
+}
+
+async function openEditLessonModal(id) {
+  await populateModuleDropdown();
+  try {
+    const l = await API.fetch(`/api/admin/lessons/${id}/`);
+    document.getElementById('lessonModalTitle').innerText = 'Edit Lesson';
+    document.getElementById('lesson-id').value = l.id;
+    document.getElementById('l-module').value = l.module;
+    document.getElementById('l-title').value = l.title;
+    document.getElementById('l-video').value = l.video_url || '';
+    document.getElementById('l-duration').value = l.duration_minutes;
+    document.getElementById('l-order').value = l.order;
+    document.getElementById('l-content').value = l.content_html;
+    document.getElementById('l-preview').checked = l.is_free_preview;
+    new bootstrap.Modal(document.getElementById('lessonModal')).show();
+  } catch (err) {
+    API.showToast(err.message, 'error');
+  }
+}
+
+async function saveLesson() {
+  const courseId = document.getElementById('content-course-select').value;
+  const id = document.getElementById('lesson-id').value;
+  const body = {
+    module: document.getElementById('l-module').value,
+    title: document.getElementById('l-title').value,
+    video_url: document.getElementById('l-video').value,
+    duration_minutes: document.getElementById('l-duration').value,
+    order: document.getElementById('l-order').value,
+    content_html: document.getElementById('l-content').value,
+    is_free_preview: document.getElementById('l-preview').checked
+  };
+
+  try {
+    const url = id ? `/api/admin/lessons/${id}/` : '/api/admin/lessons/';
+    const method = id ? 'PUT' : 'POST';
+    await API.fetch(url, { method, body: JSON.stringify(body) });
+    bootstrap.Modal.getInstance(document.getElementById('lessonModal')).hide();
+    API.showToast(id ? 'Lesson updated' : 'Lesson added', 'success');
+    loadCurriculum(courseId);
+  } catch (err) {
+    API.showToast(err.message, 'error');
+  }
+}
+
+function confirmDeleteLesson(id, title) {
+  const courseId = document.getElementById('content-course-select').value;
+  showConfirmModal(`Delete lesson "${title}"?`, async () => {
+    try {
+      await API.fetch(`/api/admin/lessons/${id}/`, { method: 'DELETE' });
+      API.showToast('Lesson deleted', 'success');
+      loadCurriculum(courseId);
+    } catch (err) {
+      API.showToast(err.message, 'error');
+    }
+  });
+}
+
+// ==========================================
+// CATEGORIES TAB
+// ==========================================
+async function loadCategories() {
+  try {
+    const cats = await API.fetch('/api/admin/categories/');
+    const tbody = document.getElementById('categories-table-body');
+    tbody.innerHTML = cats.map(c => `
+      <tr>
+        <td><i class="fa-solid ${c.icon || 'fa-folder'} fa-lg text-primary"></i></td>
+        <td><strong class="text-dark">${c.name}</strong></td>
+        <td><code>${c.slug}</code></td>
+        <td><span class="small text-muted">${c.description || '-'}</span></td>
+        <td><span class="badge badge-soft-info">${c.courses_count} courses</span></td>
+        <td class="text-end">
+          <button class="btn btn-sm btn-outline-dark me-1" onclick="openEditCategoryModal(${c.id}, '${c.name}', '${c.icon}', '${c.description || ''}')"><i class="fa-solid fa-pen"></i></button>
+          <button class="btn btn-sm btn-outline-danger" onclick="confirmDeleteCategory(${c.id}, '${c.name}', ${c.courses_count})"><i class="fa-solid fa-trash"></i></button>
+        </td>
+      </tr>
+    `).join('') || '<tr><td colspan="6" class="text-center text-muted">No categories created.</td></tr>';
+  } catch (err) {
+    API.showToast(err.message, 'error');
+  }
+}
+
+function openAddCategoryModal() {
+  document.getElementById('categoryModalTitle').innerText = 'Add Category';
+  document.getElementById('category-id').value = '';
+  document.getElementById('cat-name').value = '';
+  document.getElementById('cat-icon').value = 'fa-folder';
+  document.getElementById('cat-desc').value = '';
+  new bootstrap.Modal(document.getElementById('categoryModal')).show();
+}
+
+function openEditCategoryModal(id, name, icon, desc) {
+  document.getElementById('categoryModalTitle').innerText = 'Edit Category';
+  document.getElementById('category-id').value = id;
+  document.getElementById('cat-name').value = name;
+  document.getElementById('cat-icon').value = icon;
+  document.getElementById('cat-desc').value = desc;
+  new bootstrap.Modal(document.getElementById('categoryModal')).show();
+}
+
+async function saveCategory() {
+  const id = document.getElementById('category-id').value;
+  const body = {
+    name: document.getElementById('cat-name').value,
+    icon: document.getElementById('cat-icon').value,
+    description: document.getElementById('cat-desc').value
+  };
+
+  try {
+    const url = id ? `/api/admin/categories/${id}/` : '/api/admin/categories/';
+    const method = id ? 'PUT' : 'POST';
+    await API.fetch(url, { method, body: JSON.stringify(body) });
+    bootstrap.Modal.getInstance(document.getElementById('categoryModal')).hide();
+    API.showToast(id ? 'Category updated' : 'Category created', 'success');
+    loadCategories();
+  } catch (err) {
+    API.showToast(err.message, 'error');
+  }
+}
+
+function confirmDeleteCategory(id, name, coursesCount) {
+  if (coursesCount > 0) {
+    API.showToast(`Cannot delete category "${name}" because it has ${coursesCount} courses attached.`, 'error');
+    return;
+  }
+  showConfirmModal(`Delete category "${name}"?`, async () => {
+    try {
+      await API.fetch(`/api/admin/categories/${id}/`, { method: 'DELETE' });
+      API.showToast('Category deleted', 'success');
+      loadCategories();
+    } catch (err) {
+      API.showToast(err.message, 'error');
+    }
+  });
+}
+
+// ==========================================
+// INSTRUCTORS TAB
+// ==========================================
+async function loadInstructors() {
+  try {
+    const insts = await API.fetch('/api/admin/instructors/');
+    const tbody = document.getElementById('instructors-table-body');
+    tbody.innerHTML = insts.map(i => `
+      <tr>
+        <td><strong class="text-dark">${i.name}</strong></td>
+        <td><span class="small font-weight-bold text-muted">${i.designation}</span></td>
+        <td><span class="badge badge-soft-secondary">${i.experience_years} Years</span></td>
+        <td><span class="small text-muted">${i.bio.substring(0, 60)}...</span></td>
+        <td><span class="badge badge-soft-info">${i.courses_count} courses</span></td>
+        <td class="text-end">
+          <button class="btn btn-sm btn-outline-dark me-1" onclick="openEditInstructorModal(${i.id}, '${i.name}', '${i.designation}', ${i.experience_years}, '${i.bio.replace(/'/g, "\\'")}')"><i class="fa-solid fa-pen"></i></button>
+          <button class="btn btn-sm btn-outline-danger" onclick="confirmDeleteInstructor(${i.id}, '${i.name}', ${i.courses_count})"><i class="fa-solid fa-trash"></i></button>
+        </td>
+      </tr>
+    `).join('') || '<tr><td colspan="6" class="text-center text-muted">No instructors registered.</td></tr>';
+  } catch (err) {
+    API.showToast(err.message, 'error');
+  }
+}
+
+function openAddInstructorModal() {
+  document.getElementById('instructorModalTitle').innerText = 'Add Instructor';
+  document.getElementById('instructor-id').value = '';
+  document.getElementById('ins-name').value = '';
+  document.getElementById('ins-designation').value = '';
+  document.getElementById('ins-exp').value = '5';
+  document.getElementById('ins-bio').value = '';
+  new bootstrap.Modal(document.getElementById('instructorModal')).show();
+}
+
+function openEditInstructorModal(id, name, designation, exp, bio) {
+  document.getElementById('instructorModalTitle').innerText = 'Edit Instructor';
+  document.getElementById('instructor-id').value = id;
+  document.getElementById('ins-name').value = name;
+  document.getElementById('ins-designation').value = designation;
+  document.getElementById('ins-exp').value = exp;
+  document.getElementById('ins-bio').value = bio;
+  new bootstrap.Modal(document.getElementById('instructorModal')).show();
+}
+
+async function saveInstructor() {
+  const id = document.getElementById('instructor-id').value;
+  const body = {
+    name: document.getElementById('ins-name').value,
+    designation: document.getElementById('ins-designation').value,
+    experience_years: document.getElementById('ins-exp').value,
+    bio: document.getElementById('ins-bio').value
+  };
+
+  try {
+    const url = id ? `/api/admin/instructors/${id}/` : '/api/admin/instructors/';
+    const method = id ? 'PUT' : 'POST';
+    await API.fetch(url, { method, body: JSON.stringify(body) });
+    bootstrap.Modal.getInstance(document.getElementById('instructorModal')).hide();
+    API.showToast(id ? 'Instructor updated' : 'Instructor created', 'success');
+    loadInstructors();
+  } catch (err) {
+    API.showToast(err.message, 'error');
+  }
+}
+
+function confirmDeleteInstructor(id, name, coursesCount) {
+  if (coursesCount > 0) {
+    API.showToast(`Cannot delete instructor "${name}" because they are assigned to ${coursesCount} courses.`, 'error');
+    return;
+  }
+  showConfirmModal(`Delete instructor profile "${name}"?`, async () => {
+    try {
+      await API.fetch(`/api/admin/instructors/${id}/`, { method: 'DELETE' });
+      API.showToast('Instructor deleted', 'success');
+      loadInstructors();
+    } catch (err) {
+      API.showToast(err.message, 'error');
+    }
+  });
+}
+
+// ==========================================
+// ENROLLMENTS TAB
+// ==========================================
+async function loadEnrollments(page = 1) {
+  const q = document.getElementById('enrollments-search').value;
+  const status = document.getElementById('enrollments-status-filter').value;
+
+  try {
+    const data = await API.fetch(`/api/admin/enrollments/?page=${page}&q=${encodeURIComponent(q)}&status=${status}`);
+    const tbody = document.getElementById('enrollments-table-body');
+    tbody.innerHTML = data.results.map(e => `
+      <tr>
+        <td>
+          <div class="font-weight-bold text-dark">${e.student_name}</div>
+          <div class="small text-muted">${e.student_email}</div>
+        </td>
+        <td>
+          <div class="font-weight-bold text-dark">${e.course_title}</div>
+          <code class="small text-muted">${e.course_code}</code>
+        </td>
+        <td class="small text-muted">${new Date(e.enrolled_at).toLocaleDateString()}</td>
+        <td>
+          <div class="d-flex align-items-center gap-2">
+            <div class="progress flex-grow-1" style="height: 6px;">
+              <div class="progress-bar bg-success" style="width: ${e.progress_percent}%;"></div>
+            </div>
+            <span class="small font-weight-bold">${e.progress_percent}%</span>
+          </div>
+        </td>
+        <td>
+          <span class="badge ${e.is_completed ? 'badge-soft-success' : 'badge-soft-info'}">
+            ${e.is_completed ? 'Completed' : 'In Progress'}
+          </span>
+        </td>
+        <td>
+          ${e.has_certificate ? '<span class="badge badge-soft-warning"><i class="fa-solid fa-certificate me-1"></i>Issued</span>' : '<span class="text-muted small">None</span>'}
+        </td>
+        <td class="text-end">
+          <button class="btn btn-sm btn-outline-danger" onclick="confirmDeleteEnrollment(${e.id}, '${e.student_email}', '${e.course_code}')" title="Cancel Enrollment"><i class="fa-solid fa-user-minus"></i></button>
+        </td>
+      </tr>
+    `).join('') || '<tr><td colspan="7" class="text-center text-muted">No enrollments found.</td></tr>';
+
+    renderPagination('enrollments-pagination', data, loadEnrollments);
+  } catch (err) {
+    API.showToast(err.message, 'error');
+  }
+}
+
+async function openManualEnrollmentModal() {
+  const usersData = await API.fetch('/api/admin/users/?page_size=100');
+  const coursesData = await API.fetch('/api/admin/courses/?page_size=100');
+
+  const uSelect = document.getElementById('enr-user');
+  const cSelect = document.getElementById('enr-course');
+
+  uSelect.innerHTML = usersData.results.map(u => `<option value="${u.id}">${u.full_name} (${u.email})</option>`).join('');
+  cSelect.innerHTML = coursesData.results.map(c => `<option value="${c.id}">${c.course_code} - ${c.title}</option>`).join('');
+
+  new bootstrap.Modal(document.getElementById('enrollmentModal')).show();
+}
+
+async function saveEnrollment() {
+  const userId = document.getElementById('enr-user').value;
+  const courseId = document.getElementById('enr-course').value;
+
+  try {
+    await API.fetch('/api/admin/enrollments/', {
+      method: 'POST',
+      body: JSON.stringify({ user_id: userId, course_id: courseId })
+    });
+    bootstrap.Modal.getInstance(document.getElementById('enrollmentModal')).hide();
+    API.showToast('Student enrolled successfully', 'success');
+    loadEnrollments(1);
+  } catch (err) {
+    API.showToast(err.message, 'error');
+  }
+}
+
+function confirmDeleteEnrollment(id, email, courseCode) {
+  showConfirmModal(`Cancel enrollment for student ${email} in ${courseCode}?`, async () => {
+    try {
+      await API.fetch(`/api/admin/enrollments/${id}/`, { method: 'DELETE' });
+      API.showToast('Enrollment cancelled', 'success');
+      loadEnrollments(1);
+    } catch (err) {
+      API.showToast(err.message, 'error');
+    }
+  });
+}
+
+// ==========================================
+// CERTIFICATES TAB
+// ==========================================
+async function loadCertificates(page = 1) {
+  const q = document.getElementById('certs-search').value;
+  const status = document.getElementById('certs-status-filter').value;
+
+  try {
+    const data = await API.fetch(`/api/admin/certificates/?page=${page}&q=${encodeURIComponent(q)}&status=${status}`);
+    const tbody = document.getElementById('certs-table-body');
+    tbody.innerHTML = data.results.map(c => `
+      <tr>
+        <td><code class="font-weight-bold text-dark">${c.certificate_id}</code></td>
+        <td>
+          <div class="font-weight-bold text-dark">${c.student_name}</div>
+          <div class="small text-muted">${c.student_email}</div>
+        </td>
+        <td><span class="small font-weight-bold text-dark">${c.course_title}</span></td>
+        <td class="small text-muted">${new Date(c.issue_date).toLocaleDateString()}</td>
+        <td>
+          <span class="badge ${c.status === 'issued' ? 'badge-soft-success' : 'badge-soft-danger'}">
+            ${c.status.toUpperCase()}
+          </span>
+        </td>
+        <td class="text-end">
+          ${c.status === 'issued' ? `
+            <a href="/api/admin/certificates/${c.id}/download/" class="btn btn-sm btn-outline-dark me-1" target="_blank" title="Download PDF"><i class="fa-solid fa-file-pdf"></i></a>
+            <button class="btn btn-sm btn-outline-danger" onclick="promptRevokeCert(${c.id}, '${c.certificate_id}')" title="Revoke Certificate"><i class="fa-solid fa-ban"></i></button>
+          ` : `
+            <button class="btn btn-sm btn-outline-success" onclick="reissueCert(${c.enrollment})" title="Re-issue Certificate"><i class="fa-solid fa-rotate-left"></i> Re-issue</button>
+          `}
+        </td>
+      </tr>
+    `).join('') || '<tr><td colspan="6" class="text-center text-muted">No certificates found.</td></tr>';
+
+    renderPagination('certs-pagination', data, loadCertificates);
+  } catch (err) {
+    API.showToast(err.message, 'error');
+  }
+}
+
+async function openGenerateCertModal() {
+  const data = await API.fetch('/api/admin/enrollments/?page_size=100');
+  const select = document.getElementById('cert-enrollment');
+  select.innerHTML = data.results.map(e => `
+    <option value="${e.id}">${e.student_name} - ${e.course_code} (${e.progress_percent}% completed)</option>
+  `).join('');
+  document.getElementById('cert-force').checked = false;
+  new bootstrap.Modal(document.getElementById('certModal')).show();
+}
+
+async function saveCertificate() {
+  const enrollmentId = document.getElementById('cert-enrollment').value;
+  const force = document.getElementById('cert-force').checked;
+
+  try {
+    await API.fetch('/api/admin/certificates/generate/', {
+      method: 'POST',
+      body: JSON.stringify({ enrollment_id: enrollmentId, force })
+    });
+    bootstrap.Modal.getInstance(document.getElementById('certModal')).hide();
+    API.showToast('Certificate generated successfully', 'success');
+    loadCertificates(1);
+  } catch (err) {
+    API.showToast(err.message, 'error');
+  }
+}
+
+function promptRevokeCert(id, certId) {
+  const reason = prompt(`Reason for revoking certificate ${certId}:`, 'Administrative revocation');
+  if (reason) {
+    API.fetch(`/api/admin/certificates/${id}/revoke/`, {
+      method: 'POST',
+      body: JSON.stringify({ reason })
+    }).then(res => {
+      API.showToast(res.message, 'success');
+      loadCertificates(1);
+    }).catch(err => {
+      API.showToast(err.message, 'error');
+    });
+  }
+}
+
+async function reissueCert(enrollmentId) {
+  try {
+    await API.fetch('/api/admin/certificates/generate/', {
+      method: 'POST',
+      body: JSON.stringify({ enrollment_id: enrollmentId, force: true })
+    });
+    API.showToast('Certificate re-issued', 'success');
+    loadCertificates(1);
+  } catch (err) {
+    API.showToast(err.message, 'error');
+  }
+}
+
+// ==========================================
+// REPORTS & ANALYTICS TAB
+// ==========================================
+async function loadAnalyticsData() {
+  const period = document.getElementById('analytics-period').value;
+  try {
+    const data = await API.fetch(`/api/admin/analytics/?period=${period}`);
+    document.getElementById('an-new-users').innerText = data.summary.new_users;
+    document.getElementById('an-new-enrollments').innerText = data.summary.new_enrollments;
+    document.getElementById('an-completions').innerText = data.summary.completions;
+    document.getElementById('an-certs').innerText = data.summary.certificates_issued;
+
+    // Completion Rate Chart
+    const compLabels = data.course_completion_rates.map(c => c.title);
+    const compData = data.course_completion_rates.map(c => c.rate);
+
+    const ctx1 = document.getElementById('completionRateChart').getContext('2d');
+    if (completionChartInstance) completionChartInstance.destroy();
+    completionChartInstance = new Chart(ctx1, {
+      type: 'bar',
+      data: {
+        labels: compLabels.length ? compLabels : ['No Courses'],
+        datasets: [{
+          label: 'Completion Rate %',
+          data: compData.length ? compData : [0],
+          backgroundColor: '#0050B3'
+        }]
+      },
+      options: { responsive: true, maintainAspectRatio: false }
+    });
+
+    // Roles Pie Chart
+    const roleLabels = data.roles_distribution.map(r => r.role.toUpperCase());
+    const roleData = data.roles_distribution.map(r => r.count);
+
+    const ctx2 = document.getElementById('rolesPieChart').getContext('2d');
+    if (rolesChartInstance) rolesChartInstance.destroy();
+    rolesChartInstance = new Chart(ctx2, {
+      type: 'pie',
+      data: {
+        labels: roleLabels,
+        datasets: [{
+          data: roleData,
+          backgroundColor: ['#00C49F', '#FFBB28', '#FF8042']
+        }]
+      },
+      options: { responsive: true, maintainAspectRatio: false }
+    });
+
+  } catch (err) {
+    API.showToast(err.message, 'error');
+  }
+}
+
+// ==========================================
+// ACTIVITY AUDIT LOGS TAB
+// ==========================================
+async function loadActivityLogs(page = 1) {
+  const q = document.getElementById('logs-search').value;
+  try {
+    const data = await API.fetch(`/api/admin/activity-logs/?page=${page}&q=${encodeURIComponent(q)}`);
+    const tbody = document.getElementById('logs-table-body');
+    tbody.innerHTML = data.results.map(l => `
+      <tr>
+        <td class="small font-weight-bold text-muted">${new Date(l.timestamp).toLocaleString()}</td>
+        <td><strong class="text-dark">${l.admin_email}</strong></td>
+        <td><span class="badge badge-soft-info">${l.action}</span></td>
+        <td><code class="small text-dark">${l.target_object || '-'}</code></td>
+        <td><span class="small text-muted">${l.ip_address || '127.0.0.1'}</span></td>
+        <td><span class="small text-muted">${l.details || ''}</span></td>
+      </tr>
+    `).join('') || '<tr><td colspan="6" class="text-center text-muted">No activity logs recorded.</td></tr>';
+
+    renderPagination('logs-pagination', data, loadActivityLogs);
+  } catch (err) {
+    API.showToast(err.message, 'error');
+  }
+}
+
+// ==========================================
+// ADMIN PROFILE & SETTINGS
+// ==========================================
+async function loadAdminProfile() {
+  try {
+    const user = await API.fetch('/api/admin/profile');
+    document.getElementById('prof-fullname').value = user.full_name;
+    document.getElementById('prof-email').value = user.email;
+    document.getElementById('prof-designation').value = user.designation || '';
+    document.getElementById('prof-phone').value = user.phone || '';
+    document.getElementById('prof-bio').value = user.bio || '';
+  } catch (err) {
+    API.showToast(err.message, 'error');
+  }
+}
+
+async function saveAdminProfile(e) {
+  e.preventDefault();
+  const body = {
+    full_name: document.getElementById('prof-fullname').value,
+    email: document.getElementById('prof-email').value,
+    designation: document.getElementById('prof-designation').value,
+    phone: document.getElementById('prof-phone').value,
+    bio: document.getElementById('prof-bio').value
+  };
+  try {
+    const res = await API.fetch('/api/admin/profile', { method: 'PUT', body: JSON.stringify(body) });
+    API.showToast(res.message, 'success');
+  } catch (err) {
+    API.showToast(err.message, 'error');
+  }
+}
+
+async function changeAdminPassword(e) {
+  e.preventDefault();
+  const current_password = document.getElementById('pass-current').value;
+  const new_password = document.getElementById('pass-new').value;
+  const confirm_password = document.getElementById('pass-confirm').value;
+
+  try {
+    const res = await API.fetch('/api/admin/profile', {
+      method: 'POST',
+      body: JSON.stringify({ current_password, new_password, confirm_password })
+    });
+    API.showToast(res.message, 'success');
+    document.getElementById('admin-password-form').reset();
+  } catch (err) {
+    API.showToast(err.message, 'error');
+  }
+}
+
+async function loadPlatformSettings() {
+  try {
+    const settings = await API.fetch('/api/admin/settings/');
+    const container = document.getElementById('settings-fields-container');
+    container.innerHTML = settings.map(s => `
+      <div class="mb-3">
+        <label class="form-label font-weight-bold small text-dark">${s.description || s.key}</label>
+        <input type="text" name="${s.key}" class="form-control" value="${s.value}">
+      </div>
+    `).join('');
+  } catch (err) {
+    API.showToast(err.message, 'error');
+  }
+}
+
+async function savePlatformSettings(e) {
+  e.preventDefault();
+  const formData = new FormData(e.target);
+  const settingsObj = {};
+  formData.forEach((val, key) => settingsObj[key] = val);
+
+  try {
+    const res = await API.fetch('/api/admin/settings/', {
+      method: 'POST',
+      body: JSON.stringify({ settings: settingsObj })
+    });
+    API.showToast(res.message, 'success');
+  } catch (err) {
+    API.showToast(err.message, 'error');
+  }
+}
+
+// Helper: Pagination Component
+function renderPagination(containerId, data, fetchFunc) {
+  const container = document.getElementById(containerId);
+  if (!container) return;
+
+  if (data.total_pages <= 1) {
+    container.innerHTML = `<span class="small text-muted">Showing all ${data.count} items</span>`;
+    return;
+  }
+
+  container.innerHTML = `
+    <span class="small text-muted">Showing page ${data.current_page} of ${data.total_pages} (${data.count} items)</span>
+    <div class="btn-group btn-group-sm">
+      <button class="btn btn-outline-secondary" ${data.previous ? '' : 'disabled'} onclick="${fetchFunc.name}(${data.current_page - 1})">Previous</button>
+      <button class="btn btn-outline-secondary" ${data.next ? '' : 'disabled'} onclick="${fetchFunc.name}(${data.current_page + 1})">Next</button>
+    </div>
+  `;
+}
+
+// Helper: Confirmation Modal
+function showConfirmModal(msg, onConfirm) {
+  document.getElementById('confirm-modal-msg').innerText = msg;
+  const btn = document.getElementById('confirm-modal-btn');
+  const modalEl = document.getElementById('confirmModal');
+  const bsModal = new bootstrap.Modal(modalEl);
+
+  const newBtn = btn.cloneNode(true);
+  btn.parentNode.replaceChild(newBtn, btn);
+
+  newBtn.addEventListener('click', async () => {
+    bsModal.hide();
+    await onConfirm();
+  });
+
+  bsModal.show();
+}
 </script>
 {% endblock %}
