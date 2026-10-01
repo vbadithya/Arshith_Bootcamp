@@ -499,7 +499,7 @@ body {
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   display: flex;
-  flex-column: column;
+  flex-direction: column;
   height: 100%;
   position: relative;
 }

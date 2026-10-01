@@ -8,7 +8,7 @@ from apps.admin_dashboard.permissions import admin_required
 
 def home_view(request):
     categories = Category.objects.all()
-    featured_courses = Course.objects.filter(status='published').select_related('category', 'instructor').order_by('-created_at')
+    featured_courses = Course.objects.filter(status='published').select_related('category', 'instructor').order_by('id')
     trending_courses = Course.objects.filter(status='published').order_by('-rating')[:6]
     return render(request, 'public/home.html', {
         'categories': categories,
