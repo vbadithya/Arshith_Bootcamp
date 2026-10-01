@@ -1,70 +1,138 @@
 {% load static %}
+{% if not '/admin-login' in request.path and not '/admin-dashboard' in request.path and not '/admin-portal' in request.path %}
 <header class="arshith-header">
   <div class="container-fluid px-lg-5">
     <div class="arshith-navbar-container">
       
-      <!-- Left Corner: ONLY "Arshith" Logo -->
+      <!-- Brand Logo: ArshithGroup -->
       <a href="{% url 'home' %}" class="arshith-brand-logo">
         <div class="arshith-brand-icon">
           <i class="fa-solid fa-graduation-cap"></i>
         </div>
-        <span class="arshith-brand-title">ARSHITH</span>
+        <div>
+          <span class="arshith-brand-title">ArshithGroup</span>
+          <span class="arshith-brand-tagline">Learn Today, Build Tomorrow</span>
+        </div>
       </a>
 
-      <!-- Right Side Navigation: Home -> About Us -> Explore Courses -> Register -> Login -->
-      <div class="d-flex align-items-center gap-4">
-        <ul class="arshith-nav-menu">
-          <li>
-            <a class="arshith-link {% if request.path == '/' %}active{% endif %}" href="{% url 'home' %}">
-              Home
-            </a>
-          </li>
-          <li>
-            <a class="arshith-link {% if '/about' in request.path %}active{% endif %}" href="{% url 'about' %}">
-              About Us
-            </a>
-          </li>
-          <li>
-            <a class="arshith-link {% if '/courses' in request.path %}active{% endif %}" href="{% url 'courses' %}">
-              Explore Courses
-            </a>
-          </li>
-        </ul>
+      <!-- Desktop Navigation Menu -->
+      <ul class="arshith-nav-menu d-none d-lg-flex">
+        <li>
+          <a class="arshith-link {% if request.path == '/' %}active{% endif %}" href="{% url 'home' %}">
+            Home
+          </a>
+        </li>
+        <li>
+          <a class="arshith-link {% if request.path == '/courses/' %}active{% endif %}" href="{% url 'courses' %}">
+            Courses
+          </a>
+        </li>
+        <li>
+          <a class="arshith-link {% if '/categories' in request.path %}active{% endif %}" href="{% url 'courses' %}">
+            Categories
+          </a>
+        </li>
+        <li>
+          <a class="arshith-link {% if '/about' in request.path %}active{% endif %}" href="{% url 'about' %}">
+            About
+          </a>
+        </li>
+        <li>
+          <a class="arshith-link {% if '/contact' in request.path %}active{% endif %}" href="{% url 'contact' %}">
+            Contact
+          </a>
+        </li>
+      </ul>
 
-        <!-- Action Buttons: Register & Login -->
-        <div class="d-flex align-items-center gap-2">
-          {% if user.is_authenticated %}
-            {% if user.role == 'admin' or user.is_superuser or user.is_staff %}
-              <a href="{% url 'admin-dashboard' %}" class="btn btn-sm btn-outline-success font-weight-bold">
-                <i class="fa-solid fa-sliders me-1"></i> Admin Portal
-              </a>
-            {% endif %}
-            <a href="{% url 'dashboard' %}" class="btn-arshith-reg">
-              <i class="fa-solid fa-gauge"></i> Dashboard
-            </a>
-            <div class="dropdown">
-              <button class="btn btn-sm btn-outline-dark dropdown-toggle font-weight-bold" type="button" data-bs-toggle="dropdown">
-                <i class="fa-solid fa-user-circle text-success me-1"></i> {{ user.full_name|default:user.email }}
-              </button>
-              <ul class="dropdown-menu dropdown-menu-end shadow border-0">
-                <li><a class="dropdown-item" href="{% url 'dashboard' %}"><i class="fa-solid fa-gauge me-2 text-success"></i> Dashboard</a></li>
-                <li><a class="dropdown-item" href="{% url 'my-courses' %}"><i class="fa-solid fa-book-open me-2 text-info"></i> My Courses</a></li>
-                <li><a class="dropdown-item" href="{% url 'certificates' %}"><i class="fa-solid fa-certificate me-2 text-warning"></i> Certificates</a></li>
-                <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item text-danger js-logout-btn" href="#"><i class="fa-solid fa-right-from-bracket me-2"></i> Logout</a></li>
-              </ul>
-            </div>
-          {% else %}
-            <a href="{% url 'register' %}" class="btn-arshith-reg">
-              <i class="fa-solid fa-user-plus me-1"></i> Register
-            </a>
-            <a href="{% url 'login' %}" class="btn-arshith-log">
-              <i class="fa-solid fa-right-to-bracket me-1"></i> Login
+      <!-- Right Area: Search + Auth Buttons -->
+      <div class="d-flex align-items-center gap-3">
+        <!-- Search Field -->
+        <form action="{% url 'courses' %}" method="GET" class="arshith-header-search d-none d-md-block">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <input type="text" name="q" placeholder="Search courses..." value="{{ request.GET.q|default:'' }}">
+        </form>
+
+        {% if user.is_authenticated %}
+          {% if user.role == 'admin' or user.is_superuser or user.is_staff %}
+            <a href="{% url 'admin-dashboard' %}" class="btn btn-sm btn-outline-success font-weight-bold d-none d-sm-inline-flex">
+              <i class="fa-solid fa-sliders me-1"></i> Admin
             </a>
           {% endif %}
-        </div>
+          
+          <div class="dropdown">
+            <button class="btn-arshith-login dropdown-toggle border-0" type="button" data-bs-toggle="dropdown">
+              <i class="fa-solid fa-circle-user text-success me-1"></i> {{ user.full_name|default:user.email|truncatechars:12 }}
+            </button>
+            <ul class="dropdown-menu dropdown-menu-end shadow border-0 mt-2">
+              <li><a class="dropdown-item py-2" href="{% url 'dashboard' %}"><i class="fa-solid fa-gauge me-2 text-success"></i> Dashboard</a></li>
+              <li><a class="dropdown-item py-2" href="{% url 'my-courses' %}"><i class="fa-solid fa-book-open me-2 text-info"></i> My Courses</a></li>
+              <li><a class="dropdown-item py-2" href="{% url 'certificates' %}"><i class="fa-solid fa-certificate me-2 text-warning"></i> Certificates</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item py-2 text-danger js-logout-btn" href="#"><i class="fa-solid fa-right-from-bracket me-2"></i> Logout</a></li>
+            </ul>
+          </div>
+        {% else %}
+          <a href="{% url 'login' %}" class="btn-arshith-login">Login</a>
+          <a href="{% url 'register' %}" class="btn-arshith-getstarted">Get Started</a>
+        {% endif %}
+
+        <!-- Mobile Drawer Toggle -->
+        <button class="btn border-0 text-dark d-lg-none p-1 ms-1" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileMenu">
+          <i class="fa-solid fa-bars fa-xl"></i>
+        </button>
       </div>
 
     </div>
   </div>
 </header>
+
+<!-- Mobile Navigation Drawer -->
+<div class="offcanvas offcanvas-end" tabindex="-1" id="mobileMenu">
+  <div class="offcanvas-header border-bottom">
+    <div class="d-flex align-items-center gap-2">
+      <div class="arshith-brand-icon">
+        <i class="fa-solid fa-graduation-cap"></i>
+      </div>
+      <div>
+        <h6 class="mb-0 font-weight-bold text-dark">ArshithGroup</h6>
+        <span class="small text-muted" style="font-size: 0.75rem;">Learn Today, Build Tomorrow</span>
+      </div>
+    </div>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+  </div>
+  <div class="offcanvas-body">
+    <!-- Mobile Search Form -->
+    <form action="{% url 'courses' %}" method="GET" class="mb-4">
+      <div class="input-group">
+        <span class="input-group-text bg-light border-end-0"><i class="fa-solid fa-magnifying-glass text-muted"></i></span>
+        <input type="text" name="q" class="form-control bg-light border-start-0" placeholder="Search courses...">
+      </div>
+    </form>
+
+    <ul class="nav flex-column gap-2 mb-4">
+      <li class="nav-item">
+        <a class="nav-link text-dark font-weight-bold py-2 px-0" href="{% url 'home' %}"><i class="fa-solid fa-house me-2 text-success"></i> Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-dark font-weight-bold py-2 px-0" href="{% url 'courses' %}"><i class="fa-solid fa-book-open me-2 text-success"></i> Courses</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-dark font-weight-bold py-2 px-0" href="{% url 'courses' %}"><i class="fa-solid fa-layer-group me-2 text-success"></i> Categories</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-dark font-weight-bold py-2 px-0" href="{% url 'about' %}"><i class="fa-solid fa-circle-info me-2 text-success"></i> About</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-dark font-weight-bold py-2 px-0" href="{% url 'contact' %}"><i class="fa-solid fa-envelope me-2 text-success"></i> Contact</a>
+      </li>
+    </ul>
+
+    {% if not user.is_authenticated %}
+      <div class="d-grid gap-2">
+        <a href="{% url 'register' %}" class="btn-arshith-getstarted text-center">Get Started</a>
+        <a href="{% url 'login' %}" class="btn-arshith-login text-center">Login</a>
+      </div>
+    {% endif %}
+  </div>
+</div>
+{% endif %}

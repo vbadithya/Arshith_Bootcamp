@@ -1,66 +1,163 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block title %}Learner Dashboard | Arshith Springboard{% endblock %}
+{% block title %}Dashboard | ArshithGroup{% endblock %}
 
 {% block content %}
-<div class="container py-5">
-  <div class="p-4 bg-dark text-white rounded-3 mb-4 shadow" style="background: linear-gradient(135deg, #0A192F 0%, #0050B3 100%);">
-    <div class="row align-items-center">
-      <div class="col-md-8">
-        <span class="badge bg-success mb-2">Springboard Learner Portal</span>
-        <h2 class="h3 font-weight-bold text-white mb-1">Welcome back, {{ user.full_name|default:user.email }}!</h2>
-        <p class="text-white-50 mb-0">Continue your engineering track. Track progress and earn verified certificates.</p>
+<!-- Dashboard Header -->
+<section class="py-4" style="background: linear-gradient(180deg, var(--ag-peach-bg) 0%, #FFFFFF 100%); border-bottom: 1px solid #E2E8F0;">
+  <div class="container px-lg-5">
+    <div class="d-flex flex-wrap align-items-center justify-content-between gap-3">
+      <div>
+        <span class="arshith-pill-badge mb-1">STUDENT PORTAL 🌿</span>
+        <h1 class="h2 font-weight-bold text-dark mb-1">Welcome back, {{ user.full_name|default:user.email }} 👋</h1>
+        <p class="text-muted mb-0 small">Track your learning journey, continue active courses, and view certificates.</p>
       </div>
-      <div class="col-md-4 text-md-end mt-3 mt-md-0">
-        <a href="{% url 'courses' %}" class="btn btn-springboard-accent">Browse Catalog</a>
+
+      <div>
+        <a href="{% url 'courses' %}" class="btn-arshith-getstarted">
+          <i class="fa-solid fa-plus me-1"></i> Enroll in New Course
+        </a>
       </div>
     </div>
   </div>
+</section>
 
-  <div class="row g-4 mb-5">
-    <div class="col-md-3">
-      <div class="p-4 bg-white rounded border shadow-sm text-center">
-        <h3 class="font-weight-bold text-primary mb-1">{{ total_enrolled }}</h3>
-        <span class="small text-muted font-weight-bold">Enrolled Courses</span>
-      </div>
-    </div>
-    <div class="col-md-3">
-      <div class="p-4 bg-white rounded border shadow-sm text-center">
-        <h3 class="font-weight-bold text-success mb-1">{{ completed_count }}</h3>
-        <span class="small text-muted font-weight-bold">Completed Courses</span>
-      </div>
-    </div>
-    <div class="col-md-3">
-      <div class="p-4 bg-white rounded border shadow-sm text-center">
-        <h3 class="font-weight-bold text-warning mb-1">{{ certificates_count }}</h3>
-        <span class="small text-muted font-weight-bold">Certificates Earned</span>
-      </div>
-    </div>
-  </div>
-
-  <h4 class="font-weight-bold text-dark mb-3"><i class="fa-solid fa-play-circle text-primary me-2"></i>Continue Learning</h4>
-  <div class="row g-4 mb-4">
-    {% for enrollment in enrollments %}
-      <div class="col-md-6">
-        <div class="p-4 bg-white rounded border shadow-sm">
-          <span class="badge bg-primary mb-1">{{ enrollment.course.category.name }}</span>
-          <h5 class="font-weight-bold text-dark mb-2">{{ enrollment.course.title }}</h5>
-          <div class="mb-3">
-            <div class="d-flex justify-content-between small text-muted font-weight-bold mb-1">
-              <span>Progress</span>
-              <span>{{ enrollment.progress_percent }}%</span>
-            </div>
-            <div class="progress" style="height: 6px;">
-              <div class="progress-bar bg-success" style="width: {{ enrollment.progress_percent }}%"></div>
+<section class="py-5">
+  <div class="container px-lg-5">
+    
+    <!-- Overview Metric Cards -->
+    <div class="row g-4 mb-5">
+      <div class="col-md-4">
+        <div class="card border-0 shadow-sm rounded-4 p-4 bg-white">
+          <div class="d-flex align-items-center justify-content-between mb-2">
+            <span class="small font-weight-bold text-muted">TOTAL ENROLLED</span>
+            <div class="stat-icon-wrapper bg-success-subtle text-success p-2 rounded-3">
+              <i class="fa-solid fa-book-open"></i>
             </div>
           </div>
-          <a href="{% url 'player' enrollment.course.id %}" class="btn btn-sm btn-springboard-primary">Continue Course Player</a>
+          <h2 class="display-6 font-weight-bold text-dark mb-0">{{ total_enrolled }}</h2>
         </div>
       </div>
-    {% empty %}
-      <div class="col-12 text-muted">You haven't enrolled in any courses yet. <a href="{% url 'courses' %}">Browse Catalog</a></div>
-    {% endfor %}
+
+      <div class="col-md-4">
+        <div class="card border-0 shadow-sm rounded-4 p-4 bg-white">
+          <div class="d-flex align-items-center justify-content-between mb-2">
+            <span class="small font-weight-bold text-muted">COMPLETED COURSES</span>
+            <div class="stat-icon-wrapper bg-primary-subtle text-primary p-2 rounded-3">
+              <i class="fa-solid fa-circle-check"></i>
+            </div>
+          </div>
+          <h2 class="display-6 font-weight-bold text-dark mb-0">{{ completed_count }}</h2>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card border-0 shadow-sm rounded-4 p-4 bg-white">
+          <div class="d-flex align-items-center justify-content-between mb-2">
+            <span class="small font-weight-bold text-muted">EARNED CERTIFICATES</span>
+            <div class="stat-icon-wrapper bg-warning-subtle text-warning p-2 rounded-3">
+              <i class="fa-solid fa-award"></i>
+            </div>
+          </div>
+          <h2 class="display-6 font-weight-bold text-dark mb-0">{{ certificates_count }}</h2>
+        </div>
+      </div>
+    </div>
+
+    <!-- Active Courses (Continue Learning) -->
+    <div class="mb-5">
+      <div class="d-flex align-items-center justify-content-between mb-4">
+        <h3 class="font-weight-bold text-dark mb-0">Continue Learning</h3>
+        <a href="{% url 'my-courses' %}" class="arshith-view-all-link">View All Enrolled <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+
+      <div class="row g-4">
+        {% for en in enrollments %}
+          <div class="col-lg-4 col-md-6">
+            <div class="arshith-course-card">
+              <div class="course-card-top mb-3">
+                <span class="badge bg-success-subtle text-success font-weight-bold">{{ en.course.category.name }}</span>
+                {% if en.is_completed %}
+                  <span class="badge bg-success font-weight-bold"><i class="fa-solid fa-check me-1"></i> Completed</span>
+                {% endif %}
+              </div>
+
+              <h4 class="course-card-title fs-5 mb-2">{{ en.course.title }}</h4>
+              <p class="small text-muted mb-3">{{ en.course.short_description|truncatewords:10 }}</p>
+
+              <!-- Progress Bar -->
+              <div class="course-progress-wrapper mb-3">
+                <div class="course-progress-info">
+                  <span>Progress</span>
+                  <span>{{ en.progress_percent }}% Complete</span>
+                </div>
+                <div class="course-progress-bar">
+                  <div class="course-progress-fill" style="width: {{ en.progress_percent }}%;"></div>
+                </div>
+              </div>
+
+              <a href="{% url 'player' en.course.id %}" class="btn-view-course mt-auto">
+                Continue Learning <i class="fa-solid fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+        {% empty %}
+          <div class="col-12 text-center py-5 bg-light rounded-4 border">
+            <i class="fa-solid fa-graduation-cap fa-3x text-muted mb-3"></i>
+            <h5>You haven't enrolled in any courses yet!</h5>
+            <p class="text-muted small">Explore our catalog of top-rated technology courses.</p>
+            <a href="{% url 'courses' %}" class="btn-arshith-getstarted">Explore Courses</a>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+
+    <!-- Recommended Courses -->
+    <div>
+      <h3 class="font-weight-bold text-dark mb-4">Recommended Courses For You</h3>
+      <div class="row g-4">
+        {% for course in all_courses|slice:":3" %}
+          <div class="col-lg-4 col-md-6">
+            <div class="arshith-course-card">
+              <div class="course-card-top">
+                <div class="course-icon-badge {% if 'Python' in course.title %}python{% elif 'Web' in course.title %}web{% elif 'SQL' in course.title %}sql{% else %}ds{% endif %}">
+                  {% if 'Python' in course.title and not 'Data Science' in course.title %}
+                    <i class="fa-brands fa-python"></i>
+                  {% elif 'Web' in course.title %}
+                    <i class="fa-solid fa-code"></i>
+                  {% elif 'SQL' in course.title %}
+                    <i class="fa-solid fa-database"></i>
+                  {% else %}
+                    <i class="fa-solid fa-brain"></i>
+                  {% endif %}
+                </div>
+                {% if course.is_bestseller %}
+                  <span class="badge-bestseller">Bestseller</span>
+                {% endif %}
+              </div>
+
+              <h4 class="course-card-title fs-5">{{ course.title }}</h4>
+
+              <div class="course-card-meta">
+                <span>{{ course.difficulty }}</span>
+                <span>•</span>
+                <span>{{ course.duration_hours|floatformat:0 }} hrs</span>
+              </div>
+
+              <div class="course-card-price {% if course.price == 0 %}free{% endif %}">
+                {{ course.price_display }}
+              </div>
+
+              <a href="{% url 'course-detail' course.slug %}" class="btn-view-course mt-auto">
+                View Course <i class="fa-solid fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+
   </div>
-</div>
+</section>
 {% endblock %}

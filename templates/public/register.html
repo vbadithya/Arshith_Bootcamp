@@ -1,43 +1,50 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block title %}Springboard Registration | Arshith Springboard{% endblock %}
+{% block title %}Register | ArshithGroup{% endblock %}
 
 {% block content %}
-<div class="container py-5">
-  <div class="row justify-content-center">
-    <div class="col-md-6">
-      <div class="p-4 p-md-5 bg-white rounded border shadow-lg">
-        <div class="text-center mb-4">
-          <h2 class="h4 font-weight-bold text-dark mb-1">Create Free Account</h2>
-          <p class="small text-muted">Join Arshith Springboard to start learning.</p>
-        </div>
+<section class="py-5" style="background: var(--ag-peach-bg); min-height: 85vh;">
+  <div class="container py-4">
+    <div class="row justify-content-center">
+      <div class="col-md-6 col-lg-5">
+        <div class="p-4 p-md-5 bg-white rounded-4 border shadow-lg">
+          <div class="text-center mb-4">
+            <div class="arshith-brand-icon mx-auto mb-2" style="width: 48px; height: 48px; font-size: 1.5rem;">
+              <i class="fa-solid fa-user-plus"></i>
+            </div>
+            <h2 class="h4 font-weight-bold text-dark mb-1">Create an Account</h2>
+            <p class="small text-muted mb-0">Join thousands of learners on <strong>ArshithGroup</strong></p>
+          </div>
 
-        <form id="register-form">
-          <div class="mb-3">
-            <label class="form-label small font-weight-bold text-muted">Full Name</label>
-            <input type="text" id="full_name" class="form-control" placeholder="Alex Mercer" required>
-          </div>
-          <div class="mb-3">
-            <label class="form-label small font-weight-bold text-muted">Email Address</label>
-            <input type="email" id="email" class="form-control" placeholder="name@company.com" required>
-          </div>
-          <div class="row g-3 mb-4">
-            <div class="col-md-6">
-              <label class="form-label small font-weight-bold text-muted">Password</label>
-              <input type="password" id="password" class="form-control" required minlength="6">
+          <form id="register-form">
+            <div class="mb-3">
+              <label class="form-label small font-weight-bold text-dark">Full Name</label>
+              <input type="text" id="full_name" class="form-control rounded-3 py-2" placeholder="John Doe" required>
             </div>
-            <div class="col-md-6">
-              <label class="form-label small font-weight-bold text-muted">Confirm Password</label>
-              <input type="password" id="confirm_password" class="form-control" required minlength="6">
+            <div class="mb-3">
+              <label class="form-label small font-weight-bold text-dark">Email Address</label>
+              <input type="email" id="email" class="form-control rounded-3 py-2" placeholder="name@example.com" required>
             </div>
+            <div class="mb-3">
+              <label class="form-label small font-weight-bold text-dark">Password</label>
+              <input type="password" id="password" class="form-control rounded-3 py-2" placeholder="At least 8 characters" required>
+            </div>
+            <div class="mb-4">
+              <label class="form-label small font-weight-bold text-dark">Confirm Password</label>
+              <input type="password" id="confirm_password" class="form-control rounded-3 py-2" placeholder="Repeat password" required>
+            </div>
+            <button type="submit" class="btn-arshith-getstarted w-100 py-2 fs-6">Register Now</button>
+          </form>
+
+          <div class="text-center mt-4 small text-muted">
+            Already have an account? <a href="{% url 'login' %}" class="text-success font-weight-bold">Log In</a>
           </div>
-          <button type="submit" id="submit-btn" class="btn btn-springboard-primary w-100 py-2">Register Account</button>
-        </form>
+        </div>
       </div>
     </div>
   </div>
-</div>
+</section>
 {% endblock %}
 
 {% block extra_js %}
@@ -53,15 +60,16 @@ document.getElementById('register-form').addEventListener('submit', async (e) =>
     API.showToast('Passwords do not match', 'error');
     return;
   }
+
   try {
-    await API.fetch('/api/auth/register', {
+    const data = await API.fetch('/api/auth/register', {
       method: 'POST',
-      body: JSON.stringify({ full_name, email, password, confirm_password })
+      body: JSON.stringify({ full_name, email, password })
     });
-    API.showToast('Account created successfully!', 'success');
+    API.showToast('Registration successful! Logging in...', 'success');
     setTimeout(() => window.location.href = '/dashboard/', 600);
   } catch (err) {
-    API.showToast(err.message, 'error');
+    API.showToast(err.message || 'Registration failed', 'error');
   }
 });
 </script>

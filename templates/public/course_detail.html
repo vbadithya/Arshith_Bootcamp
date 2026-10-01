@@ -1,72 +1,151 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block title %}{{ course.title }} | ARSHITH{% endblock %}
+{% block title %}{{ course.title }} | ArshithGroup{% endblock %}
 
 {% block content %}
-<section class="hero-emerald-banner py-5">
+<!-- Course Header Hero -->
+<section class="py-5" style="background: linear-gradient(180deg, var(--ag-peach-bg) 0%, #FFFFFF 100%); border-bottom: 1px solid #E2E8F0;">
   <div class="container px-lg-5">
-    <div class="row align-items-center g-4">
+    <div class="row align-items-center g-5">
       <div class="col-lg-8">
-        <span class="badge-green-accent mb-2">{{ course.category.name }}</span>
-        <h1 class="h2 font-weight-bold text-white mb-3">{{ course.title }}</h1>
-        <p class="lead text-white-50 mb-4">{{ course.short_description }}</p>
+        <span class="arshith-pill-badge mb-3">{{ course.category.name|upper }} 🌿</span>
+        <h1 class="display-5 font-weight-bold text-dark mb-3">{{ course.title }}</h1>
+        <p class="lead text-muted mb-4">{{ course.short_description }}</p>
 
-        <div class="d-flex flex-wrap gap-4 text-white-50 small">
-          <div><i class="fa-solid fa-user-circle me-1" style="color: var(--sn-mint-bright);"></i> Instructor: <strong class="text-white">{{ course.instructor.name }}</strong></div>
-          <div><i class="fa-solid fa-star me-1 text-warning"></i> Rating: <strong class="text-white">{{ course.rating }} / 5.0</strong></div>
-          <div><i class="fa-solid fa-clock me-1" style="color: var(--sn-mint-bright);"></i> Duration: <strong class="text-white">{{ course.duration_hours }} Hours</strong></div>
+        <div class="d-flex flex-wrap align-items-center gap-4 text-dark font-weight-bold mb-4 small">
+          <div class="d-flex align-items-center gap-2">
+            <i class="fa-solid fa-star text-warning"></i>
+            <span>{{ course.rating }} Rating</span>
+          </div>
+          <div>•</div>
+          <div class="d-flex align-items-center gap-2">
+            <i class="fa-solid fa-users text-primary"></i>
+            <span>{{ course.students_count_display }} Learners Enrolled</span>
+          </div>
+          <div>•</div>
+          <div class="d-flex align-items-center gap-2">
+            <i class="fa-solid fa-clock text-success"></i>
+            <span>{{ course.duration_hours|floatformat:0 }} Hours Duration</span>
+          </div>
+          <div>•</div>
+          <div class="d-flex align-items-center gap-2">
+            <i class="fa-solid fa-layer-group text-info"></i>
+            <span>{{ course.difficulty }} Level</span>
+          </div>
+        </div>
+
+        <div class="d-flex align-items-center gap-3">
+          <div class="d-flex align-items-center gap-2">
+            <div class="avatar-group me-2">
+              <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&auto=format&fit=crop&q=80" alt="Instructor">
+            </div>
+            <div>
+              <div class="small text-muted">Created by</div>
+              <div class="font-weight-bold text-dark">{{ course.instructor.name }}</div>
+            </div>
+          </div>
         </div>
       </div>
 
-      <div class="col-lg-4 text-lg-end">
-        <div class="p-4 bg-white text-dark rounded-3 shadow-lg border">
-          <span class="badge bg-success font-weight-bold p-2 mb-3 d-inline-block">Free Enterprise Access</span>
-          {% if is_enrolled %}
-            <a href="{% url 'player' course.id %}" class="btn btn-arshith-reg w-100 btn-lg mb-2 justify-content-center">
-              <i class="fa-solid fa-play me-2"></i> Continue Course Player
-            </a>
-          {% else %}
-            <button onclick="API.enrollInCourse({{ course.id }})" class="btn btn-arshith-reg w-100 btn-lg mb-2 justify-content-center">
-              <i class="fa-solid fa-user-plus me-2"></i> Enroll Now
-            </button>
-          {% endif %}
-          <div class="small text-muted text-center mt-2">Includes Cryptographic PDF Certificate</div>
+      <!-- Right Card Box -->
+      <div class="col-lg-4">
+        <div class="card border-0 shadow-lg rounded-4 overflow-hidden">
+          <img src="{{ course.thumbnail_url }}" alt="{{ course.title }}" class="card-img-top" style="height: 220px; object-fit: cover;">
+          <div class="card-body p-4">
+            <div class="d-flex align-items-center justify-content-between mb-3">
+              <span class="fs-2 font-weight-bold text-dark">{{ course.price_display }}</span>
+              {% if course.is_bestseller %}
+                <span class="badge-bestseller">Bestseller</span>
+              {% endif %}
+            </div>
+
+            {% if is_enrolled %}
+              <a href="{% url 'player' course.id %}" class="btn-hero-primary w-100 justify-content-center mb-3">
+                <i class="fa-solid fa-circle-play"></i> Continue Learning
+              </a>
+            {% else %}
+              {% if user.is_authenticated %}
+                <button class="btn-hero-primary w-100 justify-content-center mb-3 js-enroll-btn" data-course-id="{{ course.id }}">
+                  <i class="fa-solid fa-bolt me-1"></i> Enroll Now
+                </button>
+              {% else %}
+                <a href="{% url 'login' %}?next={{ request.path }}" class="btn-hero-primary w-100 justify-content-center mb-3">
+                  <i class="fa-solid fa-right-to-bracket me-1"></i> Login to Enroll
+                </a>
+              {% endif %}
+            {% endif %}
+
+            <div class="small text-muted mb-3">
+              <i class="fa-solid fa-shield-halved text-success me-2"></i> 30-Day Money Back Guarantee
+            </div>
+
+            <hr>
+
+            <h6 class="font-weight-bold text-dark mb-3">This course includes:</h6>
+            <ul class="list-unstyled small text-dark d-flex flex-column gap-2 mb-0">
+              <li><i class="fa-solid fa-video text-success me-2"></i> {{ course.duration_hours|floatformat:0 }} hours HD video lessons</li>
+              <li><i class="fa-solid fa-file-lines text-primary me-2"></i> Full module source files & assets</li>
+              <li><i class="fa-solid fa-infinity text-warning me-2"></i> Full lifetime access</li>
+              <li><i class="fa-solid fa-mobile-screen text-info me-2"></i> Access on mobile & desktop</li>
+              <li><i class="fa-solid fa-certificate text-danger me-2"></i> Verified <strong>ArshithGroup Certificate</strong></li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
+<!-- Course Content Breakdown -->
+<section class="py-5">
+  <div class="container px-lg-5">
+    <div class="row g-5">
+      
+      <!-- Main Content -->
+      <div class="col-lg-8">
+        
+        <!-- What you will learn -->
+        <div class="bg-light p-4 rounded-4 border mb-5">
+          <h4 class="font-weight-bold text-dark mb-3"><i class="fa-solid fa-check-double text-success me-2"></i> What You'll Learn</h4>
+          <div class="row g-3 small text-dark">
+            <div class="col-md-6"><i class="fa-solid fa-check text-success me-2"></i> Master core principles and architecture of {{ course.title }}.</div>
+            <div class="col-md-6"><i class="fa-solid fa-check text-success me-2"></i> Build production-grade real-world projects.</div>
+            <div class="col-md-6"><i class="fa-solid fa-check text-success me-2"></i> Hands-on coding exercises and module quizzes.</div>
+            <div class="col-md-6"><i class="fa-solid fa-check text-success me-2"></i> Earn an official verified certificate upon completion.</div>
+          </div>
+        </div>
 
-<div class="container px-lg-4 py-5">
-  <div class="row g-4">
-    <div class="col-lg-8">
-      <div class="p-4 bg-white rounded border mb-4">
-        <h4 class="font-weight-bold text-dark border-bottom pb-2 mb-3">Course Overview</h4>
-        <p class="text-muted leading-relaxed mb-0">{{ course.description }}</p>
-      </div>
-
-      <div class="p-4 bg-white rounded border mb-4">
-        <h4 class="font-weight-bold text-dark border-bottom pb-2 mb-3">Curriculum Structure</h4>
-        <div class="accordion" id="curriculumAccordion">
+        <!-- Curriculum Modules & Lessons -->
+        <h4 class="font-weight-bold text-dark mb-3">Course Curriculum</h4>
+        <div class="accordion mb-5" id="curriculumAccordion">
           {% for module in course.modules.all %}
-            <div class="accordion-item mb-2 border rounded overflow-hidden">
+            <div class="accordion-item border rounded-3 mb-3 overflow-hidden">
               <h2 class="accordion-header" id="heading{{ module.id }}">
-                <button class="accordion-button font-weight-bold {% if not forloop.first %}collapsed{% endif %}" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{ module.id }}">
-                  {{ module.title }} ({{ module.lessons.count }} Lessons)
+                <button class="accordion-button font-weight-bold bg-white text-dark py-3 {% if not forloop.first %}collapsed{% endif %}" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{ module.id }}">
+                  <div class="d-flex align-items-center justify-content-between w-100 me-3">
+                    <span>{{ module.title }}</span>
+                    <span class="badge bg-light text-muted border font-weight-normal ms-2">{{ module.lessons.count }} Lessons</span>
+                  </div>
                 </button>
               </h2>
               <div id="collapse{{ module.id }}" class="accordion-collapse collapse {% if forloop.first %}show{% endif %}" data-bs-parent="#curriculumAccordion">
                 <div class="accordion-body p-0">
-                  <ul class="list-group list-group-flush">
+                  <ul class="list-group list-group-flush small">
                     {% for lesson in module.lessons.all %}
-                      <li class="list-group-item d-flex justify-content-between align-items-center py-3">
-                        <div>
-                          <i class="fa-solid fa-play-circle text-primary me-2"></i>
-                          <span class="small font-weight-bold">{{ lesson.title }}</span>
+                      <li class="list-group-item d-flex align-items-center justify-content-between py-3 px-4">
+                        <div class="d-flex align-items-center gap-3">
+                          <i class="fa-solid fa-circle-play text-success"></i>
+                          <span class="font-weight-bold text-dark">{{ lesson.title }}</span>
                         </div>
-                        <span class="badge bg-light text-muted border">{{ lesson.duration_minutes }} min</span>
+                        <div class="d-flex align-items-center gap-3 text-muted">
+                          <span>{{ lesson.duration_minutes }} mins</span>
+                          {% if lesson.is_free_preview %}
+                            <span class="badge bg-success-subtle text-success border">Free Preview</span>
+                          {% else %}
+                            <i class="fa-solid fa-lock text-muted"></i>
+                          {% endif %}
+                        </div>
                       </li>
                     {% endfor %}
                   </ul>
@@ -75,17 +154,48 @@
             </div>
           {% endfor %}
         </div>
-      </div>
-    </div>
 
-    <div class="col-lg-4">
-      <div class="p-4 bg-white rounded border">
-        <h5 class="font-weight-bold text-dark border-bottom pb-2 mb-3">Instructor Profile</h5>
-        <h6 class="font-weight-bold text-dark mb-1">{{ course.instructor.name }}</h6>
-        <p class="small text-muted mb-2">{{ course.instructor.designation }}</p>
-        <p class="small text-muted mb-0">{{ course.instructor.bio }}</p>
+        <!-- Course Description -->
+        <h4 class="font-weight-bold text-dark mb-3">Course Description</h4>
+        <div class="text-muted leading-relaxed mb-5">
+          <p>{{ course.description }}</p>
+        </div>
+
       </div>
+
     </div>
   </div>
-</div>
+</section>
+
+{% endblock %}
+
+{% block extra_js %}
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const btn = document.querySelector('.js-enroll-btn');
+  if (btn) {
+    btn.addEventListener('click', async () => {
+      const courseId = btn.getAttribute('data-course-id');
+      try {
+        const response = await fetch('/api/enrollments/', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'X-CSRFToken': getCookie('csrftoken')
+          },
+          body: JSON.stringify({ course_id: courseId })
+        });
+        const data = await response.json();
+        if (response.ok) {
+          window.location.href = `/player/${courseId}/`;
+        } else {
+          alert(data.error || data.message || 'Enrollment failed');
+        }
+      } catch (e) {
+        alert('Network error during enrollment');
+      }
+    });
+  }
+});
+</script>
 {% endblock %}

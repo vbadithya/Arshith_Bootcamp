@@ -1,87 +1,84 @@
 {% load static %}
+{% if not '/admin-login' in request.path and not '/admin-dashboard' in request.path and not '/admin-portal' in request.path %}
 <footer class="arshith-footer pt-5 mt-auto">
   <div class="container px-lg-5 pb-4">
     <div class="row g-4">
-      <!-- Col 1: Brand & Description (Left) -->
-      <div class="col-lg-5 col-md-6">
+      
+      <!-- Col 1: Brand & Description -->
+      <div class="col-lg-4 col-md-6">
         <a href="{% url 'home' %}" class="arshith-brand-logo mb-3 d-inline-flex text-decoration-none">
-          <div class="arshith-brand-icon">
+          <div class="arshith-brand-icon" style="background: rgba(255, 255, 255, 0.15); color: #A7F3D0;">
             <i class="fa-solid fa-graduation-cap"></i>
           </div>
-          <span class="arshith-brand-title text-white">ARSHITH</span>
+          <div>
+            <span class="footer-brand-title">ArshithGroup</span>
+            <span class="footer-tagline">Learn Today, Build Tomorrow</span>
+          </div>
         </a>
-        <p class="small mb-3" style="color: #94A3B8; max-width: 380px; line-height: 1.6;">
-          Professional enterprise online learning platform providing technical specializations in Python Full Stack, Web Engineering, SQL Databases, and AI Data Science.
+        <p class="small mb-4" style="color: #94A3B8; max-width: 320px; line-height: 1.6;">
+          Practical courses taught by industry experts. Learn at your own pace, master skills, and earn verified certificates.
         </p>
+        <!-- Social Icons -->
+        <div class="footer-social-icons">
+          <a href="#" class="social-icon-btn"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#" class="social-icon-btn"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" class="social-icon-btn"><i class="fa-brands fa-youtube"></i></a>
+          <a href="#" class="social-icon-btn"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a href="#" class="social-icon-btn"><i class="fa-brands fa-x-twitter"></i></a>
+        </div>
       </div>
 
-      <!-- Col 2: Quick Links (Middle) -->
-      <div class="col-lg-3 col-md-6">
-        <h6 class="footer-heading">Quick Links</h6>
-        <ul class="footer-links">
-          <li><a href="{% url 'home' %}"><i class="fa-solid fa-angle-right me-2 text-success small"></i> Home</a></li>
-          <li><a href="{% url 'about' %}"><i class="fa-solid fa-angle-right me-2 text-success small"></i> About Us</a></li>
-          <li><a href="{% url 'courses' %}"><i class="fa-solid fa-angle-right me-2 text-success small"></i> Explore Courses</a></li>
-          <li><a href="{% url 'register' %}"><i class="fa-solid fa-angle-right me-2 text-success small"></i> Register</a></li>
-          <li><a href="{% url 'login' %}"><i class="fa-solid fa-angle-right me-2 text-success small"></i> Login</a></li>
+      <!-- Col 2: Quick Links -->
+      <div class="col-lg-2 col-md-6">
+        <h6 class="footer-column-heading">Quick Links</h6>
+        <ul class="footer-links-list">
+          <li><a href="{% url 'home' %}">Home</a></li>
+          <li><a href="{% url 'courses' %}">Courses</a></li>
+          <li><a href="{% url 'courses' %}">Categories</a></li>
+          <li><a href="{% url 'about' %}">About</a></li>
+          <li><a href="{% url 'contact' %}">Contact</a></li>
         </ul>
       </div>
 
-      <!-- Col 3: Contact Us (Right End) -->
-      <div class="col-lg-4 col-md-6">
-        <h6 class="footer-heading">Contact Us</h6>
-        <div class="d-flex flex-column gap-3 small">
-          <div class="d-flex align-items-center gap-3">
-            <div class="stat-icon-wrapper" style="width: 36px; height: 36px; font-size: 1rem;">
-              <i class="fa-solid fa-envelope"></i>
-            </div>
-            <div>
-              <div class="text-white font-weight-bold">Email Support</div>
-              <div style="color: #94A3B8;">support@arshith.com</div>
-            </div>
-          </div>
-
-          <div class="d-flex align-items-center gap-3">
-            <div class="stat-icon-wrapper" style="width: 36px; height: 36px; font-size: 1rem;">
-              <i class="fa-solid fa-location-dot"></i>
-            </div>
-            <div>
-              <div class="text-white font-weight-bold">Headquarters</div>
-              <div style="color: #94A3B8;">Enterprise Learning Hub, Tech Park</div>
-            </div>
-          </div>
-
-          <div class="d-flex align-items-center gap-3">
-            <div class="stat-icon-wrapper" style="width: 36px; height: 36px; font-size: 1rem;">
-              <i class="fa-solid fa-headset"></i>
-            </div>
-            <div>
-              <div class="text-white font-weight-bold">Help Desk</div>
-              <div style="color: #94A3B8;">Mon - Fri: 9:00 AM - 6:00 PM EST</div>
-            </div>
-          </div>
-        </div>
+      <!-- Col 3: Support -->
+      <div class="col-lg-3 col-md-6">
+        <h6 class="footer-column-heading">Support</h6>
+        <ul class="footer-links-list">
+          <li><a href="{% url 'contact' %}">Help Center</a></li>
+          <li><a href="{% url 'terms' %}">Terms & Conditions</a></li>
+          <li><a href="{% url 'privacy' %}">Privacy Policy</a></li>
+          <li><a href="{% url 'terms' %}">Refund Policy</a></li>
+        </ul>
       </div>
+
+      <!-- Col 4: Newsletter -->
+      <div class="col-lg-3 col-md-6">
+        <h6 class="footer-column-heading">Newsletter</h6>
+        <p class="small text-muted mb-3" style="color: #94A3B8;">Get updates on new courses and offers.</p>
+        <form onsubmit="event.preventDefault(); alert('Subscribed to ArshithGroup newsletter!');">
+          <div class="newsletter-box">
+            <input type="email" placeholder="Your email address" required>
+            <button type="submit"><i class="fa-solid fa-arrow-right"></i></button>
+          </div>
+        </form>
+      </div>
+
     </div>
   </div>
 
-  <!-- Bottom Bar -->
-  <div class="sub-footer">
+  <!-- Bottom Sub-Footer Bar -->
+  <div class="sub-footer-bar">
     <div class="container px-lg-5">
       <div class="d-flex flex-wrap justify-content-between align-items-center gap-3">
-        <div class="small" style="color: #94A3B8;">
-          &copy; {% now "Y" %} ARSHITH Enterprise Learning. All rights reserved.
+        <div>
+          &copy; 2026 ArshithGroup. All rights reserved.
         </div>
-        <div class="d-flex gap-3 small">
-          <a href="{% url 'privacy' %}" class="text-decoration-none" style="color: #94A3B8;">Privacy Policy</a>
-          <span style="color: #475569;">•</span>
-          <a href="{% url 'terms' %}" class="text-decoration-none" style="color: #94A3B8;">Terms of Service</a>
+        <div class="d-flex align-items-center gap-2">
+          <span>Better Skills • Brighter Future</span>
+          <i class="fa-solid fa-heart text-danger"></i>
         </div>
       </div>
     </div>
   </div>
 </footer>
-
-
-
-
+{% endif %}

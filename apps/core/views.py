@@ -19,9 +19,53 @@ def home_view(request):
 def courses_view(request):
     categories = Category.objects.all()
     instructors = Instructor.objects.all()
+    
+    courses = Course.objects.filter(status='published').select_related('category', 'instructor')
+
+    # Search filter
+    q = request.GET.get('q', '').strip()
+    if q:
+        courses = courses.filter(title__icontains=q) | courses.filter(short_description__icontains=q)
+
+    # Category filter
+    category_slug = request.GET.get('category', '').strip()
+    if category_slug:
+        courses = courses.filter(category__slug=category_slug)
+
+    # Level filter
+    level = request.GET.get('level', '').strip()
+    if level:
+        courses = courses.filter(difficulty__iexact=level)
+
+    # Price filter
+    price_type = request.GET.get('price', '').strip()
+    if price_type == 'free':
+        courses = courses.filter(price=0)
+    elif price_type == 'paid':
+        courses = courses.filter(price__gt=0)
+
+    # Sort
+    sort_by = request.GET.get('sort', 'popular').strip()
+    if sort_by == 'newest':
+        courses = courses.order_by('-created_at')
+    elif sort_by == 'rating':
+        courses = courses.order_by('-rating')
+    elif sort_by == 'price_low':
+        courses = courses.order_by('price')
+    elif sort_by == 'price_high':
+        courses = courses.order_by('-price')
+    else:
+        courses = courses.order_by('-students_count', '-rating')
+
     return render(request, 'public/courses.html', {
+        'courses': courses,
         'categories': categories,
-        'instructors': instructors
+        'instructors': instructors,
+        'selected_q': q,
+        'selected_category': category_slug,
+        'selected_level': level,
+        'selected_price': price_type,
+        'selected_sort': sort_by,
     })
 
 def course_detail_view(request, slug_or_id):

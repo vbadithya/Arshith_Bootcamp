@@ -55,12 +55,27 @@ class Course(models.Model):
     learning_objectives = models.TextField(blank=True, null=True)
     status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='published')
     is_featured = models.BooleanField(default=False)
+    is_bestseller = models.BooleanField(default=False)
+    price = models.DecimalField(max_digits=8, decimal_places=2, default=0.00)
+    students_count = models.IntegerField(default=12500)
     created_at = models.DateTimeField(auto_now_add=True)
 
     def save(self, *args, **kwargs):
         if not self.slug:
             self.slug = slugify(self.title)
         super().save(*args, **kwargs)
+
+    @property
+    def price_display(self):
+        if self.price == 0:
+            return "Free"
+        return f"₹{int(self.price):,}"
+
+    @property
+    def students_count_display(self):
+        if self.students_count >= 1000:
+            return f"{self.students_count / 1000:.1f}k"
+        return str(self.students_count)
 
     def __str__(self):
         return f"[{self.course_code}] {self.title}"
