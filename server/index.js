@@ -1,0 +1,53 @@
+import express from 'express';
+import cors from 'cors';
+import authRoutes from './routes/authRoutes.js';
+import courseRoutes from './routes/courseRoutes.js';
+import studentRoutes from './routes/studentRoutes.js';
+import projectRoutes from './routes/projectRoutes.js';
+import certificateRoutes from './routes/certificateRoutes.js';
+import adminRoutes from './routes/adminRoutes.js';
+
+const app = express();
+const PORT = process.env.PORT || 5000;
+
+// Enable CORS
+app.use(cors({
+  origin: '*',
+  credentials: true
+}));
+
+// Body parser
+app.use(express.json({ limit: '10mb' }));
+app.use(express.urlencoded({ extended: true, limit: '10mb' }));
+
+// Request logging middleware
+app.use((req, res, next) => {
+  console.log(`[${new Date().toISOString()}] ${req.method} ${req.url}`);
+  next();
+});
+
+// Health check endpoint
+app.get('/api/health', (req, res) => {
+  res.json({ status: 'ok', service: 'Arshith Boot Camp Secure Backend API', timestamp: new Date().toISOString() });
+});
+
+// Mount Routes
+app.use('/api', authRoutes);
+app.use('/api', courseRoutes);
+app.use('/api', studentRoutes);
+app.use('/api', projectRoutes);
+app.use('/api', certificateRoutes);
+app.use('/api', adminRoutes);
+
+// Fallback handler for unmatched API routes
+app.use((req, res) => {
+  res.status(404).json({ success: false, message: 'API Endpoint Not Found' });
+});
+
+app.listen(PORT, () => {
+  console.log(`=================================================`);
+  console.log(` Arshith Boot Camp Secure Backend API Running    `);
+  console.log(` Port: http://localhost:${PORT}                   `);
+  console.log(` Health: http://localhost:${PORT}/api/health     `);
+  console.log(`=================================================`);
+});

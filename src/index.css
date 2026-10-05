@@ -1,0 +1,95 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    background-color: #FAFDFB;
+    color: #0F172A;
+  }
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #F1F5F9;
+}
+::-webkit-scrollbar-thumb {
+  background: #0FA477;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #006B47;
+}
+
+/* Dark Green Bezel & Card Accents */
+.dark-bezel {
+  border: 2px solid #013323;
+  box-shadow: 0 8px 25px rgba(1, 51, 35, 0.12);
+}
+
+.dark-bezel-lg {
+  border: 3px solid #013323;
+  box-shadow: 0 15px 35px rgba(1, 51, 35, 0.16);
+}
+
+.brand-bezel {
+  border: 2px solid #00875A;
+}
+
+/* Gradients */
+.hero-gradient {
+  background: radial-gradient(circle at 85% 15%, rgba(255, 235, 224, 0.8) 0%, rgba(225, 245, 236, 0.7) 45%, rgba(250, 253, 251, 1) 85%);
+}
+
+.cta-gradient {
+  background: linear-gradient(135deg, #01281B 0%, #013323 40%, #006B47 80%, #00875A 100%);
+}
+
+.underline-accent {
+  position: relative;
+  display: inline-block;
+}
+
+.underline-accent::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 100%;
+  height: 6px;
+  background: linear-gradient(90deg, #FF7D42 0%, #0FA477 100%);
+  border-radius: 3px;
+  opacity: 0.9;
+}
+
+.card-hover-effect {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.card-hover-effect:hover {
+  transform: translateY(-5px);
+  border-color: #013323;
+  box-shadow: 0 20px 40px -10px rgba(1, 51, 35, 0.2);
+}
+
+.float-animation {
+  animation: float 4s ease-in-out infinite;
+}
+.float-animation-delayed {
+  animation: float 4s ease-in-out infinite;
+  animation-delay: 2s;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+
+.has-bottom-nav {
+  padding-bottom: 75px;
+}
+

@@ -1,1 +1,0 @@
-# StrataLearn Django Package
