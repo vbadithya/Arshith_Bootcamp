@@ -506,3 +506,202 @@ export function generateCoursePDF(course, studentName = 'Arshith Kumar') {
   const filename = `ArshithBootCamp_${course.id}_Complete_Course.pdf`;
   doc.save(filename);
 }
+
+/**
+ * Generate Official Student Question Paper PDF
+ */
+export async function generateQuestionPaperPDF(course, paper, options = {}) {
+  const { includeSolutions = true, userAnswers = {} } = options;
+  const doc = new jsPDF({
+    orientation: 'portrait',
+    unit: 'mm',
+    format: 'a4'
+  });
+
+  const pageWidth = doc.internal.pageSize.getWidth();
+  const pageHeight = doc.internal.pageSize.getHeight();
+  const margin = 16;
+  const contentWidth = pageWidth - (margin * 2);
+  let y = 18;
+  let pageCount = 1;
+
+  const addHeaderFooter = (pageNum) => {
+    // Header
+    doc.setFont("helvetica", "bold");
+    doc.setFontSize(8);
+    doc.setTextColor(1, 51, 35);
+    doc.text("ARSHITH BOOT CAMP — OFFICIAL CERTIFICATION EXAMINATION", margin, 10);
+    doc.setFont("helvetica", "normal");
+    doc.setTextColor(100, 116, 139);
+    doc.text(`PAPER: ${paper.paperCode} | SET: ${paper.studentName}`, pageWidth - margin, 10, { align: 'right' });
+    
+    doc.setDrawColor(203, 213, 225);
+    doc.setLineWidth(0.3);
+    doc.line(margin, 12, pageWidth - margin, 12);
+
+    // Footer
+    doc.line(margin, pageHeight - 12, pageWidth - margin, pageHeight - 12);
+    doc.setFontSize(7.5);
+    doc.setTextColor(148, 163, 184);
+    doc.text(`Official Examination Directorate • Confidential & Authorized for ${paper.studentName}`, margin, pageHeight - 7);
+    doc.text(`Page ${pageNum}`, pageWidth - margin, pageHeight - 7, { align: 'right' });
+  };
+
+  addHeaderFooter(1);
+
+  // Institution Banner
+  doc.setFillColor(1, 51, 35);
+  doc.roundedRect(margin, y, contentWidth, 22, 3, 3, 'F');
+  doc.setFont("helvetica", "bold");
+  doc.setFontSize(13);
+  doc.setTextColor(255, 255, 255);
+  doc.text("ARSHITH BOOT CAMP EXAMINATION COUNCIL", margin + 8, y + 8);
+
+  doc.setFontSize(8.5);
+  doc.setFont("helvetica", "normal");
+  doc.setTextColor(166, 226, 205);
+  doc.text(`${course?.title || 'Master Certification'} • Official Assessment Paper Set`, margin + 8, y + 16);
+  y += 28;
+
+  // Candidate Details Hall Ticket Box
+  doc.setFillColor(248, 250, 252);
+  doc.setDrawColor(203, 213, 225);
+  doc.roundedRect(margin, y, contentWidth, 32, 2, 2, 'FD');
+
+  doc.setFont("helvetica", "bold");
+  doc.setFontSize(9);
+  doc.setTextColor(15, 23, 42);
+  doc.text("CANDIDATE INFORMATION & EXAMINATION METRICS", margin + 6, y + 7);
+
+  doc.setFontSize(8);
+  doc.setFont("helvetica", "normal");
+  doc.setTextColor(71, 85, 105);
+
+  const col1 = margin + 6;
+  const col2 = margin + 70;
+  const col3 = margin + 130;
+
+  doc.text(`Student Name: `, col1, y + 15);
+  doc.setFont("helvetica", "bold");
+  doc.setTextColor(1, 51, 35);
+  doc.text(`${paper.studentName}`, col1 + 22, y + 15);
+
+  doc.setFont("helvetica", "normal");
+  doc.setTextColor(71, 85, 105);
+  doc.text(`Roll Number: `, col1, y + 23);
+  doc.setFont("helvetica", "bold");
+  doc.setTextColor(1, 51, 35);
+  doc.text(`${paper.rollNo || '2026-STD-101'}`, col1 + 22, y + 23);
+
+  doc.setFont("helvetica", "normal");
+  doc.setTextColor(71, 85, 105);
+  doc.text(`Candidate ID: `, col2, y + 15);
+  doc.setFont("helvetica", "bold");
+  doc.text(`${paper.candidateId || 'ARB-STD-001'}`, col2 + 22, y + 15);
+
+  doc.setFont("helvetica", "normal");
+  doc.setTextColor(71, 85, 105);
+  doc.text(`Paper Code: `, col2, y + 23);
+  doc.setFont("helvetica", "bold");
+  doc.setTextColor(14, 116, 144);
+  doc.text(`${paper.paperCode}`, col2 + 22, y + 23);
+
+  doc.setFont("helvetica", "normal");
+  doc.setTextColor(71, 85, 105);
+  doc.text(`Time Allowed: ${paper.timeLimitMinutes || 45} Mins`, col3, y + 15);
+  doc.text(`Total Marks: ${paper.totalMarks || 100}`, col3, y + 21);
+  doc.text(`Passing: ${paper.passingScore || 80}%`, col3, y + 27);
+
+  y += 38;
+
+  // Questions Loop
+  const questions = paper.questions || [];
+  questions.forEach((q, qIdx) => {
+    if (y > pageHeight - 50) {
+      doc.addPage();
+      pageCount++;
+      addHeaderFooter(pageCount);
+      y = 18;
+    }
+
+    doc.setFont("helvetica", "bold");
+    doc.setFontSize(9);
+    doc.setTextColor(1, 51, 35);
+    const qTextLines = doc.splitTextToSize(`Q${qIdx + 1}. [${q.topic || 'Concept'}] ${q.questionText}`, contentWidth - 4);
+    doc.text(qTextLines, margin, y);
+    y += (qTextLines.length * 4) + 1;
+
+    if (q.codeSnippet) {
+      if (y > pageHeight - 40) {
+        doc.addPage();
+        pageCount++;
+        addHeaderFooter(pageCount);
+        y = 18;
+      }
+      const snippetLines = doc.splitTextToSize(q.codeSnippet, contentWidth - 12);
+      const snippetHeight = (snippetLines.length * 3.4) + 6;
+      doc.setFillColor(241, 245, 249);
+      doc.roundedRect(margin + 2, y, contentWidth - 4, snippetHeight, 1.5, 1.5, 'F');
+      doc.setFont("courier", "bold");
+      doc.setFontSize(7.5);
+      doc.setTextColor(15, 23, 42);
+      doc.text(snippetLines, margin + 5, y + 4);
+      y += snippetHeight + 2;
+    }
+
+    q.options.forEach((opt, oIdx) => {
+      if (y > pageHeight - 20) {
+        doc.addPage();
+        pageCount++;
+        addHeaderFooter(pageCount);
+        y = 18;
+      }
+      const optLetter = String.fromCharCode(65 + oIdx);
+      const isCorrect = oIdx === q.correctAnswer;
+      const isUserChoice = userAnswers[q.id || qIdx] === oIdx;
+
+      let suffix = '';
+      if (includeSolutions && isCorrect) suffix = '  [CORRECT KEY]';
+      if (includeSolutions && isUserChoice && !isCorrect) suffix = '  [YOUR SELECTION]';
+
+      const optLines = doc.splitTextToSize(`(${optLetter}) ${opt}${suffix}`, contentWidth - 10);
+      doc.setFontSize(8);
+
+      if (includeSolutions && isCorrect) {
+        doc.setFont("helvetica", "bold");
+        doc.setTextColor(5, 150, 105);
+      } else if (includeSolutions && isUserChoice && !isCorrect) {
+        doc.setFont("helvetica", "bold");
+        doc.setTextColor(225, 29, 72);
+      } else {
+        doc.setFont("helvetica", "normal");
+        doc.setTextColor(71, 85, 105);
+      }
+
+      doc.text(optLines, margin + 4, y);
+      y += (optLines.length * 3.5);
+    });
+
+    if (includeSolutions && q.explanation) {
+      if (y > pageHeight - 25) {
+        doc.addPage();
+        pageCount++;
+        addHeaderFooter(pageCount);
+        y = 18;
+      }
+      doc.setFont("helvetica", "italic");
+      doc.setFontSize(7.5);
+      doc.setTextColor(100, 116, 139);
+      const expLines = doc.splitTextToSize(`Explanation: ${q.explanation}`, contentWidth - 8);
+      doc.text(expLines, margin + 4, y + 1);
+      y += (expLines.length * 3.2) + 2;
+    }
+
+    y += 4;
+  });
+
+  const cleanName = paper.studentName.replace(/[^a-zA-Z0-9]/g, '_');
+  const filename = `Question_Paper_${paper.paperCode}_${cleanName}.pdf`;
+  doc.save(filename);
+}
+

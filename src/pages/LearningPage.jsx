@@ -1,13 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import confetti from 'canvas-confetti';
 import { 
   ArrowLeft, CheckCircle, Circle, Award, Download, 
   ChevronRight, ChevronLeft, BookOpen, ExternalLink, 
   Code, Sparkles, AlertTriangle, CheckSquare,
   Clock, Flag, RotateCcw, Trophy, Check, X, HelpCircle,
-  ShieldCheck, Play, ArrowRight, RefreshCw
+  ShieldCheck, Play, ArrowRight, RefreshCw, Lock,
+  User, FileText, CheckCircle2, ShieldAlert, GraduationCap
 } from 'lucide-react';
-import { generateCoursePDF } from '../utils/pdfGenerator';
+import { generateCoursePDF, generateQuestionPaperPDF } from '../utils/pdfGenerator';
 
 export default function LearningPage({ 
   course, 
@@ -21,6 +22,9 @@ export default function LearningPage({
   const [selectedAnswers, setSelectedAnswers] = useState({});
   const [showAnswers, setShowAnswers] = useState(false);
 
+  // Lock State Modal
+  const [showLockedModal, setShowLockedModal] = useState(false);
+
   // Exam Simulator State
   const [isExamMode, setIsExamMode] = useState(false);
   const [examAnswers, setExamAnswers] = useState({});
@@ -33,9 +37,99 @@ export default function LearningPage({
   const [examFilter, setExamFilter] = useState('all'); // 'all', 'incorrect', 'flagged'
 
   const finalTest = course?.finalTest;
-  const examQuestions = finalTest?.questions || [];
+
+  // Normalized 4 Question Papers list
+  const questionPapers = useMemo(() => {
+    if (finalTest?.questionPapers && finalTest.questionPapers.length > 0) {
+      return finalTest.questionPapers;
+    }
+    if (finalTest?.questions && finalTest.questions.length > 0) {
+      return [
+        {
+          id: "qp-arshith-kumar",
+          studentName: "Arshith Kumar",
+          candidateId: "ARB-STD-001",
+          rollNo: "2026-AK-101",
+          paperCode: "ARB-PY-QP01",
+          title: "Paper 1: Arshith Kumar Examination Set",
+          subtitle: "Core Architecture, Memory Model & Sequences",
+          timeLimitMinutes: finalTest.timeLimitMinutes || 45,
+          passingScore: finalTest.passingScore || 80,
+          totalMarks: finalTest.totalMarks || 100,
+          questions: finalTest.questions
+        }
+      ];
+    }
+    return [];
+  }, [finalTest]);
+
+  // Selected Paper State
+  const [selectedPaperId, setSelectedPaperId] = useState(() => {
+    return questionPapers[0]?.id || 'qp-arshith-kumar';
+  });
+
+  // Track submission records per paper
+  const [paperRecords, setPaperRecords] = useState({});
+
+  // Ensure selectedPaperId remains valid
+  useEffect(() => {
+    if (questionPapers.length > 0 && !questionPapers.some(p => p.id === selectedPaperId)) {
+      setSelectedPaperId(questionPapers[0].id);
+    }
+  }, [questionPapers, selectedPaperId]);
+
+  const activePaper = useMemo(() => {
+    return questionPapers.find(p => p.id === selectedPaperId) || questionPapers[0] || {};
+  }, [questionPapers, selectedPaperId]);
+
+  const examQuestions = activePaper?.questions || [];
   const totalExamQuestions = examQuestions.length;
 
+  // Helper to load paper submission from localStorage
+  const loadPaperRecord = (paperId) => {
+    if (!course?.id || !paperId) return null;
+    try {
+      const saved = localStorage.getItem(`arshith_exam_${course.id}_${paperId}`);
+      if (saved) return JSON.parse(saved);
+      // Fallback to legacy single exam key if matching first paper
+      if (paperId === questionPapers[0]?.id) {
+        const legacy = localStorage.getItem(`arshith_exam_${course.id}`);
+        if (legacy) return JSON.parse(legacy);
+      }
+    } catch (e) {}
+    return null;
+  };
+
+  // Sync state whenever active paper or exam mode changes
+  useEffect(() => {
+    if (!activePaper?.id) return;
+    const rec = loadPaperRecord(activePaper.id);
+    if (rec?.submitted) {
+      setExamSubmitted(true);
+      setExamAnswers(rec.answers || {});
+      setExamTimerActive(false);
+    } else {
+      setExamSubmitted(false);
+      setExamAnswers({});
+      setExamFlagged({});
+      setExamCurrentQ(0);
+      setExamTimeLeft((activePaper.timeLimitMinutes || 45) * 60);
+      setExamTimerActive(isExamMode);
+    }
+  }, [selectedPaperId, isExamMode, course?.id]);
+
+  // Refresh all papers records
+  useEffect(() => {
+    if (!course?.id || questionPapers.length === 0) return;
+    const records = {};
+    questionPapers.forEach(p => {
+      const rec = loadPaperRecord(p.id);
+      if (rec?.submitted) records[p.id] = rec;
+    });
+    setPaperRecords(records);
+  }, [selectedPaperId, examSubmitted, course?.id, questionPapers]);
+
+  // Module selection
   useEffect(() => {
     if (!course || !course.modules || course.modules.length === 0) return;
 
@@ -82,20 +176,22 @@ export default function LearningPage({
   const currentModuleIndex = course.modules?.findIndex(m => m.id === currentModule?.id) ?? 0;
   const completedCount = course.modules?.filter(m => m.completed).length || 0;
   const totalCount = course.modules?.length || 1;
-  const isCourseFullyCompleted = course.progress === 100 || completedCount === totalCount;
+  const allModulesCompleted = course.modules && course.modules.length > 0 && course.modules.every(m => m.completed);
+  // Strict locking: all modules must be completed (or course progress 100% with all modules marked)
+  const isCourseFullyCompleted = allModulesCompleted || (course.progress === 100 && completedCount === totalCount);
 
   // Handle Mark Module Complete
   const handleMarkComplete = () => {
     if (!currentModule) return;
     onToggleModuleComplete(course.id, currentModule.id);
 
-    // Check if this was the final uncompleted module
+    // Check if this completes all remaining modules
     const remainingUncompleted = course.modules.filter(m => !m.completed && m.id !== currentModule.id);
     if (remainingUncompleted.length === 0) {
       confetti({
-        particleCount: 150,
-        spread: 90,
-        origin: { y: 0.6 }
+        particleCount: 180,
+        spread: 100,
+        origin: { y: 0.55 }
       });
     }
   };
@@ -122,33 +218,34 @@ export default function LearningPage({
     }
   };
 
-  // Load persistent exam submission if available
-  useEffect(() => {
-    if (!course?.id) return;
-    try {
-      const saved = localStorage.getItem(`arshith_exam_${course.id}`);
-      if (saved) {
-        const parsed = JSON.parse(saved);
-        if (parsed?.submitted) {
-          setExamSubmitted(true);
-          setExamAnswers(parsed.answers || {});
-          setExamTimerActive(false);
-        }
-      }
-    } catch (e) {}
-  }, [course?.id]);
-
-  // Exam Handlers (Strictly single attempt, no retake option)
+  // Exam Handlers
   const openExam = () => {
+    if (!isCourseFullyCompleted) {
+      setShowLockedModal(true);
+      return;
+    }
     setIsExamMode(true);
-    if (!examSubmitted) {
+    const rec = loadPaperRecord(activePaper.id);
+    if (!rec?.submitted) {
       setExamAnswers({});
       setExamFlagged({});
       setExamCurrentQ(0);
-      setExamTimeLeft((finalTest?.timeLimitMinutes || 45) * 60);
+      setExamTimeLeft((activePaper.timeLimitMinutes || 45) * 60);
       setExamTimerActive(true);
     }
     setShowSubmitModal(false);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const handleSelectPaper = (paperId) => {
+    if (paperId === selectedPaperId) return;
+    if (isExamMode && !examSubmitted && Object.keys(examAnswers).length > 0) {
+      if (!window.confirm(`You are currently answering ${activePaper.studentName}'s question paper. Switching to another paper will reset your active unsaved responses in this paper. Continue?`)) {
+        return;
+      }
+    }
+    setSelectedPaperId(paperId);
+    setExamCurrentQ(0);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
@@ -164,16 +261,8 @@ export default function LearningPage({
   const performExamSubmission = () => {
     setExamSubmitted(true);
     setExamTimerActive(false);
-    try {
-      localStorage.setItem(`arshith_exam_${course.id}`, JSON.stringify({
-        submitted: true,
-        answers: examAnswers,
-        submittedAt: new Date().toISOString()
-      }));
-    } catch (e) {}
-    window.scrollTo({ top: 0, behavior: 'smooth' });
 
-    // Calculate score
+    // Calculate score for active paper
     let score = 0;
     examQuestions.forEach((q, idx) => {
       const qKey = q.id || idx;
@@ -181,8 +270,31 @@ export default function LearningPage({
         score++;
       }
     });
+
     const percentage = totalExamQuestions > 0 ? Math.round((score / totalExamQuestions) * 100) : 0;
-    if (percentage >= (finalTest?.passingScore || 80)) {
+    const passed = percentage >= (activePaper.passingScore || finalTest?.passingScore || 80);
+
+    const submissionData = {
+      submitted: true,
+      paperId: activePaper.id,
+      studentName: activePaper.studentName,
+      paperCode: activePaper.paperCode,
+      answers: examAnswers,
+      score,
+      total: totalExamQuestions,
+      percentage,
+      passed,
+      submittedAt: new Date().toISOString()
+    };
+
+    try {
+      localStorage.setItem(`arshith_exam_${course.id}_${activePaper.id}`, JSON.stringify(submissionData));
+      setPaperRecords(prev => ({ ...prev, [activePaper.id]: submissionData }));
+    } catch (e) {}
+
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+
+    if (passed) {
       confetti({
         particleCount: 220,
         spread: 100,
@@ -191,7 +303,7 @@ export default function LearningPage({
     }
   };
 
-  // Exam Score calculation
+  // Exam Score calculation for active paper
   let correctExamCount = 0;
   examQuestions.forEach((q, idx) => {
     const qKey = q.id || idx;
@@ -200,7 +312,7 @@ export default function LearningPage({
     }
   });
   const examPercentage = totalExamQuestions > 0 ? Math.round((correctExamCount / totalExamQuestions) * 100) : 0;
-  const examPassed = examPercentage >= (finalTest?.passingScore || 80);
+  const examPassed = examPercentage >= (activePaper.passingScore || finalTest?.passingScore || 80);
   const answeredCount = Object.keys(examAnswers).length;
 
   const formatTimer = (seconds) => {
@@ -218,11 +330,14 @@ export default function LearningPage({
         <div className="flex items-center gap-3">
           <button
             onClick={() => {
-              if (isExamMode && !examSubmitted) {
+              if (isExamMode && !examSubmitted && Object.keys(examAnswers).length > 0) {
                 if (window.confirm("An active exam is in progress. Are you sure you want to exit? Your progress in this attempt will be reset.")) {
                   setIsExamMode(false);
                   setExamTimerActive(false);
                 }
+              } else if (isExamMode) {
+                setIsExamMode(false);
+                setExamTimerActive(false);
               } else {
                 onBack();
               }
@@ -230,7 +345,7 @@ export default function LearningPage({
             className="p-2 text-slate-300 hover:text-white bg-slate-800 hover:bg-slate-700 rounded-xl transition-all flex items-center gap-1.5 text-xs font-extrabold border border-slate-700"
           >
             <ArrowLeft className="w-4 h-4" />
-            <span className="hidden sm:inline">Exit Boot Camp Player</span>
+            <span className="hidden sm:inline">{isExamMode ? "Exit Exam View" : "Exit Player"}</span>
           </button>
 
           <div className="h-4 w-px bg-slate-800 hidden sm:block" />
@@ -238,7 +353,7 @@ export default function LearningPage({
           <div>
             <span className="text-[10px] font-black text-emerald-400 uppercase tracking-wider">{course.title}</span>
             <h2 className="text-sm font-black text-white truncate max-w-xs sm:max-w-md">
-              {isExamMode ? (finalTest?.title || "Python Master Certification Exam") : currentModule?.title}
+              {isExamMode ? `${activePaper.paperCode || 'QP'} • ${activePaper.studentName || 'Final Exam'}` : currentModule?.title}
             </h2>
           </div>
         </div>
@@ -259,101 +374,108 @@ export default function LearningPage({
 
               <button
                 onClick={() => setShowSubmitModal(true)}
-                className="px-4 py-1.5 text-xs font-black text-slate-950 bg-emerald-400 hover:bg-emerald-300 rounded-full shadow-lg transition-all"
+                className="px-4 py-2 text-xs font-black text-slate-950 bg-emerald-400 hover:bg-emerald-300 rounded-xl transition-all shadow-md"
               >
-                Submit Exam
+                Submit Paper
               </button>
             </div>
           ) : (
-            <div className="hidden md:flex items-center gap-3">
-              <div className="text-right">
-                <p className="text-[10px] font-bold text-slate-400 uppercase">Boot Camp Progress</p>
-                <p className="text-xs font-black text-emerald-400">{completedCount} / {totalCount} Modules ({course.progress}%)</p>
+            <div className="flex items-center gap-3">
+              <div className="text-right hidden sm:block">
+                <span className="text-[10px] font-bold text-slate-400 uppercase">Module Progress</span>
+                <p className="text-xs font-black text-white">
+                  {completedCount} / {totalCount} Completed ({Math.round(completedCount/totalCount * 100)}%)
+                </p>
               </div>
-              <div className="w-28 h-2.5 bg-slate-800 rounded-full overflow-hidden border border-slate-700">
+
+              <div className="w-24 sm:w-32 h-2.5 bg-slate-800 rounded-full overflow-hidden border border-slate-700">
                 <div
                   className="h-full bg-gradient-to-r from-brand-600 to-emerald-400 rounded-full transition-all duration-300"
-                  style={{ width: `${course.progress}%` }}
+                  style={{ width: `${Math.round(completedCount/totalCount * 100)}%` }}
                 />
               </div>
+
+              {isCourseFullyCompleted && (
+                <button
+                  onClick={() => onViewCertificate(course.id)}
+                  className="px-3.5 py-1.5 bg-amber-400/10 hover:bg-amber-400/20 text-amber-300 border border-amber-500/40 rounded-xl text-xs font-black flex items-center gap-1.5 transition-all shadow-sm"
+                >
+                  <Award className="w-4 h-4 text-amber-400" />
+                  <span className="hidden md:inline">Certificate Ready</span>
+                </button>
+              )}
             </div>
-          )}
-
-          <button
-            onClick={() => generateCoursePDF(course)}
-            className="px-3 py-1.5 text-xs font-extrabold text-white bg-brand-900 hover:bg-brand-800 border border-brand-700 rounded-lg flex items-center gap-1.5"
-            title="Download Complete Course Manual PDF"
-          >
-            <Download className="w-4 h-4 text-emerald-400" />
-            <span className="hidden sm:inline">Course PDF</span>
-          </button>
-
-          {isCourseFullyCompleted && (
-            <button
-              onClick={() => onViewCertificate(course.id)}
-              className="px-4 py-1.5 text-xs font-black text-slate-950 bg-amber-400 hover:bg-amber-300 rounded-full shadow-lg flex items-center gap-1.5"
-            >
-              <Award className="w-4 h-4 text-slate-950" />
-              <span>Get Certificate</span>
-            </button>
           )}
         </div>
       </header>
 
-      {/* Main Workspace Layout */}
-      <div className="flex-1 grid lg:grid-cols-12 overflow-hidden">
+      {/* Main Container Layout */}
+      <div className="flex-1 grid grid-cols-1 lg:grid-cols-12 min-h-0">
         
-        {/* Left Sidebar: Modules List & Final Exam Link (4 Cols) */}
-        <div className="lg:col-span-4 bg-slate-900/90 border-r border-slate-800 overflow-y-auto max-h-[calc(100vh-60px)] p-4 space-y-4">
-          <div className="bg-slate-950 p-4 rounded-2xl border border-slate-800 space-y-2">
-            <div className="flex justify-between items-center text-xs font-black">
-              <span className="text-slate-300 uppercase">Modules Progression</span>
-              <span className="text-emerald-400">{completedCount} / {totalCount} Done</span>
+        {/* Left Sidebar: Course Curriculum Outline (4 Cols) */}
+        <div className="lg:col-span-4 bg-slate-900/70 border-r-2 border-brand-900 p-4 sm:p-5 overflow-y-auto space-y-4">
+          <div className="flex items-center justify-between pb-3 border-b border-slate-800">
+            <div>
+              <h3 className="text-xs font-black uppercase tracking-wider text-slate-300">Course Syllabus</h3>
+              <p className="text-[11px] text-slate-400 font-medium">{course.modules?.length} Interactive Modules</p>
             </div>
-            <div className="w-full h-2 bg-slate-800 rounded-full overflow-hidden">
-              <div
-                className="h-full bg-gradient-to-r from-brand-600 to-emerald-400 rounded-full"
-                style={{ width: `${course.progress}%` }}
-              />
-            </div>
+            <span className={`text-[10px] font-black px-2.5 py-1 rounded-full border ${
+              isCourseFullyCompleted 
+                ? 'bg-emerald-950 text-emerald-300 border-emerald-600' 
+                : 'bg-slate-800 text-slate-400 border-slate-700'
+            }`}>
+              {isCourseFullyCompleted ? "100% Complete" : `${completedCount}/${totalCount} Done`}
+            </span>
           </div>
 
-          {/* Modules Tree */}
+          {/* Module List Cards */}
           <div className="space-y-2">
-            {course.modules?.map((mod, idx) => {
-              const isSelected = !isExamMode && currentModule?.id === mod.id;
+            {course.modules?.map((m, idx) => {
+              const isCurrent = !isExamMode && m.id === currentModule?.id;
+              const isDone = Boolean(m.completed);
+
               return (
                 <button
-                  key={mod.id}
+                  key={m.id || idx}
                   onClick={() => {
+                    if (isExamMode && !examSubmitted && Object.keys(examAnswers).length > 0) {
+                      if (!window.confirm("Leave active exam? Your answers in this attempt will be reset.")) return;
+                    }
                     setIsExamMode(false);
-                    setCurrentModule(mod);
+                    setCurrentModule(m);
                     setShowSolution(false);
                     setSelectedAnswers({});
                     setShowAnswers(false);
                   }}
-                  className={`w-full flex items-center justify-between p-3 rounded-xl text-left transition-all border ${
-                    isSelected
-                      ? 'bg-brand-600 text-white border-brand-500 font-bold shadow-lg'
-                      : mod.completed
-                      ? 'bg-slate-900/80 text-emerald-300 border-slate-800/80 hover:bg-slate-800'
-                      : 'bg-slate-900/40 text-slate-300 border-slate-800/60 hover:bg-slate-800'
+                  className={`w-full p-3.5 rounded-2xl text-left transition-all border flex items-start gap-3 relative group ${
+                    isCurrent
+                      ? 'bg-slate-800/90 border-emerald-500 shadow-md ring-1 ring-emerald-500/30'
+                      : 'bg-slate-900/60 hover:bg-slate-800 border-slate-800 hover:border-slate-700'
                   }`}
                 >
-                  <div className="flex items-center gap-3 min-w-0">
-                    {mod.completed ? (
-                      <CheckCircle className={`w-4.5 h-4.5 shrink-0 ${isSelected ? 'text-white' : 'text-emerald-400'}`} />
+                  <div className="mt-0.5">
+                    {isDone ? (
+                      <CheckCircle className="w-4 h-4 text-emerald-400 shrink-0" />
+                    ) : isCurrent ? (
+                      <Circle className="w-4 h-4 text-emerald-400 fill-emerald-400/20 shrink-0" />
                     ) : (
-                      <Circle className={`w-4.5 h-4.5 shrink-0 ${isSelected ? 'text-white' : 'text-slate-500'}`} />
+                      <Circle className="w-4 h-4 text-slate-500 shrink-0" />
                     )}
-                    <span className="text-xs font-bold truncate">
-                      {mod.title}
-                    </span>
                   </div>
 
-                  <span className="text-[10px] font-mono opacity-80 shrink-0 ml-1">
-                    {mod.completed ? '✓' : `M${idx + 1}`}
-                  </span>
+                  <div className="min-w-0 flex-1">
+                    <div className="flex items-center justify-between gap-2">
+                      <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">
+                        Module {idx + 1}
+                      </span>
+                      {m.estimatedHours && (
+                        <span className="text-[9px] text-slate-500 font-semibold">{m.estimatedHours} hrs</span>
+                      )}
+                    </div>
+                    <h4 className={`text-xs font-bold truncate mt-0.5 ${isCurrent ? 'text-white' : 'text-slate-300'}`}>
+                      {m.title}
+                    </h4>
+                  </div>
                 </button>
               );
             })}
@@ -364,28 +486,35 @@ export default function LearningPage({
             <div className="pt-2">
               <button
                 onClick={() => {
-                  openExam();
+                  if (!isCourseFullyCompleted) {
+                    setShowLockedModal(true);
+                  } else {
+                    openExam();
+                  }
                 }}
                 className={`w-full p-4 rounded-2xl text-left transition-all border-2 relative overflow-hidden group ${
                   isExamMode
                     ? 'bg-gradient-to-br from-brand-900 to-emerald-950 border-emerald-400 shadow-xl'
                     : isCourseFullyCompleted
                     ? 'bg-slate-900/90 hover:bg-slate-800 border-amber-500/50 hover:border-amber-400 shadow-lg'
-                    : 'bg-slate-900/60 hover:bg-slate-800 border-slate-700/80'
+                    : 'bg-slate-900/60 hover:bg-slate-800/80 border-slate-700/80 opacity-90'
                 }`}
               >
                 <div className="flex items-start gap-3">
                   <div className={`w-9 h-9 rounded-xl flex items-center justify-center shrink-0 border ${
                     isExamMode 
                       ? 'bg-emerald-500 text-slate-950 border-emerald-300 font-black' 
-                      : 'bg-amber-400/10 text-amber-400 border-amber-500/30'
+                      : isCourseFullyCompleted
+                      ? 'bg-amber-400/10 text-amber-400 border-amber-500/30'
+                      : 'bg-slate-800/80 text-amber-400/80 border-slate-700'
                   }`}>
-                    <Trophy className="w-5 h-5" />
+                    {isCourseFullyCompleted ? <Trophy className="w-5 h-5" /> : <Lock className="w-4 h-4 text-amber-400" />}
                   </div>
 
                   <div className="min-w-0 flex-1">
                     <div className="flex items-center justify-between">
-                      <span className="text-[10px] font-black uppercase tracking-wider text-amber-400">
+                      <span className="text-[10px] font-black uppercase tracking-wider text-amber-400 flex items-center gap-1">
+                        {!isCourseFullyCompleted && <Lock className="w-2.5 h-2.5 inline" />}
                         Final Assessment
                       </span>
                       <span className={`text-[10px] font-black px-2 py-0.5 rounded-full ${
@@ -395,9 +524,9 @@ export default function LearningPage({
                             : 'bg-rose-950 text-rose-300 border border-rose-600'
                           : isCourseFullyCompleted 
                           ? 'bg-emerald-950 text-emerald-300 border border-emerald-600'
-                          : 'bg-slate-800 text-slate-400'
+                          : 'bg-amber-950/80 text-amber-300 border border-amber-600/50'
                       }`}>
-                        {examSubmitted ? `Score: ${examPercentage}%` : isCourseFullyCompleted ? 'Ready' : '25 MCQs'}
+                        {examSubmitted ? `Score: ${examPercentage}%` : isCourseFullyCompleted ? '4 Papers Ready' : `Locked (${completedCount}/${totalCount})`}
                       </span>
                     </div>
 
@@ -406,7 +535,9 @@ export default function LearningPage({
                     </h4>
 
                     <p className="text-[10px] text-slate-400 mt-1">
-                      {examSubmitted ? 'Submission recorded (Single attempt)' : `${totalExamQuestions} Questions • ${finalTest.timeLimitMinutes || 45} Mins • Pass ${finalTest.passingScore || 80}%`}
+                      {isCourseFullyCompleted 
+                        ? (examSubmitted ? 'Submission recorded • Review below' : '4 Student Sets: Arshith, Priya, Rahul & Adithya')
+                        : `Complete all ${totalCount} modules to unlock final question papers (${completedCount}/${totalCount} done)`}
                     </p>
                   </div>
                 </div>
@@ -420,44 +551,167 @@ export default function LearningPage({
         <div className="lg:col-span-8 p-4 sm:p-8 overflow-y-auto space-y-8 max-w-4xl mx-auto w-full">
 
           {/* ========================================================================= */}
-          {/* VIEW A: INTERACTIVE FINAL EXAM SIMULATOR                                  */}
+          {/* VIEW A: INTERACTIVE FINAL EXAM SIMULATOR (4 STUDENT QUESTION PAPERS)      */}
           {/* ========================================================================= */}
           {isExamMode ? (
             <div className="space-y-6">
               
-              {/* Exam Header Banner */}
-              <div className="bg-gradient-to-r from-slate-900 via-brand-950 to-slate-900 rounded-3xl p-6 border-2 border-emerald-500/40 space-y-3">
-                <div className="flex flex-wrap items-center justify-between gap-3">
+              {/* Question Papers Hub: 4 Student Sets Selection Banner */}
+              <div className="bg-slate-900/90 rounded-3xl p-5 border-2 border-emerald-500/40 space-y-4">
+                <div className="flex flex-wrap items-center justify-between gap-2 border-b border-slate-800 pb-3">
                   <div className="flex items-center gap-2">
                     <span className="px-3 py-1 bg-amber-400/10 text-amber-300 text-[10px] font-black uppercase rounded-full border border-amber-500/30 flex items-center gap-1.5">
-                      <Trophy className="w-3.5 h-3.5 text-amber-400" />
-                      Official Master Certification Exam
+                      <GraduationCap className="w-3.5 h-3.5 text-amber-400" />
+                      Official Master Certification Papers
                     </span>
                     <span className="text-[11px] font-bold text-slate-400">
-                      Passing Criteria: {finalTest?.passingScore || 80}%
+                      4 Student-Assigned Examination Sets
                     </span>
                   </div>
 
-                  {!examSubmitted && (
-                    <div className="flex items-center gap-3">
-                      <span className="text-xs font-bold text-slate-400">
-                        Answered: <strong className="text-emerald-400">{answeredCount}</strong> / {totalExamQuestions}
+                  <span className="text-[11px] font-black text-emerald-400 bg-emerald-950/80 px-2.5 py-0.5 rounded-full border border-emerald-700">
+                    Active: {activePaper.studentName}
+                  </span>
+                </div>
+
+                {/* 4 Candidate Paper Selector Cards */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2.5">
+                  {questionPapers.map((paper, pIdx) => {
+                    const isSelected = paper.id === selectedPaperId;
+                    const sub = paperRecords[paper.id];
+
+                    return (
+                      <button
+                        key={paper.id}
+                        onClick={() => handleSelectPaper(paper.id)}
+                        className={`p-3 rounded-2xl border-2 text-left transition-all relative overflow-hidden group ${
+                          isSelected
+                            ? 'bg-gradient-to-br from-emerald-950 via-slate-900 to-brand-950 border-emerald-400 shadow-lg shadow-emerald-500/10 ring-2 ring-emerald-400/30'
+                            : 'bg-slate-950/80 hover:bg-slate-800/90 border-slate-800 hover:border-slate-700'
+                        }`}
+                      >
+                        <div className="flex items-center justify-between gap-1 mb-1.5">
+                          <span className="text-[10px] font-black uppercase tracking-wider text-emerald-400">
+                            {paper.paperCode}
+                          </span>
+                          <span className={`text-[9px] font-black px-2 py-0.5 rounded-full border ${
+                            sub?.submitted
+                              ? sub.passed
+                                ? 'bg-emerald-950 text-emerald-300 border-emerald-600'
+                                : 'bg-rose-950 text-rose-300 border-rose-600'
+                              : isSelected
+                              ? 'bg-brand-500 text-slate-950 font-black border-brand-300'
+                              : 'bg-slate-800 text-slate-400 border-slate-700'
+                          }`}>
+                            {sub?.submitted ? `${sub.percentage}%` : isSelected ? 'Active' : `Paper ${pIdx + 1}`}
+                          </span>
+                        </div>
+
+                        <div className="text-xs font-black text-white flex items-center gap-1.5 truncate">
+                          <User className="w-3.5 h-3.5 text-amber-400 shrink-0" />
+                          <span className="truncate">{paper.studentName}</span>
+                        </div>
+
+                        <div className="text-[10px] text-slate-400 mt-1 flex items-center justify-between font-mono">
+                          <span>{paper.rollNo}</span>
+                          <span>{paper.questions?.length || 15} MCQs</span>
+                        </div>
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+
+              {/* Active Paper Official Hall Ticket & Admit Card Header */}
+              <div className="bg-slate-900/95 border-2 border-emerald-500/40 rounded-3xl p-6 shadow-xl relative overflow-hidden space-y-4">
+                {/* Background Watermark */}
+                <div className="absolute right-4 bottom-2 text-5xl sm:text-6xl font-black text-slate-800/15 select-none pointer-events-none uppercase tracking-widest font-mono">
+                  {activePaper.studentName}
+                </div>
+
+                <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 border-b border-slate-800 pb-4 relative z-10">
+                  <div>
+                    <div className="flex items-center gap-2">
+                      <span className="px-2.5 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 text-[10px] font-black uppercase">
+                        {activePaper.paperCode} • Official Set
                       </span>
+                      <span className="text-[11px] font-bold text-amber-400">
+                        Candidate: {activePaper.studentName}
+                      </span>
+                    </div>
+
+                    <h2 className="text-xl sm:text-2xl font-black text-white mt-1">
+                      {activePaper.title}
+                    </h2>
+                    <p className="text-xs text-slate-300 mt-0.5 max-w-xl">
+                      {activePaper.subtitle || activePaper.description}
+                    </p>
+                  </div>
+
+                  {/* Candidate Metrics Pill Box */}
+                  <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 shrink-0 bg-slate-950 p-3 rounded-2xl border border-slate-800 text-[11px]">
+                    <div>
+                      <span className="text-[9px] text-slate-500 uppercase block font-bold">Roll Number</span>
+                      <span className="font-black text-emerald-300">{activePaper.rollNo}</span>
+                    </div>
+                    <div>
+                      <span className="text-[9px] text-slate-500 uppercase block font-bold">Candidate ID</span>
+                      <span className="font-bold text-slate-300">{activePaper.candidateId}</span>
+                    </div>
+                    <div className="col-span-2 sm:col-span-1">
+                      <span className="text-[9px] text-slate-500 uppercase block font-bold">Passing Mark</span>
+                      <span className="font-bold text-amber-400">{activePaper.passingScore || 80}%</span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Status, Timer & Action Controls */}
+                <div className="flex flex-wrap items-center justify-between gap-3 relative z-10">
+                  <div className="flex items-center gap-3">
+                    {!examSubmitted ? (
+                      <div className="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-slate-950 border border-slate-800 text-xs font-mono font-bold">
+                        <Clock className="w-4 h-4 text-emerald-400" />
+                        <span className="text-slate-300">Time Left:</span>
+                        <span className={`font-black ${examTimeLeft < 300 ? 'text-rose-400 animate-pulse' : 'text-emerald-400'}`}>
+                          {formatTimer(examTimeLeft)}
+                        </span>
+                      </div>
+                    ) : (
+                      <span className="text-xs font-bold text-emerald-400 flex items-center gap-1.5 bg-emerald-950/60 px-3 py-1.5 rounded-xl border border-emerald-700/60">
+                        <CheckCircle className="w-4 h-4" />
+                        Result Recorded for {activePaper.studentName}
+                      </span>
+                    )}
+
+                    <span className="text-xs font-bold text-slate-400">
+                      Answered: <strong className="text-emerald-400">{answeredCount}</strong> / {totalExamQuestions}
+                    </span>
+                  </div>
+
+                  <div className="flex items-center gap-2">
+                    {examSubmitted && (
+                      <button
+                        onClick={() => generateQuestionPaperPDF(course, activePaper, { userAnswers: examAnswers })}
+                        className="px-4 py-2 text-xs font-bold text-emerald-300 bg-emerald-950/90 hover:bg-emerald-900 border border-emerald-600 rounded-xl flex items-center gap-1.5 transition-all shadow-md"
+                      >
+                        <Download className="w-3.5 h-3.5" />
+                        <span>Download {activePaper.studentName}'s PDF</span>
+                      </button>
+                    )}
+
+                    {!examSubmitted && (
                       <button
                         onClick={() => setShowSubmitModal(true)}
-                        className="px-4 py-2 text-xs font-black text-slate-950 bg-emerald-400 hover:bg-emerald-300 rounded-xl transition-all shadow-md"
+                        className="px-5 py-2 text-xs font-black text-slate-950 bg-emerald-400 hover:bg-emerald-300 rounded-xl transition-all shadow-md"
                       >
                         Finish & Submit
                       </button>
-                    </div>
-                  )}
+                    )}
+                  </div>
                 </div>
 
-                <h1 className="text-2xl sm:text-3xl font-black text-white">{finalTest?.title}</h1>
-                <p className="text-xs text-slate-300 font-medium leading-relaxed">{finalTest?.description}</p>
-
                 {/* Progress bar */}
-                <div className="w-full h-2 bg-slate-800 rounded-full overflow-hidden mt-2">
+                <div className="w-full h-2 bg-slate-800 rounded-full overflow-hidden mt-1">
                   <div
                     className="h-full bg-gradient-to-r from-brand-600 to-emerald-400 rounded-full transition-all duration-300"
                     style={{ width: `${(answeredCount / totalExamQuestions) * 100}%` }}
@@ -469,16 +723,18 @@ export default function LearningPage({
               {!examSubmitted ? (
                 <div className="space-y-6">
 
-                  {/* 25-Question Matrix Navigator */}
+                  {/* Question Matrix Navigator */}
                   <div className="bg-slate-900/90 rounded-2xl p-4 border border-slate-800 space-y-3">
                     <div className="flex items-center justify-between text-xs font-black">
-                      <span className="text-slate-300 uppercase tracking-wider">Question Quick Navigation</span>
+                      <span className="text-slate-300 uppercase tracking-wider">
+                        {activePaper.studentName} Question Navigator
+                      </span>
                       <span className="text-[11px] text-slate-400">
                         Click number to jump to question
                       </span>
                     </div>
 
-                    <div className="grid grid-cols-5 sm:grid-cols-10 md:grid-cols-13 lg:grid-cols-25 gap-1.5">
+                    <div className="grid grid-cols-5 sm:grid-cols-10 md:grid-cols-15 gap-1.5">
                       {examQuestions.map((q, idx) => {
                         const qKey = q.id || idx;
                         const isAnswered = examAnswers[qKey] !== undefined;
@@ -558,45 +814,43 @@ export default function LearningPage({
 
                       {/* 4 Interactive Radio Options */}
                       <div className="grid gap-3 pt-2">
-                        {examQuestions[examCurrentQ].options?.map((opt, oIdx) => {
+                        {examQuestions[examCurrentQ].options?.map((optionText, optIdx) => {
                           const qKey = examQuestions[examCurrentQ].id || examCurrentQ;
-                          const isSelected = examAnswers[qKey] === oIdx;
+                          const isSelected = examAnswers[qKey] === optIdx;
 
                           return (
                             <button
-                              key={oIdx}
+                              key={optIdx}
                               onClick={() => {
-                                setExamAnswers(prev => ({ ...prev, [qKey]: oIdx }));
+                                setExamAnswers(prev => ({
+                                  ...prev,
+                                  [qKey]: optIdx
+                                }));
                               }}
-                              className={`w-full text-left p-4 rounded-2xl text-xs transition-all border flex items-center justify-between group ${
+                              className={`w-full p-4 rounded-2xl text-left transition-all border flex items-start gap-3.5 ${
                                 isSelected
-                                  ? 'bg-emerald-950/80 border-emerald-400 text-emerald-200 font-bold shadow-lg'
-                                  : 'bg-slate-950/60 border-slate-800 text-slate-300 hover:bg-slate-800/80 hover:text-white'
+                                  ? 'bg-emerald-950/60 border-emerald-400 text-white shadow-md ring-1 ring-emerald-400/40'
+                                  : 'bg-slate-950/70 hover:bg-slate-800 border-slate-800 text-slate-300 hover:border-slate-700'
                               }`}
                             >
-                              <div className="flex items-center gap-3">
-                                <span className={`w-6 h-6 rounded-lg text-xs font-black flex items-center justify-center shrink-0 border ${
-                                  isSelected 
-                                    ? 'bg-emerald-400 text-slate-950 border-emerald-300' 
-                                    : 'bg-slate-800 text-slate-400 border-slate-700 group-hover:text-white'
-                                }`}>
-                                  {String.fromCharCode(65 + oIdx)}
-                                </span>
-                                <span className="leading-relaxed">{opt}</span>
+                              <div className={`w-6 h-6 rounded-lg flex items-center justify-center shrink-0 text-xs font-black border transition-all ${
+                                isSelected
+                                  ? 'bg-emerald-400 text-slate-950 border-emerald-300 font-black'
+                                  : 'bg-slate-800 text-slate-400 border-slate-700'
+                              }`}>
+                                {String.fromCharCode(65 + optIdx)}
                               </div>
 
-                              <div className={`w-4 h-4 rounded-full border flex items-center justify-center shrink-0 ml-3 ${
-                                isSelected ? 'border-emerald-400 bg-emerald-400 text-slate-950' : 'border-slate-700'
-                              }`}>
-                                {isSelected && <Check className="w-3 h-3 stroke-[3]" />}
-                              </div>
+                              <span className="text-xs sm:text-sm font-medium leading-relaxed pt-0.5">
+                                {optionText}
+                              </span>
                             </button>
                           );
                         })}
                       </div>
 
-                      {/* Navigation Controls */}
-                      <div className="flex items-center justify-between pt-6 border-t border-slate-800">
+                      {/* Bottom Navigator Controls */}
+                      <div className="flex items-center justify-between pt-4 border-t border-slate-800">
                         <button
                           onClick={() => setExamCurrentQ(prev => Math.max(0, prev - 1))}
                           disabled={examCurrentQ === 0}
@@ -637,39 +891,59 @@ export default function LearningPage({
                 /* EXAM SUBMITTED: SCORECARD & DETAILED REVIEW MODE */
                 <div className="space-y-8">
                   
-                  {/* Score Card Banner */}
-                  <div className={`p-8 rounded-3xl border-2 text-center space-y-4 ${
+                  {/* Official Score Card Banner */}
+                  <div className={`p-8 rounded-3xl border-2 text-center space-y-4 shadow-2xl relative overflow-hidden ${
                     examPassed 
                       ? 'bg-gradient-to-b from-emerald-950 via-slate-900 to-slate-900 border-emerald-400' 
                       : 'bg-gradient-to-b from-rose-950 via-slate-900 to-slate-900 border-rose-500'
                   }`}>
+                    {/* Watermark */}
+                    <div className="absolute right-6 top-6 text-7xl font-black text-white/5 select-none pointer-events-none uppercase">
+                      {activePaper.studentName}
+                    </div>
+
                     <div className={`w-20 h-20 rounded-full mx-auto flex items-center justify-center text-4xl shadow-xl border-2 ${
                       examPassed ? 'bg-emerald-500/20 text-emerald-400 border-emerald-400' : 'bg-rose-500/20 text-rose-400 border-rose-500'
                     }`}>
                       {examPassed ? '🏆' : '📚'}
                     </div>
 
-                    <div className="space-y-1">
-                      <span className={`text-xs font-black uppercase tracking-wider px-3 py-1 rounded-full border ${
+                    <div className="space-y-1.5 relative z-10">
+                      <span className={`text-xs font-black uppercase tracking-wider px-3.5 py-1 rounded-full border ${
                         examPassed ? 'bg-emerald-950 text-emerald-300 border-emerald-500' : 'bg-rose-950 text-rose-300 border-rose-600'
                       }`}>
-                        {examPassed ? 'Certification Exam Passed' : 'Needs Improvement'}
+                        {examPassed ? 'Certification Exam Passed • Distinction' : 'Needs Improvement'}
                       </span>
-                      <h2 className="text-3xl sm:text-4xl font-black text-white pt-2">
-                        Your Score: {examPercentage}% ({correctExamCount} / {totalExamQuestions})
-                      </h2>
+                      
+                      <div className="pt-2">
+                        <span className="text-xs font-mono text-emerald-300 uppercase tracking-widest block">
+                          CANDIDATE: {activePaper.studentName} ({activePaper.rollNo})
+                        </span>
+                        <h2 className="text-3xl sm:text-4xl font-black text-white pt-1">
+                          Score: {examPercentage}% ({correctExamCount} / {totalExamQuestions})
+                        </h2>
+                      </div>
+
                       <p className="text-xs text-slate-300 max-w-lg mx-auto leading-relaxed pt-1">
                         {examPassed 
-                          ? `Outstanding accomplishment! You have conquered the rigorous Python Master Certification Exam and proven your technical depth across all 15 modules.` 
-                          : `Passing score is ${finalTest?.passingScore || 80}%. Review the in-depth explanations below to solidify your understanding.`}
+                          ? `Outstanding accomplishment! ${activePaper.studentName} has mastered ${course.title} (${activePaper.paperCode}) with verified technical excellence.` 
+                          : `Passing score is ${activePaper.passingScore || 80}%. Review the in-depth explanations below to solidify your understanding.`}
                       </p>
                     </div>
 
-                    <div className="flex flex-wrap items-center justify-center gap-3 pt-3">
+                    <div className="flex flex-wrap items-center justify-center gap-3 pt-3 relative z-10">
+                      <button
+                        onClick={() => generateQuestionPaperPDF(course, activePaper, { userAnswers: examAnswers })}
+                        className="px-6 py-3 text-xs font-black text-slate-950 bg-emerald-400 hover:bg-emerald-300 rounded-full shadow-lg flex items-center gap-2 border-2 border-emerald-300 transition-all"
+                      >
+                        <Download className="w-4 h-4 text-slate-950" />
+                        <span>Download {activePaper.studentName}'s PDF</span>
+                      </button>
+
                       {examPassed && (
                         <button
                           onClick={() => onViewCertificate(course.id)}
-                          className="px-6 py-3 text-xs font-black text-slate-950 bg-amber-400 hover:bg-amber-300 rounded-full shadow-lg flex items-center gap-2 border-2 border-amber-300"
+                          className="px-6 py-3 text-xs font-black text-slate-950 bg-amber-400 hover:bg-amber-300 rounded-full shadow-lg flex items-center gap-2 border-2 border-amber-300 transition-all"
                         >
                           <Award className="w-4 h-4 text-slate-950" />
                           <span>Claim Official Certificate</span>
@@ -678,22 +952,24 @@ export default function LearningPage({
 
                       <button
                         onClick={() => {
-                          setIsExamMode(false);
-                          setCurrentModule(course.modules[0]);
+                          // Switch to next unattempted paper
+                          const nextPaper = questionPapers.find(p => p.id !== activePaper.id);
+                          if (nextPaper) handleSelectPaper(nextPaper.id);
                         }}
-                        className="px-6 py-3 text-xs font-bold text-slate-300 hover:text-white bg-slate-900 hover:bg-slate-800 rounded-full border border-slate-800"
+                        className="px-6 py-3 text-xs font-bold text-slate-300 hover:text-white bg-slate-900 hover:bg-slate-800 rounded-full border border-slate-700 flex items-center gap-2"
                       >
-                        Exit to Course Modules
+                        <RefreshCw className="w-4 h-4 text-amber-400" />
+                        <span>Try Another Student Paper Set</span>
                       </button>
                     </div>
                   </div>
 
-                  {/* Comprehensive Review of All 25 Questions */}
+                  {/* Comprehensive Review of All Questions */}
                   <div className="space-y-6">
                     <div className="flex items-center justify-between border-b border-slate-800 pb-3">
                       <div>
                         <h3 className="text-lg font-black text-white">Detailed Solutions & Authoritative Explanations</h3>
-                        <p className="text-xs text-slate-400">Review your answers against the complete grading rubric</p>
+                        <p className="text-xs text-slate-400">Review answers for {activePaper.studentName} ({activePaper.paperCode})</p>
                       </div>
 
                       <div className="flex items-center gap-2">
@@ -718,71 +994,63 @@ export default function LearningPage({
                                 : 'bg-slate-900/80 border-rose-950/60'
                             }`}
                           >
-                            <div className="flex items-start justify-between gap-3">
-                              <div className="flex items-center gap-2">
-                                <span className={`w-7 h-7 rounded-lg text-xs font-black flex items-center justify-center shrink-0 border ${
-                                  isCorrect ? 'bg-emerald-500/20 text-emerald-400 border-emerald-500/30' : 'bg-rose-500/20 text-rose-400 border-rose-500/30'
-                                }`}>
-                                  Q{idx + 1}
-                                </span>
-                                {q.topic && (
-                                  <span className="text-xs font-bold text-slate-400">
-                                    {q.topic}
-                                  </span>
-                                )}
-                              </div>
-
-                              <span className={`text-[11px] font-black px-2.5 py-1 rounded-full border ${
-                                isCorrect ? 'bg-emerald-950 text-emerald-300 border-emerald-600' : 'bg-rose-950 text-rose-300 border-rose-600'
+                            <div className="flex items-center justify-between">
+                              <span className="text-xs font-black text-slate-400">
+                                Question {idx + 1} of {totalExamQuestions} {q.topic && `• ${q.topic}`}
+                              </span>
+                              <span className={`text-[11px] font-bold px-2 py-0.5 rounded-full border ${
+                                isCorrect 
+                                  ? 'bg-emerald-950 text-emerald-300 border-emerald-700' 
+                                  : 'bg-rose-950 text-rose-300 border-rose-700'
                               }`}>
-                                {isCorrect ? '✓ Correct' : '✗ Incorrect'}
+                                {isCorrect ? 'Correct ✓' : 'Incorrect ✗'}
                               </span>
                             </div>
 
-                            <p className="text-xs font-bold text-white leading-relaxed">
+                            <h4 className="text-sm font-bold text-white leading-relaxed">
                               {q.questionText}
-                            </p>
+                            </h4>
 
                             {q.codeSnippet && (
-                              <div className="bg-slate-950 rounded-xl p-3.5 border border-slate-800 font-mono text-xs text-emerald-300 overflow-x-auto">
+                              <div className="bg-slate-950 rounded-xl p-3 border border-slate-800 font-mono text-xs text-emerald-300 overflow-x-auto">
                                 <pre>{q.codeSnippet}</pre>
                               </div>
                             )}
 
                             <div className="grid gap-2">
-                              {q.options?.map((opt, oIdx) => {
-                                const isThisUser = userAns === oIdx;
-                                const isThisCorrect = q.correctAnswer === oIdx;
+                              {q.options?.map((opt, optIdx) => {
+                                const isUserChoice = userAns === optIdx;
+                                const isActualCorrect = optIdx === q.correctAnswer;
 
-                                let optStyle = "bg-slate-950/50 border-slate-800 text-slate-400";
-                                if (isThisCorrect) {
-                                  optStyle = "bg-emerald-950/80 border-emerald-500 text-emerald-200 font-bold";
-                                } else if (isThisUser && !isThisCorrect) {
-                                  optStyle = "bg-rose-950/60 border-rose-600 text-rose-300 line-through";
+                                let optBorder = "border-slate-800 bg-slate-950/60 text-slate-400";
+                                if (isActualCorrect) {
+                                  optBorder = "border-emerald-500 bg-emerald-950/50 text-emerald-200 font-bold";
+                                } else if (isUserChoice && !isActualCorrect) {
+                                  optBorder = "border-rose-500 bg-rose-950/50 text-rose-200 font-bold";
                                 }
 
                                 return (
                                   <div
-                                    key={oIdx}
-                                    className={`p-3 rounded-xl text-xs border flex items-center justify-between ${optStyle}`}
+                                    key={optIdx}
+                                    className={`p-3 rounded-xl border text-xs flex items-center justify-between gap-3 ${optBorder}`}
                                   >
-                                    <div className="flex items-center gap-2.5">
-                                      <span className="font-bold opacity-80">{String.fromCharCode(65 + oIdx)}.</span>
+                                    <div className="flex items-center gap-2">
+                                      <span className="font-mono font-bold">{String.fromCharCode(65 + optIdx)}.</span>
                                       <span>{opt}</span>
                                     </div>
-                                    <div className="text-[10px] font-black shrink-0 ml-2">
-                                      {isThisCorrect && <span className="text-emerald-400">✓ Correct Key</span>}
-                                      {isThisUser && !isThisCorrect && <span className="text-rose-400">Your Selection</span>}
-                                    </div>
+                                    {isActualCorrect && <span className="text-[10px] uppercase font-black text-emerald-400 shrink-0">Correct Key</span>}
+                                    {isUserChoice && !isActualCorrect && <span className="text-[10px] uppercase font-black text-rose-400 shrink-0">Your Answer</span>}
                                   </div>
                                 );
                               })}
                             </div>
 
-                            <div className="bg-slate-950/70 p-3.5 rounded-xl border border-slate-800/80 text-[11px] leading-relaxed text-slate-300">
-                              <span className="text-emerald-400 font-bold">Authoritative Explanation: </span>
-                              {q.explanation}
-                            </div>
+                            {q.explanation && (
+                              <div className="bg-slate-950/90 rounded-xl p-4 border border-slate-800 text-xs text-slate-300 space-y-1">
+                                <strong className="text-emerald-400 block font-bold">Authoritative Explanation:</strong>
+                                <p className="leading-relaxed">{q.explanation}</p>
+                              </div>
+                            )}
                           </div>
                         );
                       })}
@@ -792,84 +1060,57 @@ export default function LearningPage({
                 </div>
               )}
 
-              {/* Submit Confirmation Modal */}
-              {showSubmitModal && (
-                <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-sm">
-                  <div className="bg-slate-900 border-2 border-emerald-500/40 rounded-3xl p-6 sm:p-8 max-w-md w-full space-y-4 shadow-2xl text-center">
-                    <div className="w-12 h-12 rounded-full bg-emerald-500/10 text-emerald-400 flex items-center justify-center mx-auto text-xl border border-emerald-500/20">
-                      ?
-                    </div>
-
-                    <h3 className="text-lg font-black text-white">Ready to Submit Your Exam?</h3>
-
-                    <p className="text-xs text-slate-300 leading-relaxed">
-                      You have answered <strong className="text-emerald-400">{answeredCount}</strong> of <strong className="text-white">{totalExamQuestions}</strong> questions.
-                      {answeredCount < totalExamQuestions && (
-                        <span className="block text-amber-400 font-bold mt-1">
-                          Warning: You have {totalExamQuestions - answeredCount} unanswered questions!
-                        </span>
-                      )}
-                    </p>
-
-                    <div className="flex items-center justify-center gap-3 pt-3">
-                      <button
-                        onClick={() => setShowSubmitModal(false)}
-                        className="px-5 py-2.5 rounded-xl text-xs font-bold text-slate-300 bg-slate-800 hover:bg-slate-700 border border-slate-700"
-                      >
-                        Keep Reviewing
-                      </button>
-
-                      <button
-                        onClick={handleManualSubmit}
-                        className="px-6 py-2.5 rounded-xl text-xs font-black text-slate-950 bg-emerald-400 hover:bg-emerald-300 border border-emerald-300 shadow-lg"
-                      >
-                        Yes, Submit Exam Now
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              )}
-
             </div>
           ) : (
             /* ========================================================================= */
-            /* VIEW B: STANDARD COURSE MODULE READING MATERIAL                           */
+            /* VIEW B: MODULE READING MATERIAL & PRACTICAL EXERCISES                    */
             /* ========================================================================= */
             <div className="space-y-8">
               
-              {/* Module Title Banner */}
-              <div className="bg-slate-900 rounded-3xl p-6 border-2 border-brand-900 space-y-2">
-                <div className="flex items-center justify-between">
-                  <span className="px-3 py-1 bg-brand-900 text-emerald-300 text-[10px] font-black uppercase rounded-full border border-brand-800">
-                    Reading Material Manual
+              {/* Module Top Header */}
+              <div className="space-y-2 border-b border-slate-800 pb-6">
+                <div className="flex items-center gap-2">
+                  <span className="px-3 py-1 rounded-full bg-brand-500/10 text-emerald-400 border border-emerald-500/20 text-xs font-black uppercase tracking-wider">
+                    Module {currentModuleIndex + 1} of {course.modules?.length}
                   </span>
-                  <span className="text-xs font-bold text-slate-400">Course Progress: {course.progress}%</span>
+                  {currentModule?.completed && (
+                    <span className="px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-300 border border-emerald-500/30 text-xs font-bold flex items-center gap-1">
+                      <CheckCircle className="w-3.5 h-3.5" />
+                      Completed
+                    </span>
+                  )}
                 </div>
-                <h1 className="text-2xl sm:text-3xl font-black text-white">{currentModule?.title}</h1>
-                <p className="text-xs text-slate-400 font-medium">{currentModule?.description}</p>
+
+                <h1 className="text-2xl sm:text-3xl font-black text-white tracking-tight">
+                  {currentModule?.title}
+                </h1>
+                <p className="text-xs sm:text-sm text-slate-400 font-medium">
+                  {currentModule?.description}
+                </p>
               </div>
 
-              {/* Completed Celebration Banner */}
+              {/* Module Completed Card (When 100% course completed) */}
               {isCourseFullyCompleted && (
-                <div className="bg-gradient-to-r from-emerald-950 via-brand-900 to-slate-900 p-6 rounded-3xl border-2 border-emerald-400 space-y-4 text-center">
-                  <div className="w-16 h-16 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center mx-auto text-3xl">
-                    🎉
+                <div className="p-6 sm:p-8 rounded-3xl bg-gradient-to-r from-emerald-950 via-slate-900 to-brand-950 border-2 border-emerald-500/50 text-center space-y-4 shadow-xl">
+                  <div className="w-14 h-14 rounded-2xl bg-amber-400/20 text-amber-300 border border-amber-400/40 flex items-center justify-center mx-auto text-2xl">
+                    🏆
                   </div>
-                  <h3 className="text-2xl font-black text-white">Congratulations! All 15 Modules Completed!</h3>
-                  <p className="text-xs text-emerald-200 font-medium max-w-lg mx-auto">
-                    You have mastered all modules in {course.title}. Take the comprehensive Master Certification Exam to validate your engineering depth and claim your official credential!
+
+                  <h3 className="text-xl sm:text-2xl font-black text-white">
+                    All Modules Mastered! Final Examination Unlocked 🎉
+                  </h3>
+                  <p className="text-xs text-slate-300 max-w-lg mx-auto">
+                    You have completed all {totalCount} modules in {course.title}. Take the official certification examination by selecting from the 4 student question papers!
                   </p>
 
                   <div className="flex flex-wrap items-center justify-center gap-3 pt-2">
-                    {finalTest && (
-                      <button
-                        onClick={openExam}
-                        className="px-6 py-3 text-xs font-black text-slate-950 bg-amber-400 hover:bg-amber-300 rounded-full shadow-lg flex items-center gap-2 border-2 border-amber-300"
-                      >
-                        <Trophy className="w-4 h-4 text-slate-950" />
-                        <span>{examSubmitted ? 'View Master Exam Results & Solutions' : 'Take Master Certification Exam (25 MCQs)'}</span>
-                      </button>
-                    )}
+                    <button
+                      onClick={openExam}
+                      className="px-6 py-3 text-xs font-black text-slate-950 bg-amber-400 hover:bg-amber-300 rounded-full shadow-lg flex items-center gap-2 border-2 border-amber-300 transition-all"
+                    >
+                      <Trophy className="w-4 h-4 text-slate-950" />
+                      <span>Take Final Test (4 Student Question Papers)</span>
+                    </button>
 
                     <button
                       onClick={() => generateCoursePDF(course)}
@@ -918,205 +1159,121 @@ export default function LearningPage({
                         {rm.objectives.map((obj, i) => (
                           <li key={i} className="flex items-start gap-2 bg-slate-950 p-3 rounded-xl border border-slate-800">
                             <span className="text-emerald-400 font-bold">•</span>
-                            <span>{obj}</span>
+                            <span className="text-slate-300">{obj}</span>
                           </li>
                         ))}
                       </ul>
                     </div>
                   )}
 
-                  {/* Detailed Sections */}
-                  {rm.sections && rm.sections.map((sec, idx) => (
-                    <div key={idx} className="space-y-3">
-                      <h4 className="text-base font-bold text-white border-b border-slate-800 pb-1">
-                        {sec.heading}
-                      </h4>
-                      <p className="text-sm leading-relaxed text-slate-300 whitespace-pre-line">{sec.text}</p>
-                      
-                      {sec.bulletPoints && (
-                        <ul className="space-y-1.5 text-xs text-slate-300 pl-4 list-disc">
-                          {sec.bulletPoints.map((bp, bIdx) => (
-                            <li key={bIdx}>{bp}</li>
-                          ))}
-                        </ul>
-                      )}
+                  {/* Deep Dive Sections */}
+                  {rm.sections && rm.sections.length > 0 && (
+                    <div className="space-y-6">
+                      <h3 className="text-lg font-black text-emerald-400 border-b border-slate-800 pb-2">
+                        3. Core Concepts & Architecture
+                      </h3>
 
-                      {sec.table && (
-                        <div className="overflow-x-auto my-3">
-                          <table className="w-full text-xs text-left border-collapse border border-slate-800">
-                            <thead>
-                              <tr className="bg-slate-950 text-emerald-400">
-                                {sec.table.headers.map((h, hIdx) => (
-                                  <th key={hIdx} className="p-2 border border-slate-800">{h}</th>
-                                ))}
-                              </tr>
-                            </thead>
-                            <tbody>
-                              {sec.table.rows.map((r, rIdx) => (
-                                <tr key={rIdx} className="hover:bg-slate-800/40">
-                                  {r.map((c, cIdx) => (
-                                    <td key={cIdx} className="p-2 border border-slate-800 text-slate-300">{c}</td>
-                                  ))}
-                                </tr>
+                      {rm.sections.map((sec, sIdx) => (
+                        <div key={sIdx} className="space-y-3 bg-slate-950/60 p-5 rounded-2xl border border-slate-800/80">
+                          <h4 className="text-sm sm:text-base font-bold text-white flex items-center gap-2">
+                            <span className="text-emerald-400 font-mono font-bold">3.{sIdx + 1}</span>
+                            <span>{sec.heading}</span>
+                          </h4>
+                          <p className="text-xs sm:text-sm leading-relaxed text-slate-300 whitespace-pre-line">
+                            {sec.text}
+                          </p>
+
+                          {sec.bulletPoints && sec.bulletPoints.length > 0 && (
+                            <ul className="space-y-1.5 pt-2 pl-2 text-xs">
+                              {sec.bulletPoints.map((bp, bpIdx) => (
+                                <li key={bpIdx} className="flex items-start gap-2 text-slate-300">
+                                  <span className="text-emerald-400 font-black">→</span>
+                                  <span>{bp}</span>
+                                </li>
                               ))}
-                            </tbody>
-                          </table>
+                            </ul>
+                          )}
                         </div>
-                      )}
-                    </div>
-                  ))}
-
-                  {/* Code Examples */}
-                  {rm.codeExamples && rm.codeExamples.map((ex, exIdx) => (
-                    <div key={exIdx} className="space-y-2">
-                      <div className="flex items-center justify-between">
-                        <span className="text-xs font-bold text-emerald-400 flex items-center gap-1.5">
-                          <Code className="w-4 h-4" />
-                          <span>{ex.title}</span>
-                        </span>
-                        <span className="text-[10px] text-slate-400">Python 3 / SQL</span>
-                      </div>
-
-                      <div className="bg-slate-950 rounded-2xl p-4 border border-slate-800 overflow-x-auto font-mono text-xs text-emerald-300">
-                        <pre>{ex.code}</pre>
-                      </div>
-                      {ex.explanation && (
-                        <p className="text-xs text-slate-400 italic">Note: {ex.explanation}</p>
-                      )}
-                    </div>
-                  ))}
-
-                  {/* Practice Exercise */}
-                  {rm.practiceExercise && (
-                    <div className="bg-slate-950 p-5 rounded-2xl border border-amber-500/40 space-y-3">
-                      <div className="flex items-center gap-2 text-amber-400 text-xs font-bold uppercase">
-                        <Sparkles className="w-4 h-4" />
-                        <span>Practice Challenge: {rm.practiceExercise.title}</span>
-                      </div>
-                      <p className="text-xs text-slate-300 font-medium whitespace-pre-line">{rm.practiceExercise.problem}</p>
-
-                      <button
-                        onClick={() => setShowSolution(!showSolution)}
-                        className="px-3 py-1.5 text-xs font-bold text-amber-300 bg-amber-950/40 hover:bg-amber-900/60 rounded-lg border border-amber-800"
-                      >
-                        {showSolution ? 'Hide Solution' : 'View Solution Code'}
-                      </button>
-
-                      {showSolution && (
-                        <div className="bg-slate-900 p-3 rounded-xl font-mono text-xs text-emerald-300 border border-slate-800">
-                          <pre>{rm.practiceExercise.solutionCode}</pre>
-                        </div>
-                      )}
+                      ))}
                     </div>
                   )}
 
-                  {/* Module Knowledge Check (5 MCQs) */}
-                  {rm.mcqs && rm.mcqs.length > 0 && (
-                    <div className="bg-slate-950 p-6 rounded-3xl border border-emerald-500/30 space-y-6">
-                      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-800 pb-4">
-                        <div className="flex items-center gap-2.5">
-                          <div className="w-8 h-8 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center font-bold text-sm border border-emerald-500/20">
-                            ?
-                          </div>
-                          <div>
-                            <h4 className="text-sm font-black text-white uppercase tracking-wider">Module Knowledge Check (5 MCQs)</h4>
-                            <p className="text-[11px] text-slate-400">Test your mastery of concepts from this module</p>
-                          </div>
-                        </div>
-                        <div className="flex items-center gap-2">
-                          <button
-                            onClick={() => setShowAnswers(!showAnswers)}
-                            className="px-3 py-1.5 text-xs font-bold text-emerald-300 bg-emerald-950/40 hover:bg-emerald-900/60 rounded-xl border border-emerald-800 transition-all"
-                          >
-                            {showAnswers ? 'Hide Answer Key' : 'Reveal Answer Key'}
-                          </button>
-                        </div>
-                      </div>
+                  {/* Code Examples */}
+                  {rm.codeExamples && rm.codeExamples.length > 0 && (
+                    <div className="space-y-4">
+                      <h3 className="text-lg font-black text-emerald-400 flex items-center gap-2 border-b border-slate-800 pb-2">
+                        <Code className="w-5 h-5" />
+                        <span>4. Executable Code Implementations</span>
+                      </h3>
 
-                      <div className="space-y-6">
-                        {rm.mcqs.map((mcq, qIdx) => {
-                          const selected = selectedAnswers[mcq.id];
-                          const isAnswered = selected !== undefined;
-                          const isCorrect = selected === mcq.correctAnswer;
-
-                          return (
-                            <div key={mcq.id || qIdx} className="bg-slate-900/70 p-4 sm:p-5 rounded-2xl border border-slate-800 space-y-3">
-                              <div className="flex items-start gap-2.5">
-                                <span className="w-6 h-6 rounded-lg bg-slate-800 text-emerald-400 text-xs font-black flex items-center justify-center shrink-0 border border-slate-700">
-                                  Q{qIdx + 1}
-                                </span>
-                                <p className="text-xs font-bold text-white leading-relaxed">{mcq.question}</p>
-                              </div>
-
-                              <div className="grid gap-2 pt-1 sm:pl-8">
-                                {mcq.options.map((opt, oIdx) => {
-                                  const isThisSelected = selected === oIdx;
-                                  const isThisCorrect = oIdx === mcq.correctAnswer;
-
-                                  let btnStyle = "bg-slate-950/60 border-slate-800 text-slate-300 hover:bg-slate-800/80 hover:text-white";
-                                  if (showAnswers) {
-                                    if (isThisCorrect) btnStyle = "bg-emerald-950/80 border-emerald-500 text-emerald-200 font-bold";
-                                    else if (isThisSelected) btnStyle = "bg-rose-950/60 border-rose-600 text-rose-300 line-through";
-                                  } else if (isAnswered) {
-                                    if (isThisSelected && isCorrect) btnStyle = "bg-emerald-950/80 border-emerald-500 text-emerald-200 font-bold";
-                                    else if (isThisSelected && !isCorrect) btnStyle = "bg-rose-950/60 border-rose-600 text-rose-300";
-                                  }
-
-                                  return (
-                                    <button
-                                      key={oIdx}
-                                      onClick={() => {
-                                        setSelectedAnswers(prev => ({ ...prev, [mcq.id]: oIdx }));
-                                      }}
-                                      className={`w-full text-left p-3 rounded-xl text-xs transition-all border flex items-center justify-between ${btnStyle}`}
-                                    >
-                                      <span>{opt}</span>
-                                      {isAnswered && isThisSelected && (
-                                        <span className="text-[11px] font-black shrink-0 ml-2">
-                                          {isCorrect ? '✓ Correct' : '✗ Incorrect'}
-                                        </span>
-                                      )}
-                                      {showAnswers && isThisCorrect && !isThisSelected && (
-                                        <span className="text-[11px] font-black text-emerald-400 shrink-0 ml-2">
-                                          ✓ Correct Key
-                                        </span>
-                                      )}
-                                    </button>
-                                  );
-                                })}
-                              </div>
-
-                              {(isAnswered || showAnswers) && (
-                                <div className="sm:pl-8 pt-1">
-                                  <p className="text-[11px] text-slate-400 bg-slate-950/40 p-2.5 rounded-xl border border-slate-800/60 leading-relaxed">
-                                    <span className="text-emerald-400 font-bold">Explanation: </span>
-                                    {mcq.explanation}
-                                  </p>
-                                </div>
-                              )}
+                      <div className="space-y-4">
+                        {rm.codeExamples.map((ex, exIdx) => (
+                          <div key={exIdx} className="bg-slate-950 rounded-2xl border border-slate-800 overflow-hidden shadow-inner">
+                            <div className="bg-slate-900/90 px-4 py-2.5 border-b border-slate-800 flex items-center justify-between text-xs font-bold text-slate-300">
+                              <span>{ex.title}</span>
+                              <span className="text-[10px] font-mono text-emerald-400 uppercase">{ex.language || 'python'}</span>
                             </div>
-                          );
-                        })}
+                            <pre className="p-4 text-xs font-mono text-emerald-300 overflow-x-auto leading-relaxed">
+                              {ex.code}
+                            </pre>
+                            {ex.explanation && (
+                              <div className="bg-slate-900/40 p-3 text-[11px] text-slate-400 border-t border-slate-900">
+                                <strong className="text-slate-300">Analysis:</strong> {ex.explanation}
+                              </div>
+                            )}
+                          </div>
+                        ))}
                       </div>
                     </div>
                   )}
 
                   {/* Key Takeaways */}
                   {rm.keyTakeaways && rm.keyTakeaways.length > 0 && (
-                    <div className="bg-brand-950/40 p-5 rounded-2xl border border-brand-800/80 space-y-3">
-                      <h4 className="text-xs font-black uppercase tracking-wider text-emerald-400">Key Takeaways</h4>
-                      <ul className="space-y-1.5 text-xs text-slate-300">
-                        {rm.keyTakeaways.map((kt, kIdx) => (
-                          <li key={kIdx} className="flex items-start gap-2">
+                    <div className="space-y-3">
+                      <h3 className="text-lg font-black text-emerald-400 flex items-center gap-2 border-b border-slate-800 pb-2">
+                        <Sparkles className="w-5 h-5 text-amber-400" />
+                        <span>5. Key Engineering Takeaways</span>
+                      </h3>
+                      <div className="grid sm:grid-cols-2 gap-2 text-xs">
+                        {rm.keyTakeaways.map((takeaway, tIdx) => (
+                          <div key={tIdx} className="p-3 bg-emerald-950/20 border border-emerald-500/20 rounded-xl text-slate-300 flex items-start gap-2">
                             <span className="text-emerald-400 font-bold">✓</span>
-                            <span>{kt}</span>
-                          </li>
+                            <span>{takeaway}</span>
+                          </div>
                         ))}
-                      </ul>
+                      </div>
                     </div>
                   )}
 
-                  {/* Official References */}
+                  {/* Exercises */}
+                  {rm.exercises && rm.exercises.length > 0 && (
+                    <div className="space-y-4">
+                      <h3 className="text-lg font-black text-emerald-400 border-b border-slate-800 pb-2">
+                        6. Hands-On Practice Exercises
+                      </h3>
+
+                      <div className="space-y-3">
+                        {rm.exercises.map((exe, eIdx) => (
+                          <div key={eIdx} className="p-4 bg-slate-950 rounded-2xl border border-slate-800 space-y-2">
+                            <h4 className="text-xs sm:text-sm font-bold text-white flex items-center justify-between">
+                              <span>Exercise {eIdx + 1}: {exe.title}</span>
+                              {exe.difficulty && (
+                                <span className="text-[10px] font-black uppercase px-2 py-0.5 rounded-full bg-slate-800 text-amber-400 border border-amber-500/20">
+                                  {exe.difficulty}
+                                </span>
+                              )}
+                            </h4>
+                            <p className="text-xs text-slate-300 leading-relaxed">{exe.prompt}</p>
+                            {exe.hint && (
+                              <p className="text-[11px] text-slate-500 italic">💡 Hint: {exe.hint}</p>
+                            )}
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+
+                  {/* References */}
                   {rm.references && rm.references.length > 0 && (
                     <div className="pt-4 border-t border-slate-800 text-xs space-y-2">
                       <span className="font-bold text-slate-400 uppercase">Learning References:</span>
@@ -1174,11 +1331,21 @@ export default function LearningPage({
                 ) : (
                   finalTest && (
                     <button
-                      onClick={openExam}
-                      className="w-full sm:w-auto px-6 py-3 text-xs font-black text-slate-950 bg-amber-400 hover:bg-amber-300 rounded-full flex items-center justify-center gap-1.5 transition-all shadow-lg border-2 border-amber-300"
+                      onClick={() => {
+                        if (!isCourseFullyCompleted) {
+                          setShowLockedModal(true);
+                        } else {
+                          openExam();
+                        }
+                      }}
+                      className={`w-full sm:w-auto px-6 py-3 text-xs font-black rounded-full flex items-center justify-center gap-1.5 transition-all shadow-lg border-2 ${
+                        isCourseFullyCompleted
+                          ? 'bg-amber-400 hover:bg-amber-300 text-slate-950 border-amber-300'
+                          : 'bg-slate-800 text-amber-300 border-amber-500/40 hover:bg-slate-700'
+                      }`}
                     >
-                      <Trophy className="w-4 h-4 text-slate-950" />
-                      <span>{examSubmitted ? 'View Master Exam Results' : 'Take Master Exam (25 MCQs)'}</span>
+                      {isCourseFullyCompleted ? <Trophy className="w-4 h-4 text-slate-950" /> : <Lock className="w-4 h-4 text-amber-400" />}
+                      <span>{isCourseFullyCompleted ? 'Take Master Exam (4 Papers)' : `Final Exam Locked (${completedCount}/${totalCount})`}</span>
                     </button>
                   )
                 )}
@@ -1190,6 +1357,133 @@ export default function LearningPage({
         </div>
 
       </div>
+
+      {/* Submit Confirmation Modal */}
+      {showSubmitModal && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-md animate-in fade-in duration-200">
+          <div className="bg-slate-900 border-2 border-emerald-500/40 rounded-3xl max-w-md w-full p-6 sm:p-8 shadow-2xl space-y-6 text-white relative">
+            <button
+              onClick={() => setShowSubmitModal(false)}
+              className="absolute top-5 right-5 p-2 text-slate-400 hover:text-white rounded-full hover:bg-slate-800"
+            >
+              <X className="w-5 h-5" />
+            </button>
+
+            <div className="text-center space-y-2">
+              <div className="w-14 h-14 rounded-2xl bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 flex items-center justify-center mx-auto text-2xl">
+                📝
+              </div>
+              <h3 className="text-xl font-black">Submit {activePaper.studentName}'s Paper?</h3>
+              <p className="text-xs text-slate-400">
+                You are submitting <strong>{activePaper.paperCode}</strong> ({activePaper.studentName}). Your final score will be calculated and recorded.
+              </p>
+            </div>
+
+            <div className="bg-slate-950 p-4 rounded-2xl border border-slate-800 space-y-2 text-xs">
+              <div className="flex justify-between">
+                <span className="text-slate-400">Candidate:</span>
+                <span className="font-bold text-white">{activePaper.studentName} ({activePaper.rollNo})</span>
+              </div>
+              <div className="flex justify-between">
+                <span className="text-slate-400">Questions Answered:</span>
+                <span className="font-bold text-emerald-400">{answeredCount} of {totalExamQuestions}</span>
+              </div>
+              <div className="flex justify-between">
+                <span className="text-slate-400">Unanswered Questions:</span>
+                <span className="font-bold text-rose-400">{totalExamQuestions - answeredCount}</span>
+              </div>
+              <div className="flex justify-between">
+                <span className="text-slate-400">Passing Criteria:</span>
+                <span className="font-bold text-amber-400">{activePaper.passingScore || 80}%</span>
+              </div>
+            </div>
+
+            <div className="flex gap-3">
+              <button
+                onClick={() => setShowSubmitModal(false)}
+                className="w-1/2 py-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 font-bold text-xs transition-all border border-slate-700"
+              >
+                Continue Answering
+              </button>
+              <button
+                onClick={handleManualSubmit}
+                className="w-1/2 py-3 rounded-xl bg-emerald-400 hover:bg-emerald-300 text-slate-950 font-black text-xs transition-all shadow-md"
+              >
+                Confirm Submission
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* LOCKED EXAMINATION MODAL */}
+      {showLockedModal && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/85 backdrop-blur-md animate-in fade-in duration-200">
+          <div className="bg-slate-900 border-2 border-amber-500/50 rounded-3xl max-w-lg w-full p-6 sm:p-8 shadow-2xl space-y-6 text-white relative">
+            <button
+              onClick={() => setShowLockedModal(false)}
+              className="absolute top-5 right-5 p-2 text-slate-400 hover:text-white rounded-full hover:bg-slate-800 transition-all"
+            >
+              <X className="w-5 h-5" />
+            </button>
+
+            <div className="text-center space-y-2">
+              <div className="w-16 h-16 rounded-2xl bg-amber-500/10 border-2 border-amber-500/40 text-amber-400 flex items-center justify-center mx-auto text-2xl shadow-lg">
+                <Lock className="w-8 h-8 text-amber-400" />
+              </div>
+              <h3 className="text-xl sm:text-2xl font-black text-white">Final Examination Sealed 🔒</h3>
+              <p className="text-xs text-slate-300 max-w-md mx-auto leading-relaxed">
+                In accordance with Arshith Boot Camp academic integrity guidelines, the 4 student question papers are strictly locked until you complete all course modules.
+              </p>
+            </div>
+
+            <div className="bg-slate-950 p-4 rounded-2xl border border-slate-800 space-y-3">
+              <div className="flex items-center justify-between text-xs font-bold">
+                <span className="text-slate-400">Current Course Progress</span>
+                <span className="text-amber-400">{completedCount} / {totalCount} Modules ({Math.round(completedCount/totalCount * 100)}%)</span>
+              </div>
+              <div className="w-full h-2.5 bg-slate-800 rounded-full overflow-hidden">
+                <div
+                  className="h-full bg-gradient-to-r from-amber-500 to-emerald-400 rounded-full transition-all duration-300"
+                  style={{ width: `${Math.round(completedCount/totalCount * 100)}%` }}
+                />
+              </div>
+              <p className="text-[11px] text-slate-400 pt-1">
+                Complete the remaining <strong className="text-white">{totalCount - completedCount}</strong> module(s) to unlock the 4 official question papers set for:
+              </p>
+
+              <div className="grid grid-cols-2 gap-2 text-[11px] pt-1">
+                <div className="p-2.5 bg-slate-900 rounded-xl border border-slate-800 flex items-center gap-2 text-slate-300">
+                  <User className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
+                  <span className="truncate">Paper 1: Arshith Kumar</span>
+                </div>
+                <div className="p-2.5 bg-slate-900 rounded-xl border border-slate-800 flex items-center gap-2 text-slate-300">
+                  <User className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
+                  <span className="truncate">Paper 2: Priya Sharma</span>
+                </div>
+                <div className="p-2.5 bg-slate-900 rounded-xl border border-slate-800 flex items-center gap-2 text-slate-300">
+                  <User className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
+                  <span className="truncate">Paper 3: Rahul Verma</span>
+                </div>
+                <div className="p-2.5 bg-slate-900 rounded-xl border border-slate-800 flex items-center gap-2 text-slate-300">
+                  <User className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
+                  <span className="truncate">Paper 4: Adithya V</span>
+                </div>
+              </div>
+            </div>
+
+            <div className="flex gap-3">
+              <button
+                onClick={() => setShowLockedModal(false)}
+                className="w-full py-3 rounded-xl bg-brand-600 hover:bg-brand-500 text-white font-black text-xs transition-all shadow-md"
+              >
+                Continue Learning Modules
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
     </div>
   );
 }
