@@ -7,6 +7,8 @@ import {
   Check, X, AlertCircle, Clock, Calendar, CheckSquare, Sparkles, User, ArrowUpRight, Menu
 } from 'lucide-react';
 import { api } from '../services/api';
+import AdminQuizManager from '../components/AdminQuizManager';
+import AdminQuizAnalytics from '../components/AdminQuizAnalytics';
 
 export default function AdminDashboard({ admin, onLogout, onCourseDataChanged }) {
   // Sidebar tab state
@@ -760,6 +762,17 @@ export default function AdminDashboard({ admin, onLogout, onCourseDataChanged })
               </div>
             )}
 
+          </div>
+        )}
+
+        {/* SECTION 2.5: QUIZZES & FINAL TEST MANAGEMENT */}
+        {activeSection === 'assessments' && (
+          <div className="space-y-8">
+            {/* Quiz Performance Analytics Overview */}
+            <AdminQuizAnalytics />
+
+            {/* Question Bank Manager */}
+            <AdminQuizManager />
           </div>
         )}
 

@@ -132,5 +132,21 @@ export const api = {
 
   // Analytics & Audit Logs
   getAnalytics: () => request('/admin/analytics'),
-  getActivityLogs: () => request('/admin/activity-logs')
+  getActivityLogs: () => request('/admin/activity-logs'),
+
+  // Module Quizzes & Final Test System
+  getModuleQuiz: (moduleId) => request(`/quizzes/module/${moduleId}`),
+  submitModuleQuiz: (moduleId, data) => request(`/quizzes/module/${moduleId}/submit`, { method: 'POST', body: JSON.stringify(data) }),
+  getModuleQuizAttempts: (moduleId, userId) => request(`/quizzes/module/${moduleId}/attempts?userId=${userId || ''}`),
+
+  startFinalTest: (data = {}) => request('/final-test/start', { method: 'POST', body: JSON.stringify(data) }),
+  submitFinalTest: (data) => request('/final-test/submit', { method: 'POST', body: JSON.stringify(data) }),
+  getFinalTestAttempts: (userId) => request(`/final-test/attempts?userId=${userId || ''}`),
+
+  // Admin Quiz System Management & Analytics
+  getAdminQuestions: () => request('/admin/questions'),
+  createAdminQuestion: (questionData) => request('/admin/questions', { method: 'POST', body: JSON.stringify(questionData) }),
+  updateAdminQuestion: (id, questionData) => request(`/admin/questions/${id}`, { method: 'PUT', body: JSON.stringify(questionData) }),
+  deleteAdminQuestion: (id) => request(`/admin/questions/${id}`, { method: 'DELETE' }),
+  getQuizAnalytics: () => request('/admin/quiz-analytics')
 };
