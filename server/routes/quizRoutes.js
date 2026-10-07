@@ -170,11 +170,30 @@ router.get('/quizzes/module/:moduleId/attempts', (req, res) => {
 // =========================================================================
 
 /**
+ * Helper to pick question paper set based on student's first name in alphabetical order:
+ * A-F: Set A (SQL-QP-SETA)
+ * G-L: Set B (SQL-QP-SETB)
+ * M-R: Set C (SQL-QP-SETC)
+ * S-Z: Set D (SQL-QP-SETD)
+ */
+function getPaperSetForStudent(studentName, papers = []) {
+  if (!papers || papers.length === 0) return null;
+  if (!studentName || typeof studentName !== 'string') return papers[0];
+
+  const firstLetter = studentName.trim().toUpperCase().charAt(0);
+  if (firstLetter >= 'A' && firstLetter <= 'F') return papers[0] || papers[0];
+  if (firstLetter >= 'G' && firstLetter <= 'L') return papers[1] || papers[0];
+  if (firstLetter >= 'M' && firstLetter <= 'R') return papers[2] || papers[0];
+  if (firstLetter >= 'S' && firstLetter <= 'Z') return papers[3] || papers[0];
+  return papers[0];
+}
+
+/**
  * POST /api/final-test/start
  * Starts or resumes a 45-minute (2700 seconds) server-validated test session
  */
 router.post('/final-test/start', (req, res) => {
-  const { userId = 'student-001', studentName = 'Learner' } = req.body;
+  const { userId = 'student-001', studentName = 'Learner', courseId = 'sql-mastery', paperCode } = req.body;
   const db = getDb();
 
   if (!db.finalTestActiveSessions) db.finalTestActiveSessions = {};
@@ -186,12 +205,11 @@ router.post('/final-test/start', (req, res) => {
   let session = db.finalTestActiveSessions[sessionKey];
 
   if (!session || session.submitted) {
-    // Create new session
     session = {
       sessionId: `session-${now}`,
       userId,
       studentName,
-      courseId: 'sql-data-analysis',
+      courseId,
       startedAt: now,
       durationSeconds: DURATION_SECONDS,
       submitted: false
@@ -203,13 +221,28 @@ router.post('/final-test/start', (req, res) => {
   const elapsedSeconds = Math.floor((now - session.startedAt) / 1000);
   const remainingSeconds = Math.max(0, DURATION_SECONDS - elapsedSeconds);
 
-  // Fetch 25 final test questions WITHOUT correct answers
-  const questions = (db.questionBank || [])
-    .filter(q => q.category === 'final-test' && q.status === 'active')
-    .map(q => {
-      const { correctAnswer, explanation, ...safeQ } = q;
-      return safeQ;
-    });
+  // Fetch course question papers
+  const course = (db.courses || []).find(c => c.id === 'sql-mastery' || c.id === 'sql-data-analysis');
+  const questionPapers = course?.finalTest?.questionPapers || [];
+
+  let assignedPaper = null;
+  if (paperCode) {
+    assignedPaper = questionPapers.find(p => p.paperCode === paperCode);
+  }
+  if (!assignedPaper) {
+    assignedPaper = getPaperSetForStudent(studentName, questionPapers);
+  }
+
+  let rawQuestions = assignedPaper?.questions;
+  if (!rawQuestions || rawQuestions.length === 0) {
+    rawQuestions = (db.questionBank || []).filter(q => q.category === 'final-test' && q.status === 'active');
+  }
+
+  // Omit correct answers and explanations for candidate security
+  const questions = rawQuestions.map(q => {
+    const { correctAnswer, explanation, ...safeQ } = q;
+    return safeQ;
+  });
 
   res.json({
     success: true,
@@ -219,7 +252,22 @@ router.post('/final-test/start', (req, res) => {
     durationSeconds: DURATION_SECONDS,
     remainingSeconds,
     totalQuestions: questions.length,
-    passingScore: 60, // 60% threshold
+    passingScore: 70, // 70% threshold
+    assignedPaper: assignedPaper ? {
+      id: assignedPaper.id,
+      paperCode: assignedPaper.paperCode,
+      groupName: assignedPaper.groupName,
+      letterRange: assignedPaper.letterRange,
+      title: assignedPaper.title,
+      subtitle: assignedPaper.subtitle
+    } : null,
+    availablePapers: questionPapers.map(p => ({
+      id: p.id,
+      paperCode: p.paperCode,
+      groupName: p.groupName,
+      letterRange: p.letterRange,
+      title: p.title
+    })),
     questions
   });
 });
@@ -229,7 +277,7 @@ router.post('/final-test/start', (req, res) => {
  * Submits the final assessment, validates server time, scores answers, logs result
  */
 router.post('/final-test/submit', (req, res) => {
-  const { userId = 'student-001', studentName = 'Learner', sessionId, answers = {} } = req.body;
+  const { userId = 'student-001', studentName = 'Learner', paperCode, answers = {} } = req.body;
   const db = getDb();
 
   const now = Date.now();
@@ -238,11 +286,23 @@ router.post('/final-test/submit', (req, res) => {
 
   let startedAt = session ? session.startedAt : now - (10 * 60 * 1000);
   const elapsedSeconds = Math.floor((now - startedAt) / 1000);
-  const isAutoSubmitted = elapsedSeconds >= (45 * 60 + 10); // auto-submit if time expired
+  const isAutoSubmitted = elapsedSeconds >= (45 * 60 + 10);
 
-  const finalQuestions = (db.questionBank || []).filter(
-    q => q.category === 'final-test' && q.status === 'active'
-  );
+  const course = (db.courses || []).find(c => c.id === 'sql-mastery' || c.id === 'sql-data-analysis');
+  const questionPapers = course?.finalTest?.questionPapers || [];
+
+  let assignedPaper = null;
+  if (paperCode) {
+    assignedPaper = questionPapers.find(p => p.paperCode === paperCode);
+  }
+  if (!assignedPaper) {
+    assignedPaper = getPaperSetForStudent(studentName, questionPapers);
+  }
+
+  let finalQuestions = assignedPaper?.questions;
+  if (!finalQuestions || finalQuestions.length === 0) {
+    finalQuestions = (db.questionBank || []).filter(q => q.category === 'final-test' && q.status === 'active');
+  }
 
   let correctCount = 0;
   const questionsReview = [];

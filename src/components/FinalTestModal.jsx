@@ -28,11 +28,25 @@ export default function FinalTestModal({
   const [autoSubmitMessage, setAutoSubmitMessage] = useState(null);
   const [mobileMatrixOpen, setMobileMatrixOpen] = useState(false);
 
+  const [assignedPaper, setAssignedPaper] = useState(null);
+  const [availablePapers, setAvailablePapers] = useState([]);
+
   const savedUser = JSON.parse(localStorage.getItem('student_user') || '{}');
   const userId = savedUser?.id || savedUser?.email || 'student-001';
   const studentName = savedUser?.name || 'Arshith Student';
 
   const timerRef = useRef(null);
+
+  // Helper for offline fallback name matching
+  const getPaperSetForName = (name, papers = []) => {
+    if (!papers || papers.length === 0) return null;
+    const firstLetter = (name || '').trim().toUpperCase().charAt(0);
+    if (firstLetter >= 'A' && firstLetter <= 'F') return papers[0];
+    if (firstLetter >= 'G' && firstLetter <= 'L') return papers[1] || papers[0];
+    if (firstLetter >= 'M' && firstLetter <= 'R') return papers[2] || papers[0];
+    if (firstLetter >= 'S' && firstLetter <= 'Z') return papers[3] || papers[0];
+    return papers[0];
+  };
 
   // Start / Resume Final Test Session
   useEffect(() => {
@@ -67,7 +81,7 @@ export default function FinalTestModal({
     };
   }, [testState, remainingSeconds]);
 
-  const startOrResumeFinalTest = async () => {
+  const startOrResumeFinalTest = async (overridePaperCode = null) => {
     setLoading(true);
     setError(null);
     setTestState('taking');
@@ -86,17 +100,33 @@ export default function FinalTestModal({
     }
 
     try {
-      const res = await api.startFinalTest({ userId, studentName });
+      const res = await api.startFinalTest({ userId, studentName, paperCode: overridePaperCode });
       if (res.success && res.questions) {
         setQuestions(res.questions);
         setSessionId(res.sessionId);
         setRemainingSeconds(res.remainingSeconds || (45 * 60));
+        if (res.assignedPaper) setAssignedPaper(res.assignedPaper);
+        if (res.availablePapers) setAvailablePapers(res.availablePapers);
       } else {
-        throw new Error('Failed to start final test session.');
+        throw new Error('Fallback to local papers');
       }
     } catch (err) {
-      console.error('Final test start error:', err);
-      setError('Could not connect to backend test server. Please retry.');
+      console.warn('Final test API fallback to local course data:', err);
+      if (course?.finalTest?.questionPapers) {
+        const papers = course.finalTest.questionPapers;
+        let selected = null;
+        if (overridePaperCode) {
+          selected = papers.find(p => p.paperCode === overridePaperCode);
+        }
+        if (!selected) {
+          selected = getPaperSetForName(studentName, papers);
+        }
+        setAssignedPaper(selected);
+        setAvailablePapers(papers);
+        setQuestions(selected?.questions || []);
+      } else if (course?.finalTest?.questions) {
+        setQuestions(course.finalTest.questions);
+      }
     } finally {
       setLoading(false);
     }
@@ -127,6 +157,7 @@ export default function FinalTestModal({
         userId,
         studentName,
         sessionId,
+        paperCode: assignedPaper?.paperCode,
         answers
       });
 
@@ -235,6 +266,39 @@ export default function FinalTestModal({
             <div className="lg:col-span-8 p-5 sm:p-8 overflow-y-auto space-y-6 flex flex-col justify-between">
               
               <div className="space-y-6">
+                {/* Candidate & Alphabetical Paper Set Banner */}
+                {assignedPaper && (
+                  <div className="bg-slate-950/80 p-3.5 rounded-2xl border border-emerald-800/80 flex flex-wrap items-center justify-between gap-2 animate-fade-in">
+                    <div className="flex items-center gap-2 text-xs">
+                      <span className="px-2.5 py-0.5 bg-emerald-900/80 text-emerald-300 font-extrabold rounded-md text-[10px] tracking-wider uppercase border border-emerald-700/60">
+                        Alphabetical Assignment
+                      </span>
+                      <span className="text-slate-200 font-bold">Candidate: <strong className="text-emerald-400 font-black">{studentName}</strong></span>
+                    </div>
+
+                    <div className="flex items-center gap-2">
+                      <span className="text-xs font-black text-amber-300 bg-amber-950/80 px-2.5 py-1 rounded-lg border border-amber-800/60 shadow-xs">
+                        {assignedPaper.paperCode} ({assignedPaper.groupName || assignedPaper.letterRange})
+                      </span>
+
+                      {availablePapers && availablePapers.length > 1 && (
+                        <select
+                          value={assignedPaper.paperCode}
+                          onChange={(e) => startOrResumeFinalTest(e.target.value)}
+                          className="bg-slate-900 text-xs font-bold text-slate-300 border border-slate-700 rounded-lg px-2.5 py-1 outline-none cursor-pointer hover:border-slate-500"
+                          title="Switch Assigned Paper Set"
+                        >
+                          {availablePapers.map(p => (
+                            <option key={p.paperCode} value={p.paperCode}>
+                              {p.paperCode} ({p.groupName || p.letterRange})
+                            </option>
+                          ))}
+                        </select>
+                      )}
+                    </div>
+                  </div>
+                )}
+
                 {/* Question Info */}
                 <div className="flex items-center justify-between">
                   <span className="px-3 py-1 bg-slate-950 text-slate-300 text-xs font-black uppercase rounded-lg border border-slate-800">
