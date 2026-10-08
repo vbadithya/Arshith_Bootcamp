@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect } from 'react';
 import confetti from 'canvas-confetti';
 import { 
   ArrowLeft, CheckCircle, Circle, Award, Download, 
@@ -12,6 +12,8 @@ import {
 import { generateCoursePDF, generateQuestionPaperPDF } from '../utils/pdfGenerator';
 import { api } from '../services/api';
 import { STUDENT_PROFILE } from '../data/coursesData';
+import ModuleQuizModal from '../components/ModuleQuizModal';
+import FinalTestModal from '../components/FinalTestModal';
 
 export default function LearningPage({ 
   course, 
@@ -22,11 +24,11 @@ export default function LearningPage({
 }) {
   const [currentModule, setCurrentModule] = useState(null);
   const [showSolution, setShowSolution] = useState(false);
-  const [selectedAnswers, setSelectedAnswers] = useState({});
-  const [showAnswers, setShowAnswers] = useState(false);
+  const [quizModalOpen, setQuizModalOpen] = useState(false);
+  const [finalTestModalOpen, setFinalTestModalOpen] = useState(false);
 
-  // Lock State Modal
-  const [showLockedModal, setShowLockedModal] = useState(false);
+  const savedUser = JSON.parse(localStorage.getItem('student_user') || '{}');
+  const studentName = savedUser?.name || 'Arshith Kumar';
 
   // Course Projects State (3 Required Projects)
   const [isProjectMode, setIsProjectMode] = useState(false);
@@ -156,9 +158,6 @@ export default function LearningPage({
       if (mod) {
         setCurrentModule(mod);
         setShowSolution(false);
-        setSelectedAnswers({});
-        setShowAnswers(false);
-        setIsExamMode(false);
         return;
       }
     }
@@ -166,50 +165,27 @@ export default function LearningPage({
     // Default to first module
     setCurrentModule(course.modules[0]);
     setShowSolution(false);
-    setSelectedAnswers({});
-    setShowAnswers(false);
-    setIsExamMode(false);
   }, [course, activeModuleId]);
-
-  // Exam Timer Countdown
-  useEffect(() => {
-    let interval = null;
-    if (isExamMode && examTimerActive && !examSubmitted && examTimeLeft > 0) {
-      interval = setInterval(() => {
-        setExamTimeLeft(prev => {
-          if (prev <= 1) {
-            clearInterval(interval);
-            handleAutoSubmit();
-            return 0;
-          }
-          return prev - 1;
-        });
-      }, 1000);
-    }
-    return () => clearInterval(interval);
-  }, [isExamMode, examTimerActive, examSubmitted, examTimeLeft]);
 
   if (!course) return null;
 
   const currentModuleIndex = course.modules?.findIndex(m => m.id === currentModule?.id) ?? 0;
   const completedCount = course.modules?.filter(m => m.completed).length || 0;
   const totalCount = course.modules?.length || 1;
-  const allModulesCompleted = course.modules && course.modules.length > 0 && course.modules.every(m => m.completed);
-  // Strict locking: all modules must be completed (or course progress 100% with all modules marked)
-  const isCourseFullyCompleted = allModulesCompleted || (course.progress === 100 && completedCount === totalCount);
+  const isCourseFullyCompleted = course.progress === 100 || completedCount === totalCount;
 
   // Handle Mark Module Complete
   const handleMarkComplete = () => {
     if (!currentModule) return;
     onToggleModuleComplete(course.id, currentModule.id);
 
-    // Check if this completes all remaining modules
+    // Check if this was the final uncompleted module
     const remainingUncompleted = course.modules.filter(m => !m.completed && m.id !== currentModule.id);
     if (remainingUncompleted.length === 0) {
       confetti({
-        particleCount: 180,
-        spread: 100,
-        origin: { y: 0.55 }
+        particleCount: 150,
+        spread: 90,
+        origin: { y: 0.6 }
       });
     }
   };
@@ -218,9 +194,6 @@ export default function LearningPage({
     if (currentModuleIndex > 0) {
       setCurrentModule(course.modules[currentModuleIndex - 1]);
       setShowSolution(false);
-      setSelectedAnswers({});
-      setShowAnswers(false);
-      setIsExamMode(false);
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   };
@@ -229,114 +202,8 @@ export default function LearningPage({
     if (currentModuleIndex < course.modules.length - 1) {
       setCurrentModule(course.modules[currentModuleIndex + 1]);
       setShowSolution(false);
-      setSelectedAnswers({});
-      setShowAnswers(false);
-      setIsExamMode(false);
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
-  };
-
-  // Exam Handlers
-  const openExam = () => {
-    if (!isCourseFullyCompleted) {
-      setShowLockedModal(true);
-      return;
-    }
-    setIsExamMode(true);
-    const rec = loadPaperRecord(activePaper.id);
-    if (!rec?.submitted) {
-      setExamAnswers({});
-      setExamFlagged({});
-      setExamCurrentQ(0);
-      setExamTimeLeft((activePaper.timeLimitMinutes || 45) * 60);
-      setExamTimerActive(true);
-    }
-    setShowSubmitModal(false);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-
-  const handleSelectPaper = (paperId) => {
-    if (paperId === selectedPaperId) return;
-    if (isExamMode && !examSubmitted && Object.keys(examAnswers).length > 0) {
-      if (!window.confirm(`You are currently answering ${activePaper.studentName}'s question paper. Switching to another paper will reset your active unsaved responses in this paper. Continue?`)) {
-        return;
-      }
-    }
-    setSelectedPaperId(paperId);
-    setExamCurrentQ(0);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-
-  const handleAutoSubmit = () => {
-    performExamSubmission();
-  };
-
-  const handleManualSubmit = () => {
-    setShowSubmitModal(false);
-    performExamSubmission();
-  };
-
-  const performExamSubmission = () => {
-    setExamSubmitted(true);
-    setExamTimerActive(false);
-
-    // Calculate score for active paper
-    let score = 0;
-    examQuestions.forEach((q, idx) => {
-      const qKey = q.id || idx;
-      if (examAnswers[qKey] === q.correctAnswer) {
-        score++;
-      }
-    });
-
-    const percentage = totalExamQuestions > 0 ? Math.round((score / totalExamQuestions) * 100) : 0;
-    const passed = percentage >= (activePaper.passingScore || finalTest?.passingScore || 80);
-
-    const submissionData = {
-      submitted: true,
-      paperId: activePaper.id,
-      studentName: activePaper.studentName,
-      paperCode: activePaper.paperCode,
-      answers: examAnswers,
-      score,
-      total: totalExamQuestions,
-      percentage,
-      passed,
-      submittedAt: new Date().toISOString()
-    };
-
-    try {
-      localStorage.setItem(`arshith_exam_${course.id}_${activePaper.id}`, JSON.stringify(submissionData));
-      setPaperRecords(prev => ({ ...prev, [activePaper.id]: submissionData }));
-    } catch (e) {}
-
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-
-    if (passed) {
-      confetti({
-        particleCount: 220,
-        spread: 100,
-        origin: { y: 0.5 }
-      });
-    }
-  };
-
-  // Exam Score calculation for active paper
-  let correctExamCount = 0;
-  examQuestions.forEach((q, idx) => {
-    const qKey = q.id || idx;
-    if (examAnswers[qKey] === q.correctAnswer) {
-      correctExamCount++;
-    }
-  });
-  const examPercentage = totalExamQuestions > 0 ? Math.round((correctExamCount / totalExamQuestions) * 100) : 0;
-  const examPassed = examPercentage >= (activePaper.passingScore || finalTest?.passingScore || 80);
-  const answeredCount = Object.keys(examAnswers).length;
-
-  const formatTimer = (seconds) => {
-    const m = Math.floor(seconds / 60);
-    const s = seconds % 60;
-    return `${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
   };
 
   const rm = currentModule?.readingMaterial;
@@ -482,7 +349,7 @@ export default function LearningPage({
             className="p-2 text-slate-300 hover:text-white bg-slate-800 hover:bg-slate-700 rounded-xl transition-all flex items-center gap-1.5 text-xs font-extrabold border border-slate-700 cursor-pointer"
           >
             <ArrowLeft className="w-4 h-4" />
-            <span className="hidden sm:inline">{isExamMode ? "Exit Exam View" : "Exit Player"}</span>
+            <span className="hidden sm:inline">Exit Boot Camp Player</span>
           </button>
 
           <div className="h-4 w-px bg-slate-800 hidden sm:block" />
@@ -490,197 +357,141 @@ export default function LearningPage({
           <div>
             <span className="text-[10px] font-black text-emerald-400 uppercase tracking-wider">{course.title}</span>
             <h2 className="text-sm font-black text-white truncate max-w-xs sm:max-w-md">
-              {isExamMode ? `${activePaper.paperCode || 'QP'} • ${activePaper.studentName || 'Final Exam'}` : currentModule?.title}
+              {currentModule?.title}
             </h2>
           </div>
         </div>
 
-        {/* Progress Tracker Widget & Actions */}
-        <div className="flex items-center gap-4">
-          {isExamMode && !examSubmitted ? (
-            /* Live Exam Timer Widget */
-            <div className="flex items-center gap-3">
-              <div className={`px-3 py-1.5 rounded-xl border flex items-center gap-2 font-mono text-xs font-black ${
-                examTimeLeft < 300 
-                  ? 'bg-rose-950/80 border-rose-500 text-rose-300 animate-pulse' 
-                  : 'bg-slate-800 border-slate-700 text-emerald-400'
-              }`}>
-                <Clock className="w-4 h-4" />
-                <span>{formatTimer(examTimeLeft)}</span>
-              </div>
-
-              <button
-                onClick={() => setShowSubmitModal(true)}
-                className="px-4 py-2 text-xs font-black text-slate-950 bg-emerald-400 hover:bg-emerald-300 rounded-xl transition-all shadow-md"
-              >
-                Submit Paper
-              </button>
+        {/* Progress Tracker Widget */}
+        <div className="flex items-center gap-3">
+          <div className="hidden md:flex items-center gap-3">
+            <div className="text-right">
+              <p className="text-[10px] font-bold text-slate-400 uppercase">Boot Camp Progress</p>
+              <p className="text-xs font-black text-emerald-400">{completedCount} / {totalCount} Modules ({course.progress}%)</p>
             </div>
-          ) : (
-            <div className="flex items-center gap-3">
-              <div className="text-right hidden sm:block">
-                <span className="text-[10px] font-bold text-slate-400 uppercase">Module Progress</span>
-                <p className="text-xs font-black text-white">
-                  {completedCount} / {totalCount} Completed ({Math.round(completedCount/totalCount * 100)}%)
-                </p>
-              </div>
-
-              <div className="w-24 sm:w-32 h-2.5 bg-slate-800 rounded-full overflow-hidden border border-slate-700">
-                <div
-                  className="h-full bg-gradient-to-r from-brand-600 to-emerald-400 rounded-full transition-all duration-300"
-                  style={{ width: `${Math.round(completedCount/totalCount * 100)}%` }}
-                />
-              </div>
-
-              {isCourseFullyCompleted && (
-                <button
-                  onClick={() => onViewCertificate(course.id)}
-                  className="px-3.5 py-1.5 bg-amber-400/10 hover:bg-amber-400/20 text-amber-300 border border-amber-500/40 rounded-xl text-xs font-black flex items-center gap-1.5 transition-all shadow-sm"
-                >
-                  <Award className="w-4 h-4 text-amber-400" />
-                  <span className="hidden md:inline">Certificate Ready</span>
-                </button>
-              )}
+            <div className="w-28 h-2.5 bg-slate-800 rounded-full overflow-hidden border border-slate-700">
+              <div
+                className="h-full bg-gradient-to-r from-brand-600 to-emerald-400 rounded-full transition-all duration-300"
+                style={{ width: `${course.progress}%` }}
+              />
             </div>
+          </div>
+
+          {/* Final Test Button */}
+          <button
+            onClick={() => setFinalTestModalOpen(true)}
+            className="px-3.5 py-1.5 text-xs font-black text-slate-950 bg-amber-400 hover:bg-amber-300 rounded-xl shadow-lg flex items-center gap-1.5 transition-all"
+            title="Take 45-Minute SQL Final Assessment"
+          >
+            <Clock className="w-4 h-4 text-slate-950" />
+            <span>Final Assessment (45m)</span>
+          </button>
+
+          <button
+            onClick={() => generateCoursePDF(course, studentName)}
+            className="px-3 py-1.5 text-xs font-extrabold text-white bg-brand-900 hover:bg-brand-800 border border-brand-700 rounded-lg flex items-center gap-1.5"
+            title="Download Complete Course Manual PDF"
+          >
+            <Download className="w-4 h-4 text-emerald-400" />
+            <span className="hidden sm:inline">Course PDF</span>
+          </button>
+
+          {isCourseFullyCompleted && (
+            <button
+              onClick={() => onViewCertificate(course.id)}
+              className="px-4 py-1.5 text-xs font-black text-slate-950 bg-amber-400 hover:bg-amber-300 rounded-full shadow-lg flex items-center gap-1.5"
+            >
+              <Award className="w-4 h-4 text-slate-950" />
+              <span>Get Certificate</span>
+            </button>
           )}
         </div>
       </header>
 
-      {/* Main Container Layout */}
-      <div className="flex-1 grid grid-cols-1 lg:grid-cols-12 min-h-0">
+      {/* Main Workspace Layout */}
+      <div className="flex-1 grid lg:grid-cols-12 overflow-hidden">
         
-        {/* Left Sidebar: Course Curriculum Outline (4 Cols) */}
-        <div className="lg:col-span-4 bg-slate-900/70 border-r-2 border-brand-900 p-4 sm:p-5 overflow-y-auto space-y-4">
-          <div className="flex items-center justify-between pb-3 border-b border-slate-800">
-            <div>
-              <h3 className="text-xs font-black uppercase tracking-wider text-slate-300">Course Syllabus</h3>
-              <p className="text-[11px] text-slate-400 font-medium">{course.modules?.length} Interactive Modules</p>
+        {/* Left Sidebar: Modules List (4 Cols) */}
+        <div className="lg:col-span-4 bg-slate-900/90 border-r border-slate-800 overflow-y-auto max-h-[calc(100vh-60px)] p-4 space-y-4">
+          <div className="bg-slate-950 p-4 rounded-2xl border border-slate-800 space-y-2">
+            <div className="flex justify-between items-center text-xs font-black">
+              <span className="text-slate-300 uppercase">Modules Progression</span>
+              <span className="text-emerald-400">{completedCount} / {totalCount} Done</span>
             </div>
-            <span className={`text-[10px] font-black px-2.5 py-1 rounded-full border ${
-              isCourseFullyCompleted 
-                ? 'bg-emerald-950 text-emerald-300 border-emerald-600' 
-                : 'bg-slate-800 text-slate-400 border-slate-700'
-            }`}>
-              {isCourseFullyCompleted ? "100% Complete" : `${completedCount}/${totalCount} Done`}
-            </span>
+            <div className="w-full h-2 bg-slate-800 rounded-full overflow-hidden">
+              <div
+                className="h-full bg-gradient-to-r from-brand-600 to-emerald-400 rounded-full"
+                style={{ width: `${course.progress}%` }}
+              />
+            </div>
           </div>
 
-          {/* Module List Cards */}
+          {/* Modules Tree */}
           <div className="space-y-2">
-            {course.modules?.map((m, idx) => {
-              const isCurrent = !isExamMode && m.id === currentModule?.id;
-              const isDone = Boolean(m.completed);
-
+            {course.modules?.map((mod, idx) => {
+              const isSelected = currentModule?.id === mod.id;
               return (
                 <button
-                  key={m.id || idx}
+                  key={mod.id}
                   onClick={() => {
-                    if (isExamMode && !examSubmitted && Object.keys(examAnswers).length > 0) {
-                      if (!window.confirm("Leave active exam? Your answers in this attempt will be reset.")) return;
-                    }
-                    setIsExamMode(false);
-                    setCurrentModule(m);
+                    setCurrentModule(mod);
                     setShowSolution(false);
-                    setSelectedAnswers({});
-                    setShowAnswers(false);
                   }}
-                  className={`w-full p-3.5 rounded-2xl text-left transition-all border flex items-start gap-3 relative group ${
-                    isCurrent
-                      ? 'bg-slate-800/90 border-emerald-500 shadow-md ring-1 ring-emerald-500/30'
-                      : 'bg-slate-900/60 hover:bg-slate-800 border-slate-800 hover:border-slate-700'
+                  className={`w-full flex items-center justify-between p-3 rounded-xl text-left transition-all border ${
+                    isSelected
+                      ? 'bg-brand-600 text-white border-brand-500 font-bold shadow-lg'
+                      : mod.completed
+                      ? 'bg-slate-900/80 text-emerald-300 border-slate-800/80 hover:bg-slate-800'
+                      : 'bg-slate-900/40 text-slate-300 border-slate-800/60 hover:bg-slate-800'
                   }`}
                 >
-                  <div className="mt-0.5">
-                    {isDone ? (
-                      <CheckCircle className="w-4 h-4 text-emerald-400 shrink-0" />
-                    ) : isCurrent ? (
-                      <Circle className="w-4 h-4 text-emerald-400 fill-emerald-400/20 shrink-0" />
+                  <div className="flex items-center gap-3 min-w-0">
+                    {mod.completed ? (
+                      <CheckCircle className={`w-4.5 h-4.5 shrink-0 ${isSelected ? 'text-white' : 'text-emerald-400'}`} />
                     ) : (
-                      <Circle className="w-4 h-4 text-slate-500 shrink-0" />
+                      <Circle className={`w-4.5 h-4.5 shrink-0 ${isSelected ? 'text-white' : 'text-slate-500'}`} />
                     )}
+                    <span className="text-xs font-bold truncate">
+                      {mod.title}
+                    </span>
                   </div>
 
-                  <div className="min-w-0 flex-1">
-                    <div className="flex items-center justify-between gap-2">
-                      <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">
-                        Module {idx + 1}
-                      </span>
-                      {m.estimatedHours && (
-                        <span className="text-[9px] text-slate-500 font-semibold">{m.estimatedHours} hrs</span>
-                      )}
-                    </div>
-                    <h4 className={`text-xs font-bold truncate mt-0.5 ${isCurrent ? 'text-white' : 'text-slate-300'}`}>
-                      {m.title}
-                    </h4>
-                  </div>
+                  <span className="text-[10px] font-mono opacity-80 shrink-0 ml-1">
+                    {mod.completed ? '✓' : `M${idx + 1}`}
+                  </span>
                 </button>
               );
             })}
           </div>
 
-          {/* FINAL CERTIFICATION EXAM SIDEBAR CARD */}
-          {finalTest && (
-            <div className="pt-2">
-              <button
-                onClick={() => {
-                  if (!isCourseFullyCompleted) {
-                    setShowLockedModal(true);
-                  } else {
-                    openExam();
-                  }
-                }}
-                className={`w-full p-4 rounded-2xl text-left transition-all border-2 relative overflow-hidden group ${
-                  isExamMode
-                    ? 'bg-gradient-to-br from-brand-900 to-emerald-950 border-emerald-400 shadow-xl'
-                    : isCourseFullyCompleted
-                    ? 'bg-slate-900/90 hover:bg-slate-800 border-amber-500/50 hover:border-amber-400 shadow-lg'
-                    : 'bg-slate-900/60 hover:bg-slate-800/80 border-slate-700/80 opacity-90'
-                }`}
-              >
-                <div className="flex items-start gap-3">
-                  <div className={`w-9 h-9 rounded-xl flex items-center justify-center shrink-0 border ${
-                    isExamMode 
-                      ? 'bg-emerald-500 text-slate-950 border-emerald-300 font-black' 
-                      : isCourseFullyCompleted
-                      ? 'bg-amber-400/10 text-amber-400 border-amber-500/30'
-                      : 'bg-slate-800/80 text-amber-400/80 border-slate-700'
-                  }`}>
-                    {isCourseFullyCompleted ? <Trophy className="w-5 h-5" /> : <Lock className="w-4 h-4 text-amber-400" />}
-                  </div>
-
-                  <div className="min-w-0 flex-1">
-                    <div className="flex items-center justify-between">
-                      <span className="text-[10px] font-black uppercase tracking-wider text-amber-400 flex items-center gap-1">
-                        {!isCourseFullyCompleted && <Lock className="w-2.5 h-2.5 inline" />}
-                        Final Assessment
-                      </span>
-                      <span className={`text-[10px] font-black px-2 py-0.5 rounded-full ${
-                        examSubmitted
-                          ? examPassed 
-                            ? 'bg-emerald-950 text-emerald-300 border border-emerald-600'
-                            : 'bg-rose-950 text-rose-300 border border-rose-600'
-                          : isCourseFullyCompleted 
-                          ? 'bg-emerald-950 text-emerald-300 border border-emerald-600'
-                          : 'bg-amber-950/80 text-amber-300 border border-amber-600/50'
-                      }`}>
-                        {examSubmitted ? `Score: ${examPercentage}%` : isCourseFullyCompleted ? '4 Papers Ready' : `Locked (${completedCount}/${totalCount})`}
-                      </span>
-                    </div>
-
-                    <h4 className="text-xs font-black text-white mt-1 group-hover:text-emerald-300 transition-colors">
-                      {finalTest.title}
-                    </h4>
-
-                    <p className="text-[10px] text-slate-400 mt-1">
-                      {isCourseFullyCompleted 
-                        ? (examSubmitted ? 'Submission recorded • Review below' : '4 Student Sets: Arshith, Priya, Rahul & Adithya')
-                        : `Complete all ${totalCount} modules to unlock final question papers (${completedCount}/${totalCount} done)`}
-                    </p>
-                  </div>
-                </div>
-              </button>
+          {/* Highlighted Final Assessment Card Down of 15 Modules */}
+          <div className="bg-gradient-to-br from-amber-950/90 via-slate-900 to-slate-950 p-4.5 rounded-2xl border-2 border-amber-400 shadow-2xl space-y-3 ring-2 ring-amber-400/40 mt-4">
+            <div className="flex items-center justify-between">
+              <span className="px-2.5 py-0.5 bg-amber-400 text-slate-950 text-[10px] font-black uppercase rounded-full tracking-wider shadow-sm">
+                ★ Course Certification
+              </span>
+              <span className="text-[10px] font-bold text-amber-300 font-mono">25 Qs • 45 Mins</span>
             </div>
-          )}
+
+            <div>
+              <h4 className="text-sm font-black text-white flex items-center gap-1.5">
+                <Clock className="w-4 h-4 text-amber-400 shrink-0" />
+                <span>SQL Final Assessment</span>
+              </h4>
+              <p className="text-[11px] text-slate-300 font-medium pt-1 leading-relaxed">
+                Test your mastery across all 15 modules to earn your verified course certificate.
+              </p>
+            </div>
+
+            {/* Highlighting Yellow Pill Button requested by User */}
+            <button
+              onClick={() => setFinalTestModalOpen(true)}
+              className="w-full py-3 px-4 rounded-full text-xs font-black text-slate-950 bg-amber-400 hover:bg-amber-300 active:scale-95 shadow-xl transition-all flex items-center justify-center gap-2 border-2 border-amber-300 cursor-pointer"
+            >
+              <Clock className="w-4 h-4 text-slate-950 shrink-0" />
+              <span>Final Assessment (45m)</span>
+            </button>
+          </div>
 
           {/* COURSE PROJECTS SIDEBAR CARD */}
           <div className="pt-2">
@@ -1448,433 +1259,293 @@ export default function LearningPage({
                       })}
                     </div>
                   </div>
-
                 </div>
               )}
-
             </div>
           ) : (
-            /* ========================================================================= */
-            /* VIEW B: MODULE READING MATERIAL & PRACTICAL EXERCISES                    */
-            /* ========================================================================= */
             <div className="space-y-8">
+                  {/* Module Title Banner */}
+                  <div className="bg-slate-900 rounded-3xl p-6 border-2 border-brand-900 space-y-2">
+                    <div className="flex items-center justify-between">
+                      <span className="px-3 py-1 bg-brand-900 text-emerald-300 text-[10px] font-black uppercase rounded-full border border-brand-800">
+                        Reading Material Manual
+                      </span>
+                      <span className="text-xs font-bold text-slate-400">Course Progress: {course.progress}%</span>
+                    </div>
+            <h1 className="text-2xl sm:text-3xl font-black text-white">{currentModule?.title}</h1>
+            <p className="text-xs text-slate-400 font-medium">{currentModule?.description}</p>
+          </div>
+
+          {/* Completed Celebration Banner */}
+          {isCourseFullyCompleted && (
+            <div className="bg-gradient-to-r from-emerald-950 via-brand-900 to-slate-900 p-6 rounded-3xl border-2 border-emerald-400 space-y-4 text-center">
+              <div className="w-16 h-16 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center mx-auto text-3xl">
+                🎉
+              </div>
+              <h3 className="text-2xl font-black text-white">Congratulations! Course 100% Completed!</h3>
+              <p className="text-xs text-emerald-200 font-medium max-w-lg mx-auto">
+                You have completed all modules for {course.title}. Download your complete course manual PDF or claim your official completion certificate now!
+              </p>
+
+              <div className="flex flex-wrap items-center justify-center gap-3 pt-2">
+                <button
+                  onClick={() => generateCoursePDF(course, studentName)}
+                  className="px-6 py-3 text-xs font-black text-slate-950 bg-emerald-400 hover:bg-emerald-300 rounded-full shadow-lg flex items-center gap-2"
+                >
+                  <Download className="w-4 h-4 text-slate-950" />
+                  <span>Download Complete Course PDF</span>
+                </button>
+
+                <button
+                  onClick={() => onViewCertificate(course.id)}
+                  className="px-6 py-3 text-xs font-black text-slate-950 bg-amber-400 hover:bg-amber-300 rounded-full shadow-lg flex items-center gap-2"
+                >
+                  <Award className="w-4 h-4 text-slate-950" />
+                  <span>View Certificate</span>
+                </button>
+              </div>
+            </div>
+          )}
+
+          {/* Reading Material Sections */}
+          {rm && (
+            <div className="bg-slate-900/90 rounded-3xl p-6 sm:p-8 border border-slate-800 space-y-8 text-slate-200">
               
-              {/* Module Top Header */}
-              <div className="space-y-2 border-b border-slate-800 pb-6">
-                <div className="flex items-center gap-2">
-                  <span className="px-3 py-1 rounded-full bg-brand-500/10 text-emerald-400 border border-emerald-500/20 text-xs font-black uppercase tracking-wider">
-                    Module {currentModuleIndex + 1} of {course.modules?.length}
-                  </span>
-                  {currentModule?.completed && (
-                    <span className="px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-300 border border-emerald-500/30 text-xs font-bold flex items-center gap-1">
-                      <CheckCircle className="w-3.5 h-3.5" />
-                      Completed
-                    </span>
-                  )}
-                </div>
-
-                <h1 className="text-2xl sm:text-3xl font-black text-white tracking-tight">
-                  {currentModule?.title}
-                </h1>
-                <p className="text-xs sm:text-sm text-slate-400 font-medium">
-                  {currentModule?.description}
-                </p>
-              </div>
-
-              {/* Module Completed Card (When 100% course completed) */}
-              {isCourseFullyCompleted && (
-                <div className="p-6 sm:p-8 rounded-3xl bg-gradient-to-r from-emerald-950 via-slate-900 to-brand-950 border-2 border-emerald-500/50 text-center space-y-4 shadow-xl">
-                  <div className="w-14 h-14 rounded-2xl bg-amber-400/20 text-amber-300 border border-amber-400/40 flex items-center justify-center mx-auto text-2xl">
-                    🏆
-                  </div>
-
-                  <h3 className="text-xl sm:text-2xl font-black text-white">
-                    All Modules Mastered! Final Examination Unlocked 🎉
+              {/* Introduction */}
+              {rm.introduction && (
+                <div className="space-y-3">
+                  <h3 className="text-lg font-black text-emerald-400 flex items-center gap-2 border-b border-slate-800 pb-2">
+                    <BookOpen className="w-5 h-5" />
+                    <span>1. Introduction</span>
                   </h3>
-                  <p className="text-xs text-slate-300 max-w-lg mx-auto">
-                    You have completed all {totalCount} modules in {course.title}. Take the official certification examination by selecting from the 4 student question papers!
+                  <p className="text-sm leading-relaxed text-slate-300 font-normal">
+                    {rm.introduction}
                   </p>
+                </div>
+              )}
 
-                  <div className="flex flex-wrap items-center justify-center gap-3 pt-2">
-                    <button
-                      onClick={openExam}
-                      className="px-6 py-3 text-xs font-black text-slate-950 bg-amber-400 hover:bg-amber-300 rounded-full shadow-lg flex items-center gap-2 border-2 border-amber-300 transition-all"
-                    >
-                      <Trophy className="w-4 h-4 text-slate-950" />
-                      <span>Take Final Test (4 Student Question Papers)</span>
-                    </button>
+              {/* Objectives */}
+              {rm.objectives && rm.objectives.length > 0 && (
+                <div className="space-y-3">
+                  <h3 className="text-lg font-black text-emerald-400 flex items-center gap-2 border-b border-slate-800 pb-2">
+                    <CheckSquare className="w-5 h-5" />
+                    <span>2. What You Will Learn</span>
+                  </h3>
+                  <ul className="grid sm:grid-cols-2 gap-2 text-xs font-semibold">
+                    {rm.objectives.map((obj, i) => (
+                      <li key={i} className="flex items-start gap-2 bg-slate-950 p-3 rounded-xl border border-slate-800">
+                        <span className="text-emerald-400 font-bold">•</span>
+                        <span>{obj}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
 
-                    <button
-                      onClick={() => generateCoursePDF(course)}
-                      className="px-6 py-3 text-xs font-black text-white bg-brand-900 hover:bg-brand-800 rounded-full border border-brand-700 flex items-center gap-2"
-                    >
-                      <Download className="w-4 h-4 text-emerald-400" />
-                      <span>Download Course PDF</span>
-                    </button>
+              {/* Detailed Sections */}
+              {rm.sections && rm.sections.map((sec, idx) => (
+                <div key={idx} className="space-y-3">
+                  <h4 className="text-base font-bold text-white border-b border-slate-800 pb-1">
+                    {sec.heading}
+                  </h4>
+                  <p className="text-sm leading-relaxed text-slate-300">{sec.text}</p>
+                  
+                  {sec.bulletPoints && (
+                    <ul className="space-y-1.5 text-xs text-slate-300 pl-4 list-disc">
+                      {sec.bulletPoints.map((bp, bIdx) => (
+                        <li key={bIdx}>{bp}</li>
+                      ))}
+                    </ul>
+                  )}
 
-                    <button
-                      onClick={() => onViewCertificate(course.id)}
-                      className="px-6 py-3 text-xs font-bold text-emerald-300 bg-emerald-950 hover:bg-emerald-900 rounded-full border border-emerald-700 flex items-center gap-2"
-                    >
-                      <Award className="w-4 h-4 text-emerald-400" />
-                      <span>View Certificate</span>
-                    </button>
+                  {sec.table && (
+                    <div className="overflow-x-auto my-3">
+                      <table className="w-full text-xs text-left border-collapse border border-slate-800">
+                        <thead>
+                          <tr className="bg-slate-950 text-emerald-400">
+                            {sec.table.headers.map((h, hIdx) => (
+                              <th key={hIdx} className="p-2 border border-slate-800">{h}</th>
+                            ))}
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {sec.table.rows.map((r, rIdx) => (
+                            <tr key={rIdx} className="hover:bg-slate-800/40">
+                              {r.map((c, cIdx) => (
+                                <td key={cIdx} className="p-2 border border-slate-800 text-slate-300">{c}</td>
+                              ))}
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    </div>
+                  )}
+                </div>
+              ))}
+
+              {/* Code Examples */}
+              {rm.codeExamples && rm.codeExamples.map((ex, exIdx) => (
+                <div key={exIdx} className="space-y-2">
+                  <div className="flex items-center justify-between">
+                    <span className="text-xs font-bold text-emerald-400 flex items-center gap-1.5">
+                      <Code className="w-4 h-4" />
+                      <span>{ex.title}</span>
+                    </span>
+                    <span className="text-[10px] text-slate-400">Python 3 / SQL</span>
+                  </div>
+
+                  <div className="bg-slate-950 rounded-2xl p-4 border border-slate-800 overflow-x-auto font-mono text-xs text-emerald-300">
+                    <pre>{ex.code}</pre>
+                  </div>
+                  {ex.explanation && (
+                    <p className="text-xs text-slate-400 italic">Note: {ex.explanation}</p>
+                  )}
+                </div>
+              ))}
+
+              {/* Practice Exercise */}
+              {rm.practiceExercise && (
+                <div className="bg-slate-950 p-5 rounded-2xl border border-amber-500/40 space-y-3">
+                  <div className="flex items-center gap-2 text-amber-400 text-xs font-bold uppercase">
+                    <Sparkles className="w-4 h-4" />
+                    <span>Practice Challenge: {rm.practiceExercise.title}</span>
+                  </div>
+                  <p className="text-xs text-slate-300 font-medium">{rm.practiceExercise.problem}</p>
+
+                  <button
+                    onClick={() => setShowSolution(!showSolution)}
+                    className="px-3 py-1.5 text-xs font-bold text-amber-300 bg-amber-950/40 hover:bg-amber-900/60 rounded-lg border border-amber-800"
+                  >
+                    {showSolution ? 'Hide Solution' : 'View Solution Code'}
+                  </button>
+
+                  {showSolution && (
+                    <div className="bg-slate-900 p-3 rounded-xl font-mono text-xs text-emerald-300 border border-slate-800">
+                      <pre>{rm.practiceExercise.solutionCode}</pre>
+                    </div>
+                  )}
+                </div>
+              )}
+
+              {/* Key Takeaways */}
+              {rm.keyTakeaways && rm.keyTakeaways.length > 0 && (
+                <div className="bg-brand-950/40 p-5 rounded-2xl border border-brand-800/80 space-y-3">
+                  <h4 className="text-xs font-black uppercase tracking-wider text-emerald-400">Key Takeaways</h4>
+                  <ul className="space-y-1.5 text-xs text-slate-300">
+                    {rm.keyTakeaways.map((kt, kIdx) => (
+                      <li key={kIdx} className="flex items-start gap-2">
+                        <span className="text-emerald-400 font-bold">✓</span>
+                        <span>{kt}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+
+              {/* Official References */}
+              {rm.references && rm.references.length > 0 && (
+                <div className="pt-4 border-t border-slate-800 text-xs space-y-2">
+                  <span className="font-bold text-slate-400 uppercase">Learning References:</span>
+                  <div className="flex flex-wrap gap-3">
+                    {rm.references.map((ref, rIdx) => (
+                      <a
+                        key={rIdx}
+                        href={ref.url}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="text-emerald-400 hover:underline inline-flex items-center gap-1 font-semibold"
+                      >
+                        <span>{ref.title}</span>
+                        <ExternalLink className="w-3 h-3" />
+                      </a>
+                    ))}
                   </div>
                 </div>
               )}
-
-              {/* Reading Material Sections */}
-              {rm && (
-                <div className="bg-slate-900/90 rounded-3xl p-6 sm:p-8 border border-slate-800 space-y-8 text-slate-200">
-                  
-                  {/* Introduction */}
-                  {rm.introduction && (
-                    <div className="space-y-3">
-                      <h3 className="text-lg font-black text-emerald-400 flex items-center gap-2 border-b border-slate-800 pb-2">
-                        <BookOpen className="w-5 h-5" />
-                        <span>1. Introduction</span>
-                      </h3>
-                      <p className="text-sm leading-relaxed text-slate-300 font-normal whitespace-pre-line">
-                        {rm.introduction}
-                      </p>
-                    </div>
-                  )}
-
-                  {/* Objectives */}
-                  {rm.objectives && rm.objectives.length > 0 && (
-                    <div className="space-y-3">
-                      <h3 className="text-lg font-black text-emerald-400 flex items-center gap-2 border-b border-slate-800 pb-2">
-                        <CheckSquare className="w-5 h-5" />
-                        <span>2. What You Will Learn</span>
-                      </h3>
-                      <ul className="grid sm:grid-cols-2 gap-2 text-xs font-semibold">
-                        {rm.objectives.map((obj, i) => (
-                          <li key={i} className="flex items-start gap-2 bg-slate-950 p-3 rounded-xl border border-slate-800">
-                            <span className="text-emerald-400 font-bold">•</span>
-                            <span className="text-slate-300">{obj}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  )}
-
-                  {/* Deep Dive Sections */}
-                  {rm.sections && rm.sections.length > 0 && (
-                    <div className="space-y-6">
-                      <h3 className="text-lg font-black text-emerald-400 border-b border-slate-800 pb-2">
-                        3. Core Concepts & Architecture
-                      </h3>
-
-                      {rm.sections.map((sec, sIdx) => (
-                        <div key={sIdx} className="space-y-3 bg-slate-950/60 p-5 rounded-2xl border border-slate-800/80">
-                          <h4 className="text-sm sm:text-base font-bold text-white flex items-center gap-2">
-                            <span className="text-emerald-400 font-mono font-bold">3.{sIdx + 1}</span>
-                            <span>{sec.heading}</span>
-                          </h4>
-                          <p className="text-xs sm:text-sm leading-relaxed text-slate-300 whitespace-pre-line">
-                            {sec.text}
-                          </p>
-
-                          {sec.bulletPoints && sec.bulletPoints.length > 0 && (
-                            <ul className="space-y-1.5 pt-2 pl-2 text-xs">
-                              {sec.bulletPoints.map((bp, bpIdx) => (
-                                <li key={bpIdx} className="flex items-start gap-2 text-slate-300">
-                                  <span className="text-emerald-400 font-black">→</span>
-                                  <span>{bp}</span>
-                                </li>
-                              ))}
-                            </ul>
-                          )}
-                        </div>
-                      ))}
-                    </div>
-                  )}
-
-                  {/* Code Examples */}
-                  {rm.codeExamples && rm.codeExamples.length > 0 && (
-                    <div className="space-y-4">
-                      <h3 className="text-lg font-black text-emerald-400 flex items-center gap-2 border-b border-slate-800 pb-2">
-                        <Code className="w-5 h-5" />
-                        <span>4. Executable Code Implementations</span>
-                      </h3>
-
-                      <div className="space-y-4">
-                        {rm.codeExamples.map((ex, exIdx) => (
-                          <div key={exIdx} className="bg-slate-950 rounded-2xl border border-slate-800 overflow-hidden shadow-inner">
-                            <div className="bg-slate-900/90 px-4 py-2.5 border-b border-slate-800 flex items-center justify-between text-xs font-bold text-slate-300">
-                              <span>{ex.title}</span>
-                              <span className="text-[10px] font-mono text-emerald-400 uppercase">{ex.language || 'python'}</span>
-                            </div>
-                            <pre className="p-4 text-xs font-mono text-emerald-300 overflow-x-auto leading-relaxed">
-                              {ex.code}
-                            </pre>
-                            {ex.explanation && (
-                              <div className="bg-slate-900/40 p-3 text-[11px] text-slate-400 border-t border-slate-900">
-                                <strong className="text-slate-300">Analysis:</strong> {ex.explanation}
-                              </div>
-                            )}
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  )}
-
-                  {/* Key Takeaways */}
-                  {rm.keyTakeaways && rm.keyTakeaways.length > 0 && (
-                    <div className="space-y-3">
-                      <h3 className="text-lg font-black text-emerald-400 flex items-center gap-2 border-b border-slate-800 pb-2">
-                        <Sparkles className="w-5 h-5 text-amber-400" />
-                        <span>5. Key Engineering Takeaways</span>
-                      </h3>
-                      <div className="grid sm:grid-cols-2 gap-2 text-xs">
-                        {rm.keyTakeaways.map((takeaway, tIdx) => (
-                          <div key={tIdx} className="p-3 bg-emerald-950/20 border border-emerald-500/20 rounded-xl text-slate-300 flex items-start gap-2">
-                            <span className="text-emerald-400 font-bold">✓</span>
-                            <span>{takeaway}</span>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  )}
-
-                  {/* Exercises */}
-                  {rm.exercises && rm.exercises.length > 0 && (
-                    <div className="space-y-4">
-                      <h3 className="text-lg font-black text-emerald-400 border-b border-slate-800 pb-2">
-                        6. Hands-On Practice Exercises
-                      </h3>
-
-                      <div className="space-y-3">
-                        {rm.exercises.map((exe, eIdx) => (
-                          <div key={eIdx} className="p-4 bg-slate-950 rounded-2xl border border-slate-800 space-y-2">
-                            <h4 className="text-xs sm:text-sm font-bold text-white flex items-center justify-between">
-                              <span>Exercise {eIdx + 1}: {exe.title}</span>
-                              {exe.difficulty && (
-                                <span className="text-[10px] font-black uppercase px-2 py-0.5 rounded-full bg-slate-800 text-amber-400 border border-amber-500/20">
-                                  {exe.difficulty}
-                                </span>
-                              )}
-                            </h4>
-                            <p className="text-xs text-slate-300 leading-relaxed">{exe.prompt}</p>
-                            {exe.hint && (
-                              <p className="text-[11px] text-slate-500 italic">💡 Hint: {exe.hint}</p>
-                            )}
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  )}
-
-                  {/* References */}
-                  {rm.references && rm.references.length > 0 && (
-                    <div className="pt-4 border-t border-slate-800 text-xs space-y-2">
-                      <span className="font-bold text-slate-400 uppercase">Learning References:</span>
-                      <div className="flex flex-wrap gap-3">
-                        {rm.references.map((ref, rIdx) => (
-                          <a
-                            key={rIdx}
-                            href={ref.url}
-                            target="_blank"
-                            rel="noreferrer"
-                            className="text-emerald-400 hover:underline inline-flex items-center gap-1 font-semibold"
-                          >
-                            <span>{ref.title}</span>
-                            <ExternalLink className="w-3 h-3" />
-                          </a>
-                        ))}
-                      </div>
-                    </div>
-                  )}
-
-                </div>
-              )}
-
-              {/* Bottom Action Controls */}
-              <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-4 border-t border-slate-800">
-                <button
-                  onClick={handlePrev}
-                  disabled={currentModuleIndex <= 0}
-                  className="w-full sm:w-auto px-5 py-3 text-xs font-bold text-slate-300 bg-slate-800 hover:bg-slate-700 disabled:opacity-40 rounded-2xl flex items-center justify-center gap-1.5 transition-all border border-slate-700"
-                >
-                  <ChevronLeft className="w-4 h-4" />
-                  <span>Previous Module</span>
-                </button>
-
-                <button
-                  onClick={handleMarkComplete}
-                  className={`w-full sm:w-auto px-7 py-3 rounded-full text-xs font-black shadow-lg transition-all flex items-center justify-center gap-2 border-2 ${
-                    currentModule?.completed
-                      ? 'bg-emerald-950 text-emerald-300 border-emerald-500'
-                      : 'bg-brand-600 hover:bg-brand-500 text-white border-brand-900'
-                  }`}
-                >
-                  <CheckCircle className="w-4.5 h-4.5" />
-                  <span>{currentModule?.completed ? 'Module Completed ✓' : 'Mark Module Complete ✓'}</span>
-                </button>
-
-                {currentModuleIndex < (course.modules?.length || 1) - 1 ? (
-                  <button
-                    onClick={handleNext}
-                    className="w-full sm:w-auto px-5 py-3 text-xs font-bold text-white bg-brand-600 hover:bg-brand-500 rounded-2xl flex items-center justify-center gap-1.5 transition-all border border-brand-900"
-                  >
-                    <span>Next Module</span>
-                    <ChevronRight className="w-4 h-4" />
-                  </button>
-                ) : (
-                  finalTest && (
-                    <button
-                      onClick={() => {
-                        if (!isCourseFullyCompleted) {
-                          setShowLockedModal(true);
-                        } else {
-                          openExam();
-                        }
-                      }}
-                      className={`w-full sm:w-auto px-6 py-3 text-xs font-black rounded-full flex items-center justify-center gap-1.5 transition-all shadow-lg border-2 ${
-                        isCourseFullyCompleted
-                          ? 'bg-amber-400 hover:bg-amber-300 text-slate-950 border-amber-300'
-                          : 'bg-slate-800 text-amber-300 border-amber-500/40 hover:bg-slate-700'
-                      }`}
-                    >
-                      {isCourseFullyCompleted ? <Trophy className="w-4 h-4 text-slate-950" /> : <Lock className="w-4 h-4 text-amber-400" />}
-                      <span>{isCourseFullyCompleted ? 'Take Master Exam (4 Papers)' : `Final Exam Locked (${completedCount}/${totalCount})`}</span>
-                    </button>
-                  )
-                )}
-              </div>
 
             </div>
           )}
 
+          {/* Bottom Action Controls */}
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-3 pt-4 border-t border-slate-800">
+            <button
+              onClick={handlePrev}
+              disabled={currentModuleIndex <= 0}
+              className="w-full sm:w-auto px-4 py-3 text-xs font-bold text-slate-300 bg-slate-800 hover:bg-slate-700 disabled:opacity-40 rounded-2xl flex items-center justify-center gap-1.5 transition-all border border-slate-700"
+            >
+              <ChevronLeft className="w-4 h-4" />
+              <span>Previous</span>
+            </button>
+
+            {/* Take Module Quiz Button */}
+            <button
+              onClick={() => setQuizModalOpen(true)}
+              className="w-full sm:w-auto px-6 py-3 rounded-full text-xs font-black text-slate-950 bg-amber-400 hover:bg-amber-300 shadow-xl transition-all flex items-center justify-center gap-2 border-2 border-amber-300"
+            >
+              <HelpCircle className="w-4.5 h-4.5 text-slate-950" />
+              <span>Take {currentModule?.title?.split('—')[0] || 'Module'} Quiz (5 Qs)</span>
+            </button>
+
+            <button
+              onClick={handleMarkComplete}
+              className={`w-full sm:w-auto px-6 py-3 rounded-full text-xs font-black shadow-lg transition-all flex items-center justify-center gap-2 border-2 ${
+                currentModule?.completed
+                  ? 'bg-emerald-950 text-emerald-300 border-emerald-500'
+                  : 'bg-brand-600 hover:bg-brand-500 text-white border-brand-900'
+              }`}
+            >
+              <CheckCircle className="w-4.5 h-4.5" />
+              <span>{currentModule?.completed ? 'Completed ✓' : 'Mark Complete ✓'}</span>
+            </button>
+
+            <button
+              onClick={handleNext}
+              disabled={currentModuleIndex >= (course.modules?.length || 1) - 1}
+              className="w-full sm:w-auto px-4 py-3 text-xs font-bold text-white bg-brand-600 hover:bg-brand-500 disabled:opacity-40 rounded-2xl flex items-center justify-center gap-1.5 transition-all border border-brand-900"
+            >
+              <span>Next</span>
+              <ChevronRight className="w-4 h-4" />
+            </button>
+          </div>
+
         </div>
+      )}
 
       </div>
+    </div>
 
-      {/* Submit Confirmation Modal */}
-      {showSubmitModal && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-md animate-in fade-in duration-200">
-          <div className="bg-slate-900 border-2 border-emerald-500/40 rounded-3xl max-w-md w-full p-6 sm:p-8 shadow-2xl space-y-6 text-white relative">
-            <button
-              onClick={() => setShowSubmitModal(false)}
-              className="absolute top-5 right-5 p-2 text-slate-400 hover:text-white rounded-full hover:bg-slate-800"
-            >
-              <X className="w-5 h-5" />
-            </button>
-
-            <div className="text-center space-y-2">
-              <div className="w-14 h-14 rounded-2xl bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 flex items-center justify-center mx-auto text-2xl">
-                📝
-              </div>
-              <h3 className="text-xl font-black">Submit {activePaper.studentName}'s Paper?</h3>
-              <p className="text-xs text-slate-400">
-                You are submitting <strong>{activePaper.paperCode}</strong> ({activePaper.studentName}). Your final score will be calculated and recorded.
-              </p>
-            </div>
-
-            <div className="bg-slate-950 p-4 rounded-2xl border border-slate-800 space-y-2 text-xs">
-              <div className="flex justify-between">
-                <span className="text-slate-400">Candidate:</span>
-                <span className="font-bold text-white">{activePaper.studentName} ({activePaper.rollNo})</span>
-              </div>
-              <div className="flex justify-between">
-                <span className="text-slate-400">Questions Answered:</span>
-                <span className="font-bold text-emerald-400">{answeredCount} of {totalExamQuestions}</span>
-              </div>
-              <div className="flex justify-between">
-                <span className="text-slate-400">Unanswered Questions:</span>
-                <span className="font-bold text-rose-400">{totalExamQuestions - answeredCount}</span>
-              </div>
-              <div className="flex justify-between">
-                <span className="text-slate-400">Passing Criteria:</span>
-                <span className="font-bold text-amber-400">{activePaper.passingScore || 80}%</span>
-              </div>
-            </div>
-
-            <div className="flex gap-3">
-              <button
-                onClick={() => setShowSubmitModal(false)}
-                className="w-1/2 py-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 font-bold text-xs transition-all border border-slate-700"
-              >
-                Continue Answering
-              </button>
-              <button
-                onClick={handleManualSubmit}
-                className="w-1/2 py-3 rounded-xl bg-emerald-400 hover:bg-emerald-300 text-slate-950 font-black text-xs transition-all shadow-md"
-              >
-                Confirm Submission
-              </button>
-            </div>
-          </div>
-        </div>
+      {/* Module Quiz Modal */}
+      {currentModule && (
+        <ModuleQuizModal
+          isOpen={quizModalOpen}
+          onClose={() => setQuizModalOpen(false)}
+          module={currentModule}
+          courseId={course.id}
+          onQuizPassed={(modId) => {
+            onToggleModuleComplete(course.id, modId);
+          }}
+          onContinueNextModule={() => {
+            handleNext();
+          }}
+        />
       )}
 
-      {/* LOCKED EXAMINATION MODAL */}
-      {showLockedModal && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/85 backdrop-blur-md animate-in fade-in duration-200">
-          <div className="bg-slate-900 border-2 border-amber-500/50 rounded-3xl max-w-lg w-full p-6 sm:p-8 shadow-2xl space-y-6 text-white relative">
-            <button
-              onClick={() => setShowLockedModal(false)}
-              className="absolute top-5 right-5 p-2 text-slate-400 hover:text-white rounded-full hover:bg-slate-800 transition-all"
-            >
-              <X className="w-5 h-5" />
-            </button>
-
-            <div className="text-center space-y-2">
-              <div className="w-16 h-16 rounded-2xl bg-amber-500/10 border-2 border-amber-500/40 text-amber-400 flex items-center justify-center mx-auto text-2xl shadow-lg">
-                <Lock className="w-8 h-8 text-amber-400" />
-              </div>
-              <h3 className="text-xl sm:text-2xl font-black text-white">Final Examination Sealed 🔒</h3>
-              <p className="text-xs text-slate-300 max-w-md mx-auto leading-relaxed">
-                In accordance with Arshith Boot Camp academic integrity guidelines, the 4 student question papers are strictly locked until you complete all course modules.
-              </p>
-            </div>
-
-            <div className="bg-slate-950 p-4 rounded-2xl border border-slate-800 space-y-3">
-              <div className="flex items-center justify-between text-xs font-bold">
-                <span className="text-slate-400">Current Course Progress</span>
-                <span className="text-amber-400">{completedCount} / {totalCount} Modules ({Math.round(completedCount/totalCount * 100)}%)</span>
-              </div>
-              <div className="w-full h-2.5 bg-slate-800 rounded-full overflow-hidden">
-                <div
-                  className="h-full bg-gradient-to-r from-amber-500 to-emerald-400 rounded-full transition-all duration-300"
-                  style={{ width: `${Math.round(completedCount/totalCount * 100)}%` }}
-                />
-              </div>
-              <p className="text-[11px] text-slate-400 pt-1">
-                Complete the remaining <strong className="text-white">{totalCount - completedCount}</strong> module(s) to unlock the 4 official question papers set for:
-              </p>
-
-              <div className="grid grid-cols-2 gap-2 text-[11px] pt-1">
-                <div className="p-2.5 bg-slate-900 rounded-xl border border-slate-800 flex items-center gap-2 text-slate-300">
-                  <User className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
-                  <span className="truncate">Paper 1: Arshith Kumar</span>
-                </div>
-                <div className="p-2.5 bg-slate-900 rounded-xl border border-slate-800 flex items-center gap-2 text-slate-300">
-                  <User className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
-                  <span className="truncate">Paper 2: Priya Sharma</span>
-                </div>
-                <div className="p-2.5 bg-slate-900 rounded-xl border border-slate-800 flex items-center gap-2 text-slate-300">
-                  <User className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
-                  <span className="truncate">Paper 3: Rahul Verma</span>
-                </div>
-                <div className="p-2.5 bg-slate-900 rounded-xl border border-slate-800 flex items-center gap-2 text-slate-300">
-                  <User className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
-                  <span className="truncate">Paper 4: Adithya V</span>
-                </div>
-              </div>
-            </div>
-
-            <div className="flex gap-3">
-              <button
-                onClick={() => setShowLockedModal(false)}
-                className="w-full py-3 rounded-xl bg-brand-600 hover:bg-brand-500 text-white font-black text-xs transition-all shadow-md"
-              >
-                Continue Learning Modules
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
+      {/* Final Assessment Modal */}
+      <FinalTestModal
+        isOpen={finalTestModalOpen}
+        onClose={() => setFinalTestModalOpen(false)}
+        course={course}
+        onTestPassed={() => {
+          confetti({
+            particleCount: 200,
+            spread: 100,
+            origin: { y: 0.5 }
+          });
+        }}
+        onViewCourseProgress={() => {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        }}
+      />
 
       {/* CANDIDATE PROJECT DETAILS & SUBMISSION MODAL */}
       {activeProjectForDetails && (() => {

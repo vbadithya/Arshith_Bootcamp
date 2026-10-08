@@ -202,6 +202,35 @@ export default function CourseDetailsPage({ course, onBack, onStartLearning }) {
                 })}
               </div>
 
+              {/* Highlighted Final Assessment Card Down of 15 Modules */}
+              <div className="mt-6 bg-slate-900 border-2 border-amber-400 rounded-3xl p-6 shadow-2xl space-y-4 text-white">
+                <div className="flex items-center justify-between">
+                  <span className="px-3 py-1 bg-amber-400 text-slate-950 text-[10px] font-black uppercase rounded-full tracking-wider shadow-sm">
+                    ★ Course Final Evaluation
+                  </span>
+                  <span className="text-xs font-bold text-amber-300 font-mono">25 Qs • 45 Minutes</span>
+                </div>
+
+                <div className="space-y-1">
+                  <h3 className="text-lg font-black text-white flex items-center gap-2">
+                    <Clock className="w-5 h-5 text-amber-400" />
+                    <span>SQL Final Assessment</span>
+                  </h3>
+                  <p className="text-xs text-slate-300 font-medium leading-relaxed">
+                    Test your comprehensive SQL skills across all 15 modules to earn your official verified completion certificate.
+                  </p>
+                </div>
+
+                {/* Highlighting Yellow Pill Button requested by User */}
+                <button
+                  onClick={() => onStartLearning(course.id, course.modules?.[0]?.id)}
+                  className="w-full py-3.5 px-6 rounded-full text-xs font-black text-slate-950 bg-amber-400 hover:bg-amber-300 active:scale-95 shadow-xl transition-all flex items-center justify-center gap-2 border-2 border-amber-300 cursor-pointer"
+                >
+                  <Clock className="w-4.5 h-4.5 text-slate-950 shrink-0" />
+                  <span>Final Assessment (45m)</span>
+                </button>
+              </div>
+
             </div>
 
             {/* Course Projects Section (3 Mandatory Course Projects) */}

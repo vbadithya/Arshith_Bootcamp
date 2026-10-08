@@ -27,6 +27,16 @@ export default function App() {
   // Single Source of Truth Course State (Loaded from Backend DB)
   const [courses, setCourses] = useState(INITIAL_COURSES);
 
+  // Student Auth State
+  const [studentUser, setStudentUser] = useState(() => {
+    try {
+      const saved = localStorage.getItem('studentUser');
+      return saved ? JSON.parse(saved) : null;
+    } catch (e) {
+      return null;
+    }
+  });
+
   // Admin Auth State
   const [adminUser, setAdminUser] = useState(null);
 
@@ -98,6 +108,25 @@ export default function App() {
     setAuthModalOpen(true);
   };
 
+  const handleStudentAuthSuccess = (userAuthData) => {
+    const existingEnrolled = studentUser?.enrolledCourseIds || [];
+    const updatedUser = {
+      name: userAuthData.name,
+      email: userAuthData.email,
+      enrolledCourseIds: userAuthData.mode === 'signup' ? [] : existingEnrolled,
+      certificates: []
+    };
+    setStudentUser(updatedUser);
+    localStorage.setItem('studentUser', JSON.stringify(updatedUser));
+    setActiveTab('dashboard');
+  };
+
+  const handleStudentLogout = () => {
+    setStudentUser(null);
+    localStorage.removeItem('studentUser');
+    setActiveTab('home');
+  };
+
   const handleSelectCourse = (courseId) => {
     setSelectedCourseId(courseId);
     setActiveTab('course-details');
@@ -105,6 +134,17 @@ export default function App() {
   };
 
   const handleStartLearning = (courseId, moduleId = null) => {
+    if (studentUser) {
+      const currentEnrolled = studentUser.enrolledCourseIds || [];
+      if (!currentEnrolled.includes(courseId)) {
+        const updatedUser = {
+          ...studentUser,
+          enrolledCourseIds: [...currentEnrolled, courseId]
+        };
+        setStudentUser(updatedUser);
+        localStorage.setItem('studentUser', JSON.stringify(updatedUser));
+      }
+    }
     setSelectedCourseId(courseId);
     setSelectedModuleId(moduleId);
     setActiveTab('learning');
@@ -181,7 +221,7 @@ export default function App() {
     id: selectedCertId,
     courseId: currentSelectedCourse?.id || 'python-programming',
     courseTitle: currentSelectedCourse?.title || 'Python Programming',
-    studentName: 'Arshith Kumar',
+    studentName: studentUser?.name || 'Arshith Student',
     issueDate: 'October 1, 2026',
     instructorName: currentSelectedCourse?.instructor?.name || 'Dr. Ananya Sharma',
     grade: '98% Distinction'
@@ -204,6 +244,7 @@ export default function App() {
 
   return (
     <div className="min-h-screen flex flex-col font-sans bg-[#FAFDFB] text-slate-900 selection:bg-brand-100 selection:text-brand-900 has-bottom-nav md:pb-0">
+      
       {/* Top Header */}
       {isPublicPage && (
         <Header
@@ -213,6 +254,8 @@ export default function App() {
           onSearchSubmit={handleSearchSubmit}
           searchQuery={searchQuery}
           setSearchQuery={setSearchQuery}
+          studentUser={studentUser}
+          onLogoutStudent={handleStudentLogout}
         />
       )}
 
@@ -289,10 +332,15 @@ export default function App() {
 
         {activeTab === 'dashboard' && (
           <StudentDashboard
+            studentUser={studentUser}
             courses={courses}
             onSelectCourse={handleSelectCourse}
             onStartLearning={handleStartLearning}
             onViewCertificate={handleViewCertificate}
+            onExploreCourses={() => {
+              setActiveTab('courses');
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+            }}
           />
         )}
 
@@ -349,7 +397,7 @@ export default function App() {
         isOpen={authModalOpen}
         onClose={() => setAuthModalOpen(false)}
         initialMode={authMode}
-        onSuccess={() => setActiveTab('dashboard')}
+        onSuccess={handleStudentAuthSuccess}
       />
 
       <VideoModal
