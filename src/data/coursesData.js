@@ -9108,7 +9108,125 @@ conn.close()`
         }
       }
     ],
-    finalTest: {
+        projects: [
+          {
+                "id": "prj-py-1",
+                "courseId": "python-programming",
+                "projectNumber": 1,
+                "title": "Automated Web Scraper & Telemetry Pipeline",
+                "shortDescription": "Build a robust web scraper to extract structured data, validate schema, and export cleaned CSV/JSON datasets.",
+                "detailedDescription": "Develop an automated data ingestion pipeline in Python that extracts, normalizes, and validates web data. Implement comprehensive error handling for HTTP timeouts and HTTP 429 rate limiting, process structured elements with BeautifulSoup, and generate clean datasets.",
+                "objective": "Master HTTP request lifecycles, DOM traversal with BeautifulSoup, exception handling, and data persistence in JSON/CSV formats.",
+                "requirements": [
+                      "Fetch web content using requests or urllib with custom User-Agent headers",
+                      "Parse complex HTML structures, handle pagination, and extract target fields",
+                      "Implement try/except blocks to gracefully catch connection timeouts and status errors",
+                      "Save cleaned, structured data into both output.json and output.csv",
+                      "Include a README.md documenting installation, usage, and schema definitions"
+                ],
+                "technologies": [
+                      "Python 3",
+                      "Requests",
+                      "BeautifulSoup4",
+                      "JSON",
+                      "CSV",
+                      "Regular Expressions"
+                ],
+                "expectedOutput": "A functional Python script or CLI tool that extracts multi-page web content and produces clean, structured JSON and CSV files ready for downstream analysis.",
+                "difficulty": "Beginner",
+                "estimatedTime": "2–3 Days",
+                "submissionInstructions": "1. Complete the project in your local development environment.\n2. Upload all source code and documentation to a public GitHub repository.\n3. Ensure your repository includes a comprehensive README.md with execution instructions.\n4. Submit your GitHub repository URL below for review.",
+                "resources": [
+                      {
+                            "title": "Python Requests Documentation",
+                            "url": "https://requests.readthedocs.io/"
+                      },
+                      {
+                            "title": "BeautifulSoup4 Documentation",
+                            "url": "https://www.crummy.com/software/BeautifulSoup/bs4/doc/"
+                      }
+                ],
+                "status": "active",
+                "createdAt": "2026-10-01T00:00:00.000Z",
+                "updatedAt": "2026-10-01T00:00:00.000Z"
+          },
+          {
+                "id": "prj-py-2",
+                "courseId": "python-programming",
+                "projectNumber": 2,
+                "title": "Multi-Threaded Server & CLI Chat Application",
+                "shortDescription": "Engineer a concurrent client-server networking application using low-level sockets and threading.",
+                "detailedDescription": "Build an event-driven networking suite comprising a multi-client server and interactive command-line client. Manage concurrent connections using Python's threading library, implement clean protocol framing, and enforce graceful disconnections.",
+                "objective": "Deepen understanding of network stream sockets, thread synchronization, broadcast protocols, and daemon thread lifecycles.",
+                "requirements": [
+                      "Create a TCP server utilizing socket and threading modules to handle multiple simultaneous clients",
+                      "Implement message broadcasting so messages sent by one client are delivered to all connected peers",
+                      "Handle client connection drops and SIGINT terminations without crashing the server",
+                      "Implement dedicated commands such as /users, /help, and /quit",
+                      "Include unit tests or integration test scripts for socket communication"
+                ],
+                "technologies": [
+                      "Python 3",
+                      "Sockets",
+                      "Threading",
+                      "Concurrency",
+                      "OOP",
+                      "TCP/IP"
+                ],
+                "expectedOutput": "A server executable and client script capable of sustaining multiple simultaneous active connections with realtime message delivery across network sockets.",
+                "difficulty": "Intermediate",
+                "estimatedTime": "3–4 Days",
+                "submissionInstructions": "1. Complete the project in your local development environment.\n2. Upload all source code and documentation to a public GitHub repository.\n3. Ensure your repository includes instructions for launching the server and connecting multiple clients.\n4. Submit your GitHub repository URL below for review.",
+                "resources": [
+                      {
+                            "title": "Python Socket Programming HOWTO",
+                            "url": "https://docs.python.org/3/howto/sockets.html"
+                      }
+                ],
+                "status": "active",
+                "createdAt": "2026-10-01T00:00:00.000Z",
+                "updatedAt": "2026-10-01T00:00:00.000Z"
+          },
+          {
+                "id": "prj-py-3",
+                "courseId": "python-programming",
+                "projectNumber": 3,
+                "title": "Full-Stack RESTful API & SQLite Persistence Engine",
+                "shortDescription": "Architect a production-ready REST API with JWT authentication, relational SQLite storage, and ACID transactions.",
+                "detailedDescription": "Construct a modular web service backend with parameterized SQLite queries, password hashing, JWT bearer token authentication, role-based access control, and comprehensive endpoint documentation.",
+                "objective": "Synthesize complete full-stack backend development, SQLite database normalization, ACID transaction boundaries, and secure API architecture.",
+                "requirements": [
+                      "Design 3NF relational database schema with foreign keys and index optimization",
+                      "Implement CRUD endpoints with strict JSON request validation and HTTP status codes",
+                      "Secure user passwords using bcrypt and issue JWT authentication tokens",
+                      "Use parameterized SQL queries exclusively to neutralize SQL injection vulnerabilities",
+                      "Provide thorough test suite covering authorization, edge cases, and transaction rollbacks"
+                ],
+                "technologies": [
+                      "Python 3",
+                      "SQLite3",
+                      "FastAPI / Flask",
+                      "JWT",
+                      "Bcrypt",
+                      "REST API",
+                      "Pytest"
+                ],
+                "expectedOutput": "A fully functional, tested REST API service with persistent SQLite database storage, automated schema migrations, and secure authentication.",
+                "difficulty": "Advanced",
+                "estimatedTime": "5–7 Days",
+                "submissionInstructions": "1. Complete the project in your local development environment.\n2. Upload all source code and documentation to a public GitHub repository.\n3. Ensure your repository includes an API specification and curl/Postman testing examples.\n4. Submit your GitHub repository URL below for review.",
+                "resources": [
+                      {
+                            "title": "SQLite3 Python Documentation",
+                            "url": "https://docs.python.org/3/library/sqlite3.html"
+                      }
+                ],
+                "status": "active",
+                "createdAt": "2026-10-01T00:00:00.000Z",
+                "updatedAt": "2026-10-01T00:00:00.000Z"
+          }
+    ],
+finalTest: {
           "id": "py-final-test",
           "title": "Python Programming Master Certification Exam (4 Student Paper Sets)",
           "description": "Official certification exam series featuring 4 comprehensive question papers set for specific candidates. Select your assigned paper set to proceed.",

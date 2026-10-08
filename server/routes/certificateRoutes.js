@@ -65,13 +65,20 @@ router.post('/admin/certificates/check-eligibility', verifyAdminToken, (req, res
   const completedModulesCount = progressObj.completedModules?.length || 0;
   const quizzesPassedCount = progressObj.quizzesPassed?.length || 0;
   const finalTestPassed = Boolean(progressObj.finalTestPassed);
-  const projectStatus = progressObj.projectStatus || 'Not Submitted';
+
+  // Check 3 Course Projects
+  const courseProjects = (course.projects || []).filter(p => p.status !== 'inactive');
+  const projectsProgress = progressObj.projectsProgress || {};
+  const totalProjects = courseProjects.length;
+  const approvedProjectsCount = courseProjects.filter(p => projectsProgress[p.id] === 'Approved').length;
+  const allProjectsApproved = totalProjects > 0 
+    ? (approvedProjectsCount >= totalProjects)
+    : (progressObj.projectStatus === 'Approved');
 
   const allModulesCompleted = completedModulesCount >= totalModules;
   const allQuizzesPassed = quizzesPassedCount >= totalModules;
-  const projectApproved = projectStatus === 'Approved';
 
-  const isEligible = allModulesCompleted && allQuizzesPassed && finalTestPassed && projectApproved;
+  const isEligible = allModulesCompleted && allQuizzesPassed && finalTestPassed && allProjectsApproved;
 
   res.json({
     success: true,
@@ -80,7 +87,8 @@ router.post('/admin/certificates/check-eligibility', verifyAdminToken, (req, res
       allModulesCompleted: `${completedModulesCount}/${totalModules}`,
       allQuizzesPassed: `${quizzesPassedCount}/${totalModules}`,
       finalTestPassed,
-      projectStatus
+      projectsApproved: `${approvedProjectsCount}/${totalProjects || 3}`,
+      allProjectsApproved
     }
   });
 });
@@ -116,12 +124,17 @@ router.post('/admin/certificates/generate', verifyAdminToken, (req, res) => {
     const totalModules = course.modules?.length || 1;
     const completedModulesCount = progressObj.completedModules?.length || 0;
     const finalTestPassed = Boolean(progressObj.finalTestPassed);
-    const projectStatus = progressObj.projectStatus || 'Not Submitted';
+    
+    const courseProjects = (course.projects || []).filter(p => p.status !== 'inactive');
+    const projectsProgress = progressObj.projectsProgress || {};
+    const totalProjects = courseProjects.length;
+    const approvedProjectsCount = courseProjects.filter(p => projectsProgress[p.id] === 'Approved').length;
+    const allProjectsApproved = totalProjects > 0 ? (approvedProjectsCount >= totalProjects) : (progressObj.projectStatus === 'Approved');
 
-    if (completedModulesCount < totalModules || !finalTestPassed || projectStatus !== 'Approved') {
+    if (completedModulesCount < totalModules || !finalTestPassed || !allProjectsApproved) {
       return res.status(400).json({
         success: false,
-        message: 'Student does not meet automatic certificate eligibility criteria (Requires 100% modules, passed quizzes, passed final test, and approved project). Use explicit override if needed.'
+        message: 'Student does not meet certificate eligibility criteria (Requires 100% modules, passed assessments, and all 3 course projects approved). Use explicit override if needed.'
       });
     }
   }

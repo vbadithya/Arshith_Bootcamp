@@ -6,7 +6,7 @@
     "email": "admin@arshithbootcamp.com",
     "role": "admin",
     "createdAt": "2026-01-01T00:00:00.000Z",
-    "lastLogin": "2026-10-01T15:00:00.000Z"
+    "lastLogin": "2026-10-08T12:22:29.271Z"
   },
   "courses": [
     {
@@ -6358,7 +6358,125 @@
         "liveProjectUrlAllowed": true,
         "passingScore": 75,
         "published": true
-      }
+      },
+      "projects": [
+        {
+          "id": "prj-py-1",
+          "courseId": "python-programming",
+          "projectNumber": 1,
+          "title": "Automated Web Scraper & Telemetry Pipeline",
+          "shortDescription": "Build a robust web scraper to extract structured data, validate schema, and export cleaned CSV/JSON datasets.",
+          "detailedDescription": "Develop an automated data ingestion pipeline in Python that extracts, normalizes, and validates web data. Implement comprehensive error handling for HTTP timeouts and HTTP 429 rate limiting, process structured elements with BeautifulSoup, and generate clean datasets.",
+          "objective": "Master HTTP request lifecycles, DOM traversal with BeautifulSoup, exception handling, and data persistence in JSON/CSV formats.",
+          "requirements": [
+            "Fetch web content using requests or urllib with custom User-Agent headers",
+            "Parse complex HTML structures, handle pagination, and extract target fields",
+            "Implement try/except blocks to gracefully catch connection timeouts and status errors",
+            "Save cleaned, structured data into both output.json and output.csv",
+            "Include a README.md documenting installation, usage, and schema definitions"
+          ],
+          "technologies": [
+            "Python 3",
+            "Requests",
+            "BeautifulSoup4",
+            "JSON",
+            "CSV",
+            "Regular Expressions"
+          ],
+          "expectedOutput": "A functional Python script or CLI tool that extracts multi-page web content and produces clean, structured JSON and CSV files ready for downstream analysis.",
+          "difficulty": "Beginner",
+          "estimatedTime": "2–3 Days",
+          "submissionInstructions": "1. Complete the project in your local development environment.\n2. Upload all source code and documentation to a public GitHub repository.\n3. Ensure your repository includes a comprehensive README.md with execution instructions.\n4. Submit your GitHub repository URL below for review.",
+          "resources": [
+            {
+              "title": "Python Requests Documentation",
+              "url": "https://requests.readthedocs.io/"
+            },
+            {
+              "title": "BeautifulSoup4 Documentation",
+              "url": "https://www.crummy.com/software/BeautifulSoup/bs4/doc/"
+            }
+          ],
+          "status": "active",
+          "createdAt": "2026-10-01T00:00:00.000Z",
+          "updatedAt": "2026-10-01T00:00:00.000Z"
+        },
+        {
+          "id": "prj-py-2",
+          "courseId": "python-programming",
+          "projectNumber": 2,
+          "title": "Multi-Threaded Server & CLI Chat Application",
+          "shortDescription": "Engineer a concurrent client-server networking application using low-level sockets and threading.",
+          "detailedDescription": "Build an event-driven networking suite comprising a multi-client server and interactive command-line client. Manage concurrent connections using Python's threading library, implement clean protocol framing, and enforce graceful disconnections.",
+          "objective": "Deepen understanding of network stream sockets, thread synchronization, broadcast protocols, and daemon thread lifecycles.",
+          "requirements": [
+            "Create a TCP server utilizing socket and threading modules to handle multiple simultaneous clients",
+            "Implement message broadcasting so messages sent by one client are delivered to all connected peers",
+            "Handle client connection drops and SIGINT terminations without crashing the server",
+            "Implement dedicated commands such as /users, /help, and /quit",
+            "Include unit tests or integration test scripts for socket communication"
+          ],
+          "technologies": [
+            "Python 3",
+            "Sockets",
+            "Threading",
+            "Concurrency",
+            "OOP",
+            "TCP/IP"
+          ],
+          "expectedOutput": "A server executable and client script capable of sustaining multiple simultaneous active connections with realtime message delivery across network sockets.",
+          "difficulty": "Intermediate",
+          "estimatedTime": "3–4 Days",
+          "submissionInstructions": "1. Complete the project in your local development environment.\n2. Upload all source code and documentation to a public GitHub repository.\n3. Ensure your repository includes instructions for launching the server and connecting multiple clients.\n4. Submit your GitHub repository URL below for review.",
+          "resources": [
+            {
+              "title": "Python Socket Programming HOWTO",
+              "url": "https://docs.python.org/3/howto/sockets.html"
+            }
+          ],
+          "status": "active",
+          "createdAt": "2026-10-01T00:00:00.000Z",
+          "updatedAt": "2026-10-01T00:00:00.000Z"
+        },
+        {
+          "id": "prj-py-3",
+          "courseId": "python-programming",
+          "projectNumber": 3,
+          "title": "Full-Stack RESTful API & SQLite Persistence Engine",
+          "shortDescription": "Architect a production-ready REST API with JWT authentication, relational SQLite storage, and ACID transactions.",
+          "detailedDescription": "Construct a modular web service backend with parameterized SQLite queries, password hashing, JWT bearer token authentication, role-based access control, and comprehensive endpoint documentation.",
+          "objective": "Synthesize complete full-stack backend development, SQLite database normalization, ACID transaction boundaries, and secure API architecture.",
+          "requirements": [
+            "Design 3NF relational database schema with foreign keys and index optimization",
+            "Implement CRUD endpoints with strict JSON request validation and HTTP status codes",
+            "Secure user passwords using bcrypt and issue JWT authentication tokens",
+            "Use parameterized SQL queries exclusively to neutralize SQL injection vulnerabilities",
+            "Provide thorough test suite covering authorization, edge cases, and transaction rollbacks"
+          ],
+          "technologies": [
+            "Python 3",
+            "SQLite3",
+            "FastAPI / Flask",
+            "JWT",
+            "Bcrypt",
+            "REST API",
+            "Pytest"
+          ],
+          "expectedOutput": "A fully functional, tested REST API service with persistent SQLite database storage, automated schema migrations, and secure authentication.",
+          "difficulty": "Advanced",
+          "estimatedTime": "5–7 Days",
+          "submissionInstructions": "1. Complete the project in your local development environment.\n2. Upload all source code and documentation to a public GitHub repository.\n3. Ensure your repository includes an API specification and curl/Postman testing examples.\n4. Submit your GitHub repository URL below for review.",
+          "resources": [
+            {
+              "title": "SQLite3 Python Documentation",
+              "url": "https://docs.python.org/3/library/sqlite3.html"
+            }
+          ],
+          "status": "active",
+          "createdAt": "2026-10-01T00:00:00.000Z",
+          "updatedAt": "2026-10-01T00:00:00.000Z"
+        }
+      ]
     },
     {
       "id": "sql-mastery",
@@ -6567,7 +6685,101 @@
         "liveProjectUrlAllowed": false,
         "passingScore": 80,
         "published": true
-      }
+      },
+      "projects": [
+        {
+          "id": "prj-sql-1",
+          "courseId": "sql-mastery",
+          "projectNumber": 1,
+          "title": "E-Commerce Relational Database Schema & Data Ingestion",
+          "shortDescription": "Design a complete 3NF normalized schema for an e-commerce platform and populate with relational seed data.",
+          "detailedDescription": "Create a scalable relational database architecture representing customers, products, categories, orders, order items, and payment transactions. Implement primary keys, foreign keys, CHECK constraints, and default values.",
+          "objective": "Demonstrate database design principles, entity-relationship modeling, 3NF normalization, and data integrity constraints.",
+          "requirements": [
+            "Design at least 6 interconnected tables conforming to 3NF standards",
+            "Enforce referential integrity using FOREIGN KEY constraints with ON DELETE RESTRICT / CASCADE",
+            "Create sample data insertion scripts (INSERT INTO) with realistic retail datasets",
+            "Write validation queries verifying constraint enforcement"
+          ],
+          "technologies": [
+            "SQL",
+            "PostgreSQL / SQLite",
+            "Data Modeling",
+            "DDL",
+            "DML",
+            "Constraints"
+          ],
+          "expectedOutput": "A schema.sql file containing complete CREATE TABLE statements and a seed.sql file with realistic data.",
+          "difficulty": "Beginner",
+          "estimatedTime": "2–3 Days",
+          "submissionInstructions": "1. Upload schema.sql and seed.sql to your GitHub repository.\n2. Include an ER diagram image or text description in README.md.\n3. Submit your GitHub repository URL below.",
+          "resources": [],
+          "status": "active",
+          "createdAt": "2026-10-01T00:00:00.000Z",
+          "updatedAt": "2026-10-01T00:00:00.000Z"
+        },
+        {
+          "id": "prj-sql-2",
+          "courseId": "sql-mastery",
+          "projectNumber": 2,
+          "title": "Business Intelligence Analytics & Window Functions Suite",
+          "shortDescription": "Formulate analytical reporting queries using window functions, CTEs, and multidimensional aggregations.",
+          "detailedDescription": "Develop a suite of business intelligence queries calculating monthly recurring revenue (MRR), customer cohort retention, running sales totals, moving averages, and top-N ranking per product category.",
+          "objective": "Master Common Table Expressions (CTEs), window functions (ROW_NUMBER, RANK, DENSE_RANK, LAG, LEAD), and complex GROUP BY aggregations.",
+          "requirements": [
+            "Compute month-over-month revenue growth using LAG() window functions",
+            "Calculate 7-day moving averages of daily orders and customer lifetime value (LTV)",
+            "Identify high-value churn risks using recency and frequency segmentation CTEs",
+            "Structure each query with clean formatting, comments, and benchmark output"
+          ],
+          "technologies": [
+            "SQL",
+            "Window Functions",
+            "CTEs",
+            "Analytics",
+            "Aggregations"
+          ],
+          "expectedOutput": "A comprehensive analytics.sql suite containing documented, performant business queries.",
+          "difficulty": "Intermediate",
+          "estimatedTime": "3–4 Days",
+          "submissionInstructions": "1. Push your SQL query files and execution outputs to GitHub.\n2. Submit your GitHub repository URL below.",
+          "resources": [],
+          "status": "active",
+          "createdAt": "2026-10-01T00:00:00.000Z",
+          "updatedAt": "2026-10-01T00:00:00.000Z"
+        },
+        {
+          "id": "prj-sql-3",
+          "courseId": "sql-mastery",
+          "projectNumber": 3,
+          "title": "High-Volume Database Optimization & Trigger Auditing Suite",
+          "shortDescription": "Optimize slow queries using indexes, analyze EXPLAIN query plans, and implement automated audit triggers.",
+          "detailedDescription": "Analyze and optimize execution plans for slow-running queries. Create B-tree and composite indexes, implement database triggers that automatically log record modifications into an audit_logs table, and write stored procedures/transactions.",
+          "objective": "Master database performance tuning, indexing trade-offs, EXPLAIN query plan analysis, and database audit automation.",
+          "requirements": [
+            "Provide before-and-after query execution plans using EXPLAIN QUERY PLAN",
+            "Create strategic composite indexes reducing sequential table scans",
+            "Implement AFTER INSERT/UPDATE/DELETE triggers that record changes to an audit table",
+            "Wrap financial state transitions in ACID transactions with savepoints"
+          ],
+          "technologies": [
+            "SQL",
+            "Indexing",
+            "EXPLAIN Plans",
+            "Triggers",
+            "Transactions",
+            "Performance Tuning"
+          ],
+          "expectedOutput": "A production database optimization report and trigger suite script demonstrating measurable performance gains.",
+          "difficulty": "Advanced",
+          "estimatedTime": "4–5 Days",
+          "submissionInstructions": "1. Upload optimization scripts, before/after EXPLAIN logs, and trigger definitions to GitHub.\n2. Submit your GitHub repository URL below.",
+          "resources": [],
+          "status": "active",
+          "createdAt": "2026-10-01T00:00:00.000Z",
+          "updatedAt": "2026-10-01T00:00:00.000Z"
+        }
+      ]
     },
     {
       "id": "web-development",
@@ -6777,7 +6989,103 @@
         "liveProjectUrlAllowed": true,
         "passingScore": 80,
         "published": true
-      }
+      },
+      "projects": [
+        {
+          "id": "prj-web-1",
+          "courseId": "web-development",
+          "projectNumber": 1,
+          "title": "Responsive Developer Portfolio & Interactive Showcase",
+          "shortDescription": "Build a modern, fully responsive personal portfolio website with theme toggling and project showcases.",
+          "detailedDescription": "Create a modern, responsive personal developer portfolio website. Implement semantic HTML5, modern CSS flexbox/grid layouts, responsive typography, dark/light theme switching, and interactive navigation.",
+          "objective": "Master semantic HTML, responsive web design principles, CSS layout systems, and vanilla JavaScript DOM manipulation.",
+          "requirements": [
+            "Fully responsive layout supporting mobile, tablet, and desktop viewports",
+            "Interactive dark mode / light mode theme toggle with preference persistence in localStorage",
+            "Interactive project gallery with category filtering and modal details",
+            "Contact form with client-side regex input validation",
+            "Clean, semantic HTML5 structure with accessibility best practices"
+          ],
+          "technologies": [
+            "HTML5",
+            "CSS3",
+            "JavaScript",
+            "Responsive Design",
+            "Flexbox & Grid"
+          ],
+          "expectedOutput": "A published, responsive personal portfolio website hosted on GitHub Pages or Vercel.",
+          "difficulty": "Beginner",
+          "estimatedTime": "2–3 Days",
+          "submissionInstructions": "1. Upload your complete project source code to GitHub.\n2. Deploy the website live using GitHub Pages, Vercel, or Netlify.\n3. Submit your GitHub repository URL and live project link below.",
+          "resources": [],
+          "status": "active",
+          "createdAt": "2026-10-01T00:00:00.000Z",
+          "updatedAt": "2026-10-01T00:00:00.000Z"
+        },
+        {
+          "id": "prj-web-2",
+          "courseId": "web-development",
+          "projectNumber": 2,
+          "title": "Interactive Task & Sprint Management Dashboard",
+          "shortDescription": "Develop a Kanban task management application with drag-and-drop, state persistence, and filtering.",
+          "detailedDescription": "Build an interactive Kanban-style task management web application. Enable creating, editing, tagging, prioritizing, and deleting tasks across backlog, in-progress, and completed columns with persistent local storage.",
+          "objective": "Master advanced JavaScript state management, event delegation, drag-and-drop APIs, and dynamic DOM rendering.",
+          "requirements": [
+            "Drag-and-drop or interactive column transition between task status lanes",
+            "Search filtering, priority sorting (Low/Medium/High), and category tags",
+            "Complete data persistence using browser localStorage",
+            "Modal dialogs for task creation and inline editing with validation",
+            "Responsive interface optimized for touch and desktop"
+          ],
+          "technologies": [
+            "HTML5",
+            "Tailwind CSS / Vanilla CSS",
+            "JavaScript (ES6+)",
+            "DOM API",
+            "LocalStorage"
+          ],
+          "expectedOutput": "A functional, state-persistent task management application with zero external framework dependencies.",
+          "difficulty": "Intermediate",
+          "estimatedTime": "3–4 Days",
+          "submissionInstructions": "1. Upload source code to GitHub.\n2. Include deployment link if available.\n3. Submit your GitHub repository URL below.",
+          "resources": [],
+          "status": "active",
+          "createdAt": "2026-10-01T00:00:00.000Z",
+          "updatedAt": "2026-10-01T00:00:00.000Z"
+        },
+        {
+          "id": "prj-web-3",
+          "courseId": "web-development",
+          "projectNumber": 3,
+          "title": "Full-Stack SaaS E-Commerce Web Application",
+          "shortDescription": "Engineer a comprehensive full-stack e-commerce web application with cart management and REST API backend.",
+          "detailedDescription": "Architect an end-to-end e-commerce web application. Features include a dynamic product catalog, interactive cart management, client-side routing, and a secure Node/Express REST API backend with order persistence.",
+          "objective": "Demonstrate full-stack engineering proficiency combining client-side UI, server-side REST API architecture, and database persistence.",
+          "requirements": [
+            "Component-driven frontend with catalog browsing, search, and category filtering",
+            "Cart management state supporting quantity adjustments, coupon codes, and checkout summaries",
+            "Express.js backend providing REST endpoints for products, orders, and authentication",
+            "Proper error handling, loading states, and toast notification feedback",
+            "Modular architecture with environment configuration"
+          ],
+          "technologies": [
+            "React / Modern JS",
+            "Node.js",
+            "Express",
+            "REST API",
+            "CSS",
+            "State Management"
+          ],
+          "expectedOutput": "A full-stack web application with client UI and backend server repository.",
+          "difficulty": "Advanced",
+          "estimatedTime": "5–6 Days",
+          "submissionInstructions": "1. Upload your project to GitHub.\n2. Document installation and startup in README.md.\n3. Submit your GitHub repository URL below.",
+          "resources": [],
+          "status": "active",
+          "createdAt": "2026-10-01T00:00:00.000Z",
+          "updatedAt": "2026-10-01T00:00:00.000Z"
+        }
+      ]
     },
     {
       "id": "data-science-ai",
@@ -6987,7 +7295,102 @@
         "liveProjectUrlAllowed": true,
         "passingScore": 80,
         "published": true
-      }
+      },
+      "projects": [
+        {
+          "id": "prj-ds-1",
+          "courseId": "data-science-ai",
+          "projectNumber": 1,
+          "title": "Exploratory Data Analysis & Statistical Telemetry Dashboard",
+          "shortDescription": "Conduct comprehensive EDA on a real-world dataset, clean anomalies, and synthesize statistical visualizations.",
+          "detailedDescription": "Perform end-to-end Exploratory Data Analysis on a complex multivariate dataset. Handle missing values and outliers, compute correlation matrices, and generate insightful statistical visualizations.",
+          "objective": "Master Pandas data wrangling, data hygiene, NumPy operations, and data visualization libraries.",
+          "requirements": [
+            "Load and clean raw dataset: impute or remove missing values and detect outliers",
+            "Perform univariate, bivariate, and multivariate statistical analyses",
+            "Generate correlation heatmaps, distribution plots, and boxplots",
+            "Synthesize actionable business insights based on empirical data findings"
+          ],
+          "technologies": [
+            "Python",
+            "Pandas",
+            "NumPy",
+            "Matplotlib",
+            "Seaborn",
+            "Jupyter Notebook"
+          ],
+          "expectedOutput": "A documented Jupyter Notebook (.ipynb) with clean data cleaning pipelines and visual charts.",
+          "difficulty": "Beginner",
+          "estimatedTime": "3–4 Days",
+          "submissionInstructions": "1. Upload your Jupyter Notebook (.ipynb) and dataset to GitHub.\n2. Submit your GitHub repository URL below.",
+          "resources": [],
+          "status": "active",
+          "createdAt": "2026-10-01T00:00:00.000Z",
+          "updatedAt": "2026-10-01T00:00:00.000Z"
+        },
+        {
+          "id": "prj-ds-2",
+          "courseId": "data-science-ai",
+          "projectNumber": 2,
+          "title": "End-to-End Supervised Machine Learning Pipeline",
+          "shortDescription": "Build, cross-validate, and evaluate predictive machine learning models with Scikit-Learn.",
+          "detailedDescription": "Develop an end-to-end Machine Learning classification and regression pipeline. Perform feature engineering, categorical encoding, feature scaling, model cross-validation, hyperparameter tuning with GridSearchCV, and evaluate metrics.",
+          "objective": "Master machine learning modeling workflows, cross-validation, feature engineering, and model evaluation metrics.",
+          "requirements": [
+            "Implement feature engineering, One-Hot Encoding, and StandardScaler transformation",
+            "Train baseline and advanced models (Random Forest, Logistic Regression, XGBoost)",
+            "Perform k-fold cross-validation and hyperparameter optimization",
+            "Evaluate using Confusion Matrix, ROC-AUC, Precision, Recall, and F1-score",
+            "Serialize top-performing model artifact using joblib"
+          ],
+          "technologies": [
+            "Python",
+            "Scikit-Learn",
+            "Pandas",
+            "Model Evaluation",
+            "Joblib"
+          ],
+          "expectedOutput": "A machine learning pipeline notebook with serialized model file and evaluation comparison report.",
+          "difficulty": "Intermediate",
+          "estimatedTime": "4–5 Days",
+          "submissionInstructions": "1. Push your project code, notebook, and saved model artifact to GitHub.\n2. Submit your GitHub repository URL below.",
+          "resources": [],
+          "status": "active",
+          "createdAt": "2026-10-01T00:00:00.000Z",
+          "updatedAt": "2026-10-01T00:00:00.000Z"
+        },
+        {
+          "id": "prj-ds-3",
+          "courseId": "data-science-ai",
+          "projectNumber": 3,
+          "title": "Production AI Model Inference Service & REST Deployment",
+          "shortDescription": "Deploy a trained machine learning model as a real-time RESTful inference microservice.",
+          "detailedDescription": "Package and deploy a trained AI predictive model as a production-ready REST API. Implement payload schema validation with Pydantic, low-latency prediction endpoints, input logging, and containerization instructions.",
+          "objective": "Bridge machine learning engineering and production deployment via API microservices.",
+          "requirements": [
+            "Build a FastAPI or Flask microservice serving the trained model",
+            "Implement strict request payload validation with Pydantic models",
+            "Return real-time predictions with confidence scores and latency metrics",
+            "Include unit tests testing edge-case inference inputs",
+            "Provide Dockerfile or requirements.txt for reproducible deployment"
+          ],
+          "technologies": [
+            "Python",
+            "FastAPI / Flask",
+            "Pydantic",
+            "Docker",
+            "Machine Learning Deployment"
+          ],
+          "expectedOutput": "A deployable inference microservice repository with API documentation and prediction endpoints.",
+          "difficulty": "Advanced",
+          "estimatedTime": "5–7 Days",
+          "submissionInstructions": "1. Upload your microservice repository to GitHub.\n2. Submit your GitHub repository URL below.",
+          "resources": [],
+          "status": "active",
+          "createdAt": "2026-10-01T00:00:00.000Z",
+          "updatedAt": "2026-10-01T00:00:00.000Z"
+        }
+      ]
     }
   ],
   "students": [
@@ -7018,7 +7421,8 @@
             "py-quiz-2"
           ],
           "finalTestPassed": false,
-          "projectStatus": "Not Submitted"
+          "projectStatus": "Not Submitted",
+          "projectsProgress": {}
         },
         "sql-mastery": {
           "progress": 100,
@@ -7029,7 +7433,8 @@
             "sql-quiz-1"
           ],
           "finalTestPassed": true,
-          "projectStatus": "Approved"
+          "projectStatus": "Approved",
+          "projectsProgress": {}
         },
         "web-development": {
           "progress": 20,
@@ -7040,14 +7445,16 @@
             "web-quiz-1"
           ],
           "finalTestPassed": false,
-          "projectStatus": "Not Submitted"
+          "projectStatus": "Not Submitted",
+          "projectsProgress": {}
         },
         "data-science-ai": {
           "progress": 0,
           "completedModules": [],
           "quizzesPassed": [],
           "finalTestPassed": false,
-          "projectStatus": "Not Submitted"
+          "projectStatus": "Not Submitted",
+          "projectsProgress": {}
         }
       }
     },
@@ -7076,7 +7483,8 @@
             "py-quiz-2"
           ],
           "finalTestPassed": true,
-          "projectStatus": "Submitted"
+          "projectStatus": "Submitted",
+          "projectsProgress": {}
         },
         "web-development": {
           "progress": 60,
@@ -7087,7 +7495,8 @@
             "web-quiz-1"
           ],
           "finalTestPassed": false,
-          "projectStatus": "Not Submitted"
+          "projectStatus": "Not Submitted",
+          "projectsProgress": {}
         }
       }
     },
@@ -7113,7 +7522,8 @@
             "sql-quiz-1"
           ],
           "finalTestPassed": true,
-          "projectStatus": "Approved"
+          "projectStatus": "Approved",
+          "projectsProgress": {}
         }
       }
     }
@@ -7162,6 +7572,111 @@
     }
   ],
   "projectSubmissions": [
+    {
+      "id": "sub-1791462149388-209",
+      "projectId": "prj-py-1",
+      "projectNumber": 1,
+      "projectTitle": "Automated Web Scraper & Telemetry Pipeline",
+      "courseId": "python-programming",
+      "courseTitle": "Python Programming",
+      "candidateId": "ARB-TEST-1791462149347",
+      "candidateName": "Test Candidate",
+      "candidateEmail": "candidate-1791462149347@example.com",
+      "githubUrl": "https://github.com/testcandidate/python-portfolio-v2",
+      "liveUrl": "",
+      "candidateComments": "Fixed all mobile responsive breakpoints!",
+      "status": "Approved",
+      "score": null,
+      "submittedAt": "2026-10-08T12:22:29.388Z",
+      "updatedAt": "2026-10-08T12:22:29.559Z",
+      "reviewedAt": "2026-10-08T12:22:29.655Z",
+      "reviewerComments": "Mobile responsiveness looks great now! Approved.",
+      "history": [
+        {
+          "status": "Needs Changes",
+          "score": null,
+          "reviewerComments": "Please improve the mobile responsiveness and resubmit.",
+          "timestamp": "2026-10-08T12:22:29.501Z"
+        },
+        {
+          "status": "Needs Changes",
+          "githubUrl": "https://github.com/testcandidate/python-portfolio",
+          "liveUrl": "https://python-portfolio.vercel.app",
+          "candidateComments": "Implemented all responsive features and clean code.",
+          "reviewerComments": "Please improve the mobile responsiveness and resubmit.",
+          "timestamp": "2026-10-08T12:22:29.388Z"
+        },
+        {
+          "status": "Approved",
+          "score": null,
+          "reviewerComments": "Mobile responsiveness looks great now! Approved.",
+          "timestamp": "2026-10-08T12:22:29.655Z"
+        }
+      ]
+    },
+    {
+      "id": "sub-1791462129761-635",
+      "projectId": "prj-py-1",
+      "projectNumber": 1,
+      "projectTitle": "Automated Web Scraper & Telemetry Pipeline",
+      "courseId": "python-programming",
+      "courseTitle": "Python Programming",
+      "candidateId": "ARB-TEST-1791462129721",
+      "candidateName": "Test Candidate",
+      "candidateEmail": "candidate-1791462129721@example.com",
+      "githubUrl": "https://github.com/testcandidate/python-portfolio-v2",
+      "liveUrl": "",
+      "candidateComments": "Fixed all mobile responsive breakpoints!",
+      "status": "Approved",
+      "score": null,
+      "submittedAt": "2026-10-08T12:22:09.761Z",
+      "updatedAt": "2026-10-08T12:22:09.978Z",
+      "reviewedAt": "2026-10-08T12:22:10.083Z",
+      "reviewerComments": "Mobile responsiveness looks great now! Approved.",
+      "history": [
+        {
+          "status": "Needs Changes",
+          "score": null,
+          "reviewerComments": "Please improve the mobile responsiveness and resubmit.",
+          "timestamp": "2026-10-08T12:22:09.911Z"
+        },
+        {
+          "status": "Needs Changes",
+          "githubUrl": "https://github.com/testcandidate/python-portfolio",
+          "liveUrl": "https://python-portfolio.vercel.app",
+          "candidateComments": "Implemented all responsive features and clean code.",
+          "reviewerComments": "Please improve the mobile responsiveness and resubmit.",
+          "timestamp": "2026-10-08T12:22:09.761Z"
+        },
+        {
+          "status": "Approved",
+          "score": null,
+          "reviewerComments": "Mobile responsiveness looks great now! Approved.",
+          "timestamp": "2026-10-08T12:22:10.083Z"
+        }
+      ]
+    },
+    {
+      "id": "sub-1791461553471-313",
+      "projectId": "prj-py-1",
+      "projectNumber": 1,
+      "projectTitle": "Automated Web Scraper & Telemetry Pipeline",
+      "courseId": "python-programming",
+      "courseTitle": "Python Programming",
+      "candidateId": "ARB-TEST-001",
+      "candidateName": "Test Candidate",
+      "candidateEmail": "test@example.com",
+      "githubUrl": "https://github.com/testcandidate/python-portfolio",
+      "liveUrl": "https://python-portfolio.vercel.app",
+      "candidateComments": "Implemented all responsive features and clean code.",
+      "status": "Submitted",
+      "score": null,
+      "submittedAt": "2026-10-08T12:12:33.471Z",
+      "updatedAt": "2026-10-08T12:12:33.471Z",
+      "reviewedAt": null,
+      "reviewerComments": "",
+      "history": []
+    },
     {
       "id": "sub-001",
       "studentId": "std-002",
@@ -7219,6 +7734,176 @@
   ],
   "activityLogs": [
     {
+      "id": "log-1791462149808-427",
+      "adminId": "ARB-ADMIN-001",
+      "action": "SETTINGS_UPDATED",
+      "target": "Project Submission Settings",
+      "details": "Updated submission email to: reviewer@arshithbootcamp.com",
+      "timestamp": "2026-10-08T12:22:29.808Z",
+      "ipAddress": "127.0.0.1",
+      "device": "Desktop Chrome"
+    },
+    {
+      "id": "log-1791462149678-391",
+      "adminId": "ARB-ADMIN-001",
+      "action": "PROJECT_REVIEW_APPROVED",
+      "target": "Submission: sub-1791462149388-209",
+      "details": "Candidate: Test Candidate -> Approved. Feedback: Mobile responsiveness looks great now! Approved.",
+      "timestamp": "2026-10-08T12:22:29.678Z",
+      "ipAddress": "127.0.0.1",
+      "device": "Desktop Chrome"
+    },
+    {
+      "id": "log-1791462149578-72",
+      "adminId": "SYSTEM",
+      "action": "PROJECT_SUBMITTED",
+      "target": "Project: Automated Web Scraper & Telemetry Pipeline",
+      "details": "Candidate Test Candidate (candidate-1791462149347@example.com) submitted GitHub repo: https://github.com/testcandidate/python-portfolio-v2",
+      "timestamp": "2026-10-08T12:22:29.578Z",
+      "ipAddress": "127.0.0.1",
+      "device": "Desktop Chrome"
+    },
+    {
+      "id": "log-1791462149519-699",
+      "adminId": "ARB-ADMIN-001",
+      "action": "PROJECT_REVIEW_NEEDS_CHANGES",
+      "target": "Submission: sub-1791462149388-209",
+      "details": "Candidate: Test Candidate -> Needs Changes. Feedback: Please improve the mobile responsiveness and resubmit.",
+      "timestamp": "2026-10-08T12:22:29.519Z",
+      "ipAddress": "127.0.0.1",
+      "device": "Desktop Chrome"
+    },
+    {
+      "id": "log-1791462149406-787",
+      "adminId": "SYSTEM",
+      "action": "PROJECT_SUBMITTED",
+      "target": "Project: Automated Web Scraper & Telemetry Pipeline",
+      "details": "Candidate Test Candidate (candidate-1791462149347@example.com) submitted GitHub repo: https://github.com/testcandidate/python-portfolio",
+      "timestamp": "2026-10-08T12:22:29.406Z",
+      "ipAddress": "127.0.0.1",
+      "device": "Desktop Chrome"
+    },
+    {
+      "id": "log-1791462149292-932",
+      "adminId": "ARB-ADMIN-001",
+      "action": "ADMIN_LOGIN",
+      "target": "Admin Portal",
+      "details": "Successful administrator login",
+      "timestamp": "2026-10-08T12:22:29.292Z",
+      "ipAddress": "::1",
+      "device": "node"
+    },
+    {
+      "id": "log-1791462130208-961",
+      "adminId": "ARB-ADMIN-001",
+      "action": "SETTINGS_UPDATED",
+      "target": "Project Submission Settings",
+      "details": "Updated submission email to: reviewer@arshithbootcamp.com",
+      "timestamp": "2026-10-08T12:22:10.208Z",
+      "ipAddress": "127.0.0.1",
+      "device": "Desktop Chrome"
+    },
+    {
+      "id": "log-1791462130101-254",
+      "adminId": "ARB-ADMIN-001",
+      "action": "PROJECT_REVIEW_APPROVED",
+      "target": "Submission: sub-1791462129761-635",
+      "details": "Candidate: Test Candidate -> Approved. Feedback: Mobile responsiveness looks great now! Approved.",
+      "timestamp": "2026-10-08T12:22:10.101Z",
+      "ipAddress": "127.0.0.1",
+      "device": "Desktop Chrome"
+    },
+    {
+      "id": "log-1791462129993-25",
+      "adminId": "SYSTEM",
+      "action": "PROJECT_SUBMITTED",
+      "target": "Project: Automated Web Scraper & Telemetry Pipeline",
+      "details": "Candidate Test Candidate (candidate-1791462129721@example.com) submitted GitHub repo: https://github.com/testcandidate/python-portfolio-v2",
+      "timestamp": "2026-10-08T12:22:09.993Z",
+      "ipAddress": "127.0.0.1",
+      "device": "Desktop Chrome"
+    },
+    {
+      "id": "log-1791462129929-272",
+      "adminId": "ARB-ADMIN-001",
+      "action": "PROJECT_REVIEW_NEEDS_CHANGES",
+      "target": "Submission: sub-1791462129761-635",
+      "details": "Candidate: Test Candidate -> Needs Changes. Feedback: Please improve the mobile responsiveness and resubmit.",
+      "timestamp": "2026-10-08T12:22:09.929Z",
+      "ipAddress": "127.0.0.1",
+      "device": "Desktop Chrome"
+    },
+    {
+      "id": "log-1791462129783-460",
+      "adminId": "SYSTEM",
+      "action": "PROJECT_SUBMITTED",
+      "target": "Project: Automated Web Scraper & Telemetry Pipeline",
+      "details": "Candidate Test Candidate (candidate-1791462129721@example.com) submitted GitHub repo: https://github.com/testcandidate/python-portfolio",
+      "timestamp": "2026-10-08T12:22:09.783Z",
+      "ipAddress": "127.0.0.1",
+      "device": "Desktop Chrome"
+    },
+    {
+      "id": "log-1791462129686-299",
+      "adminId": "ARB-ADMIN-001",
+      "action": "ADMIN_LOGIN",
+      "target": "Admin Portal",
+      "details": "Successful administrator login",
+      "timestamp": "2026-10-08T12:22:09.686Z",
+      "ipAddress": "::1",
+      "device": "node"
+    },
+    {
+      "id": "log-1791461973460-564",
+      "adminId": "ARB-ADMIN-001",
+      "action": "SETTINGS_UPDATED",
+      "target": "Project Submission Settings",
+      "details": "Updated submission email to: reviewer@arshithbootcamp.com",
+      "timestamp": "2026-10-08T12:19:33.460Z",
+      "ipAddress": "127.0.0.1",
+      "device": "Desktop Chrome"
+    },
+    {
+      "id": "log-1791461973215-206",
+      "adminId": "ARB-ADMIN-001",
+      "action": "ADMIN_LOGIN",
+      "target": "Admin Portal",
+      "details": "Successful administrator login",
+      "timestamp": "2026-10-08T12:19:33.215Z",
+      "ipAddress": "::1",
+      "device": "node"
+    },
+    {
+      "id": "log-1791461594965-47",
+      "adminId": "ARB-ADMIN-001",
+      "action": "SETTINGS_UPDATED",
+      "target": "Project Submission Settings",
+      "details": "Updated submission email to: reviewer@arshithbootcamp.com",
+      "timestamp": "2026-10-08T12:13:14.965Z",
+      "ipAddress": "127.0.0.1",
+      "device": "Desktop Chrome"
+    },
+    {
+      "id": "log-1791461594719-622",
+      "adminId": "ARB-ADMIN-001",
+      "action": "ADMIN_LOGIN",
+      "target": "Admin Portal",
+      "details": "Successful administrator login",
+      "timestamp": "2026-10-08T12:13:14.720Z",
+      "ipAddress": "::1",
+      "device": "node"
+    },
+    {
+      "id": "log-1791461553489-402",
+      "adminId": "SYSTEM",
+      "action": "PROJECT_SUBMITTED",
+      "target": "Project: Automated Web Scraper & Telemetry Pipeline",
+      "details": "Candidate Test Candidate (test@example.com) submitted GitHub repo: https://github.com/testcandidate/python-portfolio",
+      "timestamp": "2026-10-08T12:12:33.489Z",
+      "ipAddress": "127.0.0.1",
+      "device": "Desktop Chrome"
+    },
+    {
       "id": "log-001",
       "adminId": "ARB-ADMIN-001",
       "action": "ADMIN_LOGIN",
@@ -7237,6 +7922,285 @@
       "timestamp": "2026-10-01T10:00:00.000Z",
       "ipAddress": "127.0.0.1",
       "device": "Windows Desktop Chrome"
+    }
+  ],
+  "settings": {
+    "projectSubmissionEmail": "reviewer@arshithbootcamp.com",
+    "emailNotificationsEnabled": true
+  },
+  "emailLogs": [
+    {
+      "id": "email-1791462149743-63",
+      "to": "candidate-1791462149347@example.com",
+      "subject": "Project Approved! - Automated Web Scraper & Telemetry Pipeline - Python Programming",
+      "body": "Congratulations Test Candidate! 🎉\n\nYour project submission for \"Automated Web Scraper & Telemetry Pipeline\" in \"Python Programming\" has been APPROVED by our review team!\n\n- Evaluation: Approved ✓\n- Score: Pass\n- Reviewer Comments: Mobile responsiveness looks great now! Approved.\n\nKeep up the great work as you progress toward your course certification!\n\nBest regards,\nArshith Boot Camp Academic & Engineering Directorate",
+      "type": "candidate_project_approved",
+      "metadata": {
+        "candidateEmail": "candidate-1791462149347@example.com",
+        "courseTitle": "Python Programming",
+        "projectTitle": "Automated Web Scraper & Telemetry Pipeline"
+      },
+      "status": "sent",
+      "error": null,
+      "timestamp": "2026-10-08T12:22:29.743Z",
+      "deliveredAt": "2026-10-08T12:22:29.743Z"
+    },
+    {
+      "id": "email-1791462149694-303",
+      "to": "candidate-1791462149347@example.com",
+      "subject": "Project Approved! - Automated Web Scraper & Telemetry Pipeline - Python Programming",
+      "body": "Congratulations Test Candidate! 🎉\n\nYour project submission for \"Automated Web Scraper & Telemetry Pipeline\" in \"Python Programming\" has been APPROVED by our review team!\n\n- Evaluation: Approved ✓\n- Score: Pass\n- Reviewer Comments: Mobile responsiveness looks great now! Approved.\n\nKeep up the great work as you progress toward your course certification!\n\nBest regards,\nArshith Boot Camp Academic & Engineering Directorate",
+      "type": "candidate_project_approved",
+      "metadata": {
+        "candidateEmail": "candidate-1791462149347@example.com",
+        "courseTitle": "Python Programming",
+        "projectTitle": "Automated Web Scraper & Telemetry Pipeline"
+      },
+      "status": "sent",
+      "error": null,
+      "timestamp": "2026-10-08T12:22:29.694Z",
+      "deliveredAt": "2026-10-08T12:22:29.694Z"
+    },
+    {
+      "id": "email-1791462149625-297",
+      "to": "candidate-1791462149347@example.com",
+      "subject": "Project Submission Received - Automated Web Scraper & Telemetry Pipeline",
+      "body": "Hello Test Candidate,\n\nWe have successfully received your project submission for \"Automated Web Scraper & Telemetry Pipeline\" in the \"Python Programming\" boot camp!\n\nSubmission Details:\n- Project Name: Automated Web Scraper & Telemetry Pipeline\n- GitHub Repository: https://github.com/testcandidate/python-portfolio-v2\n- Submission Date: October 8, 2026\n- Current Status: Submitted (Pending Review)\n\nOur engineering review team is currently inspecting your repository and code quality. You will be notified as soon as your evaluation is complete.\n\nBest regards,\nArshith Boot Camp Academic & Engineering Directorate",
+      "type": "candidate_submission_confirmation",
+      "metadata": {
+        "candidateEmail": "candidate-1791462149347@example.com",
+        "courseTitle": "Python Programming",
+        "projectTitle": "Automated Web Scraper & Telemetry Pipeline",
+        "githubUrl": "https://github.com/testcandidate/python-portfolio-v2"
+      },
+      "status": "sent",
+      "error": null,
+      "timestamp": "2026-10-08T12:22:29.625Z",
+      "deliveredAt": "2026-10-08T12:22:29.625Z"
+    },
+    {
+      "id": "email-1791462149605-613",
+      "to": "reviewer@arshithbootcamp.com",
+      "subject": "New Project Submission - Python Programming - Automated Web Scraper & Telemetry Pipeline",
+      "body": "Candidate Name: Test Candidate\nCandidate Email: candidate-1791462149347@example.com\nCourse: Python Programming\nProject: Automated Web Scraper & Telemetry Pipeline\nProject Number: 1\nGitHub Repository: https://github.com/testcandidate/python-portfolio-v2\nLive Project: N/A\nSubmission Date: October 8, 2026\nCandidate Comments: Fixed all mobile responsive breakpoints!",
+      "type": "admin_project_submission",
+      "metadata": {
+        "candidateEmail": "candidate-1791462149347@example.com",
+        "courseTitle": "Python Programming",
+        "projectTitle": "Automated Web Scraper & Telemetry Pipeline",
+        "projectNumber": 1,
+        "githubUrl": "https://github.com/testcandidate/python-portfolio-v2"
+      },
+      "status": "sent",
+      "error": null,
+      "timestamp": "2026-10-08T12:22:29.605Z",
+      "deliveredAt": "2026-10-08T12:22:29.605Z"
+    },
+    {
+      "id": "email-1791462149537-977",
+      "to": "candidate-1791462149347@example.com",
+      "subject": "Action Required: Project Revisions Requested - Automated Web Scraper & Telemetry Pipeline",
+      "body": "Hello Test Candidate,\n\nYour project submission for \"Automated Web Scraper & Telemetry Pipeline\" in \"Python Programming\" has been reviewed and requires some revisions before it can be approved.\n\nReviewer Comments:\n\"Please improve the mobile responsiveness and resubmit.\"\n\nNext Steps:\n1. Address the feedback in your GitHub repository.\n2. Return to the course page and submit your updated GitHub repository link.\n\nWe look forward to seeing your updated submission!\n\nBest regards,\nArshith Boot Camp Academic & Engineering Directorate",
+      "type": "candidate_project_needs_changes",
+      "metadata": {
+        "candidateEmail": "candidate-1791462149347@example.com",
+        "courseTitle": "Python Programming",
+        "projectTitle": "Automated Web Scraper & Telemetry Pipeline",
+        "reviewerComments": "Please improve the mobile responsiveness and resubmit."
+      },
+      "status": "sent",
+      "error": null,
+      "timestamp": "2026-10-08T12:22:29.537Z",
+      "deliveredAt": "2026-10-08T12:22:29.537Z"
+    },
+    {
+      "id": "email-1791462149452-520",
+      "to": "candidate-1791462149347@example.com",
+      "subject": "Project Submission Received - Automated Web Scraper & Telemetry Pipeline",
+      "body": "Hello Test Candidate,\n\nWe have successfully received your project submission for \"Automated Web Scraper & Telemetry Pipeline\" in the \"Python Programming\" boot camp!\n\nSubmission Details:\n- Project Name: Automated Web Scraper & Telemetry Pipeline\n- GitHub Repository: https://github.com/testcandidate/python-portfolio\n- Submission Date: October 8, 2026\n- Current Status: Submitted (Pending Review)\n\nOur engineering review team is currently inspecting your repository and code quality. You will be notified as soon as your evaluation is complete.\n\nBest regards,\nArshith Boot Camp Academic & Engineering Directorate",
+      "type": "candidate_submission_confirmation",
+      "metadata": {
+        "candidateEmail": "candidate-1791462149347@example.com",
+        "courseTitle": "Python Programming",
+        "projectTitle": "Automated Web Scraper & Telemetry Pipeline",
+        "githubUrl": "https://github.com/testcandidate/python-portfolio"
+      },
+      "status": "sent",
+      "error": null,
+      "timestamp": "2026-10-08T12:22:29.452Z",
+      "deliveredAt": "2026-10-08T12:22:29.452Z"
+    },
+    {
+      "id": "email-1791462149432-455",
+      "to": "reviewer@arshithbootcamp.com",
+      "subject": "New Project Submission - Python Programming - Automated Web Scraper & Telemetry Pipeline",
+      "body": "Candidate Name: Test Candidate\nCandidate Email: candidate-1791462149347@example.com\nCourse: Python Programming\nProject: Automated Web Scraper & Telemetry Pipeline\nProject Number: 1\nGitHub Repository: https://github.com/testcandidate/python-portfolio\nLive Project: https://python-portfolio.vercel.app\nSubmission Date: October 8, 2026\nCandidate Comments: Implemented all responsive features and clean code.",
+      "type": "admin_project_submission",
+      "metadata": {
+        "candidateEmail": "candidate-1791462149347@example.com",
+        "courseTitle": "Python Programming",
+        "projectTitle": "Automated Web Scraper & Telemetry Pipeline",
+        "projectNumber": 1,
+        "githubUrl": "https://github.com/testcandidate/python-portfolio"
+      },
+      "status": "sent",
+      "error": null,
+      "timestamp": "2026-10-08T12:22:29.432Z",
+      "deliveredAt": "2026-10-08T12:22:29.432Z"
+    },
+    {
+      "id": "email-1791462130163-908",
+      "to": "candidate-1791462129721@example.com",
+      "subject": "Project Approved! - Automated Web Scraper & Telemetry Pipeline - Python Programming",
+      "body": "Congratulations Test Candidate! 🎉\n\nYour project submission for \"Automated Web Scraper & Telemetry Pipeline\" in \"Python Programming\" has been APPROVED by our review team!\n\n- Evaluation: Approved ✓\n- Score: Pass\n- Reviewer Comments: Mobile responsiveness looks great now! Approved.\n\nKeep up the great work as you progress toward your course certification!\n\nBest regards,\nArshith Boot Camp Academic & Engineering Directorate",
+      "type": "candidate_project_approved",
+      "metadata": {
+        "candidateEmail": "candidate-1791462129721@example.com",
+        "courseTitle": "Python Programming",
+        "projectTitle": "Automated Web Scraper & Telemetry Pipeline"
+      },
+      "status": "sent",
+      "error": null,
+      "timestamp": "2026-10-08T12:22:10.163Z",
+      "deliveredAt": "2026-10-08T12:22:10.163Z"
+    },
+    {
+      "id": "email-1791462130122-164",
+      "to": "candidate-1791462129721@example.com",
+      "subject": "Project Approved! - Automated Web Scraper & Telemetry Pipeline - Python Programming",
+      "body": "Congratulations Test Candidate! 🎉\n\nYour project submission for \"Automated Web Scraper & Telemetry Pipeline\" in \"Python Programming\" has been APPROVED by our review team!\n\n- Evaluation: Approved ✓\n- Score: Pass\n- Reviewer Comments: Mobile responsiveness looks great now! Approved.\n\nKeep up the great work as you progress toward your course certification!\n\nBest regards,\nArshith Boot Camp Academic & Engineering Directorate",
+      "type": "candidate_project_approved",
+      "metadata": {
+        "candidateEmail": "candidate-1791462129721@example.com",
+        "courseTitle": "Python Programming",
+        "projectTitle": "Automated Web Scraper & Telemetry Pipeline"
+      },
+      "status": "sent",
+      "error": null,
+      "timestamp": "2026-10-08T12:22:10.122Z",
+      "deliveredAt": "2026-10-08T12:22:10.122Z"
+    },
+    {
+      "id": "email-1791462130045-163",
+      "to": "candidate-1791462129721@example.com",
+      "subject": "Project Submission Received - Automated Web Scraper & Telemetry Pipeline",
+      "body": "Hello Test Candidate,\n\nWe have successfully received your project submission for \"Automated Web Scraper & Telemetry Pipeline\" in the \"Python Programming\" boot camp!\n\nSubmission Details:\n- Project Name: Automated Web Scraper & Telemetry Pipeline\n- GitHub Repository: https://github.com/testcandidate/python-portfolio-v2\n- Submission Date: October 8, 2026\n- Current Status: Submitted (Pending Review)\n\nOur engineering review team is currently inspecting your repository and code quality. You will be notified as soon as your evaluation is complete.\n\nBest regards,\nArshith Boot Camp Academic & Engineering Directorate",
+      "type": "candidate_submission_confirmation",
+      "metadata": {
+        "candidateEmail": "candidate-1791462129721@example.com",
+        "courseTitle": "Python Programming",
+        "projectTitle": "Automated Web Scraper & Telemetry Pipeline",
+        "githubUrl": "https://github.com/testcandidate/python-portfolio-v2"
+      },
+      "status": "sent",
+      "error": null,
+      "timestamp": "2026-10-08T12:22:10.045Z",
+      "deliveredAt": "2026-10-08T12:22:10.045Z"
+    },
+    {
+      "id": "email-1791462130022-357",
+      "to": "reviewer@arshithbootcamp.com",
+      "subject": "New Project Submission - Python Programming - Automated Web Scraper & Telemetry Pipeline",
+      "body": "Candidate Name: Test Candidate\nCandidate Email: candidate-1791462129721@example.com\nCourse: Python Programming\nProject: Automated Web Scraper & Telemetry Pipeline\nProject Number: 1\nGitHub Repository: https://github.com/testcandidate/python-portfolio-v2\nLive Project: N/A\nSubmission Date: October 8, 2026\nCandidate Comments: Fixed all mobile responsive breakpoints!",
+      "type": "admin_project_submission",
+      "metadata": {
+        "candidateEmail": "candidate-1791462129721@example.com",
+        "courseTitle": "Python Programming",
+        "projectTitle": "Automated Web Scraper & Telemetry Pipeline",
+        "projectNumber": 1,
+        "githubUrl": "https://github.com/testcandidate/python-portfolio-v2"
+      },
+      "status": "sent",
+      "error": null,
+      "timestamp": "2026-10-08T12:22:10.022Z",
+      "deliveredAt": "2026-10-08T12:22:10.022Z"
+    },
+    {
+      "id": "email-1791462129947-499",
+      "to": "candidate-1791462129721@example.com",
+      "subject": "Action Required: Project Revisions Requested - Automated Web Scraper & Telemetry Pipeline",
+      "body": "Hello Test Candidate,\n\nYour project submission for \"Automated Web Scraper & Telemetry Pipeline\" in \"Python Programming\" has been reviewed and requires some revisions before it can be approved.\n\nReviewer Comments:\n\"Please improve the mobile responsiveness and resubmit.\"\n\nNext Steps:\n1. Address the feedback in your GitHub repository.\n2. Return to the course page and submit your updated GitHub repository link.\n\nWe look forward to seeing your updated submission!\n\nBest regards,\nArshith Boot Camp Academic & Engineering Directorate",
+      "type": "candidate_project_needs_changes",
+      "metadata": {
+        "candidateEmail": "candidate-1791462129721@example.com",
+        "courseTitle": "Python Programming",
+        "projectTitle": "Automated Web Scraper & Telemetry Pipeline",
+        "reviewerComments": "Please improve the mobile responsiveness and resubmit."
+      },
+      "status": "sent",
+      "error": null,
+      "timestamp": "2026-10-08T12:22:09.947Z",
+      "deliveredAt": "2026-10-08T12:22:09.947Z"
+    },
+    {
+      "id": "email-1791462129862-599",
+      "to": "candidate-1791462129721@example.com",
+      "subject": "Project Submission Received - Automated Web Scraper & Telemetry Pipeline",
+      "body": "Hello Test Candidate,\n\nWe have successfully received your project submission for \"Automated Web Scraper & Telemetry Pipeline\" in the \"Python Programming\" boot camp!\n\nSubmission Details:\n- Project Name: Automated Web Scraper & Telemetry Pipeline\n- GitHub Repository: https://github.com/testcandidate/python-portfolio\n- Submission Date: October 8, 2026\n- Current Status: Submitted (Pending Review)\n\nOur engineering review team is currently inspecting your repository and code quality. You will be notified as soon as your evaluation is complete.\n\nBest regards,\nArshith Boot Camp Academic & Engineering Directorate",
+      "type": "candidate_submission_confirmation",
+      "metadata": {
+        "candidateEmail": "candidate-1791462129721@example.com",
+        "courseTitle": "Python Programming",
+        "projectTitle": "Automated Web Scraper & Telemetry Pipeline",
+        "githubUrl": "https://github.com/testcandidate/python-portfolio"
+      },
+      "status": "sent",
+      "error": null,
+      "timestamp": "2026-10-08T12:22:09.862Z",
+      "deliveredAt": "2026-10-08T12:22:09.862Z"
+    },
+    {
+      "id": "email-1791462129843-344",
+      "to": "reviewer@arshithbootcamp.com",
+      "subject": "New Project Submission - Python Programming - Automated Web Scraper & Telemetry Pipeline",
+      "body": "Candidate Name: Test Candidate\nCandidate Email: candidate-1791462129721@example.com\nCourse: Python Programming\nProject: Automated Web Scraper & Telemetry Pipeline\nProject Number: 1\nGitHub Repository: https://github.com/testcandidate/python-portfolio\nLive Project: https://python-portfolio.vercel.app\nSubmission Date: October 8, 2026\nCandidate Comments: Implemented all responsive features and clean code.",
+      "type": "admin_project_submission",
+      "metadata": {
+        "candidateEmail": "candidate-1791462129721@example.com",
+        "courseTitle": "Python Programming",
+        "projectTitle": "Automated Web Scraper & Telemetry Pipeline",
+        "projectNumber": 1,
+        "githubUrl": "https://github.com/testcandidate/python-portfolio"
+      },
+      "status": "sent",
+      "error": null,
+      "timestamp": "2026-10-08T12:22:09.843Z",
+      "deliveredAt": "2026-10-08T12:22:09.843Z"
+    },
+    {
+      "id": "email-1791461553591-177",
+      "to": "test@example.com",
+      "subject": "Project Submission Received - Automated Web Scraper & Telemetry Pipeline",
+      "body": "Hello Test Candidate,\n\nWe have successfully received your project submission for \"Automated Web Scraper & Telemetry Pipeline\" in the \"Python Programming\" boot camp!\n\nSubmission Details:\n- Project Name: Automated Web Scraper & Telemetry Pipeline\n- GitHub Repository: https://github.com/testcandidate/python-portfolio\n- Submission Date: October 8, 2026\n- Current Status: Submitted (Pending Review)\n\nOur engineering review team is currently inspecting your repository and code quality. You will be notified as soon as your evaluation is complete.\n\nBest regards,\nArshith Boot Camp Academic & Engineering Directorate",
+      "type": "candidate_submission_confirmation",
+      "metadata": {
+        "candidateEmail": "test@example.com",
+        "courseTitle": "Python Programming",
+        "projectTitle": "Automated Web Scraper & Telemetry Pipeline",
+        "githubUrl": "https://github.com/testcandidate/python-portfolio"
+      },
+      "status": "sent",
+      "error": null,
+      "timestamp": "2026-10-08T12:12:33.591Z",
+      "deliveredAt": "2026-10-08T12:12:33.591Z"
+    },
+    {
+      "id": "email-1791461553572-558",
+      "to": "admin@arshithbootcamp.com",
+      "subject": "New Project Submission - Python Programming - Automated Web Scraper & Telemetry Pipeline",
+      "body": "Candidate Name: Test Candidate\nCandidate Email: test@example.com\nCourse: Python Programming\nProject: Automated Web Scraper & Telemetry Pipeline\nProject Number: 1\nGitHub Repository: https://github.com/testcandidate/python-portfolio\nLive Project: https://python-portfolio.vercel.app\nSubmission Date: October 8, 2026\nCandidate Comments: Implemented all responsive features and clean code.",
+      "type": "admin_project_submission",
+      "metadata": {
+        "candidateEmail": "test@example.com",
+        "courseTitle": "Python Programming",
+        "projectTitle": "Automated Web Scraper & Telemetry Pipeline",
+        "projectNumber": 1,
+        "githubUrl": "https://github.com/testcandidate/python-portfolio"
+      },
+      "status": "sent",
+      "error": null,
+      "timestamp": "2026-10-08T12:12:33.572Z",
+      "deliveredAt": "2026-10-08T12:12:33.572Z"
     }
   ]
 }

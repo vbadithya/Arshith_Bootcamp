@@ -6,9 +6,12 @@ import {
   Code, Sparkles, AlertTriangle, CheckSquare,
   Clock, Flag, RotateCcw, Trophy, Check, X, HelpCircle,
   ShieldCheck, Play, ArrowRight, RefreshCw, Lock,
-  User, FileText, CheckCircle2, ShieldAlert, GraduationCap
+  User, FileText, CheckCircle2, ShieldAlert, GraduationCap,
+  FolderCheck, Send, AlertCircle, MessageSquare
 } from 'lucide-react';
 import { generateCoursePDF, generateQuestionPaperPDF } from '../utils/pdfGenerator';
+import { api } from '../services/api';
+import { STUDENT_PROFILE } from '../data/coursesData';
 
 export default function LearningPage({ 
   course, 
@@ -24,6 +27,21 @@ export default function LearningPage({
 
   // Lock State Modal
   const [showLockedModal, setShowLockedModal] = useState(false);
+
+  // Course Projects State (3 Required Projects)
+  const [isProjectMode, setIsProjectMode] = useState(false);
+  const [candidateSubmissions, setCandidateSubmissions] = useState({});
+  const [loadingSubmissions, setLoadingSubmissions] = useState(false);
+  const [activeProjectForDetails, setActiveProjectForDetails] = useState(null);
+
+  // Project Submission Form State
+  const [submitGithubUrl, setSubmitGithubUrl] = useState('');
+  const [submitLiveUrl, setSubmitLiveUrl] = useState('');
+  const [submitNotes, setSubmitNotes] = useState('');
+  const [submissionError, setSubmissionError] = useState('');
+  const [showSubmissionConfirmModal, setShowSubmissionConfirmModal] = useState(false);
+  const [isSubmittingProject, setIsSubmittingProject] = useState(false);
+  const [submissionSuccessToast, setSubmissionSuccessToast] = useState('');
 
   // Exam Simulator State
   const [isExamMode, setIsExamMode] = useState(false);
@@ -323,14 +341,133 @@ export default function LearningPage({
 
   const rm = currentModule?.readingMaterial;
 
+  // Candidate identity & Submissions integration
+  const candidateId = STUDENT_PROFILE?.id || 'ARB-STD-001';
+  const candidateName = STUDENT_PROFILE?.name || 'Arshith Kumar';
+  const candidateEmail = STUDENT_PROFILE?.email || 'arshith@arshithbootcamp.com';
+
+  const loadSubmissions = async () => {
+    if (!course?.id) return;
+    setLoadingSubmissions(true);
+    try {
+      const res = await api.getCandidateSubmissions(course.id, candidateId);
+      if (res.success && res.submissions) {
+        const map = {};
+        res.submissions.forEach(sub => {
+          map[sub.projectId] = sub;
+        });
+        setCandidateSubmissions(map);
+      }
+    } catch (e) {
+      console.warn('Could not load candidate submissions:', e);
+    } finally {
+      setLoadingSubmissions(false);
+    }
+  };
+
+  useEffect(() => {
+    loadSubmissions();
+  }, [course?.id]);
+
+  useEffect(() => {
+    if (activeProjectForDetails) {
+      const existing = candidateSubmissions[activeProjectForDetails.id];
+      if (existing) {
+        setSubmitGithubUrl(existing.githubUrl || '');
+        setSubmitLiveUrl(existing.liveUrl || '');
+        setSubmitNotes(existing.candidateComments || '');
+      } else {
+        setSubmitGithubUrl('');
+        setSubmitLiveUrl('');
+        setSubmitNotes('');
+      }
+      setSubmissionError('');
+    }
+  }, [activeProjectForDetails, candidateSubmissions]);
+
+  const courseProjects = useMemo(() => {
+    if (course?.projects && course.projects.length > 0) return course.projects;
+    return [];
+  }, [course?.projects]);
+
+  const submittedProjectsCount = useMemo(() => {
+    return courseProjects.filter(p => {
+      const s = candidateSubmissions[p.id];
+      return s && (s.status === 'Submitted' || s.status === 'Under Review' || s.status === 'Approved');
+    }).length;
+  }, [courseProjects, candidateSubmissions]);
+
+  const approvedProjectsCount = useMemo(() => {
+    return courseProjects.filter(p => {
+      const s = candidateSubmissions[p.id];
+      return s && s.status === 'Approved';
+    }).length;
+  }, [courseProjects, candidateSubmissions]);
+
+  const validateGithubUrl = (url) => {
+    if (!url || typeof url !== 'string') return false;
+    const trimmed = url.trim();
+    const githubRegex = /^https:\/\/(www\.)?github\.com\/[A-Za-z0-9_.-]+\/[A-Za-z0-9_.-]+\/?$/i;
+    return githubRegex.test(trimmed);
+  };
+
+  const handleInitiateProjectSubmit = () => {
+    const trimmed = submitGithubUrl.trim();
+    if (!validateGithubUrl(trimmed)) {
+      setSubmissionError('Please enter a valid GitHub repository URL.');
+      return;
+    }
+    setSubmissionError('');
+    setShowSubmissionConfirmModal(true);
+  };
+
+  const handleConfirmProjectSubmit = async () => {
+    if (!activeProjectForDetails) return;
+    setIsSubmittingProject(true);
+    setSubmissionError('');
+    try {
+      const res = await api.submitProject(course.id, activeProjectForDetails.id, {
+        candidateId,
+        candidateName,
+        candidateEmail,
+        githubUrl: submitGithubUrl.trim(),
+        liveUrl: submitLiveUrl.trim(),
+        candidateComments: submitNotes.trim()
+      });
+
+      setShowSubmissionConfirmModal(false);
+      setSubmissionSuccessToast(res.message || 'Project submitted successfully.');
+      confetti({ particleCount: 150, spread: 80, origin: { y: 0.6 } });
+      setTimeout(() => setSubmissionSuccessToast(''), 4500);
+      await loadSubmissions();
+    } catch (err) {
+      setSubmissionError(err.message || 'Unable to submit the project. Please try again.');
+    } finally {
+      setIsSubmittingProject(false);
+    }
+  };
+
+  // Full Course Completion: Modules completed + Exam passed + 3 Projects submitted/approved
+  const isCourseRequirementsAllMet = isCourseFullyCompleted && examSubmitted && examPassed && submittedProjectsCount >= 3;
+
   return (
     <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col font-sans">
+      {/* Toast Notification */}
+      {submissionSuccessToast && (
+        <div className="fixed top-5 right-5 z-50 px-5 py-3 rounded-2xl shadow-2xl border-2 border-emerald-400 bg-emerald-950 text-emerald-200 flex items-center gap-3 text-xs font-black animate-bounce">
+          <CheckCircle2 className="w-5 h-5 text-emerald-400" />
+          <span>{submissionSuccessToast}</span>
+        </div>
+      )}
+
       {/* Top Bar */}
       <header className="bg-slate-900 border-b-2 border-brand-900 px-4 py-3 flex items-center justify-between sticky top-0 z-40">
         <div className="flex items-center gap-3">
           <button
             onClick={() => {
-              if (isExamMode && !examSubmitted && Object.keys(examAnswers).length > 0) {
+              if (isProjectMode) {
+                setIsProjectMode(false);
+              } else if (isExamMode && !examSubmitted && Object.keys(examAnswers).length > 0) {
                 if (window.confirm("An active exam is in progress. Are you sure you want to exit? Your progress in this attempt will be reset.")) {
                   setIsExamMode(false);
                   setExamTimerActive(false);
@@ -342,7 +479,7 @@ export default function LearningPage({
                 onBack();
               }
             }}
-            className="p-2 text-slate-300 hover:text-white bg-slate-800 hover:bg-slate-700 rounded-xl transition-all flex items-center gap-1.5 text-xs font-extrabold border border-slate-700"
+            className="p-2 text-slate-300 hover:text-white bg-slate-800 hover:bg-slate-700 rounded-xl transition-all flex items-center gap-1.5 text-xs font-extrabold border border-slate-700 cursor-pointer"
           >
             <ArrowLeft className="w-4 h-4" />
             <span className="hidden sm:inline">{isExamMode ? "Exit Exam View" : "Exit Player"}</span>
@@ -545,15 +682,270 @@ export default function LearningPage({
             </div>
           )}
 
+          {/* COURSE PROJECTS SIDEBAR CARD */}
+          <div className="pt-2">
+            <button
+              onClick={() => {
+                if (isExamMode && !examSubmitted && Object.keys(examAnswers).length > 0) {
+                  if (!window.confirm("Leave active exam? Your answers in this attempt will be reset.")) return;
+                }
+                setIsExamMode(false);
+                setIsProjectMode(true);
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+              }}
+              className={`w-full p-4 rounded-2xl text-left transition-all border-2 relative overflow-hidden group cursor-pointer ${
+                isProjectMode
+                  ? 'bg-gradient-to-br from-brand-900 via-brand-800 to-indigo-950 border-brand-400 shadow-xl ring-2 ring-brand-400/30'
+                  : 'bg-slate-900/90 hover:bg-slate-800 border-indigo-500/40 hover:border-indigo-400 shadow-lg'
+              }`}
+            >
+              <div className="flex items-start gap-3">
+                <div className={`w-9 h-9 rounded-xl flex items-center justify-center shrink-0 border ${
+                  isProjectMode
+                    ? 'bg-brand-500 text-slate-950 border-brand-300 font-black'
+                    : 'bg-indigo-400/10 text-indigo-400 border-indigo-500/30'
+                }`}>
+                  <FolderCheck className="w-5 h-5" />
+                </div>
+
+                <div className="min-w-0 flex-1">
+                  <div className="flex items-center justify-between">
+                    <span className="text-[10px] font-black uppercase tracking-wider text-indigo-400 flex items-center gap-1">
+                      Required Projects
+                    </span>
+                    <span className={`text-[10px] font-black px-2 py-0.5 rounded-full ${
+                      approvedProjectsCount === 3
+                        ? 'bg-emerald-950 text-emerald-300 border border-emerald-600'
+                        : submittedProjectsCount > 0
+                        ? 'bg-brand-950 text-brand-300 border border-brand-600'
+                        : 'bg-slate-800 text-slate-300 border border-slate-700'
+                    }`}>
+                      {submittedProjectsCount} / 3 Ready
+                    </span>
+                  </div>
+
+                  <h4 className="text-xs font-black text-white mt-1 group-hover:text-indigo-300 transition-colors">
+                    3 Course Projects
+                  </h4>
+
+                  <p className="text-[10px] text-slate-400 mt-1">
+                    {approvedProjectsCount === 3
+                      ? 'All 3 Projects Approved ✓'
+                      : `${submittedProjectsCount} of 3 submitted • GitHub Review`}
+                  </p>
+                </div>
+              </div>
+            </button>
+          </div>
+
         </div>
 
-        {/* Right Main Stage: Modules Reading Material OR Interactive Exam Simulator (8 Cols) */}
+        {/* Right Main Stage: Modules Reading Material OR Interactive Exam Simulator OR Course Projects (8 Cols) */}
         <div className="lg:col-span-8 p-4 sm:p-8 overflow-y-auto space-y-8 max-w-4xl mx-auto w-full">
 
           {/* ========================================================================= */}
-          {/* VIEW A: INTERACTIVE FINAL EXAM SIMULATOR (4 STUDENT QUESTION PAPERS)      */}
+          {/* VIEW C: 3 COURSE-SPECIFIC PROJECTS & GITHUB SUBMISSION                    */}
           {/* ========================================================================= */}
-          {isExamMode ? (
+          {isProjectMode ? (
+            <div className="space-y-6 animate-fade-in">
+
+              {/* Course Completion Celebration Banner if all requirements met */}
+              {isCourseRequirementsAllMet && (
+                <div className="p-6 rounded-3xl bg-gradient-to-r from-emerald-950 via-slate-900 to-brand-950 border-2 border-emerald-400 text-white shadow-xl flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                  <div className="space-y-1">
+                    <span className="px-3 py-1 bg-emerald-500/20 text-emerald-300 text-[10px] font-black uppercase rounded-full border border-emerald-400/40">
+                      🎉 Course Fully Completed
+                    </span>
+                    <h3 className="text-xl font-black text-white">All Course Requirements Fulfilled!</h3>
+                    <p className="text-xs text-slate-300 font-medium">
+                      All Modules 100% Completed • Final Test Passed • 3 Course Projects Submitted & Approved
+                    </p>
+                  </div>
+
+                  <button
+                    onClick={() => onViewCertificate(course.id)}
+                    className="px-5 py-2.5 text-xs font-black text-slate-950 bg-emerald-400 hover:bg-emerald-300 rounded-full border-2 border-emerald-300 shadow-md transition-all flex items-center gap-2 shrink-0 cursor-pointer"
+                  >
+                    <Award className="w-4 h-4 text-slate-950" />
+                    <span>View Official Certificate</span>
+                  </button>
+                </div>
+              )}
+
+              {/* Projects Overview Header Banner */}
+              <div className="bg-slate-900/90 rounded-3xl p-6 border-2 border-brand-500/40 space-y-4 shadow-xl">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-slate-800">
+                  <div>
+                    <div className="flex items-center gap-2">
+                      <span className="px-3 py-1 bg-brand-500/20 text-brand-300 text-[10px] font-black uppercase rounded-full border border-brand-400/30 flex items-center gap-1.5">
+                        <FolderCheck className="w-3.5 h-3.5 text-brand-400" />
+                        Course Deliverables
+                      </span>
+                      <span className="text-xs font-bold text-slate-400">
+                        {course.title}
+                      </span>
+                    </div>
+                    <h2 className="text-2xl font-black text-white mt-1">Course Projects (3 Required)</h2>
+                    <p className="text-xs text-slate-400 mt-0.5">
+                      Candidates must complete all 3 projects and submit their GitHub repository links for instructor review.
+                    </p>
+                  </div>
+
+                  <div className="text-right sm:self-center">
+                    <p className="text-xs font-extrabold text-slate-400">Project Progress</p>
+                    <p className="text-xl font-black text-emerald-400">
+                      {submittedProjectsCount} / 3 <span className="text-xs text-slate-400 font-bold">Submitted</span>
+                    </p>
+                  </div>
+                </div>
+
+                {/* Progress Bar */}
+                <div className="space-y-1.5">
+                  <div className="flex justify-between items-center text-[11px] font-black text-slate-400">
+                    <span>
+                      {approvedProjectsCount === 3
+                        ? '100% Projects Approved'
+                        : `${Math.round((submittedProjectsCount / 3) * 100)}% Submitted for Review`}
+                    </span>
+                    <span className="text-emerald-400 font-mono">
+                      {approvedProjectsCount} Approved • {submittedProjectsCount - approvedProjectsCount} Under Review
+                    </span>
+                  </div>
+                  <div className="w-full h-2.5 bg-slate-950 rounded-full overflow-hidden border border-slate-800">
+                    <div
+                      className="h-full bg-gradient-to-r from-brand-600 via-indigo-500 to-emerald-400 rounded-full transition-all duration-500"
+                      style={{ width: `${Math.round((submittedProjectsCount / 3) * 100)}%` }}
+                    />
+                  </div>
+                </div>
+              </div>
+
+              {/* 3 Projects Cards Layout */}
+              <div className="space-y-4">
+                {courseProjects.map((proj, pIdx) => {
+                  const sub = candidateSubmissions[proj.id];
+                  const status = sub?.status || 'Not Started';
+
+                  return (
+                    <div
+                      key={proj.id || pIdx}
+                      className="bg-slate-900/80 border-2 border-slate-800 hover:border-slate-700 rounded-3xl p-6 transition-all space-y-4 relative overflow-hidden"
+                    >
+                      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                        <div className="flex flex-wrap items-center gap-2">
+                          <span className="w-7 h-7 rounded-xl bg-brand-900 text-white font-black text-xs flex items-center justify-center border border-brand-700">
+                            {pIdx + 1}
+                          </span>
+                          <span className="text-[10px] font-black uppercase tracking-wider text-brand-300 bg-brand-950/80 px-2.5 py-0.5 rounded-full border border-brand-800">
+                            PROJECT {proj.projectNumber || (pIdx + 1)}
+                          </span>
+                          <span className="text-xs font-bold text-slate-400">
+                            Difficulty: {proj.difficulty || 'Beginner'}
+                          </span>
+                          <span className="text-xs font-bold text-slate-400">
+                            • Estimated Time: {proj.estimatedTime || '2–3 Days'}
+                          </span>
+                        </div>
+
+                        {/* Status Badge */}
+                        <span className={`self-start sm:self-auto text-[10px] font-black uppercase px-3 py-1 rounded-full border ${
+                          status === 'Approved'
+                            ? 'bg-emerald-950/80 text-emerald-300 border-emerald-600'
+                            : status === 'Needs Changes'
+                            ? 'bg-rose-950/80 text-rose-300 border-rose-600 animate-pulse'
+                            : status === 'Submitted'
+                            ? 'bg-amber-950/80 text-amber-300 border-amber-600'
+                            : status === 'Under Review'
+                            ? 'bg-blue-950/80 text-blue-300 border-blue-600'
+                            : 'bg-slate-800 text-slate-400 border-slate-700'
+                        }`}>
+                          Status: {status}
+                        </span>
+                      </div>
+
+                      <div>
+                        <h3 className="text-lg font-black text-white">{proj.title}</h3>
+                        <p className="text-xs text-slate-300 mt-1 leading-relaxed max-w-3xl">
+                          {proj.shortDescription || proj.objective}
+                        </p>
+                      </div>
+
+                      {/* Reviewer Comments Callout if Needs Changes */}
+                      {status === 'Needs Changes' && sub?.reviewerComments && (
+                        <div className="p-4 rounded-2xl bg-rose-950/60 border-2 border-rose-800/80 space-y-1 text-xs">
+                          <p className="font-black text-rose-300 flex items-center gap-1.5">
+                            <AlertCircle className="w-4 h-4 text-rose-400" />
+                            Reviewer Feedback (Changes Requested):
+                          </p>
+                          <p className="text-rose-200 italic font-medium pl-5.5">
+                            "{sub.reviewerComments}"
+                          </p>
+                          <p className="text-[11px] text-rose-300/80 pt-1 pl-5.5">
+                            Please update your GitHub repository and resubmit your updated link below.
+                          </p>
+                        </div>
+                      )}
+
+                      {/* Submitted Repository URL Info Box */}
+                      {sub?.githubUrl && (
+                        <div className="p-3 bg-slate-950/80 border border-slate-800 rounded-2xl flex flex-wrap items-center justify-between gap-2 text-xs">
+                          <div className="flex items-center gap-2 overflow-hidden">
+                            <span className="text-[10px] font-black text-slate-400 uppercase">GitHub Repo:</span>
+                            <a
+                              href={sub.githubUrl}
+                              target="_blank"
+                              rel="noreferrer"
+                              className="font-mono text-emerald-400 hover:underline flex items-center gap-1 truncate text-xs"
+                            >
+                              <span>{sub.githubUrl}</span>
+                              <ExternalLink className="w-3 h-3 shrink-0" />
+                            </a>
+                          </div>
+                          {sub.submittedAt && (
+                            <span className="text-[10px] text-slate-500 font-mono">
+                              Submitted: {new Date(sub.submittedAt).toLocaleDateString()}
+                            </span>
+                          )}
+                        </div>
+                      )}
+
+                      {/* Action Bar */}
+                      <div className="flex flex-wrap items-center justify-between gap-3 pt-3 border-t border-slate-800/80">
+                        <div className="flex items-center gap-1.5 text-[11px] text-slate-400 font-semibold">
+                          <Code className="w-3.5 h-3.5 text-brand-400" />
+                          <span>Requires Complete GitHub Repository</span>
+                        </div>
+
+                        <button
+                          type="button"
+                          onClick={() => setActiveProjectForDetails(proj)}
+                          className={`px-5 py-2.5 text-xs font-black rounded-xl transition-all shadow-sm flex items-center gap-2 cursor-pointer ${
+                            status === 'Needs Changes'
+                              ? 'bg-rose-600 hover:bg-rose-500 text-white border-2 border-rose-400'
+                              : status === 'Approved'
+                              ? 'bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700'
+                              : status === 'Submitted'
+                              ? 'bg-amber-500/20 hover:bg-amber-500/30 text-amber-200 border border-amber-600'
+                              : 'bg-brand-600 hover:bg-brand-500 text-white border-2 border-brand-400'
+                          }`}
+                        >
+                          <span>
+                            {status === 'Needs Changes'
+                              ? 'Resubmit Updated Project'
+                              : status === 'Submitted' || status === 'Approved'
+                              ? 'View Project Details'
+                              : 'View Project & Submit'}
+                          </span>
+                          <ArrowRight className="w-3.5 h-3.5" />
+                        </button>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+
+            </div>
+          ) : isExamMode ? (
             <div className="space-y-6">
               
               {/* Question Papers Hub: 4 Student Sets Selection Banner */}
@@ -1478,6 +1870,337 @@ export default function LearningPage({
                 className="w-full py-3 rounded-xl bg-brand-600 hover:bg-brand-500 text-white font-black text-xs transition-all shadow-md"
               >
                 Continue Learning Modules
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* CANDIDATE PROJECT DETAILS & SUBMISSION MODAL */}
+      {activeProjectForDetails && (() => {
+        const proj = activeProjectForDetails;
+        const sub = candidateSubmissions[proj.id];
+        const status = sub?.status || 'Not Started';
+        const isEditable = status === 'Not Started' || status === 'Needs Changes';
+
+        return (
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/85 backdrop-blur-md animate-in fade-in duration-200">
+            <div className="bg-slate-900 border-2 border-brand-500/50 rounded-3xl max-w-2xl w-full p-6 sm:p-8 shadow-2xl text-white relative max-h-[92vh] overflow-y-auto space-y-6">
+              <button
+                onClick={() => {
+                  setActiveProjectForDetails(null);
+                  setSubmissionError('');
+                }}
+                className="absolute top-5 right-5 p-2 text-slate-400 hover:text-white rounded-full hover:bg-slate-800 transition-all cursor-pointer"
+              >
+                <X className="w-5 h-5" />
+              </button>
+
+              {/* Modal Header */}
+              <div className="border-b border-slate-800 pb-4 space-y-2">
+                <div className="flex flex-wrap items-center gap-2">
+                  <span className="px-3 py-0.5 rounded-full text-[10px] font-black uppercase tracking-wider bg-brand-950 text-brand-300 border border-brand-700">
+                    PROJECT {proj.projectNumber || 1}
+                  </span>
+                  <span className="text-xs font-bold text-slate-400">
+                    Difficulty: {proj.difficulty || 'Beginner'}
+                  </span>
+                  <span className="text-xs font-bold text-slate-400">
+                    • Estimated: {proj.estimatedTime || '2–3 Days'}
+                  </span>
+                  <span className={`text-[10px] font-black uppercase px-2.5 py-0.5 rounded-full border ${
+                    status === 'Approved'
+                      ? 'bg-emerald-950 text-emerald-300 border-emerald-600'
+                      : status === 'Needs Changes'
+                      ? 'bg-rose-950 text-rose-300 border-rose-600 animate-pulse'
+                      : status === 'Submitted'
+                      ? 'bg-amber-950 text-amber-300 border-amber-600'
+                      : status === 'Under Review'
+                      ? 'bg-blue-950 text-blue-300 border-blue-600'
+                      : 'bg-slate-800 text-slate-400 border-slate-700'
+                  }`}>
+                    {status}
+                  </span>
+                </div>
+
+                <h2 className="text-2xl font-black text-white">{proj.title}</h2>
+                <p className="text-xs text-slate-400 leading-relaxed">
+                  {proj.shortDescription}
+                </p>
+              </div>
+
+              {/* Reviewer Feedback Box (if Needs Changes) */}
+              {status === 'Needs Changes' && sub?.reviewerComments && (
+                <div className="p-4 rounded-2xl bg-rose-950/70 border-2 border-rose-700 space-y-1.5 text-xs">
+                  <p className="font-black text-rose-300 flex items-center gap-1.5">
+                    <AlertCircle className="w-4 h-4 text-rose-400" />
+                    Reviewer Feedback (Changes Requested):
+                  </p>
+                  <p className="text-rose-100 italic font-medium pl-5.5">
+                    "{sub.reviewerComments}"
+                  </p>
+                  <p className="text-[11px] text-rose-300/90 pt-1 pl-5.5">
+                    You can update your code, commit to GitHub, and resubmit your updated repository URL below.
+                  </p>
+                </div>
+              )}
+
+              {/* Project Instructions Tabs / Details */}
+              <div className="space-y-4 text-xs">
+                {/* Objective */}
+                <div className="bg-slate-950/70 p-4 rounded-2xl border border-slate-800 space-y-1.5">
+                  <p className="text-[10px] font-black uppercase tracking-wider text-brand-400 flex items-center gap-1.5">
+                    <Sparkles className="w-3.5 h-3.5" />
+                    Project Objective
+                  </p>
+                  <p className="text-slate-300 leading-relaxed font-medium">
+                    {proj.objective}
+                  </p>
+                </div>
+
+                {/* Requirements */}
+                {proj.requirements && (
+                  <div className="bg-slate-950/70 p-4 rounded-2xl border border-slate-800 space-y-2">
+                    <p className="text-[10px] font-black uppercase tracking-wider text-emerald-400 flex items-center gap-1.5">
+                      <CheckSquare className="w-3.5 h-3.5" />
+                      Mandatory Requirements
+                    </p>
+                    <ul className="space-y-1.5 text-slate-300">
+                      {(Array.isArray(proj.requirements)
+                        ? proj.requirements
+                        : proj.requirements.split('\n')
+                      ).filter(Boolean).map((req, rIdx) => (
+                        <li key={rIdx} className="flex items-start gap-2">
+                          <Check className="w-3.5 h-3.5 text-emerald-400 shrink-0 mt-0.5" />
+                          <span>{req}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+
+                {/* Technologies */}
+                {proj.technologies && (
+                  <div className="bg-slate-950/70 p-4 rounded-2xl border border-slate-800 space-y-2">
+                    <p className="text-[10px] font-black uppercase tracking-wider text-blue-400 flex items-center gap-1.5">
+                      <Code className="w-3.5 h-3.5" />
+                      Technologies & Skills Expected
+                    </p>
+                    <div className="flex flex-wrap items-center gap-1.5">
+                      {(Array.isArray(proj.technologies)
+                        ? proj.technologies
+                        : proj.technologies.split(',')
+                      ).map((tech, tIdx) => (
+                        <span key={tIdx} className="px-2.5 py-1 text-[11px] font-bold bg-slate-900 text-slate-200 border border-slate-700 rounded-lg">
+                          {typeof tech === 'string' ? tech.trim() : tech}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                {/* Expected Output */}
+                {proj.expectedOutput && (
+                  <div className="bg-slate-950/70 p-4 rounded-2xl border border-slate-800 space-y-1.5">
+                    <p className="text-[10px] font-black uppercase tracking-wider text-amber-400">
+                      Expected Output & Deliverable
+                    </p>
+                    <p className="text-slate-300 leading-relaxed">
+                      {proj.expectedOutput}
+                    </p>
+                  </div>
+                )}
+
+                {/* Submission Instructions */}
+                <div className="p-4 rounded-2xl bg-brand-950/40 border border-brand-800/80 space-y-1.5">
+                  <p className="text-[10px] font-black uppercase tracking-wider text-brand-300">
+                    Submission Instructions
+                  </p>
+                  <ol className="list-decimal list-inside space-y-1 text-slate-300">
+                    <li>Complete your project on your local machine.</li>
+                    <li>Upload/push your complete code to a public GitHub repository.</li>
+                    <li>Ensure the repository contains a README.md and complete source files.</li>
+                    <li>Paste your public GitHub repository URL below.</li>
+                    <li>Submit your repository for reviewer evaluation.</li>
+                  </ol>
+                </div>
+              </div>
+
+              {/* GitHub Repository Submission Form */}
+              <div className="pt-4 border-t border-slate-800 space-y-4">
+                <div className="flex items-center justify-between">
+                  <h3 className="text-base font-black text-white">GitHub Repository Submission</h3>
+                  {status === 'Submitted' && (
+                    <span className="text-[10px] font-bold text-amber-400">Under Review</span>
+                  )}
+                  {status === 'Approved' && (
+                    <span className="text-[10px] font-bold text-emerald-400">Approved ✓</span>
+                  )}
+                </div>
+
+                {/* Validation Error Message Banner */}
+                {submissionError && (
+                  <div className="p-3 bg-rose-950/80 border border-rose-700 rounded-xl text-rose-200 text-xs font-bold flex items-center gap-2">
+                    <AlertCircle className="w-4 h-4 text-rose-400 shrink-0" />
+                    <span>{submissionError}</span>
+                  </div>
+                )}
+
+                {/* If already submitted and NOT needs changes: read only view */}
+                {!isEditable ? (
+                  <div className="p-4 rounded-2xl bg-slate-950 border border-slate-800 space-y-3 text-xs">
+                    <div>
+                      <p className="text-[10px] font-black uppercase text-slate-400">Submitted GitHub Repository</p>
+                      <a
+                        href={sub?.githubUrl}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="font-mono text-emerald-400 hover:underline flex items-center gap-1.5 text-xs font-bold mt-1 break-all"
+                      >
+                        <span>{sub?.githubUrl}</span>
+                        <ExternalLink className="w-3.5 h-3.5 shrink-0" />
+                      </a>
+                    </div>
+
+                    {sub?.liveUrl && (
+                      <div>
+                        <p className="text-[10px] font-black uppercase text-slate-400">Live Demo URL</p>
+                        <a
+                          href={sub.liveUrl}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="font-mono text-blue-400 hover:underline flex items-center gap-1.5 text-xs font-bold mt-1"
+                        >
+                          <span>{sub.liveUrl}</span>
+                          <ExternalLink className="w-3.5 h-3.5 shrink-0" />
+                        </a>
+                      </div>
+                    )}
+
+                    {sub?.candidateComments && (
+                      <div>
+                        <p className="text-[10px] font-black uppercase text-slate-400">Candidate Comments</p>
+                        <p className="text-slate-300 italic mt-0.5">"{sub.candidateComments}"</p>
+                      </div>
+                    )}
+
+                    <div className="pt-2 border-t border-slate-800 flex items-center justify-between text-[11px] text-slate-500">
+                      <span>Submitted on: {sub?.submittedAt ? new Date(sub.submittedAt).toLocaleString() : 'N/A'}</span>
+                      <span className="font-extrabold text-slate-400">Duplicate submissions disabled</span>
+                    </div>
+                  </div>
+                ) : (
+                  /* Form for initial submission OR resubmission on Needs Changes */
+                  <form onSubmit={(e) => { e.preventDefault(); handleInitiateProjectSubmit(); }} className="space-y-4">
+                    <div>
+                      <label className="block text-xs font-bold text-slate-300 mb-1">
+                        GitHub Repository URL *
+                      </label>
+                      <input
+                        type="url"
+                        required
+                        value={submitGithubUrl}
+                        onChange={(e) => {
+                          setSubmitGithubUrl(e.target.value);
+                          if (submissionError) setSubmissionError('');
+                        }}
+                        placeholder="https://github.com/your-username/project-repo"
+                        className="w-full px-4 py-2.5 text-xs font-mono bg-slate-950 border-2 border-slate-800 rounded-xl outline-none focus:border-brand-500 text-white"
+                      />
+                      <p className="text-[10px] text-slate-400 mt-1">
+                        Format: https://github.com/username/repository (make sure your repo is set to Public)
+                      </p>
+                    </div>
+
+                    <div>
+                      <label className="block text-xs font-bold text-slate-300 mb-1">
+                        Live Project URL (Optional)
+                      </label>
+                      <input
+                        type="url"
+                        value={submitLiveUrl}
+                        onChange={(e) => setSubmitLiveUrl(e.target.value)}
+                        placeholder="https://your-project.vercel.app or Netlify URL"
+                        className="w-full px-4 py-2.5 text-xs font-mono bg-slate-950 border-2 border-slate-800 rounded-xl outline-none focus:border-brand-500 text-white"
+                      />
+                    </div>
+
+                    <div>
+                      <label className="block text-xs font-bold text-slate-300 mb-1">
+                        Candidate Comments / Notes (Optional)
+                      </label>
+                      <textarea
+                        rows={2}
+                        value={submitNotes}
+                        onChange={(e) => setSubmitNotes(e.target.value)}
+                        placeholder="Add any notes for the reviewer (e.g. key features implemented, libraries used, or instructions)..."
+                        className="w-full px-4 py-2 text-xs bg-slate-950 border-2 border-slate-800 rounded-xl outline-none focus:border-brand-500 text-white"
+                      />
+                    </div>
+
+                    <div className="flex items-center justify-end gap-3 pt-2">
+                      <button
+                        type="button"
+                        onClick={() => {
+                          setActiveProjectForDetails(null);
+                          setSubmissionError('');
+                        }}
+                        className="px-4 py-2.5 text-xs font-bold text-slate-400 hover:text-white rounded-xl"
+                      >
+                        Cancel
+                      </button>
+
+                      <button
+                        type="submit"
+                        disabled={isSubmittingProject}
+                        className="px-6 py-2.5 text-xs font-black text-white bg-brand-600 hover:bg-brand-500 rounded-xl border-2 border-brand-400 shadow-md cursor-pointer transition-all disabled:opacity-50"
+                      >
+                        {status === 'Needs Changes' ? 'Resubmit Project' : 'Submit Project'}
+                      </button>
+                    </div>
+                  </form>
+                )}
+              </div>
+            </div>
+          </div>
+        );
+      })()}
+
+      {/* SUBMISSION CONFIRMATION POPUP MODAL */}
+      {showSubmissionConfirmModal && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/90 backdrop-blur-md animate-in fade-in duration-200">
+          <div className="bg-slate-900 border-2 border-brand-400 rounded-3xl max-w-md w-full p-6 sm:p-8 shadow-2xl text-white space-y-5 text-center relative">
+            <div className="w-14 h-14 rounded-2xl bg-brand-500/20 text-brand-400 border border-brand-400/30 flex items-center justify-center mx-auto text-2xl">
+              <FolderCheck className="w-7 h-7" />
+            </div>
+
+            <div className="space-y-2">
+              <h3 className="text-xl font-black text-white">Confirm Project Submission</h3>
+              <p className="text-xs text-slate-300 leading-relaxed">
+                Are you sure you want to submit this project? Make sure your GitHub repository contains your complete project and is accessible to the reviewer.
+              </p>
+            </div>
+
+            <div className="p-3 bg-slate-950 rounded-xl border border-slate-800 font-mono text-[11px] text-emerald-400 break-all text-left">
+              🔗 {submitGithubUrl}
+            </div>
+
+            <div className="flex gap-3 pt-2">
+              <button
+                type="button"
+                onClick={() => setShowSubmissionConfirmModal(false)}
+                className="w-1/2 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 font-bold text-xs transition-all"
+              >
+                Cancel
+              </button>
+
+              <button
+                type="button"
+                disabled={isSubmittingProject}
+                onClick={handleConfirmProjectSubmit}
+                className="w-1/2 py-2.5 rounded-xl bg-brand-600 hover:bg-brand-500 text-white font-black text-xs transition-all shadow-md cursor-pointer disabled:opacity-50"
+              >
+                {isSubmittingProject ? 'Submitting...' : 'Submit Project'}
               </button>
             </div>
           </div>

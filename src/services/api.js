@@ -106,12 +106,60 @@ export const api = {
   enrollStudent: (studentId, courseId) => request('/admin/enrollments', { method: 'POST', body: JSON.stringify({ studentId, courseId }) }),
   removeEnrollment: (studentId, courseId) => request(`/admin/enrollments/${studentId}/${courseId}`, { method: 'DELETE' }),
 
-  // Project Submissions
-  getProjectSubmissions: () => request('/admin/projects/submissions'),
-  reviewProjectSubmission: (id, status, score, feedback) => 
+  // Course-specific Projects (Candidate)
+  getCourseProjects: (courseId) => request(`/courses/${courseId}/projects`),
+  getProjectDetails: (courseId, projectId) => request(`/courses/${courseId}/projects/${projectId}`),
+  getCandidateSubmissions: (courseId, candidateId) => request(`/courses/${courseId}/submissions/${candidateId}`),
+  submitProject: (courseId, projectId, submissionData) =>
+    request(`/courses/${courseId}/projects/${projectId}/submit`, {
+      method: 'POST',
+      body: JSON.stringify(submissionData)
+    }),
+
+  // Course-specific Projects (Admin Management)
+  getAdminCourseProjects: (courseId) => request(`/admin/courses/${courseId}/projects`),
+  createAdminProject: (courseId, projectData) =>
+    request(`/admin/courses/${courseId}/projects`, {
+      method: 'POST',
+      body: JSON.stringify(projectData)
+    }),
+  updateAdminProject: (courseId, projectId, projectData) =>
+    request(`/admin/courses/${courseId}/projects/${projectId}`, {
+      method: 'PUT',
+      body: JSON.stringify(projectData)
+    }),
+  deleteAdminProject: (courseId, projectId) =>
+    request(`/admin/courses/${courseId}/projects/${projectId}`, {
+      method: 'DELETE'
+    }),
+  reorderAdminProjects: (courseId, projectIds) =>
+    request(`/admin/courses/${courseId}/projects/reorder`, {
+      method: 'POST',
+      body: JSON.stringify({ projectIds })
+    }),
+
+  // Project Submissions (Admin Review)
+  getProjectSubmissions: (params) => {
+    const qs = params ? `?${new URLSearchParams(params).toString()}` : '';
+    return request(`/admin/projects/submissions${qs}`);
+  },
+  getProjectSubmissionDetails: (id) => request(`/admin/projects/submissions/${id}`),
+  reviewProjectSubmission: (id, status, reviewerComments, score) => 
     request(`/admin/projects/submissions/${id}/review`, {
       method: 'POST',
-      body: JSON.stringify({ status, score, feedback })
+      body: JSON.stringify({ status, reviewerComments, feedback: reviewerComments, score })
+    }),
+  resendProjectSubmissionEmail: (id) =>
+    request(`/admin/projects/submissions/${id}/resend-email`, {
+      method: 'POST'
+    }),
+
+  // Project Settings
+  getProjectConfig: () => request('/admin/settings/project-config'),
+  updateProjectConfig: (configData) =>
+    request('/admin/settings/project-config', {
+      method: 'PUT',
+      body: JSON.stringify(configData)
     }),
 
   // Certificates
@@ -134,3 +182,4 @@ export const api = {
   getAnalytics: () => request('/admin/analytics'),
   getActivityLogs: () => request('/admin/activity-logs')
 };
+
