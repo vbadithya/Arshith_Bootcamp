@@ -6,7 +6,7 @@
     "email": "admin@arshithbootcamp.com",
     "role": "admin",
     "createdAt": "2026-01-01T00:00:00.000Z",
-    "lastLogin": "2026-10-08T13:03:40.719Z"
+    "lastLogin": "2026-10-08T13:04:55.742Z"
   },
   "courses": [
     {
@@ -5846,6 +5846,48 @@
   ],
   "projectSubmissions": [
     {
+      "id": "sub-1791464695817-721",
+      "projectId": "prj-py-1",
+      "projectNumber": 1,
+      "projectTitle": "Automated Web Scraper & Telemetry Pipeline",
+      "courseId": "python-programming",
+      "courseTitle": "Python Programming",
+      "candidateId": "ARB-TEST-1791464695790",
+      "candidateName": "Test Candidate",
+      "candidateEmail": "candidate-1791464695790@example.com",
+      "githubUrl": "https://github.com/testcandidate/python-portfolio-v2",
+      "liveUrl": "",
+      "candidateComments": "Fixed all mobile responsive breakpoints!",
+      "status": "Approved",
+      "score": null,
+      "submittedAt": "2026-10-08T13:04:55.817Z",
+      "updatedAt": "2026-10-08T13:04:55.958Z",
+      "reviewedAt": "2026-10-08T13:04:56.049Z",
+      "reviewerComments": "Mobile responsiveness looks great now! Approved.",
+      "history": [
+        {
+          "status": "Needs Changes",
+          "score": null,
+          "reviewerComments": "Please improve the mobile responsiveness and resubmit.",
+          "timestamp": "2026-10-08T13:04:55.908Z"
+        },
+        {
+          "status": "Needs Changes",
+          "githubUrl": "https://github.com/testcandidate/python-portfolio",
+          "liveUrl": "https://python-portfolio.vercel.app",
+          "candidateComments": "Implemented all responsive features and clean code.",
+          "reviewerComments": "Please improve the mobile responsiveness and resubmit.",
+          "timestamp": "2026-10-08T13:04:55.817Z"
+        },
+        {
+          "status": "Approved",
+          "score": null,
+          "reviewerComments": "Mobile responsiveness looks great now! Approved.",
+          "timestamp": "2026-10-08T13:04:56.049Z"
+        }
+      ]
+    },
+    {
       "id": "sub-1791464620828-989",
       "projectId": "prj-py-1",
       "projectNumber": 1,
@@ -6069,6 +6111,66 @@
     }
   ],
   "activityLogs": [
+    {
+      "id": "log-1791464696156-73",
+      "adminId": "ARB-ADMIN-001",
+      "action": "SETTINGS_UPDATED",
+      "target": "Project Submission Settings",
+      "details": "Updated submission email to: reviewer@arshithbootcamp.com",
+      "timestamp": "2026-10-08T13:04:56.156Z",
+      "ipAddress": "127.0.0.1",
+      "device": "Desktop Chrome"
+    },
+    {
+      "id": "log-1791464696059-283",
+      "adminId": "ARB-ADMIN-001",
+      "action": "PROJECT_REVIEW_APPROVED",
+      "target": "Submission: sub-1791464695817-721",
+      "details": "Candidate: Test Candidate -> Approved. Feedback: Mobile responsiveness looks great now! Approved.",
+      "timestamp": "2026-10-08T13:04:56.059Z",
+      "ipAddress": "127.0.0.1",
+      "device": "Desktop Chrome"
+    },
+    {
+      "id": "log-1791464695973-788",
+      "adminId": "SYSTEM",
+      "action": "PROJECT_SUBMITTED",
+      "target": "Project: Automated Web Scraper & Telemetry Pipeline",
+      "details": "Candidate Test Candidate (candidate-1791464695790@example.com) submitted GitHub repo: https://github.com/testcandidate/python-portfolio-v2",
+      "timestamp": "2026-10-08T13:04:55.973Z",
+      "ipAddress": "127.0.0.1",
+      "device": "Desktop Chrome"
+    },
+    {
+      "id": "log-1791464695922-674",
+      "adminId": "ARB-ADMIN-001",
+      "action": "PROJECT_REVIEW_NEEDS_CHANGES",
+      "target": "Submission: sub-1791464695817-721",
+      "details": "Candidate: Test Candidate -> Needs Changes. Feedback: Please improve the mobile responsiveness and resubmit.",
+      "timestamp": "2026-10-08T13:04:55.922Z",
+      "ipAddress": "127.0.0.1",
+      "device": "Desktop Chrome"
+    },
+    {
+      "id": "log-1791464695831-46",
+      "adminId": "SYSTEM",
+      "action": "PROJECT_SUBMITTED",
+      "target": "Project: Automated Web Scraper & Telemetry Pipeline",
+      "details": "Candidate Test Candidate (candidate-1791464695790@example.com) submitted GitHub repo: https://github.com/testcandidate/python-portfolio",
+      "timestamp": "2026-10-08T13:04:55.831Z",
+      "ipAddress": "127.0.0.1",
+      "device": "Desktop Chrome"
+    },
+    {
+      "id": "log-1791464695759-307",
+      "adminId": "ARB-ADMIN-001",
+      "action": "ADMIN_LOGIN",
+      "target": "Admin Portal",
+      "details": "Successful administrator login",
+      "timestamp": "2026-10-08T13:04:55.759Z",
+      "ipAddress": "::1",
+      "device": "node"
+    },
     {
       "id": "log-1791464621232-620",
       "adminId": "ARB-ADMIN-001",
@@ -8138,6 +8240,125 @@
     "notificationEnabled": true
   },
   "emailLogs": [
+    {
+      "id": "email-1791464696116-804",
+      "to": "candidate-1791464695790@example.com",
+      "subject": "Project Approved! - Automated Web Scraper & Telemetry Pipeline - Python Programming",
+      "body": "Congratulations Test Candidate! 🎉\n\nYour project submission for \"Automated Web Scraper & Telemetry Pipeline\" in \"Python Programming\" has been APPROVED by our review team!\n\n- Evaluation: Approved ✓\n- Score: Pass\n- Reviewer Comments: Mobile responsiveness looks great now! Approved.\n\nKeep up the great work as you progress toward your course certification!\n\nBest regards,\nArshith Boot Camp Academic & Engineering Directorate",
+      "type": "candidate_project_approved",
+      "metadata": {
+        "candidateEmail": "candidate-1791464695790@example.com",
+        "courseTitle": "Python Programming",
+        "projectTitle": "Automated Web Scraper & Telemetry Pipeline"
+      },
+      "status": "sent",
+      "error": null,
+      "timestamp": "2026-10-08T13:04:56.116Z",
+      "deliveredAt": "2026-10-08T13:04:56.116Z"
+    },
+    {
+      "id": "email-1791464696073-230",
+      "to": "candidate-1791464695790@example.com",
+      "subject": "Project Approved! - Automated Web Scraper & Telemetry Pipeline - Python Programming",
+      "body": "Congratulations Test Candidate! 🎉\n\nYour project submission for \"Automated Web Scraper & Telemetry Pipeline\" in \"Python Programming\" has been APPROVED by our review team!\n\n- Evaluation: Approved ✓\n- Score: Pass\n- Reviewer Comments: Mobile responsiveness looks great now! Approved.\n\nKeep up the great work as you progress toward your course certification!\n\nBest regards,\nArshith Boot Camp Academic & Engineering Directorate",
+      "type": "candidate_project_approved",
+      "metadata": {
+        "candidateEmail": "candidate-1791464695790@example.com",
+        "courseTitle": "Python Programming",
+        "projectTitle": "Automated Web Scraper & Telemetry Pipeline"
+      },
+      "status": "sent",
+      "error": null,
+      "timestamp": "2026-10-08T13:04:56.073Z",
+      "deliveredAt": "2026-10-08T13:04:56.074Z"
+    },
+    {
+      "id": "email-1791464696007-367",
+      "to": "candidate-1791464695790@example.com",
+      "subject": "Project Submission Received - Automated Web Scraper & Telemetry Pipeline",
+      "body": "Hello Test Candidate,\n\nWe have successfully received your project submission for \"Automated Web Scraper & Telemetry Pipeline\" in the \"Python Programming\" boot camp!\n\nSubmission Details:\n- Project Name: Automated Web Scraper & Telemetry Pipeline\n- GitHub Repository: https://github.com/testcandidate/python-portfolio-v2\n- Submission Date: October 8, 2026\n- Current Status: Submitted (Pending Review)\n\nOur engineering review team is currently inspecting your repository and code quality. You will be notified as soon as your evaluation is complete.\n\nBest regards,\nArshith Boot Camp Academic & Engineering Directorate",
+      "type": "candidate_submission_confirmation",
+      "metadata": {
+        "candidateEmail": "candidate-1791464695790@example.com",
+        "courseTitle": "Python Programming",
+        "projectTitle": "Automated Web Scraper & Telemetry Pipeline",
+        "githubUrl": "https://github.com/testcandidate/python-portfolio-v2"
+      },
+      "status": "sent",
+      "error": null,
+      "timestamp": "2026-10-08T13:04:56.007Z",
+      "deliveredAt": "2026-10-08T13:04:56.007Z"
+    },
+    {
+      "id": "email-1791464695992-437",
+      "to": "reviewer@arshithbootcamp.com",
+      "subject": "New Project Submission - Python Programming - Automated Web Scraper & Telemetry Pipeline",
+      "body": "Candidate Name: Test Candidate\nCandidate Email: candidate-1791464695790@example.com\nCourse: Python Programming\nProject: Automated Web Scraper & Telemetry Pipeline\nProject Number: 1\nGitHub Repository: https://github.com/testcandidate/python-portfolio-v2\nLive Project: N/A\nSubmission Date: October 8, 2026\nCandidate Comments: Fixed all mobile responsive breakpoints!",
+      "type": "admin_project_submission",
+      "metadata": {
+        "candidateEmail": "candidate-1791464695790@example.com",
+        "courseTitle": "Python Programming",
+        "projectTitle": "Automated Web Scraper & Telemetry Pipeline",
+        "projectNumber": 1,
+        "githubUrl": "https://github.com/testcandidate/python-portfolio-v2"
+      },
+      "status": "sent",
+      "error": null,
+      "timestamp": "2026-10-08T13:04:55.992Z",
+      "deliveredAt": "2026-10-08T13:04:55.992Z"
+    },
+    {
+      "id": "email-1791464695936-433",
+      "to": "candidate-1791464695790@example.com",
+      "subject": "Action Required: Project Revisions Requested - Automated Web Scraper & Telemetry Pipeline",
+      "body": "Hello Test Candidate,\n\nYour project submission for \"Automated Web Scraper & Telemetry Pipeline\" in \"Python Programming\" has been reviewed and requires some revisions before it can be approved.\n\nReviewer Comments:\n\"Please improve the mobile responsiveness and resubmit.\"\n\nNext Steps:\n1. Address the feedback in your GitHub repository.\n2. Return to the course page and submit your updated GitHub repository link.\n\nWe look forward to seeing your updated submission!\n\nBest regards,\nArshith Boot Camp Academic & Engineering Directorate",
+      "type": "candidate_project_needs_changes",
+      "metadata": {
+        "candidateEmail": "candidate-1791464695790@example.com",
+        "courseTitle": "Python Programming",
+        "projectTitle": "Automated Web Scraper & Telemetry Pipeline",
+        "reviewerComments": "Please improve the mobile responsiveness and resubmit."
+      },
+      "status": "sent",
+      "error": null,
+      "timestamp": "2026-10-08T13:04:55.936Z",
+      "deliveredAt": "2026-10-08T13:04:55.936Z"
+    },
+    {
+      "id": "email-1791464695863-569",
+      "to": "candidate-1791464695790@example.com",
+      "subject": "Project Submission Received - Automated Web Scraper & Telemetry Pipeline",
+      "body": "Hello Test Candidate,\n\nWe have successfully received your project submission for \"Automated Web Scraper & Telemetry Pipeline\" in the \"Python Programming\" boot camp!\n\nSubmission Details:\n- Project Name: Automated Web Scraper & Telemetry Pipeline\n- GitHub Repository: https://github.com/testcandidate/python-portfolio\n- Submission Date: October 8, 2026\n- Current Status: Submitted (Pending Review)\n\nOur engineering review team is currently inspecting your repository and code quality. You will be notified as soon as your evaluation is complete.\n\nBest regards,\nArshith Boot Camp Academic & Engineering Directorate",
+      "type": "candidate_submission_confirmation",
+      "metadata": {
+        "candidateEmail": "candidate-1791464695790@example.com",
+        "courseTitle": "Python Programming",
+        "projectTitle": "Automated Web Scraper & Telemetry Pipeline",
+        "githubUrl": "https://github.com/testcandidate/python-portfolio"
+      },
+      "status": "sent",
+      "error": null,
+      "timestamp": "2026-10-08T13:04:55.863Z",
+      "deliveredAt": "2026-10-08T13:04:55.863Z"
+    },
+    {
+      "id": "email-1791464695850-596",
+      "to": "reviewer@arshithbootcamp.com",
+      "subject": "New Project Submission - Python Programming - Automated Web Scraper & Telemetry Pipeline",
+      "body": "Candidate Name: Test Candidate\nCandidate Email: candidate-1791464695790@example.com\nCourse: Python Programming\nProject: Automated Web Scraper & Telemetry Pipeline\nProject Number: 1\nGitHub Repository: https://github.com/testcandidate/python-portfolio\nLive Project: https://python-portfolio.vercel.app\nSubmission Date: October 8, 2026\nCandidate Comments: Implemented all responsive features and clean code.",
+      "type": "admin_project_submission",
+      "metadata": {
+        "candidateEmail": "candidate-1791464695790@example.com",
+        "courseTitle": "Python Programming",
+        "projectTitle": "Automated Web Scraper & Telemetry Pipeline",
+        "projectNumber": 1,
+        "githubUrl": "https://github.com/testcandidate/python-portfolio"
+      },
+      "status": "sent",
+      "error": null,
+      "timestamp": "2026-10-08T13:04:55.850Z",
+      "deliveredAt": "2026-10-08T13:04:55.850Z"
+    },
     {
       "id": "email-1791464621173-782",
       "to": "candidate-1791464620796@example.com",
