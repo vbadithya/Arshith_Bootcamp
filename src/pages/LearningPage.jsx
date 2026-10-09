@@ -8,6 +8,7 @@ import {
 } from 'lucide-react';
 import { generateCoursePDF } from '../utils/pdfGenerator';
 import { api } from '../services/api';
+import CourseProjectsModal from '../components/CourseProjectsModal';
 
 export default function LearningPage({ 
   course, 
@@ -1179,12 +1180,6 @@ export default function LearningPage({
         </div>
       )}
 
-      {/* Course Mini Projects Modal */}
-      <CourseProjectsModal
-        isOpen={projectsModalOpen}
-        onClose={() => setProjectsModalOpen(false)}
-        course={course}
-      />
 
     </div>
   );
