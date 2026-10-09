@@ -412,6 +412,66 @@ export default function LearningPage({
                 </div>
               )}
 
+              {/* Module Self-Assessment MCQs */}
+              {rm.selfAssessment && rm.selfAssessment.questions && (
+                <div className="bg-slate-950 p-6 rounded-3xl border-2 border-emerald-500/30 space-y-4">
+                  <div className="flex items-center justify-between border-b border-slate-800 pb-3">
+                    <div className="flex items-center gap-2">
+                      <HelpCircle className="w-5 h-5 text-emerald-400" />
+                      <h4 className="text-sm font-black text-white uppercase tracking-wider">
+                        {rm.selfAssessment.title || "Module Self-Assessment (5 MCQs)"}
+                      </h4>
+                    </div>
+                    <button
+                      onClick={() => setQuizModalOpen(true)}
+                      className="px-3.5 py-1.5 text-[11px] font-black text-slate-950 bg-amber-400 hover:bg-amber-300 rounded-full shadow transition-all"
+                    >
+                      Take Interactive Quiz
+                    </button>
+                  </div>
+
+                  <div className="space-y-4 pt-1">
+                    {rm.selfAssessment.questions.map((q, qIdx) => (
+                      <div key={q.id || qIdx} className="bg-slate-900/90 p-4 rounded-2xl border border-slate-800 space-y-2.5">
+                        <div className="flex items-start gap-2">
+                          <span className="w-5 h-5 rounded-full bg-emerald-500/20 text-emerald-400 text-xs font-black flex items-center justify-center shrink-0 mt-0.5">
+                            {qIdx + 1}
+                          </span>
+                          <div className="space-y-1">
+                            <span className="text-[10px] font-black uppercase tracking-wider text-slate-400">
+                              {q.topic}
+                            </span>
+                            <p className="text-xs font-bold text-slate-200 leading-relaxed">
+                              {q.questionText}
+                            </p>
+                          </div>
+                        </div>
+
+                        {q.codeSnippet && (
+                          <div className="bg-slate-950 p-2.5 rounded-xl font-mono text-[11px] text-emerald-300 overflow-x-auto border border-slate-800">
+                            <pre>{q.codeSnippet}</pre>
+                          </div>
+                        )}
+
+                        <div className="grid sm:grid-cols-2 gap-1.5 pt-1">
+                          {q.options.map((opt, oIdx) => (
+                            <div
+                              key={oIdx}
+                              className="px-3 py-2 rounded-xl text-xs bg-slate-950/80 border border-slate-800/80 text-slate-300 flex items-center gap-2"
+                            >
+                              <span className="w-4 h-4 rounded-full bg-slate-800 text-[10px] font-bold text-slate-400 flex items-center justify-center shrink-0">
+                                {String.fromCharCode(65 + oIdx)}
+                              </span>
+                              <span className="leading-tight">{opt}</span>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
               {/* Key Takeaways */}
               {rm.keyTakeaways && rm.keyTakeaways.length > 0 && (
                 <div className="bg-brand-950/40 p-5 rounded-2xl border border-brand-800/80 space-y-3">

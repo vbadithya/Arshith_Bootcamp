@@ -38,135 +38,370 @@ export const INITIAL_COURSES = [
     "modules": [
       {
         "id": "py-mod-1",
-        "title": "Module 01 — Introduction to Python & Computer Architecture",
-        "description": "Overview of Python language, computer hardware architecture (CPU, Main vs Secondary Memory), interpreter vs compiler, reserved words, and writing your first program.",
+        "title": "Module 01 — Introduction to Python",
+        "description": "This module introduces Python programming from the ground up. You will learn what Python is, why it is widely used, how to install and run Python, the basic structure of a Python program, and the core concepts needed before moving into variables, data types, operators, and control flow.",
         "completed": true,
         "readingMaterial": {
-          "introduction": "Welcome to Python Programming! Based on Chapter 1 of 'Python for Everybody', programming is the art of telling a computer what to do next. Computers act as high-speed Personal Digital Assistants that excel at repetitive tasks, reading data, and calculating results.",
+          "introduction": "This module introduces Python programming from the ground up. You will learn what Python is, why it is widely used, how to install and run Python, the basic structure of a Python program, and the core concepts needed before moving into variables, data types, operators, and control flow.\n\nLearning Level: Beginner | Module Type: Theory + Practical\nPrerequisite: No prior programming experience is required.",
           "objectives": [
-            "Understand computer hardware architecture: CPU, Main Memory (RAM), Secondary Memory (Disk), Input/Output devices, and Network connections",
-            "Differentiate between high-level interpreted languages (Python) and machine code (0s and 1s)",
-            "Learn Python's 35 reserved keywords and syntax rules",
-            "Write and execute your first script (hello.py) using the print() function",
-            "Identify the 3 main types of programming errors: Syntax, Logic, and Semantic errors",
-            "Master the 4 debugging strategies: Reading, Running, Ruminating, and Retreating"
+            "Understand the purpose and characteristics of Python.",
+            "Identify common applications and career areas where Python is used.",
+            "Set up a Python development environment.",
+            "Write and execute a basic Python program.",
+            "Understand Python syntax, indentation, comments, and keywords.",
+            "Use the Python interpreter and run a simple script."
           ],
           "sections": [
             {
-              "heading": "Computer Hardware Architecture",
-              "text": "To write effective software, you must understand the basic hardware components inside modern computers:",
+              "heading": "1. What is Python?",
+              "text": "Python is a high-level, general-purpose programming language known for its simple syntax and readability. It was designed to make programs easier to write, understand, test, and maintain. Python supports multiple programming styles, including procedural, object-oriented, and functional programming.\n\nPython source code is commonly executed by the Python interpreter. This allows developers to write instructions in Python and run them without manually converting the entire program into machine code."
+            },
+            {
+              "heading": "2. Why Learn Python?",
+              "text": "Python is used across software development, data analysis, automation, artificial intelligence, web development, testing, and education. Its readable syntax makes it a useful first language while its large ecosystem supports advanced development.",
               "bulletPoints": [
-                "Central Processing Unit (CPU): The brain of the computer that continuously asks 'What is next?' at billions of cycles per second (Gigahertz).",
-                "Main Memory (RAM): Fast, volatile storage used by the CPU for active execution. Data vanishes when power turns off.",
-                "Secondary Memory (Disk / Flash): Permanent storage (hard drives, SSDs) that retains data even when powered down.",
-                "Input and Output Devices: Keyboard, mouse, screen, and speakers for human-computer interaction.",
-                "Network Connection: Slower form of remote secondary storage for fetching data over the Internet."
-              ],
+                "Easy to read: Python syntax is designed to be clear and concise.",
+                "Versatile: The same language can be used for web applications, automation, data science, AI, scripting, and more.",
+                "Large ecosystem: Thousands of libraries and frameworks extend Python's capabilities.",
+                "Cross-platform: Python programs can run on Windows, macOS, and Linux with appropriate Python installations.",
+                "Strong community: Developers can access extensive documentation, tutorials, and community resources."
+              ]
+            },
+            {
+              "heading": "3. Applications of Python",
+              "text": "Python is applied widely across multiple engineering and technology domains:",
               "table": {
                 "headers": [
-                  "Hardware Component",
-                  "Speed",
-                  "Persistence",
-                  "Primary Function"
+                  "Area",
+                  "Typical Uses"
                 ],
                 "rows": [
                   [
-                    "CPU",
-                    "Ultra Fast",
-                    "Volatile (Registers)",
-                    "Executes instructions"
+                    "Web Development",
+                    "Web applications, APIs, backend services"
                   ],
                   [
-                    "Main Memory (RAM)",
-                    "Fast",
-                    "Volatile (Temporary)",
-                    "Stores active program data"
+                    "Data Science",
+                    "Data cleaning, analysis, visualization"
                   ],
                   [
-                    "Secondary Memory",
-                    "Slower",
-                    "Persistent (Permanent)",
-                    "Stores files & databases"
+                    "Artificial Intelligence",
+                    "Machine learning, deep learning, NLP"
                   ],
                   [
-                    "Network Connection",
-                    "Slowest",
-                    "Remote/External",
-                    "Fetches web data"
+                    "Automation",
+                    "File handling, repetitive tasks, reporting"
+                  ],
+                  [
+                    "Testing",
+                    "Automated software and API testing"
+                  ],
+                  [
+                    "Cybersecurity",
+                    "Security scripts, analysis, tooling"
+                  ],
+                  [
+                    "Education",
+                    "Programming fundamentals and academic projects"
+                  ],
+                  [
+                    "Desktop Applications",
+                    "Utilities and graphical applications"
                   ]
                 ]
               }
             },
             {
-              "heading": "Interpreter vs Compiler",
-              "text": "Computers only understand Machine Code (0s and 1s). High-level languages like Python use an Interpreter to translate source code into machine code on-the-fly, line by line. Compilers, by contrast, translate the entire program at once into an executable binary (.exe)."
+              "heading": "4. Installing Python",
+              "text": "To start programming in Python, install a current Python 3 release from the official Python website. During installation on Windows, enable the option that adds Python to the system PATH if it is offered.\n\nVerify the installation from a terminal:\n• python --version\nOn some systems, the command may be:\n• python3 --version\n\nIf Python is installed correctly, the terminal displays the installed Python 3 version. Common development options include the Python interactive interpreter, Visual Studio Code, PyCharm, and other editors or IDEs."
             },
             {
-              "heading": "Python 35 Reserved Words",
-              "text": "Python has a tiny vocabulary of 35 reserved keywords that cannot be used as variable names:",
+              "heading": "5. Python Interpreter",
+              "text": "The Python interpreter reads Python instructions and executes them. The interactive interpreter, often called the REPL (Read-Evaluate-Print Loop), lets you test small pieces of code immediately.\n\nA Python file normally uses the .py extension. For example, save a program as hello.py and run it from a terminal using:\npython hello.py"
+            },
+            {
+              "heading": "6. Basic Python Syntax",
+              "text": "Python emphasizes readability. Unlike many languages, Python uses indentation to define blocks of code. Consistent indentation is therefore part of Python's syntax.\n\nThe indented print() statement belongs to the if block. Four spaces are commonly used for one indentation level.\n\nImportant: Mixing tabs and spaces inconsistently can cause indentation errors. Use a consistent indentation style."
+            },
+            {
+              "heading": "7. Comments in Python",
+              "text": "Comments are notes written in source code for developers. Python ignores comments during normal execution. Comments can explain the purpose of code, assumptions, or important implementation details. Avoid unnecessary comments that merely repeat obvious code."
+            },
+            {
+              "heading": "8. Identifiers and Keywords",
+              "text": "Identifiers are names used for variables, functions, classes, and other program elements. An identifier can contain letters, digits, and underscores, but it cannot begin with a digit.\n\nPython also has reserved keywords such as if, else, for, while, class, def, return, and import. These words have special meanings and should not be used as ordinary variable names."
+            },
+            {
+              "heading": "9. Basic Input and Output",
+              "text": "The print() function displays information. The input() function reads text entered by the user.\n\nBy default, input() returns text (a string). If numeric input is required, conversion can be performed using functions such as int() or float()."
+            },
+            {
+              "heading": "10. Common Beginner Errors",
+              "text": "When starting with Python, watch out for these frequent error categories:",
               "bulletPoints": [
-                "Control & Conditionals: if, elif, else, for, while, break, continue, pass, return, yield",
-                "Boolean & Logic: True, False, None, and, or, not, is, in",
-                "Functions & Classes: def, class, lambda, global, nonlocal",
-                "Error Handling: try, except, finally, raise, assert",
-                "Imports & Context: import, from, as, with, async, await, del"
+                "SyntaxError: The code does not follow Python's syntax rules.",
+                "IndentationError: Indentation is missing or inconsistent where a block is required.",
+                "NameError: A name is used before it has been defined.",
+                "TypeError: An operation is attempted with incompatible data types.",
+                "ValueError: A function receives a value of the correct general type but an inappropriate value."
               ]
             },
             {
-              "heading": "Three Types of Errors",
-              "text": "When writing code, you will encounter three distinct error categories:",
-              "bulletPoints": [
-                "Syntax Errors: Violating Python grammar rules. Python catches these before executing.",
-                "Logic Errors: Code syntax is correct, but statements are executed in the wrong order or logic.",
-                "Semantic Errors: Code runs without error messages, but produces the wrong result (e.g. calculated value is incorrect)."
-              ]
+              "heading": "13. Module Summary",
+              "text": "In this module, you learned what Python is, why it is popular, where it is used, how to install and run it, and how Python's basic syntax works. You also learned about the interpreter, comments, identifiers, keywords, input/output, and common beginner errors.\n\nThe next modules can build on these foundations by introducing variables, data types, operators, conditional statements, loops, functions, collections, and practical programming exercises."
+            },
+            {
+              "heading": "Module Completion Check",
+              "text": "Verify your module learning checklist:",
+              "table": {
+                "headers": [
+                  "Skill",
+                  "Completed?"
+                ],
+                "rows": [
+                  [
+                    "Explain what Python is",
+                    "■ Completed"
+                  ],
+                  [
+                    "Identify Python applications",
+                    "■ Completed"
+                  ],
+                  [
+                    "Run Python from a terminal",
+                    "■ Completed"
+                  ],
+                  [
+                    "Write and execute a .py file",
+                    "■ Completed"
+                  ],
+                  [
+                    "Use print() and input()",
+                    "■ Completed"
+                  ],
+                  [
+                    "Understand indentation and comments",
+                    "■ Completed"
+                  ]
+                ]
+              }
             }
           ],
           "codeExamples": [
             {
-              "title": "Hello World Script (hello.py)",
-              "code": "# First Python Script - Python for Everybody\nprint('Hello world!')\n\n# Interactive Prompt (>>>)\n# >>> x = 6\n# >>> print(x)\n# 6\n# >>> y = x * 7\n# >>> print(y)\n# 42",
-              "explanation": "print() outputs string text enclosed in single or double quotes. Commands typed in interactive mode (>>>) execute immediately."
+              "title": "1. What is Python? — Example & Output",
+              "code": "print(\"Hello, Python!\")\n\n# Output:\n# Hello, Python!",
+              "explanation": "print() sends output to the standard console."
             },
             {
-              "title": "Word Frequency Count Script (words.py)",
-              "code": "# Word Frequency Counter from Chapter 1\nname = input('Enter file name: ')\nhandle = open(name, 'r')\ncounts = dict()\n\nfor line in handle:\n    words = line.split()\n    for word in words:\n        counts[word] = counts.get(word, 0) + 1\n\nbigcount = None\nbigword = None\nfor word, count in list(counts.items()):\n    if bigcount is None or count > bigcount:\n        bigword = word\n        bigcount = count\n\nprint(f\"Most common word: '{bigword}' occurs {bigcount} times.\")",
-              "explanation": "Demonstrates the core building blocks of programming: input, sequential execution, repetition (for loop), conditional logic, and output."
+              "title": "5. Python Interpreter (REPL)",
+              "code": ">>> 5 + 3\n8\n>>> print(\"Learning Python\")\nLearning Python\n\n# Run from terminal:\n# python hello.py",
+              "explanation": "The interactive prompt executes expressions line-by-line."
+            },
+            {
+              "title": "6. Basic Python Syntax & Indentation",
+              "code": "name = \"Bhavana\"\nif name:\n    print(\"Hello,\", name)",
+              "explanation": "The indented print() belongs to the if block. 4 spaces are standard."
+            },
+            {
+              "title": "7. Comments in Python",
+              "code": "print(\"Hello\")",
+              "explanation": "Python ignores comments (#) during execution."
+            },
+            {
+              "title": "8. Identifiers and Keywords",
+              "code": "student_name = \"Anu\"\nage = 21\n_total = 100\n\n# Reserved keywords cannot be variable names:\n# if, else, for, while, class, def, return, import",
+              "explanation": "Identifiers cannot begin with a number."
+            },
+            {
+              "title": "9. Basic Input and Output",
+              "code": "name = input(\"Enter your name: \")\nprint(\"Welcome,\", name)\n\n# Numeric input\nage = int(input(\"Enter your age: \"))\nprint(\"Age:\", age)",
+              "explanation": "Convert text input to int() or float() when numbers are required."
+            },
+            {
+              "title": "11. Your First Python Program (hello.py)",
+              "code": "print(\"Hello, World!\")\nprint(\"Welcome to Python programming.\")\n\n# Terminal execution command:\n# python hello.py",
+              "explanation": "Cycle: write code -> save hello.py -> execute in terminal -> observe output."
             }
           ],
           "bestPractices": [
-            "Write code in a text editor saved with .py extension for complex scripts.",
-            "Use indentation (4 spaces per block) consistently.",
-            "When stuck debugging, practice 'retreating'—back up to working code before rebuilding."
+            "Use meaningful variable and function names.",
+            "Keep indentation consistent.",
+            "Write small programs and test them frequently.",
+            "Read error messages carefully before changing code.",
+            "Practice by modifying working examples instead of only reading theory.",
+            "Use comments when they add useful context.",
+            "Keep learning through small hands-on exercises."
           ],
           "commonMistakes": [
-            "Using reserved words like 'class' or 'def' as variable names.",
-            "Mismatched quotes around string literals (SyntaxError: unterminated string literal)."
+            "Mixing tabs and spaces inconsistently causing IndentationError.",
+            "Using reserved words like 'class' or 'def' as variable identifiers.",
+            "SyntaxError caused by forgetting colons at the end of if/for/def lines.",
+            "TypeError caused by performing math operations directly on unconverted input()."
           ],
           "practiceExercise": {
-            "title": "Hardware Role Identification",
-            "problem": "Write a Python script that prompts the user for a number, multiplies it by 7, and prints the result while commenting which computer hardware component handles each step.",
-            "solutionCode": "# Input: Keyboard (Input Device)\nval_str = input(\"Enter a number: \")\n\n# Main Memory stores val_int & result; CPU performs multiplication\nval_int = int(val_str)\nresult = val_int * 7\n\n# Output Device: Display screen prints result\nprint(f\"Result: {result}\")"
+            "title": "14. Practice Exercises (Module 1)",
+            "problem": "1. Install Python 3 and verify the installation from a terminal.\n2. Write a program that prints your name, college, and favorite programming language.\n3. Write a program that asks for the user's name and prints a welcome message.\n4. Write a program that asks for two numbers and prints them.\n5. Add comments to a small Python program explaining what each section does.\n6. Create a program containing an if statement and practice correct indentation.",
+            "solutionCode": "name = \"Bhavana\"\ncollege = \"Engineering College\"\nfav_lang = \"Python\"\nprint(f\"Name: {name}\\nCollege: {college}\\nLanguage: {fav_lang}\")\n\n# 3. User welcome:\nuser_name = input(\"Enter your name: \")\nprint(\"Welcome,\", user_name)\n\n# 4. Ask for two numbers:\nnum1 = int(input(\"Enter first number: \"))\nnum2 = int(input(\"Enter second number: \"))\nprint(\"Numbers:\", num1, \"and\", num2)\n\n# 5 & 6. Comments & indentation:\nage = 21\nif age >= 18:\n    # Indented block\n    print(\"Eligible for advanced module\")"
           },
           "keyTakeaways": [
-            "Programming is orchestrating CPU, Main Memory, and Storage resources.",
-            "Python is an interpreted, high-level language with 35 reserved words.",
-            "Building blocks: Input, Output, Sequential, Conditional, Iterative execution, and Functions."
+            "Python is a high-level, interpreted language with clean syntax and versatile applications.",
+            "Indentation is part of Python syntax and defines code blocks.",
+            "Identifiers must not start with digits; keywords are reserved by Python.",
+            "The print() function outputs data and input() takes user inputs as strings.",
+            "Common beginner errors include SyntaxError, IndentationError, NameError, TypeError, and ValueError."
           ],
           "references": [
             {
-              "title": "Python for Everybody Chapter 1 (Dr. Charles Severance)",
-              "url": "https://www.py4e.com/html3/01-intro"
+              "title": "Python Official Website (python.org)",
+              "url": "https://www.python.org"
             },
             {
-              "title": "Python 3.12 Official Documentation",
-              "url": "https://docs.python.org/3/tutorial/index.html"
+              "title": "Python 3 Official Documentation & Tutorial",
+              "url": "https://docs.python.org/3/tutorial/"
             }
-          ]
+          ],
+          "mcqs": [
+            {
+              "id": 1,
+              "question": "What is the primary role of the Python interpreter during program execution?",
+              "options": [
+                "It compiles source code directly into a standalone machine-code binary (.exe)",
+                "It reads Python instructions and translates them line-by-line into executable actions at runtime",
+                "It formats source code according to PEP 8 styling rules",
+                "It manually manages RAM address allocation for CPU registers"
+              ],
+              "correctAnswer": 1,
+              "explanation": "Python is an interpreted language; the interpreter parses and executes source instructions line-by-line, enabling rapid interactive development."
+            },
+            {
+              "id": 2,
+              "question": "Which of the following character sequences denotes a single-line comment in Python?",
+              "options": [
+                "// This is a comment",
+                "/* This is a comment */",
+                "# This is a comment",
+                "-- This is a comment"
+              ],
+              "correctAnswer": 2,
+              "explanation": "In Python, the hash symbol (#) begins a single-line comment. Everything following # on that line is ignored by the interpreter."
+            },
+            {
+              "id": 3,
+              "question": "Which of the following is an INVALID variable identifier in Python?",
+              "options": [
+                "_total_score",
+                "student_name_2",
+                "2nd_place_score",
+                "MAX_BUFFER_LIMIT"
+              ],
+              "correctAnswer": 2,
+              "explanation": "Python identifiers cannot begin with a decimal digit (0-9). '2nd_place_score' starts with '2', which triggers a SyntaxError."
+            },
+            {
+              "id": 4,
+              "question": "What is the return data type of Python's built-in input() function?",
+              "options": [
+                "int if numbers are typed, str otherwise",
+                "Always str (string)",
+                "None",
+                "Dynamic object based on content"
+              ],
+              "correctAnswer": 1,
+              "explanation": "The input() function always returns user input as a string (str). To use it in calculations, it must be explicitly cast using int() or float()."
+            },
+            {
+              "id": 5,
+              "question": "What error does Python raise when indentation levels within a code block are inconsistent or mixed with tabs and spaces?",
+              "options": [
+                "TypeError",
+                "IndentationError",
+                "BlockStructureError",
+                "ScopeResolutionError"
+              ],
+              "correctAnswer": 1,
+              "explanation": "Indentation is part of Python's formal syntax. Inconsistent whitespace or mixing tabs and spaces raises an IndentationError."
+            }
+          ],
+          "selfAssessment": {
+            "title": "Module Self-Assessment (5 Knowledge Check MCQs)",
+            "questions": [
+              {
+                "id": "py-q-1-1",
+                "questionNumber": 1,
+                "topic": "Computer Hardware Architecture",
+                "questionText": "Which hardware component of a modern computer directly fetches, decodes, and executes program instructions at billions of cycles per second?",
+                "options": [
+                  "Secondary Memory (Hard Disk / SSD)",
+                  "Central Processing Unit (CPU)",
+                  "Main Memory (Random Access Memory - RAM)",
+                  "Motherboard System Bus"
+                ],
+                "correctAnswer": 1,
+                "explanation": "The Central Processing Unit (CPU) is the core processor that executes instructions fetched from memory at clock speeds measured in Gigahertz (GHz)."
+              },
+              {
+                "id": "py-q-1-2",
+                "questionNumber": 2,
+                "topic": "Interpreters vs Compilers",
+                "questionText": "How does the standard CPython interpreter execute Python source code (.py files)?",
+                "options": [
+                  "It directly translates code into hardware microcode before running",
+                  "It compiles source code to intermediate bytecode (.pyc) and executes it on the Python Virtual Machine (PVM)",
+                  "It compiles source code directly to a native standalone machine binary (.exe / ELF)",
+                  "It ignores syntax validation and executes raw text line-by-line"
+                ],
+                "correctAnswer": 1,
+                "explanation": "CPython first compiles source code to platform-independent bytecode (.pyc cached in __pycache__), which is then evaluated by the Python Virtual Machine."
+              },
+              {
+                "id": "py-q-1-3",
+                "questionNumber": 3,
+                "topic": "Python Reserved Keywords",
+                "questionText": "Which of the following identifiers CANNOT be used as a variable name in Python 3 because it is a reserved keyword?",
+                "options": [
+                  "total_marks",
+                  "yield",
+                  "value1",
+                  "constant_pi"
+                ],
+                "correctAnswer": 1,
+                "explanation": "'yield' is one of Python's 35 reserved keywords used in generator functions to produce values lazily."
+              },
+              {
+                "id": "py-q-1-4",
+                "questionNumber": 4,
+                "topic": "Types of Programming Errors",
+                "questionText": "What type of error occurs when a program runs to completion without crashing, but outputs mathematically incorrect results due to an incorrect formula?",
+                "options": [
+                  "Syntax Error",
+                  "Runtime Error (Exception)",
+                  "Semantic / Logic Error",
+                  "Segmentation Fault"
+                ],
+                "correctAnswer": 2,
+                "explanation": "A semantic (logic) error occurs when code follows grammatical grammar rules but does not do what the programmer intended, yielding erroneous outputs."
+              },
+              {
+                "id": "py-q-1-5",
+                "questionNumber": 5,
+                "topic": "Debugging Strategies",
+                "questionText": "In Dr. Charles Severance's Python debugging methodology, what does the 'Retreat' strategy advise?",
+                "options": [
+                  "Deleting the entire project and starting from scratch",
+                  "Backtracking your changes to the last known working version of the code",
+                  "Ignoring the bug and continuing to write new features",
+                  "Rewriting the application in a compiled language like C++"
+                ],
+                "correctAnswer": 1,
+                "explanation": "The 'Retreat' debugging strategy recommends undoing recent code modifications back to the last working commit or checkpoint before systematically diagnosing the defect."
+              }
+            ]
+          }
         },
         "quiz": {
           "id": "quiz-py-mod-1",
-          "title": "Module 01 Quiz — Introduction to Python & Computer Architecture",
+          "title": "Module 01 Quiz — Architecture & Foundations",
           "passingScore": 70,
           "timeLimitMinutes": 15,
           "maxAttempts": 3,
@@ -174,7 +409,7 @@ export const INITIAL_COURSES = [
           "questions": [
             {
               "id": "py-q-1-1",
-              "type": "multiple-choice",
+              "questionNumber": 1,
               "topic": "Computer Hardware Architecture",
               "questionText": "Which hardware component of a modern computer directly fetches, decodes, and executes program instructions at billions of cycles per second?",
               "options": [
@@ -184,12 +419,11 @@ export const INITIAL_COURSES = [
                 "Motherboard System Bus"
               ],
               "correctAnswer": 1,
-              "marks": 10,
               "explanation": "The Central Processing Unit (CPU) is the core processor that executes instructions fetched from memory at clock speeds measured in Gigahertz (GHz)."
             },
             {
               "id": "py-q-1-2",
-              "type": "multiple-choice",
+              "questionNumber": 2,
               "topic": "Interpreters vs Compilers",
               "questionText": "How does the standard CPython interpreter execute Python source code (.py files)?",
               "options": [
@@ -199,12 +433,11 @@ export const INITIAL_COURSES = [
                 "It ignores syntax validation and executes raw text line-by-line"
               ],
               "correctAnswer": 1,
-              "marks": 10,
               "explanation": "CPython first compiles source code to platform-independent bytecode (.pyc cached in __pycache__), which is then evaluated by the Python Virtual Machine."
             },
             {
               "id": "py-q-1-3",
-              "type": "multiple-choice",
+              "questionNumber": 3,
               "topic": "Python Reserved Keywords",
               "questionText": "Which of the following identifiers CANNOT be used as a variable name in Python 3 because it is a reserved keyword?",
               "options": [
@@ -214,12 +447,11 @@ export const INITIAL_COURSES = [
                 "constant_pi"
               ],
               "correctAnswer": 1,
-              "marks": 10,
               "explanation": "'yield' is one of Python's 35 reserved keywords used in generator functions to produce values lazily."
             },
             {
               "id": "py-q-1-4",
-              "type": "multiple-choice",
+              "questionNumber": 4,
               "topic": "Types of Programming Errors",
               "questionText": "What type of error occurs when a program runs to completion without crashing, but outputs mathematically incorrect results due to an incorrect formula?",
               "options": [
@@ -229,12 +461,11 @@ export const INITIAL_COURSES = [
                 "Segmentation Fault"
               ],
               "correctAnswer": 2,
-              "marks": 10,
               "explanation": "A semantic (logic) error occurs when code follows grammatical grammar rules but does not do what the programmer intended, yielding erroneous outputs."
             },
             {
               "id": "py-q-1-5",
-              "type": "multiple-choice",
+              "questionNumber": 5,
               "topic": "Debugging Strategies",
               "questionText": "In Dr. Charles Severance's Python debugging methodology, what does the 'Retreat' strategy advise?",
               "options": [
@@ -244,7 +475,6 @@ export const INITIAL_COURSES = [
                 "Rewriting the application in a compiled language like C++"
               ],
               "correctAnswer": 1,
-              "marks": 10,
               "explanation": "The 'Retreat' debugging strategy recommends undoing recent code modifications back to the last working commit or checkpoint before systematically diagnosing the defect."
             }
           ]
@@ -253,120 +483,497 @@ export const INITIAL_COURSES = [
       {
         "id": "py-mod-2",
         "title": "Module 02 — Variables, Expressions and Statements",
-        "description": "Values, data types (int, float, str), assignment statements, variable naming rules, arithmetic operators, and user input.",
+        "description": "Variables and data types are fundamental concepts in Python programming. Learn variable assignment, naming rules, dynamic typing, built-in numeric/string/collection types, mutability, type conversion, and practice programs.",
         "completed": true,
         "readingMaterial": {
-          "introduction": "Based on Chapter 2 of 'Python for Everybody', variables are named symbolic references pointing to stored values in memory. Python uses dynamic typing to determine variable data types automatically.",
+          "introduction": "Variables and data types are fundamental concepts in Python programming.\n\nA variable is a name that refers to a value or object stored in memory. Variables allow us to store information and use that information later in a program.\n\nA data type tells us what kind of value an object represents and what operations can be performed with that value.\n\nPython is dynamically typed, which means you do not have to explicitly declare the type of a variable before assigning a value to it. The same variable name can refer to objects of different types at different times.",
           "objectives": [
-            "Identify primitive data types: int, float, str, and bool",
-            "Use type() to inspect object types",
-            "Master variable assignment statements (=)",
-            "Learn variable naming rules and mnemonic variable naming benefits",
-            "Understand operators (+, -, *, /, //, %, **) and operands",
-            "Convert user input using input() and explicit type casting (int(), float(), str())"
+            "Understand what a variable is and how assignment binds names to objects in memory",
+            "Master single, multiple, and chained variable assignments (a, b, c = 10, 20, 30 and x = y = z = 100)",
+            "Learn Python variable naming rules, case sensitivity, and snake_case style conventions",
+            "Explore Python built-in data types: int, float, complex, bool, str, list, tuple, set, dict, range, NoneType, bytes",
+            "Understand the difference between mutable (list, dict, set) and immutable (int, float, bool, str, tuple) types",
+            "Perform implicit and explicit type conversions using int(), float(), str(), bool(), etc.",
+            "Check and verify object types using type() and isinstance()"
           ],
           "sections": [
             {
-              "heading": "Values and Data Types",
-              "text": "Values are basic units of data manipulated by programs. In Python, every value belongs to a specific type class:",
+              "heading": "2. What is a Variable & How Assignment Works",
+              "text": "A variable is a name that is bound to an object. When you assign 'age = 25', 'age' is the variable name, '=' is the assignment operator, and '25' is an integer object stored in memory.\n\nThe basic syntax is 'variable_name = value'. Python evaluates the value on the right side and assigns the resulting object to the name on the left side.\n\nMultiple variables can be assigned in one statement: 'a, b, c = 10, 20, 30'. You can also assign the same object to multiple names simultaneously: 'x = y = z = 100'."
+            },
+            {
+              "heading": "5. Variable Naming Rules & Style Conventions",
+              "text": "Python has strict rules and conventions for creating variable names:",
+              "bulletPoints": [
+                "1. A variable name can contain letters, numbers, and underscores (_).",
+                "2. A variable name cannot start with a number (e.g., '2name' is invalid).",
+                "3. Variable names are case-sensitive: 'name', 'Name', and 'NAME' are three completely distinct variables.",
+                "4. Spaces are not allowed in variable names (e.g., 'student name' is invalid; use 'student_name').",
+                "5. Python keywords cannot be used as variable names (e.g., 'class', 'def', 'if', 'for', 'return').",
+                "Recommended Style: Python developers use snake_case (e.g., 'student_age = 21', 'total_marks = 450'). Meaningful names make programs easier to read and maintain."
+              ]
+            },
+            {
+              "heading": "8. What is a Data Type?",
+              "text": "A data type represents the kind of value stored in an object and what operations can be performed on it. Python provides many built-in data types:",
               "table": {
                 "headers": [
                   "Data Type",
-                  "Example Literal",
-                  "Python Class",
+                  "Python Type",
+                  "Example",
                   "Description"
                 ],
                 "rows": [
                   [
                     "Integer",
-                    "42, -10, 0",
-                    "<class 'int'>",
+                    "int",
+                    "10, -5",
                     "Whole numbers without decimals"
                   ],
                   [
-                    "Floating-Point",
-                    "3.14159, 0.5",
-                    "<class 'float'>",
-                    "Numbers with decimal fractional parts"
+                    "Floating point",
+                    "float",
+                    "10.5, 99.99",
+                    "Numbers with a decimal point"
+                  ],
+                  [
+                    "Complex",
+                    "complex",
+                    "3 + 4j",
+                    "Numbers with real and imaginary parts"
+                  ],
+                  [
+                    "Boolean",
+                    "bool",
+                    "True, False",
+                    "Truth values for logical conditions"
                   ],
                   [
                     "String",
-                    "'Hello', \"Python\"",
-                    "<class 'str'>",
-                    "Sequence of Unicode characters in quotes"
+                    "str",
+                    "\"Hello\", 'Rahul'",
+                    "Ordered sequence of Unicode characters"
+                  ],
+                  [
+                    "List",
+                    "list",
+                    "[1, 2, 3]",
+                    "Ordered, mutable collection in [ ]"
+                  ],
+                  [
+                    "Tuple",
+                    "tuple",
+                    "(1, 2, 3)",
+                    "Ordered, immutable collection in ( )"
+                  ],
+                  [
+                    "Set",
+                    "set",
+                    "{1, 2, 3}",
+                    "Unordered collection of unique items in { }"
+                  ],
+                  [
+                    "Dictionary",
+                    "dict",
+                    "{\"name\": \"Rahul\"}",
+                    "Key-value mapping pairs in { }"
+                  ],
+                  [
+                    "Range",
+                    "range",
+                    "range(5)",
+                    "Immutable sequence of numbers"
+                  ],
+                  [
+                    "None",
+                    "NoneType",
+                    "None",
+                    "Represents the absence of a value"
+                  ],
+                  [
+                    "Bytes",
+                    "bytes",
+                    "b\"Hello\"",
+                    "Binary data representation"
                   ]
                 ]
               }
             },
             {
-              "heading": "Variable Naming Rules & Mnemonic Names",
-              "text": "Variable names can be arbitrarily long, containing letters, numbers, and underscores (_). Rules:",
-              "bulletPoints": [
-                "Must NOT start with a number (e.g. 76trombones is illegal).",
-                "Must NOT contain special symbols like @, $, or dashes (e.g. more@ is illegal).",
-                "Must NOT use any of Python's 35 reserved keywords.",
-                "Mnemonic Names: Choose names that reflect intent (e.g. hours * rate vs a * b) to make code self-documenting."
-              ]
+              "heading": "10. Numeric Data Types (int, float, complex)",
+              "text": "Python has three main built-in numeric types:\n\n• 10.1 Integer (int): Represents whole numbers without a decimal component (e.g., age = 21, marks = 95, count = 0). Supports standard arithmetic (+, -, *, /).\n\n• 10.2 Floating-Point (float): Represents numbers containing a decimal point (e.g., price = 99.99, height = 5.8, temperature = 36.5).\n\n• 10.3 Complex Numbers (complex): A complex number has a real part and an imaginary part (e.g., z = 3 + 4j, where z.real gives 3.0 and z.imag gives 4.0)."
             },
             {
-              "heading": "Operators and Division Changes in Python 3",
-              "text": "Python 3 introduced floating-point division by default for the / operator (e.g., 59/60 yields 0.98333...). To perform integer floor division, use the // operator (e.g., 59//60 yields 0)."
+              "heading": "11. Boolean Data Type (bool)",
+              "text": "The Boolean type is represented by bool and has exactly two values: True and False.\n\nBoolean values are commonly used in conditions and logical expressions (e.g., age >= 18 evaluates to True or False). For example, 'if is_student: print(\"Student account\")'."
             },
             {
-              "heading": "Modulus Operator (%)",
-              "text": "The modulus operator (%) yields the remainder when the first operand is divided by the second. Applications:",
-              "bulletPoints": [
-                "Checking divisibility: if x % y == 0, then x is divisible by y.",
-                "Extracting right-most digits: x % 10 yields the last digit; x % 100 yields the last two digits."
-              ]
+              "heading": "12. Strings (str)",
+              "text": "A string is an immutable sequence of characters enclosed in single quotes ('...') or double quotes (\"...\").\n\n• Zero-Based Indexing: The first character has index 0 (e.g. word = \"Python\"; word[0] is 'P', word[1] is 'y').\n• String Length: len(name) returns the total number of characters.\n• String Concatenation: Combine strings using the + operator (e.g. 'Rahul' + ' ' + 'Kumar')."
+            },
+            {
+              "heading": "13 & 14. Lists (list) vs Tuples (tuple)",
+              "text": "Lists and tuples are ordered collections of items that can hold multiple data types. The crucial difference is mutability:",
+              "table": {
+                "headers": [
+                  "Feature",
+                  "List (list)",
+                  "Tuple (tuple)"
+                ],
+                "rows": [
+                  [
+                    "Syntax",
+                    "[ 1, 2, 3 ]",
+                    "( 1, 2, 3 )"
+                  ],
+                  [
+                    "Ordered",
+                    "Yes",
+                    "Yes"
+                  ],
+                  [
+                    "Mutable",
+                    "Yes (can modify and append)",
+                    "No (immutable, cannot change)"
+                  ],
+                  [
+                    "Heterogeneous",
+                    "Yes (can hold mixed types)",
+                    "Yes (can hold mixed types)"
+                  ],
+                  [
+                    "Common Use",
+                    "Changeable collection",
+                    "Fixed, protected records"
+                  ]
+                ]
+              }
+            },
+            {
+              "heading": "15. Sets (set)",
+              "text": "A set is an unordered collection of unique elements enclosed in curly braces {}.\n\n• Duplicate Removal: Sets automatically eliminate duplicate entries (e.g., {10, 20, 30, 20, 10} becomes {10, 20, 30}).\n• Important — Empty Set: An empty set must be created using set(). Writing {} creates an empty dictionary!\n• Set Operations: Supports Union (a | b), Intersection (a & b), and Difference (a - b)."
+            },
+            {
+              "heading": "16. Dictionaries (dict)",
+              "text": "A dictionary stores data as key-value pairs in {}.\n\n• Accessing: student[\"name\"] returns 'Rahul'.\n• Modifying: student[\"age\"] = 22 updates the value.\n• Adding: student[\"city\"] = \"Bengaluru\" dynamically adds a new key-value pair."
+            },
+            {
+              "heading": "17, 18 & 19. NoneType, Range, and Bytes",
+              "text": "• NoneType (None): Represents the absence of a value or a null placeholder. Check with 'if result is None:'.\n\n• Range (range): Immutable sequence of numbers commonly used with loops. Supports range(stop), range(start, stop), and range(start, stop, step) (e.g., range(0, 10, 2) produces 0, 2, 4, 6, 8).\n\n• Bytes (bytes): Binary data type (e.g. b\"Hello\") used for binary files, networking, and byte-level operations."
+            },
+            {
+              "heading": "20. Mutable vs Immutable Data Types",
+              "text": "An essential concept in Python is the distinction between mutable and immutable objects:\n\n• Mutable Objects: Can be changed after creation (e.g., list, dict, set). You can modify elements in-place or add new items.\n• Immutable Objects: Cannot be modified once created (e.g., int, float, bool, str, tuple). Attempting to reassign an index like name[0] = 'J' raises a TypeError."
+            },
+            {
+              "heading": "21 & 22. Dynamic Typing & Object References",
+              "text": "Python variables are symbolic names that refer to objects stored in memory, not fixed memory containers.\n\n• Dynamic Typing: A variable name can refer to an integer (x = 10) and later be reassigned to a string (x = \"Hello\"). Python manages this automatically.\n• Shared References: Writing 'y = x' binds both 'x' and 'y' to the same underlying object in memory."
+            },
+            {
+              "heading": "23, 24 & 25. Sequence Unpacking, Swapping & Type Conversion",
+              "text": "• Sequence Unpacking: Unpack elements directly into variables: 'a, b, c = (10, 20, 30)'.\n• Pythonic Swapping: Swap two variables cleanly without temporary storage: 'a, b = b, a'.\n• Implicit Conversion: Python automatically converts compatible types (e.g., int + float = float; 10 + 2.5 = 12.5).\n• Explicit Conversion: Use conversion functions like int(), float(), str(), bool(), list(), tuple(), set()."
+            },
+            {
+              "heading": "26. Checking Types with type() and isinstance()",
+              "text": "• type(obj): Determines and returns the exact class type of an object (e.g., type(100) -> <class 'int'>).\n• isinstance(obj, Class): Returns True or False indicating whether an object is an instance of a specified type (e.g., isinstance(age, int) -> True). Highly recommended for type validation in production code."
+            },
+            {
+              "heading": "28. Quick Comparison of Python Data Types",
+              "text": "Comprehensive reference matrix for Python's core data types:",
+              "table": {
+                "headers": [
+                  "Type",
+                  "Ordered",
+                  "Mutable",
+                  "Example Syntax"
+                ],
+                "rows": [
+                  [
+                    "int",
+                    "No",
+                    "No",
+                    "10"
+                  ],
+                  [
+                    "float",
+                    "No",
+                    "No",
+                    "10.5"
+                  ],
+                  [
+                    "complex",
+                    "No",
+                    "No",
+                    "3 + 4j"
+                  ],
+                  [
+                    "bool",
+                    "No",
+                    "No",
+                    "True, False"
+                  ],
+                  [
+                    "str",
+                    "Yes",
+                    "No",
+                    "\"Python\""
+                  ],
+                  [
+                    "list",
+                    "Yes",
+                    "Yes",
+                    "[1, 2, 3]"
+                  ],
+                  [
+                    "tuple",
+                    "Yes",
+                    "No",
+                    "(1, 2, 3)"
+                  ],
+                  [
+                    "set",
+                    "No fixed order",
+                    "Yes",
+                    "{1, 2, 3}"
+                  ],
+                  [
+                    "dict",
+                    "Key-value mapping",
+                    "Yes",
+                    "{\"name\": \"Rahul\"}"
+                  ],
+                  [
+                    "range",
+                    "Yes",
+                    "No",
+                    "range(5)"
+                  ],
+                  [
+                    "bytes",
+                    "Yes",
+                    "No",
+                    "b\"Hello\""
+                  ],
+                  [
+                    "NoneType",
+                    "No",
+                    "No",
+                    "None"
+                  ]
+                ]
+              }
             }
           ],
           "codeExamples": [
             {
-              "title": "Variables and Type Inspection",
-              "code": "# Chapter 2: Variables & Type Checking\nmessage = 'And now for something completely different'\nn = 17\npi = 3.1415926535897931\n\nprint(type(message)) # <class 'str'>\nprint(type(n))       # <class 'int'>\nprint(type(pi))      # <class 'float'>",
-              "explanation": "type() returns the class object of the given variable."
+              "title": "1 & 2. Variables & Multiple Assignment",
+              "code": "name = \"Arun\"\ncity = \"Bengaluru\"\nage = 22\n\nprint(name)\nprint(city)\nprint(age)\n\n# Multiple assignment in one line\na, b, c = 10, 20, 30\nprint(a, b, c)\n\n# Same value to multiple variables\nx = y = z = 100\nprint(x, y, z)",
+              "explanation": "Variables store references to objects. Multiple variables can be initialized cleanly in one line."
             },
             {
-              "title": "User Input and Gross Pay Calculation",
-              "code": "# Prompting user for numeric input\nhours_str = input('Enter Hours: ')\nrate_str = input('Enter Rate: ')\n\n# Convert string inputs to floating-point numbers\nhours = float(hours_str)\nrate = float(rate_str)\n\npay = hours * rate\nprint('Pay:', pay)",
-              "explanation": "input() always returns a string; float() converts it to a number before arithmetic computation."
+              "title": "5 & 6. Variable Naming Rules & Case Sensitivity",
+              "code": "name = \"Rahul\"\nage = 25\nstudent_name = \"Arun\"\nemployee123 = \"John\"\n_total = 500\n\n# Case sensitivity demonstration: 3 distinct variables\nname = \"Rahul\"\nName = \"Arun\"\nNAME = \"John\"\n\nprint(name)  # Rahul\nprint(Name)  # Arun\nprint(NAME)  # John",
+              "explanation": "Python is case-sensitive. Variable names cannot begin with numbers or include spaces."
+            },
+            {
+              "title": "9 & 26. Inspecting Types: type() and isinstance()",
+              "code": "x = 100\nname = \"Rahul\"\nsalary = 45000.50\nstudent = True\n\nprint(type(x))        # <class 'int'>\nprint(type(name))     # <class 'str'>\nprint(type(salary))   # <class 'float'>\nprint(type(student))  # <class 'bool'>\n\n# Checking types with isinstance()\nprint(isinstance(age, int))    # True\nprint(isinstance(name, str))   # True",
+              "explanation": "type() returns the class type; isinstance() tests inheritance and class membership."
+            },
+            {
+              "title": "10, 11 & 12. Numeric Types, Booleans & Strings",
+              "code": "z = 3 + 4j\nprint(z.real)  # 3.0\nprint(z.imag)  # 4.0\n\n# Boolean conditions\nage = 20\nprint(age >= 18)  # True\n\n# Strings: Indexing, length & concatenation\nword = \"Python\"\nprint(word[0])    # 'P'\nprint(len(word))   # 6\n\nfirst = \"Rahul\"\nlast = \"Kumar\"\nfull = first + \" \" + last\nprint(full)       # 'Rahul Kumar'",
+              "explanation": "Python supports real/imaginary complex numbers, truth logic, and zero-based string indexing."
+            },
+            {
+              "title": "13, 14, 15 & 16. Collections: List, Tuple, Set & Dict",
+              "code": "numbers = [10, 20, 30]\nnumbers.append(40)\nnumbers[0] = 100\nprint(numbers)  # [100, 20, 30, 40]\n\n# Tuple: Immutable\nstudent = (\"Rahul\", 21, 85.5)\nprint(student[0])  # Rahul\n# student[0] = \"Arun\"  # Raises TypeError!\n\n# Set: Unique elements & operations\ns1 = {1, 2, 3}\ns2 = {3, 4, 5}\nprint(s1 | s2)  # Union: {1, 2, 3, 4, 5}\nprint(s1 & s2)  # Intersection: {3}\n\n# Dictionary: Key-value mapping\nemp = {\"name\": \"Rahul\", \"age\": 21}\nemp[\"city\"] = \"Bengaluru\"\nprint(emp[\"name\"])  # Rahul",
+              "explanation": "Lists are mutable, tuples are immutable, sets store unique values, and dicts map keys to values."
+            },
+            {
+              "title": "23, 24 & 25. Unpacking, Swapping & Type Conversion",
+              "code": "coords = (10, 20, 30)\na, b, c = coords\nprint(a, b, c)  # 10 20 30\n\n# Variable swapping\nx = 10\ny = 20\nx, y = y, x\nprint(x, y)  # 20 10\n\n# Type conversion\nage_str = \"21\"\nage_int = int(age_str)\nprice_float = float(\"99.50\")\nprint(age_int, price_float)",
+              "explanation": "Pythonic unpacking and swapping eliminate boilerplate code; casting functions convert compatible types."
             }
           ],
           "bestPractices": [
-            "Use mnemonic variable names (e.g. gross_pay instead of p).",
-            "Always prompt users with clear instructions before input().",
-            "Use comments (#) to document non-obvious code logic."
+            "Use snake_case for variable names (student_name, total_marks).",
+            "Choose meaningful, descriptive names instead of single letters (total_marks vs x).",
+            "Use set() instead of {} to initialize an empty set (since {} creates an empty dict).",
+            "Prefer isinstance(obj, class) over type(obj) == class for robust type validation.",
+            "Remember that strings and tuples are immutable; use lists when items need to be added or modified.",
+            "Never use Python reserved keywords (class, def, if, for, etc.) as variable names."
           ],
           "commonMistakes": [
-            "Formatting numbers with commas in code: print(1,000,000) prints '1 0 0' (a tuple of integers) instead of 1000000.",
-            "Concatenating string and integer without converting types (TypeError)."
+            "SyntaxError: Starting variable names with numbers (e.g., 2name = 'Rahul').",
+            "SyntaxError: Including spaces in variable names (student name = 'A').",
+            "TypeError: Attempting to modify an immutable sequence (e.g., name[0] = 'J' or tuple[0] = 5).",
+            "Logic Bug: Initializing an empty set with {} instead of set() (which creates an empty dict).",
+            "TypeError: Trying to concatenate strings and numbers directly without str() conversion."
           ],
           "practiceExercise": {
-            "title": "Celsius to Fahrenheit Converter",
-            "problem": "Write a program that prompts the user for a Celsius temperature, converts it to Fahrenheit using (Celsius * 9/5) + 32, and prints the converted temperature.",
-            "solutionCode": "celsius_str = input(\"Enter Celsius temperature: \")\ncelsius = float(celsius_str)\nfahrenheit = (celsius * 9/5) + 32\nprint(f\"Fahrenheit Temperature: {fahrenheit:.2f}°F\")"
+            "title": "30. Practice Programs (Python Variables & Data Types)",
+            "problem": "Complete the following 4 hands-on practice programs:\n\nPractice 1: Student Information\nCreate variables for student name, age, course, percentage, eligible (bool), then print each value and its type.\n\nPractice 2: Employee Information\nCreate a dictionary containing name, age, salary, and department, then print it.\n\nPractice 3: List Operations\nCreate a list of 5 numbers, append a new number, modify index 0, and print the updated list.\n\nPractice 4: Type Conversion\nConvert string age = '21' to int and salary = '45000.50' to float, then print them.",
+            "solutionCode": "name = \"Rahul\"\nage = 21\ncourse = \"Python\"\npercentage = 85.5\neligible = True\n\nprint(name, type(name))\nprint(age, type(age))\nprint(course, type(course))\nprint(percentage, type(percentage))\nprint(eligible, type(eligible))\n\n# Practice 2: Employee Information Dictionary\nemployee = {\n    \"name\": \"Rahul\",\n    \"age\": 25,\n    \"salary\": 45000,\n    \"department\": \"IT\"\n}\nprint(\"Employee:\", employee)\n\n# Practice 3: List Operations\nnumbers = [10, 20, 30, 40, 50]\nnumbers.append(60)\nnumbers[0] = 100\nprint(\"Updated List:\", numbers)\n\n# Practice 4: Type Conversion\nage_str = \"21\"\nsalary_str = \"45000.50\"\nage_num = int(age_str)\nsalary_num = float(salary_str)\nprint(\"Converted:\", age_num, type(age_num), salary_num, type(salary_num))"
           },
           "keyTakeaways": [
-            "Variables refer to values stored in memory.",
-            "Python 3 division (/) returns float; floor division (//) truncates decimal.",
-            "Modulus (%) extracts remainders.",
-            "input() returns strings that require explicit type casting for math."
+            "Python variables are dynamic references bound to objects in memory without type declarations.",
+            "Python provides 12 core built-in types: int, float, complex, bool, str, list, tuple, set, dict, range, bytes, NoneType.",
+            "Lists, sets, and dictionaries are mutable; numbers, strings, and tuples are immutable.",
+            "Use isinstance() for type checking and int(), float(), str() for explicit conversion.",
+            "Unpacking (a, b, c = values) and pythonic swapping (a, b = b, a) enable clean, concise code."
           ],
           "references": [
             {
-              "title": "Python for Everybody Chapter 2",
-              "url": "https://www.py4e.com/html3/02-variables"
+              "title": "Python Standard Data Types (Official Docs)",
+              "url": "https://docs.python.org/3/library/stdtypes.html"
             },
             {
-              "title": "Python Standard Data Types",
-              "url": "https://docs.python.org/3/library/stdtypes.html"
+              "title": "Python for Everybody Chapter 2: Variables",
+              "url": "https://www.py4e.com/html3/02-variables"
             }
-          ]
+          ],
+          "mcqs": [
+            {
+              "id": 1,
+              "question": "What happens in computer memory when the statement x = 100 is executed in Python?",
+              "options": [
+                "A fixed memory box named 'x' is allocated, and the binary value 100 is copied into it",
+                "An integer object with value 100 is created in RAM, and reference label 'x' is bound to it",
+                "The computer reserves 4 bytes in the CPU cache for variable 'x'",
+                "The variable 'x' is declared as a static integer type"
+              ],
+              "correctAnswer": 1,
+              "explanation": "Python variables are reference tags. x = 100 creates an integer object 100 in heap memory and points the identifier 'x' to its memory address."
+            },
+            {
+              "id": 2,
+              "question": "Which data type in Python is ordered, indexed, and STRICTLY IMMUTABLE?",
+              "options": [
+                "List ([...])",
+                "Dictionary ({...})",
+                "Tuple ((...))",
+                "Set ({...})"
+              ],
+              "correctAnswer": 2,
+              "explanation": "Tuples are ordered sequences accessed by position, but their elements cannot be modified, reordered, or deleted once created."
+            },
+            {
+              "id": 3,
+              "question": "How can two variables a and b be swapped in a single, atomic Python statement?",
+              "options": [
+                "swap(a, b)",
+                "a, b = b, a",
+                "a = b; b = a",
+                "a.swap(b)"
+              ],
+              "correctAnswer": 1,
+              "explanation": "Python evaluates the right-hand tuple (b, a) first, then unpacks the values into the left-hand targets a and b simultaneously."
+            },
+            {
+              "id": 4,
+              "question": "What is the result of executing type(3 + 4j) in Python?",
+              "options": [
+                "<class 'int'>",
+                "<class 'float'>",
+                "<class 'complex'>",
+                "<class 'tuple'>"
+              ],
+              "correctAnswer": 2,
+              "explanation": "Python natively supports complex numbers using the 'j' suffix for the imaginary component, represented by the <class 'complex'> type."
+            },
+            {
+              "id": 5,
+              "question": "Which of the following expressions will raise a TypeError in Python?",
+              "options": [
+                "str(42) + ' items'",
+                "int('100') + 50",
+                "'Total: ' + 95",
+                "float('3.14') * 2"
+              ],
+              "correctAnswer": 2,
+              "explanation": "Python is strongly typed and does not implicitly coerce integers to strings in concatenation. 'Total: ' + 95 raises a TypeError."
+            }
+          ],
+          "selfAssessment": {
+            "title": "Module Self-Assessment (5 Knowledge Check MCQs)",
+            "questions": [
+              {
+                "id": "py-q-2-1",
+                "questionNumber": 1,
+                "topic": "Variable Naming Rules",
+                "questionText": "According to PEP 8 conventions and Python syntax rules, which identifier is a valid and recommended variable name?",
+                "options": [
+                  "2nd_score",
+                  "user_student_id",
+                  "class-name",
+                  "for"
+                ],
+                "correctAnswer": 1,
+                "explanation": "Identifiers cannot start with digits, cannot contain hyphens, and cannot be keywords. 'user_student_id' follows snake_case naming rules."
+              },
+              {
+                "id": "py-q-2-2",
+                "questionNumber": 2,
+                "topic": "Dynamic Typing",
+                "questionText": "What will be the output of type(x) after running x = 10; x = 'Arshith Boot Camp'?",
+                "options": [
+                  "<class 'int'>",
+                  "<class 'str'>",
+                  "TypeError: cannot change type",
+                  "<class 'object'>"
+                ],
+                "correctAnswer": 1,
+                "explanation": "Python is dynamically typed; variable names are references to heap objects. Reassigning 'x' rebinds the reference to the new string object."
+              },
+              {
+                "id": "py-q-2-3",
+                "questionNumber": 3,
+                "topic": "Division Operators",
+                "questionText": "What are the results of 7 / 2 and 7 // 2 in Python 3?",
+                "options": [
+                  "3.5 and 3.5",
+                  "3.5 and 3",
+                  "3 and 3.5",
+                  "3 and 3"
+                ],
+                "correctAnswer": 1,
+                "explanation": "'/' performs true float division returning 3.5, while '//' performs floor (integer) division returning 3."
+              },
+              {
+                "id": "py-q-2-4",
+                "questionNumber": 4,
+                "topic": "Type Conversion",
+                "questionText": "What happens when executing int('45.8') in Python?",
+                "options": [
+                  "It rounds to 46",
+                  "It truncates to 45",
+                  "It raises a ValueError",
+                  "It returns 45.0"
+                ],
+                "correctAnswer": 2,
+                "explanation": "int() cannot parse string representations of floating-point numbers directly. You must first convert with float('45.8') before passing to int()."
+              },
+              {
+                "id": "py-q-2-5",
+                "questionNumber": 5,
+                "topic": "String Replication",
+                "questionText": "What is the evaluated result of the expression 'Go' * 3 in Python?",
+                "options": [
+                  "'Go 3'",
+                  "'GoGoGo'",
+                  "TypeError: unsupported operand",
+                  "['Go', 'Go', 'Go']"
+                ],
+                "correctAnswer": 1,
+                "explanation": "The '*' operator applied between a string and an integer performs sequence replication, resulting in 'GoGoGo'."
+              }
+            ]
+          }
         },
         "quiz": {
           "id": "quiz-py-mod-2",
-          "title": "Module 02 Quiz — Variables, Expressions and Statements",
+          "title": "Module 02 Quiz — Variables & Expressions",
           "passingScore": 70,
           "timeLimitMinutes": 15,
           "maxAttempts": 3,
@@ -374,7 +981,7 @@ export const INITIAL_COURSES = [
           "questions": [
             {
               "id": "py-q-2-1",
-              "type": "multiple-choice",
+              "questionNumber": 1,
               "topic": "Variable Naming Rules",
               "questionText": "According to PEP 8 conventions and Python syntax rules, which identifier is a valid and recommended variable name?",
               "options": [
@@ -384,14 +991,13 @@ export const INITIAL_COURSES = [
                 "for"
               ],
               "correctAnswer": 1,
-              "marks": 10,
               "explanation": "Identifiers cannot start with digits, cannot contain hyphens, and cannot be keywords. 'user_student_id' follows snake_case naming rules."
             },
             {
               "id": "py-q-2-2",
-              "type": "multiple-choice",
+              "questionNumber": 2,
               "topic": "Dynamic Typing",
-              "questionText": "What will be the output of `type(x)` after running `x = 10; x = 'Arshith Boot Camp'`?",
+              "questionText": "What will be the output of type(x) after running x = 10; x = 'Arshith Boot Camp'?",
               "options": [
                 "<class 'int'>",
                 "<class 'str'>",
@@ -399,14 +1005,13 @@ export const INITIAL_COURSES = [
                 "<class 'object'>"
               ],
               "correctAnswer": 1,
-              "marks": 10,
               "explanation": "Python is dynamically typed; variable names are references to heap objects. Reassigning 'x' rebinds the reference to the new string object."
             },
             {
               "id": "py-q-2-3",
-              "type": "multiple-choice",
+              "questionNumber": 3,
               "topic": "Division Operators",
-              "questionText": "What are the results of `7 / 2` and `7 // 2` in Python 3?",
+              "questionText": "What are the results of 7 / 2 and 7 // 2 in Python 3?",
               "options": [
                 "3.5 and 3.5",
                 "3.5 and 3",
@@ -414,14 +1019,13 @@ export const INITIAL_COURSES = [
                 "3 and 3"
               ],
               "correctAnswer": 1,
-              "marks": 10,
               "explanation": "'/' performs true float division returning 3.5, while '//' performs floor (integer) division returning 3."
             },
             {
               "id": "py-q-2-4",
-              "type": "multiple-choice",
+              "questionNumber": 4,
               "topic": "Type Conversion",
-              "questionText": "What happens when executing `int('45.8')` in Python?",
+              "questionText": "What happens when executing int('45.8') in Python?",
               "options": [
                 "It rounds to 46",
                 "It truncates to 45",
@@ -429,14 +1033,13 @@ export const INITIAL_COURSES = [
                 "It returns 45.0"
               ],
               "correctAnswer": 2,
-              "marks": 10,
               "explanation": "int() cannot parse string representations of floating-point numbers directly. You must first convert with float('45.8') before passing to int()."
             },
             {
               "id": "py-q-2-5",
-              "type": "multiple-choice",
+              "questionNumber": 5,
               "topic": "String Replication",
-              "questionText": "What is the evaluated result of the expression `'Go' * 3` in Python?",
+              "questionText": "What is the evaluated result of the expression 'Go' * 3 in Python?",
               "options": [
                 "'Go 3'",
                 "'GoGoGo'",
@@ -444,7 +1047,6 @@ export const INITIAL_COURSES = [
                 "['Go', 'Go', 'Go']"
               ],
               "correctAnswer": 1,
-              "marks": 10,
               "explanation": "The '*' operator applied between a string and an integer performs sequence replication, resulting in 'GoGoGo'."
             }
           ]
@@ -453,70 +1055,648 @@ export const INITIAL_COURSES = [
       {
         "id": "py-mod-3",
         "title": "Module 03 — Operators, Expressions & Precedence",
-        "description": "Expressions, operator precedence (PEMDAS), string operations, modulus calculations, and writing clean mathematical statements.",
+        "description": "Operators and expressions are fundamental building blocks of Python programs. Master arithmetic, assignment, comparison, logical, bitwise, membership, and identity operators, operator precedence (PEMDAS), short-circuiting, ternary expressions, and hands-on coding practice.",
         "completed": true,
         "readingMaterial": {
-          "introduction": "An expression is a combination of values, variables, and operators that evaluates to a single value. Python evaluates mathematical expressions following standard mathematical order of precedence (PEMDAS).",
+          "introduction": "Operators and expressions are fundamental building blocks of Python programs.\n\nAn operator is a symbol or keyword that tells Python to perform an operation.\nAn operand is a value or object on which an operator performs an operation.\nAn expression is a combination of values, variables, operators, function calls, or other elements that Python can evaluate to produce a value.\n\nFor example:\na = 10\nb = 20\nresult = a + b\n\nHere:\n• a and b are operands.\n• + is an operator.\n• a + b is an expression.\n• 30 is the value produced by the expression.\n\nOperators allow us to perform essential tasks such as:\n• Mathematical calculations\n• Comparing values\n• Assigning and updating values\n• Performing logical decision-making\n• Working with binary bits\n• Checking membership within sequences and mappings\n• Comparing object memory identity",
           "objectives": [
-            "Evaluate complex expressions using operator precedence rules (PEMDAS)",
-            "Perform string concatenation (+) and string multiplication (*)",
-            "Apply modulus (%) for cyclic calculations and unit conversions",
-            "Avoid common expression pitfalls and operator precedence bugs"
+            "Understand operators, operands, and expressions as fundamental Python building blocks",
+            "Master arithmetic operators (+, -, *, /, //, %, **) and integer vs float division rules",
+            "Utilize assignment and augmented assignment operators (=, +=, -=, *=, /=, //=, %=, **=)",
+            "Apply comparison operators (==, !=, >, <, >=, <=) and chained comparisons (18 <= age <= 60)",
+            "Combine Boolean logic with logical operators (and, or, not) and understand short-circuit evaluation",
+            "Work with bitwise operators (&, |, ^, ~, <<, >>) and binary representations",
+            "Perform membership testing (in, not in) on strings, lists, and dictionary keys",
+            "Evaluate object identity (is, is not) versus value equality (==, !=)",
+            "Master operator precedence (PEMDAS) and operator associativity rules",
+            "Write pythonic conditional expressions (ternary) and walrus assignment expressions (:=)"
           ],
           "sections": [
             {
-              "heading": "Order of Operations (PEMDAS Rules)",
-              "text": "When more than one operator appears in an expression, evaluation order follows PEMDAS:",
-              "bulletPoints": [
-                "Parentheses (): Highest precedence. Used to force evaluation order (e.g. 2 * (3 - 1) = 4).",
-                "Exponentiation **: Second highest precedence (e.g. 2**1+1 = 3, not 4).",
-                "Multiplication * and Division / (and //, %): Higher than addition/subtraction.",
-                "Addition + and Subtraction -: Lowest mathematical precedence.",
-                "Left-to-Right Evaluation: Operators with equal precedence evaluate from left to right (e.g. 5 - 3 - 1 = 1)."
-              ]
+              "heading": "5 & 6. Types of Operators & Arithmetic Operators Overview",
+              "text": "Python provides seven major categories of operators, along with specialized constructs such as conditional expressions, the walrus operator (:=), and matrix multiplication (@):\n\n1. Arithmetic operators (+, -, *, /, //, %, **)\n2. Assignment operators (=, +=, -=, *=, /=, //=, %=, **=)\n3. Comparison operators (==, !=, >, <, >=, <=)\n4. Logical operators (and, or, not)\n5. Bitwise operators (&, |, ^, ~, <<, >>)\n6. Membership operators (in, not in)\n7. Identity operators (is, is not)\n\nArithmetic operators are used to perform mathematical calculations:",
+              "table": {
+                "headers": [
+                  "Operator",
+                  "Name",
+                  "Description",
+                  "Example",
+                  "Result"
+                ],
+                "rows": [
+                  [
+                    "+",
+                    "Addition",
+                    "Adds two numeric values; concatenates sequences",
+                    "10 + 5",
+                    "15"
+                  ],
+                  [
+                    "-",
+                    "Subtraction",
+                    "Subtracts right operand from left; unary negation",
+                    "10 - 5",
+                    "5 / -x"
+                  ],
+                  [
+                    "*",
+                    "Multiplication",
+                    "Multiplies numbers; repeats strings and sequences",
+                    "10 * 5",
+                    "50 / 'Hi ' * 3"
+                  ],
+                  [
+                    "/",
+                    "Division",
+                    "Divides left by right; ALWAYS produces a float",
+                    "10 / 5",
+                    "2.0 (float)"
+                  ],
+                  [
+                    "//",
+                    "Floor Division",
+                    "Divides and rounds down towards negative infinity",
+                    "10 // 3",
+                    "3 (-10 // 3 = -4)"
+                  ],
+                  [
+                    "%",
+                    "Modulus",
+                    "Returns the division remainder (10 = 3*3 + 1)",
+                    "10 % 3",
+                    "1"
+                  ],
+                  [
+                    "**",
+                    "Exponentiation",
+                    "Raises base to the power of exponent",
+                    "2 ** 3",
+                    "8 (2 * 2 * 2)"
+                  ]
+                ]
+              }
             },
             {
-              "heading": "String Operations (+ and *)",
-              "text": "The + operator concatenates strings by linking them end-to-end. The * operator multiplies string contents by an integer repeater:",
-              "codeExamples": [
-                {
-                  "title": "String Multiplication and Concatenation",
-                  "code": "first = 'Test '\nsecond = 3\nprint(first * second) # Output: 'Test Test Test '\n\nstr1 = '100'\nstr2 = '150'\nprint(str1 + str2)    # Output: '100150' (String concatenation)",
-                  "explanation": "String + joins strings; string * repeat-duplicates text."
-                }
+              "heading": "7 to 13. Deep Dive: Arithmetic Operators & Sequence Operations",
+              "text": "Key nuances and behaviors of Python's arithmetic operators:\n\n• 7. Addition Operator (+): Adds two numbers (10 + 20 = 30). When applied to strings or lists, it performs concatenation ('Rahul' + ' ' + 'Kumar' -> 'Rahul Kumar').\n\n• 8. Subtraction Operator (-): Performs binary subtraction (20 - 5 = 15). It also functions as a unary operator to negate numbers (if x = 10, -x produces -10).\n\n• 9. Multiplication Operator (*): Multiplies numbers (10 * 5 = 50). When applied to a sequence, it repeats the content ('Hi ' * 3 -> 'Hi Hi Hi ').\n\n• 10. Division Operator (/): Normal division always produces a floating-point result in Python 3 (10 / 2 = 5.0, 10 / 4 = 2.5).\n\n• 11. Floor Division Operator (//): Produces the mathematical floor of the quotient. For positive numbers, 10 // 3 is 3. For negative numbers, it rounds toward negative infinity: -10 // 3 is -4.\n\n• 12. Modulus Operator (%): Computes the integer remainder of a division. For example, 10 % 3 is 1 because 10 = 3 × 3 + 1. Practical application: checking whether an integer is even or odd (number % 2 == 0).\n\n• 13. Exponentiation Operator (**): Raises a base number to a power (2 ** 3 = 8, 5 ** 2 = 25, 10 ** 3 = 1000, 4 ** 0 = 1)."
+            },
+            {
+              "heading": "15 to 21. Assignment & Augmented Assignment Operators",
+              "text": "Assignment operators store or update values in variables. The basic assignment operator is '=' (e.g., x = 10). Python also provides augmented assignment operators that perform an operation and reassign the result in one compact step:",
+              "table": {
+                "headers": [
+                  "Operator",
+                  "Example",
+                  "Equivalent Concept",
+                  "Effect / Result"
+                ],
+                "rows": [
+                  [
+                    "=",
+                    "x = 5",
+                    "x = 5",
+                    "Direct assignment"
+                  ],
+                  [
+                    "+=",
+                    "x += 5",
+                    "x = x + 5",
+                    "Add and assign (10 -> 15)"
+                  ],
+                  [
+                    "-=",
+                    "x -= 5",
+                    "x = x - 5",
+                    "Subtract and assign (20 -> 15)"
+                  ],
+                  [
+                    "*=",
+                    "x *= 3",
+                    "x = x * 3",
+                    "Multiply and assign (10 -> 30)"
+                  ],
+                  [
+                    "/=",
+                    "x /= 4",
+                    "x = x / 4",
+                    "Divide and assign (20 -> 5.0)"
+                  ],
+                  [
+                    "//=",
+                    "x //= 5",
+                    "x = x // 5",
+                    "Floor divide and assign (16 -> 3)"
+                  ],
+                  [
+                    "%=",
+                    "x %= 3",
+                    "x = x % 3",
+                    "Modulus and assign (10 -> 1)"
+                  ],
+                  [
+                    "**=",
+                    "x **= 3",
+                    "x = x ** 3",
+                    "Power and assign (2 -> 8)"
+                  ]
+                ]
+              }
+            },
+            {
+              "heading": "22 to 29. Comparison Operators & Chained Comparisons",
+              "text": "Comparison operators compare values and return a Boolean (True or False):\n\n• Equal to (==): True if values are equal (10 == 10 is True). Notice that '=' assigns while '==' checks equality.\n• Not equal (!=): True if values differ (10 != 5 is True).\n• Greater than (>): True if left is strictly greater than right (age = 25; age > 18 is True).\n• Less than (<): True if left is strictly less than right (age = 15; age < 18 is True).\n• Greater than or equal (>=): True if left is greater than or equal to right (age = 18; age >= 18 is True).\n• Less than or equal (<=): True if left is less than or equal to right (marks = 40; marks <= 40 is True).\n\nChained Comparisons:\nPython elegantly supports chained comparisons. For example:\n18 <= age <= 60\nThis is evaluated conceptually as:\n18 <= age and age <= 60\nChaining makes range boundary checks clean, natural, and expressive.",
+              "table": {
+                "headers": [
+                  "Operator",
+                  "Meaning",
+                  "Example",
+                  "Evaluation"
+                ],
+                "rows": [
+                  [
+                    "==",
+                    "Equal to",
+                    "10 == 10",
+                    "True"
+                  ],
+                  [
+                    "!=",
+                    "Not equal to",
+                    "10 != 5",
+                    "True"
+                  ],
+                  [
+                    ">",
+                    "Greater than",
+                    "25 > 18",
+                    "True"
+                  ],
+                  [
+                    "<",
+                    "Less than",
+                    "15 < 18",
+                    "True"
+                  ],
+                  [
+                    ">=",
+                    "Greater than or equal to",
+                    "18 >= 18",
+                    "True"
+                  ],
+                  [
+                    "<=",
+                    "Less than or equal to",
+                    "40 <= 40",
+                    "True"
+                  ],
+                  [
+                    "Chained",
+                    "Multiple bounds",
+                    "18 <= 25 <= 60",
+                    "True"
+                  ]
+                ]
+              }
+            },
+            {
+              "heading": "30 to 35. Logical Operators, Truth Tables & Short-Circuit Evaluation",
+              "text": "Logical operators combine or modify Boolean conditions:\n\n• and: True only when BOTH operands are true.\n• or: True when AT LEAST ONE operand is true.\n• not: Unary operator that reverses the Boolean state (not True -> False).\n\nShort-Circuit Evaluation:\nPython evaluates logical expressions lazily from left to right:\n• In 'False and func()', because the first operand is False, Python stops immediately and never invokes func().\n• In 'True or func()', because the first operand is True, Python stops immediately and never invokes func().\n\nTruth Value Testing (Truthy and Falsy):\nAny Python object can be tested for its Boolean truth value using bool(). The following values evaluate to False:\nFalse, None, 0, 0.0, empty strings (\"\"), empty lists ([]), empty tuples (()), empty dictionaries ({}), empty sets (set()).\nMost other objects evaluate to True (e.g. bool(\"Python\") is True, bool([1, 2, 3]) is True).",
+              "table": {
+                "headers": [
+                  "A",
+                  "B",
+                  "A and B",
+                  "A or B",
+                  "not A"
+                ],
+                "rows": [
+                  [
+                    "False",
+                    "False",
+                    "False",
+                    "False",
+                    "True"
+                  ],
+                  [
+                    "False",
+                    "True",
+                    "False",
+                    "True",
+                    "True"
+                  ],
+                  [
+                    "True",
+                    "False",
+                    "False",
+                    "True",
+                    "False"
+                  ],
+                  [
+                    "True",
+                    "True",
+                    "True",
+                    "True",
+                    "False"
+                  ]
+                ]
+              }
+            },
+            {
+              "heading": "36 to 43. Bitwise Operators & Binary Representation",
+              "text": "Bitwise operators work directly on the individual bits of integers. They are fundamental in networking, flags, low-level systems, cryptography, and performance-sensitive code:\n\nBinary Representation:\nDecimal 10 = 1010 in binary; Decimal 5 = 0101 in binary.\n\n• Bitwise AND (&): Bit is 1 only when both corresponding bits are 1.\n  1010 & 0101 = 0000 (0 in decimal).\n\n• Bitwise OR (|): Bit is 1 if at least one corresponding bit is 1.\n  1010 | 0101 = 1111 (15 in decimal).\n\n• Bitwise XOR (^): Bit is 1 when corresponding bits are different.\n  1010 ^ 0101 = 1111 (15 in decimal).\n\n• Bitwise NOT (~): Inverts all bits. Follows the integer rule ~x = -(x + 1).\n  ~5 = -(5 + 1) = -6.\n\n• Left Shift (<<): Shifts bits to the left, appending zeros (multiplies by 2 per position).\n  5 << 1 (0101 -> 1010) = 10.\n\n• Right Shift (>>): Shifts bits to the right (divides by 2 per position).\n  10 >> 1 (1010 -> 0101) = 5.",
+              "table": {
+                "headers": [
+                  "Operator",
+                  "Name",
+                  "Formula / Rule",
+                  "Example",
+                  "Result"
+                ],
+                "rows": [
+                  [
+                    "&",
+                    "Bitwise AND",
+                    "1 only if both bits are 1",
+                    "10 & 5 (1010 & 0101)",
+                    "0"
+                  ],
+                  [
+                    "|",
+                    "Bitwise OR",
+                    "1 if at least one bit is 1",
+                    "10 | 5 (1010 | 0101)",
+                    "15"
+                  ],
+                  [
+                    "^",
+                    "Bitwise XOR",
+                    "1 if bits differ",
+                    "10 ^ 5 (1010 ^ 0101)",
+                    "15"
+                  ],
+                  [
+                    "~",
+                    "Bitwise NOT",
+                    "~x = -(x + 1)",
+                    "~5 = -(5 + 1)",
+                    "-6"
+                  ],
+                  [
+                    "<<",
+                    "Left Shift",
+                    "x * (2 ** n)",
+                    "5 << 1 (0101 -> 1010)",
+                    "10"
+                  ],
+                  [
+                    ">>",
+                    "Right Shift",
+                    "x // (2 ** n)",
+                    "10 >> 1 (1010 -> 0101)",
+                    "5"
+                  ]
+                ]
+              }
+            },
+            {
+              "heading": "44 to 47. Membership Operators (in, not in)",
+              "text": "Membership operators test whether a value is contained inside a collection (list, tuple, string, set, or dictionary):\n\n• 'in': Returns True if the specified item exists in the collection.\n  fruits = [\"apple\", \"banana\", \"orange\"]\n  \"apple\" in fruits  # True\n  \"Python\" in \"Python Programming\"  # True\n\n• 'not in': Returns True if the item is absent.\n  names = [\"Rahul\", \"Arun\", \"Priya\"]\n  \"John\" not in names  # True\n\n• Membership in Dictionaries:\n  When used directly on a dictionary, membership tests check the dictionary's KEYS, not its values:\n  student = {\"name\": \"Rahul\", \"age\": 21}\n  \"name\" in student  # True (checks if \"name\" is a key)\n  \"Rahul\" in student # False (checks keys, not values)"
+            },
+            {
+              "heading": "48 to 51. Identity Operators (is, is not) vs Equality (==)",
+              "text": "Identity operators test whether two references point to the exact same object in computer memory:\n\n• 'is': True if both variables refer to the identical object in RAM (id(a) == id(b)).\n• 'is not': True if both variables refer to distinct objects.\n\nCRITICAL DISTINCTION: == vs is\n• '==' compares VALUES (content equality: do they contain the same data?).\n• 'is' checks OBJECT IDENTITY (are they the same object in RAM?).\n\nExample:\na = [1, 2, 3]\nb = [1, 2, 3]\na == b  # True (contents match)\na is b  # False (two distinct list instances in memory)\n\nBest Practice:\nAlways use 'is' when checking for None:\nif result is None:\n    print(\"No result\")"
+            },
+            {
+              "heading": "52 to 58. Operator Precedence & Associativity (PEMDAS Rules)",
+              "text": "When an expression contains multiple operators, Python follows defined precedence rules to determine evaluation order:\n\nParentheses have the highest priority and override default precedence:\nresult = 10 + 5 * 2    # 10 + 10 = 20 (Multiplication before Addition)\nresult = (10 + 5) * 2  # 15 * 2 = 30 (Parentheses override precedence)\n\nOperator Associativity:\n• Most operators evaluate from Left to Right:\n  20 - 5 - 3 = (20 - 5) - 3 = 12\n• Exponentiation (**) evaluates from Right to Left:\n  2 ** 3 ** 2 = 2 ** (3 ** 2) = 2 ** 9 = 512 (NOT (2 ** 3) ** 2 = 64)",
+              "table": {
+                "headers": [
+                  "Priority",
+                  "Operators / Constructs",
+                  "Description"
+                ],
+                "rows": [
+                  [
+                    "1 (Highest)",
+                    "( )",
+                    "Parenthesized expressions"
+                  ],
+                  [
+                    "2",
+                    "**",
+                    "Exponentiation (evaluated right-to-left)"
+                  ],
+                  [
+                    "3",
+                    "+x, -x, ~x",
+                    "Unary positive, unary negation, bitwise NOT"
+                  ],
+                  [
+                    "4",
+                    "*, /, //, %",
+                    "Multiplication, division, floor division, modulus"
+                  ],
+                  [
+                    "5",
+                    "+, -",
+                    "Addition and subtraction"
+                  ],
+                  [
+                    "6",
+                    "<<, >>",
+                    "Bitwise left shift, right shift"
+                  ],
+                  [
+                    "7",
+                    "&",
+                    "Bitwise AND"
+                  ],
+                  [
+                    "8",
+                    "^",
+                    "Bitwise XOR"
+                  ],
+                  [
+                    "9",
+                    "|",
+                    "Bitwise OR"
+                  ],
+                  [
+                    "10",
+                    "==, !=, >, <, >=, <=, in, not in, is, is not",
+                    "Comparisons, membership, and identity"
+                  ],
+                  [
+                    "11",
+                    "not",
+                    "Logical NOT"
+                  ],
+                  [
+                    "12",
+                    "and",
+                    "Logical AND"
+                  ],
+                  [
+                    "13",
+                    "or",
+                    "Logical OR"
+                  ],
+                  [
+                    "14 (Lowest)",
+                    "x if cond else y",
+                    "Conditional ternary expression"
+                  ]
+                ]
+              }
+            },
+            {
+              "heading": "59 & 60. Conditional Expressions (Ternary) & Walrus Operator (:=)",
+              "text": "Python provides modern constructs for concise conditional values and in-expression assignments:\n\n• 59. Conditional Expression (Ternary Operator):\nSyntax: value_if_true if condition else value_if_false\nExample:\nage = 20\nresult = \"Adult\" if age >= 18 else \"Minor\"  # \"Adult\"\n\n• 60. Assignment Expressions (The Walrus Operator :=):\nIntroduced in Python 3.8, ':=' assigns a value to a variable while returning that value for use in surrounding expressions:\nif (n := len(\"Python\")) > 5:\n    print(n)  # Prints 6\nThis is useful for avoiding repeated function calls in conditions."
+            },
+            {
+              "heading": "62 to 64. Expressions with Sequences & Operator Overloading",
+              "text": "Operators in Python are polymorphic—their behavior adapts to operand types:\n\n• String Concatenation & Repetition:\n  first = \"Hello\"; second = \"Python\"\n  result = first + \" \" + second   # \"Hello Python\"\n  message = \"Hi \" * 3             # \"Hi Hi Hi \"\n\n• List Concatenation & Repetition:\n  a = [1, 2]; b = [3, 4]\n  print(a + b)                    # [1, 2, 3, 4]\n  print(a * 3)                    # [1, 2, 1, 2, 1, 2]\n\n• Operator Overloading:\nPython objects can define custom operator behavior using special dunder methods (e.g. __add__, __mul__). The same '+' operator performs numeric addition on integers, concatenation on strings, and merging on lists."
+            },
+            {
+              "heading": "80. Summary of Differences Between Operator Categories",
+              "text": "Key characteristics distinguishing Python operator categories:",
+              "bulletPoints": [
+                "Arithmetic (+, -, *, /, //, %, **): Used for mathematical calculations on numeric operands.",
+                "Assignment (=, +=, -=, *=, etc.): Used to store or update values in variables.",
+                "Comparison (==, !=, >, <, >=, <=): Used to compare values and return Boolean True or False.",
+                "Logical (and, or, not): Used to combine or negate Boolean conditions with short-circuiting.",
+                "Bitwise (&, |, ^, ~, <<, >>): Used to manipulate integer bits directly at the binary level.",
+                "Membership (in, not in): Used to test existence inside sequences, collections, and dict keys.",
+                "Identity (is, is not): Used to verify whether two variables reference the identical memory object in RAM.",
+                "Conditional Expression (x if c else y): Compact inline ternary selection.",
+                "Walrus Operator (:=): Inline assignment within expressions."
               ]
             }
           ],
           "codeExamples": [
             {
-              "title": "PEMDAS & Modulus Examples",
-              "code": "# Order of Operations Examples\nminute = 59\npercentage = (minute * 100) / 60\nprint(\"Percentage of hour:\", percentage)\n\n# Modulus remainder calculations\nquotient = 7 // 3\nremainder = 7 % 3\nprint(f\"7 divided by 3 is {quotient} with remainder {remainder}\")",
-              "explanation": "Demonstrates parentheses overriding default evaluation order."
+              "title": "14. Arithmetic Operators in Action",
+              "code": "a = 20\nb = 6\n\nprint(\"Addition:\", a + b)           # 26\nprint(\"Subtraction:\", a - b)        # 14\nprint(\"Multiplication:\", a * b)     # 120\nprint(\"Division (/):\", a / b)       # 3.3333333333333335 (float)\nprint(\"Floor Division (//):\", a // b) # 3 (integer quotient)\nprint(\"Modulus (%):\", a % b)        # 2 (remainder)\nprint(\"Power (**):\", a ** 2)        # 400 (20^2)\n\n# Unary minus and negative floor division\nx = 10\nprint(\"Unary Negation:\", -x)        # -10\nprint(\"Floor div with negative:\", -10 // 3) # -4 (rounds toward -infinity)",
+              "explanation": "Demonstrates all 7 arithmetic operations, float division vs floor division, and negative rounding."
+            },
+            {
+              "title": "15 to 21. Augmented Assignment Operators",
+              "code": "x = 10\nx += 5   # x = x + 5 -> 15\nprint(\"After += 5:\", x)\n\nx -= 3   # x = x - 3 -> 12\nprint(\"After -= 3:\", x)\n\nx *= 2   # x = x * 2 -> 24\nprint(\"After *= 2:\", x)\n\nx /= 4   # x = x / 4 -> 6.0 (float)\nprint(\"After /= 4:\", x)\n\nx //= 2  # x = x // 2 -> 3.0\nprint(\"After //= 2:\", x)\n\nx %= 2   # x = x % 2 -> 1.0\nprint(\"After %= 2:\", x)\n\np = 2\np **= 3  # p = p ** 3 -> 8\nprint(\"After **= 3:\", p)",
+              "explanation": "Augmented assignments modify the variable in place cleanly without repeating its name."
+            },
+            {
+              "title": "22 to 29. Comparison Operators & Chained Comparisons",
+              "code": "age = 25\nmarks = 85\n\nprint(\"Equal (age == 25):\", age == 25)         # True\nprint(\"Not Equal (age != 18):\", age != 18)     # True\nprint(\"Greater than (marks > 90):\", marks > 90) # False\nprint(\"Less than or equal (age <= 30):\", age <= 30) # True\n\n# Chained Comparison (equivalent to 18 <= age and age <= 60)\nis_working_age = 18 <= age <= 60\nprint(\"18 <= age <= 60:\", is_working_age)       # True",
+              "explanation": "Comparisons yield Boolean results. Chained comparisons provide clean interval checking."
+            },
+            {
+              "title": "30 to 35. Logical Operators, Short-Circuiting & Truth Value Testing",
+              "code": "age = 25\nhas_id = True\nis_student = False\n\n# and / or / not\nprint(\"age >= 18 and has_id:\", age >= 18 and has_id) # True\nprint(\"is_student or age < 18:\", is_student or age < 18) # False\nprint(\"not is_student:\", not is_student)             # True\n\n# Short-circuit evaluation demonstration\ndef expensive_call():\n    print(\"Function executed!\")\n    return True\n\n# expensive_call is NEVER invoked because the first operand is False\nshort_circuit_result = False and expensive_call()\nprint(\"Result of False and expensive_call():\", short_circuit_result)\n\n# Truth Value Testing: Falsy values\nfalsy = [False, None, 0, 0.0, \"\", [], (), {}, set()]\nfor item in falsy:\n    print(f\"bool({repr(item)}):\", bool(item)) # All False",
+              "explanation": "Logical operators evaluate lazily and Python treats zero, None, and empty collections as False."
+            },
+            {
+              "title": "36 to 43. Bitwise Operators & Binary Mathematics",
+              "code": "a = 10  # Binary: 1010\nb = 5   # Binary: 0101\n\nprint(\"a & b (Bitwise AND):\", a & b)   # 0000 -> 0\nprint(\"a | b (Bitwise OR):\", a | b)    # 1111 -> 15\nprint(\"a ^ b (Bitwise XOR):\", a ^ b)   # 1111 -> 15\nprint(\"~a (Bitwise NOT):\", ~a)         # -(10 + 1) -> -11\n\n# Bit shifting\nx = 5  # Binary: 0101\nprint(\"5 << 1 (Left Shift):\", x << 1)   # 1010 -> 10 (multiply by 2)\nprint(\"10 >> 1 (Right Shift):\", 10 >> 1) # 0101 -> 5 (divide by 2)",
+              "explanation": "Bitwise operators manipulate integer binary bits; ~x produces -(x + 1)."
+            },
+            {
+              "title": "44 to 51. Membership, Identity & '==' vs 'is'",
+              "code": "fruits = [\"apple\", \"banana\", \"orange\"]\nprint(\"'apple' in fruits:\", \"apple\" in fruits)           # True\nprint(\"'grapes' not in fruits:\", \"grapes\" not in fruits) # True\nprint(\"'Python' in 'Python Code':\", \"Python\" in \"Python Code\") # True\n\nstudent = {\"name\": \"Rahul\", \"age\": 21}\nprint(\"'name' in student (checks keys):\", \"name\" in student) # True\n\n# Identity Testing: == vs is\nlist_a = [1, 2, 3]\nlist_b = [1, 2, 3]\nlist_c = list_a\n\nprint(\"list_a == list_b (Value equality):\", list_a == list_b) # True\nprint(\"list_a is list_b (Object identity):\", list_a is list_b) # False (different memory addresses)\nprint(\"list_a is list_c (Same object):\", list_a is list_c)   # True\n\n# Checking for None\nval = None\nif val is None:\n    print(\"val is None verified correctly\")",
+              "explanation": "Use == to compare values; reserve 'is' for checking identity and singletons like None."
+            },
+            {
+              "title": "59 to 64. Ternary Operator, Walrus (:=) & Overloading",
+              "code": "age = 20\nstatus = \"Adult\" if age >= 18 else \"Minor\"\nprint(\"Status:\", status)\n\n# Assignment expression (Walrus :=)\nif (n := len(\"Python\")) > 5:\n    print(f\"Length {n} is greater than 5\")\n\n# Sequence repetition and concatenation\nprint(\"Concatenation:\", \"Hello \" + \"Python\")\nprint(\"String repeat:\", \"Hi! \" * 3)\nprint(\"List concatenation:\", [1, 2] + [3, 4])\nprint(\"List repetition:\", [0] * 4)",
+              "explanation": "Highlights concise ternary conditions, walrus in-expression assignment, and sequence operator overloading."
+            },
+            {
+              "title": "69 to 78. Real-World Practical Systems",
+              "code": "username = \"admin\"\npassword = \"python123\"\nis_valid = (username == \"admin\") and (password == \"python123\")\nprint(\"Login Valid:\", is_valid)\n\n# 2. Total & Discount Calculation\nprice = 2000.0\ndiscount_pct = 10.0\ndiscount_amount = price * discount_pct / 100\nfinal_price = price - discount_amount\nprint(\"Discount:\", discount_amount, \"Final:\", final_price)\n\n# 3. Even or Odd Classification\nnum = 25\nparity = \"Even\" if num % 2 == 0 else \"Odd\"\nprint(f\"{num} is {parity}\")\n\n# 4. Sign Classifier\nval = -10\nif val > 0:\n    sign = \"Positive\"\nelif val < 0:\n    sign = \"Negative\"\nelse:\n    sign = \"Zero\"\nprint(f\"{val} is {sign}\")",
+              "explanation": "Combines arithmetic, comparison, logical, and ternary operators into realistic application workflows."
             }
           ],
           "bestPractices": [
-            "Use parentheses freely to make operator evaluation explicit and readable.",
-            "Do not rely on memorizing obscure operator precedence tables."
+            "Use parentheses freely to make operator precedence explicit and prevent subtle calculation bugs.",
+            "Use '==' when comparing values; reserve 'is' strictly for identity checks (especially 'is None').",
+            "Understand integer floor division (//) vs float division (/) when computing indices and counts.",
+            "Leverage chained comparisons (e.g., 18 <= age <= 60) for clean and readable range conditions.",
+            "Take advantage of short-circuit evaluation for safe guards (e.g., 'obj is not None and obj.value > 0').",
+            "Use augmented assignment operators (+=, -=, *=, etc.) for clean, concise state updates.",
+            "Keep expressions simple and break complex formulas into well-named intermediate variables."
           ],
           "commonMistakes": [
-            "Writing 1.0 / 2.0 * pi expecting 1/(2π)—division happens first, resulting in (1/2)*π."
+            "Confusing '=' (assignment) with '==' (equality comparison): 'x = 10' assigns, 'x == 10' checks equality.",
+            "Assuming '/' yields an integer: 10 / 2 yields float 5.0. Use '//' if an integer is required.",
+            "Forgetting that floor division (//) rounds toward negative infinity: -10 // 3 is -4, not -3.",
+            "Confusing '%' (remainder) with '/' (division quotient): 10 % 3 is 1, whereas 10 / 3 is 3.333...",
+            "Using 'is' instead of '==' to compare numbers or strings, which can fail across different memory allocations.",
+            "Misunderstanding precedence without parentheses: 10 + 5 * 2 yields 20, not 30.",
+            "Assuming exponentiation (**) is left-associative: 2 ** 3 ** 2 is 2 ** (3 ** 2) = 512, NOT 64."
           ],
           "practiceExercise": {
-            "title": "Evaluate Expressions",
-            "problem": "Given width = 17 and height = 12.0, evaluate: (1) width//2, (2) width/2.0, (3) height/3, (4) 1 + 2 * 5.",
-            "solutionCode": "width = 17\nheight = 12.0\n\nans1 = width // 2     # 8 (int)\nans2 = width / 2.0    # 8.5 (float)\nans3 = height / 3     # 4.0 (float)\nans4 = 1 + 2 * 5      # 11 (int)\n\nprint(ans1, ans2, ans3, ans4)"
+            "title": "83. Comprehensive Coding Practice Suite (6 Programs)",
+            "problem": "Write and verify the following 6 essential Python operator programs:\n\nProgram 1: All-in-One Calculator\nAccepts two numbers (e.g. a = 20, b = 5) and displays: Addition, Subtraction, Multiplication, Division, Floor division, Remainder, and Exponentiation.\n\nProgram 2: Even or Odd Checker\nChecks whether a given number is even or odd using the modulus operator (%).\n\nProgram 3: Largest of Two Numbers\nFinds the larger of two numbers using a conditional expression (ternary operator).\n\nProgram 4: Largest of Three Numbers\nFinds the greatest among three numbers using comparison and logical operators (and).\n\nProgram 5: Student Eligibility Checker\nEvaluates eligibility based on two criteria: Age must be at least 18 AND Marks must be at least 60.\n\nProgram 6: Simple Discount Calculator\nAccepts product price and discount percentage, computes discount amount (price * discount / 100) and final price.",
+            "solutionCode": "a = 20\nb = 5\nprint(\"--- Program 1: Calculator ---\")\nprint(\"Addition:\", a + b)           # 25\nprint(\"Subtraction:\", a - b)        # 15\nprint(\"Multiplication:\", a * b)     # 100\nprint(\"Division:\", a / b)           # 4.0\nprint(\"Floor Division:\", a // b)    # 4\nprint(\"Remainder (%):\", a % b)      # 0\nprint(\"Power (**):\", a ** b)        # 3200000\n\n# Program 2: Even or Odd\nprint(\"\\n--- Program 2: Even or Odd ---\")\nnumber = 42\nif number % 2 == 0:\n    print(f\"{number} is Even\")\nelse:\n    print(f\"{number} is Odd\")\n\n# Program 3: Largest of Two Numbers\nprint(\"\\n--- Program 3: Largest of Two ---\")\nx = 50\ny = 75\nlargest_two = x if x > y else y\nprint(f\"Largest of {x} and {y}: {largest_two}\")\n\n# Program 4: Largest of Three Numbers\nprint(\"\\n--- Program 4: Largest of Three ---\")\nn1, n2, n3 = 45, 89, 62\nif n1 >= n2 and n1 >= n3:\n    largest_three = n1\nelif n2 >= n1 and n2 >= n3:\n    largest_three = n2\nelse:\n    largest_three = n3\nprint(f\"Largest of {n1}, {n2}, {n3}: {largest_three}\")\n\n# Program 5: Student Eligibility Checker\nprint(\"\\n--- Program 5: Eligibility Checker ---\")\nage = 22\nmarks = 75\nif age >= 18 and marks >= 60:\n    print(\"Eligible for Admission\")\nelse:\n    print(\"Not eligible\")\n\n# Program 6: Simple Discount Calculator\nprint(\"\\n--- Program 6: Discount Calculator ---\")\nprice = 2000.0\ndiscount_percent = 10.0\ndiscount_amount = price * discount_percent / 100\nfinal_price = price - discount_amount\nprint(\"Original Price:\", price)\nprint(\"Discount Amount:\", discount_amount)\nprint(\"Final Price:\", final_price)"
           },
           "keyTakeaways": [
-            "PEMDAS governs operator evaluation order.",
-            "String + concatenates; string * repeats.",
-            "Parentheses prevent ambiguous expression bugs."
+            "An operator is a symbol/keyword performing an action; operands are the values acted upon; an expression evaluates to a value.",
+            "Python supports 7 core operator categories: Arithmetic, Assignment, Comparison, Logical, Bitwise, Membership, and Identity.",
+            "Standard division (/) always yields float; floor division (//) rounds toward negative infinity; modulus (%) yields remainder.",
+            "Augmented assignment operators (+=, -=, *=, etc.) modify variables in place concisely.",
+            "Chained comparisons (18 <= age <= 60) allow intuitive, readable range constraints.",
+            "Logical operators (and, or) utilize short-circuit evaluation; falsy values include 0, 0.0, None, '', [], (), {}, set().",
+            "Bitwise operators (&, |, ^, ~, <<, >>) operate on binary bits; ~x equals -(x + 1).",
+            "Use '==' for value equality and reserve 'is' for object memory identity (especially 'is None').",
+            "Parentheses (PEMDAS) override precedence and make complex mathematical logic unambiguous.",
+            "Conditional ternary (x if cond else y) and walrus operator (:=) enable expressive, compact syntax."
           ],
           "references": [
             {
-              "title": "Python Expressions Documentation",
+              "title": "Python Official Documentation: Expressions & Operators",
               "url": "https://docs.python.org/3/reference/expressions.html"
+            },
+            {
+              "title": "Python for Everybody Chapter 3: Conditional Execution",
+              "url": "https://www.py4e.com/html3/03-conditional"
             }
-          ]
+          ],
+          "mcqs": [
+            {
+              "id": 1,
+              "question": "According to Python operator precedence (PEMDAS), what is the value of 10 + 5 * 2 ** 2?",
+              "options": [
+                "60",
+                "30",
+                "100",
+                "240"
+              ],
+              "correctAnswer": 1,
+              "explanation": "Exponentiation (2 ** 2 = 4) executes first, followed by multiplication (5 * 4 = 20), followed by addition (10 + 20 = 30)."
+            },
+            {
+              "id": 2,
+              "question": "What is the crucial difference between the '==' operator and the 'is' operator in Python?",
+              "options": [
+                "'==' compares memory addresses; 'is' compares value equality",
+                "'==' compares values for equality; 'is' tests object identity (same memory address)",
+                "'==' is used for strings; 'is' is used for numbers",
+                "There is no difference; they are synonymous"
+              ],
+              "correctAnswer": 1,
+              "explanation": "a == b checks whether two objects have equivalent contents; a is b checks whether both reference labels point to the exact same object in RAM."
+            },
+            {
+              "id": 3,
+              "question": "What is 'short-circuit evaluation' in Python logical expressions?",
+              "options": [
+                "Python terminates the program when an error occurs in an expression",
+                "Evaluation stops as soon as the overall truth value is determined without evaluating remaining operands",
+                "Logical operators are automatically converted to bitwise operators",
+                "Expressions inside parentheses are skipped"
+              ],
+              "correctAnswer": 1,
+              "explanation": "For 'and', if the first operand is False, the result is guaranteed False. For 'or', if the first operand is True, the result is guaranteed True."
+            },
+            {
+              "id": 4,
+              "question": "What does the expression 'admin' in user_dict evaluate when user_dict is a Python dictionary?",
+              "options": [
+                "It checks if 'admin' exists among the dictionary's values",
+                "It checks if 'admin' exists among the dictionary's KEYS",
+                "It checks both keys and values simultaneously",
+                "It raises a KeyError"
+              ],
+              "correctAnswer": 1,
+              "explanation": "When applied directly to a dictionary, the 'in' membership operator tests strictly for the existence of keys, not values."
+            },
+            {
+              "id": 5,
+              "question": "What is the result of floor division 7 // 2 versus true division 7 / 2 in Python 3?",
+              "options": [
+                "Both return 3.5",
+                "7 // 2 returns 3; 7 / 2 returns 3.5",
+                "7 // 2 returns 3.5; 7 / 2 returns 3",
+                "Both return integer 3"
+              ],
+              "correctAnswer": 1,
+              "explanation": "// truncates the decimal component down to the nearest integer (3), while / always performs floating-point division (3.5)."
+            }
+          ],
+          "selfAssessment": {
+            "title": "Module Self-Assessment (5 Knowledge Check MCQs)",
+            "questions": [
+              {
+                "id": "py-q-3-1",
+                "questionNumber": 1,
+                "topic": "Exponentiation Precedence",
+                "questionText": "What is the result of 2 ** 3 ** 2 in Python?",
+                "options": [
+                  "64",
+                  "512",
+                  "36",
+                  "128"
+                ],
+                "correctAnswer": 1,
+                "explanation": "Exponentiation (**) is right-associative in Python. 2 ** (3 ** 2) = 2 ** 9 = 512."
+              },
+              {
+                "id": "py-q-3-2",
+                "questionNumber": 2,
+                "topic": "Short-Circuit Evaluation",
+                "questionText": "Why does False and (10 / 0) evaluate to False without raising a ZeroDivisionError?",
+                "options": [
+                  "Python handles ZeroDivisionError silently",
+                  "The 'and' operator short-circuits: since the left operand is False, the right expression is never evaluated",
+                  "The interpreter optimizes division in Boolean contexts",
+                  "Division by zero returns False in conditional statements"
+                ],
+                "correctAnswer": 1,
+                "explanation": "Python logical operators use short-circuit evaluation. If the left operand of 'and' is False, the overall truth value is guaranteed False, so the right operand is bypassed."
+              },
+              {
+                "id": "py-q-3-3",
+                "questionNumber": 3,
+                "topic": "Equality vs Identity",
+                "questionText": "What is the key difference between a == b and a is b?",
+                "options": [
+                  "'==' compares memory addresses while 'is' compares values",
+                  "'==' compares equality of object values while 'is' compares object identity (memory address)",
+                  "They are completely interchangeable synonyms in Python",
+                  "'is' only works with integer primitives"
+                ],
+                "correctAnswer": 1,
+                "explanation": "'==' checks value equality (__eq__), while 'is' checks whether both references point to the exact same object in memory (id(a) == id(b))."
+              },
+              {
+                "id": "py-q-3-4",
+                "questionNumber": 4,
+                "topic": "Modulus with Negative Numbers",
+                "questionText": "What is the evaluated output of 7 % -3 in Python?",
+                "options": [
+                  "1",
+                  "-2",
+                  "-1",
+                  "2"
+                ],
+                "correctAnswer": 1,
+                "explanation": "In Python, modulo follows floor division: a % b = a - (b * (a // b)). 7 // -3 = -3, so 7 - (-3 * -3) = 7 - 9 = -2."
+              },
+              {
+                "id": "py-q-3-5",
+                "questionNumber": 5,
+                "topic": "Bitwise Operations",
+                "questionText": "What is the evaluated result of 5 ^ 3 using Python's bitwise XOR operator?",
+                "options": [
+                  "15",
+                  "6",
+                  "8",
+                  "2"
+                ],
+                "correctAnswer": 1,
+                "explanation": "5 is binary 101, 3 is binary 011. XOR (^) gives binary 110, which evaluates to decimal 6."
+              }
+            ]
+          }
         },
         "quiz": {
           "id": "quiz-py-mod-3",
@@ -528,9 +1708,9 @@ export const INITIAL_COURSES = [
           "questions": [
             {
               "id": "py-q-3-1",
-              "type": "multiple-choice",
+              "questionNumber": 1,
               "topic": "Exponentiation Precedence",
-              "questionText": "What is the result of `2 ** 3 ** 2` in Python?",
+              "questionText": "What is the result of 2 ** 3 ** 2 in Python?",
               "options": [
                 "64",
                 "512",
@@ -538,14 +1718,13 @@ export const INITIAL_COURSES = [
                 "128"
               ],
               "correctAnswer": 1,
-              "marks": 10,
-              "explanation": "Exponentiation (**) is right-associative in Python. `2 ** (3 ** 2)` = `2 ** 9` = 512."
+              "explanation": "Exponentiation (**) is right-associative in Python. 2 ** (3 ** 2) = 2 ** 9 = 512."
             },
             {
               "id": "py-q-3-2",
-              "type": "multiple-choice",
+              "questionNumber": 2,
               "topic": "Short-Circuit Evaluation",
-              "questionText": "Why does `False and (10 / 0)` evaluate to `False` without raising a ZeroDivisionError?",
+              "questionText": "Why does False and (10 / 0) evaluate to False without raising a ZeroDivisionError?",
               "options": [
                 "Python handles ZeroDivisionError silently",
                 "The 'and' operator short-circuits: since the left operand is False, the right expression is never evaluated",
@@ -553,14 +1732,13 @@ export const INITIAL_COURSES = [
                 "Division by zero returns False in conditional statements"
               ],
               "correctAnswer": 1,
-              "marks": 10,
               "explanation": "Python logical operators use short-circuit evaluation. If the left operand of 'and' is False, the overall truth value is guaranteed False, so the right operand is bypassed."
             },
             {
               "id": "py-q-3-3",
-              "type": "multiple-choice",
+              "questionNumber": 3,
               "topic": "Equality vs Identity",
-              "questionText": "What is the key difference between `a == b` and `a is b`?",
+              "questionText": "What is the key difference between a == b and a is b?",
               "options": [
                 "'==' compares memory addresses while 'is' compares values",
                 "'==' compares equality of object values while 'is' compares object identity (memory address)",
@@ -568,14 +1746,13 @@ export const INITIAL_COURSES = [
                 "'is' only works with integer primitives"
               ],
               "correctAnswer": 1,
-              "marks": 10,
               "explanation": "'==' checks value equality (__eq__), while 'is' checks whether both references point to the exact same object in memory (id(a) == id(b))."
             },
             {
               "id": "py-q-3-4",
-              "type": "multiple-choice",
+              "questionNumber": 4,
               "topic": "Modulus with Negative Numbers",
-              "questionText": "What is the evaluated output of `7 % -3` in Python?",
+              "questionText": "What is the evaluated output of 7 % -3 in Python?",
               "options": [
                 "1",
                 "-2",
@@ -583,14 +1760,13 @@ export const INITIAL_COURSES = [
                 "2"
               ],
               "correctAnswer": 1,
-              "marks": 10,
-              "explanation": "In Python, modulo follows floor division: `a % b = a - (b * (a // b))`. `7 // -3 = -3`, so `7 - (-3 * -3) = 7 - 9 = -2`."
+              "explanation": "In Python, modulo follows floor division: a % b = a - (b * (a // b)). 7 // -3 = -3, so 7 - (-3 * -3) = 7 - 9 = -2."
             },
             {
               "id": "py-q-3-5",
-              "type": "multiple-choice",
+              "questionNumber": 5,
               "topic": "Bitwise Operations",
-              "questionText": "What is the evaluated result of `5 ^ 3` using Python's bitwise XOR operator?",
+              "questionText": "What is the evaluated result of 5 ^ 3 using Python's bitwise XOR operator?",
               "options": [
                 "15",
                 "6",
@@ -598,7 +1774,6 @@ export const INITIAL_COURSES = [
                 "2"
               ],
               "correctAnswer": 1,
-              "marks": 10,
               "explanation": "5 is binary 101, 3 is binary 011. XOR (^) gives binary 110, which evaluates to decimal 6."
             }
           ]
@@ -607,119 +1782,387 @@ export const INITIAL_COURSES = [
       {
         "id": "py-mod-4",
         "title": "Module 04 — Conditional Execution & Exception Handling",
-        "description": "Boolean expressions, logical operators, if/elif/else statements, nested conditionals, and catching exceptions using try/except.",
+        "description": "A practical Python study guide. Master Boolean expressions, comparison and logical operators, if/elif/else decision structures, nested conditionals, try/except error handling, input validation, and real-world worked exercises.",
         "completed": true,
         "readingMaterial": {
-          "introduction": "Based on Chapter 3 of 'Python for Everybody', conditional execution allows programs to branch execution paths based on evaluated truth conditions. The try/except construct provides an insurance policy against runtime crashes.",
+          "introduction": "Conditional Execution & Exception Handling: A practical Python study guide.\n\nPython normally runs statements sequentially from top to bottom. Conditional execution allows programs to select alternative execution paths based on whether a condition evaluates to True or False.\n\nMeanwhile, runtime errors (exceptions) can unexpectedly halt program execution when unexpected inputs occur (such as non-numeric text input or division by zero). The try/except construct provides an essential mechanism to catch anticipated errors, validate inputs, and produce helpful user feedback without crashing.",
           "objectives": [
-            "Evaluate Boolean expressions returning True or False (class 'bool')",
-            "Use comparison operators (==, !=, >, <, >=, <=, is, is not)",
-            "Combine conditions using logical operators (and, or, not)",
-            "Construct if, elif, and else conditional decision trees",
-            "Understand Guardian Pattern and short-circuit evaluation",
-            "Handle runtime errors using try and except blocks"
+            "Compare values using Python comparison operators (==, !=, >, <, >=, <=)",
+            "Combine and reverse conditions with logical operators (and, or, not)",
+            "Understand short-circuit evaluation and apply the guardian pattern",
+            "Evaluate truthy and falsy values (empty strings, empty containers, None, zero)",
+            "Use if, elif, and else statements to construct clean decision branches",
+            "Structure nested conditionals and simplify them using compound logical expressions",
+            "Catch specific runtime exceptions using try, except, else, and finally blocks",
+            "Validate user inputs gracefully and produce meaningful error messages"
           ],
           "sections": [
             {
-              "heading": "Boolean Expressions & Comparison Operators",
-              "text": "A Boolean expression evaluates to either True or False (class bool). Note: = is assignment, while == tests equality.",
+              "heading": "2 & 3. Conditional Execution & Boolean Comparisons",
+              "text": "Python normally runs statements from top to bottom. A conditional lets the program select statements based on whether a condition is true or false.\n\ntemperature = 32\nif temperature > 30:\n    print(\"It is a hot day.\")\n\nThe expression 'temperature > 30' evaluates to True, so Python runs the indented statement. If the condition were false, Python would skip that block.\n\nBoolean Values and Comparisons:\nA Boolean is one of two values: True or False (capitalization matters in Python). A Boolean expression evaluates to one of these values.\n\nAssignment is different from comparison:\n• '=' assigns a value to a variable (score = 90 stores 90 in score).\n• '==' compares two values (score == 90 evaluates to True).",
               "table": {
                 "headers": [
                   "Operator",
                   "Meaning",
                   "Example",
-                  "Result (x=5, y=10)"
+                  "Result"
                 ],
                 "rows": [
                   [
                     "==",
                     "Equal to",
-                    "x == y",
-                    "False"
+                    "5 == 5",
+                    "True"
                   ],
                   [
                     "!=",
                     "Not equal to",
-                    "x != y",
+                    "5 != 3",
                     "True"
                   ],
                   [
                     ">",
                     "Greater than",
-                    "x > y",
-                    "False"
-                  ],
-                  [
-                    "<=",
-                    "Less than or equal",
-                    "x <= y",
+                    "8 > 4",
                     "True"
                   ],
                   [
-                    "is",
-                    "Identical object reference",
-                    "x is y",
-                    "False"
+                    "<",
+                    "Less than",
+                    "2 < 7",
+                    "True"
+                  ],
+                  [
+                    ">=",
+                    "Greater than or equal to",
+                    "5 >= 5",
+                    "True"
+                  ],
+                  [
+                    "<=",
+                    "Less than or equal to",
+                    "4 <= 6",
+                    "True"
                   ]
                 ]
               }
             },
             {
-              "heading": "Logical Operators & Short-Circuit Evaluation",
-              "text": "Logical operators (and, or, not) evaluate conditions. Python short-circuits evaluation: if the left operand of 'and' is False, the right operand is not evaluated.",
-              "codeExamples": [
-                {
-                  "title": "Guardian Pattern Example",
-                  "code": "x = 6\ny = 0\n# y != 0 acts as a 'guard' preventing division by zero error!\nif x >= 2 and y != 0 and (x / y) > 2:\n    print(\"Condition met!\")\nelse:\n    print(\"Safely skipped division by zero.\")",
-                  "explanation": "y != 0 acts as a guardian evaluation preventing ZeroDivisionError."
-                }
-              ]
+              "heading": "4. Logical Operators & Short-Circuit Evaluation",
+              "text": "Logical operators combine Boolean expressions or reverse a condition:\n\n• and: Both conditions must be true for the combined condition to be true.\n• or: At least one condition must be true.\n• not: Reverses a logical condition (e.g. not False evaluates to True).\n\nCombine Conditions Clearly:\nUse parentheses to make grouping explicit and readable:\nage = 16\nhas_permission = True\nif age >= 18 or (age >= 16 and has_permission):\n    print(\"You can participate.\")\nelse:\n    print(\"You cannot participate yet.\")\n\nShort-Circuit Evaluation:\nPython stops evaluating a logical expression as soon as its result is known:\n• With 'and', if the first condition is False, the entire expression is False; the second condition is never evaluated.\n• With 'or', if the first condition is True, the entire expression is True; the second condition is never evaluated.\n\nGuardian Pattern Example:\nnumber = 0\nif number != 0 and 10 / number > 1:\n    print(\"The condition is true.\")\nBecause 'number != 0' is false, Python never evaluates the division, safely preventing a ZeroDivisionError.",
+              "table": {
+                "headers": [
+                  "A",
+                  "B",
+                  "A and B",
+                  "A or B",
+                  "not A"
+                ],
+                "rows": [
+                  [
+                    "True",
+                    "True",
+                    "True",
+                    "True",
+                    "False"
+                  ],
+                  [
+                    "True",
+                    "False",
+                    "False",
+                    "True",
+                    "False"
+                  ],
+                  [
+                    "False",
+                    "True",
+                    "False",
+                    "True",
+                    "True"
+                  ],
+                  [
+                    "False",
+                    "False",
+                    "False",
+                    "False",
+                    "True"
+                  ]
+                ]
+              }
             },
             {
-              "heading": "Catching Exceptions with try / except",
-              "text": "When invalid input occurs (e.g. converting 'fred' to float), Python raises an exception and halts execution. A try/except block catches the error and executes fallback code gracefully."
+              "heading": "5. Truthy and Falsy Values",
+              "text": "A condition can use a value directly. Python treats some values as false (falsy) and most other values as true (truthy).\n\nCommon Falsy Values in Python:\n• False\n• None\n• Numeric zero (0, 0.0)\n• Empty strings (\"\")\n• Empty containers such as [], (), {}, and set()\n\nPractical Pythonic Check:\nname = \"\"\nif name:\n    print(\"A name was entered.\")\nelse:\n    print(\"The name is empty.\")\n\nAn empty string is falsy, so the program prints that the name is empty. Checking a list directly is also useful: 'if items:' means the list has at least one element."
+            },
+            {
+              "heading": "6 & 7. if, elif, else & Nested Conditionals",
+              "text": "• The if Statement:\nRuns a block only when its condition is true. The colon (:) starts the block, and consistent 4-space indentation defines which statements belong to it.\n\n• Adding else:\nProvides an alternative branch when the condition is false:\nnumber = 7\nif number % 2 == 0:\n    print(\"The number is even.\")\nelse:\n    print(\"The number is odd.\")\n\n• Using elif for Multiple Choices:\nPython checks from top to bottom, runs the first matching block, and skips the remaining branches. Order matters: always put the highest or most specific condition first!\n\n• Nested Conditionals vs Combined Conditions:\nA nested conditional is an if statement inside another conditional block:\nage = 20\nhas_id = True\nif age >= 18:\n    if has_id:\n        print(\"Entry approved.\")\n    else:\n        print(\"Please show identification.\")\nelse:\n    print(\"You must be at least 18.\")\n\nSometimes a logical expression is simpler than nesting:\nif age >= 18 and has_id:\n    print(\"Entry approved.\")\nelse:\n    print(\"Entry requirements were not met.\")\nUse nesting when the second decision only matters after the first; combine conditions when they form one unified rule."
+            },
+            {
+              "heading": "8. Exception Handling with try and except",
+              "text": "An exception is an error or unexpected event raised while a program runs (e.g. converting non-numeric text to an integer, dividing by zero, or accessing missing keys). An unhandled exception terminates the program abruptly.\n\nCore Exception Handling Mechanics:\n• try: The code that might raise an error goes here.\n• except SpecificError: Catches and handles expected exceptions (e.g. ValueError, ZeroDivisionError).\n• else: Optional clause that runs ONLY when the try block completes successfully without any exception.\n• except SpecificError as error: Captures the exception object to inspect its diagnostic message.\n• finally: Optional block that executes unconditionally whether or not an exception occurred, ideal for cleanup.\n\nBest Practice:\nAlways catch specific exceptions! Avoid a bare 'except:' that catches everything; it can hide programming mistakes, typos, and syntax errors, making debugging difficult."
+            },
+            {
+              "heading": "10. Common Mistakes & Pitfalls",
+              "text": "Frequent mistakes and their corrections:",
+              "table": {
+                "headers": [
+                  "Mistake",
+                  "Why It Fails",
+                  "Correction"
+                ],
+                "rows": [
+                  [
+                    "Using '=' for comparison",
+                    "Single '=' is assignment, not comparison",
+                    "Use '==' to compare; use '=' to assign (e.g., if answer == 42:)"
+                  ],
+                  [
+                    "Forgetting the colon ':'",
+                    "Python syntax requires a colon to open a code block",
+                    "End if, elif, else, try, and except headers with ':'"
+                  ],
+                  [
+                    "Inconsistent indentation",
+                    "Mixing tabs and spaces or varying indent depth triggers IndentationError",
+                    "Indent every statement in a block consistently with 4 spaces"
+                  ],
+                  [
+                    "Broad ranges in wrong order",
+                    "Conditions evaluate top-down; broad checks shadow specific branches",
+                    "Check the highest grade or most specific condition first"
+                  ],
+                  [
+                    "Catching every exception (bare except:)",
+                    "Conceals programming bugs like typos, NameErrors, and SystemExit",
+                    "Catch specific exceptions you expect and know how to handle"
+                  ]
+                ]
+              }
+            },
+            {
+              "heading": "13. Quick Review & Glossary",
+              "text": "Key vocabulary and foundational concepts in conditional control flow:",
+              "bulletPoints": [
+                "Boolean: A value that is either True or False.",
+                "Condition: An expression evaluated to choose an execution path.",
+                "Branch: One possible path through a conditional statement.",
+                "Short-circuit: Stopping logical evaluation as soon as the final outcome is guaranteed.",
+                "Falsy: A value Python treats as false in a condition (0, None, '', [], {}).",
+                "Exception: A runtime event that interrupts normal program execution unless caught.",
+                "try / except: The standard Python pattern for safe runtime error recovery."
+              ]
             }
           ],
           "codeExamples": [
             {
-              "title": "Overtime Pay Calculator with try/except",
-              "code": "# Chapter 3: Overtime Pay with Error Handling\nhours_raw = input('Enter Hours: ')\nrate_raw = input('Enter Rate: ')\n\ntry:\n    hours = float(hours_raw)\n    rate = float(rate_raw)\nexcept:\n    print('Error, please enter numeric input')\n    quit() # Terminate execution safely\n\nif hours > 40:\n    regular_pay = 40 * rate\n    overtime_pay = (hours - 40) * (rate * 1.5)\n    pay = regular_pay + overtime_pay\nelse:\n    pay = hours * rate\n\nprint('Pay:', pay)",
-              "explanation": "try/except catches invalid non-numeric inputs gracefully using quit()."
+              "title": "2 & 6. Basic Conditionals & Modulo Even/Odd",
+              "code": "temperature = 32\nif temperature > 30:\n    print(\"It is a hot day.\")\n\n# Even or odd with modulo operator (%)\nnumber = 7\nif number % 2 == 0:\n    print(\"The number is even.\")\nelse:\n    print(\"The number is odd.\")",
+              "explanation": "Demonstrates if execution when true and if/else branching using remainder division."
             },
             {
-              "title": "Score to Grade Converter",
-              "code": "score_raw = input('Enter score (0.0 to 1.0): ')\ntry:\n    score = float(score_raw)\n    if 0.0 <= score <= 1.0:\n        if score >= 0.9: grade = 'A'\n        elif score >= 0.8: grade = 'B'\n        elif score >= 0.7: grade = 'C'\n        elif score >= 0.6: grade = 'D'\n        else: grade = 'F'\n        print('Grade:', grade)\n    else:\n        print('Bad score: out of range')\nexcept:\n    print('Bad score: non-numeric input')",
-              "explanation": "Combines try/except validation with chained if/elif/else grading."
+              "title": "4 & 5. Logical Operators, Short-Circuiting & Falsy Checks",
+              "code": "age = 20\nhas_ticket = True\nif age >= 18 and has_ticket:\n    print(\"You may enter.\")\n\n# or: at least one condition must be true\nis_weekend = True\nis_holiday = False\nif is_weekend or is_holiday:\n    print(\"There is no school today.\")\n\n# not: reverse a condition\nis_raining = False\nif not is_raining:\n    print(\"You do not need an umbrella.\")\n\n# Combining conditions clearly with parentheses\nuser_age = 16\nhas_permission = True\nif user_age >= 18 or (user_age >= 16 and has_permission):\n    print(\"You can participate.\")\nelse:\n    print(\"You cannot participate yet.\")\n\n# Short-circuit evaluation (Guardian Pattern avoids ZeroDivisionError)\nnum = 0\nif num != 0 and 10 / num > 1:\n    print(\"Condition is true.\")\nelse:\n    print(\"Division by zero safely avoided via short-circuit.\")\n\n# Truthy and falsy values\nname = \"\"\nif name:\n    print(\"A name was entered.\")\nelse:\n    print(\"The name is empty (falsy value).\")",
+              "explanation": "Covers and, or, not logic, parentheses grouping, short-circuit guardian patterns, and falsy checks."
+            },
+            {
+              "title": "6 & 7. Multi-Branch elif Chains & Nested Conditionals",
+              "code": "score = 82\nif score >= 90:\n    print(\"Grade: A\")\nelif score >= 80:\n    print(\"Grade: B\")\nelif score >= 70:\n    print(\"Grade: C\")\nelif score >= 60:\n    print(\"Grade: D\")\nelse:\n    print(\"Grade: F\")\n\n# Nested conditional\nuser_age = 20\nhas_id = True\nif user_age >= 18:\n    if has_id:\n        print(\"Entry approved.\")\n    else:\n        print(\"Please show identification.\")\nelse:\n    print(\"You must be at least 18.\")\n\n# Simplified combined conditional\nif user_age >= 18 and has_id:\n    print(\"Entry approved.\")\nelse:\n    print(\"Entry requirements were not met.\")",
+              "explanation": "Shows top-to-bottom elif precedence and compares nested decisions with composite boolean expressions."
+            },
+            {
+              "title": "8. Robust Exception Handling (try, except, else, finally)",
+              "code": "try:\n    number = int(input(\"Enter a whole number: \"))\n    print(\"You entered:\", number)\nexcept ValueError:\n    print(\"That was not a valid whole number.\")\n\n# 2. Handling different errors differently with else clause\ntry:\n    numerator = int(input(\"Numerator: \"))\n    denominator = int(input(\"Denominator: \"))\n    result = numerator / denominator\nexcept ValueError:\n    print(\"Please enter whole numbers.\")\nexcept ZeroDivisionError:\n    print(\"The denominator cannot be zero.\")\nelse:\n    print(\"The result is:\", result)\n\n# 3. Inspecting exception message and using finally for cleanup\ntry:\n    print(\"Trying an operation...\")\n    val = int(\"not a number\")\nexcept ValueError as error:\n    print(\"Conversion failed:\", error)\nfinally:\n    print(\"This cleanup message always runs regardless of errors.\")",
+              "explanation": "Demonstrates specific except blocks, error diagnostics via 'as error', else for success-only code, and finally for cleanup."
+            },
+            {
+              "title": "9. Complete Worked Example: Score & Grade Validator",
+              "code": "try:\n    score = int(input(\"Enter a score from 0 to 100: \"))\n    if score < 0 or score > 100:\n        print(\"The score must be between 0 and 100.\")\n    elif score >= 90:\n        print(\"Grade: A\")\n    elif score >= 80:\n        print(\"Grade: B\")\n    elif score >= 70:\n        print(\"Grade: C\")\n    elif score >= 60:\n        print(\"Grade: D\")\n    else:\n        print(\"Grade: F\")\nexcept ValueError:\n    print(\"Please enter a whole number.\")",
+              "explanation": "Combines input conversion with try/except, boundary validation with 'or', and multi-way branch classification."
             }
           ],
           "bestPractices": [
-            "Use try/except blocks to wrap user input parsing and file opening.",
-            "Avoid overly deep nested conditionals; refactor using chained elif or logical 'and'."
+            "Use '==' for comparison tests and '=' strictly for variable assignment.",
+            "Always indent code blocks consistently with 4 spaces per indentation level.",
+            "Catch specific exceptions (e.g. ValueError, ZeroDivisionError) instead of bare except: clauses.",
+            "Order elif branches from the most specific / highest threshold to the lowest.",
+            "Use the else block in try/except for code that should only execute after successful completion.",
+            "Use parentheses to make compound logical conditions clear and easy to read.",
+            "Leverage short-circuit evaluation as a guardian check before performing risky operations."
           ],
           "commonMistakes": [
-            "Using single = instead of == in conditional checks.",
-            "Forgetting colon (:) at the end of if/elif/else headers."
+            "Using '=' instead of '==' in an if statement (e.g., 'if answer = 42:' causes SyntaxError).",
+            "Forgetting the colon (:) at the end of if, elif, else, try, and except lines.",
+            "Inconsistent indentation mixing tabs and spaces causing IndentationError.",
+            "Checking broad ranges in the wrong order (e.g. checking score >= 60 before score >= 90).",
+            "Using bare 'except:' which catches and conceals unintended bugs like typos and NameErrors."
           ],
           "practiceExercise": {
-            "title": "Safe Temperature Converter",
-            "problem": "Write a Fahrenheit to Celsius converter wrapped in try/except to catch invalid input.",
-            "solutionCode": "inp = input(\"Enter Fahrenheit Temperature: \")\ntry:\n    fahr = float(inp)\n    cel = (fahr - 32.0) * 5.0 / 9.0\n    print(f\"Celsius: {cel:.2f}°C\")\nexcept:\n    print(\"Please enter a valid numeric temperature.\")"
+            "title": "11 & 12. Practice Exercises & Worked Answer Key (5 Exercises)",
+            "problem": "Complete the following 5 hands-on Python exercises:\n\nExercise 1: Positive, Negative, or Zero\nAsk the user for a number (float) and print whether it is Positive, Negative, or Zero.\n\nExercise 2: Even or Odd with Exception Handling\nAsk for a whole number. Print Even or Odd. Handle input that cannot be converted to an integer gracefully.\n\nExercise 3: Login Authentication Check\nSet username = \"student\" and password = \"python123\". Ask the user for both. Print \"Login successful\" only if both match; otherwise print \"Incorrect username or password\".\n\nExercise 4: Age Category Classifier with Validation\nAsk for an age and classify as: Child (under 13), Teenager (13-17), Adult (18-64), or Senior (65+). Handle non-numeric input and reject negative ages.\n\nExercise 5: Safe Arithmetic Calculator\nAsk for two numbers and an operator (+, -, *, /). Display the result. Handle non-numeric input and prevent division by zero.",
+            "solutionCode": "number = float(input(\"Enter a number: \"))\nif number > 0:\n    print(\"Positive\")\nelif number < 0:\n    print(\"Negative\")\nelse:\n    print(\"Zero\")\n\n# Exercise 2: Even or Odd with try/except\ntry:\n    number = int(input(\"Enter a whole number: \"))\n    if number % 2 == 0:\n        print(\"Even\")\n    else:\n        print(\"Odd\")\nexcept ValueError:\n    print(\"Please enter a whole number.\")\n\n# Exercise 3: Login Check\nusername = \"student\"\npassword = \"python123\"\nentered_username = input(\"Username: \")\nentered_password = input(\"Password: \")\nif entered_username == username and entered_password == password:\n    print(\"Login successful\")\nelse:\n    print(\"Incorrect username or password\")\n\n# Exercise 4: Age Category Classifier\ntry:\n    age = int(input(\"Enter your age: \"))\n    if age < 0:\n        print(\"Age cannot be negative.\")\n    elif age < 13:\n        print(\"Child\")\n    elif age < 18:\n        print(\"Teenager\")\n    elif age < 65:\n        print(\"Adult\")\n    else:\n        print(\"Senior\")\nexcept ValueError:\n    print(\"Please enter your age as a whole number.\")\n\n# Exercise 5: Simple Calculator\ntry:\n    first = float(input(\"First number: \"))\n    operator = input(\"Operator (+, -, *, /): \")\n    second = float(input(\"Second number: \"))\n\n    if operator == \"+\":\n        result = first + second\n        print(\"Result:\", result)\n    elif operator == \"-\":\n        result = first - second\n        print(\"Result:\", result)\n    elif operator == \"*\":\n        result = first * second\n        print(\"Result:\", result)\n    elif operator == \"/\":\n        if second == 0:\n            print(\"You cannot divide by zero.\")\n        else:\n            result = first / second\n            print(\"Result:\", result)\n    else:\n        print(\"Choose +, -, *, or /.\")\nexcept ValueError:\n    print(\"Please enter valid numbers.\")"
           },
           "keyTakeaways": [
-            "if/elif/else controls program execution branching.",
-            "try/except prevents program crashes from invalid input.",
-            "Short-circuiting enables Guardian Pattern checks."
+            "Boolean expressions evaluate to True or False; use '==' for comparison and '=' for assignment.",
+            "Logical operators combine conditions: 'and' requires all true, 'or' requires one true, 'not' inverts.",
+            "Short-circuit evaluation stops evaluating logical expressions as soon as the outcome is known.",
+            "if, elif, and else execute the first matching branch from top to bottom.",
+            "Order matters in elif ladders: place the highest or most specific condition first.",
+            "try/except catches expected runtime errors and prevents program crashes.",
+            "The else clause in try runs only upon success; finally runs unconditionally for cleanup.",
+            "Always catch specific exceptions (ValueError, ZeroDivisionError) rather than bare except:."
           ],
           "references": [
             {
-              "title": "Python for Everybody Chapter 3",
-              "url": "https://www.py4e.com/html3/03-conditional"
+              "title": "Python Documentation: More Control Flow Tools",
+              "url": "https://docs.python.org/3/tutorial/controlflow.html"
+            },
+            {
+              "title": "Python Documentation: Errors and Exceptions",
+              "url": "https://docs.python.org/3/tutorial/errors.html"
             }
-          ]
+          ],
+          "mcqs": [
+            {
+              "id": 1,
+              "question": "In an if-elif-else conditional ladder, what happens once a condition evaluates to True?",
+              "options": [
+                "Python evaluates all remaining elif statements to check for conflicts",
+                "Python executes that block and immediately exits the entire ladder, skipping subsequent elif/else blocks",
+                "Python restarts the ladder from the top",
+                "Python raises a BranchResolutionError"
+              ],
+              "correctAnswer": 1,
+              "explanation": "Python conditionals are mutually exclusive: once a branch evaluates to True, its block runs and execution jumps to the end of the entire chain."
+            },
+            {
+              "id": 2,
+              "question": "Which of the following values evaluates to True in a Python boolean context (truthy)?",
+              "options": [
+                "[] (empty list)",
+                "\"\" (empty string)",
+                "0 (zero)",
+                "\"0\" (string containing character '0')"
+              ],
+              "correctAnswer": 3,
+              "explanation": "Any non-empty string—including \"0\" or \" \"—has a length > 0 and evaluates to True in boolean contexts."
+            },
+            {
+              "id": 3,
+              "question": "When does the 'else' block execute in a try-except-else-finally construct?",
+              "options": [
+                "When an exception was caught and handled successfully",
+                "Only when the try block completes with ZERO exceptions raised",
+                "Always, immediately before the finally block",
+                "When the finally block raises an error"
+              ],
+              "correctAnswer": 1,
+              "explanation": "The else block in a try construct runs strictly if and only if no exceptions were raised during execution of the try block."
+            },
+            {
+              "id": 4,
+              "question": "Why is using a bare 'except:' clause strongly discouraged in production code?",
+              "options": [
+                "It slows down Python program execution by 50%",
+                "It catches BaseException, swallowing KeyboardInterrupt (Ctrl+C) and masking unexpected bugs like NameError",
+                "It only works with numbers, not strings",
+                "It causes an automatic SyntaxError in Python 3.10+"
+              ],
+              "correctAnswer": 1,
+              "explanation": "A bare 'except:' catches all subclasses of BaseException, trapping system shutdown signals and masking typos or logic errors."
+            },
+            {
+              "id": 5,
+              "question": "What is the execution guarantee of the 'finally' clause in Python exception handling?",
+              "options": [
+                "It only runs if an unhandled exception occurred",
+                "It runs in 100% of execution paths, including after return, break, or unhandled exceptions",
+                "It only runs if the try block completed cleanly",
+                "It is bypassed if an exception is caught"
+              ],
+              "correctAnswer": 1,
+              "explanation": "finally is guaranteed to execute unconditionally, making it the ideal location for cleanup tasks (closing files, releasing network sockets)."
+            }
+          ],
+          "selfAssessment": {
+            "title": "Module Self-Assessment (5 Knowledge Check MCQs)",
+            "questions": [
+              {
+                "id": "py-q-4-1",
+                "questionNumber": 1,
+                "topic": "Multi-Way Branching",
+                "questionText": "In an if ... elif ... elif ... else chain, what happens as soon as one branch condition evaluates to True?",
+                "options": [
+                  "The branch executes and remaining elif/else branches are skipped",
+                  "All subsequent elif conditions are still checked",
+                  "The interpreter restarts the function",
+                  "The else branch is executed as well"
+                ],
+                "correctAnswer": 0,
+                "explanation": "In multi-way branching, Python executes the first matching condition's block and immediately exits the entire conditional statement."
+              },
+              {
+                "id": "py-q-4-2",
+                "questionNumber": 2,
+                "topic": "Try-Except-Finally",
+                "questionText": "When does the code inside a finally block execute?",
+                "options": [
+                  "Only when an exception was successfully caught",
+                  "Only when no exceptions were raised",
+                  "Always, regardless of whether an exception occurred, was caught, or was unhandled",
+                  "Only when the user presses Ctrl+C"
+                ],
+                "correctAnswer": 2,
+                "explanation": "The finally block always executes during cleanup, ensuring resources like open files or sockets are safely released even if an unhandled error occurs."
+              },
+              {
+                "id": "py-q-4-3",
+                "questionNumber": 3,
+                "topic": "Explicit Exception Raising",
+                "questionText": "Which keyword is used in Python to manually trigger an exception when invalid parameters are encountered?",
+                "options": [
+                  "throw",
+                  "raise",
+                  "assert_error",
+                  "catch"
+                ],
+                "correctAnswer": 1,
+                "explanation": "Python uses the raise keyword (e.g. raise ValueError('Invalid argument')) to trigger exceptions."
+              },
+              {
+                "id": "py-q-4-4",
+                "questionNumber": 4,
+                "topic": "Try-Else Clause",
+                "questionText": "What is the purpose of the optional else block in a try ... except ... else statement?",
+                "options": [
+                  "It executes when an exception was caught by an except clause",
+                  "It executes only when NO exceptions were raised in the try block",
+                  "It acts as a fallback default exception handler",
+                  "It replaces the finally block"
+                ],
+                "correctAnswer": 1,
+                "explanation": "The else clause in a try-except structure executes only when the code inside the try block completes successfully without raising any exceptions."
+              },
+              {
+                "id": "py-q-4-5",
+                "questionNumber": 5,
+                "topic": "Exception Hierarchy",
+                "questionText": "What is the recommended base class for all standard user-defined exceptions in Python?",
+                "options": [
+                  "BaseException",
+                  "Exception",
+                  "StandardError",
+                  "SystemExit"
+                ],
+                "correctAnswer": 1,
+                "explanation": "Custom exceptions should inherit from Exception. BaseException is reserved for system-exiting signals like KeyboardInterrupt and SystemExit."
+              }
+            ]
+          }
         },
         "quiz": {
           "id": "quiz-py-mod-4",
-          "title": "Module 04 Quiz — Conditional Execution & Exception Handling",
+          "title": "Module 04 Quiz — Conditionals & Exceptions",
           "passingScore": 70,
           "timeLimitMinutes": 15,
           "maxAttempts": 3,
@@ -727,9 +2170,9 @@ export const INITIAL_COURSES = [
           "questions": [
             {
               "id": "py-q-4-1",
-              "type": "multiple-choice",
+              "questionNumber": 1,
               "topic": "Multi-Way Branching",
-              "questionText": "In an `if ... elif ... elif ... else` chain, what happens as soon as one branch condition evaluates to True?",
+              "questionText": "In an if ... elif ... elif ... else chain, what happens as soon as one branch condition evaluates to True?",
               "options": [
                 "The branch executes and remaining elif/else branches are skipped",
                 "All subsequent elif conditions are still checked",
@@ -737,14 +2180,13 @@ export const INITIAL_COURSES = [
                 "The else branch is executed as well"
               ],
               "correctAnswer": 0,
-              "marks": 10,
               "explanation": "In multi-way branching, Python executes the first matching condition's block and immediately exits the entire conditional statement."
             },
             {
               "id": "py-q-4-2",
-              "type": "multiple-choice",
+              "questionNumber": 2,
               "topic": "Try-Except-Finally",
-              "questionText": "When does the code inside a `finally` block execute?",
+              "questionText": "When does the code inside a finally block execute?",
               "options": [
                 "Only when an exception was successfully caught",
                 "Only when no exceptions were raised",
@@ -752,12 +2194,11 @@ export const INITIAL_COURSES = [
                 "Only when the user presses Ctrl+C"
               ],
               "correctAnswer": 2,
-              "marks": 10,
-              "explanation": "The `finally` block always executes during cleanup, ensuring resources like open files or sockets are safely released even if an unhandled error occurs."
+              "explanation": "The finally block always executes during cleanup, ensuring resources like open files or sockets are safely released even if an unhandled error occurs."
             },
             {
               "id": "py-q-4-3",
-              "type": "multiple-choice",
+              "questionNumber": 3,
               "topic": "Explicit Exception Raising",
               "questionText": "Which keyword is used in Python to manually trigger an exception when invalid parameters are encountered?",
               "options": [
@@ -767,14 +2208,13 @@ export const INITIAL_COURSES = [
                 "catch"
               ],
               "correctAnswer": 1,
-              "marks": 10,
-              "explanation": "Python uses the `raise` keyword (e.g. `raise ValueError('Invalid argument')`) to trigger exceptions."
+              "explanation": "Python uses the raise keyword (e.g. raise ValueError('Invalid argument')) to trigger exceptions."
             },
             {
               "id": "py-q-4-4",
-              "type": "multiple-choice",
+              "questionNumber": 4,
               "topic": "Try-Else Clause",
-              "questionText": "What is the purpose of the optional `else` block in a `try ... except ... else` statement?",
+              "questionText": "What is the purpose of the optional else block in a try ... except ... else statement?",
               "options": [
                 "It executes when an exception was caught by an except clause",
                 "It executes only when NO exceptions were raised in the try block",
@@ -782,12 +2222,11 @@ export const INITIAL_COURSES = [
                 "It replaces the finally block"
               ],
               "correctAnswer": 1,
-              "marks": 10,
-              "explanation": "The `else` clause in a try-except structure executes only when the code inside the `try` block completes successfully without raising any exceptions."
+              "explanation": "The else clause in a try-except structure executes only when the code inside the try block completes successfully without raising any exceptions."
             },
             {
               "id": "py-q-4-5",
-              "type": "multiple-choice",
+              "questionNumber": 5,
               "topic": "Exception Hierarchy",
               "questionText": "What is the recommended base class for all standard user-defined exceptions in Python?",
               "options": [
@@ -797,8 +2236,7 @@ export const INITIAL_COURSES = [
                 "SystemExit"
               ],
               "correctAnswer": 1,
-              "marks": 10,
-              "explanation": "Custom exceptions should inherit from `Exception`. `BaseException` is reserved for system-exiting signals like KeyboardInterrupt and SystemExit."
+              "explanation": "Custom exceptions should inherit from Exception. BaseException is reserved for system-exiting signals like KeyboardInterrupt and SystemExit."
             }
           ]
         }
@@ -809,71 +2247,351 @@ export const INITIAL_COURSES = [
         "description": "Updating variables, while statements, infinite loops, break & continue, for loops, counting, summing, and min/max search patterns.",
         "completed": true,
         "readingMaterial": {
-          "introduction": "Based on Chapter 5 of 'Python for Everybody', iteration automates repetitive tasks. Indefinite loops (while) repeat until a condition becomes false, while definite loops (for) iterate through known sequences.",
+          "introduction": "Loops let a program repeat instructions. Repetition is useful when processing a list, asking for input until it is valid, counting items, adding values, or searching for the smallest or largest value.\n\nThis module covers updating variables, while and for loops, infinite loops, break and continue, counting, summing, and min/max search patterns. Examples use Python 3.",
           "objectives": [
-            "Understand variable incrementing (x = x + 1) and decrementing",
-            "Construct indefinite while loops and prevent infinite loops",
-            "Use break to exit loops early and continue to skip iterations",
-            "Construct definite for loops over sequences",
-            "Master loop patterns: counting, summing, average, and min/max search"
+            "Explain why programs use loops.",
+            "Update variables safely inside a loop.",
+            "Use a while loop for condition-controlled repetition.",
+            "Recognize and prevent unintended infinite loops.",
+            "Use break and continue to control a loop.",
+            "Use for loops to process strings, lists, and other iterables.",
+            "Use range() to repeat code a known number of times.",
+            "Build counting, summing, and min/max search patterns."
           ],
           "sections": [
             {
-              "heading": "The while Statement & Infinite Loops",
-              "text": "A while loop evaluates a boolean condition before each iteration. If the condition never changes to False, an infinite loop occurs.",
-              "codeExamples": [
-                {
-                  "title": "Countdown Loop & break Pattern",
-                  "code": "# Countdown using while\nn = 5\nwhile n > 0:\n    print(n)\n    n = n - 1\nprint('Blastoff!')\n\n# Infinite loop with break\nwhile True:\n    line = input('> ')\n    if line == 'done':\n        break\n    print(line)\nprint('Done!')",
-                  "explanation": "break jumps out of the loop immediately when user enters 'done'."
-                }
-              ]
+              "heading": "3 & 4. What Is Iteration & Main Types of Loops",
+              "text": "Iteration means repeating a set of instructions. Each single pass through the loop body is called an iteration.\n\nA loop avoids repetitive code: instead of writing print(\"Hello\") three times, a loop executes the same statement with clean, concise syntax:\nfor _ in range(3):\n    print(\"Hello\")\n\nPython provides two primary loop statements:\n• The while loop: Repeats statements as long as an underlying condition remains True (indefinite iteration).\n• The for loop: Iterates over each item in a collection or sequence, such as a list, string, or range (definite iteration).\n\nRule of thumb: Choose while when repetition depends on a dynamic condition or user input. Choose for when iterating over known collections or repeating a fixed number of times."
             },
             {
-              "heading": "Finishing Iterations with continue",
-              "text": "The continue statement skips the remainder of the current loop body and jumps directly to the next iteration (e.g. ignoring comment lines starting with #)."
+              "heading": "5 & 6. Updating Variables & Augmented Assignment",
+              "text": "An update changes a variable by referencing its current value (e.g., count = count + 1 increases count by 1).\n\nImportant: The variable must be initialized before its value can be read on the right-hand side of an assignment; otherwise, Python raises a NameError.\n\nAugmented Assignment:\nPython provides augmented assignment operators as a clean, idiomatic shorthand for updating variables in place:",
+              "table": {
+                "headers": [
+                  "Operator",
+                  "Example",
+                  "Equivalent Form",
+                  "Description"
+                ],
+                "rows": [
+                  [
+                    "+=",
+                    "count += 1",
+                    "count = count + 1",
+                    "Increment / Add to existing value"
+                  ],
+                  [
+                    "-=",
+                    "count -= 1",
+                    "count = count - 1",
+                    "Decrement / Subtract from existing value"
+                  ],
+                  [
+                    "*=",
+                    "total *= 2",
+                    "total = total * 2",
+                    "Multiply existing value by factor"
+                  ],
+                  [
+                    "/=",
+                    "total /= 2",
+                    "total = total / 2",
+                    "Divide existing value (produces float)"
+                  ],
+                  [
+                    "//=",
+                    "total //= 2",
+                    "total = total // 2",
+                    "Floor divide existing value"
+                  ]
+                ]
+              }
             },
             {
-              "heading": "Loop Search & Accumulator Patterns",
-              "text": "Common loop idioms iterate through lists of data to compute aggregates or find extreme values:",
+              "heading": "7 to 12. The while Loop & Condition Control",
+              "text": "A while loop evaluates its Boolean condition before each pass. If True, Python executes the indented body, then tests the condition again. The loop terminates as soon as the condition evaluates to False.\n\nThe 3 Essential Parts of a while Loop:\n1. Initialization: Set starting variable state before entering the loop.\n2. Condition: Test the expression that governs whether another pass should run.\n3. Update: Modify the loop variable inside the body to move toward the stopping condition.\n\nCounting Up and Down:\nCounters can increment (count += 1) or decrement (countdown -= 1) toward a boundary.\n\nInput-Controlled Loops & Sentinel Values:\nA while loop can repeatedly prompt the user until a specific sentinel value is entered (e.g. entering 0 or 'quit'). The sentinel value signals termination and should not be processed as normal data."
+            },
+            {
+              "heading": "13 to 17. Infinite Loops, break, and continue",
+              "text": "An infinite loop occurs when a loop condition never evaluates to False (typically caused by a missing or flawed update step).\n\n• Intentional Infinite Loops (while True):\nOften used in event listeners, menus, and servers. An intentional infinite loop requires a conditional break statement to ensure an exit path.\n\n• The break Statement:\nImmediately terminates the nearest enclosing for or while loop and jumps to the first statement following the loop.\n\n• The continue Statement:\nImmediately skips the remaining statements in the current iteration and jumps directly to the next iteration's condition or item.\n\n• Caution in while Loops:\nEnsure the loop counter is updated BEFORE continue, otherwise the loop will repeat the same state infinitely!"
+            },
+            {
+              "heading": "18 to 23. The for Loop & The range() Function",
+              "text": "A for loop iterates directly over items in an iterable (lists, tuples, strings, dictionaries, ranges) without requiring manual indexing or counter increments.\n\nLooping Through Strings:\nBecause strings are character sequences, 'for letter in \"Python\":' visits each character in order.\n\nThe range() Function:\nGenerates an immutable sequence of integers. Remember that the stop value is always EXCLUDED:\n• range(stop): Starts at 0, steps by 1, stops before 'stop' (e.g. range(5) yields 0, 1, 2, 3, 4).\n• range(start, stop): Starts at 'start', stops before 'stop' (e.g. range(2, 6) yields 2, 3, 4, 5).\n• range(start, stop, step): Increments by 'step' (e.g. range(0, 10, 2) yields 0, 2, 4, 6, 8; negative steps count down).\n\nThrowaway Variable (_):\nWhen the loop variable is not used inside the body, use an underscore '_' by convention (e.g., 'for _ in range(3):')."
+            },
+            {
+              "heading": "24 to 27. Loop Patterns: Counting, Accumulators, Averages & Searching",
+              "text": "• Counting Pattern: Tracks how many items satisfy a condition by initializing a counter to 0 and incrementing inside an if statement (e.g., if num % 2 == 0: count += 1).\n\n• Accumulator Pattern: Maintains a running total. Initialize total = 0 (the additive identity) before the loop, then add each item during iteration (total += number).\n\n• Computing Averages: Divide the accumulator sum by the item count. Always guard against empty collections with 'if len(scores) > 0:' to prevent ZeroDivisionError.\n\n• Search Pattern: Iterates through items to find a target. Uses a Boolean flag (e.g., found = False) and stops early with 'break' once found."
+            },
+            {
+              "heading": "28 to 34. Min/Max Search, enumerate(), Nested Loops & Loop else",
+              "text": "• Finding Minimum & Maximum Values:\nAlways initialize the current minimum and maximum using actual data from the collection (e.g., smallest = numbers[0]), NOT arbitrary values like 0. Initializing to 0 fails for all-negative or all-positive lists!\n\n• Empty Collection Guard:\nCheck 'if numbers:' before indexing numbers[0] to prevent IndexError, or use Python's built-in min(numbers, default=None).\n\n• enumerate(iterable, start=0):\nProvides both the index and value simultaneously without manual counters (e.g., 'for idx, item in enumerate(fruits):').\n\n• Nested Loops:\nA loop inside another loop. The inner loop completes all its iterations for every single iteration of the outer loop (useful for grids, tables, and permutations).\n\n• Loop else Clause:\nA for or while loop can have an else block. The loop's else executes ONLY when the loop finishes normally without hitting a break statement (invaluable for search loops)."
+            },
+            {
+              "heading": "35 to 39. Common Mistakes & How to Avoid Them",
+              "text": "Common pitfalls and their corrections:",
+              "table": {
+                "headers": [
+                  "Mistake",
+                  "Why It Fails",
+                  "Correction"
+                ],
+                "rows": [
+                  [
+                    "Off-by-one with range()",
+                    "range(1, 5) produces 1, 2, 3, 4; stop value 5 is excluded",
+                    "Use range(1, 6) if 5 must be included"
+                  ],
+                  [
+                    "Forgetting while update",
+                    "Condition never changes to False, causing an infinite loop",
+                    "Ensure the loop variable updates inside every iteration"
+                  ],
+                  [
+                    "Updating in wrong order",
+                    "Placing update before print prints 1..N; updating after print prints 0..N-1",
+                    "Place print and update in the order that matches required output"
+                  ],
+                  [
+                    "continue skips update",
+                    "In while loops, continue jumping over count += 1 causes an infinite loop",
+                    "Increment counter before triggering continue in a branch"
+                  ],
+                  [
+                    "Indexing empty list for min/max",
+                    "numbers[0] raises IndexError if numbers is empty []",
+                    "Guard with 'if numbers:' or use min(numbers, default=None)"
+                  ]
+                ]
+              }
+            },
+            {
+              "heading": "46. Key Takeaways & Review",
+              "text": "Essential concepts to remember:",
               "bulletPoints": [
-                "Counting Loop: count = count + 1",
-                "Summing Loop (Accumulator): total = total + value",
-                "Maximum Loop: compare if largest is None or value > largest",
-                "Minimum Loop: compare if smallest is None or value < smallest"
+                "A loop repeats a block of code; while is condition-controlled and for is collection-driven.",
+                "A while loop requires three distinct parts: initialization, condition, and update.",
+                "Unchanged conditions create unintended infinite loops; while True requires break.",
+                "break exits the nearest enclosing loop; continue skips directly to the next pass.",
+                "range(start, stop, step) produces integers and excludes the stop boundary.",
+                "Counters track item frequencies; accumulators compute running totals.",
+                "Initialize min/max algorithms using the first data element, never hardcoded zeros.",
+                "enumerate() cleanly yields both index position and value.",
+                "The loop else clause runs only when the loop completes without executing break."
               ]
             }
           ],
           "codeExamples": [
             {
-              "title": "Finding Maximum & Minimum Values",
-              "code": "largest = None\nsmallest = None\n\nwhile True:\n    num_str = input('Enter a number: ')\n    if num_str == 'done':\n        break\n    try:\n        num = int(num_str)\n    except:\n        print('Invalid input')\n        continue\n\n    if largest is None or num > largest:\n        largest = num\n    if smallest is None or num < smallest:\n        smallest = num\n\nprint('Maximum is', largest)\nprint('Minimum is', smallest)",
-              "explanation": "Initializes max/min to None ('empty') and updates extremes dynamically."
+              "title": "3, 7, 8, 9 & 10. while Loops: Counting Up & Down",
+              "code": "count = 1\nwhile count <= 4:\n    print(\"Number:\", count)\n    count += 1\n\n# Counting down\ncountdown = 3\nwhile countdown > 0:\n    print(countdown)\n    countdown -= 1\nprint(\"Go!\")",
+              "explanation": "Illustrates initialization, condition, and counter updates for ascending and descending loops."
+            },
+            {
+              "title": "11, 12 & 14. Sentinel-Controlled Loops & Intentional while True",
+              "code": "total = 0\nvalue = int(input(\"Enter a number (0 to finish): \"))\nwhile value != 0:\n    total += value\n    value = int(input(\"Enter a number (0 to finish): \"))\nprint(\"Total sum:\", total)\n\n# 2. Intentional infinite loop with break exit\nwhile True:\n    command = input(\"Enter command (quit to stop): \")\n    if command == \"quit\":\n        break\n    print(\"Executing:\", command)\nprint(\"Finished\")",
+              "explanation": "Shows how sentinel values and while True with break handle variable-length user input streams."
+            },
+            {
+              "title": "15, 16 & 17. Controlling Loops with break and continue",
+              "code": "for number in range(1, 10):\n    if number == 4:\n        break\n    print(number) # Prints 1, 2, 3\n\n# continue in a for loop\nfor number in range(1, 6):\n    if number == 3:\n        continue\n    print(number) # Prints 1, 2, 4, 5\n\n# Safe continue in a while loop (update before continue!)\nnum = 0\nwhile num < 5:\n    num += 1\n    if num == 3:\n        continue\n    print(num)",
+              "explanation": "Demonstrates breaking early, skipping iterations with continue, and avoiding while-loop update traps."
+            },
+            {
+              "title": "18 to 23. for Loops, Sequences & range() Variations",
+              "code": "colors = [\"red\", \"green\", \"blue\"]\nfor color in colors:\n    print(color)\n\n# Iterating over characters in a string\nfor char in \"Python\":\n    print(char)\n\n# range(stop), range(start, stop), range(start, stop, step)\nprint(\"range(5):\", list(range(5)))             # [0, 1, 2, 3, 4]\nprint(\"range(2, 6):\", list(range(2, 6)))       # [2, 3, 4, 5]\nprint(\"range(0, 10, 2):\", list(range(0, 10, 2))) # [0, 2, 4, 6, 8]\nprint(\"Counting down:\", list(range(5, 0, -1))) # [5, 4, 3, 2, 1]\n\n# Throwaway variable (_)\nfor _ in range(3):\n    print(\"Practice makes progress\")",
+              "explanation": "Shows how for loops process collections directly and details range() arguments and the throwaway variable convention."
+            },
+            {
+              "title": "24 to 27. Counters, Accumulators, Averages & Search Flags",
+              "code": "numbers = [4, 7, 10, 13, 16]\n\n# 1. Counter Pattern\neven_count = 0\nfor n in numbers:\n    if n % 2 == 0:\n        even_count += 1\nprint(\"Even numbers count:\", even_count)\n\n# 2. Accumulator Pattern & Average\nscores = [80, 90, 100]\ntotal = 0\nfor s in scores:\n    total += s\n\nif len(scores) > 0:\n    avg = total / len(scores)\n    print(f\"Total: {total}, Average: {avg}\")\n\n# 3. Search Pattern with Flag\nnames = [\"Asha\", \"Ben\", \"Chloe\"]\ntarget = \"Ben\"\nfound = False\nfor name in names:\n    if name == target:\n        found = True\n        break\nprint(\"Target Found:\" if found else \"Target Not Found\")",
+              "explanation": "Demonstrates the 4 classic algorithmic loop patterns: counting, summing, averaging, and searching with flags."
+            },
+            {
+              "title": "28 to 34. Robust Min/Max, enumerate(), Nested Loops & Loop else",
+              "code": "data = [-8, -3, -12, -5]\nif data:\n    smallest = data[0]\n    largest = data[0]\n    for val in data[1:]:\n        if val < smallest: smallest = val\n        if val > largest: largest = val\n    print(f\"Smallest: {smallest}, Largest: {largest}\")\n\n# enumerate() for index and item\nfruits = [\"apple\", \"banana\", \"mango\"]\nfor idx, fruit in enumerate(fruits, start=1):\n    print(f\"{idx}. {fruit}\")\n\n# Nested loops (grid coordinates)\nfor r in range(1, 3):\n    for c in range(1, 4):\n        print(f\"({r}, {c})\", end=\" \")\n    print()\n\n# Loop else clause (runs only if NO break occurred)\ntest_numbers = [2, 4, 6]\nfor num in test_numbers:\n    if num % 2 != 0:\n        print(\"Odd found!\")\n        break\nelse:\n    print(\"No odd numbers found (normal completion).\")",
+              "explanation": "Shows robust min/max logic, clean enumeration, matrix grid coordinates, and the Python-specific loop else clause."
             }
           ],
           "bestPractices": [
-            "Initialize iteration variables before entering loops.",
-            "Use for loops when iterating over lists, strings, or known ranges."
+            "Initialize counters and accumulators before entering loop bodies.",
+            "Prefer for loops over while loops when iterating over sequences, ranges, or collections.",
+            "Always initialize min/max tracking variables from the dataset itself (e.g. data[0]), not hardcoded zeros.",
+            "Guard divisions and element lookups against empty collections using 'if items:'.",
+            "In while loops, ensure the counter increments before any continue statement.",
+            "Use enumerate() instead of range(len(items)) when both the index and value are needed.",
+            "Use the loop else clause for search routines to avoid redundant flag variables."
           ],
           "commonMistakes": [
-            "Forgetting to update iteration variables in while loops causing infinite loops."
+            "Off-by-one errors from forgetting that range() excludes the stop value.",
+            "Omitting the counter increment in a while loop, resulting in a frozen infinite loop.",
+            "Placing the counter update after a continue statement in a while loop, which skips the update forever.",
+            "Initializing min or max to 0, which yields incorrect results for all-negative or all-positive lists.",
+            "Accessing data[0] without verifying that the collection is not empty, causing an IndexError."
           ],
           "practiceExercise": {
-            "title": "Total, Count, and Average Calculator",
-            "problem": "Write a program that repeatedly prompts for numbers until 'done' is entered, then prints total sum, count, and average.",
-            "solutionCode": "total = 0\ncount = 0\n\nwhile True:\n    inp = input(\"Enter a number: \")\n    if inp == \"done\": break\n    try:\n        val = float(inp)\n        total += val\n        count += 1\n    except:\n        print(\"Invalid input\")\n        continue\n\nif count > 0:\n    print(f\"Total: {total} | Count: {count} | Average: {total/count:.2f}\")"
+            "title": "42 & 44. Coding Practice & Worked Solutions (5 Programs)",
+            "problem": "Complete the following 5 hands-on Python loop programs:\n\nProgram 1: Count to N\nAsk the user for a positive integer and print every number from 1 through that number.\n\nProgram 2: Sum from 1 to N\nAsk for a positive integer and calculate the sum from 1 through N using an accumulator loop.\n\nProgram 3: Count Vowels\nCount how many vowels (a, e, i, o, u) appear in a word. Treat uppercase and lowercase letters the same.\n\nProgram 4: Find the Minimum and Maximum\nGiven a list of numbers, use loops to find the smallest and largest values. Handle an empty list gracefully.\n\nProgram 5: Search a List\nAsk the user for a target and report whether it appears in a list. Stop searching once the target is found.",
+            "solutionCode": "n = int(input(\"Enter a positive integer: \"))\nfor number in range(1, n + 1):\n    print(number)\n\n# Program 2: Sum from 1 to N\nn = int(input(\"Enter a positive integer: \"))\ntotal = 0\nfor number in range(1, n + 1):\n    total += number\nprint(\"Sum:\", total)\n\n# Program 3: Count Vowels\nword = input(\"Enter a word: \")\nvowel_count = 0\nfor letter in word.lower():\n    if letter in \"aeiou\":\n        vowel_count += 1\nprint(\"Vowels:\", vowel_count)\n\n# Program 4: Find the Minimum and Maximum\nnumbers = [8, -3, 12, 5]\nif numbers:\n    smallest = numbers[0]\n    largest = numbers[0]\n    for number in numbers[1:]:\n        if number < smallest:\n            smallest = number\n        if number > largest:\n            largest = number\n    print(\"Smallest:\", smallest)\n    print(\"Largest:\", largest)\nelse:\n    print(\"There are no values to search\")\n\n# Program 5: Search a List\nnames = [\"Asha\", \"Ben\", \"Chloe\"]\ntarget = input(\"Enter a name to find: \")\nfound = False\nfor name in names:\n    if name == target:\n        found = True\n        break\nif found:\n    print(\"Name found\")\nelse:\n    print(\"Name not found\")"
           },
           "keyTakeaways": [
-            "while loops are indefinite; for loops are definite.",
-            "break exits loops; continue skips to next iteration.",
-            "Initialize min/max tracking variables to None."
+            "A loop repeats a block of code; while is condition-controlled and for is collection-driven.",
+            "A while loop needs a plan for initialization, condition, and update.",
+            "An unchanged condition can create an unintended infinite loop; while True requires a clear break.",
+            "break exits the nearest loop; continue skips to its next iteration.",
+            "range() excludes its stop value: range(1, 5) produces 1, 2, 3, and 4.",
+            "Counters track item counts; accumulators build running totals.",
+            "Min/max searches should initialize from actual data and account for empty collections.",
+            "enumerate() provides both index and item simultaneously.",
+            "A loop else clause runs only when the loop finishes without executing break."
           ],
           "references": [
             {
-              "title": "Python for Everybody Chapter 5",
-              "url": "https://www.py4e.com/html3/05-iterations"
+              "title": "Python Documentation: More Control Flow Tools (Loops & range)",
+              "url": "https://docs.python.org/3/tutorial/controlflow.html"
+            },
+            {
+              "title": "Python Language Reference: The for statement",
+              "url": "https://docs.python.org/3/reference/compound_stmts.html#the-for-statement"
             }
-          ]
+          ],
+          "mcqs": [
+            {
+              "id": 1,
+              "question": "What is the primary conceptual difference between a while loop and a for loop?",
+              "options": [
+                "while loops are condition-controlled (indefinite); for loops are sequence-controlled (definite)",
+                "while loops can only iterate 100 times maximum",
+                "for loops can only be used with numbers",
+                "while loops do not support the break statement"
+              ],
+              "correctAnswer": 0,
+              "explanation": "A while loop repeats until a boolean condition becomes False. A for loop iterates through a predetermined collection or iterable."
+            },
+            {
+              "id": 2,
+              "question": "What is the effect of the 'break' statement when executed inside a nested loop?",
+              "options": [
+                "It terminates all enclosing loops in the entire function",
+                "It terminates only the innermost loop in which it is placed",
+                "It skips to the next iteration of the outer loop",
+                "It raises a StopIteration exception"
+              ],
+              "correctAnswer": 1,
+              "explanation": "break terminates only the immediate, innermost loop enclosing it. Outer loops continue execution normally."
+            },
+            {
+              "id": 3,
+              "question": "What integers are generated by the expression range(2, 11, 3)?",
+              "options": [
+                "[2, 3, 4, 5, 6, 7, 8, 9, 10, 11]",
+                "[2, 5, 8]",
+                "[3, 6, 9]",
+                "[2, 5, 8, 11]"
+              ],
+              "correctAnswer": 1,
+              "explanation": "range(start, stop, step) starts at 2, steps by 3, and stops BEFORE 11: 2, 2+3=5, 5+3=8. (Next would be 11, which reaches stop)."
+            },
+            {
+              "id": 4,
+              "question": "When does the 'else' block attached to a for or while loop execute?",
+              "options": [
+                "Whenever the loop terminates via a break statement",
+                "When the loop completes its iterations naturally WITHOUT encountering a break statement",
+                "Before the loop begins its first pass",
+                "Only when the loop encounters an exception"
+              ],
+              "correctAnswer": 1,
+              "explanation": "A loop's else clause runs only when the loop terminates normally (exhausting the sequence or condition becoming False), not when broken by break."
+            },
+            {
+              "id": 5,
+              "question": "What is the recommended idiom for initializing a min-value search accumulator across a sequence?",
+              "options": [
+                "Set smallest = 0",
+                "Set smallest = 999999",
+                "Set smallest = None or initialize from the first actual data element (smallest = data[0])",
+                "Set smallest = -1"
+              ],
+              "correctAnswer": 2,
+              "explanation": "Initializing to an arbitrary constant like 0 fails if all values in the dataset are negative. Using None or data[0] guarantees correctness."
+            }
+          ],
+          "selfAssessment": {
+            "title": "Module Self-Assessment (5 Knowledge Check MCQs)",
+            "questions": [
+              {
+                "id": "py-q-5-1",
+                "questionNumber": 1,
+                "topic": "Loop Control Flow",
+                "questionText": "What is the difference between break and continue inside a loop?",
+                "options": [
+                  "break terminates the loop completely; continue skips the rest of the current iteration and advances to the next",
+                  "continue exits the loop; break pauses the loop",
+                  "Both statements terminate the program completely",
+                  "break can only be used in while loops, not for loops"
+                ],
+                "correctAnswer": 0,
+                "explanation": "break exits the enclosing loop immediately. continue skips the remaining statements of the current iteration and checks the next loop condition."
+              },
+              {
+                "id": "py-q-5-2",
+                "questionNumber": 2,
+                "topic": "For-Else Construct",
+                "questionText": "When does the else clause attached to a for loop execute?",
+                "options": [
+                  "Every time the loop finishes an iteration",
+                  "When the loop terminates naturally after exhausting all items, without encountering a break statement",
+                  "Only when the loop encounters an error",
+                  "When the loop is terminated by a break"
+                ],
+                "correctAnswer": 1,
+                "explanation": "A loop's else clause executes only if the loop completed normally without hitting a break."
+              },
+              {
+                "id": "py-q-5-3",
+                "questionNumber": 3,
+                "topic": "Range Function",
+                "questionText": "What sequence of integers is generated by list(range(5, 0, -1))?",
+                "options": [
+                  "[5, 4, 3, 2, 1, 0]",
+                  "[5, 4, 3, 2, 1]",
+                  "[4, 3, 2, 1, 0]",
+                  "[5, 3, 1]"
+                ],
+                "correctAnswer": 1,
+                "explanation": "range(start, stop, step) stops before the stop value. Thus range(5, 0, -1) produces 5, 4, 3, 2, 1."
+              },
+              {
+                "id": "py-q-5-4",
+                "questionNumber": 4,
+                "topic": "Enumerate Function",
+                "questionText": "What does for index, item in enumerate(items, start=1): yield during each iteration?",
+                "options": [
+                  "Only the index starting at 0",
+                  "A 2-tuple containing a 1-based count and the corresponding item value",
+                  "A dictionary mapping index to item",
+                  "A reversed sequence of items"
+                ],
+                "correctAnswer": 1,
+                "explanation": "enumerate() returns a generator yielding tuples (counter, value), where counter starts at the specified start parameter."
+              },
+              {
+                "id": "py-q-5-5",
+                "questionNumber": 5,
+                "topic": "Accumulator Pattern",
+                "questionText": "In loop programming, what is the best initial sentinel value when finding the maximum value in an arbitrary sequence of real numbers?",
+                "options": [
+                  "0",
+                  "-999999",
+                  "None",
+                  "float('inf')"
+                ],
+                "correctAnswer": 2,
+                "explanation": "Setting the initial max sentinel to None allows the loop to unconditionally assign the first observed element on iteration 1, safely handling all negative numbers."
+              }
+            ]
+          }
         },
         "quiz": {
           "id": "quiz-py-mod-5",
@@ -885,39 +2603,37 @@ export const INITIAL_COURSES = [
           "questions": [
             {
               "id": "py-q-5-1",
-              "type": "multiple-choice",
+              "questionNumber": 1,
               "topic": "Loop Control Flow",
-              "questionText": "What is the difference between `break` and `continue` inside a loop?",
+              "questionText": "What is the difference between break and continue inside a loop?",
               "options": [
-                "`break` terminates the loop completely; `continue` skips the rest of the current iteration and advances to the next",
-                "`continue` exits the loop; `break` pauses the loop",
+                "break terminates the loop completely; continue skips the rest of the current iteration and advances to the next",
+                "continue exits the loop; break pauses the loop",
                 "Both statements terminate the program completely",
-                "`break` can only be used in while loops, not for loops"
+                "break can only be used in while loops, not for loops"
               ],
               "correctAnswer": 0,
-              "marks": 10,
-              "explanation": "`break` exits the enclosing loop immediately. `continue` skips the remaining statements of the current iteration and checks the next loop condition."
+              "explanation": "break exits the enclosing loop immediately. continue skips the remaining statements of the current iteration and checks the next loop condition."
             },
             {
               "id": "py-q-5-2",
-              "type": "multiple-choice",
+              "questionNumber": 2,
               "topic": "For-Else Construct",
-              "questionText": "When does the `else` clause attached to a `for` loop execute?",
+              "questionText": "When does the else clause attached to a for loop execute?",
               "options": [
                 "Every time the loop finishes an iteration",
-                "When the loop terminates naturally after exhausting all items, without encountering a `break` statement",
+                "When the loop terminates naturally after exhausting all items, without encountering a break statement",
                 "Only when the loop encounters an error",
-                "When the loop is terminated by a `break`"
+                "When the loop is terminated by a break"
               ],
               "correctAnswer": 1,
-              "marks": 10,
-              "explanation": "A loop's `else` clause executes only if the loop completed normally without hitting a `break`."
+              "explanation": "A loop's else clause executes only if the loop completed normally without hitting a break."
             },
             {
               "id": "py-q-5-3",
-              "type": "multiple-choice",
+              "questionNumber": 3,
               "topic": "Range Function",
-              "questionText": "What sequence of integers is generated by `list(range(5, 0, -1))`?",
+              "questionText": "What sequence of integers is generated by list(range(5, 0, -1))?",
               "options": [
                 "[5, 4, 3, 2, 1, 0]",
                 "[5, 4, 3, 2, 1]",
@@ -925,14 +2641,13 @@ export const INITIAL_COURSES = [
                 "[5, 3, 1]"
               ],
               "correctAnswer": 1,
-              "marks": 10,
               "explanation": "range(start, stop, step) stops before the stop value. Thus range(5, 0, -1) produces 5, 4, 3, 2, 1."
             },
             {
               "id": "py-q-5-4",
-              "type": "multiple-choice",
+              "questionNumber": 4,
               "topic": "Enumerate Function",
-              "questionText": "What does `for index, item in enumerate(items, start=1):` yield during each iteration?",
+              "questionText": "What does for index, item in enumerate(items, start=1): yield during each iteration?",
               "options": [
                 "Only the index starting at 0",
                 "A 2-tuple containing a 1-based count and the corresponding item value",
@@ -940,12 +2655,11 @@ export const INITIAL_COURSES = [
                 "A reversed sequence of items"
               ],
               "correctAnswer": 1,
-              "marks": 10,
-              "explanation": "`enumerate()` returns a generator yielding tuples (counter, value), where counter starts at the specified `start` parameter."
+              "explanation": "enumerate() returns a generator yielding tuples (counter, value), where counter starts at the specified start parameter."
             },
             {
               "id": "py-q-5-5",
-              "type": "multiple-choice",
+              "questionNumber": 5,
               "topic": "Accumulator Pattern",
               "questionText": "In loop programming, what is the best initial sentinel value when finding the maximum value in an arbitrary sequence of real numbers?",
               "options": [
@@ -955,8 +2669,7 @@ export const INITIAL_COURSES = [
                 "float('inf')"
               ],
               "correctAnswer": 2,
-              "marks": 10,
-              "explanation": "Setting the initial max sentinel to `None` allows the loop to unconditionally assign the first observed element on iteration 1, safely handling all negative numbers."
+              "explanation": "Setting the initial max sentinel to None allows the loop to unconditionally assign the first observed element on iteration 1, safely handling all negative numbers."
             }
           ]
         }
@@ -967,64 +2680,336 @@ export const INITIAL_COURSES = [
         "description": "Built-in functions, type conversion, math & random modules, defining custom functions (def), parameters, arguments, fruitful vs void functions, and scope.",
         "completed": true,
         "readingMaterial": {
-          "introduction": "Based on Chapter 4 of 'Python for Everybody', a function is a named sequence of statements performing a computation. Functions promote code reuse, eliminate duplication, and break complex problems into manageable sub-tasks.",
+          "introduction": "Functions help programmers organize instructions into named, reusable units. As a program grows, placing every instruction in one long sequence makes it difficult to understand and maintain. Functions provide a way to divide a program into smaller tasks. A function can accept information, perform work, and return a result to the part of the program that called it.\n\nPython also provides built-in functions and an extensive standard library. Built-ins handle everyday tasks such as displaying output, counting items, and finding totals. Modules group related tools; for example, math provides mathematical functions and constants, while random provides pseudo-random choices for simulations and games.",
           "objectives": [
-            "Understand function calls, arguments, parameters, and return values",
-            "Use built-in functions: max(), min(), len(), type(), int(), float(), str()",
-            "Import standard modules: math (sin, log10, pi, sqrt) and random (randint, choice)",
-            "Define custom functions using the def keyword",
-            "Distinguish between fruitful functions (return values) and void functions (return None)",
-            "Understand variable scope (local vs global)"
+            "Use common built-in functions such as len(), sum(), min(), and max().",
+            "Convert values with int(), float(), str(), and bool().",
+            "Import and use tools from the math and random modules.",
+            "Define and call custom functions using def.",
+            "Distinguish parameters from arguments and use positional, keyword, and default arguments.",
+            "Explain the difference between returning a value and printing it.",
+            "Recognize local and global variables and use scope appropriately."
           ],
           "sections": [
             {
-              "heading": "Anatomy of a Function Definition",
-              "text": "A function definition includes the def keyword, function name, parameter list in parentheses, docstring explanation, indented body, and optional return statement.",
-              "codeExamples": [
-                {
-                  "title": "Custom Fruitful Function",
-                  "code": "def computepay(hours, rate):\n    \"\"\"Calculates gross pay including overtime pay (1.5x after 40 hrs).\"\"\"\n    if hours > 40:\n        reg_pay = 40 * rate\n        overtime_pay = (hours - 40) * (rate * 1.5)\n        return reg_pay + overtime_pay\n    else:\n        return hours * rate\n\npay = computepay(45, 10)\nprint('Pay:', pay) # Output: 475.0",
-                  "explanation": "computepay takes two parameters and returns computed gross pay."
-                }
+              "heading": "3. Built-in Functions and Type Conversion",
+              "text": "Python's built-in functions are available directly without importing a module. For example, len() counts items in a collection, sum() adds numeric values, and min() and max() find the smallest and largest values.\n\nInput read with input() is always returned as text (str). You must convert it before using it in numeric calculations:\n• int(): Creates an integer from a numeric string or truncates a float toward zero.\n• float(): Creates a floating-point number from an integer or string.\n• str(): Creates a string representation of any object.\n• bool(): Converts a value to Boolean True or False based on truthiness.\n\nImportant nuances:\n1. Converting a floating-point value to an integer truncates toward zero rather than rounding (e.g., int(6.9) produces 6).\n2. Converting text that is not a valid number (such as int(\"six\")) raises a ValueError.",
+              "table": {
+                "headers": [
+                  "Function",
+                  "Input Type",
+                  "Example",
+                  "Result / Output",
+                  "Notes"
+                ],
+                "rows": [
+                  [
+                    "len()",
+                    "Sequence / Collection",
+                    "len([72, 85, 91])",
+                    "3",
+                    "Returns number of elements"
+                  ],
+                  [
+                    "sum()",
+                    "Iterable of numbers",
+                    "sum([72, 85, 91])",
+                    "248",
+                    "Additive total"
+                  ],
+                  [
+                    "min()",
+                    "Iterable or arguments",
+                    "min(72, 85, 91)",
+                    "72",
+                    "Smallest value"
+                  ],
+                  [
+                    "max()",
+                    "Iterable or arguments",
+                    "max(72, 85, 91)",
+                    "91",
+                    "Largest value"
+                  ],
+                  [
+                    "int()",
+                    "String or float",
+                    "int(6.9) / int(\"42\")",
+                    "6 / 42",
+                    "Truncates toward zero"
+                  ],
+                  [
+                    "float()",
+                    "String or int",
+                    "float(\"3.14\")",
+                    "3.14",
+                    "Parses decimal value"
+                  ],
+                  [
+                    "str()",
+                    "Any type",
+                    "str(100)",
+                    "\"100\"",
+                    "String representation"
+                  ],
+                  [
+                    "bool()",
+                    "Any type",
+                    "bool(0) / bool(\"hi\")",
+                    "False / True",
+                    "0 and '' are False"
+                  ]
+                ]
+              }
+            },
+            {
+              "heading": "4. Using the math and random Modules",
+              "text": "A module is a file containing reusable Python code. The import statement makes its functions, classes, and constants available to a program.\n\nThe math Module:\nProvides standard mathematical tools such as square roots, rounding operations, and mathematical constants:\n• math.pi: The mathematical constant π (~3.14159)\n• math.sqrt(x): Computes the square root of x (returns a float)\n• math.ceil(x): Rounds upward to the nearest integer (math.ceil(4.2) -> 5)\n• math.floor(x): Rounds downward to the nearest integer (math.floor(4.8) -> 4)\n\nThe random Module:\nGenerates pseudo-random results, which are useful for simulations, games, randomized algorithms, and demonstrations:\n• random.randint(a, b): Returns a pseudo-random integer N such that a <= N <= b (both endpoints inclusive).\n• random.choice(sequence): Picks a random element from a non-empty sequence.\n• random.random(): Returns a random float in the range [0.0, 1.0).\n\nSecurity Warning:\nThe standard random module produces deterministic pseudo-random numbers and is NOT cryptographically secure. For security-sensitive needs (such as generating passwords, authentication tokens, or encryption keys), use Python's built-in secrets module."
+            },
+            {
+              "heading": "5. Defining and Calling Custom Functions",
+              "text": "A custom function is defined with the def keyword. Defining a function and calling it are two separate, distinct actions:\n1. Definition: Specifies the function name, parameters in parentheses, and the indented body of statements. Python records the function definition but does not run the body yet.\n2. Call / Invocation: Uses the function name followed by parentheses and arguments. Python jumps to the function body, executes it, and then returns control to the calling site.\n\nParameters vs Arguments:\n• Parameter: A variable listed in the function definition header that acts as a placeholder for incoming data (e.g. 'name' in def greet(name):).\n• Argument: The actual concrete value supplied to the function when it is called (e.g. \"Asha\" in greet(\"Asha\"))."
+            },
+            {
+              "heading": "6. Arguments: Positional, Keyword, and Default Values",
+              "text": "Python provides flexible ways to pass arguments to functions:\n\n1. Positional Arguments:\nMatched to parameters strictly by position/order from left to right.\nadd(4, 7) assigns 4 to 'first' and 7 to 'second'.\n\n2. Keyword Arguments:\nYou explicitly name the parameter in the call (e.g., describe_pet(animal=\"dog\", name=\"Rex\")).\nKeyword arguments can be provided in any order and greatly improve code readability when functions take multiple configuration options.\n\n3. Default Arguments:\nAllow parameters to have fallback default values if the caller omits them (e.g. def describe_pet(animal, name=\"Milo\"):).\nCRITICAL RULE: In a function definition, all required parameters must appear before parameters with default values. Defining def func(a=1, b): causes a SyntaxError!"
+            },
+            {
+              "heading": "7. Fruitful vs Void Functions (return vs print)",
+              "text": "Understanding the difference between fruitful and void functions is one of the most critical concepts in modular programming:\n\nFruitful Functions:\nA fruitful function produces and sends back a useful value using the return statement. The caller can capture this value in a variable, pass it into another function, or use it in an expression.\nWhen Python executes a return statement, the function immediately terminates and hands the value back.\n\nVoid Functions:\nA void function performs an action (such as printing output to the console, writing to a file, or modifying an external state) without returning a useful value.\nIn Python, if a function finishes without encountering an explicit return statement, it automatically returns None.\n\nCommon Beginner Trap:\nprint() displays information visually on the screen for humans to read. return sends data back inside the program for code to use. They are NOT interchangeable!"
+            },
+            {
+              "heading": "8. Variable Scope & Lifetime (Local vs Global)",
+              "text": "Scope defines the region of a program where a variable name is recognized and accessible:\n\n1. Local Scope:\nVariables defined inside a function (including its parameters) belong to the local scope of that function. They come into existence when the function is called and are destroyed when the function finishes. They cannot be accessed from outside the function.\n\n2. Global Scope:\nVariables declared at the top level of a script/module outside of any function belong to the global scope. They can be read from anywhere within the module.\n\n3. The global Keyword:\nIf a function needs to reassign or modify a global variable, it must explicitly declare it with 'global var_name'.\nBest Practice: Minimize the use of global variables. Relying on global state makes code brittle, hard to test, and difficult to debug. Prefer passing needed data via parameters and returning results."
+            },
+            {
+              "heading": "9. Good Practices for Modular Code",
+              "text": "Follow these industry-standard principles to write clean, reusable, professional Python functions:",
+              "bulletPoints": [
+                "Descriptive Names: Use clear snake_case verbs and verb phrases that describe the action (e.g., calculate_tax, is_valid_email, format_user_name).",
+                "Single Responsibility Principle (SRP): Each function should do one thing well. If a function is calculating and printing and saving to disk, break it down.",
+                "Pure & Predictable: Where possible, write fruitful functions that rely only on their parameters and do not produce unexpected side effects.",
+                "Never Shadow Built-ins: Do not name variables or parameters after Python built-ins like sum, min, max, list, dict, or type.",
+                "Validate Inputs & Handle Empty Collections: Guard against empty lists before calling min() or max() to prevent ValueError.",
+                "Namespace Imports: Prefer 'import math' and calling 'math.sqrt()' over 'from math import *', which pollutes the namespace.",
+                "Security Awareness: Use the secrets module instead of random for cryptographic keys, tokens, and password generation."
               ]
             },
             {
-              "heading": "Fruitful Functions vs Void Functions",
-              "text": "Fruitful functions return a result value using the return statement. Void functions perform an action (like printing) without returning a value; attempting to assign their result yields None."
+              "heading": "10 & 11. Worked Example & Module Conclusion",
+              "text": "Putting it all together: Building a clean, modular temperature conversion pipeline. Functions allow complex logic to be defined once and reused across different inputs and data streams cleanly without duplicate code."
             }
           ],
           "codeExamples": [
             {
-              "title": "Grade Calculation Function",
-              "code": "def computegrade(score):\n    if 0.0 <= score <= 1.0:\n        if score >= 0.9: return 'A'\n        elif score >= 0.8: return 'B'\n        elif score >= 0.7: return 'C'\n        elif score >= 0.6: return 'D'\n        else: return 'F'\n    else:\n        return 'Bad score'\n\nprint(computegrade(0.95)) # Output: A\nprint(computegrade(0.5))  # Output: F",
-              "explanation": "Encapsulates grading logic into reusable function returning grade string."
+              "title": "3. Built-in Functions & Type Conversion in Action",
+              "code": "scores = [72, 85, 91]\n\nprint(\"Number of scores:\", len(scores))\nprint(\"Total:\", sum(scores))\nprint(\"Lowest:\", min(scores))\nprint(\"Highest:\", max(scores))\n\n# Type conversion\nage_text = \"21\"\nage = int(age_text)\nprint(\"Next year you will be:\", age + 1)\n\n# Float truncation vs rounding\nprint(\"int(6.9) truncates to:\", int(6.9))   # 6\nprint(\"round(6.9) rounds to:\", round(6.9)) # 7",
+              "explanation": "Demonstrates core built-ins len(), sum(), min(), max(), type casting with int(), and truncation vs rounding."
+            },
+            {
+              "title": "4. The math and random Modules",
+              "code": "import math\nimport random\n\n# Math operations and constants\nradius = 3\narea = math.pi * (radius ** 2)\nprint(\"Square root of 49:\", math.sqrt(49))\nprint(\"Circle area:\", round(area, 2))\nprint(\"Round up 4.2:\", math.ceil(4.2))\nprint(\"Round down 4.8:\", math.floor(4.8))\n\n# Random simulations\nroll = random.randint(1, 6) # Includes 1 and 6\ncolors = [\"red\", \"green\", \"blue\"]\nchosen_color = random.choice(colors)\n\nprint(\"Dice roll:\", roll)\nprint(\"Chosen color:\", chosen_color)",
+              "explanation": "Illustrates importing math and random standard libraries, calling namespaced functions, and utilizing constants."
+            },
+            {
+              "title": "5 & 6. Custom Functions, Parameters & Defaults",
+              "code": "def show_welcome():\n    print(\"Welcome to the program\")\n\nshow_welcome()\n\n# Parameters and arguments\ndef greet(name):\n    print(f\"Hello, {name}!\")\n\ngreet(\"Asha\")\n\n# Multiple parameters with return\ndef add(first, second):\n    return first + second\n\nanswer = add(4, 7)\nprint(\"4 + 7 =\", answer)\n\n# Default arguments and keyword arguments\ndef describe_pet(animal, name=\"Milo\"):\n    print(f\"{name} is a {animal}\")\n\ndescribe_pet(\"cat\")                       # Uses default name Milo\ndescribe_pet(animal=\"dog\", name=\"Rex\")   # Keyword arguments",
+              "explanation": "Covers def syntax, positional parameters, keyword arguments, and optional parameters with default values."
+            },
+            {
+              "title": "7. Fruitful vs Void Functions (return vs print)",
+              "code": "def rectangle_area(width, height):\n    return width * height\n\narea = rectangle_area(5, 3)\nprint(\"Calculated Area:\", area)\n\n# Void function: performs an action, returns None\ndef show_banner():\n    print(\"Welcome to Python Modular Programming\")\n\nresult = show_banner()\nprint(\"Return value of show_banner():\", result) # Prints None",
+              "explanation": "Clearly highlights how fruitful functions return values for expressions while void functions return None."
+            },
+            {
+              "title": "8. Variable Scope (Local vs Global)",
+              "code": "def double(number):\n    result = number * 2\n    return result\n\nprint(\"Double 4:\", double(4))\n# Attempting print(result) here would raise NameError!\n\n# Global scope: reading global variables\ntax_rate = 0.1\n\ndef calculate_tax(price):\n    # Reads global tax_rate\n    return price * tax_rate\n\nprint(\"Tax on $100:\", calculate_tax(100))",
+              "explanation": "Shows how local variables are encapsulated within function execution frames while global variables are accessible throughout."
+            },
+            {
+              "title": "10. Worked Example: Modular Temperature Converter",
+              "code": "def celsius_to_fahrenheit(celsius):\n    \"\"\"Converts a temperature from Celsius to Fahrenheit.\"\"\"\n    return celsius * 9 / 5 + 32\n\nreadings = [0, 20, 30]\n\nfor reading in readings:\n    converted = celsius_to_fahrenheit(reading)\n    print(f\"{reading} degrees C = {converted:.1f} degrees F\")",
+              "explanation": "Clean demonstration of modular code where formula logic is defined once and called repeatedly inside a loop."
             }
           ],
           "bestPractices": [
-            "Define functions at the top of your script before calling them.",
-            "Write docstrings (\"\"\"Docstring\"\"\") to document purpose and parameters.",
-            "Keep functions focused on a single responsibility."
+            "Give functions descriptive snake_case names that start with a verb (e.g. calculate_total, get_user_input).",
+            "Keep each function focused on a single responsibility (Single Responsibility Principle).",
+            "Always place required parameters before parameters with default values in function definitions.",
+            "Use 'return' when the calling code needs the computed value; reserve 'print()' for user displays.",
+            "Avoid mutating or relying on global variables; pass data through parameters and return results.",
+            "Document functions using clear docstrings (\"\"\"...\"\"\") right after the def line.",
+            "Import whole modules (e.g. 'import math') to keep function calls explicit and namespace-safe."
           ],
           "commonMistakes": [
-            "Forgetting return statement in a fruitful function (defaults to returning None).",
-            "Confusing function parameters (placeholders) with arguments (actual values passed)."
+            "Confusing 'print()' with 'return': printing inside a function leaves the return value as None.",
+            "Placing default parameters before required parameters (e.g., def f(x=10, y): causes SyntaxError).",
+            "Attempting to access a local function variable outside the function, triggering a NameError.",
+            "Shadowing Python built-in names by creating variables named 'sum', 'min', 'max', 'list', or 'str'.",
+            "Assuming random.randint(a, b) excludes b: unlike range(), randint includes both endpoints.",
+            "Using float-to-int conversion expecting rounding: int(4.9) truncates to 4; use round() to round."
           ],
           "practiceExercise": {
-            "title": "Custom Math Helper Function",
-            "problem": "Write a function calculate_circle_area(radius) that imports math and returns area = π * r².",
-            "solutionCode": "import math\n\ndef calculate_circle_area(radius):\n    if radius < 0:\n        return None\n    return math.pi * (radius ** 2)\n\nprint(f\"Area (r=5): {calculate_circle_area(5):.2f}\")"
+            "title": "Hands-On Coding Practice: Functions & Modular Utility Suite (4 Programs)",
+            "problem": "Write and test the following 4 modular Python programs using custom functions:\n\nProgram 1: Gross Pay Calculator with Overtime\nDefine a function 'computepay(hours, rate)' that calculates total pay. Any hours worked above 40 are paid at 1.5 times the normal rate.\n\nProgram 2: Circle Geometry Helper\nDefine a function 'circle_properties(radius)' that imports math and returns both the circumference (2 * π * r) and area (π * r²) rounded to 2 decimal places.\n\nProgram 3: Dice Rolling Simulator\nDefine a function 'roll_dice(num_dice=2, sides=6)' that imports random and returns a list of rolled dice numbers and their total sum.\n\nProgram 4: Temperature & Grade Classifier\nDefine a function 'classify_temperature(temp_c)' that converts Celsius to Fahrenheit and returns a descriptive status string (\"Freezing\", \"Moderate\", \"Hot\").",
+            "solutionCode": "import math\nimport random\n\n# Program 1: Gross Pay Calculator\ndef computepay(hours, rate):\n    if hours > 40:\n        regular_pay = 40 * rate\n        overtime_pay = (hours - 40) * (rate * 1.5)\n        return regular_pay + overtime_pay\n    return hours * rate\n\nprint(\"Pay for 45 hrs @ $10/hr:\", computepay(45, 10))\n\n# Program 2: Circle Geometry Helper\ndef circle_properties(radius):\n    circumference = 2 * math.pi * radius\n    area = math.pi * (radius ** 2)\n    return round(circumference, 2), round(area, 2)\n\ncirc, area = circle_properties(5)\nprint(f\"Radius 5 -> Circumference: {circ}, Area: {area}\")\n\n# Program 3: Dice Rolling Simulator\ndef roll_dice(num_dice=2, sides=6):\n    rolls = [random.randint(1, sides) for _ in range(num_dice)]\n    return rolls, sum(rolls)\n\nrolls, total = roll_dice()\nprint(f\"Rolled {rolls} with Total = {total}\")\n\n# Program 4: Temperature Classifier\ndef classify_temperature(temp_c):\n    temp_f = temp_c * 9 / 5 + 32\n    if temp_f <= 32:\n        status = \"Freezing\"\n    elif temp_f >= 85:\n        status = \"Hot\"\n    else:\n        status = \"Moderate\"\n    return f\"{temp_c}°C ({temp_f:.1f}°F) is {status}\"\n\nprint(classify_temperature(0))\nprint(classify_temperature(20))\nprint(classify_temperature(35))"
           },
           "keyTakeaways": [
-            "def keyword defines reusable function blocks.",
-            "Fruitful functions use return to output values.",
-            "Void functions return None."
+            "Functions organize code into named, reusable blocks, breaking large programs into manageable units.",
+            "Python built-ins (len, sum, min, max, int, float, str, bool) provide foundational everyday tools.",
+            "The math and random modules offer standard mathematical functions and pseudo-random generators.",
+            "Functions are defined using 'def' with parameters, and called using arguments in parentheses.",
+            "Positional arguments match by order; keyword arguments match by parameter name; defaults make arguments optional.",
+            "Fruitful functions return values with 'return'; void functions perform actions and return None.",
+            "Local variables exist only during function execution; avoid modifying global state directly."
           ],
           "references": [
             {
-              "title": "Python for Everybody Chapter 4",
-              "url": "https://www.py4e.com/html3/04-functions"
+              "title": "Python Documentation: Defining Functions",
+              "url": "https://docs.python.org/3/tutorial/controlflow.html#defining-functions"
+            },
+            {
+              "title": "Python Documentation: Standard Library Modules (math & random)",
+              "url": "https://docs.python.org/3/library/"
             }
-          ]
+          ],
+          "mcqs": [
+            {
+              "id": 1,
+              "question": "What is the distinction between a 'fruitful' function and a 'void' function in Python?",
+              "options": [
+                "Fruitful functions use def; void functions use lambda",
+                "Fruitful functions return a meaningful value using return; void functions execute actions and return None",
+                "Fruitful functions accept parameters; void functions accept zero parameters",
+                "Void functions cannot contain print statements"
+              ],
+              "correctAnswer": 1,
+              "explanation": "Fruitful functions calculate and return a result back to the caller with return. Void functions execute side-effects and implicitly return None."
+            },
+            {
+              "id": 2,
+              "question": "What value is returned by a Python function that reaches the end of its body without executing a return statement?",
+              "options": [
+                "0",
+                "False",
+                "None",
+                "An empty string (\"\")"
+              ],
+              "correctAnswer": 2,
+              "explanation": "If execution flows off the end of a function without encountering return, Python implicitly returns the special singleton object None."
+            },
+            {
+              "id": 3,
+              "question": "Why should mutable default arguments (e.g. def append_to(item, target_list=[])) NEVER be used in Python?",
+              "options": [
+                "They cause an immediate SyntaxError",
+                "The default list is created only once when the function is defined, sharing the same list across all calls",
+                "They slow down function calls by converting lists to tuples",
+                "Python does not permit default arguments on functions"
+              ],
+              "correctAnswer": 1,
+              "explanation": "Default parameter values are evaluated once at module load time. If mutable, modifications persist across subsequent calls to that function."
+            },
+            {
+              "id": 4,
+              "question": "What scope rule governs a variable assigned inside a function body without the 'global' keyword?",
+              "options": [
+                "It becomes accessible throughout the entire module",
+                "It has local scope: exists only inside that function call and is destroyed on exit",
+                "It is saved permanently to secondary storage",
+                "It becomes a class attribute"
+              ],
+              "correctAnswer": 1,
+              "explanation": "Variables assigned inside a function belong to the local namespace and are inaccessible outside the function."
+            },
+            {
+              "id": 5,
+              "question": "Which built-in function returns both the current index and the element when traversing a sequence?",
+              "options": [
+                "range()",
+                "zip()",
+                "enumerate()",
+                "map()"
+              ],
+              "correctAnswer": 2,
+              "explanation": "enumerate(iterable) yields pairs of (index, item) during loop iteration, eliminating manual counter variables."
+            }
+          ],
+          "selfAssessment": {
+            "title": "Module Self-Assessment (5 Knowledge Check MCQs)",
+            "questions": [
+              {
+                "id": "py-q-6-1",
+                "questionNumber": 1,
+                "topic": "Fruitful vs Void Functions",
+                "questionText": "What value is returned by a Python function that does not contain a return statement?",
+                "options": [
+                  "0",
+                  "False",
+                  "None",
+                  "Undefined"
+                ],
+                "correctAnswer": 2,
+                "explanation": "In Python, functions that reach the end of their body without an explicit return statement implicitly return None."
+              },
+              {
+                "id": "py-q-6-2",
+                "questionNumber": 2,
+                "topic": "Variable Scope (LEGB)",
+                "questionText": "What is the order of namespaces Python searches when resolving variable names according to the LEGB rule?",
+                "options": [
+                  "Local -> Enclosing -> Global -> Built-in",
+                  "Local -> Global -> Enclosing -> Built-in",
+                  "Global -> Local -> Built-in -> Enclosing",
+                  "Built-in -> Global -> Enclosing -> Local"
+                ],
+                "correctAnswer": 0,
+                "explanation": "Python resolves identifiers using LEGB: Local scope first, then Enclosing functions, then module Global scope, and finally Built-in names."
+              },
+              {
+                "id": "py-q-6-3",
+                "questionNumber": 3,
+                "topic": "Arbitrary Arguments",
+                "questionText": "What data structures capture arguments defined with *args and **kwargs?",
+                "options": [
+                  "args is a list, kwargs is a dictionary",
+                  "args is a tuple, kwargs is a dictionary",
+                  "args is a set, kwargs is a list",
+                  "Both are tuples"
+                ],
+                "correctAnswer": 1,
+                "explanation": "*args packs positional arguments into an immutable tuple, while **kwargs packs keyword arguments into a dict."
+              },
+              {
+                "id": "py-q-6-4",
+                "questionNumber": 4,
+                "topic": "Mutable Default Arguments",
+                "questionText": "Why is def append_item(x, lst=[]): considered a dangerous Python anti-pattern?",
+                "options": [
+                  "SyntaxError: empty list is not permitted in function signatures",
+                  "Default argument expressions are evaluated once at function definition time, so the same list object is shared across all calls",
+                  "Python automatically converts default lists to tuples",
+                  "It causes infinite recursion"
+                ],
+                "correctAnswer": 1,
+                "explanation": "Default parameter values are bound when the function definition is executed, meaning mutating lst retains state across subsequent invocations."
+              },
+              {
+                "id": "py-q-6-5",
+                "questionNumber": 5,
+                "topic": "Lambda Functions",
+                "questionText": "What is the evaluated output of (lambda a, b: a if a > b else b)(12, 25)?",
+                "options": [
+                  "12",
+                  "25",
+                  "True",
+                  "None"
+                ],
+                "correctAnswer": 1,
+                "explanation": "The lambda expression computes the maximum between two numbers. 25 is greater than 12, so 25 is returned."
+              }
+            ]
+          }
         },
         "quiz": {
           "id": "quiz-py-mod-6",
@@ -1036,9 +3021,9 @@ export const INITIAL_COURSES = [
           "questions": [
             {
               "id": "py-q-6-1",
-              "type": "multiple-choice",
+              "questionNumber": 1,
               "topic": "Fruitful vs Void Functions",
-              "questionText": "What value is returned by a Python function that does not contain a `return` statement?",
+              "questionText": "What value is returned by a Python function that does not contain a return statement?",
               "options": [
                 "0",
                 "False",
@@ -1046,12 +3031,11 @@ export const INITIAL_COURSES = [
                 "Undefined"
               ],
               "correctAnswer": 2,
-              "marks": 10,
-              "explanation": "In Python, functions that reach the end of their body without an explicit return statement implicitly return `None`."
+              "explanation": "In Python, functions that reach the end of their body without an explicit return statement implicitly return None."
             },
             {
               "id": "py-q-6-2",
-              "type": "multiple-choice",
+              "questionNumber": 2,
               "topic": "Variable Scope (LEGB)",
               "questionText": "What is the order of namespaces Python searches when resolving variable names according to the LEGB rule?",
               "options": [
@@ -1061,29 +3045,27 @@ export const INITIAL_COURSES = [
                 "Built-in -> Global -> Enclosing -> Local"
               ],
               "correctAnswer": 0,
-              "marks": 10,
               "explanation": "Python resolves identifiers using LEGB: Local scope first, then Enclosing functions, then module Global scope, and finally Built-in names."
             },
             {
               "id": "py-q-6-3",
-              "type": "multiple-choice",
+              "questionNumber": 3,
               "topic": "Arbitrary Arguments",
-              "questionText": "What data structures capture arguments defined with `*args` and `**kwargs`?",
+              "questionText": "What data structures capture arguments defined with *args and **kwargs?",
               "options": [
-                "`args` is a list, `kwargs` is a dictionary",
-                "`args` is a tuple, `kwargs` is a dictionary",
-                "`args` is a set, `kwargs` is a list",
+                "args is a list, kwargs is a dictionary",
+                "args is a tuple, kwargs is a dictionary",
+                "args is a set, kwargs is a list",
                 "Both are tuples"
               ],
               "correctAnswer": 1,
-              "marks": 10,
-              "explanation": "`*args` packs positional arguments into an immutable `tuple`, while `**kwargs` packs keyword arguments into a `dict`."
+              "explanation": "*args packs positional arguments into an immutable tuple, while **kwargs packs keyword arguments into a dict."
             },
             {
               "id": "py-q-6-4",
-              "type": "multiple-choice",
+              "questionNumber": 4,
               "topic": "Mutable Default Arguments",
-              "questionText": "Why is `def append_item(x, lst=[]):` considered a dangerous Python anti-pattern?",
+              "questionText": "Why is def append_item(x, lst=[]): considered a dangerous Python anti-pattern?",
               "options": [
                 "SyntaxError: empty list is not permitted in function signatures",
                 "Default argument expressions are evaluated once at function definition time, so the same list object is shared across all calls",
@@ -1091,14 +3073,13 @@ export const INITIAL_COURSES = [
                 "It causes infinite recursion"
               ],
               "correctAnswer": 1,
-              "marks": 10,
-              "explanation": "Default parameter values are bound when the function definition is executed, meaning mutating `lst` retains state across subsequent invocations."
+              "explanation": "Default parameter values are bound when the function definition is executed, meaning mutating lst retains state across subsequent invocations."
             },
             {
               "id": "py-q-6-5",
-              "type": "multiple-choice",
+              "questionNumber": 5,
               "topic": "Lambda Functions",
-              "questionText": "What is the evaluated output of `(lambda a, b: a if a > b else b)(12, 25)`?",
+              "questionText": "What is the evaluated output of (lambda a, b: a if a > b else b)(12, 25)?",
               "options": [
                 "12",
                 "25",
@@ -1106,7 +3087,6 @@ export const INITIAL_COURSES = [
                 "None"
               ],
               "correctAnswer": 1,
-              "marks": 10,
               "explanation": "The lambda expression computes the maximum between two numbers. 25 is greater than 12, so 25 is returned."
             }
           ]
@@ -1118,122 +3098,459 @@ export const INITIAL_COURSES = [
         "description": "Sequences, mutability, lists, dictionaries as key-value mappings & counters, tuples immutability, DSU sorting pattern, and list comprehensions.",
         "completed": true,
         "readingMaterial": {
-          "introduction": "Based on Chapters 8, 9, and 10 of 'Python for Everybody', data structures organize complex data. Lists are ordered and mutable. Dictionaries are fast key-value mappings. Tuples are immutable sequences useful for sorting and dictionary keys.",
+          "introduction": "Python data structures store and organize related values. Lists and tuples are ordered sequences accessed by position, while dictionaries map unique keys to values, and sets store unique, unordered elements.\n\nPrograms often need to work with groups of related information: a set of quiz scores, a record of a person's details, a collection of product names, or unique user permissions. A data structure stores that information in a useful form. The choice of structure affects how values are accessed, updated, searched, and processed.\n\nPython's core collection types include lists, dictionaries, tuples, and sets. Lists are ordered and mutable. Dictionaries store key-value mappings and allow values to be retrieved by key in O(1) average time. Tuples are ordered sequences that cannot be structurally changed after creation. Sets store unique elements with ultra-fast mathematical set operations. This comprehensive module covers sequence operations, mutability, multi-dimensional lists, shallow vs deep copying, dictionary counters, dictionary comprehensions, modern merge operators, tuple immutability, namedtuples, sets & set theory, the collections module (Counter, defaultdict, deque), the Decorate-Sort-Undecorate (DSU) pattern, Big-O computational complexity, and list comprehensions.",
           "objectives": [
-            "Create and manipulate mutable lists (append, extend, pop, remove, sort)",
-            "Understand list operations, indexing, and slicing",
-            "Use dictionaries as histograms/counters using the d.get(key, 0) idiom",
-            "Understand tuple immutability, tuple assignment, and swapping (a, b = b, a)",
-            "Master the DSU (Decorate-Sort-Undecorate) pattern for complex sorting",
-            "Write concise list comprehensions"
+            "Describe sequences, indexing, slicing, mutability, and Big-O computational complexity.",
+            "Create, access, update, shallow copy, deep copy, and iterate through 1D and 2D lists.",
+            "Use dictionaries to map keys to values, build frequency counters, and perform dictionary comprehensions.",
+            "Master Python 3.9+ dictionary merge (|) and update (|=) operations along with setdefault().",
+            "Leverage collections module power tools: Counter, defaultdict, and deque.",
+            "Utilize sets for fast uniqueness checks, mathematical operations, and order-preserving deduplication.",
+            "Explain tuple immutability, understand the mutable-in-immutable paradox, and apply namedtuples.",
+            "Apply the Decorate-Sort-Undecorate (DSU) sorting pattern with stability tie-breakers.",
+            "Write concise, readable list and dictionary comprehensions with conditional filtering."
           ],
           "sections": [
             {
-              "heading": "Data Structures Comparison Matrix",
-              "text": "Understanding the trade-offs between Python's core built-in collection types:",
+              "heading": "3. Sequences and Collection Types Comparison",
+              "text": "A sequence is an ordered collection of items. Lists and tuples are sequences, as are strings. Sequence items have positions called indexes, and many sequence operations work consistently across these types:",
               "table": {
                 "headers": [
-                  "Data Structure",
-                  "Syntax",
+                  "Structure",
+                  "Ordered?",
                   "Mutable?",
-                  "Key Characteristic",
-                  "Lookup Speed"
+                  "Duplicates?",
+                  "Lookup Time",
+                  "Syntax Example"
                 ],
                 "rows": [
                   [
                     "List",
-                    "[1, 2, 3]",
                     "Yes",
-                    "Ordered indexed sequence",
-                    "O(N) search"
-                  ],
-                  [
-                    "Dictionary",
-                    "{'key': 'val'}",
                     "Yes",
-                    "Unordered key-value mapping",
-                    "O(1) Hash Table lookup"
+                    "Yes",
+                    "O(N) by value, O(1) by index",
+                    "[1, 2, 3]"
                   ],
                   [
                     "Tuple",
-                    "(1, 2, 3)",
-                    "No (Immutable)",
-                    "Comparable & Hashable",
-                    "O(N) search"
+                    "Yes",
+                    "No",
+                    "Yes",
+                    "O(N) by value, O(1) by index",
+                    "(1, 2, 3)"
+                  ],
+                  [
+                    "Dictionary",
+                    "Insertion order (3.7+)",
+                    "Yes",
+                    "Keys: No, Values: Yes",
+                    "O(1) average by key",
+                    "{\"key\": \"val\"}"
                   ],
                   [
                     "Set",
-                    "{1, 2, 3}",
+                    "No",
                     "Yes",
-                    "Unordered unique elements",
-                    "O(1) Hash Table lookup"
+                    "No (Unique only)",
+                    "O(1) average membership",
+                    "{1, 2, 3}"
                   ]
                 ]
               }
             },
             {
-              "heading": "Dictionary Histogram Idiom: d.get(key, default)",
-              "text": "The get() method returns the value for a key if present, or a default value (0) if absent, enabling single-line word counting:",
-              "codeExamples": [
-                {
-                  "title": "Word Frequency Counter with dict.get()",
-                  "code": "word = 'brontosaurus'\nd = dict()\nfor c in word:\n    d[c] = d.get(c, 0) + 1\nprint(d)\n# Output: {'b': 1, 'r': 2, 'o': 2, 'n': 1, 't': 1, 's': 2, 'a': 1, 'u': 2}",
-                  "explanation": "d.get(c, 0) + 1 replaces multi-line if/else checks."
-                }
-              ]
+              "heading": "4 & 5. Indexing, Slicing & Mutability Principles",
+              "text": "Sequence indexes start at zero (0). Negative indexes count backward from the end (-1 is the last item). A slice selects a portion of a sequence with [start:stop:step]; its stop index is always excluded.\n\ncolors = [\"red\", \"green\", \"blue\", \"gold\"]\ncolors[0]     # \"red\"\ncolors[-1]    # \"gold\"\ncolors[1:3]   # [\"green\", \"blue\"]\ncolors[::-1]  # Reverses sequence: [\"gold\", \"blue\", \"green\", \"red\"]\n\nSlice Assignments:\nBecause lists are mutable, you can replace or delete an entire contiguous slice of elements at once:\nnums = [10, 20, 30, 40, 50]\nnums[1:4] = [99, 100]  # nums becomes [10, 99, 100, 50]\ndel nums[1:3]          # nums becomes [10, 50]\n\nMutability:\n• Mutable objects can be changed in-place after creation (lists, dictionaries, sets). Items can be added, updated, or removed without changing the object's identity in memory.\n• Immutable objects cannot have their stored structure changed after creation (tuples, strings, integers, floats, booleans).\nUnderstanding mutability helps prevent accidental side-effects when multiple variables refer to the same object."
             },
             {
-              "heading": "Tuples & The DSU (Decorate-Sort-Undecorate) Pattern",
-              "text": "Because tuples are comparable (compared element by element), we can sort data by prepending a sort key tuple:",
-              "codeExamples": [
-                {
-                  "title": "DSU Sorting Words by Length",
-                  "code": "txt = 'but soft what light in yonder window breaks'\nwords = txt.split()\nt = list()\n\n# Decorate: tuple (len(word), word)\nfor word in words:\n    t.append((len(word), word))\n\n# Sort: by length descending\nt.sort(reverse=True)\n\n# Undecorate: extract word\nres = [word for length, word in t]\nprint(res)\n# Output: ['yonder', 'window', 'breaks', 'light', 'what', 'soft', 'but']",
-                  "explanation": "Sorts words by length descending using list of tuples."
-                }
+              "heading": "6 to 8. Creating, Accessing, Updating & List Operations",
+              "text": "A list is written with square brackets [] and comma-separated items. Lists can contain values of the same type or mixed types.\n\nUpdating Lists:\nBecause lists are mutable, items can be replaced, added, or removed:\n• items[0] = \"pencil\": Replaces an existing element in-place (O(1)).\n• .append(item): Adds one item to the end of the list (O(1) amortized).\n• .extend(iterable): Appends all items from another collection to the end (O(K)).\n• .insert(index, item): Inserts an item at a specific position (O(N) due to memory shifts).\n• .remove(val): Removes the first occurrence of a matching value (O(N)).\n• .pop(index): Removes and returns the item at index (O(1) for end, O(N) for beginning).\n• .clear(): Removes all elements from the list in-place.\n\nList Operations:\nLists support concatenation (+), repetition (*), membership checks (in, not in), and built-in aggregate functions:\n• Concatenation: [2, 4, 6] + [8] -> [2, 4, 6, 8]\n• Repetition: [2, 4] * 2 -> [2, 4, 2, 4]\n• Membership: 4 in [2, 4, 6] -> True (O(N) linear search)\n• Built-ins: len(), sum(), min(), max()"
+            },
+            {
+              "heading": "9 & 10. Iterating, Aliasing & Shallow vs Deep Copying",
+              "text": "Iterating Through Lists:\nA for loop processes each list item in order. When both the index and value are required, use enumerate():\nfruits = [\"apple\", \"banana\", \"mango\"]\nfor index, fruit in enumerate(fruits, start=1):\n    print(index, fruit)\n\nAliasing Trap:\nAssigning a list to another variable (second = first) does NOT copy the list. Both names point to the exact same list in memory (aliasing). A modification through either name affects both!\n\nShallow Copy vs Deep Copy:\n• Shallow Copy (first.copy() or first[:]): Creates a new outer list. However, if the list contains nested mutable objects (e.g. lists of lists), the inner objects are still shared references!\n• Deep Copy (copy.deepcopy(nested_list)): Recursively duplicates all nested objects, creating a completely independent copy at all levels."
+            },
+            {
+              "heading": "11. Multi-Dimensional Lists (Matrices & Grids)",
+              "text": "A multi-dimensional list is a list containing other lists as its elements. It is commonly used for matrices, 2D coordinates, board games, and pixel buffers.\n\nCreating a 2D Grid:\n# Correct approach using list comprehension:\ngrid = [[0 for _ in range(3)] for _ in range(3)]\n\n# SEVERE PITFALL: Do NOT write grid = [[0] * 3] * 3!\nThis creates 3 references to the EXACT SAME row list. Modifying grid[0][0] = 1 would change all rows simultaneously!\n\nTraversing & Transposing Matrices:\nAccess elements using double indexing: matrix[row][col].\nMatrix transposition swaps rows and columns:\ntransposed = [[row[i] for row in matrix] for i in range(len(matrix[0]))]"
+            },
+            {
+              "heading": "12 to 14. Dictionaries as Key-Value Mappings",
+              "text": "A dictionary stores key-value pairs in curly braces {}. Each key is unique within the dictionary and must be hashable (immutable, such as strings, numbers, or tuples of primitives). Lists cannot be keys.\n\nAdding, Updating & Deleting:\n• Assignment (dict[k] = v) adds a new key or overwrites the existing value.\n• del dict[k] or dict.pop(k) removes a key and returns its value.\n\nSafe Lookup with .get() & .setdefault():\nAccessing a missing key with square brackets (dict[\"missing\"]) raises a KeyError.\n• dict.get(key, default): Safely returns None or a fallback value without modifying the dictionary.\n• dict.setdefault(key, default): Returns the value if present; if not, inserts key with default value and returns it (ideal for grouping into lists: dict.setdefault(k, []).append(v)).\n\nIterating Through Dictionaries:\n• 'for k in d:' visits keys.\n• 'for k, v in d.items():' visits key-value pairs simultaneously.\n• 'd.keys()' and 'd.values()' yield views of keys and values."
+            },
+            {
+              "heading": "15 & 16. Frequency Counters & collections.Counter",
+              "text": "Counting Pattern with Dictionaries:\nA dictionary can track how often items occur in a dataset. Using .get(item, 0) provides a starting count of zero before incrementing:\ncolors = [\"red\", \"blue\", \"red\", \"green\", \"blue\", \"red\"]\ncounts = {}\nfor color in colors:\n    counts[color] = counts.get(color, 0) + 1\n# {\"red\": 3, \"blue\": 2, \"green\": 1}\n\nThe collections.Counter Class:\nPython provides a specialized dictionary in the standard library for tallying hashable items directly:\nfrom collections import Counter\ncounts = Counter(words)\nprint(counts.most_common(1)) # [(\"sun\", 3)]\nCounter supports arithmetic operations like union, intersection, and subtraction."
+            },
+            {
+              "heading": "17. Modern Dictionary Operations & Dict Comprehensions",
+              "text": "Python 3.9+ Union & Merge Operators:\n• Merge Operator (|): Combines two dictionaries into a new one:\nmerged = dict_a | dict_b  # Values in dict_b overwrite duplicate keys in dict_a.\n• Update Operator (|=): Modifies a dictionary in place: dict_a |= dict_b.\n\nDictionary Comprehensions:\nConstruct new dictionaries dynamically with concise syntax:\nsquares = {x: x ** 2 for x in range(1, 6)}\n# Inverting a dictionary (swapping keys and values):\ninverted = {v: k for k, v in original.items()}"
+            },
+            {
+              "heading": "18 & 19. Tuples, Immutability, Star Unpacking & namedtuple",
+              "text": "Creating Tuples:\nA tuple is an ordered, immutable sequence, commonly written with parentheses () and commas:\npoint = (4, 7)\nperson = (\"Maya\", 25, \"designer\")\nCRITICAL SYNTAX: A single-item tuple REQUIRES a trailing comma: single = (5,). Without the comma, (5) is treated as an integer expression in parentheses!\n\nTuple Immutability:\nItem positions cannot be reassigned once created (coords[0] = 15 raises TypeError). This makes tuples ideal for fixed records, dictionary keys, and returning multiple values from functions.\n\nStar (*) Extended Unpacking:\nCaptures variable numbers of elements cleanly:\nfirst, *middle, last = [10, 20, 30, 40, 50]\n# first = 10, middle = [20, 30, 40], last = 50\n\nLightweight NamedTuples:\nfrom collections import namedtuple\nStudent = namedtuple(\"Student\", [\"name\", \"grade\", \"major\"])\ns = Student(\"Asha\", 95, \"Computer Science\")\nprint(s.name, s.grade)  # Named attribute access with tuple memory efficiency!"
+            },
+            {
+              "heading": "20. Sets, Mathematical Operations & Fast Deduplication",
+              "text": "A set is an unordered collection of unique, hashable elements defined with curly braces {1, 2, 3} or set().\n\nCreating Sets:\n• Empty set must be created with set(), NOT {} (which creates an empty dictionary!).\n• Duplicates are eliminated automatically: set([1, 2, 2, 3]) -> {1, 2, 3}.\n\nSet Mathematical Operations:\n• Union (a | b or a.union(b)): All elements in either set.\n• Intersection (a & b or a.intersection(b)): Only elements common to both sets.\n• Difference (a - b or a.difference(b)): Elements in a that are not in b.\n• Symmetric Difference (a ^ b): Elements in either set, but NOT in both.\n• Subset check: a.issubset(b) or a <= b.\n\nDeduplication Techniques:\n• Fast unordered deduplication: list(set(items)) (destroys original order).\n• Order-preserving deduplication (Python 3.7+): list(dict.fromkeys(items)) (preserves first appearance order in O(N) time!)."
+            },
+            {
+              "heading": "21. Advanced Collections: collections.defaultdict & collections.deque",
+              "text": "The standard library collections module provides high-performance data structures:\n\ncollections.defaultdict:\nA subclass of dict that calls a factory function (e.g. list, int, set) whenever a missing key is accessed, completely eliminating KeyError exceptions and boilerplate if-checks:\nfrom collections import defaultdict\ngrouped = defaultdict(list)\ngrouped[\"python\"].append(\"guido\")  # Automatically initializes empty list!\n\ncounts = defaultdict(int)\ncounts[\"apple\"] += 1              # Automatically starts at 0!\n\ncollections.deque (Double-Ended Queue):\nStandard Python lists are fast for appending/popping at the end (O(1)), but inserting or removing at index 0 requires shifting all elements (O(N)).\nA deque provides O(1) appends and pops from BOTH ends:\nfrom collections import deque\nq = deque([1, 2, 3])\nq.appendleft(0)    # O(1) prepend!\nq.popleft()        # O(1) pop from front!"
+            },
+            {
+              "heading": "22. The Tuple Mutability Paradox & Memory Efficiency",
+              "text": "The Mutable-in-Immutable Paradox:\nA tuple itself is immutable: its references cannot be replaced or reordered. However, if an element inside a tuple is a mutable object (such as a list), that nested object CAN be modified in-place!\n\nt = (1, [10, 20])\nt[1].append(30)   # Allowed! t is now (1, [10, 20, 30])\n\nThe Augmented Assignment Trap:\nWriting 't[1] += [40]' raises a TypeError (because tuple element reassignment fails), BUT the list is still mutated! This classic Python interview question occurs because '+=' modifies the list in place and then attempts to assign the result back to t[1].\n\nMemory Footprint:\nTuples are more lightweight than lists because they are immutable and do not allocate extra buffer capacity for future appends:\nimport sys\nprint(sys.getsizeof([1, 2, 3]))  # Typically 88 bytes\nprint(sys.getsizeof((1, 2, 3)))  # Typically 64 bytes"
+            },
+            {
+              "heading": "23. Sorting Data & The DSU Pattern",
+              "text": "Sorting in Python:\n• list.sort(): Sorts a list in-place and returns None.\n• sorted(iterable): Returns a new sorted list without modifying the original.\n• key argument: Specifies a function or lambda used to derive comparison keys (e.g. sorted(students, key=lambda s: s[1])).\n\nThe DSU (Decorate-Sort-Undecorate) Pattern:\nDSU is a classic 3-step pattern for sorting items using derived keys:\n1. Decorate: Pair each item with a sort key and original index: [(score, index, name) for index, (name, score) in enumerate(students)]\n2. Sort: Sort the decorated list of tuples. Python compares tuples element-by-element; the index acts as a stable tie-breaker.\n3. Undecorate: Extract the original items in their sorted order: [name for score, index, name in decorated]"
+            },
+            {
+              "heading": "24. List Comprehensions & Readability",
+              "text": "A list comprehension provides a concise syntax for constructing a new list from an iterable:\n\n1. Basic Transformation:\nsquares = [n ** 2 for n in numbers]\n\n2. Filtering with 'if':\neven_numbers = [n for n in numbers if n % 2 == 0]\n\n3. Transforming and Filtering Together:\nraw_names = [\" Asha \", \"\", \" Ben\", \"Maya \"]\nclean_names = [name.strip() for name in raw_names if name.strip()]\n# [\"Asha\", \"Ben\", \"Maya\"]\n\nReadability Best Practice:\nList comprehensions are intended for short, readable transformations. If a comprehension contains nested loops or complicated conditions, a standard for loop with explicit steps is clearer and easier to debug."
+            },
+            {
+              "heading": "25. Computational Complexity Matrix (Big-O)",
+              "text": "Understanding algorithm efficiency across Python collection types is essential for writing scalable code:",
+              "table": {
+                "headers": [
+                  "Operation",
+                  "List (list)",
+                  "Tuple (tuple)",
+                  "Dictionary (dict)",
+                  "Set (set)"
+                ],
+                "rows": [
+                  [
+                    "Indexing by position",
+                    "O(1)",
+                    "O(1)",
+                    "N/A",
+                    "N/A"
+                  ],
+                  [
+                    "Key / Element Lookup",
+                    "O(N) linear",
+                    "O(N) linear",
+                    "O(1) average",
+                    "O(1) average"
+                  ],
+                  [
+                    "Append / Add",
+                    "O(1) amortized",
+                    "N/A (Immutable)",
+                    "O(1) average",
+                    "O(1) average"
+                  ],
+                  [
+                    "Insert at beginning [0]",
+                    "O(N) shifts all elements",
+                    "N/A",
+                    "O(1) average",
+                    "N/A"
+                  ],
+                  [
+                    "Pop from end",
+                    "O(1)",
+                    "N/A",
+                    "O(1) average",
+                    "O(1) arbitrary"
+                  ],
+                  [
+                    "Pop from beginning [0]",
+                    "O(N) shifts all elements",
+                    "N/A",
+                    "O(1) average",
+                    "N/A"
+                  ],
+                  [
+                    "Delete key / element",
+                    "O(N)",
+                    "N/A",
+                    "O(1) average",
+                    "O(1) average"
+                  ],
+                  [
+                    "Iteration",
+                    "O(N)",
+                    "O(N)",
+                    "O(N)",
+                    "O(N)"
+                  ]
+                ]
+              }
+            },
+            {
+              "heading": "26. Common Mistakes & Module Summary",
+              "text": "Summary of key concepts and common pitfalls to avoid:",
+              "bulletPoints": [
+                "Indexes vs Values: An index is a zero-based numeric position; a value is the item stored at that position.",
+                "Aliasing Trap: Assigning 'b = a' shares the same list; use 'a.copy()' or 'copy.deepcopy(a)' for nested data.",
+                "Grid Multiplication Trap: '[[0]*3]*3' duplicates the same row list; always use '[[0 for _ in range(3)] for _ in range(3)]'.",
+                "Missing Keys: Accessing dict[k] directly raises KeyError; guard with 'k in dict', 'dict.get(k, default)', or use 'defaultdict'.",
+                "Mutable Keys Error: Lists and sets cannot be dictionary keys because they are unhashable; use tuples or frozensets.",
+                "Single-Item Tuple Comma: Always include a trailing comma for single-item tuples (e.g., '(5,)', not '(5)').",
+                "Empty Set Initialization: '{}' creates an empty dictionary, not a set; always call 'set()' to create an empty set.",
+                "list.sort() Returns None: Calling 'lst = lst.sort()' overwrites lst with None; call 'lst.sort()' directly or use 'sorted(lst)'."
               ]
             }
           ],
           "codeExamples": [
             {
-              "title": "Top 10 Most Common Words in Text",
-              "code": "# Chapter 10: Finding Top 10 Most Common Words\nimport string\n\nfname = 'romeo.txt'\ncounts = dict()\nwith open(fname) as fhand:\n    for line in fhand:\n        line = line.translate(line.maketrans('', '', string.punctuation)).lower()\n        for word in line.split():\n            counts[word] = counts.get(word, 0) + 1\n\n# Convert dict items to list of (val, key) tuples for sorting\nlst = [(val, key) for key, val in counts.items()]\nlst.sort(reverse=True)\n\nprint(\"Top 10 Words:\")\nfor val, key in lst[:10]:\n    print(f\"{key}: {val}\")",
-              "explanation": "Combines string cleaning, dictionary counting, and tuple sorting."
+              "title": "4 & 5. Indexing, Slicing & Mutability",
+              "code": "colors = [\"red\", \"green\", \"blue\", \"gold\"]\n\nprint(\"First element (index 0):\", colors[0])\nprint(\"Last element (index -1):\", colors[-1])\nprint(\"Slice [1:3]:\", colors[1:3]) # ['green', 'blue']\nprint(\"Reversed [::-1]:\", colors[::-1])\n\n# Slice assignment: replacing a chunk\nitems = [10, 20, 30, 40, 50]\nitems[1:4] = [99, 100]\nprint(\"Slice assigned items:\", items) # [10, 99, 100, 50]\n\n# Mutability: updating in place\nitems[0] = 5\nitems.append(60)\nprint(\"Updated items:\", items)",
+              "explanation": "Demonstrates zero-based indexing, negative indexing, step-based slicing, slice replacements, and list mutability."
+            },
+            {
+              "title": "7 & 8. List Updates, Methods & Operations",
+              "code": "tasks = [\"read\", \"write\"]\ntasks[1] = \"review\"\ntasks.append(\"submit\")\ntasks.insert(0, \"plan\")\ntasks.extend([\"test\", \"deploy\"])\nprint(\"Tasks:\", tasks)\n\n# Concatenation, repetition, and membership\nnumbers = [2, 4, 6]\nprint(\"Concatenation:\", numbers + [8])\nprint(\"Repetition:\", numbers * 2)\nprint(\"Membership (4 in numbers):\", 4 in numbers)\nprint(\"Sum of numbers:\", sum(numbers))",
+              "explanation": "Shows in-place list modification methods, extend(), and sequence arithmetic operators."
+            },
+            {
+              "title": "9 & 10. Aliasing vs Shallow Copy vs Deep Copy",
+              "code": "import copy\n\n# 1. Aliasing trap\na = [[1, 2], [3, 4]]\nb = a\nb.append([5, 6])\nprint(\"a after b.append:\", len(a)) # 3 (affected!)\n\n# 2. Shallow copy vs Deep copy on nested lists\nshallow = a.copy()\ndeep = copy.deepcopy(a)\n\nshallow[0][0] = 999\nprint(\"a[0][0] after shallow modification:\", a[0][0]) # 999 (shared!)\nprint(\"deep[0][0] after deepcopy untouched:\", deep[0][0]) # 1 (safe!)",
+              "explanation": "Clearly proves why copy.deepcopy() is required for nested structures and matrices."
+            },
+            {
+              "title": "11. Multi-Dimensional Lists (Matrices & Transposition)",
+              "code": "matrix = [\n    [1, 2, 3],\n    [4, 5, 6],\n    [7, 8, 9]\n]\n\nprint(\"Center element [1][1]:\", matrix[1][1])\n\n# Matrix transposition using nested list comprehension\ntransposed = [[row[i] for row in matrix] for i in range(len(matrix[0]))]\nprint(\"Transposed Matrix:\")\nfor r in transposed:\n    print(r)",
+              "explanation": "Shows safe grid initialization and row-column transposition using nested list comprehensions."
+            },
+            {
+              "title": "12 to 14. Dictionaries: Access, setdefault() & Iteration",
+              "code": "student = {\"name\": \"Asha\", \"grade\": 92}\nstudent[\"grade\"] = 95\nstudent[\"city\"] = \"Pune\"\n\n# Grouping items with setdefault()\ngrades = {}\ngrades.setdefault(\"CS101\", []).append(\"Asha\")\ngrades.setdefault(\"CS101\", []).append(\"Ben\")\nprint(\"Grouped with setdefault:\", grades)\n\n# Safe lookup with .get()\nsettings = {\"theme\": \"dark\"}\nprint(\"Theme:\", settings.get(\"theme\"))\nprint(\"Language (fallback):\", settings.get(\"language\", \"English\"))\n\n# Iterating over items()\nfor course, roster in grades.items():\n    print(f\"Course {course}: {', '.join(roster)}\")",
+              "explanation": "Covers key-value updates, setdefault() grouping, and safe get() lookups."
+            },
+            {
+              "title": "15 to 17. Counters, Python 3.9+ Merge & Dict Comprehensions",
+              "code": "from collections import Counter\n\n# Frequency counting\nwords = [\"sun\", \"rain\", \"sun\", \"wind\", \"sun\", \"rain\"]\nword_counts = Counter(words)\nprint(\"Top word:\", word_counts.most_common(1))\n\n# Python 3.9+ Dictionary Merge (|) and Update (|=)\ndefaults = {\"theme\": \"light\", \"font\": \"sans\", \"zoom\": 100}\nuser_pref = {\"theme\": \"dark\", \"zoom\": 120}\nactive_settings = defaults | user_pref # user_pref overrides defaults\nprint(\"Merged settings (|):\", active_settings)\n\n# Dictionary comprehension\nsquares_dict = {x: x ** 2 for x in range(1, 6)}\nprint(\"Squares dict:\", squares_dict)",
+              "explanation": "Demonstrates collections.Counter, Python 3.9+ union merge (|), and dictionary comprehensions."
+            },
+            {
+              "title": "18 & 19. Tuples, Star Unpacking & namedtuple",
+              "code": "from collections import namedtuple\n\n# Single item tuple & immutable points\npoint = (4, 7)\nsingle_item = (5,) # Notice trailing comma!\n\n# Star (*) Extended Unpacking\nfirst, *middle, last = [10, 20, 30, 40, 50]\nprint(f\"first={first}, middle={middle}, last={last}\")\n\n# Swapping variables\na, b = 10, 20\na, b = b, a\nprint(f\"Swapped: a={a}, b={b}\")\n\n# namedtuple: readable records\nCity = namedtuple(\"City\", [\"name\", \"country\", \"population\"])\ntokyo = City(\"Tokyo\", \"Japan\", 37400000)\nprint(f\"{tokyo.name}, {tokyo.country} (Pop: {tokyo.population})\")",
+              "explanation": "Shows tuple immutability, star unpacking, variable swapping, and collections.namedtuple."
+            },
+            {
+              "title": "20. Sets: Mathematical Operations & Deduplication",
+              "code": "devs_python = {\"Asha\", \"Ben\", \"Chloe\", \"David\"}\ndevs_js = {\"Chloe\", \"David\", \"Elena\", \"Farhan\"}\n\n# Union (|): Developers who know either language\nprint(\"All devs (|):\", devs_python | devs_js)\n\n# Intersection (&): Developers who know BOTH languages\nprint(\"Full-stack (&):\", devs_python & devs_js)\n\n# Difference (-): Python devs who don't know JS\nprint(\"Pure Python (-):\", devs_python - devs_js)\n\n# Order-Preserving Deduplication using dict.fromkeys()\nraw_tags = [\"python\", \"ai\", \"web\", \"python\", \"ai\", \"cloud\"]\nunique_ordered_tags = list(dict.fromkeys(raw_tags))\nprint(\"Unique ordered tags:\", unique_ordered_tags)",
+              "explanation": "Demonstrates set mathematical operations (union, intersection, difference) and order-preserving deduplication."
+            },
+            {
+              "title": "21. Advanced Collections: defaultdict & deque",
+              "code": "from collections import defaultdict, deque\n\n# 1. defaultdict: Automatic list initialization\ndepartments = defaultdict(list)\ndepartments[\"Engineering\"].append(\"Asha\")\ndepartments[\"Engineering\"].append(\"Ben\")\ndepartments[\"Design\"].append(\"Chloe\")\nprint(\"Departments:\", dict(departments))\n\n# 2. deque: O(1) front and rear operations\nrecent_actions = deque(maxlen=3)\nfor action in [\"login\", \"view_course\", \"take_quiz\", \"logout\"]:\n    recent_actions.append(action)\n    print(\"Action history:\", list(recent_actions))",
+              "explanation": "Demonstrates defaultdict for eliminating missing key checks and deque for fixed-size sliding history buffers."
+            },
+            {
+              "title": "22. The Tuple Mutability Paradox & Memory Inspection",
+              "code": "import sys\n\n# Tuple containing a mutable list\nrecord = (\"ID101\", [\"physics\", \"math\"])\nprint(\"Original record:\", record)\n\n# Modifying the mutable inner list is ALLOWED!\nrecord[1].append(\"chemistry\")\nprint(\"Modified record:\", record)\n\n# Memory comparison\nlist_obj = [1, 2, 3, 4, 5]\ntuple_obj = (1, 2, 3, 4, 5)\nprint(\"List byte size:\", sys.getsizeof(list_obj))\nprint(\"Tuple byte size:\", sys.getsizeof(tuple_obj))",
+              "explanation": "Shows why inner mutable collections in tuples can mutate, and proves the lower memory footprint of tuples."
+            },
+            {
+              "title": "23 & 24. DSU Sorting Pattern vs lambda key",
+              "code": "students = [(\"Asha\", 88), (\"Ben\", 95), (\"Maya\", 88)]\n\n# Decorate-Sort-Undecorate (DSU) with index tie-breaker\ndecorated = [(score, index, name) for index, (name, score) in enumerate(students)]\ndecorated.sort()\ndsu_result = [name for score, index, name in decorated]\nprint(\"DSU sorted by score:\", dsu_result)\n\n# Modern sorted() with key\nmodern_result = sorted(students, key=lambda s: s[1])\nprint(\"Modern key sorted:\", modern_result)",
+              "explanation": "Contrasts the classic DSU pattern with modern lambda sorting."
             }
           ],
           "bestPractices": [
-            "Use dictionaries when you need ultra-fast key lookups.",
-            "Use tuples for returning multiple values from functions.",
-            "Use list comprehensions [x for x in list] for concise sequence mapping."
+            "Use lists for ordered sequences that require in-place modifications and additions.",
+            "Use dictionaries when values need to be looked up by meaningful unique keys in O(1) time.",
+            "Use tuples for fixed, heterogeneous records and function return values to enforce immutability.",
+            "Use sets for ultra-fast O(1) membership testing and mathematical set logic (unions, intersections).",
+            "Always use .get(key, default) or collections.defaultdict to avoid KeyError exceptions.",
+            "Use copy.deepcopy() when duplicating nested collections or 2D matrices.",
+            "Use dict.fromkeys(items) to deduplicate a list while preserving original insertion order.",
+            "Use collections.deque when frequent appends or pops occur at the beginning of a queue.",
+            "Keep list comprehensions simple and readable; use explicit loops for complex multi-step logic."
           ],
           "commonMistakes": [
-            "Trying to mutate tuple elements: t[0] = 'A' (TypeError).",
-            "Writing t = t.sort()—list.sort() modifies in-place and returns None."
+            "Confusing zero-based indexes with values: lst[1] accesses the second item, not the first.",
+            "Assuming assignment 'b = a' copies a list: it creates an alias referencing the exact same list.",
+            "Using '[[0]*cols]*rows' to create 2D matrices, which shares row references across the entire grid.",
+            "Writing '{}' expecting an empty set: it creates an empty dictionary; use 'set()' instead.",
+            "Accessing missing dictionary keys with square brackets, causing KeyError crashes.",
+            "Attempting to use a mutable list or set as a dictionary key, raising TypeError: unhashable type.",
+            "Creating single-element tuples without a trailing comma: '(5)' is an integer, while '(5,)' is a tuple.",
+            "Assuming tuples make inner mutable objects immutable: modifying an inner list still mutates the list!",
+            "Assigning the result of list.sort(): 'lst = lst.sort()' sets lst to None because sort() works in place."
           ],
           "practiceExercise": {
-            "title": "Hour Distribution Histogram",
-            "problem": "Write a script that parses email timestamps from 'From stephen@uct.ac.za Sat Jan 5 09:14:16 2008' lines and counts distribution of hours using a dictionary.",
-            "solutionCode": "fname = \"mbox-short.txt\"\nhours = dict()\ntry:\n    with open(fname) as fhand:\n        for line in fhand:\n            if line.startswith(\"From \"):\n                time_str = line.split()[5]\n                hour = time_str.split(\":\")[0]\n                hours[hour] = hours.get(hour, 0) + 1\n    for h in sorted(hours.keys()):\n        print(f\"{h} {hours[h]}\")\nexcept FileNotFoundError:\n    print(\"Sample file mbox-short.txt not found.\")"
+            "title": "Hands-On Coding Practice: Advanced Data Structures Suite (8 Programs)",
+            "problem": "Complete the following 8 practical Python data structure programs:\n\nProgram 1: Word Frequency Histogram & Top-K Counter\nGiven a sentence, count word frequencies using a dictionary and extract the top 3 most frequent words using Counter.\n\nProgram 2: 2D Grid Transposition\nGiven a 3x3 matrix of numbers, use nested list comprehensions to compute its transpose (swap rows and columns).\n\nProgram 3: Dictionary Inverter with Duplicate Value Grouping\nInvert a dictionary mapping student names to grades so that each grade maps to a list of student names.\n\nProgram 4: DSU Multi-Field Sorter\nGiven a list of words, use the Decorate-Sort-Undecorate (DSU) pattern to sort words primarily by length (ascending) and secondarily alphabetically (case-insensitive).\n\nProgram 5: Configuration Merger with Union Operator\nGiven default app settings and user custom overrides, merge them using the Python 3.9+ union operator (|) and print the active configuration.\n\nProgram 6: Sales Record Grouping with setdefault()\nGiven a list of sales transactions (category, amount), group the transactions by category and calculate total sales per category.\n\nProgram 7: Role-Based Access Control (RBAC) with Sets\nGiven a set of user permissions and required endpoint permissions, compute missing permissions and determine if access is granted using set difference and subset operations.\n\nProgram 8: Sliding Window Rate Limiter with deque\nImplement a sliding-window timestamp tracker using collections.deque that records request timestamps and rejects requests exceeding 3 actions within a 10-second window.",
+            "solutionCode": "from collections import Counter, defaultdict, deque\n\n# Program 1: Word Frequency Histogram & Top-K\ntext = \"data structures in python include lists dictionaries and tuples lists are mutable tuples are immutable\"\nwords = text.split()\ncounts = Counter(words)\nprint(\"--- Program 1: Top 3 Words ---\")\nprint(counts.most_common(3))\n\n# Program 2: 2D Grid Transposition\nmatrix = [\n    [1, 2, 3],\n    [4, 5, 6],\n    [7, 8, 9]\n]\ntransposed = [[row[i] for row in matrix] for i in range(len(matrix[0]))]\nprint(\"\\n--- Program 2: Matrix Transpose ---\")\nfor r in transposed:\n    print(r)\n\n# Program 3: Dictionary Inverter\ngrades = {\"Asha\": \"A\", \"Ben\": \"B\", \"Chloe\": \"A\", \"David\": \"B\", \"Elena\": \"A+\"}\ninverted = {}\nfor name, grade in grades.items():\n    inverted.setdefault(grade, []).append(name)\nprint(\"\\n--- Program 3: Inverted Gradebook ---\", inverted)\n\n# Program 4: DSU Multi-Field Sorter\nwords_list = [\"banana\", \"pie\", \"apple\", \"fig\", \"kiwi\", \"date\"]\n# Decorate: (length, word.lower(), word)\ndecorated = [(len(w), w.lower(), w) for w in words_list]\ndecorated.sort()\nsorted_words = [w for length, low, w in decorated]\nprint(\"\\n--- Program 4: DSU Sorted Words ---\", sorted_words)\n\n# Program 5: Configuration Merger (|)\ndefaults = {\"theme\": \"dark\", \"fontSize\": 14, \"autoSave\": True, \"showLineNumbers\": True}\nuser_settings = {\"fontSize\": 16, \"autoSave\": False, \"theme\": \"cyberpunk\"}\nactive_config = defaults | user_settings\nprint(\"\\n--- Program 5: Merged Config ---\", active_config)\n\n# Program 6: Sales Grouping with setdefault\ntransactions = [\n    (\"Electronics\", 299.99),\n    (\"Books\", 15.50),\n    (\"Electronics\", 89.00),\n    (\"Groceries\", 45.20),\n    (\"Books\", 22.00)\n]\ncategory_totals = {}\nfor category, amount in transactions:\n    category_totals[category] = category_totals.get(category, 0.0) + amount\n\nprint(\"\\n--- Program 6: Sales Totals by Category ---\")\nfor cat, total in sorted(category_totals.items()):\n    print(f\"{cat}: $\" + f\"{total:.2f}\")\n\n# Program 7: Role-Based Access Control (RBAC) with Sets\nrequired_permissions = {\"read\", \"write\", \"delete\", \"export\"}\nuser_permissions = {\"read\", \"write\", \"audit\"}\n\nmissing_permissions = required_permissions - user_permissions\nhas_access = required_permissions.issubset(user_permissions)\nprint(\"\\n--- Program 7: RBAC Access Check ---\")\nprint(f\"User Permissions: {user_permissions}\")\nprint(f\"Missing Required: {missing_permissions}\")\nprint(f\"Access Granted: {has_access}\")\n\n# Program 8: Sliding Window Rate Limiter with deque\nclass RateLimiter:\n    def __init__(self, max_requests=3, window_seconds=10):\n        self.max_requests = max_requests\n        self.window_seconds = window_seconds\n        self.requests = deque()\n\n    def allow_request(self, current_time):\n        while self.requests and (current_time - self.requests[0]) > self.window_seconds:\n            self.requests.popleft()\n        if len(self.requests) < self.max_requests:\n            self.requests.append(current_time)\n            return True\n        return False\n\nlimiter = RateLimiter(max_requests=3, window_seconds=10)\ntest_timestamps = [1, 3, 5, 8, 12, 15]\nprint(\"\\n--- Program 8: Rate Limiter History ---\")\nfor ts in test_timestamps:\n    allowed = limiter.allow_request(ts)\n    print(f\"Timestamp {ts}s: {'Allowed' if allowed else 'Blocked (429 Rate Limit)'}\")"
           },
           "keyTakeaways": [
-            "Lists = mutable ordered; Tuples = immutable ordered; Dicts = key-value hash tables.",
-            "dict.get(key, 0) simplifies counter histograms.",
-            "DSU pattern sorts sequences using tuple comparison."
+            "Lists, dictionaries, tuples, and sets provide complementary tools to organize, query, and transform data.",
+            "Lists are mutable ordered sequences; use copy.deepcopy() for nested multi-dimensional structures.",
+            "Dictionaries provide fast O(1) hash-based key-value lookups; Python 3.9+ supports union merge (|) and update (|=).",
+            "Sets provide ultra-fast O(1) uniqueness filtering, subset verification, and mathematical operations.",
+            "Tuples are immutable ordered sequences; star unpacking (*rest) and namedtuples offer elegant structured data access.",
+            "Collections module tools (Counter, defaultdict, deque) eliminate boilerplate and optimize queue operations.",
+            "The DSU pattern sorts sequences using derived keys while preserving stability through index tie-breakers.",
+            "List and dictionary comprehensions compactly create, map, and filter collections with expressive syntax.",
+            "Understanding Big-O complexity helps select the right data structure for scalable real-world applications."
           ],
           "references": [
             {
-              "title": "Python for Everybody Chapter 8 (Lists)",
-              "url": "https://www.py4e.com/html3/08-lists"
+              "title": "Python Documentation: Data Structures",
+              "url": "https://docs.python.org/3/tutorial/datastructures.html"
             },
             {
-              "title": "Python for Everybody Chapter 9 (Dictionaries)",
-              "url": "https://www.py4e.com/html3/09-dictionaries"
+              "title": "Python Documentation: Sorting Techniques",
+              "url": "https://docs.python.org/3/howto/sorting.html"
             },
             {
-              "title": "Python for Everybody Chapter 10 (Tuples)",
-              "url": "https://www.py4e.com/html3/10-tuples"
+              "title": "Python Documentation: collections Module (Counter, defaultdict, deque, namedtuple)",
+              "url": "https://docs.python.org/3/library/collections.html"
+            },
+            {
+              "title": "Python Documentation: Set Types (set, frozenset)",
+              "url": "https://docs.python.org/3/library/stdtypes.html#set-types-set-frozenset"
+            },
+            {
+              "title": "Python Documentation: Sequence Types (list, tuple, range)",
+              "url": "https://docs.python.org/3/library/stdtypes.html#sequence-types-list-tuple-range"
             }
-          ]
+          ],
+          "mcqs": [
+            {
+              "id": 1,
+              "question": "What is the average time complexity of searching or retrieving a value by key in a Python dictionary?",
+              "options": [
+                "O(N) linear time",
+                "O(1) constant time",
+                "O(N log N) logarithmic time",
+                "O(N^2) quadratic time"
+              ],
+              "correctAnswer": 1,
+              "explanation": "Python dictionaries use hash tables under the hood, providing ultra-fast O(1) average-time lookups regardless of dictionary size."
+            },
+            {
+              "id": 2,
+              "question": "What happens when you attempt to execute tuple_obj[0] = 'new_value' on a Python tuple?",
+              "options": [
+                "The tuple is updated in place",
+                "A new tuple is created automatically",
+                "A TypeError is raised because tuples are immutable",
+                "Python converts the tuple into a list"
+              ],
+              "correctAnswer": 2,
+              "explanation": "Tuples are immutable; attempting to reassign or modify their index positions raises a TypeError: 'tuple' object does not support item assignment."
+            },
+            {
+              "id": 3,
+              "question": "What are the three steps of the classic Decorate-Sort-Undecorate (DSU) pattern?",
+              "options": [
+                "Filter data, sort values, print output",
+                "Create temporary comparison keys, sort by those keys, strip the keys to retrieve original items",
+                "Convert list to dict, sort keys, convert to tuple",
+                "Reverse list, apply bubble sort, reverse back"
+              ],
+              "correctAnswer": 1,
+              "explanation": "DSU decorates a sequence with derived sort keys, sorts the decorated tuples reliably, and undecorates to extract original items."
+            },
+            {
+              "id": 4,
+              "question": "Which operator was introduced in Python 3.9 to merge two dictionaries into a new dictionary?",
+              "options": [
+                "+",
+                "&",
+                "|",
+                "^"
+              ],
+              "correctAnswer": 2,
+              "explanation": "Python 3.9 introduced the union operator (|) to merge dictionaries (d1 | d2) and the update operator (|=) for in-place merging."
+            },
+            {
+              "id": 5,
+              "question": "What is the output of the list comprehension [x ** 2 for x in range(6) if x % 2 == 0]?",
+              "options": [
+                "[0, 4, 16]",
+                "[1, 9, 25]",
+                "[0, 1, 4, 9, 16, 25]",
+                "[4, 16, 36]"
+              ],
+              "correctAnswer": 0,
+              "explanation": "range(6) gives 0, 1, 2, 3, 4, 5. Even numbers are 0, 2, 4. Squaring them yields 0**2=0, 2**2=4, 4**2=16."
+            }
+          ],
+          "selfAssessment": {
+            "title": "Module Self-Assessment (5 Knowledge Check MCQs)",
+            "questions": [
+              {
+                "id": "py-q-7-1",
+                "questionNumber": 1,
+                "topic": "Dictionary Hash Complexity",
+                "questionText": "What is the average time complexity of key lookup and insertion in a Python dictionary?",
+                "options": [
+                  "O(1) constant time",
+                  "O(log N) logarithmic time",
+                  "O(N) linear time",
+                  "O(N^2) quadratic time"
+                ],
+                "correctAnswer": 0,
+                "explanation": "Python dictionaries use hash tables with open addressing, providing O(1) average time complexity for lookups, insertions, and deletions."
+              },
+              {
+                "id": "py-q-7-2",
+                "questionNumber": 2,
+                "topic": "Hashability & Immutability",
+                "questionText": "Why can a tuple be used as a dictionary key, but a list cannot?",
+                "options": [
+                  "Tuples are smaller in memory size than lists",
+                  "Tuples are immutable and therefore hashable, while lists are mutable and unhashable",
+                  "Lists do not support indexing in dictionary keys",
+                  "Python enforces this purely for style reasons"
+                ],
+                "correctAnswer": 1,
+                "explanation": "Dictionary keys must implement __hash__ and remain consistent over their lifetime. Because lists can be mutated in-place, they are unhashable."
+              },
+              {
+                "id": "py-q-7-3",
+                "questionNumber": 3,
+                "topic": "List Comprehensions",
+                "questionText": "What is the output of [x * 2 for x in [1, 2, 3, 4] if x % 2 != 0]?",
+                "options": [
+                  "[2, 4, 6, 8]",
+                  "[2, 6]",
+                  "[4, 8]",
+                  "[1, 3]"
+                ],
+                "correctAnswer": 1,
+                "explanation": "The condition filters for odd numbers (1 and 3). Multiplying each by 2 yields [2, 6]."
+              },
+              {
+                "id": "py-q-7-4",
+                "questionNumber": 4,
+                "topic": "Dictionary Get Method",
+                "questionText": "What does counts.get('unknown_word', 0) return if 'unknown_word' is not present in the dictionary?",
+                "options": [
+                  "KeyError",
+                  "None",
+                  "0",
+                  "-1"
+                ],
+                "correctAnswer": 2,
+                "explanation": "dict.get(key, default) returns the specified default value (here 0) instead of raising a KeyError when the key is absent."
+              },
+              {
+                "id": "py-q-7-5",
+                "questionNumber": 5,
+                "topic": "Tuple Unpacking",
+                "questionText": "What are the values of first and rest after first, *rest = [10, 20, 30, 40]?",
+                "options": [
+                  "first is 10, rest is 20",
+                  "first is 10, rest is [20, 30, 40]",
+                  "first is [10], rest is [20, 30, 40]",
+                  "SyntaxError: *rest is not allowed"
+                ],
+                "correctAnswer": 1,
+                "explanation": "Extended iterable unpacking binds the first element to first (10) and collects all remaining elements into a list rest ([20, 30, 40])."
+              }
+            ]
+          }
         },
         "quiz": {
           "id": "quiz-py-mod-7",
@@ -1245,7 +3562,7 @@ export const INITIAL_COURSES = [
           "questions": [
             {
               "id": "py-q-7-1",
-              "type": "multiple-choice",
+              "questionNumber": 1,
               "topic": "Dictionary Hash Complexity",
               "questionText": "What is the average time complexity of key lookup and insertion in a Python dictionary?",
               "options": [
@@ -1255,14 +3572,13 @@ export const INITIAL_COURSES = [
                 "O(N^2) quadratic time"
               ],
               "correctAnswer": 0,
-              "marks": 10,
               "explanation": "Python dictionaries use hash tables with open addressing, providing O(1) average time complexity for lookups, insertions, and deletions."
             },
             {
               "id": "py-q-7-2",
-              "type": "multiple-choice",
+              "questionNumber": 2,
               "topic": "Hashability & Immutability",
-              "questionText": "Why can a `tuple` be used as a dictionary key, but a `list` cannot?",
+              "questionText": "Why can a tuple be used as a dictionary key, but a list cannot?",
               "options": [
                 "Tuples are smaller in memory size than lists",
                 "Tuples are immutable and therefore hashable, while lists are mutable and unhashable",
@@ -1270,14 +3586,13 @@ export const INITIAL_COURSES = [
                 "Python enforces this purely for style reasons"
               ],
               "correctAnswer": 1,
-              "marks": 10,
-              "explanation": "Dictionary keys must implement `__hash__` and remain consistent over their lifetime. Because lists can be mutated in-place, they are unhashable."
+              "explanation": "Dictionary keys must implement __hash__ and remain consistent over their lifetime. Because lists can be mutated in-place, they are unhashable."
             },
             {
               "id": "py-q-7-3",
-              "type": "multiple-choice",
+              "questionNumber": 3,
               "topic": "List Comprehensions",
-              "questionText": "What is the output of `[x * 2 for x in [1, 2, 3, 4] if x % 2 != 0]`?",
+              "questionText": "What is the output of [x * 2 for x in [1, 2, 3, 4] if x % 2 != 0]?",
               "options": [
                 "[2, 4, 6, 8]",
                 "[2, 6]",
@@ -1285,14 +3600,13 @@ export const INITIAL_COURSES = [
                 "[1, 3]"
               ],
               "correctAnswer": 1,
-              "marks": 10,
               "explanation": "The condition filters for odd numbers (1 and 3). Multiplying each by 2 yields [2, 6]."
             },
             {
               "id": "py-q-7-4",
-              "type": "multiple-choice",
+              "questionNumber": 4,
               "topic": "Dictionary Get Method",
-              "questionText": "What does `counts.get('unknown_word', 0)` return if 'unknown_word' is not present in the dictionary?",
+              "questionText": "What does counts.get('unknown_word', 0) return if 'unknown_word' is not present in the dictionary?",
               "options": [
                 "KeyError",
                 "None",
@@ -1300,14 +3614,13 @@ export const INITIAL_COURSES = [
                 "-1"
               ],
               "correctAnswer": 2,
-              "marks": 10,
-              "explanation": "`dict.get(key, default)` returns the specified default value (here 0) instead of raising a KeyError when the key is absent."
+              "explanation": "dict.get(key, default) returns the specified default value (here 0) instead of raising a KeyError when the key is absent."
             },
             {
               "id": "py-q-7-5",
-              "type": "multiple-choice",
+              "questionNumber": 5,
               "topic": "Tuple Unpacking",
-              "questionText": "What are the values of `first` and `rest` after `first, *rest = [10, 20, 30, 40]`?",
+              "questionText": "What are the values of first and rest after first, *rest = [10, 20, 30, 40]?",
               "options": [
                 "first is 10, rest is 20",
                 "first is 10, rest is [20, 30, 40]",
@@ -1315,8 +3628,7 @@ export const INITIAL_COURSES = [
                 "SyntaxError: *rest is not allowed"
               ],
               "correctAnswer": 1,
-              "marks": 10,
-              "explanation": "Extended iterable unpacking binds the first element to `first` (10) and collects all remaining elements into a list `rest` ([20, 30, 40])."
+              "explanation": "Extended iterable unpacking binds the first element to first (10) and collects all remaining elements into a list rest ([20, 30, 40])."
             }
           ]
         }
@@ -1324,73 +3636,437 @@ export const INITIAL_COURSES = [
       {
         "id": "py-mod-8",
         "title": "Module 08 — Strings, Slicing & Text Parsing",
-        "description": "Strings as sequences, indexing, len(), string slicing, immutability, string methods (find, strip, lower), string parsing, and f-strings.",
-        "completed": false,
+        "description": "Strings as immutable sequences, indexing, slicing with step, string methods (find, strip, split, join, replace), parsing patterns, and f-string formatting.",
+        "completed": true,
         "readingMaterial": {
-          "introduction": "Based on Chapter 6 of 'Python for Everybody', strings are immutable sequences of characters. Text processing, slicing, and string methods are foundational to parsing unstructured data files.",
+          "introduction": "Strings are among the most versatile and ubiquitous data structures in Python programming. A string is an immutable, ordered sequence of characters representing textual data. From parsing server logs and extracting API parameters to validating email addresses and generating formatted invoices, text processing is a core pillar of software development.\n\nIn Python, every character in a string is represented internally using Unicode (UTF-8 by default), allowing programs to manipulate characters, symbols, and emojis across all written languages seamlessly. Because strings are sequences, they share fundamental behaviors with lists and tuples—such as zero-based indexing, slicing, iteration, and membership testing—while enforcing strict immutability.\n\nThis comprehensive module covers the full anatomy of Python strings: character indexing, step-based slicing, immutability and memory interning, frequency analysis, case normalization, searching and validation methods, delimiter tokenization with split() and join(), regex-free text extraction patterns, modern f-string interpolation, computational complexity, and 8 real-world practice programs.",
           "objectives": [
-            "Access characters using zero-based indexing s[0] and negative indexing s[-1]",
-            "Extract substrings using slice syntax s[start:stop]",
-            "Understand string immutability",
-            "Use string methods: strip(), lower(), upper(), find(), startswith()",
-            "Parse unstructured text strings to extract specific sub-fields",
-            "Format text using f-strings"
+            "Access individual characters using zero-based positive indexing s[0] and negative indexing s[-1].",
+            "Extract substrings with flexible slice notation s[start:stop:step] and reverse sequences using s[::-1].",
+            "Explain string immutability, memory allocation, and the performance cost of repeated concatenation.",
+            "Traverse strings with for loops, while loops, and enumerate() to perform character frequency analysis.",
+            "Apply the 'in' and 'not in' membership operators and perform case-normalized string comparisons.",
+            "Master essential string transformation methods: strip(), lower(), upper(), replace(), split(), and join().",
+            "Parse unstructured log files and email headers using find(), rfind(), and multi-step slicing.",
+            "Format professional terminal output, tables, and currency using modern Python 3.6+ f-strings.",
+            "Analyze string operation computational efficiency using Big-O time and space complexity."
           ],
           "sections": [
             {
-              "heading": "String Slicing Mechanics",
-              "text": "The slice operator s[n:m] returns characters from index n up to but not including m. Omitted indices default to start or end:",
-              "codeExamples": [
-                {
-                  "title": "Slicing Examples",
-                  "code": "s = 'Monty Python'\nprint(s[0:5])  # Output: 'Monty'\nprint(s[6:12]) # Output: 'Python'\nprint(s[:5])   # Output: 'Monty'\nprint(s[6:])   # Output: 'Python'",
-                  "explanation": "s[:n] gets first n chars; s[n:] gets remaining chars."
-                }
-              ]
+              "heading": "3. Strings as Sequences & Character Encoding (ASCII vs Unicode)",
+              "text": "A string in Python is an ordered sequence of characters enclosed in single quotes ('...'), double quotes (\"...\"), or triple quotes ('''...''' or \"\"\"...\"\"\").\n\nIndexing Principles:\nEach character has a fixed numeric index:\n• Positive indexing starts at 0 for the first character and proceeds to len(s) - 1.\n• Negative indexing starts at -1 for the last character and counts backwards to -len(s).\n\nBoundary Errors:\nAttempting to access an index beyond the valid range (e.g. s[len(s)]) raises an IndexError: string index out of range.\n\nCharacter Encoding with ord() and chr():\nUnder the hood, every character corresponds to an integer code point:\n• ord('A') returns 65 (ASCII / Unicode decimal value).\n• chr(65) returns 'A'.\n• ord('a') returns 97 (lowercase letters have higher numeric code points than uppercase).\n• ord('€') returns 8364 (full Unicode international character support).",
+              "table": {
+                "headers": [
+                  "Character",
+                  "Positive Index",
+                  "Negative Index",
+                  "Unicode Code Point (ord)",
+                  "Binary Byte (ASCII)"
+                ],
+                "rows": [
+                  [
+                    "'P'",
+                    "0",
+                    "-6",
+                    "80",
+                    "01010000"
+                  ],
+                  [
+                    "'y'",
+                    "1",
+                    "-5",
+                    "121",
+                    "01111001"
+                  ],
+                  [
+                    "'t'",
+                    "2",
+                    "-4",
+                    "116",
+                    "01110100"
+                  ],
+                  [
+                    "'h'",
+                    "3",
+                    "-3",
+                    "104",
+                    "01101000"
+                  ],
+                  [
+                    "'o'",
+                    "4",
+                    "-2",
+                    "111",
+                    "01101111"
+                  ],
+                  [
+                    "'n'",
+                    "5",
+                    "-1",
+                    "110",
+                    "01101110"
+                  ]
+                ]
+              }
             },
             {
-              "heading": "Parsing Strings with find() and Slicing",
-              "text": "Extracting specific sub-data (e.g. email domain names) from unformatted text lines:",
-              "codeExamples": [
-                {
-                  "title": "Extracting Domain Name from Log Line",
-                  "code": "data = 'From stephen.marquard@uct.ac.za Sat Jan 5 09:14:16 2008'\n\n# Find position of '@'\natpos = data.find('@')\n\n# Find position of first space AFTER '@'\nsppos = data.find(' ', atpos)\n\n# Slice extracted domain\nhost = data[atpos + 1 : sppos]\nprint('Extracted Host Domain:', host) # Output: uct.ac.za",
-                  "explanation": "Combines str.find() and slicing to extract targeted substrings."
-                }
+              "heading": "4. String Traversal & Iteration Patterns",
+              "text": "Traversal means visiting each character in a sequence one by one. Python provides multiple traversal idioms:\n\n1. Direct Item Traversal (Pythonic):\nfor char in \"Python\":\n    print(char)\n\n2. Index & Item Traversal with enumerate():\nfor index, char in enumerate(\"Python\"):\n    print(f\"Index {index} -> {char}\")\n\n3. While Loop Traversal:\nOften used when manual pointer manipulation is necessary:\ni = 0\ns = \"Code\"\nwhile i < len(s):\n    print(s[i])\n    i += 1\n\n4. Reverse Traversal:\nTraverse backwards using reversed(s) or negative index loops."
+            },
+            {
+              "heading": "5. Comprehensive String Slicing Mechanics (s[start:stop:step])",
+              "text": "A slice extracts a substring using the bracket syntax s[start:stop:step]:\n• start: The beginning index (inclusive). Defaults to 0 if omitted.\n• stop: The ending boundary index (exclusive). Defaults to len(s) if omitted.\n• step: The stride or increment between characters. Defaults to 1 if omitted.\n\nOmitted Index Rules:\n• s[:5]   -> Characters from start up to index 4.\n• s[6:]   -> Characters from index 6 to the end.\n• s[:]    -> A full shallow copy of the string.\n• s[::2]  -> Every second character starting from index 0.\n• s[::-1] -> The entire string reversed!\n\nGraceful Slicing Bounds (No IndexError):\nUnlike individual indexing (which crashes on out-of-bounds indices), slicing gracefully caps at string boundaries:\ntext = \"Python\"\nprint(text[2:100])  # Returns 'thon' without error!"
+            },
+            {
+              "heading": "6. String Immutability & Memory Interning",
+              "text": "Strings in Python are strictly immutable. Once created in memory, individual characters cannot be mutated, added, or overwritten:\ngreeting = \"Hello World\"\n# greeting[0] = 'J'  -> TypeError: 'str' object does not support item assignment\n\nModifying Strings Creates New Objects:\nTo modify a string, you must construct a brand new string:\nnew_greeting = 'J' + greeting[1:]  # \"Jello World\"\n\nThe Loop Concatenation Trap vs str.join():\nRepeatedly appending strings using '+=' inside a loop creates quadratic O(N^2) memory reallocation overhead because each concatenation allocates a new buffer and copies all preceding characters:\n# SLOW (O(N^2)):\nresult = \"\"\nfor word in word_list:\n    result += word + \" \"\n\n# FAST & PYTHONIC (O(N)):\nresult = \" \".join(word_list)  # Pre-computes exact buffer size and copies once!\n\nString Interning:\nCPython automatically 'interns' short ASCII strings and identifiers in a global lookup table, reusing existing memory addresses so that 'a is b' evaluates to True for identical literals."
+            },
+            {
+              "heading": "7. Looping, Counting & Frequency Analysis",
+              "text": "A fundamental text processing pattern is counting character or substring occurrences.\n\nManual Counting Pattern:\nword = \"banana\"\ncount = 0\nfor letter in word:\n    if letter == 'a':\n        count += 1\nprint(\"Count of 'a':\", count)  # 3\n\nBuilt-in .count() Method:\nPython provides a high-performance C-level method:\nprint(word.count('a'))       # 3\nprint(word.count('an'))      # 2 (non-overlapping occurrences)"
+            },
+            {
+              "heading": "8 & 9. The 'in' Membership Operator & Lexicographical Comparisons",
+              "text": "The 'in' and 'not in' Operators:\nThe keyword 'in' evaluates whether a substring exists anywhere within a target string, returning a Boolean:\nprint('a' in 'banana')       # True\nprint('seed' in 'banana')    # False\nprint('nan' not in 'banana') # False\n\nString Comparisons & Lexicographical Ordering:\nPython compares strings alphabetically based on their underlying Unicode code points using relational operators (<, <=, >, >=, ==, !=):\n'apple' < 'banana'  # True ('a' has code point 97, 'b' has 98)\n\nThe Uppercase Trap:\nIn ASCII and Unicode, all uppercase letters (A=65 to Z=90) precede lowercase letters (a=97 to z=122):\n'apple' > 'Zebra'   # True! (Because 97 > 90)\n\nCanonical Case-Folded Comparison:\nAlways normalize case before comparing user input or search queries:\nword.casefold() == target.casefold()"
+            },
+            {
+              "heading": "10. The String Methods Arsenal: Transforming & Cleaning",
+              "text": "String methods return new modified strings without altering the original:\n\nWhitespace Trimming:\n• .strip(): Removes leading and trailing whitespace (spaces, tabs, newlines).\n• .lstrip(): Removes leading whitespace only.\n• .rstrip(): Removes trailing whitespace only.\n• .strip(chars): Strips specific characters: \"$149.99\".strip(\"$\") -> \"149.99\".\n\nCase Transformations:\n• .lower(): Converts all characters to lowercase.\n• .upper(): Converts all characters to uppercase.\n• .title(): Capitalizes the first letter of each word.\n• .capitalize(): Capitalizes only the first character of the string.\n• .swapcase(): Inverts casing for each letter.\n• .casefold(): Aggressive lowercasing for caseless matching (handles German 'ß' -> 'ss')."
+            },
+            {
+              "heading": "11. Searching, Inspecting & Validating Methods",
+              "text": "Finding Substrings:\n• .find(sub, start, end): Returns the lowest index where sub is found, or -1 if not found.\n• .rfind(sub): Returns the highest index where sub is found (searching from right).\n• .index(sub): Like find(), but raises a ValueError if sub is not found!\n\nPrefix and Suffix Checking:\n• .startswith(prefix): Returns True if string starts with prefix (supports tuple of prefixes: s.startswith(('http://', 'https://'))).\n• .endswith(suffix): Returns True if string ends with suffix (e.g. s.endswith(('.png', '.jpg'))).\n\nContent Validation (Booleans):\n• .isalpha(): True if all characters are alphabetic (a-z, A-Z).\n• .isdigit(): True if all characters are digits (0-9).\n• .isalnum(): True if all characters are alphanumeric.\n• .isspace(): True if string contains only whitespace.\n• .isidentifier(): True if string is a valid Python variable name."
+            },
+            {
+              "heading": "12. Splitting, Joining & Replacing Text",
+              "text": "Tokenization and Delimiting:\n• .split(sep=None, maxsplit=-1): Splits string by delimiter into a list of substrings. If sep is None, splits on arbitrary whitespace runs.\n• .rsplit(sep, maxsplit): Splits from the right, useful when extracting file extensions.\n• .splitlines(): Splits on line breaks (\\n, \\r\\n), stripping newlines.\n\nJoining Collections:\n• 'sep'.join(iterable): Concatenates elements of an iterable into a single string separated by 'sep':\n\"-\".join([\"2026\", \"10\", \"03\"]) -> \"2026-10-03\"\n\nReplacing Substrings:\n• .replace(old, new, count): Replaces occurrences of 'old' with 'new'. Optional 'count' limits the number of replacements.\n\nPartitioning:\n• .partition(sep): Splits at the FIRST occurrence of sep and returns a 3-tuple: (before, sep, after)."
+            },
+            {
+              "heading": "13. Text Parsing & Unstructured Data Extraction",
+              "text": "Parsing is the process of analyzing a text sequence to locate and extract specific semantic components.\n\nTwo-Step Parsing with .find() and Slicing:\nWhen working with structured logs or email headers:\nline = \"From stephen.marquard@uct.ac.za Sat Jan 5 09:14:16 2008\"\nat_pos = line.find('@')\nspace_pos = line.find(' ', at_pos)\nhost = line[at_pos + 1 : space_pos]  # 'uct.ac.za'\n\nToken-Based Parsing with .split():\nline = \"X-DSPAM-Confidence: 0.8475\"\nlabel, value_str = line.split(':')\nconfidence = float(value_str.strip())  # 0.8475"
+            },
+            {
+              "heading": "14. String Formatting Evolution & Modern f-Strings",
+              "text": "Python String Formatting History:\n1. % Operator (Legacy): \"User %s has %d points\" % (name, points)\n2. str.format() (Python 2.7 / 3.0): \"User {} has {} points\".format(name, points)\n3. Formatted String Literals / f-Strings (Python 3.6+): Prefix with 'f' or 'F':\nf\"User {name} has {points} points\"\n\nf-String Format Specifiers:\n• Float Precision: f\"{pi:.2f}\" -> '3.14'\n• Thousands Separators: f\"{1000000:,}\" -> '1,000,000'\n• Percentage: f\"{0.856:.1%}\" -> '85.6%'\n• Alignment & Width:\n  - Left align: f\"{'Python':<10}\" -> 'Python    '\n  - Right align: f\"{'Python':>10}\" -> '    Python'\n  - Centered: f\"{'Python':^10}\" -> '  Python  '\n  - Zero padding: f\"{42:05d}\" -> '00042'\n• Self-Documenting Debugging (Python 3.8+):\n  x = 10; print(f\"{x=}\") -> 'x=10'\n\nEscape Sequences & Raw Strings:\n• Standard escapes: \\n (newline), \\t (tab), \\\\ (literal backslash), \\' (single quote).\n• Raw strings (r\"path\"): Disables escape processing, ideal for regex and Windows file paths:\npath = r\"C:\\Users\\USER\\Documents\\data.txt\""
+            },
+            {
+              "heading": "15. String Computational Complexity Matrix (Big-O)",
+              "text": "Understanding string operation performance prevents accidental performance bottlenecks in high-throughput applications:",
+              "table": {
+                "headers": [
+                  "Operation",
+                  "Time Complexity",
+                  "Space Complexity",
+                  "Notes"
+                ],
+                "rows": [
+                  [
+                    "Length Check len(s)",
+                    "O(1)",
+                    "O(1)",
+                    "CPython stores string length in struct metadata"
+                  ],
+                  [
+                    "Index Access s[i]",
+                    "O(1)",
+                    "O(1)",
+                    "Direct pointer arithmetic in memory"
+                  ],
+                  [
+                    "Slicing s[start:stop]",
+                    "O(K)",
+                    "O(K)",
+                    "K = slice length; allocates a new string copy"
+                  ],
+                  [
+                    "Concatenation s1 + s2",
+                    "O(N + M)",
+                    "O(N + M)",
+                    "Allocates new buffer of combined length"
+                  ],
+                  [
+                    "Repeated Concatenation in Loop",
+                    "O(N^2)",
+                    "O(N^2)",
+                    "Severe bottleneck! Always use str.join()"
+                  ],
+                  [
+                    "String Join sep.join(list)",
+                    "O(Total Length)",
+                    "O(Total Length)",
+                    "Single-pass buffer allocation"
+                  ],
+                  [
+                    "Substring Search sub in s",
+                    "O(N * M)",
+                    "O(1)",
+                    "Boyer-Moore-Horspool algorithm in CPython"
+                  ],
+                  [
+                    "Method Replace s.replace()",
+                    "O(N)",
+                    "O(N)",
+                    "Linear sweep across characters"
+                  ],
+                  [
+                    "Method Split s.split()",
+                    "O(N)",
+                    "O(N)",
+                    "Creates list of token substrings"
+                  ]
+                ]
+              }
+            },
+            {
+              "heading": "16. Common Pitfalls & Module Summary",
+              "text": "Summary of key concepts and common errors to avoid:",
+              "bulletPoints": [
+                "IndexError on Edge Index: s[len(s)] is out of bounds; the highest valid index is len(s) - 1.",
+                "Immutability Violation: Attempting 's[0] = x' fails; use slicing and concatenation or methods instead.",
+                "str.find() vs Truthiness: find() returns -1 on failure; checking 'if s.find(\"x\"):' evaluates True because -1 is truthy! Check 'if s.find(\"x\") != -1:' or 'if \"x\" in s:'.",
+                "Case Sensitivity: 'admin' != 'Admin'. Always use .lower() or .casefold() for case-insensitive validation.",
+                "Whitespace in Parsing: Whitespace around numbers causes ValueError during float() conversion; always .strip().",
+                "Loop String Concatenation: Never build large texts using '+=' in loops; append to a list and use ''.join().",
+                "Method In-Place Assumption: String methods never mutate the original string; always assign the returned value."
               ]
             }
           ],
           "codeExamples": [
             {
-              "title": "Float Extraction Exercise (Chapter 6)",
-              "code": "text = 'X-DSPAM-Confidence: 0.8475'\n\n# Find colon position\ncolon_pos = text.find(':')\n\n# Extract text after colon and strip whitespace\nnumber_str = text[colon_pos + 1:].strip()\n\n# Convert to float\nconfidence = float(number_str)\nprint(f\"Extracted Confidence Value: {confidence} (Type: {type(confidence)})\")",
-              "explanation": "Parses floating point number out of string header."
+              "title": "3 & 4. Indexing, Encodings & Traversal",
+              "code": "word = \"Python\"\n\n# Positive and negative indexing\nprint(\"First character [0]:\", word[0])\nprint(\"Last character [-1]:\", word[-1])\n\n# Character encoding with ord() and chr()\nprint(\"Unicode code point of 'P':\", ord(word[0]))  # 80\nprint(\"Character for code point 80:\", chr(80))       # 'P'\n\n# Traversal with index using enumerate()\nprint(\"\\nCharacter Index Mapping:\")\nfor idx, char in enumerate(word):\n    print(f\"  Index {idx} (Negative {idx - len(word)}) -> {char}\")",
+              "explanation": "Demonstrates positive/negative indexing, Unicode code points via ord() and chr(), and index-based iteration."
+            },
+            {
+              "title": "5. Slicing Mechanics & Sequence Inversion",
+              "code": "phrase = \"Learning Python Programming\"\n\n# Slicing syntax: [start:stop:step]\nprint(\"First 8 characters [:8]:\", phrase[:8])\nprint(\"From index 9 to 15 [9:15]:\", phrase[9:15])\nprint(\"From index 16 to end [16:]:\", phrase[16:])\nprint(\"Every second character [::2]:\", phrase[::2])\n\n# Sequence reversal using negative step\nreversed_phrase = phrase[::-1]\nprint(\"Reversed string:\", reversed_phrase)\n\n# Slicing never raises IndexError on loose bounds\nprint(\"Graceful capping [9:1000]:\", phrase[9:1000])",
+              "explanation": "Shows slice extraction with start, stop, stride, string reversal using [::-1], and safe boundary capping."
+            },
+            {
+              "title": "6. Immutability, Memory & str.join() Performance",
+              "code": "import time\n\n# Immutability: constructing a modified string\noriginal = \"Hello World\"\n# original[0] = 'J' -> TypeError!\nmodified = \"J\" + original[1:]\nprint(\"Modified string:\", modified)\n\n# Quadratic concatenation vs Linear str.join()\nwords = [\"python\"] * 10000\n\n# 1. Quadratic loop concatenation\nstart = time.perf_counter()\nquad_result = \"\"\nfor w in words:\n    quad_result += w\ntime_quad = time.perf_counter() - start\n\n# 2. Linear join\nstart = time.perf_counter()\njoin_result = \"\".join(words)\ntime_join = time.perf_counter() - start\n\nprint(f\"str.join() was {time_quad / max(time_join, 1e-9):.1f}x faster than loop '+=' concatenation!\")",
+              "explanation": "Demonstrates immutability and empirically proves why str.join() is vastly faster than repeated string concatenation."
+            },
+            {
+              "title": "7 to 9. Counting, Membership & Lexicographical Ordering",
+              "code": "text = \"The quick brown fox jumps over the lazy dog\"\n\n# Character and substring counting\nprint(\"Occurrences of 'o':\", text.count('o'))\nprint(\"Occurrences of 'the' (case-sensitive):\", text.count('the'))\n\n# Membership checking with 'in' and 'not in'\nprint(\"Is 'fox' in text?\", \"fox\" in text)\nprint(\"Is 'cat' not in text?\", \"cat\" not in text)\n\n# Lexicographical comparison & Uppercase trap\nprint(\"'apple' < 'banana':\", \"apple\" < \"banana\")\nprint(\"'apple' > 'Zebra':\", \"apple\" > \"Zebra\")  # True! ('a'=97 > 'Z'=90)\n\n# Case-normalized canonical comparison\nprint(\"Casefold comparison:\", \"Zebra\".casefold() == \"zebra\".casefold())",
+              "explanation": "Covers substring counting, membership testing, and Unicode code-point ordering nuances."
+            },
+            {
+              "title": "10. String Cleaning & Case Transformations",
+              "code": "raw_user_input = \"   \t  Dr. Jane Doe, Ph.D.  \n \"\n\n# Whitespace stripping\nclean_input = raw_user_input.strip()\nprint(\"Cleaned input:\", repr(clean_input))\n\n# Stripping specific punctuation characters\nprice_tag = \"***$1,299.99 USD***\"\nstripped_price = price_tag.strip(\"* USD$\")\nprint(\"Cleaned price string:\", stripped_price)\n\n# Case transformations\ntitle = \"mastering PYTHON text parsing\"\nprint(\"upper():\", title.upper())\nprint(\"lower():\", title.lower())\nprint(\"title():\", title.title())\nprint(\"capitalize():\", title.capitalize())\nprint(\"swapcase():\", title.swapcase())",
+              "explanation": "Shows strip(), lstrip(), rstrip() with whitespace and custom characters, plus all casing conversions."
+            },
+            {
+              "title": "11. Searching, Inspecting & Content Validation",
+              "code": "filename = \"report_2026_q3_final.pdf\"\n\n# Prefix and suffix verification\nprint(\"Is PDF file?\", filename.endswith(\".pdf\"))\nprint(\"Is Report?\", filename.startswith(\"report_\"))\nprint(\"Is Document?\", filename.endswith((\".pdf\", \".docx\", \".xlsx\")))\n\n# find() vs index()\nquery = \"2026\"\npos = filename.find(query)\nprint(f\"'{query}' found at index:\", pos)\n\nmissing_pos = filename.find(\"archive\")\nprint(\"Missing query find() result:\", missing_pos) # -1 (safe!)\n\n# Validation checks\nprint(\"'12345'.isdigit():\", \"12345\".isdigit())\nprint(\"'Python3'.isalnum():\", \"Python3\".isalnum())\nprint(\"'   '.isspace():\", \"   \".isspace())\nprint(\"'total_sum'.isidentifier():\", \"total_sum\".isidentifier())",
+              "explanation": "Demonstrates startswith/endswith with tuples, find() vs index(), and string classification methods."
+            },
+            {
+              "title": "12. Splitting, Joining & Replacing Delimited Data",
+              "code": "csv_line = \"Asha,Kumar,Senior Engineer,Bangalore,95000\"\n\n# Splitting by delimiter\nfields = csv_line.split(\",\")\nprint(\"Parsed fields:\", fields)\n\n# Re-joining with custom delimiter\ntsv_line = \"\\t\".join(fields)\nprint(\"TSV output:\\n\", tsv_line)\n\n# Partitioning into head, separator, tail\nemail = \"asha.kumar@company.com\"\nusername, sep, domain = email.partition(\"@\")\nprint(f\"Username: {username}, Domain: {domain}\")\n\n# Replacing text with count limit\ntext = \"cat bat rat mat cat\"\nprint(\"Replace all:\", text.replace(\"cat\", \"dog\"))\nprint(\"Replace first occurrence only:\", text.replace(\"cat\", \"dog\", 1))",
+              "explanation": "Covers splitting CSV strings, joining tokens, 3-tuple partitioning, and substring replacements."
+            },
+            {
+              "title": "13. Email Header Parsing Pattern (Chapter 6 Classic)",
+              "code": "header = \"From: stephen.marquard@uct.ac.za Sat Jan 5 09:14:16 2008\"\n\n# Step 1: Find '@' position\nat_pos = header.find(\"@\")\n\n# Step 2: Find the space following the '@'\nspace_pos = header.find(\" \", at_pos)\n\n# Step 3: Slice the domain host\nhost = header[at_pos + 1 : space_pos]\nprint(\"Extracted Host Domain:\", host)\n\n# Alternative Token-Based Approach\nparts = header.split()\nemail_address = parts[1]\ndomain_name = email_address.split(\"@\")[1]\nprint(\"Token-Parsed Domain:\", domain_name)",
+              "explanation": "Contrasts manual index-slicing parsing with token-based split parsing for structured headers."
+            },
+            {
+              "title": "14. Modern f-String Formatting Masterclass",
+              "code": "item = \"Mechanical Keyboard\"\nprice = 149.954\nquantity = 3\ndiscount = 0.15\n\n# Precision and currency formatting\nsubtotal = price * quantity\nprint(f\"Item: {item}\")\nprint(f\"Unit Price: $\" + f\"{price:.2f}\")\nprint(f\"Discount: {discount:.1%}\")\nprint(f\"Total: $\" + f\"{subtotal * (1 - discount):,.2f}\")\n\n# Alignment and column formatting\nprint(\"\\n\" + \"=\" * 40)\nprint(f\"{'Description':<25} {'Qty':>5} {'Total':>8}\")\nprint(\"-\" * 40)\nprint(f\"{item:<25} {quantity:>5} $\" + f\"{subtotal:>7.2f}\")\nprint(\"=\" * 40)\n\n# Self-documenting debugging (Python 3.8+)\nx = 42\ny = 100\nprint(f\"{x=} | {y=} | {x + y=}\")",
+              "explanation": "Covers f-string expressions, float rounding, percentage formats, alignment specifiers, and debug printing."
             }
           ],
           "bestPractices": [
-            "Use str.strip() to sanitize leading/trailing whitespace before parsing.",
-            "Use str.lower() before comparing text strings to prevent case-sensitivity bugs."
+            "Use s.strip() immediately when reading raw lines from files or user input to eliminate trailing newlines and spaces.",
+            "Always normalize text using .lower() or .casefold() before conducting case-insensitive searches or comparisons.",
+            "Use ''.join(list_of_strings) instead of repeated '+=' concatenation in loops to avoid O(N^2) memory reallocation.",
+            "Prefer f-strings (f'...') over legacy % formatting and str.format() for clarity, performance, and readability.",
+            "Use str.find() when a missing substring is an expected possibility; use 'sub in s' for clean Boolean checks.",
+            "Leverage str.startswith() and str.endswith() with tuples of suffixes (e.g. ('.jpg', '.png')) for filetype validation.",
+            "Use str.partition() when splitting a string on the first delimiter to safely unpack a 3-tuple (head, sep, tail).",
+            "Use raw strings (r'...') for regular expressions and Windows file paths to prevent accidental escape character resolution."
           ],
           "commonMistakes": [
-            "IndexError when trying to access s[len(s)]—indices run from 0 to len(s)-1.",
-            "Attempting s[0] = 'A' (Strings are immutable)."
+            "Off-By-One IndexError: Attempting to access s[len(s)]; the final valid character is at index len(s) - 1.",
+            "Immutability Mutation Error: Writing s[0] = 'X' which raises TypeError: 'str' object does not support item assignment.",
+            "Failing to Catch find() == -1: Writing 'if s.find(\"x\"):' which evaluates to True because -1 is truthy in Python.",
+            "Case Sensitivity Blindspots: Assuming 'apple' == 'Apple'; string comparisons are strictly case-sensitive.",
+            "Inefficient Concatenation: Appending strings in loops with '+=' causing massive quadratic performance degradations.",
+            "Forgetting Methods Return New Strings: Calling 's.strip()' without reassigning 's = s.strip()', leaving s unchanged.",
+            "Unchecked Number Conversions: Calling float() or int() on strings containing non-digit characters or currency symbols without cleaning."
           ],
           "practiceExercise": {
-            "title": "Reverse String Traversal",
-            "problem": "Write a while loop that prints characters of a string backwards, one character per line.",
-            "solutionCode": "fruit = \"banana\"\nindex = len(fruit) - 1\nwhile index >= 0:\n    print(fruit[index])\n    index -= 1"
+            "title": "Hands-On Coding Practice: Advanced String Processing & Parsing Suite (8 Programs)",
+            "problem": "Complete the following 8 practical Python string processing and parsing programs:\n\nProgram 1: Email Header & Domain Host Extractor\nGiven an unformatted email log header, use find() and slicing to extract both the username and domain host name.\n\nProgram 2: Clean Palindrome & Anagram Verifier\nWrite functions to determine if a string is a palindrome (ignoring casing, punctuation, and spaces) and whether two strings are anagrams.\n\nProgram 3: CamelCase to snake_case and Reverse Converter\nConvert a variable name from CamelCase ('userRegistrationDate') to snake_case ('user_registration_date') and back.\n\nProgram 4: Web Server Access Log Entry Parser\nGiven a Common Log Format string, parse and extract the client IP address, timestamp, HTTP request method, resource path, and status code.\n\nProgram 5: Financial Invoice Receipt Formatter\nGiven a list of purchased products (name, quantity, price), generate an aligned ASCII receipt with subtotal, tax (8.5%), and total using f-strings.\n\nProgram 6: URL Component & Query String Parser\nGiven a full web URL, extract the protocol, host domain, resource path, and parse query parameters into a structured dictionary.\n\nProgram 7: Sensitive Data Masker (Credit Cards & Emails)\nMask sensitive payment card numbers (leaving only the last 4 digits visible) and email addresses (e.g. 'j***e@domain.com').\n\nProgram 8: Tokenizer & Character Frequency Histogram\nTokenize a paragraph into unique words, clean punctuation, and output an ASCII bar-chart frequency histogram for the top words.",
+            "solutionCode": "log_line = \"From: arshith.kumar@technology-labs.org Sat Oct 03 12:30:00 2026\"\nat_pos = log_line.find(\"@\")\nspace_after = log_line.find(\" \", at_pos)\nfrom_prefix_pos = log_line.find(\"From: \") + len(\"From: \")\n\nemail = log_line[from_prefix_pos:space_after]\nusername = email[: email.find(\"@\")]\ndomain = email[email.find(\"@\") + 1 :]\n\nprint(\"--- Program 1: Email Header Extractor ---\")\nprint(f\"Extracted Email: {email}\")\nprint(f\"Username: {username}\")\nprint(f\"Domain Host: {domain}\")\n\n# Program 2: Clean Palindrome & Anagram Verifier\ndef is_palindrome(s):\n    cleaned = \"\".join(char.lower() for char in s if char.isalnum())\n    return cleaned == cleaned[::-1]\n\ndef are_anagrams(s1, s2):\n    clean1 = sorted(char.lower() for char in s1 if char.isalnum())\n    clean2 = sorted(char.lower() for char in s2 if char.isalnum())\n    return clean1 == clean2\n\nprint(\"\\n--- Program 2: Palindrome & Anagram ---\")\ntest_phrase = \"A man, a plan, a canal: Panama!\"\nprint(f\"'{test_phrase}' is palindrome?\", is_palindrome(test_phrase))\nprint(\"'listen' and 'silent' are anagrams?\", are_anagrams(\"listen\", \"silent\"))\n\n# Program 3: CamelCase to snake_case\ndef camel_to_snake(name):\n    result = []\n    for char in name:\n        if char.isupper():\n            result.append(\"_\" + char.lower())\n        else:\n            result.append(char)\n    return \"\".join(result).lstrip(\"_\")\n\ndef snake_to_camel(name):\n    parts = name.split(\"_\")\n    return parts[0] + \"\".join(p.capitalize() for p in parts[1:])\n\nprint(\"\\n--- Program 3: Case Conversion ---\")\ncamel = \"userRegistrationDate\"\nsnake = camel_to_snake(camel)\nprint(f\"Camel to Snake: {camel} -> {snake}\")\nprint(f\"Snake to Camel: {snake} -> {snake_to_camel(snake)}\")\n\n# Program 4: Server Access Log Entry Parser\nlog_entry = '192.168.1.45 - - [03/Oct/2026:12:34:56 +0000] \"GET /api/v1/courses/python HTTP/1.1\" 200 4521'\nip = log_entry.split()[0]\ntime_start = log_entry.find(\"[\") + 1\ntime_end = log_entry.find(\"]\")\ntimestamp = log_entry[time_start:time_end]\n\nrequest_start = log_entry.find('\"') + 1\nrequest_end = log_entry.find('\"', request_start)\nrequest_line = log_entry[request_start:request_end]\nmethod, path, protocol = request_line.split()\n\nafter_request = log_entry[request_end + 1:].strip()\nstatus_code = after_request.split()[0]\n\nprint(\"\\n--- Program 4: Log Entry Parser ---\")\nprint(f\"IP: {ip} | Time: {timestamp} | Method: {method} | Path: {path} | Status: {status_code}\")\n\n# Program 5: Financial Invoice Receipt Formatter\nitems = [\n    (\"Python Bootcamp Handbook\", 1, 49.99),\n    (\"USB-C Development Hub\", 2, 29.50),\n    (\"Ergonomic Keyboard\", 1, 129.00)\n]\ntax_rate = 0.085\n\nprint(\"\\n--- Program 5: Invoice Receipt ---\")\nprint(\"=\" * 48)\nprint(f\"{'Item Description':<26} {'Qty':>4} {'Price':>8} {'Total':>8}\")\nprint(\"-\" * 48)\nsubtotal = 0.0\nfor desc, qty, unit_price in items:\n    line_total = qty * unit_price\n    subtotal += line_total\n    print(f\"{desc:<26} {qty:>4} $\" + f\"{unit_price:>7.2f} $\" + f\"{line_total:>7.2f}\")\n\ntax = subtotal * tax_rate\ngrand_total = subtotal + tax\nprint(\"-\" * 48)\nprint(f\"{'Subtotal:':<39} $\" + f\"{subtotal:>7.2f}\")\nprint(f\"{'Tax (8.5%):':<39} $\" + f\"{tax:>7.2f}\")\nprint(f\"{'Grand Total:':<39} $\" + f\"{grand_total:>7.2f}\")\nprint(\"=\" * 48)\n\n# Program 6: URL Component & Query String Parser\nurl = \"https://learn.arshithgroup.com/courses/python?module=8&mode=dark&ref=dashboard\"\nprotocol, rest = url.split(\"://\")\nhost_and_path, query_string = rest.split(\"?\") if \"?\" in rest else (rest, \"\")\nhost = host_and_path.split(\"/\")[0]\npath = \"/\" + \"/\".join(host_and_path.split(\"/\")[1:])\n\nquery_params = {}\nif query_string:\n    for pair in query_string.split(\"&\"):\n        if \"=\" in pair:\n            k, v = pair.split(\"=\", 1)\n            query_params[k] = v\n\nprint(\"\\n--- Program 6: URL Parser ---\")\nprint(f\"Protocol: {protocol} | Host: {host} | Path: {path}\")\nprint(\"Query Parameters:\", query_params)\n\n# Program 7: Sensitive Data Masker\ndef mask_credit_card(card_num):\n    cleaned = \"\".join(c for c in card_num if c.isdigit())\n    if len(cleaned) < 4:\n        return card_num\n    return \"*\" * (len(cleaned) - 4) + cleaned[-4:]\n\ndef mask_email(email):\n    user, sep, domain = email.partition(\"@\")\n    if len(user) <= 2:\n        masked_user = user[0] + \"*\"\n    else:\n        masked_user = user[0] + \"*\" * (len(user) - 2) + user[-1]\n    return f\"{masked_user}@{domain}\"\n\nprint(\"\\n--- Program 7: Sensitive Data Masking ---\")\nprint(\"Masked Card:\", mask_credit_card(\"4532-7592-8819-1024\"))\nprint(\"Masked Email:\", mask_email(\"arshith.developer@company.org\"))\n\n# Program 8: Tokenizer & Character Frequency Histogram\npassage = \"Strings are immutable sequences of Unicode characters. Strings support slicing and string methods.\"\nwords = passage.lower().replace(\".\", \"\").replace(\",\", \"\").split()\nfrequency = {}\nfor w in words:\n    frequency[w] = frequency.get(w, 0) + 1\n\nprint(\"\\n--- Program 8: Frequency Histogram ---\")\nfor word, count in sorted(frequency.items(), key=lambda item: item[1], reverse=True)[:5]:\n    bar = \"█\" * (count * 3)\n    print(f\"{word:<12} | {bar} ({count})\")"
           },
           "keyTakeaways": [
-            "Strings are zero-indexed and immutable.",
-            "s[n:m] extracts substrings.",
-            "str.find() and slicing parse unstructured text."
+            "Strings are immutable ordered sequences of Unicode characters accessed via zero-based indexing.",
+            "String slicing s[start:stop:step] extracts sub-sequences and reverses strings cleanly with s[::-1].",
+            "Strings cannot be modified in place; modifications construct new string objects in memory.",
+            "Use ''.join(list) rather than repeated '+=' concatenation in loops to avoid quadratic O(N^2) bottlenecks.",
+            "Methods like strip(), lower(), split(), join(), and replace() form the primary text-processing toolkit.",
+            "Unstructured text parsing relies on finding landmark delimiters (e.g. with .find()) and slicing target fields.",
+            "Modern f-strings provide expressive, high-performance string interpolation with precise alignment and formatting.",
+            "Understanding string complexity ensures scalable performance when parsing massive text files and datasets."
           ],
           "references": [
             {
-              "title": "Python for Everybody Chapter 6",
+              "title": "Python Documentation: Text Sequence Type — str",
+              "url": "https://docs.python.org/3/library/stdtypes.html#text-sequence-type-str"
+            },
+            {
+              "title": "Python Documentation: Formatted String Literals (f-strings)",
+              "url": "https://docs.python.org/3/reference/lexical_analysis.html#f-strings"
+            },
+            {
+              "title": "Python Documentation: Common String Operations",
+              "url": "https://docs.python.org/3/library/string.html"
+            },
+            {
+              "title": "Python for Everybody: Chapter 6 — Strings",
               "url": "https://www.py4e.com/html3/06-strings"
             }
-          ]
+          ],
+          "mcqs": [
+            {
+              "id": 1,
+              "question": "What does the slice expression s[::-1] achieve on any Python string s?",
+              "options": [
+                "Extracts the first and last characters only",
+                "Returns a reversed copy of the string",
+                "Deletes all negative index positions",
+                "Raises an IndexError"
+              ],
+              "correctAnswer": 1,
+              "explanation": "Slice syntax s[start:stop:step] with step=-1 iterates backwards from end to beginning, reversing the sequence."
+            },
+            {
+              "id": 2,
+              "question": "What does it mean that Python strings are 'immutable'?",
+              "options": [
+                "Strings cannot contain numbers or special characters",
+                "Once a string object is allocated in memory, its characters cannot be modified or replaced in-place",
+                "Strings cannot be passed as arguments to functions",
+                "Strings cannot be concatenated"
+              ],
+              "correctAnswer": 1,
+              "explanation": "String immutability means individual characters cannot be changed in-place (s[0] = 'X' fails). Modifications always create new strings in memory."
+            },
+            {
+              "id": 3,
+              "question": "What value is returned by s.find('needle') if 'needle' is NOT present in string s?",
+              "options": [
+                "False",
+                "0",
+                "-1",
+                "Raises a ValueError"
+              ],
+              "correctAnswer": 2,
+              "explanation": "The str.find() method returns -1 when the substring is not found, unlike str.index() which raises a ValueError."
+            },
+            {
+              "id": 4,
+              "question": "What is the primary function of the str.rstrip() method during text file processing?",
+              "options": [
+                "Removes all numbers from the right side of the string",
+                "Strips trailing whitespace, carriage returns (\\r), and newline characters (\\n) from the end of a line",
+                "Reverses the right half of the string",
+                "Truncates string length to 80 characters"
+              ],
+              "correctAnswer": 1,
+              "explanation": "rstrip() removes trailing whitespace and newlines, preventing double-spacing when printing lines read from files."
+            },
+            {
+              "id": 5,
+              "question": "In Python f-strings, what formatting specifier formats a floating-point number with exactly 2 decimal places?",
+              "options": [
+                "f\"{val:2d}\"",
+                "f\"{val:.2f}\"",
+                "f\"{val:%2}\"",
+                "f\"{val:round2}\""
+              ],
+              "correctAnswer": 1,
+              "explanation": ":.2f inside an f-string expression specifies floating-point presentation rounded to 2 digits after the decimal point."
+            }
+          ],
+          "selfAssessment": {
+            "title": "Module Self-Assessment (5 Knowledge Check MCQs)",
+            "questions": [
+              {
+                "id": "py-q-8-1",
+                "questionNumber": 1,
+                "topic": "String Immutability",
+                "questionText": "What happens when you execute s = 'hello'; s[0] = 'H' in Python?",
+                "options": [
+                  "s becomes 'Hello'",
+                  "TypeError: 'str' object does not support item assignment",
+                  "SyntaxError: invalid assignment target",
+                  "A copy of s is created automatically"
+                ],
+                "correctAnswer": 1,
+                "explanation": "Python strings are strictly immutable. Any attempt to modify a character in-place raises a TypeError."
+              },
+              {
+                "id": "py-q-8-2",
+                "questionNumber": 2,
+                "topic": "Slice Step Semantics",
+                "questionText": "What does text[::-1] return for the string text = 'Python'?",
+                "options": [
+                  "'Python'",
+                  "'nohtyP'",
+                  "IndexError",
+                  "''"
+                ],
+                "correctAnswer": 1,
+                "explanation": "A slice with a step of -1 traverses the string backwards from the end to the beginning, reversing the string."
+              },
+              {
+                "id": "py-q-8-3",
+                "questionNumber": 3,
+                "topic": "Split Maxsplit Parameter",
+                "questionText": "What is the evaluated output of 'a:b:c:d'.split(':', 2)?",
+                "options": [
+                  "['a', 'b', 'c:d']",
+                  "['a', 'b', 'c', 'd']",
+                  "['a', 'b']",
+                  "['a:b', 'c:d']"
+                ],
+                "correctAnswer": 0,
+                "explanation": "The maxsplit parameter limits the number of splits performed to 2, leaving the remainder intact as the final element: ['a', 'b', 'c:d']."
+              },
+              {
+                "id": "py-q-8-4",
+                "questionNumber": 4,
+                "topic": "Formatted String Literals",
+                "questionText": "What does f'Balance: ${1250.5:,.2f}' evaluate to in Python 3.6+?",
+                "options": [
+                  "'Balance: $1250.50'",
+                  "'Balance: $1,250.50'",
+                  "'Balance: $1250.5'",
+                  "ValueError"
+                ],
+                "correctAnswer": 1,
+                "explanation": "The format specifier ,:,.2f formats the float with comma thousands separators and rounds to exactly two decimal places: '$1,250.50'."
+              },
+              {
+                "id": "py-q-8-5",
+                "questionNumber": 5,
+                "topic": "String Strip Methods",
+                "questionText": "What does '   Arshith \\n\\t'.strip() return?",
+                "options": [
+                  "'Arshith'",
+                  "'   Arshith'",
+                  "'Arshith \\n\\t'",
+                  "''"
+                ],
+                "correctAnswer": 0,
+                "explanation": "The .strip() method removes all leading and trailing whitespace characters, including spaces, tabs (\\t), and newlines (\\n)."
+              }
+            ]
+          }
         },
         "quiz": {
           "id": "quiz-py-mod-8",
@@ -1402,24 +4078,23 @@ export const INITIAL_COURSES = [
           "questions": [
             {
               "id": "py-q-8-1",
-              "type": "multiple-choice",
+              "questionNumber": 1,
               "topic": "String Immutability",
-              "questionText": "What happens when you execute `s = 'hello'; s[0] = 'H'` in Python?",
+              "questionText": "What happens when you execute s = 'hello'; s[0] = 'H' in Python?",
               "options": [
-                "`s` becomes 'Hello'",
+                "s becomes 'Hello'",
                 "TypeError: 'str' object does not support item assignment",
                 "SyntaxError: invalid assignment target",
-                "A copy of `s` is created automatically"
+                "A copy of s is created automatically"
               ],
               "correctAnswer": 1,
-              "marks": 10,
               "explanation": "Python strings are strictly immutable. Any attempt to modify a character in-place raises a TypeError."
             },
             {
               "id": "py-q-8-2",
-              "type": "multiple-choice",
+              "questionNumber": 2,
               "topic": "Slice Step Semantics",
-              "questionText": "What does `text[::-1]` return for the string `text = 'Python'`?",
+              "questionText": "What does text[::-1] return for the string text = 'Python'?",
               "options": [
                 "'Python'",
                 "'nohtyP'",
@@ -1427,14 +4102,13 @@ export const INITIAL_COURSES = [
                 "''"
               ],
               "correctAnswer": 1,
-              "marks": 10,
               "explanation": "A slice with a step of -1 traverses the string backwards from the end to the beginning, reversing the string."
             },
             {
               "id": "py-q-8-3",
-              "type": "multiple-choice",
+              "questionNumber": 3,
               "topic": "Split Maxsplit Parameter",
-              "questionText": "What is the evaluated output of `'a:b:c:d'.split(':', 2)`?",
+              "questionText": "What is the evaluated output of 'a:b:c:d'.split(':', 2)?",
               "options": [
                 "['a', 'b', 'c:d']",
                 "['a', 'b', 'c', 'd']",
@@ -1442,14 +4116,13 @@ export const INITIAL_COURSES = [
                 "['a:b', 'c:d']"
               ],
               "correctAnswer": 0,
-              "marks": 10,
               "explanation": "The maxsplit parameter limits the number of splits performed to 2, leaving the remainder intact as the final element: ['a', 'b', 'c:d']."
             },
             {
               "id": "py-q-8-4",
-              "type": "multiple-choice",
+              "questionNumber": 4,
               "topic": "Formatted String Literals",
-              "questionText": "What does `f'Balance: ${1250.5:,.2f}'` evaluate to in Python 3.6+?",
+              "questionText": "What does f'Balance: ${1250.5:,.2f}' evaluate to in Python 3.6+?",
               "options": [
                 "'Balance: $1250.50'",
                 "'Balance: $1,250.50'",
@@ -1457,14 +4130,13 @@ export const INITIAL_COURSES = [
                 "ValueError"
               ],
               "correctAnswer": 1,
-              "marks": 10,
-              "explanation": "The format specifier `,:,.2f` formats the float with comma thousands separators and rounds to exactly two decimal places: '$1,250.50'."
+              "explanation": "The format specifier ,:,.2f formats the float with comma thousands separators and rounds to exactly two decimal places: '$1,250.50'."
             },
             {
               "id": "py-q-8-5",
-              "type": "multiple-choice",
+              "questionNumber": 5,
               "topic": "String Strip Methods",
-              "questionText": "What does `'   Arshith \\n\\t'.strip()` return?",
+              "questionText": "What does '   Arshith \\n\\t'.strip() return?",
               "options": [
                 "'Arshith'",
                 "'   Arshith'",
@@ -1472,8 +4144,7 @@ export const INITIAL_COURSES = [
                 "''"
               ],
               "correctAnswer": 0,
-              "marks": 10,
-              "explanation": "The `.strip()` method removes all leading and trailing whitespace characters, including spaces, tabs (\\t), and newlines (\\n)."
+              "explanation": "The .strip() method removes all leading and trailing whitespace characters, including spaces, tabs (\\t), and newlines (\\n)."
             }
           ]
         }
@@ -1481,64 +4152,432 @@ export const INITIAL_COURSES = [
       {
         "id": "py-mod-9",
         "title": "Module 09 — File Handling & Persistence",
-        "description": "Secondary memory persistence, opening files (open()), file handles, reading lines, searching files, writing files, and using context managers (with open).",
-        "completed": false,
+        "description": "Secondary memory persistence, file handles (open), line-by-line streaming, searching & filtering log files, safe writing/appending, context managers (with open), and pathlib integration.",
+        "completed": true,
         "readingMaterial": {
-          "introduction": "Based on Chapter 7 of 'Python for Everybody', working with files enables data persistence across program executions. Python treats text files as sequences of lines separated by newline characters (\\n).",
+          "introduction": "All computer programs operate across two primary memory tiers: volatile Main Memory (RAM), which is fast but instantly erased when a script finishes or power cuts out, and non-volatile Secondary Memory (Solid-State Drives, Hard Drives, and Cloud Storage), where information persists indefinitely. In modern software engineering—from web applications logging user transactions to data science pipelines processing multi-gigabyte telemetry datasets—reading and writing files is the fundamental bridge between transient computation and permanent data persistence.\n\nIn Python, file handling is engineered around an elegant, stream-based abstraction known as a 'File Handle'. Rather than attempting to copy an entire massive file directly into system RAM, Python establishes a lightweight pointer to the operating system's disk buffer. This stream architecture enables programmers to iterate line-by-line across files of arbitrary size—even those exceeding physical computer memory—with constant O(1) space complexity.\n\nBased on Chapter 7 of Dr. Charles Severance's 'Python for Everybody' and modern Python 3 best practices, this module provides an exhaustive, production-grade guide to text and structured file manipulation: understanding character encoding standards (UTF-8 vs ASCII vs Latin-1), mastering open modes ('r', 'w', 'a', 'x'), avoiding resource leaks via context managers (with open), filtering server log streams (mbox format), sanitizing whitespace and newlines, implementing atomic write operations, and navigating modern object-oriented file systems using pathlib.",
           "objectives": [
-            "Understand secondary memory persistence vs main memory volatility",
-            "Open files using open('filename', 'r') and handle FileNotFoundError",
-            "Read files line-by-line using memory-efficient for loops",
-            "Strip newline characters using rstrip()",
-            "Write text files using mode 'w' and append using mode 'a'",
-            "Use the with open() context manager for automatic resource cleanup"
+            "Distinguish between volatile main memory (RAM) and non-volatile secondary storage (disk persistence).",
+            "Explain the role of file handles as operating system stream cursors with constant O(1) memory overhead.",
+            "Open files safely using open() with explicit mode flags ('r', 'w', 'a', 'x') and UTF-8 encoding declarations.",
+            "Compare reading techniques: file.read(), file.readline(), file.readlines(), and the memory-efficient line iterator.",
+            "Sanitize trailing newline characters (\\n, \\r\\n) cleanly using rstrip() to eliminate double-spaced outputs.",
+            "Filter, search, and extract structured metrics from large log files (e.g. MBOX headers, spam confidence floats).",
+            "Safely write and append textual data without unintended file truncation or data destruction.",
+            "Implement the 'with open(...) as f:' context manager pattern to guarantee deterministic file closure.",
+            "Handle critical file system exceptions robustly: FileNotFoundError, PermissionError, and UnicodeDecodeError.",
+            "Process delimited tabular records (CSV / TSV) and utilize the modern object-oriented pathlib library."
           ],
           "sections": [
             {
-              "heading": "File Handles & Memory Efficiency",
-              "text": "When you open a file, Python creates a file handle object. Iterating through a file handle using a for loop reads one line at a time into memory, allowing Python to process multi-gigabyte log files without running out of RAM."
+              "heading": "1. Memory Architecture: Volatile RAM vs. Persistent Storage",
+              "text": "To understand file handling, you must first understand the fundamental computer hardware hierarchy:\n\n1. Central Processing Unit (CPU):\nThe CPU executes instructions at billions of cycles per second. However, it possesses virtually no internal storage besides tiny, ultra-fast registers and CPU caches.\n\n2. Main Memory (RAM - Random Access Memory):\nVariables, lists, dictionaries, and active objects live inside RAM. While RAM provides lightning-fast nanosecond read/write access, it is strictly volatile. The moment your Python script terminates, crashes, or the computer shuts down, all memory addresses allocated to your variables are reclaimed by the operating system.\n\n3. Secondary Memory (SSD / HDD / Cloud Storage):\nSecondary storage is non-volatile. Files stored on disk retain their exact byte sequences indefinitely. Disk access is slower than RAM (measured in microseconds or milliseconds rather than nanoseconds), but provides virtually unlimited, inexpensive permanent storage.\n\nFile processing is the deliberate, controlled pipeline of reading byte sequences from persistent secondary memory into temporary RAM for computation, and writing computed results back to secondary storage for permanent archival."
             },
             {
-              "heading": "Searching Through a File",
-              "text": "Common file processing patterns filter lines using str.startswith() or skipping uninteresting lines using continue:"
+              "heading": "2. The File Handle: Python's Gateway to the Operating System",
+              "text": "When you call Python's built-in open() function, Python does not instantly read the entire file into RAM. Instead, it asks the host operating system (Windows, Linux, or macOS) to locate the file on disk, verify permissions, and return a stream pointer called a 'File Handle'.\n\nSyntax:\nfile_handle = open(filename, mode='r', encoding='utf-8')\n\nKey Components of a File Handle:\n• File Cursor: An internal pointer tracking the exact byte position where the next read or write operation will begin.\n• I/O Buffer: A small chunk of memory managed by the OS that batches disk reads and writes for high performance.\n• Encoding Translator: Decodes raw binary bytes from disk into human-readable Unicode Python string objects.\n\nIf Python successfully finds and opens the file, it returns a _io.TextIOWrapper object. If the file cannot be found in the specified path, Python halts execution and raises a FileNotFoundError."
+            },
+            {
+              "heading": "3. Text Files vs. Binary Files & Character Encoding (UTF-8)",
+              "text": "At the physical storage level, all files are simply sequences of binary bits (0s and 1s). The distinction between file types lies in how those bytes are interpreted:\n\n1. Text Files (.txt, .py, .csv, .json, .log, .md):\nA text file is a sequence of characters organized into lines. Each character is encoded into bytes using a standardized encoding scheme. In modern computing, UTF-8 (Unicode Transformation Format - 8 bit) is the global standard, capable of representing every character across English, Greek, Cyrillic, Chinese, Arabic, emojis, and mathematical symbols.\n\nAlways specify encoding='utf-8' when opening text files to prevent cross-platform encoding errors (such as Windows defaulting to cp1252 while Linux defaults to UTF-8).\n\n2. Binary Files (.jpg, .png, .mp3, .pdf, .zip, .exe):\nBinary files store raw non-text byte streams intended for specific software interpreters (e.g. image decoders or audio players). Opening a binary file in text mode causes decoding exceptions. Binary mode is declared by appending 'b' to the mode string (e.g. 'rb' or 'wb').\n\n3. The Newline Character Convention:\nLines in text files end with an invisible newline marker. Across operating systems:\n• Linux / macOS: Uses \n (Line Feed, ASCII 10).\n• Windows: Uses \r\n (Carriage Return + Line Feed, ASCII 13 + ASCII 10).\nPython's universal newline mode automatically translates OS-specific line breaks into standard \n during text reading."
+            },
+            {
+              "heading": "4. File Opening Modes Reference & Cheat Sheet",
+              "text": "The mode argument in open() determines what operations are permitted and where the file cursor begins:",
+              "table": {
+                "headers": [
+                  "Mode Flag",
+                  "Operations Allowed",
+                  "Cursor Starting Position",
+                  "If File Does Not Exist",
+                  "If File Already Exists"
+                ],
+                "rows": [
+                  [
+                    "'r' (Read)",
+                    "Read only",
+                    "Beginning of file (byte 0)",
+                    "Raises FileNotFoundError",
+                    "Preserves existing contents"
+                  ],
+                  [
+                    "'w' (Write)",
+                    "Write only",
+                    "Beginning of file (byte 0)",
+                    "Creates new empty file",
+                    "TRUNCATES (erases all data instantly)"
+                  ],
+                  [
+                    "'a' (Append)",
+                    "Write only",
+                    "End of file (EOF)",
+                    "Creates new empty file",
+                    "Appends new data to the end"
+                  ],
+                  [
+                    "'x' (Exclusive)",
+                    "Write only",
+                    "Beginning of file (byte 0)",
+                    "Creates new empty file",
+                    "Raises FileExistsError (safety mode)"
+                  ],
+                  [
+                    "'r+' (Read/Write)",
+                    "Read and Write",
+                    "Beginning of file (byte 0)",
+                    "Raises FileNotFoundError",
+                    "Overwrites byte-by-byte without truncation"
+                  ],
+                  [
+                    "'w+' (Write/Read)",
+                    "Write and Read",
+                    "Beginning of file (byte 0)",
+                    "Creates new empty file",
+                    "TRUNCATES existing file immediately"
+                  ],
+                  [
+                    "'a+' (Append/Read)",
+                    "Append and Read",
+                    "End of file (EOF)",
+                    "Creates new empty file",
+                    "Appends new writes, can seek to read"
+                  ],
+                  [
+                    "'rb' / 'wb'",
+                    "Raw Binary I/O",
+                    "Start of file",
+                    "Same as text equivalent",
+                    "Operates on raw bytes objects, not strings"
+                  ]
+                ]
+              }
+            },
+            {
+              "heading": "5. Reading Strategies & Memory Economics: Four Different Approaches",
+              "text": "Python provides four primary ways to read data from a file handle. Choosing the appropriate method is critical for performance and memory stability:\n\n1. The Line-by-Line Iterator: for line in file_handle: (RECOMMENDED)\nPython handles files as iterable streams. This approach reads exactly one line at a time into memory, processes it, discards it, and fetches the next line.\n• Time Complexity: O(N) where N is file size.\n• Space Complexity: O(1) auxiliary RAM.\n• Best For: All files, especially large production logs (500MB to 50GB+) where loading the entire file would crash the server with an OutOfMemory (OOM) error.\n\n2. file.read():\nReads the entire file contents from the cursor to the end into a single giant Python string.\n• Space Complexity: O(N) RAM.\n• Best For: Small configuration files (.json, .yaml, .ini, short templates) where you need to search or replace text globally.\n\n3. file.readline():\nReads a single line from the current cursor up to and including the next newline character (\n). Returns an empty string ('') when reaching End of File (EOF).\n• Best For: Header inspection (reading line 1 of a CSV to discover column headers).\n\n4. file.readlines():\nReads every line into memory at once and returns a Python list of strings: ['line 1\n', 'line 2\n', ...].\n• Space Complexity: O(N) RAM.\n• Best For: When you need random access to lines by index (e.g. lines[42]), but dangerous on large files."
+            },
+            {
+              "heading": "6. Whitespace Sanitation & The Double Newline Trap",
+              "text": "One of the most frequent beginner bugs in file handling is accidental double-spaced terminal output.\n\nWhy Double Spacing Occurs:\nWhen Python reads a file line-by-line, each string already includes the invisible trailing newline character (\n) stored on disk.\nWhen you pass that line to print():\nprint(line)\nThe print() function automatically appends its own newline character at the end (end='\n' by default). Consequently, your terminal displays two consecutive newlines: one from the file, and one from print().\n\nThe Solution: line.rstrip()\nThe string method rstrip() strips whitespace—including spaces, tabs, and newlines—from the right-hand tail of the string:\n\nfor line in fhand:\n    clean_line = line.rstrip()\n    print(clean_line)\n\nAlternative:\nprint(line, end='')"
+            },
+            {
+              "heading": "7. Searching, Filtering & Log Parsing Patterns (MBOX Protocol)",
+              "text": "A core workload in backend engineering is parsing server telemetry and email mailboxes. The Unix MBOX format stores thousands of messages in a single continuous text file where each new message begins with the prefix 'From '.\n\nPattern 1: The 'StartsWith' Filter\nProcess only lines that start with a specific header prefix:\nfor line in fhand:\n    line = line.rstrip()\n    if line.startswith('From:'):\n        print(line)\n\nPattern 2: The 'Skip Uninteresting Lines' (continue) Pattern\nWriting deeply nested if blocks makes code unreadable. In production, flip the logic to skip lines immediately using continue:\nfor line in fhand:\n    line = line.rstrip()\n    if not line.startswith('From:'):\n        continue\n    # Process interesting lines cleanly at top indentation level\n    pieces = line.split()\n    email = pieces[1]\n    print(email)\n\nPattern 3: Header Extraction & Conversion\nSearching for floating-point metrics (e.g. spam confidence headers in email servers):\n# Line format: 'X-DSPAM-Confidence: 0.8475'\nfor line in fhand:\n    if line.startswith('X-DSPAM-Confidence:'):\n        col_pos = line.find(':')\n        num_str = line[col_pos + 1:].strip()\n        confidence = float(num_str)"
+            },
+            {
+              "heading": "8. Writing and Appending Files: Best Practices & Truncation Risks",
+              "text": "Writing files in Python requires caution. Understanding mode behavior prevents accidental data loss:\n\n1. The Write Mode ('w') Truncation Warning:\nOpening an existing file in 'w' mode instantly wipes out all existing contents on disk before you even issue a write command! If you need to keep existing data, never use 'w'.\n\n2. The Append Mode ('a'):\nMode 'a' moves the cursor to the end of the file. New write statements append text onto the bottom of the existing content without modifying earlier lines.\n\n3. The Exclusive Creation Mode ('x'):\nMode 'x' safely creates a new file. If a file with the given name already exists, Python immediately raises FileExistsError instead of overwriting it. This is essential for audit logs, invoices, and transaction ledgers.\n\n4. Manual Newline Responsibility:\nUnlike print(), the file.write() method does NOT automatically add a newline character to the end of the string. You must explicitly append '\n':\nfout.write(\"First line of record\n\")\nfout.write(\"Second line of record\n\")\n\n5. Buffer Flushing (flush()):\nFor performance, Python buffers write operations in RAM before committing them to physical disk. Closing the file automatically flushes the buffer. You can force immediate OS synchronization using fout.flush()."
+            },
+            {
+              "heading": "9. Deterministic Resource Management: The 'with open' Context Manager",
+              "text": "Operating systems enforce strict limits on the number of simultaneous open file descriptors (typically 1024 or 4096 per process). If a program repeatedly opens files without closing them (a 'file descriptor leak'), the operating system eventually blocks the program from opening any more files, causing server outages.\n\nThe Old Way (Error-Prone):\nf = open('data.txt', 'r')\ndata = f.read()\n# If an exception occurs here, f.close() is NEVER reached!\nf.close()\n\nThe Robust Production Standard: The with Statement\nPython 2.5 introduced the 'with' statement (Context Manager protocol). A context manager guarantees that regardless of how execution leaves the block—whether through normal completion, a return statement, or an unexpected exception—Python automatically calls the file's __exit__() method and cleanly closes the file handle.\n\nSyntax:\nwith open('data.txt', 'r', encoding='utf-8') as f:\n    for line in f:\n        print(line.rstrip())\n\n# Outside the block: f.closed is guaranteed to be True!"
+            },
+            {
+              "heading": "10. Robust Exception Handling for File Operations",
+              "text": "Real-world file systems are unpredictable: disks fill up, users provide invalid file names, files are locked by other processes, or network shares disconnect. Production software must catch expected I/O exceptions gracefully:\n\n1. FileNotFoundError:\nRaised when the target file path cannot be resolved. Always prompt the user or fall back to sensible defaults.\n\n2. PermissionError:\nRaised when the operating system denies access (e.g. attempting to write to a read-only directory or read a file owned by root/administrator).\n\n3. UnicodeDecodeError:\nRaised when a file encoded in Latin-1 or Shift-JIS contains byte sequences that are invalid under the requested UTF-8 decoder. Handled by verifying encoding or using errors='replace'.\n\n4. IsADirectoryError:\nRaised when code attempts to open a folder path as if it were a text file."
+            },
+            {
+              "heading": "11. Modern File System Navigation with pathlib.Path",
+              "text": "Historically, Python programmers relied on the os and os.path modules, which treated paths as awkward raw strings with platform differences (e.g. backslashes '\\' on Windows vs forward slashes '/' on Unix).\n\nPython 3.4+ introduced the pathlib module, which treats file system paths as rich, cross-platform objects:\n\nfrom pathlib import Path\n\n# Create a path object (handles Windows/POSIX slashes automatically)\ndata_dir = Path('data') / 'reports'\nfile_path = data_dir / '2026_audit.log'\n\n# Path introspection:\nprint(file_path.name)       # '2026_audit.log'\nprint(file_path.stem)       # '2026_audit'\nprint(file_path.suffix)     # '.log'\nprint(file_path.parent)     # 'data/reports'\nprint(file_path.exists())   # True or False\nprint(file_path.is_file())  # True or False\n\n# Convenient reading & writing:\nfile_path.write_text(\"Audit record completed.\", encoding='utf-8')\ncontent = file_path.read_text(encoding='utf-8')"
+            },
+            {
+              "heading": "12. Processing Structured Delimited Files (CSV & TSV)",
+              "text": "Tabular business records are predominantly stored as Comma-Separated Values (.csv) or Tab-Separated Values (.tsv).\n\nManual Splitting Pattern:\nwith open('students.csv', 'r', encoding='utf-8') as f:\n    header = f.readline().rstrip().split(',')\n    for line in f:\n        row = line.rstrip().split(',')\n        name, score, city = row[0], float(row[1]), row[2]\n\nStandard Library csv Module:\nWhen data fields contain commas inside quotation marks (e.g. \"Sharma, Dr. Ananya\"), naive split(',') breaks. Python's built-in csv module parses complex quoting rules flawlessly:\n\nimport csv\n\nwith open('employees.csv', mode='r', encoding='utf-8') as f:\n    reader = csv.DictReader(f)  # Automatically maps headers to row dictionaries\n    for row in reader:\n        print(row['Name'], row['Department'], row['Salary'])"
+            },
+            {
+              "heading": "13. In-Memory Streams (io.StringIO) & Atomic Write Safety",
+              "text": "Two advanced file patterns frequently utilized in senior engineering roles:\n\n1. In-Memory Text Streams with io.StringIO:\nWhen writing unit tests or transforming text through pipelines that expect a file-like object, creating dummy files on disk creates slow disk I/O and messy cleanup. io.StringIO provides an in-memory buffer with the exact same API (read, write, seek) as a disk file:\n\nimport io\n\nbuffer = io.StringIO()\nbuffer.write(\"Temporary line 1\n\")\nbuffer.write(\"Temporary line 2\n\")\nbuffer.seek(0)\nprint(buffer.read())\n\n2. Atomic File Writes (Preventing Partial File Corruption):\nIf a power failure or crash occurs halfway through writing a 10MB file in 'w' mode, the original file is already destroyed and the new file is truncated and corrupt.\nThe Atomic Write Pattern:\n1. Write the new data to a temporary file (e.g. data.txt.tmp).\n2. Ensure all data is flushed and synced to disk.\n3. Use os.replace('data.txt.tmp', 'data.txt') to rename the file. On both Windows and POSIX, file renaming is an atomic operating system operation: the file either exists completely as old or completely as new, never half-written."
+            },
+            {
+              "heading": "14. Big-O Complexity & Performance Analysis for File Operations",
+              "text": "Understanding computational resource consumption when handling external disk data:",
+              "table": {
+                "headers": [
+                  "Operation",
+                  "Time Complexity",
+                  "Space (RAM) Complexity",
+                  "System Bottleneck"
+                ],
+                "rows": [
+                  [
+                    "for line in fhand: (Iterate N lines)",
+                    "O(N) sequential scan",
+                    "O(1) constant buffer RAM",
+                    "Disk I/O throughput (SATA/NVMe)"
+                  ],
+                  [
+                    "fhand.read() (Entire file into str)",
+                    "O(N) byte copy",
+                    "O(N) string allocation",
+                    "Physical RAM availability"
+                  ],
+                  [
+                    "fhand.readlines() (All lines to list)",
+                    "O(N) parsing & pointer allocation",
+                    "O(N) list & string overhead",
+                    "RAM & Garbage Collector pressure"
+                  ],
+                  [
+                    "fhand.seek(byte_offset)",
+                    "O(1) pointer relocation",
+                    "O(1) zero allocation",
+                    "OS file table metadata update"
+                  ],
+                  [
+                    "fhand.write(text_chunk)",
+                    "O(K) where K is text length",
+                    "O(K) buffer allocation",
+                    "OS write-back cache & disk commit"
+                  ],
+                  [
+                    "pathlib.Path.glob('**/*.txt')",
+                    "O(D) where D is directory tree size",
+                    "O(M) matched path objects",
+                    "Disk directory inode traversal"
+                  ]
+                ]
+              }
             }
           ],
           "codeExamples": [
             {
-              "title": "Log File Filtering Script",
-              "code": "# Chapter 7: Searching Log File\nfname = input('Enter file name: ')\ntry:\n    fhand = open(fname)\nexcept:\n    print('File cannot be opened:', fname)\n    exit()\n\ncount = 0\nfor line in fhand:\n    line = line.rstrip() # Remove trailing \\n\n    if line.startswith('Subject:'):\n        count += 1\n\nprint(f\"There were {count} subject lines in {fname}\")",
-              "explanation": "Safely opens user file and counts lines matching criteria."
+              "title": "1. Safe File Reading with Memory-Efficient Line Streaming",
+              "code": "filename = \"server_log.txt\"\n\n# Safe reading with context manager and UTF-8 encoding\ntry:\n    with open(filename, mode=\"r\", encoding=\"utf-8\") as file:\n        total_lines = 0\n        total_chars = 0\n        \n        for line in file:\n            total_lines += 1\n            total_chars += len(line)\n            # Process each line with O(1) auxiliary RAM\n            clean_text = line.rstrip()\n            if total_lines <= 3:\n                print(f\"Sample Line {total_lines}: {clean_text}\")\n\n        print(f\"\nProcessed {total_lines} total lines ({total_chars} bytes).\")\n\nexcept FileNotFoundError:\n    print(f\"Error: The target file '{filename}' was not found.\")\nexcept PermissionError:\n    print(f\"Error: Access denied to read '{filename}'.\")",
+              "explanation": "Demonstrates memory-safe line iteration with O(1) RAM consumption and robust exception catching."
             },
             {
-              "title": "Writing to Text File",
-              "code": "# Writing output file\nwith open('output.txt', 'w') as fout:\n    fout.write(\"Arshith Boot Camp Python Manual\\n\")\n    fout.write(\"Learn Today, Build Tomorrow.\\n\")\n\nprint(\"File written successfully!\")",
-              "explanation": "with open() guarantees file handle is closed upon completion."
+              "title": "2. MBOX Log File Search & Domain Extraction (Python for Everybody)",
+              "code": "log_data = \"\"\"From: stephen.marquard@uct.ac.za Sat Jan  5 09:14:16 2008\nReturn-Path: <postmaster@collab.sakaiproject.org>\nFrom: louis@media.berkeley.edu Fri Jan  4 18:10:48 2008\nSubject: [sakai] svn commit: r39772\nFrom: zqian@umich.edu Fri Jan  4 16:10:39 2008\nFrom: rjlowe@iupui.edu Fri Jan  4 15:46:24 2008\"\"\"\n\nimport io\n\n# Simulate a server log file using an in-memory stream\nlog_stream = io.StringIO(log_data)\n\nsender_count = 0\nunique_domains = set()\n\nfor line in log_stream:\n    line = line.rstrip()\n    # Fast guard clause: skip uninteresting lines immediately\n    if not line.startswith(\"From:\"):\n        continue\n\n    # Extract sender email address\n    parts = line.split()\n    email = parts[1]\n    sender_count += 1\n    \n    # Extract domain name using find/slice\n    at_idx = email.find(\"@\")\n    domain = email[at_idx + 1:]\n    unique_domains.add(domain)\n    print(f\"Sender #{sender_count}: {email} (Domain: {domain})\")\n\nprint(f\"\nTotal Senders: {sender_count}\")\nprint(f\"Unique Domains ({len(unique_domains)}): {sorted(unique_domains)}\")",
+              "explanation": "Illustrates the continue skip pattern and header extraction on Unix MBOX log structures."
+            },
+            {
+              "title": "3. Computing Spam Confidence Metrics (Numerical Parsing)",
+              "code": "mbox_sample = \"\"\"From: source@collab.sakaiproject.org\nX-DSPAM-Confidence: 0.8475\nX-DSPAM-Probability: 0.0000\nFrom: source@collab.sakaiproject.org\nX-DSPAM-Confidence: 0.6178\nFrom: source@collab.sakaiproject.org\nX-DSPAM-Confidence: 0.6961\nFrom: source@collab.sakaiproject.org\nX-DSPAM-Confidence: 0.7565\"\"\"\n\nimport io\n\nstream = io.StringIO(mbox_sample)\n\nconfidence_total = 0.0\nrecord_count = 0\n\nfor line in stream:\n    line = line.rstrip()\n    if line.startswith(\"X-DSPAM-Confidence:\"):\n        # Extract number following colon\n        _, value_str = line.split(\":\")\n        confidence_val = float(value_str.strip())\n        \n        confidence_total += confidence_val\n        record_count += 1\n\nif record_count > 0:\n    avg_confidence = confidence_total / record_count\n    print(f\"Processed Records: {record_count}\")\n    print(f\"Total Sum: {confidence_total:.4f}\")\n    print(f\"Average Spam Confidence: {avg_confidence:.6f}\")\nelse:\n    print(\"No valid spam confidence records discovered.\")",
+              "explanation": "Presents the classic Python for Everybody Chapter 7 parsing pattern for numerical float extraction."
+            },
+            {
+              "title": "4. Writing & Appending Logs with Context Managers",
+              "code": "audit_log = \"application_audit.log\"\n\n# Step 1: Write header and initial entries (mode 'w' creates/overwrites)\nwith open(audit_log, mode=\"w\", encoding=\"utf-8\") as f:\n    f.write(\"TIMESTAMP | SEVERITY | EVENT_DESCRIPTION\n\")\n    f.write(\"2026-10-03T12:00:00Z | INFO | System boot initialized\n\")\n    f.write(\"2026-10-03T12:00:02Z | INFO | Database connection verified\n\")\n\n# Step 2: Append new event without overwriting existing data (mode 'a')\nwith open(audit_log, mode=\"a\", encoding=\"utf-8\") as f:\n    f.write(\"2026-10-03T12:00:05Z | WARN | High CPU load detected on node 4\n\")\n    f.write(\"2026-10-03T12:00:09Z | INFO | Memory garbage collection triggered\n\")\n\n# Step 3: Verify results by reading\nwith open(audit_log, mode=\"r\", encoding=\"utf-8\") as f:\n    print(f.read())",
+              "explanation": "Contrasts write mode 'w' creation with append mode 'a' addition and highlights explicit \\n appending."
+            },
+            {
+              "title": "5. Processing Structured CSV Records with the csv Module",
+              "code": "import csv\nimport io\n\nraw_csv = \"\"\"EmployeeID,Name,Department,Salary,Rating\nE101,\"Sharma, Ananya\",Engineering,95000,4.9\nE102,\"Kumar, Rahul\",Analytics,82000,4.7\nE103,\"Verma, Priya\",Engineering,105000,4.95\nE104,\"Joseph, John\",Marketing,71000,4.2\"\"\"\n\n# Read with DictReader\ncsv_stream = io.StringIO(raw_csv)\nreader = csv.DictReader(csv_stream)\n\ndept_totals = {}\ndept_counts = {}\n\nprint(f\"{'Name':<20} | {'Department':<14} | {'Salary':>10}\")\nprint(\"-\" * 50)\n\nfor row in reader:\n    name = row['Name']\n    dept = row['Department']\n    salary = float(row['Salary'])\n    \n    print(f\"{name:<20} | {dept:<14} | \" + f\"{salary:>10.2f}\")\n    \n    dept_totals[dept] = dept_totals.get(dept, 0.0) + salary\n    dept_counts[dept] = dept_counts.get(dept, 0) + 1\n\nprint(\"\n--- Department Averages ---\")\nfor dept, total in dept_totals.items():\n    avg = total / dept_counts[dept]\n    print(f\"{dept:<14}: \" + f\"{avg:>10.2f} (Employees: {dept_counts[dept]})\")",
+              "explanation": "Demonstrates standard library csv.DictReader handling embedded quotes and calculating group aggregates."
+            },
+            {
+              "title": "6. Modern File Path Operations with pathlib.Path",
+              "code": "from pathlib import Path\n\n# Create path references safely across Windows, Linux, and macOS\nproject_root = Path.cwd()\nconfig_file = project_root / \"config\" / \"settings.json\"\n\nprint(f\"Path Representation: {config_file}\")\nprint(f\"File Name:           {config_file.name}\")\nprint(f\"File Extension:      {config_file.suffix}\")\nprint(f\"Stem (No Extension): {config_file.stem}\")\nprint(f\"Parent Directory:    {config_file.parent}\")\nprint(f\"Is Absolute Path:    {config_file.is_absolute()}\")\n\n# Check existence without try/except\nif config_file.exists():\n    print(f\"File Size: {config_file.stat().st_size} bytes\")\nelse:\n    print(\"Target path does not exist on disk.\")",
+              "explanation": "Uses Python's modern pathlib module for clean, readable, cross-platform path arithmetic and metadata query."
+            },
+            {
+              "title": "7. The Atomic File Writer Pattern (Crash-Safe)",
+              "code": "import os\nfrom pathlib import Path\n\ndef safe_atomic_write(target_path, content):\n    path = Path(target_path)\n    temp_path = path.with_suffix(\".tmp\")\n    \n    try:\n        # Step 1: Write all content to temporary swap file\n        with open(temp_path, mode=\"w\", encoding=\"utf-8\") as f:\n            f.write(content)\n            f.flush()\n            os.fsync(f.fileno()) # Force hardware write\n        \n        # Step 2: Atomic rename (replaces target atomically)\n        temp_path.replace(path)\n        print(f\"Atomic update succeeded for: {path.name}\")\n        return True\n    except Exception as e:\n        # Step 3: Cleanup temporary file if write failed\n        if temp_path.exists():\n            temp_path.unlink()\n        print(f\"Atomic update aborted due to: {e}\")\n        return False\n\n# Demonstrate atomic write\nsafe_atomic_write(\"production_config.txt\", \"SERVER_HOST=127.0.0.1\nSERVER_PORT=8080\nDEBUG=False\n\")",
+              "explanation": "Implements production-grade atomic file replacement using temporary files and OS-level atomic rename."
+            },
+            {
+              "title": "8. Word & Character Frequency Analyzer on Text Streams",
+              "code": "sample_text = \"\"\"Python is an easy to learn, powerful programming language.\nPython has efficient high-level data structures and a simple but effective approach to object-oriented programming.\nPython elegant syntax and dynamic typing, together with its interpreted nature, make it an ideal language.\"\"\"\n\nimport io\nfrom collections import Counter\n\nstream = io.StringIO(sample_text)\nword_counter = Counter()\ntotal_lines = 0\n\nfor line in stream:\n    total_lines += 1\n    # Normalize case and strip punctuation\n    clean_line = line.lower().replace(\",\", \"\").replace(\".\", \"\")\n    words = clean_line.split()\n    word_counter.update(words)\n\nprint(f\"Total Lines Processed: {total_lines}\")\nprint(f\"Total Words Counted:   {sum(word_counter.values())}\")\nprint(f\"Unique Word Vocabulary: {len(word_counter)}\n\")\n\nprint(\"Top 5 Most Frequent Words:\")\nfor word, count in word_counter.most_common(5):\n    print(f\"  • {word:<15} : {count} times\")",
+              "explanation": "Combines text stream processing with collections.Counter for fast text frequency analytics."
             }
           ],
           "bestPractices": [
-            "Always use 'with open(...) as fhand:' syntax for file operations.",
-            "Always strip trailing newlines with line.rstrip() when printing file lines."
+            "Always declare encoding='utf-8' explicitly when opening text files to ensure cross-platform portability.",
+            "Always manage files using the 'with open(...) as f:' context manager to eliminate file descriptor leaks.",
+            "Iterate directly over file handles (for line in f:) rather than calling f.readlines() on unknown file sizes.",
+            "Always strip trailing newline characters using line.rstrip() before processing or displaying lines.",
+            "Handle FileNotFoundError, PermissionError, and UnicodeDecodeError with descriptive, helpful recovery messages.",
+            "Never open files in write mode ('w') without verifying whether existing data needs to be preserved or backed up.",
+            "Use mode 'x' (exclusive creation) when writing sensitive transactional files to prevent accidental overwrites.",
+            "Use the modern pathlib.Path library instead of raw string concatenation or legacy os.path methods.",
+            "Use the csv module (csv.reader, csv.DictReader) for delimited data to correctly handle quoted values containing commas.",
+            "Apply atomic writing (writing to a .tmp file and renaming via os.replace) for critical persistent application state."
           ],
           "commonMistakes": [
-            "Opening file in 'w' mode accidentally overwriting existing file content.",
-            "Forgetting that line iteration retains trailing newline characters."
+            "Forgetting to close files opened with plain f = open(), causing memory leaks and locked file handles on Windows.",
+            "Assuming f.read() is safe on all files, causing server crashes (OutOfMemoryError) when reading multi-gigabyte datasets.",
+            "Calling f.read() twice and expecting the second call to return data, forgetting that the file cursor is already at EOF.",
+            "Accidentally opening a critical file with mode 'w', which instantly truncates and empties the entire file without confirmation.",
+            "Forgetting that file.write() does not append newline characters, resulting in a single corrupted, mashed line of text.",
+            "Failing to call line.rstrip() and wondering why terminal outputs are double-spaced.",
+            "Assuming backslashes in Windows file paths ('C:\\\\data\\\\new.txt') work as literals, where '\\n' is interpreted as a newline escape.",
+            "Not catching FileNotFoundError when prompting users for file paths, leading to unhandled crashes."
           ],
           "practiceExercise": {
-            "title": "Average Spam Confidence Calculator",
-            "problem": "Prompt for file name, read lines starting with 'X-DSPAM-Confidence:', extract the floats, and compute average spam confidence.",
-            "solutionCode": "fname = input(\"Enter file name: \")\ntotal = 0.0\ncount = 0\n\ntry:\n    with open(fname) as fhand:\n        for line in fhand:\n            if line.startswith(\"X-DSPAM-Confidence:\"):\n                val = float(line.split(\":\")[1].strip())\n                total += val\n                count += 1\n    if count > 0:\n        print(f\"Average spam confidence: {total/count:.12f}\")\nexcept FileNotFoundError:\n    print(\"File not found.\")"
+            "title": "Module 09 Hands-On Laboratory: Enterprise Log Parsing & File Persistence",
+            "problem": "Complete the following 8 comprehensive hands-on file handling challenges:\n\n1. Safe File Reader with Statistics:\nWrite a program that safely prompts for a filename, opens it with UTF-8 encoding, and prints the total number of lines, total word count, and average characters per line. Handle FileNotFoundError gracefully.\n\n2. MBOX Senders & Domain Aggregator:\nRead through an MBOX-format log stream, identify all lines starting with 'From:', extract the email address, and calculate the frequency count of each unique email domain.\n\n3. Spam Confidence Metric Calculator & Threshold Filter:\nParse all lines starting with 'X-DSPAM-Confidence:'. Extract the floating-point values, calculate the minimum, maximum, and average confidence, and identify all lines where spam confidence exceeds 0.8500.\n\n4. Formatted CSV Data Transformer:\nGiven a comma-delimited record of student grades, read each row using csv.DictReader, compute each student's weighted average, and write an output file 'honors_students.csv' containing only students with averages >= 85.0.\n\n5. Search & Replace Batch Processor:\nWrite a function that accepts an input filename, an output filename, a target search string, and a replacement string. Stream through the input file line-by-line and write the transformed text to the output file without loading the whole file into RAM.\n\n6. Text File Word Frequency & Stop-Word Stripper:\nRead a text document, filter out common English stop words ('the', 'is', 'at', 'which', 'on', 'and', 'a', 'an'), and output the top 10 most informative words alongside their percentage frequency.\n\n7. Atomic Configuration Manager:\nImplement a class or function that safely updates an application JSON or text configuration file using the atomic write pattern (.tmp file -> flush -> replace) to guarantee fault tolerance against process crashes.\n\n8. Directory Tree Inventory & Disk Usage Auditor:\nUsing pathlib.Path, scan a target directory recursively (rglob), catalog all files by extension (.py, .txt, .csv, .log), and report the file count and total disk usage in megabytes per file extension.",
+            "solutionCode": "import io\nimport os\nimport csv\nfrom pathlib import Path\nfrom collections import Counter\n\n# ==============================================================================\n# Challenge 1: Safe File Reader with Line, Word & Character Statistics\n# ==============================================================================\ndef analyze_file_statistics(file_stream):\n    total_lines = 0\n    total_words = 0\n    total_chars = 0\n\n    for line in file_stream:\n        total_lines += 1\n        total_chars += len(line)\n        words = line.split()\n        total_words += len(words)\n\n    avg_chars = (total_chars / total_lines) if total_lines > 0 else 0\n    return {\n        \"lines\": total_lines,\n        \"words\": total_words,\n        \"characters\": total_chars,\n        \"avg_chars_per_line\": round(avg_chars, 2)\n    }\n\nsample_doc = \"\"\"Python is a high-level programming language designed for readability.\nFile handling in Python connects persistent secondary storage with memory.\nContext managers guarantee that operating system resources are released cleanly.\"\"\"\n\nstats = analyze_file_statistics(io.StringIO(sample_doc))\nprint(\"Challenge 1 - File Statistics:\")\nfor k, v in stats.items():\n    print(f\"  {k:<20}: {v}\")\n\n\n# ==============================================================================\n# Challenge 2: MBOX Senders & Domain Aggregator\n# ==============================================================================\nsample_mbox = \"\"\"From stephen.marquard@uct.ac.za Sat Jan  5 09:14:16 2008\nFrom: louis@media.berkeley.edu Fri Jan  4 18:10:48 2008\nFrom: zqian@umich.edu Fri Jan  4 16:10:39 2008\nFrom: rjlowe@iupui.edu Fri Jan  4 15:46:24 2008\nFrom: csev@umich.edu Fri Jan  4 15:03:11 2008\nFrom: gsilver@umich.edu Fri Jan  4 11:11:52 2008\"\"\"\n\ndef aggregate_mbox_domains(mbox_stream):\n    domain_counter = Counter()\n    \n    for line in mbox_stream:\n        line = line.rstrip()\n        # Filter for lines starting with 'From:'\n        if not line.startswith(\"From:\"):\n            continue\n        \n        parts = line.split()\n        if len(parts) >= 2:\n            email = parts[1]\n            if \"@\" in email:\n                domain = email.split(\"@\")[1]\n                domain_counter[domain] += 1\n                \n    return domain_counter\n\ndomains = aggregate_mbox_domains(io.StringIO(sample_mbox))\nprint(\"\nChallenge 2 - MBOX Email Domains:\")\nfor domain, count in domains.most_common():\n    print(f\"  Domain: {domain:<25} Count: {count}\")\n\n\n# ==============================================================================\n# Challenge 3: Spam Confidence Metric Calculator & Threshold Filter\n# ==============================================================================\nsample_spam_data = \"\"\"X-DSPAM-Confidence: 0.8475\nX-DSPAM-Probability: 0.0000\nX-DSPAM-Confidence: 0.6178\nX-DSPAM-Confidence: 0.8920\nX-DSPAM-Confidence: 0.9234\nX-DSPAM-Confidence: 0.7565\"\"\"\n\ndef calculate_spam_metrics(stream, threshold=0.8500):\n    confidences = []\n    \n    for line in stream:\n        line = line.rstrip()\n        if line.startswith(\"X-DSPAM-Confidence:\"):\n            try:\n                val = float(line.split(\":\")[1].strip())\n                confidences.append(val)\n            except ValueError:\n                continue\n                \n    if not confidences:\n        return None\n        \n    high_spam = [c for c in confidences if c >= threshold]\n    return {\n        \"count\": len(confidences),\n        \"total\": sum(confidences),\n        \"min\": min(confidences),\n        \"max\": max(confidences),\n        \"average\": sum(confidences) / len(confidences),\n        \"high_spam_count\": len(high_spam)\n    }\n\nspam_results = calculate_spam_metrics(io.StringIO(sample_spam_data), 0.8500)\nprint(\"\nChallenge 3 - Spam Confidence Metrics:\")\nprint(f\"  Total Records: {spam_results['count']}\")\nprint(f\"  Average Score: {spam_results['average']:.4f}\")\nprint(f\"  Min / Max:     {spam_results['min']:.4f} / {spam_results['max']:.4f}\")\nprint(f\"  Critical Spam (>= 0.85): {spam_results['high_spam_count']} detected\")\n\n\n# ==============================================================================\n# Challenge 4: Formatted CSV Data Transformer & Honor Roll Filter\n# ==============================================================================\nraw_students_csv = \"\"\"StudentID,Name,Midterm,Final,Projects\n1001,\"Sharma, Ananya\",88,94,96\n1002,\"Patel, Rohan\",72,68,75\n1003,\"Verma, Priya\",95,92,98\n1004,\"Joseph, John\",82,85,89\"\"\"\n\ndef generate_honors_report(input_csv_stream):\n    reader = csv.DictReader(input_csv_stream)\n    output_buffer = io.StringIO()\n    writer = csv.writer(output_buffer)\n    writer.writerow([\"StudentID\", \"Name\", \"WeightedAverage\", \"Status\"])\n    \n    honors_count = 0\n    for row in reader:\n        # Midterm 30%, Final 40%, Projects 30%\n        midterm = float(row[\"Midterm\"])\n        final = float(row[\"Final\"])\n        projects = float(row[\"Projects\"])\n        weighted_avg = (midterm * 0.30) + (final * 0.40) + (projects * 0.30)\n        \n        if weighted_avg >= 85.0:\n            writer.writerow([row[\"StudentID\"], row[\"Name\"], f\"{weighted_avg:.2f}\", \"Honors\"])\n            honors_count += 1\n            \n    output_buffer.seek(0)\n    return honors_count, output_buffer.getvalue()\n\ncount, report = generate_honors_report(io.StringIO(raw_students_csv))\nprint(f\"\nChallenge 4 - Honors Students Generated ({count} Qualified):\")\nprint(report.strip())\n\n\n# ==============================================================================\n# Challenge 5: Search & Replace Streaming Batch Processor\n# ==============================================================================\ndef stream_search_and_replace(input_stream, output_stream, search_str, replace_str):\n    replacements_made = 0\n    for line in input_stream:\n        occurrences = line.count(search_str)\n        if occurrences > 0:\n            replacements_made += occurrences\n            line = line.replace(search_str, replace_str)\n        output_stream.write(line)\n    return replacements_made\n\nsource_text = \"\"\"SERVER_URL = http://dev.arshithbootcamp.internal\nDATABASE_HOST = http://dev.arshithbootcamp.internal:5432\nAPI_ENDPOINT = http://dev.arshithbootcamp.internal/v1/auth\"\"\"\n\nin_stream = io.StringIO(source_text)\nout_stream = io.StringIO()\n\nrep_count = stream_search_and_replace(in_stream, out_stream, \"http://dev.arshithbootcamp.internal\", \"https://api.arshithgroup.com\")\nprint(f\"\nChallenge 5 - Stream Replacement ({rep_count} replaced):\")\nprint(out_stream.getvalue().strip())\n\n\n# ==============================================================================\n# Challenge 6: Text File Word Frequency with Stop-Word Removal\n# ==============================================================================\nSTOP_WORDS = {\"the\", \"is\", \"at\", \"which\", \"on\", \"and\", \"a\", \"an\", \"to\", \"in\", \"it\", \"with\", \"for\", \"of\"}\n\ndef compute_meaningful_word_frequency(text_stream, top_n=5):\n    counter = Counter()\n    total_words = 0\n    \n    for line in text_stream:\n        clean = line.lower()\n        for punct in \",.-;:!?\"'()\":\n            clean = clean.replace(punct, \" \")\n        words = clean.split()\n        for w in words:\n            total_words += 1\n            if w not in STOP_WORDS and len(w) > 2:\n                counter[w] += 1\n                \n    results = []\n    for word, cnt in counter.most_common(top_n):\n        pct = (cnt / total_words) * 100 if total_words > 0 else 0\n        results.append((word, cnt, round(pct, 2)))\n    return results\n\nraw_notes = \"\"\"Python is an interpreted high-level general-purpose programming language.\nPython dynamic typing and garbage collection support multiple programming paradigms.\nThe language is designed with an emphasis on code readability and clean syntax.\"\"\"\n\ntop_words = compute_meaningful_word_frequency(io.StringIO(raw_notes), top_n=5)\nprint(\"\nChallenge 6 - Top Informative Words (Stop-words removed):\")\nfor word, cnt, pct in top_words:\n    print(f\"  • {word:<15}: {cnt} occurrences ({pct}% of corpus)\")\n\n\n# ==============================================================================\n# Challenge 7: Atomic Configuration Manager\n# ==============================================================================\nclass AtomicConfigManager:\n    def __init__(self, filepath):\n        self.path = Path(filepath)\n        \n    def write_config(self, key_values):\n        temp_path = self.path.with_suffix(\".tmp\")\n        try:\n            with open(temp_path, \"w\", encoding=\"utf-8\") as f:\n                for k, v in key_values.items():\n                    f.write(f\"{k}={v}\n\")\n                f.flush()\n                os.fsync(f.fileno())\n            temp_path.replace(self.path)\n            return True\n        except Exception as e:\n            if temp_path.exists():\n                temp_path.unlink()\n            return False\n\ncfg_mgr = AtomicConfigManager(\"scratch_app.cfg\")\nsuccess = cfg_mgr.write_config({\"PORT\": 8080, \"ENV\": \"production\", \"WORKERS\": 4})\nprint(f\"\nChallenge 7 - Atomic Config Save Status: {'Success' if success else 'Failed'}\")\nif Path(\"scratch_app.cfg\").exists():\n    Path(\"scratch_app.cfg\").unlink() # Cleanup demo file\n\n\n# ==============================================================================\n# Challenge 8: Directory Tree Inventory & Disk Usage Auditor (pathlib)\n# ==============================================================================\ndef audit_directory_inventory(directory_path):\n    root = Path(directory_path)\n    extension_counts = Counter()\n    extension_bytes = Counter()\n    \n    if not root.exists():\n        return None\n        \n    for p in root.rglob(\"*\"):\n        if p.is_file():\n            ext = p.suffix.lower() if p.suffix else \"[no-ext]\"\n            extension_counts[ext] += 1\n            extension_bytes[ext] += p.stat().st_size\n            \n    summary = []\n    for ext, count in extension_counts.most_common():\n        kb = extension_bytes[ext] / 1024\n        summary.append((ext, count, round(kb, 2)))\n    return summary\n\ninventory = audit_directory_inventory(\".\")\nprint(\"\nChallenge 8 - Workspace File Inventory:\")\nif inventory:\n    for ext, count, kb in inventory[:6]:\n        print(f\"  {ext:<12}: {count:>4} files ({kb:>8.2f} KB)\")"
           },
           "keyTakeaways": [
-            "Files store data permanently in secondary memory.",
-            "Iterating handles line-by-line is memory efficient.",
-            "with open() auto-closes handles."
+            "Secondary storage is non-volatile and persists data across program executions and power cycles.",
+            "A file handle is an operating system stream pointer providing constant O(1) memory footprint during line iteration.",
+            "Always declare encoding='utf-8' explicitly to prevent cross-platform text corruption.",
+            "The 'with open(...) as f:' context manager guarantees deterministic file closure even when unhandled exceptions occur.",
+            "Reading via 'for line in f:' processes multi-gigabyte files safely without memory overflow.",
+            "Always apply line.rstrip() to strip invisible trailing newlines and prevent double-spaced output.",
+            "Mode 'w' truncates existing files immediately; use 'a' for appending or 'x' for exclusive non-overwriting creation.",
+            "Standard library tools (csv.DictReader, pathlib.Path, io.StringIO) provide high-performance, robust file workflows.",
+            "Production systems use atomic file writes (.tmp + os.replace) to guard against mid-write corruption."
           ],
           "references": [
             {
-              "title": "Python for Everybody Chapter 7",
+              "title": "Python for Everybody: Chapter 7 — Files",
               "url": "https://www.py4e.com/html3/07-files"
+            },
+            {
+              "title": "Python Documentation: Reading and Writing Files",
+              "url": "https://docs.python.org/3/tutorial/inputoutput.html#reading-and-writing-files"
+            },
+            {
+              "title": "Python Documentation: pathlib — Object-oriented filesystem paths",
+              "url": "https://docs.python.org/3/library/pathlib.html"
+            },
+            {
+              "title": "Python Documentation: csv — CSV File Reading and Writing",
+              "url": "https://docs.python.org/3/library/csv.html"
+            },
+            {
+              "title": "Python Documentation: io — Core tools for working with streams",
+              "url": "https://docs.python.org/3/library/io.html"
             }
-          ]
+          ],
+          "mcqs": [
+            {
+              "id": 1,
+              "question": "Why is iterating over a file with 'for line in f:' preferable to calling 'f.read()' on multi-gigabyte log files?",
+              "options": [
+                "f.read() only works on Windows, not Linux",
+                "The line iterator streams one line at a time with O(1) memory, while f.read() loads the entire file into RAM, risking memory crashes",
+                "The line iterator automatically translates text into French",
+                "for line in f: automatically encrypts file contents"
+              ],
+              "correctAnswer": 1,
+              "explanation": "The line-by-line iterator operates as a stream with constant O(1) RAM footprint, processing files of arbitrary size safely."
+            },
+            {
+              "id": 2,
+              "question": "What dangerous side-effect occurs when opening an existing file with mode='w' in Python?",
+              "options": [
+                "The file is locked permanently by the operating system",
+                "The file is instantly truncated (all existing content is erased) before any write calls occur",
+                "An exception is raised if the file is not empty",
+                "The file is converted to a binary format"
+              ],
+              "correctAnswer": 1,
+              "explanation": "Opening an existing file in 'w' mode immediately truncates its size to 0 bytes, erasing all existing contents on disk."
+            },
+            {
+              "id": 3,
+              "question": "What is the primary benefit of using the 'with open(...) as f:' context manager pattern?",
+              "options": [
+                "It makes file read operations 10x faster",
+                "It guarantees that the file handle is automatically closed when leaving the block, even if exceptions occur",
+                "It bypasses operating system file permission checks",
+                "It eliminates the need to specify character encoding"
+              ],
+              "correctAnswer": 1,
+              "explanation": "Context managers guarantee deterministic resource cleanup by automatically calling __exit__() and closing the file descriptor."
+            },
+            {
+              "id": 4,
+              "question": "Which character encoding parameter should always be declared explicitly when opening text files in Python 3?",
+              "options": [
+                "encoding='ascii'",
+                "encoding='utf-8'",
+                "encoding='latin-1'",
+                "encoding='cp1252'"
+              ],
+              "correctAnswer": 1,
+              "explanation": "Declaring encoding='utf-8' ensures cross-platform portability, preventing Windows default encoding mismatches on international text."
+            },
+            {
+              "id": 5,
+              "question": "How does the exclusive creation mode 'x' protect data compared to write mode 'w'?",
+              "options": [
+                "Mode 'x' encrypts file data with a secret password",
+                "Mode 'x' creates the file only if it does not already exist; if it exists, it raises a FileExistsError instead of overwriting",
+                "Mode 'x' allows multiple processes to write to the file at the same time",
+                "Mode 'x' deletes the file upon program exit"
+              ],
+              "correctAnswer": 1,
+              "explanation": "Exclusive mode ('x') prevents accidental data destruction by failing with FileExistsError if a file with that name already exists."
+            }
+          ],
+          "selfAssessment": {
+            "title": "Module Self-Assessment (5 Knowledge Check MCQs)",
+            "questions": [
+              {
+                "id": "py-q-9-1",
+                "questionNumber": 1,
+                "topic": "Context Managers (with statement)",
+                "questionText": "Why is using with open('data.txt', 'r') as f: the industry best practice for opening files in Python?",
+                "options": [
+                  "It automatically encrypts the file during reading",
+                  "It guarantees that the file handle is closed automatically when the block exits, even if exceptions are raised",
+                  "It loads the entire file directly into GPU memory",
+                  "It prevents other processes from reading the file"
+                ],
+                "correctAnswer": 1,
+                "explanation": "The with statement utilizes the context manager protocol (__enter__ and __exit__) to guarantee that f.close() is invoked reliably."
+              },
+              {
+                "id": "py-q-9-2",
+                "questionNumber": 2,
+                "topic": "File Reading Methods",
+                "questionText": "When dealing with multi-gigabyte log files, why is iterating with for line in f: preferred over f.readlines()?",
+                "options": [
+                  "f.readlines() raises an error on files larger than 10MB",
+                  "for line in f: streams lines lazily through an internal buffer, consuming minimal memory instead of loading the entire file into RAM",
+                  "f.readlines() reverses the order of lines in memory",
+                  "for line in f: automatically strips newlines"
+                ],
+                "correctAnswer": 1,
+                "explanation": "Iterating directly over a file object uses a buffered generator, reading line-by-line in O(1) memory, whereas readlines() loads all lines into a memory-heavy list."
+              },
+              {
+                "id": "py-q-9-3",
+                "questionNumber": 3,
+                "topic": "File Write Modes",
+                "questionText": "What occurs if you open an existing file in 'w' mode vs 'a' mode?",
+                "options": [
+                  "'w' appends to the end; 'a' overwrites",
+                  "'w' truncates the file to 0 bytes upon opening; 'a' preserves existing content and writes to the end",
+                  "Both modes preserve existing content",
+                  "'w' raises FileExistsError if the file exists"
+                ],
+                "correctAnswer": 1,
+                "explanation": "Opening in 'w' (write) mode immediately truncates the file, erasing previous data. 'a' (append) mode positions the write pointer at the end of the file."
+              },
+              {
+                "id": "py-q-9-4",
+                "questionNumber": 4,
+                "topic": "File Pointer Mechanics",
+                "questionText": "What does f.seek(0) accomplish on an open file handle?",
+                "options": [
+                  "It deletes the first line of the file",
+                  "It resets the file read/write cursor position back to the beginning of the file (byte 0)",
+                  "It writes a null byte at the end of the file",
+                  "It flushes the operating system write buffer"
+                ],
+                "correctAnswer": 1,
+                "explanation": "f.seek(offset) repositions the internal byte cursor. f.seek(0) brings the cursor back to the start of the file for a fresh read."
+              },
+              {
+                "id": "py-q-9-5",
+                "questionNumber": 5,
+                "topic": "Character Encoding",
+                "questionText": "What is the best practice parameter to pass to open() when processing international UTF-8 text files across different operating systems?",
+                "options": [
+                  "encoding='ascii'",
+                  "encoding='utf-8'",
+                  "binary=True",
+                  "mode='utf8'"
+                ],
+                "correctAnswer": 1,
+                "explanation": "Specifying encoding='utf-8' explicitly prevents OS-dependent default character set bugs (e.g. Windows cp1252 vs Linux utf-8)."
+              }
+            ]
+          }
         },
         "quiz": {
           "id": "quiz-py-mod-9",
@@ -1550,9 +4589,9 @@ export const INITIAL_COURSES = [
           "questions": [
             {
               "id": "py-q-9-1",
-              "type": "multiple-choice",
+              "questionNumber": 1,
               "topic": "Context Managers (with statement)",
-              "questionText": "Why is using `with open('data.txt', 'r') as f:` the industry best practice for opening files in Python?",
+              "questionText": "Why is using with open('data.txt', 'r') as f: the industry best practice for opening files in Python?",
               "options": [
                 "It automatically encrypts the file during reading",
                 "It guarantees that the file handle is closed automatically when the block exits, even if exceptions are raised",
@@ -1560,44 +4599,41 @@ export const INITIAL_COURSES = [
                 "It prevents other processes from reading the file"
               ],
               "correctAnswer": 1,
-              "marks": 10,
-              "explanation": "The `with` statement utilizes the context manager protocol (__enter__ and __exit__) to guarantee that `f.close()` is invoked reliably."
+              "explanation": "The with statement utilizes the context manager protocol (__enter__ and __exit__) to guarantee that f.close() is invoked reliably."
             },
             {
               "id": "py-q-9-2",
-              "type": "multiple-choice",
+              "questionNumber": 2,
               "topic": "File Reading Methods",
-              "questionText": "When dealing with multi-gigabyte log files, why is iterating with `for line in f:` preferred over `f.readlines()`?",
+              "questionText": "When dealing with multi-gigabyte log files, why is iterating with for line in f: preferred over f.readlines()?",
               "options": [
-                "`f.readlines()` raises an error on files larger than 10MB",
-                "`for line in f:` streams lines lazily through an internal buffer, consuming minimal memory instead of loading the entire file into RAM",
-                "`f.readlines()` reverses the order of lines in memory",
-                "`for line in f:` automatically strips newlines"
+                "f.readlines() raises an error on files larger than 10MB",
+                "for line in f: streams lines lazily through an internal buffer, consuming minimal memory instead of loading the entire file into RAM",
+                "f.readlines() reverses the order of lines in memory",
+                "for line in f: automatically strips newlines"
               ],
               "correctAnswer": 1,
-              "marks": 10,
-              "explanation": "Iterating directly over a file object uses a buffered generator, reading line-by-line in O(1) memory, whereas `readlines()` loads all lines into a memory-heavy list."
+              "explanation": "Iterating directly over a file object uses a buffered generator, reading line-by-line in O(1) memory, whereas readlines() loads all lines into a memory-heavy list."
             },
             {
               "id": "py-q-9-3",
-              "type": "multiple-choice",
+              "questionNumber": 3,
               "topic": "File Write Modes",
-              "questionText": "What occurs if you open an existing file in `'w'` mode vs `'a'` mode?",
+              "questionText": "What occurs if you open an existing file in 'w' mode vs 'a' mode?",
               "options": [
-                "`'w'` appends to the end; `'a'` overwrites",
-                "`'w'` truncates the file to 0 bytes upon opening; `'a'` preserves existing content and writes to the end",
+                "'w' appends to the end; 'a' overwrites",
+                "'w' truncates the file to 0 bytes upon opening; 'a' preserves existing content and writes to the end",
                 "Both modes preserve existing content",
-                "`'w'` raises FileExistsError if the file exists"
+                "'w' raises FileExistsError if the file exists"
               ],
               "correctAnswer": 1,
-              "marks": 10,
-              "explanation": "Opening in `'w'` (write) mode immediately truncates the file, erasing previous data. `'a'` (append) mode positions the write pointer at the end of the file."
+              "explanation": "Opening in 'w' (write) mode immediately truncates the file, erasing previous data. 'a' (append) mode positions the write pointer at the end of the file."
             },
             {
               "id": "py-q-9-4",
-              "type": "multiple-choice",
+              "questionNumber": 4,
               "topic": "File Pointer Mechanics",
-              "questionText": "What does `f.seek(0)` accomplish on an open file handle?",
+              "questionText": "What does f.seek(0) accomplish on an open file handle?",
               "options": [
                 "It deletes the first line of the file",
                 "It resets the file read/write cursor position back to the beginning of the file (byte 0)",
@@ -1605,23 +4641,21 @@ export const INITIAL_COURSES = [
                 "It flushes the operating system write buffer"
               ],
               "correctAnswer": 1,
-              "marks": 10,
-              "explanation": "`f.seek(offset)` repositions the internal byte cursor. `f.seek(0)` brings the cursor back to the start of the file for a fresh read."
+              "explanation": "f.seek(offset) repositions the internal byte cursor. f.seek(0) brings the cursor back to the start of the file for a fresh read."
             },
             {
               "id": "py-q-9-5",
-              "type": "multiple-choice",
+              "questionNumber": 5,
               "topic": "Character Encoding",
-              "questionText": "What is the best practice parameter to pass to `open()` when processing international UTF-8 text files across different operating systems?",
+              "questionText": "What is the best practice parameter to pass to open() when processing international UTF-8 text files across different operating systems?",
               "options": [
-                "`encoding='ascii'`",
-                "`encoding='utf-8'`",
-                "`binary=True`",
-                "`mode='utf8'`"
+                "encoding='ascii'",
+                "encoding='utf-8'",
+                "binary=True",
+                "mode='utf8'"
               ],
               "correctAnswer": 1,
-              "marks": 10,
-              "explanation": "Specifying `encoding='utf-8'` explicitly prevents OS-dependent default character set bugs (e.g. Windows cp1252 vs Linux utf-8)."
+              "explanation": "Specifying encoding='utf-8' explicitly prevents OS-dependent default character set bugs (e.g. Windows cp1252 vs Linux utf-8)."
             }
           ]
         }
@@ -1629,63 +4663,420 @@ export const INITIAL_COURSES = [
       {
         "id": "py-mod-10",
         "title": "Module 10 — Exception Handling & Debugging Strategies",
-        "description": "Deep dive into try/except, handling specific errors (ValueError, FileNotFoundError, ZeroDivisionError), debugging by bisection, and traceback analysis.",
-        "completed": false,
+        "description": "Advanced exception hierarchies, try/except/else/finally control flow, custom domain exceptions, exception chaining, traceback diagnostics, the logging module, and scientific debugging by bisection.",
+        "completed": true,
         "readingMaterial": {
-          "introduction": "Debugging is the scientific process of finding and fixing software bugs. Based on Chapters 3, 7, and 14 of 'Python for Everybody', learning how to read tracebacks and catch expected errors makes your code production-ready.",
+          "introduction": "In software engineering, the distinction between novice scripting and production-grade programming lies in how a system handles the unexpected. Novice programs operate under the 'happy path' assumption—trusting that inputs are always clean, network connections never timeout, files always exist, and disk space is limitless. When real-world conditions violate these assumptions, unhandled exceptions trigger catastrophic process termination, leaving users with cryptic tracebacks and corrupted application state.\n\nProfessional software development treats exceptions not as disastrous failures, but as expected, normal execution branches. Python's exception handling system is engineered around the principle of 'Easier to Ask for Forgiveness than Permission' (EAFP), contrasting with the 'Look Before You Leap' (LBYL) style common in C and Java. Rather than evaluating dozens of defensive boolean conditions prior to every operation, Python encourages attempting the action inside a protected try block and handling domain-specific anomalies cleanly through explicit except handlers.\n\nBased on Chapters 3, 7, and 14 of Dr. Charles Severance's 'Python for Everybody' and enterprise Python reliability standards, this module delivers an exhaustive masterclass in building resilient, fault-tolerant Python applications: mastering the complete four-part try/except/else/finally lifecycle, building custom application exception hierarchies, tracing call stacks with the traceback module, replacing ad-hoc print statements with industrial-grade logging, applying scientific debugging by bisection (O(log N) defect isolation), and utilizing modern interactive debugging with breakpoint() and pdb.",
           "objectives": [
-            "Interpret Python tracebacks (error name, line number, execution context)",
-            "Catch specific exception types explicitly",
-            "Use try, except, else, and finally blocks",
-            "Apply Debugging by Bisection on large codebases"
+            "Distinguish between compile-time Syntax Errors, runtime Exceptions, and silent Semantic Logic Bugs.",
+            "Navigate the Python BaseException and Exception class hierarchy and avoid catastrophic exception swallowing.",
+            "Master the complete execution semantics of try, except, else, and finally blocks.",
+            "Capture exception instances (as err) and extract error diagnostics, arguments, and type metadata.",
+            "Raise custom exceptions explicitly using raise and create domain-specific exception classes.",
+            "Preserve original error root causes using exception chaining with 'raise ... from ...'.",
+            "Read, interpret, and deconstruct multi-frame Python Traceback call stacks systematically.",
+            "Configure the standard library logging module with severity levels (DEBUG through CRITICAL) and formatters.",
+            "Apply the scientific method of 'Debugging by Bisection' to locate bugs in large codebases in O(log N) iterations.",
+            "Inspect running program state interactively using breakpoint() and the Python debugger (pdb)."
           ],
           "sections": [
             {
-              "heading": "Four Debugging Actions",
-              "text": "When hunting hard bugs, try these four core debugging activities:",
-              "bulletPoints": [
-                "Reading: Examine your code carefully, reading it back line by line.",
-                "Running: Experiment by adding print statements or testing isolated code fragments.",
-                "Ruminating: Take time to think! Formulate hypotheses about why the bug occurs.",
-                "Retreating: Undo recent changes back to a known working state before rebuilding."
-              ]
+              "heading": "1. The Anatomy of Software Defects: Syntax, Runtime & Semantic Errors",
+              "text": "Every software bug falls into one of three distinct categories, each requiring different detection and resolution strategies:\n\n1. Syntax Errors (Compile-Time / Parsing Errors):\nOccur when source code violates Python's formal grammar rules (missing colons, mismatched parentheses, invalid indentation, unclosed quotes).\n• When Detected: Prior to execution, while the Python parser is compiling source code into bytecode.\n• Characteristic: No line of code is executed. Python halts immediately with a SyntaxError pointing to the token where parsing failed.\n\n2. Runtime Exceptions (Execution-Time Errors):\nThe syntax is mathematically valid, but the Python virtual machine encounters an impossible or illegal operation during execution (e.g. dividing by zero, accessing an out-of-bounds list index, opening a missing file, or dereferencing a non-existent dictionary key).\n• When Detected: During live program execution.\n• Characteristic: Without protective try/except blocks, Python aborts execution and emits a Traceback.\n\n3. Semantic / Logic Errors (Silent Flaws):\nThe program compiles perfectly and runs without crashing or throwing any exceptions, but produces incorrect outputs or behaves unpredictably (e.g. calculating gross margin using (revenue + cost) instead of (revenue - cost), off-by-one loop indexing, or mutating shared mutable default arguments).\n• When Detected: Through unit testing, code review, or user complaints.\n• Characteristic: The hardest bugs to diagnose because the Python interpreter cannot help you identify them."
             },
             {
-              "heading": "Debugging by Bisection",
-              "text": "If a 100-line script has a bug, place a print statement near line 50. If the output is correct, the bug is in the second half; if wrong, it's in the first half. Repeat to isolate bugs in O(log N) steps."
+              "heading": "2. The Python Exception Hierarchy & The Bare 'except:' Anti-Pattern",
+              "text": "All Python exceptions are organized in an object-oriented inheritance tree rooted at BaseException. Understanding this hierarchy is paramount for writing safe error-handling code:\n\nBaseException\n ├── SystemExit (Triggered by sys.exit(); should NEVER be caught in normal code)\n ├── KeyboardInterrupt (Triggered when the user hits Ctrl+C to stop a program)\n ├── GeneratorExit\n └── Exception (The root class for all regular runtime errors)\n      ├── ArithmeticError (ZeroDivisionError, OverflowError)\n      ├── LookupError (IndexError, KeyError)\n      ├── ValueError (Invalid argument value, e.g. int('hello'))\n      ├── TypeError (Operation on inappropriate data type)\n      ├── OSError (FileNotFoundError, PermissionError, ConnectionError)\n      └── ... user-defined custom exceptions\n\nThe Disastrous 'Bare except:' Anti-Pattern:\nNever write:\ntry:\n    process_data()\nexcept: # BARE EXCEPT - DANGEROUS!\n    pass\n\nWhy Bare except: is catastrophic:\n1. It catches BaseException, meaning if the user presses Ctrl+C to terminate your script, Python traps the KeyboardInterrupt and refuses to stop!\n2. It swallows typing mistakes (e.g. NameError if you mistype a variable name as priint instead of print), completely masking defects and creating 'ghost bugs' that take days to isolate.\n\nAlways catch specific exception classes (e.g. except (ValueError, KeyError):) or at maximum except Exception as e:."
+            },
+            {
+              "heading": "3. Complete Lifecycle of try, except, else & finally",
+              "text": "Python provides a four-part control structure for exception management. Each clause serves a strictly defined operational purpose:\n\n1. try Block:\nEncloses only the specific statements that might raise an expected exception. Keep try blocks as compact as possible to prevent accidentally masking unrelated errors.\n\n2. except Block(s):\nExecutes ONLY if an exception matching the declared type occurs inside the try block. Multiple except blocks can be chained to handle different error conditions independently.\n\n3. else Block:\nExecutes ONLY if the try block completes successfully with ZERO exceptions raised.\n• Why use else? Placing non-dangerous follow-up code inside else prevents accidentally catching exceptions raised by the follow-up code itself, maintaining clean separation of concerns.\n\n4. finally Block:\nGuaranteed to execute in 100% of execution scenarios, regardless of whether:\n• The try block ran successfully,\n• An expected exception was handled,\n• An unhandled exception was raised,\n• Or execution exited early via a return, break, or continue statement!\n• Primary Use Case: Deterministic cleanup (closing network sockets, releasing database locks, or removing temporary files)."
+            },
+            {
+              "heading": "4. try-except-else-finally Execution Flow Matrix",
+              "text": "The interaction between the four blocks across different program states:",
+              "table": {
+                "headers": [
+                  "Execution Scenario",
+                  "try Runs?",
+                  "except Runs?",
+                  "else Runs?",
+                  "finally Runs?",
+                  "Script Continues?"
+                ],
+                "rows": [
+                  [
+                    "No Exception Occurs",
+                    "Yes (runs to end)",
+                    "No (bypassed)",
+                    "YES (executes)",
+                    "YES (executes)",
+                    "Yes (normal flow)"
+                  ],
+                  [
+                    "Caught Exception Raised",
+                    "Yes (halts at error)",
+                    "YES (matching handler)",
+                    "No (bypassed)",
+                    "YES (executes)",
+                    "Yes (recovers smoothly)"
+                  ],
+                  [
+                    "Uncaught Exception Raised",
+                    "Yes (halts at error)",
+                    "No (no match)",
+                    "No (bypassed)",
+                    "YES (executes)",
+                    "NO (crashes with traceback)"
+                  ],
+                  [
+                    "Early 'return' in try Block",
+                    "Yes (hits return)",
+                    "No (bypassed)",
+                    "No (bypassed)",
+                    "YES (executes before return)",
+                    "Exits function with return value"
+                  ],
+                  [
+                    "Exception Inside except Block",
+                    "Yes (halts at error)",
+                    "Yes (halts at new error)",
+                    "No (bypassed)",
+                    "YES (executes)",
+                    "NO (crashes with chained error)"
+                  ]
+                ]
+              }
+            },
+            {
+              "heading": "5. Inspecting Exception Instances & Exception Arguments",
+              "text": "When catching an exception, capture the exception instance using the 'as' keyword:\n\ntry:\n    val = int(user_input)\nexcept ValueError as err:\n    print(f\"Exception Type: {type(err).__name__}\")\n    print(f\"Error Message:  {err}\")\n    print(f\"Error Args:     {err.args}\")\n\nKey Properties of Exception Instances:\n• type(err).__name__: Returns the exact class name ('ValueError', 'KeyError', 'FileNotFoundError').\n• str(err): Returns the human-readable explanation provided by the Python runtime.\n• err.args: A tuple containing the parameters passed when the exception was instantiated.\n• err.__traceback__: A reference to the traceback frame object representing the execution stack at the point of the error."
+            },
+            {
+              "heading": "6. Raising Exceptions & Defining Custom Application Exceptions",
+              "text": "In addition to catching errors, robust code deliberately signals invalid states to callers by raising exceptions:\n\n1. The raise Statement:\nUse raise followed by an exception instance:\nif withdraw_amount > balance:\n    raise ValueError(f\"Insufficient funds: requested {withdraw_amount}, available {balance}\")\n\n2. Creating Custom Exception Classes:\nIn enterprise systems, generic exceptions (like ValueError) are too ambiguous. Creating custom exception classes allows callers to catch domain-specific failures cleanly:\n\nclass BankingError(Exception):\n    \"\"\"Base exception for all banking operations.\"\"\"\n    pass\n\nclass InsufficientFundsError(BankingError):\n    \"\"\"Raised when an account does not have sufficient balance.\"\"\"\n    def __init__(self, requested, balance):\n        super().__init__(f\"Cannot withdraw {requested}; balance is only {balance}\")\n        self.requested = requested\n        self.balance = balance\n\nclass AccountSuspendedError(BankingError):\n    \"\"\"Raised when attempting transactions on locked accounts.\"\"\"\n    pass"
+            },
+            {
+              "heading": "7. Exception Chaining & Root Cause Preservation (raise ... from)",
+              "text": "When writing higher-level abstraction layers (such as a database client or API wrapper), low-level errors (like socket.timeout or sqlite3.OperationalError) should often be converted into higher-level domain exceptions.\n\nThe Problem with Naive Re-raising:\nIf you catch an error and raise a new one naively, the original stack trace can become fragmented, obscuring the original root cause.\n\nThe Solution: Explicit Exception Chaining (raise ... from ...):\nPython 3 provides the from keyword to link the original cause to the new exception:\n\ntry:\n    raw_config = load_from_remote_s3(bucket, key)\nexcept ConnectionError as net_err:\n    raise ConfigurationLoadError(\"Failed to fetch production configuration\") from net_err\n\nTraceback Output:\nPython displays:\nThe above exception was the direct cause of the following exception:\nConfigurationLoadError: Failed to fetch production configuration\n\nSuppressing Context (from None):\nIf the low-level exception exposes sensitive internal details (like database passwords or internal IP addresses), suppress the inner traceback using from None:\nraise AuthenticationFailed(\"Invalid credentials\") from None"
+            },
+            {
+              "heading": "8. Reading and Deconstructing Python Tracebacks",
+              "text": "When an unhandled exception terminates a Python script, it outputs a Traceback. A traceback is a chronological reverse snapshot of the call stack:\n\nStructure of a Traceback:\n1. Header: 'Traceback (most recent call last):'\nIndicates that the oldest call is at the top, and the actual point of failure is at the very bottom!\n\n2. Call Stack Frames:\nEach stack frame lists:\n• File path: File \"/var/app/billing.py\"\n• Line number: line 142\n• Function or scope: in calculate_tax\n• Source code snippet: return subtotal * tax_rates[country]\n\n3. Final Error Banner:\nThe bottom-most line specifies the exact Exception Class and Error Message:\nKeyError: 'CA'\n\nHow to Read a Traceback Systematically:\n• Step 1: Look at the BOTTOM line first to identify WHAT went wrong (Exception type + message).\n• Step 2: Scan upward to find the LAST file that YOU authored (ignoring third-party library internals).\n• Step 3: Jump directly to that file and line number to inspect the offending statement."
+            },
+            {
+              "heading": "9. Industrial-Grade Diagnostics: The logging Module vs. print()",
+              "text": "While beginner programmers rely heavily on print() for debugging, production applications require the standard library logging module.\n\nWhy print() Fails in Production:\n• Cannot be disabled globally without manually removing or commenting out code.\n• Outputs indiscriminately to stdout, mixing debug noise with legitimate program output.\n• Lacks timestamps, module names, thread IDs, and severity classifications.\n• Cannot be routed to log aggregation servers (Datadog, CloudWatch, Splunk) or rotated disk files.\n\nThe 5 Standard Logging Levels:\n1. DEBUG (10): Detailed forensic diagnostics for developers during problem diagnosis.\n2. INFO (20): Normal operational confirmations ('Server started on port 8080', 'Batch job completed').\n3. WARNING (30): An unexpected event occurred or a problem is imminent, but software continues functioning.\n4. ERROR (40): A serious defect prevented a specific operation from completing.\n5. CRITICAL (50): A fatal error forcing the entire application to abort (e.g. database disk corrupted)."
+            },
+            {
+              "heading": "10. The Four Core Debugging Actions (Python for Everybody)",
+              "text": "Dr. Charles Severance outlines four deliberate, scientific actions to systematically conquer difficult bugs:\n\n1. Reading:\nCarefully read your source code aloud or to a peer. Scrutinize whether the code says what you INTENDED it to say, rather than assuming it does.\n\n2. Running:\nExperiment with small, isolated components. Change variable values, test boundary conditions, or verify behavior inside the interactive REPL.\n\n3. Ruminating (Thinking Deeply):\nStep away from the keyboard! Formulate clear, testable hypotheses: 'If hypothesis A is true, then variable X should equal 0 at line 45.' Go back to test your hypothesis.\n\n4. Retreating:\nIf your debugging attempts have added messy print statements and broken working code further, retreat! Use Git (git checkout or git restore) to return to your last known working state and approach the problem with a fresh perspective."
+            },
+            {
+              "heading": "11. Scientific Debugging by Bisection: Finding Defects in O(log N) Steps",
+              "text": "When hunting a logic flaw across a 1,000-line script or a large pipeline:\n\nThe Inefficient Approach (Linear Search):\nReading line-by-line from line 1 to line 1,000 requires O(N) effort and is mentally exhausting.\n\nThe Scientific Bisection Strategy (Binary Search):\n1. Place a diagnostic breakpoint or logging probe at the midpoint (Line 500).\n2. Inspect whether the program state (all variables and data structures) is 100% correct at line 500:\n   • If State is VALID at Line 500: The bug CANNOT be in lines 1–500! It must reside in lines 501–1000.\n   • If State is CORRUPTED at Line 500: The bug has ALREADY occurred! It must reside in lines 1–500.\n3. Bisect the remaining half by testing line 250 or line 750.\n4. Mathematical Efficiency: In a 1,000-line program, bisection isolates the exact defective line in approximately log2(1000) ≈ 10 checks!"
+            },
+            {
+              "heading": "12. Interactive Debugging with breakpoint() and pdb",
+              "text": "Python 3.7 introduced the built-in breakpoint() function, which drops execution into an interactive terminal debugger powered by pdb (Python Debugger):\n\ndef compute_payroll(employees):\n    for emp in employees:\n        rate = emp['hourly_rate']\n        hours = emp['hours_worked']\n        breakpoint() # Execution freezes here! Interactive prompt opens.\n        gross = rate * hours\n        ...\n\nEssential pdb Commands:\n• n (next): Execute the current line and advance to the next line in the current function.\n• s (step): Step into the function call on the current line.\n• c (continue): Continue execution until the next breakpoint is encountered or program finishes.\n• p <expression> (print): Evaluate and display the value of any variable or expression (e.g. p emp['hourly_rate']).\n• l (list): Display 11 lines of source code surrounding the current execution pointer.\n• w (where): Print the complete stack trace leading to the current frame.\n• q (quit): Abort the debugger and terminate script execution immediately."
+            },
+            {
+              "heading": "13. Defensive Programming: Assertions & Invariant Verification",
+              "text": "Defensive programming involves embedding self-checks into code to detect internal inconsistencies as early as possible.\n\nThe assert Statement:\nSyntax: assert <condition>, <error_message>\nIf the condition evaluates to True, nothing happens. If it evaluates to False, Python immediately raises an AssertionError:\n\ndef calculate_discount(price, discount_percent):\n    assert price >= 0, f\"Price cannot be negative: {price}\"\n    assert 0 <= discount_percent <= 100, f\"Discount must be 0-100%: {discount_percent}\"\n    return price * (1 - discount_percent / 100)\n\nCRITICAL Production Warning Regarding assert:\nPython disables assertions when executed with the -O (optimize) flag (python -O app.py). Therefore, NEVER use assert for security checks, user input validation, or business logic enforcement! Use regular if statements and raise ValueError(...) instead."
+            },
+            {
+              "heading": "14. Standard Exception Reference Table & Common Triggers",
+              "text": "The definitive reference for standard Python runtime exceptions:",
+              "table": {
+                "headers": [
+                  "Exception Class",
+                  "Common Cause / Trigger",
+                  "Diagnostic Tip & Fix"
+                ],
+                "rows": [
+                  [
+                    "ValueError",
+                    "int('abc'), math.sqrt(-1), float('invalid')",
+                    "Validate string format with str.isdigit() or check input ranges"
+                  ],
+                  [
+                    "TypeError",
+                    "'score: ' + 95, len(42), [1, 2][0.5]",
+                    "Check object types with isinstance() or cast with str()/int()"
+                  ],
+                  [
+                    "IndexError",
+                    "lst[10] on a list of length 5, pop() on empty list",
+                    "Verify index < len(seq) or check 'if seq:' before accessing"
+                  ],
+                  [
+                    "KeyError",
+                    "d['unknown_key'] when key does not exist",
+                    "Use d.get(key, default) or test 'if key in d:' beforehand"
+                  ],
+                  [
+                    "FileNotFoundError",
+                    "open('nonexistent.txt')",
+                    "Verify paths with pathlib.Path.exists() before opening"
+                  ],
+                  [
+                    "ZeroDivisionError",
+                    "total / count when count == 0",
+                    "Guard division with 'if count > 0:'"
+                  ],
+                  [
+                    "AttributeError",
+                    "s.uppercase() (method is lower() or upper())",
+                    "Check object attributes with dir(obj) or hasattr(obj, name)"
+                  ],
+                  [
+                    "NameError",
+                    "print(usr_name) when variable is user_name",
+                    "Inspect variable spelling and verify scope declaration"
+                  ]
+                ]
+              }
             }
           ],
           "codeExamples": [
             {
-              "title": "Robust Exception Handling Block",
-              "code": "def calculate_ratio(filename):\n    try:\n        with open(filename) as f:\n            lines = f.readlines()\n            total_items = len(lines)\n            active_items = sum(1 for line in lines if 'active' in line)\n            return active_items / total_items\n    except FileNotFoundError:\n        print(f\"Error: File '{filename}' does not exist.\")\n    except ZeroDivisionError:\n        print(\"Error: File is empty (division by zero).\")\n    except Exception as e:\n        print(f\"Unexpected Error: {e}\")\n    finally:\n        print(\"File ratio operation attempt complete.\")\n\nprint(calculate_ratio('missing.txt'))",
-              "explanation": "Catches specific errors explicitly and provides cleanup via finally."
+              "title": "1. Robust Multi-Branch Exception Handling with else and finally",
+              "code": "def safe_divide_records(dividend_str, divisor_str):\n    try:\n        a = float(dividend_str)\n        b = float(divisor_str)\n        result = a / b\n    except ValueError as val_err:\n        print(f\"Input Conversion Error: {val_err}\")\n        return None\n    except ZeroDivisionError:\n        print(\"Arithmetic Error: Cannot divide by zero.\")\n        return None\n    else:\n        # Runs ONLY when no exceptions occurred\n        print(f\"Calculation Successful: {a} / {b} = {result:.4f}\")\n        return result\n    finally:\n        # ALWAYS runs regardless of outcome\n        print(\"Completed safe_divide transaction attempt.\n\")\n\n# Test 1: Clean execution\nsafe_divide_records(\"100\", \"4\")\n\n# Test 2: Zero division\nsafe_divide_records(\"50\", \"0\")\n\n# Test 3: Invalid text input\nsafe_divide_records(\"one hundred\", \"20\")",
+              "explanation": "Demonstrates the complete four-part try/except/else/finally control flow handling multiple error types."
+            },
+            {
+              "title": "2. Building a Custom Domain Exception Hierarchy",
+              "code": "class OrderProcessingError(Exception):\n    \"\"\"Base exception for e-commerce order processing.\"\"\"\n    pass\n\nclass OutOfStockError(OrderProcessingError):\n    def __init__(self, item_id, requested_qty, available_qty):\n        message = f\"Item '{item_id}' out of stock: requested {requested_qty}, available {available_qty}\"\n        super().__init__(message)\n        self.item_id = item_id\n        self.requested_qty = requested_qty\n        self.available_qty = available_qty\n\nclass InvalidPaymentError(OrderProcessingError):\n    def __init__(self, payment_method, reason):\n        super().__init__(f\"Payment failed via {payment_method}: {reason}\")\n        self.payment_method = payment_method\n\ndef checkout(inventory, item_id, qty):\n    if item_id not in inventory:\n        raise OrderProcessingError(f\"Unrecognized catalog item: {item_id}\")\n    if inventory[item_id] < qty:\n        raise OutOfStockError(item_id, qty, inventory[item_id])\n    \n    inventory[item_id] -= qty\n    print(f\"Order confirmed! {qty}x {item_id} purchased.\")\n\nstock = {\"LAPTOP-01\": 3, \"MOUSE-05\": 10}\n\ntry:\n    checkout(stock, \"LAPTOP-01\", 5)\nexcept OutOfStockError as stock_err:\n    print(f\"Inventory Alert: {stock_err}\")\n    print(f\"Remaining units: {stock_err.available_qty}\")\nexcept OrderProcessingError as gen_err:\n    print(f\"General Order Failure: {gen_err}\")",
+              "explanation": "Demonstrates class inheritance for domain-specific custom exceptions with custom attributes."
+            },
+            {
+              "title": "3. Root Cause Preservation via Exception Chaining (raise ... from)",
+              "code": "import json\n\nclass DatabaseConfigError(Exception):\n    \"\"\"Raised when database settings are corrupted or unreadable.\"\"\"\n    pass\n\ndef load_database_credentials(raw_json_str):\n    try:\n        data = json.loads(raw_json_str)\n        host = data['db_host']\n        port = int(data['db_port'])\n        return {\"host\": host, \"port\": port}\n    except json.JSONDecodeError as json_err:\n        # Chain original error to preserve root cause\n        raise DatabaseConfigError(\"Configuration syntax is malformed\") from json_err\n    except KeyError as key_err:\n        raise DatabaseConfigError(f\"Missing mandatory configuration parameter: {key_err}\") from key_err\n\n# Test with invalid JSON syntax\ntry:\n    load_database_credentials(\"HOST=localhost,PORT=5432\")\nexcept DatabaseConfigError as cfg_err:\n    print(f\"High-Level Error: {cfg_err}\")\n    print(f\"Root Cause Error: {cfg_err.__cause__}\")",
+              "explanation": "Shows how 'raise ... from' links low-level parsing exceptions to higher-level domain exceptions."
+            },
+            {
+              "title": "4. Industrial Logging Configuration vs. print() Statements",
+              "code": "import logging\nimport io\n\n# Setup logger with custom formatting\nlogger = logging.getLogger(\"BillingEngine\")\nlogger.setLevel(logging.DEBUG)\n\n# Create stream handler\nlog_stream = io.StringIO()\nhandler = logging.StreamHandler(log_stream)\nformatter = logging.Formatter('%(asctime)s | %(levelname)-8s | %(name)s | %(message)s', datefmt='%H:%M:%S')\nhandler.setFormatter(formatter)\nlogger.addHandler(handler)\n\ndef process_invoice(account_id, amount):\n    logger.debug(f\"Starting invoice generation for account {account_id}\")\n    \n    if amount <= 0:\n        logger.error(f\"Failed to generate invoice for {account_id}: Amount must be positive ({amount})\")\n        return False\n        \n    if amount > 10000:\n        logger.warning(f\"Large transaction flagged for account {account_id}: $\" + f\"{amount:,.2f}\")\n        \n    logger.info(f\"Invoice for account {account_id} created successfully.\")\n    return True\n\nprocess_invoice(\"ACC-9041\", 12500)\nprocess_invoice(\"ACC-3312\", -50)\n\nprint(log_stream.getvalue())",
+              "explanation": "Configures Python standard logging with formatted severity levels, timestamps, and log streams."
+            },
+            {
+              "title": "5. Scientific Debugging by Bisection Simulation",
+              "code": "def simulate_data_pipeline(data_records):\n    \"\"\"Simulates a pipeline with an intentional bug in the second half.\"\"\"\n    results = []\n    for idx, val in enumerate(data_records):\n        # Intentional bug triggered on index 7\n        if idx == 7:\n            transformed = val / 0.0 # Error!\n        else:\n            transformed = val * 2\n        results.append(transformed)\n    return results\n\ndata = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100]\n\n# Scientific Bisection Process:\n# Step 1: Probe midpoint (Index 4)\nmid = len(data) // 2\nprint(f\"Probe 1 - Testing index 0 to {mid}:\")\ntry:\n    sub_1 = simulate_data_pipeline(data[:mid])\n    print(f\"  First half (0-{mid}) passed cleanly! Bug must be in second half ({mid}-{len(data)}).\n\")\nexcept Exception as e:\n    print(f\"  First half failed: {e}\n\")\n\n# Step 2: Probe midpoint of second half (Index 7)\nprobe_idx = mid + (len(data) - mid) // 2\nprint(f\"Probe 2 - Testing index {mid} to {probe_idx + 1}:\")\ntry:\n    sub_2 = simulate_data_pipeline(data[mid:probe_idx + 1])\n    print(\"  Passed.\")\nexcept ZeroDivisionError:\n    print(f\"  Defect detected between index {mid} and {probe_idx}!\")\n    print(f\"  Offending record isolated at index 7: value = {data[7]}\")",
+              "explanation": "Demonstrates the O(log N) bisection strategy isolating bugs rapidly without linear scanning."
+            },
+            {
+              "title": "6. Programmatic Stack Trace Diagnostics with traceback",
+              "code": "import traceback\nimport sys\n\ndef level_three():\n    data = [10, 20, 30]\n    return data[10] # Raises IndexError\n\ndef level_two():\n    return level_three()\n\ndef level_one():\n    return level_two()\n\ntry:\n    level_one()\nexcept IndexError:\n    # Capture formatted traceback as string without crashing\n    tb_string = traceback.format_exc()\n    print(\"Caught Exception Traceback Forensics:\")\n    print(\"=\" * 60)\n    print(tb_string.strip())\n    print(\"=\" * 60)\n    \n    # Inspect exception info tuple\n    exc_type, exc_val, exc_tb = sys.exc_info()\n    print(f\"Error Type: {exc_type.__name__}\")\n    print(f\"Error Desc: {exc_val}\")\n    print(f\"Origin Line: {exc_tb.tb_next.tb_next.tb_next.tb_lineno}\")",
+              "explanation": "Uses traceback.format_exc() to extract call stacks for logging to monitoring services."
+            },
+            {
+              "title": "7. Defensive Invariant Verification with Custom Guard Clauses",
+              "code": "def calculate_employee_bonus(salary, performance_score, years_tenure):\n    # Guard clauses with explicit exceptions\n    if not isinstance(salary, (int, float)) or salary <= 0:\n        raise TypeError(f\"Salary must be a positive number, got: {salary!r}\")\n    if not (1.0 <= performance_score <= 5.0):\n        raise ValueError(f\"Performance score must be between 1.0 and 5.0, got: {performance_score}\")\n    if years_tenure < 0:\n        raise ValueError(f\"Tenure cannot be negative, got: {years_tenure}\")\n\n    # Business calculations\n    multiplier = 0.05 if performance_score < 3.0 else 0.15\n    tenure_bonus = years_tenure * 500.0\n    total_bonus = (salary * multiplier) + tenure_bonus\n    return total_bonus\n\nprint(f\"Senior Engineer Bonus: $\" + f\"{calculate_employee_bonus(85000, 4.8, 6):,.2f}\")\n\ntry:\n    calculate_employee_bonus(-50000, 4.0, 2)\nexcept (TypeError, ValueError) as err:\n    print(f\"Defensive Guard Blocked: {err}\")",
+              "explanation": "Applies defensive programming with type and boundary guards, raising descriptive exceptions."
+            },
+            {
+              "title": "8. Automated Input Validation & Retry Loop with Exponential Backoff",
+              "code": "import time\n\ndef resilient_operation_with_retry(operation_func, max_retries=3, base_delay=0.1):\n    for attempt in range(1, max_retries + 1):\n        try:\n            return operation_func()\n        except ConnectionResetError as e:\n            if attempt == max_retries:\n                print(f\"Attempt {attempt}/{max_retries} failed permanently: {e}\")\n                raise\n            delay = base_delay * (2 ** (attempt - 1))\n            print(f\"Attempt {attempt} failed ({e}). Retrying in {delay:.2f}s...\")\n            time.sleep(delay)\n\n# Simulate an unreliable network service\ncall_count = 0\ndef flaky_service():\n    global call_count\n    call_count += 1\n    if call_count < 3:\n        raise ConnectionResetError(\"Remote server dropped connection\")\n    return {\"status\": \"SUCCESS\", \"records_synced\": 42}\n\nresult = resilient_operation_with_retry(flaky_service, max_retries=4)\nprint(f\"Resilient Call Result: {result}\")",
+              "explanation": "Implements production-grade retry logic with exponential backoff for transient network and I/O failures."
             }
           ],
           "bestPractices": [
-            "Never use empty bare 'except:' without specifying exception types.",
-            "Use print('Debug:', var) statements to inspect variable values."
+            "Always catch specific exception types (ValueError, KeyError); never use a bare 'except:' clause.",
+            "Keep try blocks as small as possible, containing only the specific operations capable of failing.",
+            "Use the 'else' block for code that should run strictly when no exceptions were raised.",
+            "Always perform resource cleanup inside 'finally' blocks or via context managers ('with open').",
+            "Raise custom domain exceptions inheriting from Exception to communicate clear semantics to callers.",
+            "Preserve lower-level root cause tracebacks using 'raise ... from original_error'.",
+            "Use the standard library logging module with appropriate levels (DEBUG, INFO, ERROR) instead of print().",
+            "Apply the scientific Bisection method (binary search) to isolate bugs in large datasets or pipelines in O(log N) steps.",
+            "Read tracebacks from the bottom up to identify the error type, then locate the nearest frame in your own code.",
+            "Never use 'assert' statements for critical runtime validation or security checks, as they can be disabled via -O."
           ],
           "commonMistakes": [
-            "Swallowing exceptions silently without logging error messages.",
-            "Fixing symptoms instead of addressing the root cause."
+            "Using bare 'except:' which traps KeyboardInterrupt, preventing users from stopping scripts with Ctrl+C.",
+            "Swallowing exceptions silently with 'except: pass', creating undetectable silent bugs.",
+            "Placing too much unrelated code inside a single giant try block, masking unexpected errors.",
+            "Relying on print() debugging in production code instead of structured logging with configurable log levels.",
+            "Confusing SyntaxError (which prevents code from running at all) with runtime exceptions.",
+            "Forgetting that finally blocks execute even when early return statements are executed inside try or except.",
+            "Catching BaseException instead of Exception, which interferes with Python interpreter shutdown signals.",
+            "Fixing the symptoms of a bug (e.g. patching special cases) instead of diagnosing the root cause through bisection."
           ],
           "practiceExercise": {
-            "title": "Integer Input Retry Loop",
-            "problem": "Write a function get_valid_age() that loops prompting for age until user inputs a valid integer between 1 and 120.",
-            "solutionCode": "def get_valid_age():\n    while True:\n        try:\n            age = int(input(\"Enter your age (1-120): \"))\n            if 1 <= age <= 120:\n                return age\n            print(\"Age out of valid range.\")\n        except ValueError:\n            print(\"Invalid input! Please enter digits only.\")\n\n# Test: age = get_valid_age()"
+            "title": "Module 10 Hands-On Laboratory: Fault-Tolerant Systems & Diagnostic Engineering",
+            "problem": "Complete the following 8 comprehensive hands-on exception handling and debugging challenges:\n\n1. Resilient Numerical Parser with Type Validation:\nWrite a function safe_parse_int_list(string_values) that accepts a list of string representations, converts them to integers, logs warnings for unparseable items without halting, and returns a tuple of (valid_integers, error_count).\n\n2. Safe Configuration File Loader with Schema Validation:\nCreate a function load_validated_config(filepath) that reads a key-value text file. Raise a custom MissingConfigKeyError if mandatory keys ('DATABASE_HOST', 'API_KEY') are absent, and catch FileNotFoundError gracefully with default settings fallback.\n\n3. Complete E-Commerce Transaction Guard (try/except/else/finally):\nImplement a process_payment(account, amount) function simulating a payment gateway. Demonstrate the execution of all four blocks: try (charge), except (InsufficientFunds, InvalidCard), else (send receipt), and finally (audit logging).\n\n4. Custom Banking Exception Hierarchy with Account Lockout:\nCreate an exception hierarchy rooted at BankAccountError. Implement InsufficientFundsError and AccountSuspendedError. Write an account debit method that raises these exceptions and tracks failed attempts to lock accounts after 3 consecutive errors.\n\n5. Chained Exception Translator (API Adapter Pattern):\nSimulate an external HTTP API client that catches low-level socket and timeout exceptions (simulate with ConnectionRefusedError) and re-raises an ApplicationGatewayError using the 'raise ... from' syntax.\n\n6. Scientific Bisection Defect Hunter:\nGiven a list of 1,000 processed transaction records where exactly one record contains corrupted non-numerical data causing a calculation function to crash, implement a binary search bisection algorithm that locates the exact defective index in <= 10 steps.\n\n7. Production Logging & Audit Recorder:\nBuild a module that configures a rotating memory logger. Record DEBUG, INFO, WARNING, and ERROR events across a simulated user login workflow, and extract all ERROR logs into a separate security incident summary.\n\n8. Automated Retry Strategy with Jitter & Max Attempt Guard:\nWrite a decorator or higher-order function with_retry(max_attempts, allowed_exceptions) that retries transient operations (e.g. database locks or network timeouts) with exponential backoff before finally raising a MaxRetriesExceededError.",
+            "solutionCode": "import io\nimport time\nimport logging\nfrom collections import Counter\n\n# ==============================================================================\n# Challenge 1: Resilient Numerical Parser with Type Validation\n# ==============================================================================\ndef safe_parse_int_list(raw_values):\n    valid_integers = []\n    error_count = 0\n    \n    for item in raw_values:\n        try:\n            val = int(item)\n            valid_integers.append(val)\n        except (ValueError, TypeError) as err:\n            error_count += 1\n            # In production: logger.warning(f\"Skipping invalid token '{item}': {err}\")\n            \n    return valid_integers, error_count\n\ntokens = [\"42\", \"100\", \"invalid\", \"250\", None, \"78\", \"3.1415\", \"999\"]\nvalid_nums, errs = safe_parse_int_list(tokens)\nprint(\"Challenge 1 - Resilient Parser:\")\nprint(f\"  Valid Integers ({len(valid_nums)}): {valid_nums}\")\nprint(f\"  Errors Filtered: {errs}\")\n\n\n# ==============================================================================\n# Challenge 2: Safe Configuration File Loader with Schema Validation\n# ==============================================================================\nclass ConfigError(Exception):\n    pass\n\nclass MissingConfigKeyError(ConfigError):\n    def __init__(self, key):\n        super().__init__(f\"Mandatory configuration setting '{key}' is missing!\")\n        self.missing_key = key\n\ndef load_validated_config(config_stream):\n    config = {}\n    for line in config_stream:\n        line = line.strip()\n        if not line or line.startswith(\"#\"):\n            continue\n        if \"=\" in line:\n            k, v = line.split(\"=\", 1)\n            config[k.strip()] = v.strip()\n            \n    # Schema validation\n    required_keys = [\"DATABASE_HOST\", \"API_KEY\"]\n    for req in required_keys:\n        if req not in config:\n            raise MissingConfigKeyError(req)\n            \n    return config\n\nsample_config = \"\"\"\n# Server Configuration\nDATABASE_HOST = db.internal.arshithgroup.com\nSERVER_PORT = 8080\nAPI_KEY = arshith_live_secret_key_2026\n\"\"\"\n\ncfg = load_validated_config(io.StringIO(sample_config))\nprint(f\"\nChallenge 2 - Validated Config Loaded:\")\nprint(f\"  Host: {cfg['DATABASE_HOST']}, Port: {cfg['SERVER_PORT']}\")\n\n\n# ==============================================================================\n# Challenge 3: Complete E-Commerce Transaction Lifecycle (try/except/else/finally)\n# ==============================================================================\nclass PaymentError(Exception):\n    pass\n\nclass InsufficientFunds(PaymentError):\n    pass\n\ndef process_payment(account_balance, charge_amount):\n    audit_trail = []\n    receipt_issued = False\n    \n    try:\n        audit_trail.append(\"Step 1: Validating balance\")\n        if charge_amount > account_balance:\n            raise InsufficientFunds(f\"Requested $\" + f\"{charge_amount}, Available: $\" + f\"{account_balance}\")\n        account_balance -= charge_amount\n        audit_trail.append(f\"Step 2: Successfully debited $\" + f\"{charge_amount}\")\n    except InsufficientFunds as fund_err:\n        audit_trail.append(f\"Payment Exception: {fund_err}\")\n    else:\n        audit_trail.append(\"Step 3 (else): Issuing transaction receipt\")\n        receipt_issued = True\n    finally:\n        audit_trail.append(\"Step 4 (finally): Closing payment gateway session\")\n        \n    return account_balance, receipt_issued, audit_trail\n\nnew_bal, success, log = process_payment(500, 150)\nprint(f\"\nChallenge 3 - Payment Lifecycle (Success: {success}):\")\nfor entry in log:\n    print(f\"  • {entry}\")\n\n\n# ==============================================================================\n# Challenge 4: Custom Banking Exception Hierarchy with Account Lockout\n# ==============================================================================\nclass BankAccountError(Exception):\n    pass\n\nclass InsufficientBalanceError(BankAccountError):\n    pass\n\nclass AccountLockedError(BankAccountError):\n    pass\n\nclass SecureAccount:\n    def __init__(self, owner, balance):\n        self.owner = owner\n        self.balance = balance\n        self.failed_attempts = 0\n        self.is_locked = False\n        \n    def withdraw(self, amount):\n        if self.is_locked:\n            raise AccountLockedError(f\"Account for {self.owner} is locked due to security thresholds.\")\n            \n        if amount > self.balance:\n            self.failed_attempts += 1\n            if self.failed_attempts >= 3:\n                self.is_locked = True\n                raise AccountLockedError(f\"Account locked! Exceeded 3 failed withdrawals.\")\n            raise InsufficientBalanceError(f\"Cannot withdraw {amount}. Current balance: {self.balance} (Failed: {self.failed_attempts}/3)\")\n            \n        self.balance -= amount\n        self.failed_attempts = 0\n        return self.balance\n\nacct = SecureAccount(\"Rahul Kumar\", 100)\nprint(f\"\nChallenge 4 - Account Lockout Simulation:\")\nfor i in range(1, 4):\n    try:\n        acct.withdraw(500)\n    except (InsufficientBalanceError, AccountLockedError) as e:\n        print(f\"  Attempt {i}: {e}\")\n\n\n# ==============================================================================\n# Challenge 5: Chained Exception Translator (API Adapter Pattern)\n# ==============================================================================\nclass ApplicationGatewayError(Exception):\n    \"\"\"High-level enterprise gateway error.\"\"\"\n    pass\n\ndef execute_external_network_call(simulate_fail=True):\n    try:\n        if simulate_fail:\n            raise ConnectionRefusedError(\"Remote TCP connection refused on port 443\")\n        return {\"data\": \"verified\"}\n    except ConnectionRefusedError as net_err:\n        raise ApplicationGatewayError(\"External service unavailable; retry scheduled\") from net_err\n\ntry:\n    execute_external_network_call(True)\nexcept ApplicationGatewayError as app_err:\n    print(f\"\nChallenge 5 - Exception Chaining:\")\n    print(f\"  High-level caught: {app_err}\")\n    print(f\"  Original root cause: {app_err.__cause__}\")\n\n\n# ==============================================================================\n# Challenge 6: Scientific Bisection Defect Hunter\n# ==============================================================================\ndef process_record(record):\n    # Simulates calculation that crashes on non-numeric value\n    return float(record) ** 2\n\ndef bisect_corrupted_record(records):\n    low = 0\n    high = len(records) - 1\n    step_count = 0\n    \n    while low <= high:\n        step_count += 1\n        mid = (low + high) // 2\n        \n        # Test if the defect is in the left half [low .. mid]\n        left_has_error = False\n        for i in range(low, mid + 1):\n            try:\n                process_record(records[i])\n            except (ValueError, TypeError):\n                left_has_error = True\n                break\n                \n        if left_has_error:\n            if low == mid:\n                return low, records[low], step_count\n            high = mid\n        else:\n            low = mid + 1\n            \n    return -1, None, step_count\n\n# Generate 1,000 valid records with a single defect at index 732\nlarge_dataset = [str(i * 1.5) for i in range(1000)]\nlarge_dataset[732] = \"CORRUPTED_TOKEN\"\n\nbad_idx, bad_val, steps = bisect_corrupted_record(large_dataset)\nprint(f\"\nChallenge 6 - Bisection Defect Hunter:\")\nprint(f\"  Corrupted record isolated at index: {bad_idx}\")\nprint(f\"  Offending payload: {bad_val}\")\nprint(f\"  Steps required: {steps} iterations (O(log N) efficiency)\")\n\n\n# ==============================================================================\n# Challenge 7: Production Logging & Security Audit Recorder\n# ==============================================================================\nlog_buffer = io.StringIO()\naudit_logger = logging.getLogger(\"SecurityAudit\")\naudit_logger.setLevel(logging.DEBUG)\n\nhandler = logging.StreamHandler(log_buffer)\nhandler.setFormatter(logging.Formatter('%(levelname)s: %(message)s'))\naudit_logger.addHandler(handler)\n\ndef simulate_user_authentication(username, password):\n    audit_logger.debug(f\"Auth attempt initiated for user: {username}\")\n    if username == \"admin\" and password == \"secret2026\":\n        audit_logger.info(f\"User {username} authenticated successfully.\")\n        return True\n    elif username == \"admin\":\n        audit_logger.error(f\"Failed password attempt for privileged account: {username}\")\n        return False\n    else:\n        audit_logger.warning(f\"Unknown username attempt: {username}\")\n        return False\n\nsimulate_user_authentication(\"unknown_user\", \"pass\")\nsimulate_user_authentication(\"admin\", \"wrong_pass\")\nsimulate_user_authentication(\"admin\", \"secret2026\")\n\nprint(\"\nChallenge 7 - Security Audit Log Output:\")\nprint(log_buffer.getvalue().strip())\n\n\n# ==============================================================================\n# Challenge 8: Automated Retry Strategy with Jitter & Max Attempt Guard\n# ==============================================================================\nclass MaxRetriesExceededError(Exception):\n    pass\n\ndef execute_with_retry(func, max_attempts=3, backoff_base=0.05):\n    for attempt in range(1, max_attempts + 1):\n        try:\n            return func()\n        except TimeoutError as te:\n            if attempt == max_attempts:\n                raise MaxRetriesExceededError(f\"Operation failed after {max_attempts} attempts\") from te\n            delay = backoff_base * (2 ** (attempt - 1))\n            time.sleep(delay)\n\ncounter = 0\ndef intermittent_db_call():\n    global counter\n    counter += 1\n    if counter < 3:\n        raise TimeoutError(\"Database lock acquisition timeout\")\n    return \"Database query committed successfully\"\n\nretry_result = execute_with_retry(intermittent_db_call, max_attempts=4)\nprint(f\"\nChallenge 8 - Resilient Retry Mechanism:\")\nprint(f\"  Execution Outcome: {retry_result} (Succeeded on attempt {counter})\")"
           },
           "keyTakeaways": [
-            "Tracebacks indicate error type and line number.",
-            "Catch specific exceptions (ValueError, FileNotFoundError).",
-            "Bisection debugging rapidly isolates bugs."
+            "Syntax errors are compile-time parsing failures; runtime exceptions occur during execution; logic bugs are silent defects.",
+            "The Python exception hierarchy inherits from BaseException -> Exception; never catch BaseException directly in application code.",
+            "Avoid bare 'except:' clauses; always catch specific, anticipated exception classes or 'Exception as err'.",
+            "The 'else' block runs strictly when no exceptions occur; 'finally' runs in 100% of execution paths.",
+            "Define custom exception classes inheriting from Exception to communicate domain-specific errors cleanly.",
+            "Use 'raise ... from original_error' to preserve lower-level root cause tracebacks during exception translation.",
+            "Industrial applications use the standard logging module (DEBUG to CRITICAL) with structured formatters instead of print().",
+            "Scientific bisection debugging locates defects in large datasets or programs in O(log N) binary search steps.",
+            "Interactive debugging with breakpoint() and pdb provides live variable inspection and step-by-step execution control."
           ],
           "references": [
             {
-              "title": "Python Errors and Exceptions Manual",
+              "title": "Python Documentation: Errors and Exceptions",
               "url": "https://docs.python.org/3/tutorial/errors.html"
+            },
+            {
+              "title": "Python Documentation: Built-in Exceptions Hierarchy",
+              "url": "https://docs.python.org/3/library/exceptions.html"
+            },
+            {
+              "title": "Python Documentation: logging — Logging facility for Python",
+              "url": "https://docs.python.org/3/library/logging.html"
+            },
+            {
+              "title": "Python Documentation: pdb — The Python Debugger",
+              "url": "https://docs.python.org/3/library/pdb.html"
+            },
+            {
+              "title": "Python Documentation: traceback — Print or retrieve stack tracebacks",
+              "url": "https://docs.python.org/3/library/traceback.html"
             }
-          ]
+          ],
+          "mcqs": [
+            {
+              "id": 1,
+              "question": "Under what conditions does the 'finally' block in a try-except statement execute?",
+              "options": [
+                "Only when an exception was raised and caught",
+                "Only when the try block completed with zero errors",
+                "Always, in 100% of execution scenarios, even if a return or unhandled exception occurs",
+                "Only if the program is running in debug mode"
+              ],
+              "correctAnswer": 2,
+              "explanation": "finally executes unconditionally in all circumstances, making it the bedrock of reliable resource deallocation."
+            },
+            {
+              "id": 2,
+              "question": "What is the base class from which all standard non-system-exiting Python runtime exceptions inherit?",
+              "options": [
+                "BaseException",
+                "Exception",
+                "StandardError",
+                "RuntimeError"
+              ],
+              "correctAnswer": 1,
+              "explanation": "All standard application exceptions inherit from Exception. BaseException is reserved for system exits like KeyboardInterrupt and SystemExit."
+            },
+            {
+              "id": 3,
+              "question": "How does the 'Debugging by Bisection' technique locate a bug in a 1,000-line script in ~10 steps?",
+              "options": [
+                "It runs the code 10 times with different inputs",
+                "It tests state at the midpoint (Line 500) and halves the search space iteratively using binary search (O(log N))",
+                "It bisects the variable count by half",
+                "It deletes half the code randomly until errors disappear"
+              ],
+              "correctAnswer": 1,
+              "explanation": "Bisection applies binary search to code analysis: inspecting state at the midpoint isolates which half contains the defect in log2(N) steps."
+            },
+            {
+              "id": 4,
+              "question": "What is the purpose of exception chaining using 'raise CustomError() from original_error' in Python 3?",
+              "options": [
+                "It suppresses the original error completely",
+                "It links the original low-level root cause to the new exception, preserving the full diagnostic call stack",
+                "It converts an error into a warning",
+                "It executes both exceptions simultaneously"
+              ],
+              "correctAnswer": 1,
+              "explanation": "The 'from' clause preserves the original exception on the __cause__ attribute, displaying the complete causal chain in tracebacks."
+            },
+            {
+              "id": 5,
+              "question": "Why is Python's standard logging module preferred over print() statements in production software?",
+              "options": [
+                "print() cannot output text to terminals",
+                "logging provides configurable severity levels, timestamps, log rotation, and global disable switches without code modification",
+                "print() statements are automatically stripped out by the Python compiler",
+                "logging functions run on the GPU"
+              ],
+              "correctAnswer": 1,
+              "explanation": "The logging framework allows filtering by severity (DEBUG, INFO, ERROR), routing to files or telemetry services, and central configuration."
+            }
+          ],
+          "selfAssessment": {
+            "title": "Module Self-Assessment (5 Knowledge Check MCQs)",
+            "questions": [
+              {
+                "id": "py-q-10-1",
+                "questionNumber": 1,
+                "topic": "Custom Exceptions",
+                "questionText": "How do you define a proper custom domain exception class in Python?",
+                "options": [
+                  "class InvalidScoreError(Exception): pass",
+                  "def InvalidScoreError(): return Exception",
+                  "create_exception InvalidScoreError",
+                  "class InvalidScoreError(BaseException): pass"
+                ],
+                "correctAnswer": 0,
+                "explanation": "Custom exceptions should inherit from standard Exception using class syntax: class InvalidScoreError(Exception): pass."
+              },
+              {
+                "id": "py-q-10-2",
+                "questionNumber": 2,
+                "topic": "Assertions in Production",
+                "questionText": "Why should assert statements NOT be used for critical security validation or user input verification in production?",
+                "options": [
+                  "assert statements are slower than if statements",
+                  "Python optimizations flag (-O or -OO) disable and strip all assert statements entirely at bytecode compilation time",
+                  "assert only works with integer conditions",
+                  "assert can cause memory leaks"
+                ],
+                "correctAnswer": 1,
+                "explanation": "When Python is run with optimizations (python -O), all assert statements are completely eliminated from the compiled bytecode, creating security vulnerabilities if used for validation."
+              },
+              {
+                "id": "py-q-10-3",
+                "questionNumber": 3,
+                "topic": "Traceback Diagnostics",
+                "questionText": "Which module in the Python standard library allows capturing and formatting full exception call-stacks into logging strings?",
+                "options": [
+                  "sys_error",
+                  "traceback",
+                  "debuglib",
+                  "inspect_stack"
+                ],
+                "correctAnswer": 1,
+                "explanation": "The traceback standard library module provides utilities like traceback.format_exc() to extract and record full diagnostic call-stack strings."
+              },
+              {
+                "id": "py-q-10-4",
+                "questionNumber": 4,
+                "topic": "Exception Chaining",
+                "questionText": "What does the from keyword accomplish in raise CustomError('Failed') from err?",
+                "options": [
+                  "It imports CustomError from err module",
+                  "It establishes explicit exception chaining, linking the original cause to __cause__ for full root-cause clarity",
+                  "It suppresses the original error completely",
+                  "It retries the failed operation"
+                ],
+                "correctAnswer": 1,
+                "explanation": "Explicit exception chaining (raise NewError(...) from original_err) records the original exception in the __cause__ attribute for transparent diagnostic reporting."
+              },
+              {
+                "id": "py-q-10-5",
+                "questionNumber": 5,
+                "topic": "Python Debugger (pdb)",
+                "questionText": "In Python 3.7+, what built-in function drops an interactive terminal breakpoint directly into the pdb debugger?",
+                "options": [
+                  "debug()",
+                  "breakpoint()",
+                  "pause()",
+                  "stop_here()"
+                ],
+                "correctAnswer": 1,
+                "explanation": "Python 3.7 introduced the built-in breakpoint() function, which automatically attaches the configured system debugger (pdb.set_trace() by default)."
+              }
+            ]
+          }
         },
         "quiz": {
           "id": "quiz-py-mod-10",
@@ -1697,7 +5088,7 @@ export const INITIAL_COURSES = [
           "questions": [
             {
               "id": "py-q-10-1",
-              "type": "multiple-choice",
+              "questionNumber": 1,
               "topic": "Custom Exceptions",
               "questionText": "How do you define a proper custom domain exception class in Python?",
               "options": [
@@ -1707,27 +5098,25 @@ export const INITIAL_COURSES = [
                 "class InvalidScoreError(BaseException): pass"
               ],
               "correctAnswer": 0,
-              "marks": 10,
-              "explanation": "Custom exceptions should inherit from standard `Exception` using class syntax: `class InvalidScoreError(Exception): pass`."
+              "explanation": "Custom exceptions should inherit from standard Exception using class syntax: class InvalidScoreError(Exception): pass."
             },
             {
               "id": "py-q-10-2",
-              "type": "multiple-choice",
+              "questionNumber": 2,
               "topic": "Assertions in Production",
-              "questionText": "Why should `assert` statements NOT be used for critical security validation or user input verification in production?",
+              "questionText": "Why should assert statements NOT be used for critical security validation or user input verification in production?",
               "options": [
-                "`assert` statements are slower than if statements",
-                "Python optimizations flag (`-O` or `-OO`) disable and strip all `assert` statements entirely at bytecode compilation time",
-                "`assert` only works with integer conditions",
-                "`assert` can cause memory leaks"
+                "assert statements are slower than if statements",
+                "Python optimizations flag (-O or -OO) disable and strip all assert statements entirely at bytecode compilation time",
+                "assert only works with integer conditions",
+                "assert can cause memory leaks"
               ],
               "correctAnswer": 1,
-              "marks": 10,
-              "explanation": "When Python is run with optimizations (`python -O`), all assert statements are completely eliminated from the compiled bytecode, creating security vulnerabilities if used for validation."
+              "explanation": "When Python is run with optimizations (python -O), all assert statements are completely eliminated from the compiled bytecode, creating security vulnerabilities if used for validation."
             },
             {
               "id": "py-q-10-3",
-              "type": "multiple-choice",
+              "questionNumber": 3,
               "topic": "Traceback Diagnostics",
               "questionText": "Which module in the Python standard library allows capturing and formatting full exception call-stacks into logging strings?",
               "options": [
@@ -1737,27 +5126,25 @@ export const INITIAL_COURSES = [
                 "inspect_stack"
               ],
               "correctAnswer": 1,
-              "marks": 10,
-              "explanation": "The `traceback` standard library module provides utilities like `traceback.format_exc()` to extract and record full diagnostic call-stack strings."
+              "explanation": "The traceback standard library module provides utilities like traceback.format_exc() to extract and record full diagnostic call-stack strings."
             },
             {
               "id": "py-q-10-4",
-              "type": "multiple-choice",
+              "questionNumber": 4,
               "topic": "Exception Chaining",
-              "questionText": "What does the `from` keyword accomplish in `raise CustomError('Failed') from err`?",
+              "questionText": "What does the from keyword accomplish in raise CustomError('Failed') from err?",
               "options": [
                 "It imports CustomError from err module",
-                "It establishes explicit exception chaining, linking the original cause to `__cause__` for full root-cause clarity",
+                "It establishes explicit exception chaining, linking the original cause to __cause__ for full root-cause clarity",
                 "It suppresses the original error completely",
                 "It retries the failed operation"
               ],
               "correctAnswer": 1,
-              "marks": 10,
-              "explanation": "Explicit exception chaining (`raise NewError(...) from original_err`) records the original exception in the `__cause__` attribute for transparent diagnostic reporting."
+              "explanation": "Explicit exception chaining (raise NewError(...) from original_err) records the original exception in the __cause__ attribute for transparent diagnostic reporting."
             },
             {
               "id": "py-q-10-5",
-              "type": "multiple-choice",
+              "questionNumber": 5,
               "topic": "Python Debugger (pdb)",
               "questionText": "In Python 3.7+, what built-in function drops an interactive terminal breakpoint directly into the pdb debugger?",
               "options": [
@@ -1767,8 +5154,7 @@ export const INITIAL_COURSES = [
                 "stop_here()"
               ],
               "correctAnswer": 1,
-              "marks": 10,
-              "explanation": "Python 3.7 introduced the built-in `breakpoint()` function, which automatically attaches the configured system debugger (`pdb.set_trace()` by default)."
+              "explanation": "Python 3.7 introduced the built-in breakpoint() function, which automatically attaches the configured system debugger (pdb.set_trace() by default)."
             }
           ]
         }
@@ -1776,64 +5162,359 @@ export const INITIAL_COURSES = [
       {
         "id": "py-mod-11",
         "title": "Module 11 — Object-Oriented Programming (OOP)",
-        "description": "Managing larger programs, classes, objects, instance attributes, methods, self, __init__ constructors, __del__ destructors, and inheritance.",
-        "completed": false,
+        "description": "Classes and instances (the cookie cutter analogy), attributes and methods, self mechanics, constructor lifecycle (__init__), encapsulation, inheritance, method overriding, and magic dunder methods.",
+        "completed": true,
         "readingMaterial": {
-          "introduction": "Based on Chapter 14 of 'Python for Everybody', Object-Oriented Programming (OOP) groups code and data structures into reusable Class blueprints. OOP hides internal complexity and organizes large software applications into interacting networks of objects.",
+          "introduction": "As software applications grow beyond simple scripts, managing hundreds of isolated variables and functions becomes unwieldy. Procedural programming organizes code around sequential actions, but as data structures expand, tracking which function modifies which global variable creates tightly coupled, fragile codebases. Object-Oriented Programming (OOP) solves this architectural challenge by bundling related state (attributes) and behavior (methods) into self-contained, reusable conceptual entities called 'Objects'.\n\nBased on Chapter 14 of Dr. Charles Severance's 'Python for Everybody' and enterprise Python software design patterns, this module introduces the foundational pillars of object-oriented architecture. Rather than treating code as a continuous series of instructions, OOP models software after real-world domains: bank accounts encapsulate balances and transaction histories; web servers encapsulate request dispatchers and session pools; graphical interfaces encapsulate windows, buttons, and event listeners.\n\nIn Python, everything is an object—from simple integers and strings to complex machine learning models. This module provides a rigorous, deep dive into designing robust classes: understanding the class blueprint vs. instance memory allocation, mastering the self parameter and object lifecycle (__init__ constructor and __del__ destructor), implementing clean encapsulation and private attribute protection, leveraging inheritance and super() hierarchies, achieving dynamic polymorphism, and harnessing Python's rich suite of special 'dunder' (double-underscore) magic methods (__str__, __repr__, __eq__, __len__).",
           "objectives": [
-            "Understand Classes (blueprints) vs Objects (instances)",
-            "Define classes using class keyword and instantiate objects",
-            "Use self to reference instance attributes and methods",
-            "Construct objects using __init__() constructor",
-            "Understand object lifecycle (__init__ construction and __del__ destruction)",
-            "Extend classes using Inheritance and super().__init__()"
+            "Explain the paradigm shift from procedural scripting to object-oriented system modeling.",
+            "Distinguish between a Class (the reusable blueprint) and an Object / Instance (the instantiated entity in RAM).",
+            "Explain the role and mechanics of the 'self' parameter as the explicit instance reference.",
+            "Implement the object lifecycle: initialization (__init__), state mutation, and garbage collection.",
+            "Apply encapsulation using public, protected (_single_underscore), and private (__double_underscore) conventions.",
+            "Leverage class inheritance to share common logic, eliminate code duplication, and invoke super().",
+            "Implement dynamic polymorphism and duck typing across interchangeable class interfaces.",
+            "Master essential magic dunder methods: __str__, __repr__, __len__, __eq__, and __add__.",
+            "Differentiate between Instance Methods, Class Methods (@classmethod), and Static Methods (@staticmethod).",
+            "Design real-world domain models using composition, validation properties, and clean class architectures."
           ],
           "sections": [
             {
-              "heading": "Classes vs Objects (The Cookie Cutter Analogy)",
-              "text": "A Class is like a cookie cutter (template blueprint). An Object is the actual cookie constructed from that cookie cutter. Each object instance contains independent attribute values."
+              "heading": "1. Procedural vs. Object-Oriented Programming: The Architectural Shift",
+              "text": "To appreciate object-oriented programming, consider how procedural code manages state:\n\nProcedural Approach:\nIn procedural code, data structures and functions exist independently:\naccount_owner = \"Ananya\"\naccount_balance = 5000.0\ndef deposit(balance, amount): return balance + amount\ndef withdraw(balance, amount): return balance - amount if balance >= amount else balance\n\nWeaknesses of Procedural Architecture:\n1. State Disconnection: The variables account_owner and account_balance have no formal relationship in Python's memory. Any function in the codebase can accidentally overwrite account_balance directly.\n2. Inability to Scale: Supporting 10,000 distinct accounts requires complex parallel arrays or dictionary lists, requiring manual passing of state variables into every function call.\n3. Violation of Encapsulation: Business rules (such as 'balance cannot be negative') cannot be guaranteed because callers can manipulate data variables freely.\n\nThe Object-Oriented Approach:\nOOP solves this by uniting data and behavior into an indivisible unit:\nclass BankAccount:\n    def __init__(self, owner, balance=0.0):\n        self.owner = owner\n        self.balance = balance\n    def deposit(self, amount):\n        if amount <= 0: raise ValueError(\"Deposit must be positive\")\n        self.balance += amount"
             },
             {
-              "heading": "Object Lifecycle: Construction & Destruction",
-              "text": "When Python creates an object instance, it automatically invokes __init__() to set up initial attributes. When an object is discarded, __del__() is invoked for cleanup."
+              "heading": "2. Classes vs. Objects: The Cookie Cutter Analogy",
+              "text": "Dr. Charles Severance illustrates classes and objects using the classic 'Cookie Cutter and Cookie' metaphor:\n\n1. The Class (The Cookie Cutter / Blueprint):\nA class is an abstract template defined using the class keyword. It defines what attributes every instance will possess and what methods every instance can execute. The class itself occupies a single namespace in memory but does not store individual customer records.\n\n2. The Object / Instance (The Cookie):\nAn object is a concrete, individual entity created from the class blueprint in computer RAM.\n• You can stamp out thousands of unique cookies from a single cookie cutter.\n• Each cookie has the same shape (attributes and methods), but each cookie contains its own distinct frosting, sprinkles, and weight (independent state).\n\nSyntax:\nclass PartyAnimal: # The Class Definition\n    def __init__(self, name):\n        self.name = name # Instance attribute\n        self.points = 0  # Instance attribute\n\ns = PartyAnimal(\"Sally\") # Instantiation (Creating an Object)\nj = PartyAnimal(\"Jim\")   # Instantiation (Creating another Object)"
+            },
+            {
+              "heading": "3. The 'self' Parameter: Python's Explicit Instance Binding",
+              "text": "One of the most distinctive features of Python OOP is the mandatory first parameter self in all instance methods.\n\nWhat is self?\nself represents the specific object instance currently executing the method. When you invoke a method on an object:\ns.party()\nPython automatically converts that call behind the scenes into:\nPartyAnimal.party(s)\n\nWhy self is Explicit:\nUnlike C++ or Java (which use an implicit 'this' pointer), Python follows the Zen of Python maxim: 'Explicit is better than implicit.'\nBy receiving self explicitly, method bodies can unambiguously access and modify the invoking object's private namespace:\nself.points += 1 # Mutates the calling object's points attribute only!"
+            },
+            {
+              "heading": "4. Object Lifecycle: Construction (__init__) & Destruction (__del__)",
+              "text": "Every Python object undergoes a defined lifecycle from allocation to garbage collection:\n\n1. Construction & Initialization (__init__):\nWhen PartyAnimal(\"Sally\") is called, Python performs two actions:\n• Step A: Calls __new__() to allocate raw memory space for the object in RAM.\n• Step B: Immediately invokes the constructor method __init__(self, ...) to initialize instance attributes.\n\n2. Active Operation:\nDuring this phase, methods are called, state is modified, and the object interacts with other objects.\n\n3. Destruction & Deallocation (__del__):\nWhen an object's reference count drops to zero (e.g. del s, or the object falls out of variable scope), Python's automatic Garbage Collector deallocates its memory address. Before reclaiming the memory, Python optionally calls the destructor method __del__(self)."
+            },
+            {
+              "heading": "5. Instance Attributes vs. Class Attributes",
+              "text": "Attributes can be attached either to individual instances or shared globally across the entire class:",
+              "table": {
+                "headers": [
+                  "Attribute Type",
+                  "Where Defined",
+                  "Memory Allocation",
+                  "Access Syntax",
+                  "Typical Use Case"
+                ],
+                "rows": [
+                  [
+                    "Instance Attribute",
+                    "Inside __init__ via self.x",
+                    "Allocated uniquely per object instance",
+                    "self.x or obj.x",
+                    "Customer name, balance, email, user ID"
+                  ],
+                  [
+                    "Class Attribute",
+                    "Directly in class body (outside methods)",
+                    "Single shared memory address for entire class",
+                    "ClassName.x or self.x",
+                    "Default tax rate, interest rate, instance counter"
+                  ],
+                  [
+                    "Class Constant",
+                    "Directly in class body (ALL_CAPS)",
+                    "Single immutable reference across all instances",
+                    "ClassName.API_VERSION",
+                    "Configuration constants, maximum limits, error codes"
+                  ]
+                ]
+              }
+            },
+            {
+              "heading": "6. Encapsulation & Python Privacy Conventions",
+              "text": "Encapsulation restricts direct external access to internal component states, preventing accidental corruption. Python uses naming conventions to signal privacy:\n\n1. Public Attributes (e.g. self.name):\nAccessible from anywhere inside or outside the class.\n\n2. Protected Attributes (Single Leading Underscore: self._balance):\nIndicates an internal implementation detail. Python does not enforce privacy at the interpreter level, but by PEP 8 convention, external callers should not access or modify it directly.\n\n3. Private Attributes (Double Leading Underscore: self.__pin):\nTriggers Python's automatic Name Mangling. Python internally renames __pin to _ClassName__pin to prevent accidental overrides in child subclasses.\n\n4. The @property Decorator:\nProvides clean getter and setter methods while preserving natural attribute syntax:\n\nclass Account:\n    def __init__(self, balance):\n        self._balance = balance\n\n    @property\n    def balance(self):\n        return self._balance\n\n    @balance.setter\n    def balance(self, value):\n        if value < 0: raise ValueError(\"Balance cannot be negative\")\n        self._balance = value"
+            },
+            {
+              "heading": "7. Inheritance: Code Reuse & Hierarchy Specialization",
+              "text": "Inheritance allows a new class (the Child or Subclass) to inherit attributes and methods from an existing class (the Parent or Superclass):\n\nThe Problem Inheritance Solves:\nWithout inheritance, creating specialized classes (e.g. SavingsAccount and CheckingAccount) requires copying identical logic (owner verification, balance queries) into multiple files.\n\nUsing super() for Constructor Delegation:\nA child class constructor should always call the parent constructor using super().__init__(...) to initialize shared state:\n\nclass Account:\n    def __init__(self, owner, balance):\n        self.owner = owner\n        self.balance = balance\n\nclass SavingsAccount(Account):\n    def __init__(self, owner, balance, interest_rate=0.03):\n        super().__init__(owner, balance) # Initializes parent state\n        self.interest_rate = interest_rate # Adds specialized state"
+            },
+            {
+              "heading": "8. Method Overriding & Dynamic Polymorphism",
+              "text": "Two complementary capabilities that unlock flexible software architecture:\n\n1. Method Overriding:\nA child class can provide a specialized implementation of a method that is already defined in its parent class. When called on a child instance, Python executes the child's version:\n\nclass Animal:\n    def speak(self): return \"Generic sound\"\n\nclass Dog(Animal):\n    def speak(self): return \"Woof!\" # Overrides Animal.speak()\n\n2. Polymorphism & Duck Typing:\nPolymorphism allows different classes to expose the same method interface, enabling client code to treat them interchangeably.\nPython embraces 'Duck Typing': 'If it walks like a duck and quacks like a duck, it is a duck.' As long as an object implements the expected method, Python executes it without requiring rigid interface hierarchies:\n\ndef announce_speaker(entity):\n    print(entity.speak()) # Works for Dog, Cat, Person, or Robot!"
+            },
+            {
+              "heading": "9. Magic (Dunder) Methods: Integrating with Python's Data Model",
+              "text": "Magic methods (surrounded by double underscores) allow custom classes to integrate seamlessly with Python built-in functions:",
+              "table": {
+                "headers": [
+                  "Magic Method",
+                  "Triggered By Expression",
+                  "Return Expectation",
+                  "Purpose"
+                ],
+                "rows": [
+                  [
+                    "__str__(self)",
+                    "str(obj), print(obj)",
+                    "Informative readable string",
+                    "User-friendly presentation"
+                  ],
+                  [
+                    "__repr__(self)",
+                    "repr(obj), interactive REPL",
+                    "Unambiguous code string",
+                    "Developer debugging: eval(repr(obj)) == obj"
+                  ],
+                  [
+                    "__len__(self)",
+                    "len(obj)",
+                    "Non-negative integer",
+                    "Reports collection size"
+                  ],
+                  [
+                    "__eq__(self, other)",
+                    "obj1 == obj2",
+                    "Boolean True/False",
+                    "Value equality comparison instead of memory identity"
+                  ],
+                  [
+                    "__add__(self, other)",
+                    "obj1 + obj2",
+                    "New object instance",
+                    "Operator overloading for addition"
+                  ],
+                  [
+                    "__getitem__(self, key)",
+                    "obj[key]",
+                    "Value at index/key",
+                    "Allows bracket indexing like a list or dictionary"
+                  ]
+                ]
+              }
+            },
+            {
+              "heading": "10. Method Types: Instance vs. Class vs. Static Methods",
+              "text": "Python supports three distinct method types defined using decorators:\n\n1. Instance Methods:\nThe default method type. Receives self as the first parameter. Can access and modify both instance state and class state.\n\n2. Class Methods (@classmethod):\nReceives cls (the class object itself) as the first parameter instead of self. Cannot access instance attributes.\n• Primary Use Case: Factory constructors (creating instances from JSON, CSV, or formatted strings).\n\n3. Static Methods (@staticmethod):\nReceives neither self nor cls. Behaves like a plain function placed inside the class namespace for logical grouping.\n• Primary Use Case: Pure utility functions that do not depend on object or class state."
             }
           ],
           "codeExamples": [
             {
-              "title": "PartyAnimal Class & Multiple Instances (Chapter 14)",
-              "code": "# Chapter 14: Class Definition & Lifecycle\nclass PartyAnimal:\n    def __init__(self, nam):\n        self.x = 0\n        self.name = nam\n        print(f\"{self.name} constructed\")\n\n    def party():\n        self.x += 1\n        print(f\"{self.name} party count: {self.x}\")\n\n    def __del__(self):\n        print(f\"{self.name} destructed at count {self.x}\")\n\ns = PartyAnimal('Sally')\ns.party()\n\nj = PartyAnimal('Jim')\nj.party()\ns.party()",
-              "explanation": "s and j are independent PartyAnimal instances tracking separate x counts."
+              "title": "1. Complete Class Definition with State Mutation & Self",
+              "code": "class PartyAnimal:\n    total_parties = 0 # Class attribute\n\n    def __init__(self, name):\n        self.name = name # Instance attribute\n        self.points = 0  # Instance attribute\n        print(f\"Party animal '{self.name}' initialized in memory.\")\n\n    def party(self):\n        self.points += 1\n        PartyAnimal.total_parties += 1\n        print(f\"{self.name} scored a point! Total points: {self.points}\")\n\n    def __del__(self):\n        print(f\"Party animal '{self.name}' deallocated.\")\n\n# Instantiate two distinct objects\nsally = PartyAnimal(\"Sally\")\njim = PartyAnimal(\"Jim\")\n\nsally.party()\nsally.party()\njim.party()\n\nprint(f\"Global parties recorded across all instances: {PartyAnimal.total_parties}\")",
+              "explanation": "Demonstrates class blueprints, independent instance state, class attributes, and method execution."
             },
             {
-              "title": "Inheritance: Extending Classes",
-              "code": "from PartyAnimal class\nclass CricketFan(PartyAnimal):\n    def __init__(self, nam):\n        super().__init__(nam) # Call parent constructor\n        self.points = 0\n\n    def six(self):\n        self.points += 6\n        self.party()\n        print(f\"{self.name} points: {self.points}\")\n\nj = CricketFan(\"Jim\")\nj.six() # Inherits party() and adds six() capability!",
-              "explanation": "CricketFan extends PartyAnimal inheriting attributes and methods."
+              "title": "2. Clean Encapsulation with @property Getters & Setters",
+              "code": "class BankAccount:\n    def __init__(self, account_holder, initial_balance=0.0):\n        self.account_holder = account_holder\n        self._balance = float(initial_balance) # Protected internal state\n\n    @property\n    def balance(self):\n        \"\"\"Getter method: Read-only external access to balance.\"\"\"\n        return self._balance\n\n    @balance.setter\n    def balance(self, new_balance):\n        \"\"\"Setter method: Validates balance updates rigorously.\"\"\"\n        if new_balance < 0:\n            raise ValueError(f\"Balance cannot fall below zero: {new_balance}\")\n        self._balance = float(new_balance)\n\n    def deposit(self, amount):\n        if amount <= 0:\n            raise ValueError(\"Deposit amount must be positive.\")\n        self.balance += amount\n        return self.balance\n\naccount = BankAccount(\"Dr. Ananya Sharma\", 2500)\nprint(f\"Account Balance: $\" + f\"{account.balance:,.2f}\")\n\naccount.deposit(750)\nprint(f\"Updated Balance: $\" + f\"{account.balance:,.2f}\")\n\ntry:\n    account.balance = -500 # Triggers setter validation exception\nexcept ValueError as e:\n    print(f\"Guard Blocked Invalid Transaction: {e}\")",
+              "explanation": "Uses Python @property to provide clean attribute access while enforcing business invariants."
+            },
+            {
+              "title": "3. Inheritance Hierarchy with super() Constructor Delegation",
+              "code": "class Employee:\n    def __init__(self, emp_id, name, base_salary):\n        self.emp_id = emp_id\n        self.name = name\n        self.base_salary = base_salary\n\n    def calculate_annual_compensation(self):\n        return self.base_salary\n\n    def __str__(self):\n        return f\"[{self.emp_id}] {self.name} (Base: $\" + f\"{self.base_salary:,.2f})\"\n\nclass SoftwareEngineer(Employee):\n    def __init__(self, emp_id, name, base_salary, stock_options, tech_stack):\n        super().__init__(emp_id, name, base_salary) # Delegate to parent\n        self.stock_options = stock_options\n        self.tech_stack = tech_stack\n\n    def calculate_annual_compensation(self):\n        # Override parent method and add stock equity value\n        return self.base_salary + (self.stock_options * 25.0)\n\ndev = SoftwareEngineer(\"DEV-402\", \"Bhavana\", 95000, 1000, [\"Python\", \"SQLite\", \"FastAPI\"])\nprint(dev)\nprint(f\"Total Annual Compensation: $\" + f\"{dev.calculate_annual_compensation():,.2f}\")\nprint(f\"Specialized Tech Stack: {', '.join(dev.tech_stack)}\")",
+              "explanation": "Demonstrates class inheritance, constructor delegation with super(), and method overriding."
+            },
+            {
+              "title": "4. Dynamic Polymorphism Across Interchangeable Interfaces",
+              "code": "class PDFReportExporter:\n    def export(self, title, data):\n        return f\"[PDF Rendered]: '{title}' formatted into 2-column vector document ({len(data)} items).\"\n\nclass CSVReportExporter:\n    def export(self, title, data):\n        return f\"[CSV Exported]: '{title}.csv' generated with comma-delimited columns.\"\n\nclass JSONReportExporter:\n    def export(self, title, data):\n        return f\"[JSON Serialized]: '{title}.json' encoded with UTF-8 payload.\"\n\ndef generate_business_summary(exporter, report_title, dataset):\n    # Polymorphic call: exporter can be ANY class with an export() method\n    output = exporter.export(report_title, dataset)\n    print(output)\n\ntelemetry = [89.4, 92.1, 95.7, 88.2]\nexporters = [PDFReportExporter(), CSVReportExporter(), JSONReportExporter()]\n\nfor exp in exporters:\n    generate_business_summary(exp, \"Monthly_Telemetry_Report\", telemetry)",
+              "explanation": "Illustrates duck typing and polymorphism where diverse exporter objects share the same export() signature."
+            },
+            {
+              "title": "5. Python Data Model Integration with Magic Dunder Methods",
+              "code": "class Money:\n    def __init__(self, amount, currency=\"USD\"):\n        self.amount = round(float(amount), 2)\n        self.currency = currency.upper()\n\n    def __str__(self):\n        # User readable\n        return f\"{self.currency} \" + f\"{self.amount:,.2f}\"\n\n    def __repr__(self):\n        # Developer debug string\n        return f\"Money({self.amount}, '{self.currency}')\"\n\n    def __eq__(self, other):\n        if not isinstance(other, Money): return False\n        return self.amount == other.amount and self.currency == other.currency\n\n    def __add__(self, other):\n        if not isinstance(other, Money):\n            raise TypeError(\"Cannot add Money to non-Money object\")\n        if self.currency != other.currency:\n            raise ValueError(f\"Cannot add mismatched currencies: {self.currency} vs {other.currency}\")\n        return Money(self.amount + other.amount, self.currency)\n\nm1 = Money(150.50, \"USD\")\nm2 = Money(49.50, \"USD\")\nm3 = m1 + m2\n\nprint(f\"m1: {m1}\")\nprint(f\"m2: {m2}\")\nprint(f\"m3 (Sum via + operator): {m3}\")\nprint(f\"Is m3 equal to Money(200, 'USD')? {m3 == Money(200, 'USD')}\")\nprint(f\"Debug representation: {repr(m3)}\")",
+              "explanation": "Implements operator overloading with __add__, __eq__, __str__, and __repr__."
+            },
+            {
+              "title": "6. Class Methods (@classmethod) as Alternative Factory Constructors",
+              "code": "class StudentRecord:\n    def __init__(self, name, college, gpa):\n        self.name = name\n        self.college = college\n        self.gpa = float(gpa)\n\n    @classmethod\n    def from_csv_line(cls, csv_string):\n        \"\"\"Factory constructor creating a student from a CSV line.\"\"\"\n        name, college, gpa = csv_string.strip().split(\",\")\n        return cls(name.strip(), college.strip(), float(gpa))\n\n    @classmethod\n    def from_dict(cls, data_dict):\n        \"\"\"Factory constructor creating a student from a dictionary.\"\"\"\n        return cls(data_dict['name'], data_dict['college'], data_dict['gpa'])\n\n    @staticmethod\n    def is_honor_roll(gpa):\n        \"\"\"Pure static utility function.\"\"\"\n        return gpa >= 3.8\n\n# Standard constructor\ns1 = StudentRecord(\"Rahul\", \"Bengaluru Tech\", 3.9)\n\n# Factory constructor from CSV\ns2 = StudentRecord.from_csv_line(\"Priya, Delhi Engineering, 3.85\")\n\nprint(f\"Student: {s2.name} | College: {s2.college} | GPA: {s2.gpa}\")\nprint(f\"Honor Roll Eligible? {StudentRecord.is_honor_roll(s2.gpa)}\")",
+              "explanation": "Uses @classmethod as alternative constructors to parse heterogeneous formats cleanly."
             }
           ],
           "bestPractices": [
-            "Always name the first method parameter 'self' by Python convention.",
-            "Use inheritance to extend existing classes rather than copying code."
+            "Follow PEP 8 naming conventions: PascalCase for class names (BankAccount) and snake_case for methods/attributes.",
+            "Keep instance methods focused: each method should perform one clear responsibility.",
+            "Always initialize all instance attributes inside the __init__ constructor rather than creating them ad-hoc.",
+            "Use @property decorators to validate attribute mutations instead of writing Java-style get_x() and set_x() methods.",
+            "Prefer Composition over Inheritance: only inherit when a true 'is-a' relationship exists, not just to borrow code.",
+            "Always implement __repr__ on custom classes to provide clear, actionable debugging logs.",
+            "Always call super().__init__() in child class constructors to maintain proper parent state initialization.",
+            "Use class attributes for shared configuration and instance attributes for state unique to each object.",
+            "Embrace Python duck typing: design functions to depend on behavior (methods), not strict type checking."
           ],
           "commonMistakes": [
-            "Forgetting 'self.' when assigning instance attributes inside methods.",
-            "Forgetting to call super().__init__() when overriding constructors in child classes."
+            "Forgetting the mandatory 'self' parameter in method signatures, triggering 'TypeError: method() takes 0 positional arguments'.",
+            "Using mutable default arguments (like def __init__(self, items=[]):), which causes ALL instances to share the same list in memory!",
+            "Modifying a class attribute via an instance (self.counter += 1), which accidentally shadows the class attribute with a new instance attribute.",
+            "Creating deep, multi-level inheritance hierarchies that become fragile and difficult to test and maintain.",
+            "Overusing double-underscore private attributes (__x) when single-underscore protected attributes (_x) are standard in Python.",
+            "Failing to implement __eq__ and wondering why two objects with identical attribute values return False when compared with =="
           ],
           "practiceExercise": {
-            "title": "Student BootCamp Class",
-            "problem": "Create a Student class with name, email, courses list, enroll(course) method, and get_summary() method.",
-            "solutionCode": "class Student:\n    def __init__(self, name, email):\n        self.name = name\n        self.email = email\n        self.courses = []\n\n    def enroll(self, course_name):\n        self.courses.append(course_name)\n        print(f\"{self.name} enrolled in {course_name}\")\n\n    def get_summary(self):\n        return f\"Student: {self.name} | Courses: {', '.join(self.courses)}\"\n\ns1 = Student(\"Arshith\", \"arshith@example.com\")\ns1.enroll(\"Python\")\nprint(s1.get_summary())"
+            "title": "Module 11 Hands-On Laboratory: Enterprise Object-Oriented Domain Engineering",
+            "problem": "Implement the following 6 comprehensive object-oriented challenges:\n\n1. Inventory Item with Property Validation:\nCreate an InventoryItem class with name, unit_price, and quantity_in_stock. Use @property to ensure price > 0 and stock >= 0. Add a total_value property.\n\n2. Bank Account Hierarchy with Transaction Auditing:\nBuild an Account base class with deposit and withdraw methods. Create a SavingsAccount subclass that enforces a minimum balance of 500, and a CheckingAccount subclass with an overdraft allowance. Track transaction timestamps in a list.\n\n3. Vector Mathematics Class with Operator Overloading:\nCreate a Vector2D class representing a 2D coordinate (x, y). Implement __add__, __sub__, __mul__ (scalar multiplication), __eq__, and __str__ returning '(x, y)'.\n\n4. Polymorphic Notification Dispatcher:\nCreate EmailNotifier, SMSNotifier, and SlackNotifier classes sharing a send_alert(recipient, message) method. Write a broadcast_system_alert(notifiers, message) function demonstrating duck typing.\n\n5. Alternative Factory Constructor from JSON:\nCreate a CourseModule class with a @classmethod from_json_str(json_text) that safely instantiates module objects from raw JSON text.\n\n6. Library Catalog Management System:\nBuild a Book class and a LibraryCatalog class. Implement __len__, __getitem__, and add/remove book methods supporting lending and availability tracking.",
+            "solutionCode": "import json\nfrom datetime import datetime\n\n# ==============================================================================\n# Challenge 1: Inventory Item with Property Validation\n# ==============================================================================\nclass InventoryItem:\n    def __init__(self, item_id, name, unit_price, quantity_in_stock=0):\n        self.item_id = item_id\n        self.name = name\n        self.unit_price = unit_price\n        self.quantity_in_stock = quantity_in_stock\n\n    @property\n    def unit_price(self):\n        return self._unit_price\n\n    @unit_price.setter\n    def unit_price(self, val):\n        if val <= 0: raise ValueError(\"Unit price must be positive.\")\n        self._unit_price = float(val)\n\n    @property\n    def quantity_in_stock(self):\n        return self._quantity\n\n    @quantity_in_stock.setter\n    def quantity_in_stock(self, val):\n        if val < 0: raise ValueError(\"Stock quantity cannot be negative.\")\n        self._quantity = int(val)\n\n    @property\n    def total_value(self):\n        return self._unit_price * self._quantity\n\nitem = InventoryItem(\"ITM-101\", \"Mechanical Keyboard\", 85.50, 40)\nprint(\"Challenge 1 - Inventory Item:\")\nprint(f\"  Item: {item.name} | Total Inventory Value: $\" + f\"{item.total_value:,.2f}\")\n\n\n# ==============================================================================\n# Challenge 2: Bank Account Hierarchy with Transaction Auditing\n# ==============================================================================\nclass Account:\n    def __init__(self, owner, initial_balance=0.0):\n        self.owner = owner\n        self.balance = float(initial_balance)\n        self.transactions = []\n\n    def deposit(self, amount):\n        if amount <= 0: raise ValueError(\"Deposit must be positive.\")\n        self.balance += amount\n        self.transactions.append((datetime.now().strftime(\"%H:%M:%S\"), \"DEPOSIT\", amount))\n        return self.balance\n\n    def withdraw(self, amount):\n        if amount <= 0: raise ValueError(\"Withdrawal must be positive.\")\n        if amount > self.balance: raise ValueError(\"Insufficient funds.\")\n        self.balance -= amount\n        self.transactions.append((datetime.now().strftime(\"%H:%M:%S\"), \"WITHDRAW\", amount))\n        return self.balance\n\nclass SavingsAccount(Account):\n    MIN_BALANCE = 500.0\n\n    def withdraw(self, amount):\n        if (self.balance - amount) < self.MIN_BALANCE:\n            raise ValueError(f\"Withdrawal denied: must maintain minimum balance of $\" + f\"{self.MIN_BALANCE}\")\n        return super().withdraw(amount)\n\nclass CheckingAccount(Account):\n    def __init__(self, owner, initial_balance=0.0, overdraft_limit=200.0):\n        super().__init__(owner, initial_balance)\n        self.overdraft_limit = float(overdraft_limit)\n\n    def withdraw(self, amount):\n        if amount > (self.balance + self.overdraft_limit):\n            raise ValueError(\"Withdrawal exceeds overdraft limit.\")\n        self.balance -= amount\n        self.transactions.append((datetime.now().strftime(\"%H:%M:%S\"), \"WITHDRAW\", amount))\n        return self.balance\n\nsavings = SavingsAccount(\"Ananya\", 1000)\nsavings.withdraw(300)\nprint(f\"\nChallenge 2 - Savings Account:\")\nprint(f\"  Owner: {savings.owner} | Balance: $\" + f\"{savings.balance:,.2f} | Transactions: {len(savings.transactions)}\")\n\n\n# ==============================================================================\n# Challenge 3: Vector2D Class with Operator Overloading\n# ==============================================================================\nclass Vector2D:\n    def __init__(self, x, y):\n        self.x = float(x)\n        self.y = float(y)\n\n    def __add__(self, other):\n        return Vector2D(self.x + other.x, self.y + other.y)\n\n    def __sub__(self, other):\n        return Vector2D(self.x - other.x, self.y - other.y)\n\n    def __mul__(self, scalar):\n        return Vector2D(self.x * scalar, self.y * scalar)\n\n    def __eq__(self, other):\n        return isinstance(other, Vector2D) and self.x == other.x and self.y == other.y\n\n    def __str__(self):\n        return f\"({self.x:.1f}, {self.y:.1f})\"\n\nv1 = Vector2D(3, 4)\nv2 = Vector2D(1, 2)\nv3 = v1 + v2\nprint(f\"\nChallenge 3 - Vector Mathematics:\")\nprint(f\"  {v1} + {v2} = {v3}\")\nprint(f\"  Scaled {v1} * 2.5 = {v1 * 2.5}\")\n\n\n# ==============================================================================\n# Challenge 4: Polymorphic Notification Dispatcher\n# ==============================================================================\nclass EmailNotifier:\n    def send_alert(self, recipient, message):\n        return f\"[EMAIL sent to {recipient}]: {message}\"\n\nclass SMSNotifier:\n    def send_alert(self, recipient, message):\n        return f\"[SMS sent to {recipient}]: {message}\"\n\nclass SlackNotifier:\n    def send_alert(self, recipient, message):\n        return f\"[SLACK channel #{recipient}]: {message}\"\n\ndef broadcast_system_alert(notifiers, recipient, alert_msg):\n    logs = []\n    for n in notifiers:\n        logs.append(n.send_alert(recipient, alert_msg))\n    return logs\n\ndispatchers = [EmailNotifier(), SMSNotifier(), SlackNotifier()]\nalerts = broadcast_system_alert(dispatchers, \"devops-team\", \"Node 4 CPU load > 90%\")\nprint(\"\nChallenge 4 - Polymorphic Notifications:\")\nfor log in alerts:\n    print(f\"  • {log}\")\n\n\n# ==============================================================================\n# Challenge 5: Alternative Factory Constructor from JSON\n# ==============================================================================\nclass CourseModule:\n    def __init__(self, module_id, title, duration_hours):\n        self.module_id = module_id\n        self.title = title\n        self.duration_hours = int(duration_hours)\n\n    @classmethod\n    def from_json_str(cls, json_payload):\n        parsed = json.loads(json_payload)\n        return cls(parsed['id'], parsed['title'], parsed['hours'])\n\n    def __repr__(self):\n        return f\"CourseModule('{self.module_id}', '{self.title}', {self.duration_hours}h)\"\n\nraw_mod_json = '{\"id\": \"py-mod-11\", \"title\": \"Object-Oriented Programming\", \"hours\": 4}'\nmod_obj = CourseModule.from_json_str(raw_mod_json)\nprint(f\"\nChallenge 5 - Factory Instantiation:\")\nprint(f\"  Created Instance: {mod_obj}\")\n\n\n# ==============================================================================\n# Challenge 6: Library Catalog Management System\n# ==============================================================================\nclass Book:\n    def __init__(self, isbn, title, author):\n        self.isbn = isbn\n        self.title = title\n        self.author = author\n        self.is_checked_out = False\n\nclass LibraryCatalog:\n    def __init__(self):\n        self._books = {}\n\n    def add_book(self, book):\n        self._books[book.isbn] = book\n\n    def __len__(self):\n        return len(self._books)\n\n    def __getitem__(self, isbn):\n        return self._books[isbn]\n\ncatalog = LibraryCatalog()\ncatalog.add_book(Book(\"978-01\", \"Python for Everybody\", \"Dr. Charles Severance\"))\ncatalog.add_book(Book(\"978-02\", \"Clean Code\", \"Robert C. Martin\"))\n\nprint(f\"\nChallenge 6 - Library Catalog Integration:\")\nprint(f\"  Total Books in Catalog (via len()): {len(catalog)}\")\nprint(f\"  Fetched via Bracket Indexing [ISBN]: '{catalog['978-01'].title}' by {catalog['978-01'].author}\")"
           },
           "keyTakeaways": [
-            "class defines object templates; __init__() sets initial state.",
-            "self points to the current object instance.",
-            "Inheritance allows child classes to reuse parent code."
+            "OOP bundles state (attributes) and behavior (methods) into cohesive, reusable conceptual entities.",
+            "The Class is the reusable blueprint; the Object / Instance is the allocated entity in memory.",
+            "The 'self' parameter explicitly binds method execution to the specific calling object instance.",
+            "The __init__ method is the constructor that initializes instance attributes upon allocation.",
+            "Encapsulation protects internal object state using protected (_x) and @property getter/setter methods.",
+            "Inheritance promotes code reuse, while super() cleanly delegates shared initialization to parent classes.",
+            "Dynamic polymorphism enables interchangeable handling of diverse classes through duck typing.",
+            "Magic dunder methods (__str__, __len__, __eq__, __add__) seamlessly integrate classes with Python's data model."
           ],
           "references": [
             {
-              "title": "Python for Everybody Chapter 14",
+              "title": "Python for Everybody: Chapter 14 — Object-Oriented Programming",
               "url": "https://www.py4e.com/html3/14-objects"
+            },
+            {
+              "title": "Python Documentation: Classes and the Data Model",
+              "url": "https://docs.python.org/3/tutorial/classes.html"
+            },
+            {
+              "title": "Python Documentation: Special Method Names (Dunders)",
+              "url": "https://docs.python.org/3/reference/datamodel.html#special-method-names"
             }
-          ]
+          ],
+          "mcqs": [
+            {
+              "id": 1,
+              "question": "What does the 'self' parameter explicitly represent in a Python class method?",
+              "options": [
+                "A reference to the class blueprint itself",
+                "The specific instance of the class that is currently invoking the method",
+                "A global variable accessible across all files",
+                "A pointer to the parent superclass"
+              ],
+              "correctAnswer": 1,
+              "explanation": "self is the explicit reference to the calling object instance, allowing methods to read and modify that instance's unique attributes."
+            },
+            {
+              "id": 2,
+              "question": "What is the role of the __init__ method in a Python class?",
+              "options": [
+                "It is called when an object is destroyed by the garbage collector",
+                "It is the constructor method called automatically after instance allocation to initialize attributes",
+                "It converts an object into a JSON string",
+                "It compiles the class into machine code"
+              ],
+              "correctAnswer": 1,
+              "explanation": "__init__ is the initializer constructor called immediately after a new instance is created in memory to set its initial state."
+            },
+            {
+              "id": 3,
+              "question": "In a child subclass constructor, what is the role of super().__init__(*args)?",
+              "options": [
+                "It creates a duplicate copy of the parent class",
+                "It delegates execution to the parent superclass constructor, properly initializing inherited attributes",
+                "It overrides all methods of the parent class with empty functions",
+                "It deletes the parent class from memory"
+              ],
+              "correctAnswer": 1,
+              "explanation": "super().__init__() calls the parent class's constructor, ensuring that base attributes and validations are executed correctly."
+            },
+            {
+              "id": 4,
+              "question": "How does Python enforce privacy for attributes declared with a double leading underscore (e.g. self.__pin)?",
+              "options": [
+                "It encrypts the attribute value using AES-256",
+                "It uses Name Mangling, internally renaming the attribute to _ClassName__pin to prevent accidental subclass override",
+                "It raises an AccessDeniedError if accessed outside the class",
+                "It stores the attribute in an external secure vault"
+              ],
+              "correctAnswer": 1,
+              "explanation": "Python mangles double-underscore attributes by prefixing them with _ClassName to avoid name collisions in subclass hierarchies."
+            },
+            {
+              "id": 5,
+              "question": "Which magic dunder method allows a custom class to define behavior for the '==' equality operator?",
+              "options": [
+                "__same__(self, other)",
+                "__equals__(self, other)",
+                "__eq__(self, other)",
+                "__compare__(self, other)"
+              ],
+              "correctAnswer": 2,
+              "explanation": "Implementing __eq__(self, other) allows custom classes to evaluate value equality when compared using the '==' operator."
+            }
+          ],
+          "selfAssessment": {
+            "title": "Module Self-Assessment (5 Knowledge Check MCQs)",
+            "questions": [
+              {
+                "id": "py-q-11-1",
+                "questionNumber": 1,
+                "topic": "Instance Initialization vs Allocation",
+                "questionText": "What is the distinct role of __new__ compared to __init__ in Python class instantiation?",
+                "options": [
+                  "__init__ allocates the memory instance while __new__ assigns attribute values",
+                  "__new__ is the static allocator that creates and returns the object instance; __init__ is the initializer that sets up instance attributes",
+                  "They are deprecated synonyms for constructors",
+                  "__new__ is only called for subclasses of tuple"
+                ],
+                "correctAnswer": 1,
+                "explanation": "__new__ is the constructor that creates and returns a new object instance. __init__ receives the newly created object as self to initialize its attributes."
+              },
+              {
+                "id": "py-q-11-2",
+                "questionNumber": 2,
+                "topic": "Method Resolution Order (MRO)",
+                "questionText": "Which algorithm does Python 3 use to resolve method lookup order in multiple inheritance hierarchies?",
+                "options": [
+                  "Depth-First Search (DFS)",
+                  "C3 Superclass Linearization algorithm",
+                  "Breadth-First Search (BFS)",
+                  "Randomized Tree Traversal"
+                ],
+                "correctAnswer": 1,
+                "explanation": "Python 3 uses the C3 Linearization algorithm to determine a deterministic, monotonic Method Resolution Order (accessible via ClassName.mro())."
+              },
+              {
+                "id": "py-q-11-3",
+                "questionNumber": 3,
+                "topic": "Classmethod vs Staticmethod",
+                "questionText": "What is the key difference between @classmethod and @staticmethod?",
+                "options": [
+                  "@classmethod receives the class object (cls) as its implicit first argument, while @staticmethod receives neither self nor cls",
+                  "@staticmethod cannot be called on class instances",
+                  "@classmethod is private while @staticmethod is public",
+                  "There is no difference in Python 3"
+                ],
+                "correctAnswer": 0,
+                "explanation": "A @classmethod receives the class reference cls as its first argument (ideal for factory constructors), whereas @staticmethod behaves like a regular function scoped inside the class namespace."
+              },
+              {
+                "id": "py-q-11-4",
+                "questionNumber": 4,
+                "topic": "Name Mangling",
+                "questionText": "What happens when an attribute inside class BankAccount is named with double leading underscores: __balance?",
+                "options": [
+                  "Python makes it strictly read-only and immutable",
+                  "Python performs name mangling, transforming it internally to _BankAccount__balance to avoid namespace collisions in subclasses",
+                  "The attribute is deleted when the constructor completes",
+                  "It becomes a global variable"
+                ],
+                "correctAnswer": 1,
+                "explanation": "Double leading underscores trigger name mangling: Python renames __balance to _ClassName__attribute to prevent accidental overriding in derived classes."
+              },
+              {
+                "id": "py-q-11-5",
+                "questionNumber": 5,
+                "topic": "Dunder String Protocols",
+                "questionText": "What is the intended difference between __str__ and __repr__ in Python classes?",
+                "options": [
+                  "__str__ is for end-user readability, while __repr__ is an unambiguous representation intended for developers and debugging",
+                  "__repr__ must return bytes while __str__ returns text",
+                  "__str__ is only called inside print() statements and cannot be called manually",
+                  "Both methods must return identical strings"
+                ],
+                "correctAnswer": 0,
+                "explanation": "__str__ produces user-friendly string output, while __repr__ aims to be unambiguous and, if possible, match valid Python code that could recreate the object."
+              }
+            ]
+          }
         },
         "quiz": {
           "id": "quiz-py-mod-11",
@@ -1845,22 +5526,21 @@ export const INITIAL_COURSES = [
           "questions": [
             {
               "id": "py-q-11-1",
-              "type": "multiple-choice",
+              "questionNumber": 1,
               "topic": "Instance Initialization vs Allocation",
-              "questionText": "What is the distinct role of `__new__` compared to `__init__` in Python class instantiation?",
+              "questionText": "What is the distinct role of __new__ compared to __init__ in Python class instantiation?",
               "options": [
-                "`__init__` allocates the memory instance while `__new__` assigns attribute values",
-                "`__new__` is the static allocator that creates and returns the object instance; `__init__` is the initializer that sets up instance attributes",
+                "__init__ allocates the memory instance while __new__ assigns attribute values",
+                "__new__ is the static allocator that creates and returns the object instance; __init__ is the initializer that sets up instance attributes",
                 "They are deprecated synonyms for constructors",
-                "`__new__` is only called for subclasses of tuple"
+                "__new__ is only called for subclasses of tuple"
               ],
               "correctAnswer": 1,
-              "marks": 10,
-              "explanation": "`__new__` is the constructor that creates and returns a new object instance. `__init__` receives the newly created object as `self` to initialize its attributes."
+              "explanation": "__new__ is the constructor that creates and returns a new object instance. __init__ receives the newly created object as self to initialize its attributes."
             },
             {
               "id": "py-q-11-2",
-              "type": "multiple-choice",
+              "questionNumber": 2,
               "topic": "Method Resolution Order (MRO)",
               "questionText": "Which algorithm does Python 3 use to resolve method lookup order in multiple inheritance hierarchies?",
               "options": [
@@ -1870,53 +5550,49 @@ export const INITIAL_COURSES = [
                 "Randomized Tree Traversal"
               ],
               "correctAnswer": 1,
-              "marks": 10,
-              "explanation": "Python 3 uses the C3 Linearization algorithm to determine a deterministic, monotonic Method Resolution Order (accessible via `ClassName.mro()`)."
+              "explanation": "Python 3 uses the C3 Linearization algorithm to determine a deterministic, monotonic Method Resolution Order (accessible via ClassName.mro())."
             },
             {
               "id": "py-q-11-3",
-              "type": "multiple-choice",
+              "questionNumber": 3,
               "topic": "Classmethod vs Staticmethod",
-              "questionText": "What is the key difference between `@classmethod` and `@staticmethod`?",
+              "questionText": "What is the key difference between @classmethod and @staticmethod?",
               "options": [
-                "`@classmethod` receives the class object (`cls`) as its implicit first argument, while `@staticmethod` receives neither `self` nor `cls`",
-                "`@staticmethod` cannot be called on class instances",
-                "`@classmethod` is private while `@staticmethod` is public",
+                "@classmethod receives the class object (cls) as its implicit first argument, while @staticmethod receives neither self nor cls",
+                "@staticmethod cannot be called on class instances",
+                "@classmethod is private while @staticmethod is public",
                 "There is no difference in Python 3"
               ],
               "correctAnswer": 0,
-              "marks": 10,
-              "explanation": "A `@classmethod` receives the class reference `cls` as its first argument (ideal for factory constructors), whereas `@staticmethod` behaves like a regular function scoped inside the class namespace."
+              "explanation": "A @classmethod receives the class reference cls as its first argument (ideal for factory constructors), whereas @staticmethod behaves like a regular function scoped inside the class namespace."
             },
             {
               "id": "py-q-11-4",
-              "type": "multiple-choice",
+              "questionNumber": 4,
               "topic": "Name Mangling",
-              "questionText": "What happens when an attribute inside class `BankAccount` is named with double leading underscores: `__balance`?",
+              "questionText": "What happens when an attribute inside class BankAccount is named with double leading underscores: __balance?",
               "options": [
                 "Python makes it strictly read-only and immutable",
-                "Python performs name mangling, transforming it internally to `_BankAccount__balance` to avoid namespace collisions in subclasses",
+                "Python performs name mangling, transforming it internally to _BankAccount__balance to avoid namespace collisions in subclasses",
                 "The attribute is deleted when the constructor completes",
                 "It becomes a global variable"
               ],
               "correctAnswer": 1,
-              "marks": 10,
-              "explanation": "Double leading underscores trigger name mangling: Python renames `__balance` to `_ClassName__attribute` to prevent accidental overriding in derived classes."
+              "explanation": "Double leading underscores trigger name mangling: Python renames __balance to _ClassName__attribute to prevent accidental overriding in derived classes."
             },
             {
               "id": "py-q-11-5",
-              "type": "multiple-choice",
+              "questionNumber": 5,
               "topic": "Dunder String Protocols",
-              "questionText": "What is the intended difference between `__str__` and `__repr__` in Python classes?",
+              "questionText": "What is the intended difference between __str__ and __repr__ in Python classes?",
               "options": [
-                "`__str__` is for end-user readability, while `__repr__` is an unambiguous representation intended for developers and debugging",
-                "`__repr__` must return bytes while `__str__` returns text",
-                "`__str__` is only called inside print() statements and cannot be called manually",
+                "__str__ is for end-user readability, while __repr__ is an unambiguous representation intended for developers and debugging",
+                "__repr__ must return bytes while __str__ returns text",
+                "__str__ is only called inside print() statements and cannot be called manually",
                 "Both methods must return identical strings"
               ],
               "correctAnswer": 0,
-              "marks": 10,
-              "explanation": "`__str__` produces user-friendly string output, while `__repr__` aims to be unambiguous and, if possible, match valid Python code that could recreate the object."
+              "explanation": "__str__ produces user-friendly string output, while __repr__ aims to be unambiguous and, if possible, match valid Python code that could recreate the object."
             }
           ]
         }
@@ -1924,111 +5600,403 @@ export const INITIAL_COURSES = [
       {
         "id": "py-mod-12",
         "title": "Module 12 — Regular Expressions (re module)",
-        "description": "Pattern matching, re.search(), re.findall(), special regex characters (^, $, ., \\s, \\S, *, +, ?), character classes, and data extraction.",
-        "completed": false,
+        "description": "Pattern matching with the re module, character classes, greedy vs non-greedy quantifiers, capture groups, search/findall/sub/split, and real-world email/log extraction.",
+        "completed": true,
         "readingMaterial": {
-          "introduction": "Based on Chapter 11 of 'Python for Everybody', Regular Expressions (regex) provide a concise programming language for searching, matching, and extracting text patterns from unformatted document streams.",
+          "introduction": "In earlier modules, text parsing required intricate combinations of string methods: find(), split(), strip(), and multi-step slice arithmetic. While suitable for simple delimiter separation, real-world data is rarely uniform. Server logs contain varying whitespace; user input includes erratic phone number formatting; email addresses have dynamic subdomains; and security audits require matching hexadecimal hashes or IPv4 addresses. Solving these complex text patterns using standard procedural string methods requires dozens of fragile, nested conditional statements.\n\nRegular Expressions (commonly abbreviated as 'Regex') provide a concise, declarative domain-specific language for searching, validating, extracting, and replacing text patterns. Rather than specifying algorithmic step-by-step extraction instructions, you describe the shape and constraints of the target data: 'find a line starting with From:, followed by whitespace, followed by a sequence of non-whitespace characters containing an @ symbol.'\n\nBased on Chapter 11 of Dr. Charles Severance's 'Python for Everybody' and production Python text-processing standards, this module delivers an exhaustive guide to Python's built-in re engine: mastering raw string notation (r'...'), character classes and meta-characters, greedy versus non-greedy quantifiers, capture groups and named groups, high-performance precompiled regex objects (re.compile), search-and-replace transformations (re.sub), and defensive pattern design to prevent catastrophic backtracking.",
           "objectives": [
-            "Import the re regular expression module",
-            "Use re.search() to test if a pattern exists in text",
-            "Use re.findall() to extract matching data substrings",
-            "Master regex special characters (^, $, ., \\s, \\S, *, +, ?)",
-            "Use character sets [a-zA-Z0-9] and extraction parentheses ()",
-            "Understand greedy (*, +) vs non-greedy (*?, +?) matching"
+            "Understand the motivation for regular expressions over manual string slicing and indexing.",
+            "Always apply Python raw string notation (r'...') to eliminate backslash escaping hazards.",
+            "Master standard meta-characters and character classes: ., \\d, \\w, \\s, \\D, \\W, \\S, and custom ranges [a-z0-9].",
+            "Anchor patterns to line and word boundaries using ^, $, \\b, and \\B.",
+            "Control repetition using quantifiers (*, +, ?, {m,n}) and distinguish greedy from non-greedy (*?, +?) behavior.",
+            "Extract structured substrings using capture groups () and self-documenting named groups (?P<name>...).",
+            "Compare and apply core re functions: re.search(), re.match(), re.findall(), re.finditer(), re.sub(), and re.split().",
+            "Optimize regex execution across large document corpora using precompiled patterns with re.compile().",
+            "Configure search modifiers using compilation flags: re.IGNORECASE, re.MULTILINE, re.DOTALL, and re.VERBOSE.",
+            "Identify and eliminate performance bottlenecks such as catastrophic exponential backtracking."
           ],
           "sections": [
             {
-              "heading": "Regex Special Character Cheatsheet",
-              "text": "Essential special characters in Python regular expressions:",
+              "heading": "1. The Power of Declarative Pattern Matching: Beyond find() and split()",
+              "text": "Consider the task of extracting an email address from an unstructured log line:\n'From: stephen.marquard@uct.ac.za Sat Jan  5 09:14:16 2008'\n\nProcedural Approach (find & slice):\nat_pos = line.find('@')\nspace_before = line.rfind(' ', 0, at_pos)\nspace_after = line.find(' ', at_pos)\nemail = line[space_before + 1:space_after]\n\nWhy Procedural Parsing Breaks:\n1. Fragility: If the line contains tabs instead of spaces, or leading punctuation, find() selects the wrong boundary indices.\n2. Inability to Validate: find() extracts whatever text surrounds '@', even if the result is invalid ('@' preceded by spaces or non-email characters).\n\nThe Regular Expression Approach:\nimport re\nemails = re.findall(r'S+@S+', line)\nIn a single line, re.findall() scans the string, evaluates non-whitespace character constraints (S+), verifies the presence of '@', and extracts all matches cleanly."
+            },
+            {
+              "heading": "2. The Raw String Notation (r'...') Requirement",
+              "text": "In Python string literals, the backslash character () is used as an escape sequence marker:\n'\n' = newline, '\t' = tab, '\b' = backspace.\n\nThe Collision Hazard in Regular Expressions:\nRegex also uses the backslash extensively (d = digit, \b = word boundary, s = whitespace).\nWithout raw strings:\nTo pass the regex pattern \b to the re engine, Python string escaping requires '\\b' so Python passes '\b' to the regex compiler. If writing complex expressions, you end up needing '\\\\' to match a single literal backslash!\n\nThe Solution: Raw Strings (r'...')\nPrefixing a string with 'r' tells the Python interpreter to treat backslashes as literal characters without interpreting escape sequences:\npattern = r'\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+.[A-Z|a-z]{2,}\b'\nRule of Thumb: ALWAYS declare regular expression patterns using raw string notation r'...'."
+            },
+            {
+              "heading": "3. Meta-Characters & Standard Character Classes Cheatsheet",
+              "text": "The core building blocks of the Python regular expression engine:",
               "table": {
                 "headers": [
                   "Symbol",
                   "Meaning",
-                  "Example",
-                  "Matches"
+                  "Example Match",
+                  "Non-Match Example"
                 ],
                 "rows": [
                   [
+                    ".",
+                    "Any single character except newline",
+                    "a.c matches 'abc', 'a9c', 'a#c'",
+                    "'ac' (missing middle char)"
+                  ],
+                  [
                     "^",
-                    "Matches start of line",
-                    "^From",
-                    "Lines starting with 'From'"
+                    "Caret: Anchors pattern to start of string/line",
+                    "^From matches 'From: user@x.com'",
+                    "'Received From: user@x.com'"
                   ],
                   [
                     "$",
-                    "Matches end of line",
-                    "2008$",
-                    "Lines ending with '2008'"
+                    "Dollar: Anchors pattern to end of string/line",
+                    "jpg$ matches 'photo.jpg'",
+                    "'photo.jpg.png'"
                   ],
                   [
-                    ".",
-                    "Wildcard: matches any single character",
-                    "F..m:",
-                    "'From:', 'F12m:'"
+                    "\\d",
+                    "Any decimal digit (equivalent to [0-9])",
+                    "\\d\\d\\d matches '404', '808'",
+                    "'40a'"
                   ],
                   [
-                    "\\s / \\S",
-                    "Whitespace / Non-whitespace character",
-                    "\\S+@\\S+",
-                    "Email strings"
+                    "\\D",
+                    "Any NON-digit character (equivalent to [^0-9])",
+                    "\\D+ matches 'Python', 'Error'",
+                    "'123'"
                   ],
                   [
-                    "*",
-                    "Matches zero or more repetitions",
-                    "a*",
-                    "'' or 'a' or 'aaa'"
+                    "\\w",
+                    "Word character: letters, digits, underscore [a-zA-Z0-9_]",
+                    "\\w+ matches 'user_name_42'",
+                    "'user-name' (hyphen is non-word)"
                   ],
                   [
-                    "+",
-                    "Matches one or more repetitions",
-                    "a+",
-                    "'a' or 'aaa'"
+                    "\\W",
+                    "NON-word character",
+                    "\\W matches '!', '@', ' ', '-'",
+                    "'a', '5', '_'"
                   ],
                   [
-                    "()",
-                    "Extraction target area inside findall()",
-                    "^X-.*: ([0-9.]+)",
-                    "Extracts numbers only"
+                    "\\s",
+                    "Whitespace character (space, tab, newline, return)",
+                    "\\s+ matches '   ', '\\t\\n'",
+                    "'abc'"
+                  ],
+                  [
+                    "\\S",
+                    "NON-whitespace character",
+                    "\\S+ matches 'https://arshithgroup.com'",
+                    "' ' (space)"
+                  ],
+                  [
+                    "\\b",
+                    "Word boundary (transition between \\w and \\W)",
+                    "\\bcat\\b matches 'cat' in 'the cat sat'",
+                    "Does NOT match 'cat' in 'catch'"
                   ]
                 ]
               }
+            },
+            {
+              "heading": "4. Custom Character Sets ([...]) & Negated Sets ([^...])",
+              "text": "Square brackets create custom character sets, matching any single character from the enclosed collection:\n\n1. Explicit Sets:\n[aeiou] -> Matches any single lowercase vowel.\n[02468] -> Matches any single even digit.\n\n2. Character Ranges (-):\n[a-z] -> Matches any single lowercase ASCII character.\n[A-Z] -> Matches any single uppercase ASCII character.\n[0-9] -> Matches any decimal digit.\n[a-zA-Z0-9] -> Matches any alphanumeric character.\n\n3. Negated Character Sets ([^...]):\nPlacing a caret (^) immediately inside the opening bracket inverts the set:\n[^0-9] -> Matches any character that is NOT a digit.\n[^aeiouAEIOU] -> Matches any character that is NOT an English vowel.\n[^s,;] -> Matches any character that is not whitespace, comma, or semicolon."
+            },
+            {
+              "heading": "5. Repetition Quantifiers: Greedy vs. Non-Greedy Matching",
+              "text": "Quantifiers dictate how many times the preceding character or group may repeat:\n\nQuantifier Syntax:\n• * (Asterisk): 0 or more times (optional, repeatable).\n• + (Plus): 1 or more times (mandatory at least once).\n• ? (Question Mark): 0 or 1 time (optional, non-repeatable).\n• {n}: Exactly n times (e.g. d{4} matches a 4-digit year).\n• {min,max}: Between min and max times (e.g. d{2,4}).\n\nThe Greedy vs. Non-Greedy Trap:\nBy default, Python regex quantifiers (*, +, {m,n}) are GREEDY. They consume as many characters as possible before allowing the pattern to complete:\nSample String: '<p>First paragraph</p><p>Second paragraph</p>'\nGreedy Pattern: r'<p>.*</p>'\nResult: Matches from the VERY FIRST <p> to the VERY LAST </p>, capturing both paragraphs in a single giant string!\n\nThe Non-Greedy Solution (?):\nAppending ? to any quantifier makes it non-greedy (lazy), consuming the MINIMUM number of characters necessary to satisfy the match:\nNon-Greedy Pattern: r'<p>.*?</p>'\nResult: Correctly extracts two independent matches: '<p>First paragraph</p>' and '<p>Second paragraph</p>'."
+            },
+            {
+              "heading": "6. Parentheses for Grouping vs. Extraction (Capture Groups)",
+              "text": "Parentheses () in regular expressions serve a dual purpose:\n\n1. Grouping:\nTreating multiple tokens as a single unit for repetition:\nr'(ab)+' matches 'ab', 'abab', 'ababab'.\n\n2. Extraction Filtering:\nWhen using re.findall(), parentheses tell Python: 'Match the entire outer pattern, but extract ONLY the substring enclosed inside the parentheses!'\n\nExample (MBOX Email Extraction):\nLog Line: 'From: stephen.marquard@uct.ac.za Sat Jan  5'\n• Without Parentheses:\n  re.findall(r'^From: S+@S+', line)\n  Returns: ['From: stephen.marquard@uct.ac.za'] (Includes the unwanted prefix 'From: ')\n• With Capture Group:\n  re.findall(r'^From: (S+@S+)', line)\n  Returns: ['stephen.marquard@uct.ac.za'] (Matches 'From: ' to anchor the line, but extracts ONLY the email address!)"
+            },
+            {
+              "heading": "7. Named Capture Groups: Self-Documenting Pattern Parsing",
+              "text": "In complex regular expressions containing 5 or more capture groups, accessing matches by numeric index (group(1), group(2)) becomes fragile and unreadable.\n\nSyntax: (?P<name>pattern)\nPython allows assigning explicit semantic identifiers to capture groups:\nlog_pattern = r'(?P<ip>d{1,3}(?:.d{1,3}){3}) - - [(?P<timestamp>[^]]+)] \"(?P<method>[A-Z]+) (?P<endpoint>[^ ]+) HTTP/d.d\" (?P<status>d{3})'\n\nMatch Dictionary Access:\nmatch = re.search(log_pattern, log_line)\nif match:\n    data = match.groupdict()\n    print(data['ip'])        # '192.168.1.1'\n    print(data['endpoint'])  # '/api/v1/courses'\n    print(data['status'])    # '200'"
+            },
+            {
+              "heading": "8. The Core 're' Function Suite Reference",
+              "text": "The essential functions in Python's standard re library:",
+              "table": {
+                "headers": [
+                  "Function",
+                  "Return Type",
+                  "Matching Behavior",
+                  "Best Practice Use Case"
+                ],
+                "rows": [
+                  [
+                    "re.search(pattern, str)",
+                    "Match object or None",
+                    "Scans entire string for FIRST match",
+                    "Testing if a pattern exists anywhere in text"
+                  ],
+                  [
+                    "re.match(pattern, str)",
+                    "Match object or None",
+                    "Matches ONLY at beginning of string (index 0)",
+                    "Validating exact start formats"
+                  ],
+                  [
+                    "re.fullmatch(pattern, str)",
+                    "Match object or None",
+                    "Matches ENTIRE string from index 0 to len",
+                    "Form validation (strict password, email, zip code)"
+                  ],
+                  [
+                    "re.findall(pattern, str)",
+                    "List of strings/tuples",
+                    "Finds ALL non-overlapping matches",
+                    "Extracting all emails, links, or numbers"
+                  ],
+                  [
+                    "re.finditer(pattern, str)",
+                    "Iterator of Match objects",
+                    "Iterates over matches with start/end spans",
+                    "Large documents where memory and match positions matter"
+                  ],
+                  [
+                    "re.sub(pattern, repl, str)",
+                    "Transformed new string",
+                    "Replaces matches with replacement string",
+                    "Data sanitization, redacting sensitive PII data"
+                  ],
+                  [
+                    "re.split(pattern, str)",
+                    "List of strings",
+                    "Splits string by occurrences of pattern",
+                    "Splitting text by variable whitespace or punctuation"
+                  ]
+                ]
+              }
+            },
+            {
+              "heading": "9. Precompiled Regex Objects with re.compile() for High Performance",
+              "text": "When calling re.findall(pattern, text) inside a loop that iterates over 100,000 log lines:\nPython must parse and compile the string pattern into regex bytecode on every single iteration!\n\nThe High-Performance Solution: re.compile()\nPrecompiling the regular expression outside the loop compiles the pattern into a C-level Pattern object once:\n\n# Compile pattern once during module initialization\nEMAIL_REGEX = re.compile(r'^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')\n\n# Reuse compiled pattern inside high-frequency loop (5x to 10x faster)\nwith open('huge_maillog.txt') as f:\n    for line in f:\n        if EMAIL_REGEX.search(line):\n            ..."
+            },
+            {
+              "heading": "10. Compilation Flags: Case-Insensitivity, Multiline & Verbose Mode",
+              "text": "Regex compilation flags alter the fundamental behavior of the regex engine:\n\n1. re.IGNORECASE (re.I):\nPerforms case-insensitive matching:\nre.findall(r'python', 'Python, PYTHON, and pyThon', re.IGNORECASE)\n\n2. re.MULTILINE (re.M):\nMakes ^ and $ match the beginning and end of each LINE within a multi-line string, rather than only the start/end of the whole string.\n\n3. re.DOTALL (re.S):\nMakes the dot (.) character match ALL characters, including newline (\n). Essential when scraping multi-line HTML blocks.\n\n4. re.VERBOSE (re.X):\nAllows writing complex, readable regular expressions spanning multiple lines, complete with whitespace formatting and explanatory comments:\n\nPHONE_REGEX = re.compile(r\"\"\"\n    ^(+d{1,3}s*)?      # Optional international country code (+91, +1)\n    ((d{3})|d{3})    # 3-digit area code with or without parentheses\n    [-.s]?                 # Delimiter: dash, dot, or space\n    (d{3})                 # First 3 exchange digits\n    [-.s]?                 # Delimiter\n    (d{4})$                # Final 4 subscriber digits\n\"\"\", re.VERBOSE)"
             }
           ],
           "codeExamples": [
             {
-              "title": "Extracting Email Addresses with re.findall()",
-              "code": "# Chapter 11: Email Extraction Regex\nimport re\n\ntext = 'From stephen.marquard@uct.ac.za Sat Jan 5 09:14:16 2008'\n\n# Extract email string matching non-whitespace characters around @\nemails = re.findall(r'\\S+@\\S+', text)\nprint(\"Extracted Emails:\", emails) # ['stephen.marquard@uct.ac.za']\n\n# Extraction using precise character set\nclean_emails = re.findall(r'[a-zA-Z0-9]\\S*@\\S*[a-zA-Z]', text)\nprint(\"Clean Emails:\", clean_emails)",
-              "explanation": "r'\\S+@\\S+' extracts email patterns from text string."
+              "title": "1. Basic Search & Line-Anchored Extraction (Python for Everybody)",
+              "code": "log_data = \"\"\"From stephen.marquard@uct.ac.za Sat Jan  5 09:14:16 2008\nReturn-Path: <postmaster@collab.sakaiproject.org>\nFrom: louis@media.berkeley.edu Fri Jan  4 18:10:48 2008\nSubject: [sakai] svn commit: r39772\nFrom: zqian@umich.edu Fri Jan  4 16:10:39 2008\"\"\"\n\nimport re\n\n# Goal: Extract only email addresses from lines that begin with 'From: '\n# Pattern anatomy:\n#   ^From:  -> Must start with 'From: '\n#   (S+@S+) -> Capture group: non-whitespace, '@', non-whitespace\npattern = r'^From: (S+@S+)'\n\nfor line in log_data.split('\n'):\n    match = re.search(pattern, line)\n    if match:\n        # group(1) retrieves the content inside the parentheses\n        extracted_email = match.group(1)\n        print(f\"Extracted Sender: {extracted_email}\")",
+              "explanation": "Demonstrates line anchors (^), non-whitespace character classes (\\S+), and capture group extraction."
             },
             {
-              "title": "Combining Search and Number Extraction",
-              "code": "import re\n\nlog_line = 'X-DSPAM-Confidence: 0.8475'\n\n# Matches lines starting with X-DSPAM-Confidence:, but extracts ONLY the float inside ()\nnums = re.findall(r'^X-DSPAM-Confidence: ([0-9.]+)', log_line)\nif len(nums) > 0:\n    val = float(nums[0])\n    print(\"Extracted Confidence:\", val)",
-              "explanation": "Parentheses () instruct findall() to extract only the matching float pattern."
+              "title": "2. Extracting Numbers & Computing Statistics with re.findall()",
+              "code": "mbox_text = \"\"\"X-DSPAM-Confidence: 0.8475\nX-DSPAM-Probability: 0.0000\nX-DSPAM-Confidence: 0.6178\nX-DSPAM-Confidence: 0.8920\nX-DSPAM-Confidence: 0.9234\"\"\"\n\nimport re\n\n# Pattern: Match 'X-DSPAM-Confidence: ' followed by float digits\n# Extract only the float part inside parentheses\nfloat_pattern = r'^X-DSPAM-Confidence: ([0-9.]+)'\n\nconfidence_scores = []\nfor line in mbox_text.split('\n'):\n    matches = re.findall(float_pattern, line)\n    for score_str in matches:\n        confidence_scores.append(float(score_str))\n\nprint(f\"Confidence Scores: {confidence_scores}\")\nprint(f\"Total Matches:    {len(confidence_scores)}\")\nprint(f\"Average Score:    {sum(confidence_scores) / len(confidence_scores):.4f}\")\nprint(f\"Maximum Score:    {max(confidence_scores):.4f}\")",
+              "explanation": "Uses re.findall() with character classes [0-9.] to extract and convert numerical data from logs."
+            },
+            {
+              "title": "3. Greedy vs. Non-Greedy HTML Tag Parsing",
+              "code": "html_snippet = \"\"\"<div class=\"course\">Python Programming</div><div class=\"badge\">Featured</div>\"\"\"\n\nimport re\n\n# 1. Greedy Pattern (Consumes up to the LAST closing tag)\ngreedy_pattern = r'<div.*>.*</div>'\ngreedy_match = re.search(greedy_pattern, html_snippet)\nprint(f\"Greedy Match (Single giant match):\n  {greedy_match.group(0)}\n\")\n\n# 2. Non-Greedy Pattern (Stops at the EARLIEST possible closing tag)\nnon_greedy_pattern = r'<div.*?>.*?</div>'\nnon_greedy_matches = re.findall(non_greedy_pattern, html_snippet)\nprint(f\"Non-Greedy Matches ({len(non_greedy_matches)} distinct tags):\")\nfor i, tag in enumerate(non_greedy_matches, 1):\n    print(f\"  Match {i}: {tag}\")",
+              "explanation": "Contrasts greedy .* with non-greedy .*? to prevent unintended multi-block consumption."
+            },
+            {
+              "title": "4. Named Capture Groups for Structured Log Tokenization",
+              "code": "log_line = '192.168.1.45 - [03/Oct/2026:14:20:00 +0000] \"GET /api/v1/courses/python HTTP/1.1\" 200 8452'\n\nimport re\n\npattern = re.compile(r'''\n    ^(?P<ip>d{1,3}(?:.d{1,3}){3})        # IPv4 address\n    s-s[(?P<timestamp>[^]]+)]        # Timestamp between brackets\n    s\"(?P<method>[A-Z]+)s                 # HTTP Method (GET, POST)\n    (?P<endpoint>S+)sHTTP/d.d\"        # URL Endpoint\n    s(?P<status>d{3})                      # HTTP Status Code\n    s(?P<bytes>d+)                         # Transferred Bytes\n''', re.VERBOSE)\n\nmatch = pattern.search(log_line)\nif match:\n    data = match.groupdict()\n    print(\"Parsed Structured Log Record:\")\n    for k, v in data.items():\n        print(f\"  {k:<12}: {v}\")",
+              "explanation": "Uses re.VERBOSE with named capture groups (?P<name>...) for readable, self-documenting log parsing."
+            },
+            {
+              "title": "5. Data Cleansing & Redaction with re.sub()",
+              "code": "uncleaned_text = \"\"\"Contact us at support@arshithbootcamp.com or billing@arshithgroup.com.\nMy personal cell is 555-839-2041, and backup phone is (800) 555-0199.\"\"\"\n\nimport re\n\n# Task 1: Redact all email addresses with [CONFIDENTIAL EMAIL]\nclean_emails = re.sub(r'[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+', '[CONFIDENTIAL EMAIL]', uncleaned_text)\n\n# Task 2: Standardize all phone numbers to XXX-XXX-XXXX format\n# Redact phone numbers with [PROTECTED PHONE]\nclean_all = re.sub(r'(?d{3})?[-s.]?d{3}[-s.]?d{4}', '[PROTECTED PHONE]', clean_emails)\n\nprint(\"Sanitized Output for Compliance:\")\nprint(clean_all)",
+              "explanation": "Demonstrates re.sub() for automated data redaction, data anonymization, and PII protection."
+            },
+            {
+              "title": "6. Multi-Delimiter Text Tokenization with re.split()",
+              "code": "messy_data = \"\"\"Python;Django,Flask   FastAPI:Pyramid|Tornado\"\"\"\n\nimport re\n\n# Split by semicolons, commas, colons, pipes, or arbitrary whitespace\ndelimiters_pattern = r'[;,:|s]+'\n\nframeworks = re.split(delimiters_pattern, messy_data.strip())\nprint(f\"Extracted Frameworks ({len(frameworks)} items):\")\nfor f in frameworks:\n    print(f\"  • {f}\")",
+              "explanation": "Uses re.split() with character sets to tokenize strings delimited by inconsistent separators."
             }
           ],
           "bestPractices": [
-            "Use raw strings (r'pattern') for regex patterns to prevent backslash escaping issues.",
-            "Use non-greedy quantifiers (.+?) when matching exact quoted substrings."
+            "Always prefix regular expression string literals with raw string notation r'...' to prevent backslash escaping errors.",
+            "Precompile patterns using re.compile() whenever searching across loops or large document datasets.",
+            "Use non-greedy quantifiers (*?, +?) when parsing structured markup like HTML, XML, or JSON.",
+            "Use parentheses () to extract only the necessary substrings rather than manipulating full match strings post-regex.",
+            "Leverage named groups (?P<name>...) and groupdict() for complex expressions with 3 or more extracted components.",
+            "Use re.VERBOSE (re.X) for complex regexes to include line breaks, indentation, and explanatory comments.",
+            "Anchor patterns with ^ and $ whenever validating complete user input strings to prevent partial match bypasses.",
+            "Avoid nested repetition quantifiers like (a+)+ to prevent catastrophic exponential backtracking.",
+            "Combine regex with standard Python string methods: if line.startswith('From:') is faster for initial coarse filtering."
           ],
           "commonMistakes": [
-            "Forgetting that regular expressions are greedy by default, expanding to match the longest string possible."
+            "Forgetting raw string prefix r'...', leading to unintended Python string escape sequence interpretations (e.g. \\b).",
+            "Using re.match() instead of re.search(), forgetting that re.match() matches strictly at character index 0.",
+            "Accidental greedy matching where .* swallows multiple lines or unwanted delimiter sequences.",
+            "Forgetting that re.findall() returns a list of tuples when multiple capture groups are specified in a pattern.",
+            "Writing overly complex monolithic regexes when a simpler combination of split() and regex is cleaner and faster.",
+            "Creating catastrophic backtracking vulnerabilities through catastrophic nested quantifiers (e.g. ([a-zA-Z]+)*)."
           ],
           "practiceExercise": {
-            "title": "Sum Numbers in File Regex Exercise",
-            "problem": "Write a script that uses re.findall('[0-9]+', text) to extract all numbers in a document and prints their sum.",
-            "solutionCode": "import re\nsample_text = \"Why should 42 and 108 be added to 250?\"\nnumbers = re.findall(r'[0-9]+', sample_text)\ntotal_sum = sum(int(n) for n in numbers)\nprint(f\"Total Sum: {total_sum}\")"
+            "title": "Module 12 Hands-On Laboratory: Advanced Pattern Recognition & Text Extraction",
+            "problem": "Implement the following 6 comprehensive regular expression challenges:\n\n1. Strict Email Validator & Component Extractor:\nWrite a function validate_and_parse_email(email_str) that returns a dictionary with 'username', 'domain', and 'tld' if the email is strictly valid, or None if invalid.\n\n2. Comprehensive Phone Number Normalizer:\nGiven raw phone inputs in various formats ('(555) 123-4567', '555.123.4567', '5551234567', '+1 555-123-4567'), normalize all valid 10-digit numbers into standard '(555) 123-4567' format using re.sub().\n\n3. Web Log IP and Response Status Aggregator:\nStream through Apache-style log lines, extract the client IP address and HTTP status code using named groups, and return the count of 200 (OK) vs 404 (Not Found) responses.\n\n4. Markdown Link Extractor:\nExtract all Markdown hyperlinks in the format [Link Text](https://target.url) from a markdown document, returning a list of tuples: (text, url).\n\n5. Password Complexity Policy Validator:\nValidate passwords ensuring they meet security rules: at least 8 characters, at least 1 uppercase letter, at least 1 lowercase letter, at least 1 number, and at least 1 special character (@#$%^&*).\n\n6. Code Comment Stripper:\nWrite a function that strips all Python single-line comments (# ...) from code lines while preserving string literals containing '#' characters.",
+            "solutionCode": "import re\nfrom collections import Counter\n\n# ==============================================================================\n# Challenge 1: Strict Email Validator & Component Extractor\n# ==============================================================================\nEMAIL_STRICT = re.compile(r'^(?P<user>[a-zA-Z0-9_.+-]+)@(?P<domain>[a-zA-Z0-9-]+.(?P<tld>[a-zA-Z]{2,}))$')\n\ndef validate_and_parse_email(email):\n    match = EMAIL_STRICT.fullmatch(email.strip())\n    if match:\n        return match.groupdict()\n    return None\n\ntest_emails = [\"student@arshithbootcamp.com\", \"invalid-email@\", \"ananya.sharma@research.org\", \"bad@domain\"]\nprint(\"Challenge 1 - Strict Email Parsing:\")\nfor e in test_emails:\n    res = validate_and_parse_email(e)\n    status = f\"Valid: User='{res['user']}', Domain='{res['domain']}', TLD='{res['tld']}'\" if res else \"INVALID\"\n    print(f\"  {e:<32} -> {status}\")\n\n\n# ==============================================================================\n# Challenge 2: Comprehensive Phone Number Normalizer\n# ==============================================================================\nPHONE_PATTERN = re.compile(r'^(?:+?1[-.s]?)?(?([2-9]d{2}))?[-.s]?(d{3})[-.s]?(d{4})$')\n\ndef normalize_phone_number(raw_phone):\n    match = PHONE_PATTERN.search(raw_phone.strip())\n    if match:\n        area, prefix, line = match.groups()\n        return f\"({area}) {prefix}-{line}\"\n    return None\n\nsamples = [\"(555) 123-4567\", \"555.234.5678\", \"+1 555-345-6789\", \"5554567890\", \"123-bad-phone\"]\nprint(\"\nChallenge 2 - Phone Normalization:\")\nfor s in samples:\n    norm = normalize_phone_number(s)\n    print(f\"  {s:<20} -> {norm if norm else 'REJECTED'}\")\n\n\n# ==============================================================================\n# Challenge 3: Web Log IP and Status Aggregator\n# ==============================================================================\nsample_logs = \"\"\"192.168.1.1 - - [03/Oct/2026] \"GET /index.html HTTP/1.1\" 200 4500\n10.0.0.15 - - [03/Oct/2026] \"POST /api/login HTTP/1.1\" 404 120\n172.16.0.4 - - [03/Oct/2026] \"GET /about HTTP/1.1\" 200 3200\n192.168.1.1 - - [03/Oct/2026] \"GET /favicon.ico HTTP/1.1\" 404 80\"\"\"\n\nLOG_REGEX = re.compile(r'^(?P<ip>S+).+\"(?P<method>[A-Z]+)s(?P<path>S+)s.+\"s(?P<status>d{3})')\n\nstatus_counts = Counter()\nfor line in sample_logs.strip().split('\n'):\n    m = LOG_REGEX.search(line)\n    if m:\n        status_counts[m.group('status')] += 1\n\nprint(\"\nChallenge 3 - HTTP Status Distribution:\")\nfor status, cnt in status_counts.items():\n    print(f\"  HTTP Status {status}: {cnt} requests\")\n\n\n# ==============================================================================\n# Challenge 4: Markdown Link Extractor\n# ==============================================================================\nmd_doc = \"\"\"Explore our [Python Boot Camp](https://arshithbootcamp.com/python) and check our\n[Official Documentation](https://docs.python.org/3/) or read [Python for Everybody](https://py4e.com).\"\"\"\n\nMD_LINK_REGEX = re.compile(r'[(?P<text>[^]]+)]((?P<url>https?://[^)]+))')\n\nlinks = MD_LINK_REGEX.findall(md_doc)\nprint(\"\nChallenge 4 - Markdown Hyperlinks Extracted:\")\nfor text, url in links:\n    print(f\"  • Link Label: '{text}' -> URL: {url}\")\n\n\n# ==============================================================================\n# Challenge 5: Password Complexity Policy Validator\n# ==============================================================================\ndef validate_password_security(password):\n    if len(password) < 8: return False, \"Must be at least 8 characters long.\"\n    if not re.search(r'[A-Z]', password): return False, \"Must contain at least 1 uppercase letter.\"\n    if not re.search(r'[a-z]', password): return False, \"Must contain at least 1 lowercase letter.\"\n    if not re.search(r'd', password): return False, \"Must contain at least 1 digit.\"\n    if not re.search(r'[@#$%^&*!_-]', password): return False, \"Must contain at least 1 special character (@#$%^&*!_-).\"\n    return True, \"Strong password verified.\"\n\npasswords_to_test = [\"weak\", \"Password123\", \"Arshith@2026\", \"alllowercase!1\"]\nprint(\"\nChallenge 5 - Password Policy Validation:\")\nfor p in passwords_to_test:\n    valid, reason = validate_password_security(p)\n    print(f\"  '{p}': {'PASS' if valid else 'FAIL'} ({reason})\")\n\n\n# ==============================================================================\n# Challenge 6: Code Comment Stripper\n# ==============================================================================\npython_code = \"\"\"x = 100 # Initialize x\nname = \"Dr. Ananya # Lead Educator\" # Name attribute\ntotal = x * 2 # Calculate total\"\"\"\n\ndef strip_code_comments(code_str):\n    cleaned_lines = []\n    for line in code_str.split('\n'):\n        # Match '#' that is not inside quotes\n        parts = re.split(r'(?<![\"'])s*#.*$', line, maxsplit=1)\n        cleaned_lines.append(parts[0])\n    return '\n'.join(cleaned_lines)\n\nclean_code = strip_code_comments(python_code)\nprint(\"\nChallenge 6 - Stripped Comments (Preserving In-String '#' Symbols):\")\nprint(clean_code)"
           },
           "keyTakeaways": [
-            "re module performs advanced text search and extraction.",
-            "re.findall() returns a list of matching substrings.",
-            "Parentheses () isolate targeted extraction fields."
+            "Regular expressions provide a declarative syntax for searching, validating, extracting, and replacing text.",
+            "Always use raw strings (r'...') to eliminate Python backslash escaping conflicts.",
+            "Character classes (\\d, \\w, \\s) match decimal digits, word characters, and whitespace.",
+            "Quantifiers (*, +, ?, {m,n}) control repetition; append '?' to make quantifiers non-greedy (*?, +?).",
+            "Parentheses () define capture groups; re.findall() returns only the contents of capture groups.",
+            "Named capture groups (?P<name>...) produce self-documenting group dictionaries.",
+            "Use re.compile() to precompile regex patterns for high-frequency search loops.",
+            "Use re.sub() for automated data redaction, string sanitization, and PII anonymization."
           ],
           "references": [
             {
-              "title": "Python for Everybody Chapter 11",
+              "title": "Python for Everybody: Chapter 11 — Regular Expressions",
               "url": "https://www.py4e.com/html3/11-regex"
+            },
+            {
+              "title": "Python Documentation: re — Regular Expression Operations",
+              "url": "https://docs.python.org/3/library/re.html"
+            },
+            {
+              "title": "Python Documentation: Regular Expression HOWTO",
+              "url": "https://docs.python.org/3/howto/regex.html"
             }
-          ]
+          ],
+          "mcqs": [
+            {
+              "id": 1,
+              "question": "Why should regular expression pattern strings in Python always be prefixed with raw string notation r'...'?",
+              "options": [
+                "Raw strings execute 10x faster in the regex engine",
+                "Raw strings treat backslashes as literal characters, preventing Python from interpreting escape sequences like \\b or \\n",
+                "Without raw strings, regular expressions cannot match numbers",
+                "Raw strings automatically convert patterns to uppercase"
+              ],
+              "correctAnswer": 1,
+              "explanation": "Raw strings prevent Python's lexical scanner from parsing backslashes, allowing regex escape codes (like \\b, \\d, \\s) to reach the regex engine intact."
+            },
+            {
+              "id": 2,
+              "question": "What is the crucial difference between the greedy quantifier .* and the non-greedy quantifier .*??",
+              "options": [
+                ".* matches digits only; .*? matches all characters",
+                ".* consumes the MAXIMUM possible number of characters; .*? consumes the MINIMUM necessary characters",
+                ".*? raises an error if more than 5 characters match",
+                "There is no difference; ? is ignored"
+              ],
+              "correctAnswer": 1,
+              "explanation": "Greedy quantifiers expand as far as possible; non-greedy (lazy) quantifiers stop at the earliest opportunity that satisfies the pattern."
+            },
+            {
+              "id": 3,
+              "question": "When re.findall() is called with a pattern containing parentheses like r'^From: (\\S+@\\S+)', what does it return?",
+              "options": [
+                "The entire matching line including 'From: '",
+                "A list containing ONLY the substrings matched inside the parentheses (the email addresses)",
+                "The boolean value True",
+                "The character index where 'From: ' was found"
+              ],
+              "correctAnswer": 1,
+              "explanation": "Parentheses denote capture groups. When capture groups are present, re.findall() returns only the extracted group content."
+            },
+            {
+              "id": 4,
+              "question": "What does the regex meta-character \\b represent?",
+              "options": [
+                "A backspace character",
+                "A binary digit (0 or 1)",
+                "A word boundary (the transition between a word character \\w and a non-word character \\W)",
+                "A bracket marker"
+              ],
+              "correctAnswer": 2,
+              "explanation": "\\b asserts a word boundary position, ensuring that patterns like r'\\bcat\\b' match 'cat' as a standalone word, but not inside 'catalog'."
+            },
+            {
+              "id": 5,
+              "question": "Why is it best practice to use re.compile(pattern) when searching across a large file with thousands of lines?",
+              "options": [
+                "It compiles the pattern into a C-level regex object once, eliminating repeated compilation overhead on each iteration",
+                "It automatically reads the file into memory",
+                "It formats the regex with color coding",
+                "It prevents infinite loops"
+              ],
+              "correctAnswer": 0,
+              "explanation": "re.compile() precompiles the regular expression pattern into bytecode once, significantly improving performance inside repetitive loops."
+            }
+          ],
+          "selfAssessment": {
+            "title": "Module Self-Assessment (5 Knowledge Check MCQs)",
+            "questions": [
+              {
+                "id": "py-q-12-1",
+                "questionNumber": 1,
+                "topic": "Greedy vs Non-Greedy Quantifiers",
+                "questionText": "What will re.findall(r'<.*>', '<div><span>Test</span></div>') match?",
+                "options": [
+                  "['<div>', '<span>', '</span>', '</div>']",
+                  "['<div><span>Test</span></div>']",
+                  "['<div>']",
+                  "[]"
+                ],
+                "correctAnswer": 1,
+                "explanation": "By default, .* is greedy and consumes the maximum number of characters possible, matching from the first < to the last >."
+              },
+              {
+                "id": "py-q-12-2",
+                "questionNumber": 2,
+                "topic": "Raw String Notation",
+                "questionText": "Why is raw string prefix r'...' strongly recommended for regular expression patterns in Python?",
+                "options": [
+                  "It speeds up regex matching by 50%",
+                  "It disables Python's escape sequence interpretation, allowing backslashes (like \\b, \\d, \\w) to pass directly to the regex engine",
+                  "It converts the pattern to uppercase automatically",
+                  "It makes regex patterns case-insensitive"
+                ],
+                "correctAnswer": 1,
+                "explanation": "Raw strings prevent Python string literals from converting escape sequences like \\n to newlines or \\b to backspaces, ensuring the regex engine receives clean pattern characters."
+              },
+              {
+                "id": "py-q-12-3",
+                "questionNumber": 3,
+                "topic": "Word Boundary Metacharacter",
+                "questionText": "What does the metacharacter \\b represent in a regular expression pattern?",
+                "options": [
+                  "A backspace character",
+                  "A zero-width word boundary between a word character (\\w) and a non-word character (\\W)",
+                  "A whitespace character (space or tab)",
+                  "The beginning of a line"
+                ],
+                "correctAnswer": 1,
+                "explanation": "\\b asserts a zero-width word boundary, ensuring matches occur only at the start or end of distinct words (e.g. \\bcat\\b matches 'cat' but not 'catch')."
+              },
+              {
+                "id": "py-q-12-4",
+                "questionNumber": 4,
+                "topic": "Regex Capturing Groups",
+                "questionText": "What does re.findall(r'(\\w+)@(\\w+\\.\\w+)', 'contact info@arshith.com today') return?",
+                "options": [
+                  "['info@arshith.com']",
+                  "[('info', 'arshith.com')]",
+                  "['info', 'arshith.com']",
+                  "True"
+                ],
+                "correctAnswer": 1,
+                "explanation": "When a pattern contains capturing groups (), re.findall() returns a list of tuples containing the extracted group matches for each hit."
+              },
+              {
+                "id": "py-q-12-5",
+                "questionNumber": 5,
+                "topic": "Regex Substitution",
+                "questionText": "What is the evaluated output of re.sub(r'\\d+', '#', 'Order 123 for Item 45')?",
+                "options": [
+                  "'Order # for Item #'",
+                  "'Order ### for Item ##'",
+                  "'Order for Item'",
+                  "['123', '45']"
+                ],
+                "correctAnswer": 0,
+                "explanation": "re.sub() replaces every occurrence of the matched pattern (\\d+ one or more digits) with the replacement string #."
+              }
+            ]
+          }
         },
         "quiz": {
           "id": "quiz-py-mod-12",
@@ -2040,9 +6008,9 @@ export const INITIAL_COURSES = [
           "questions": [
             {
               "id": "py-q-12-1",
-              "type": "multiple-choice",
+              "questionNumber": 1,
               "topic": "Greedy vs Non-Greedy Quantifiers",
-              "questionText": "What will `re.findall(r'<.*>', '<div><span>Test</span></div>')` match?",
+              "questionText": "What will re.findall(r'<.*>', '<div><span>Test</span></div>') match?",
               "options": [
                 "['<div>', '<span>', '</span>', '</div>']",
                 "['<div><span>Test</span></div>']",
@@ -2050,29 +6018,27 @@ export const INITIAL_COURSES = [
                 "[]"
               ],
               "correctAnswer": 1,
-              "marks": 10,
-              "explanation": "By default, `.*` is greedy and consumes the maximum number of characters possible, matching from the first `<` to the last `>`."
+              "explanation": "By default, .* is greedy and consumes the maximum number of characters possible, matching from the first < to the last >."
             },
             {
               "id": "py-q-12-2",
-              "type": "multiple-choice",
+              "questionNumber": 2,
               "topic": "Raw String Notation",
-              "questionText": "Why is raw string prefix `r'...'` strongly recommended for regular expression patterns in Python?",
+              "questionText": "Why is raw string prefix r'...' strongly recommended for regular expression patterns in Python?",
               "options": [
                 "It speeds up regex matching by 50%",
-                "It disables Python's escape sequence interpretation, allowing backslashes (like `\\b`, `\\d`, `\\w`) to pass directly to the regex engine",
+                "It disables Python's escape sequence interpretation, allowing backslashes (like \\b, \\d, \\w) to pass directly to the regex engine",
                 "It converts the pattern to uppercase automatically",
                 "It makes regex patterns case-insensitive"
               ],
               "correctAnswer": 1,
-              "marks": 10,
-              "explanation": "Raw strings prevent Python string literals from converting escape sequences like `\\n` to newlines or `\\b` to backspaces, ensuring the regex engine receives clean pattern characters."
+              "explanation": "Raw strings prevent Python string literals from converting escape sequences like \\n to newlines or \\b to backspaces, ensuring the regex engine receives clean pattern characters."
             },
             {
               "id": "py-q-12-3",
-              "type": "multiple-choice",
+              "questionNumber": 3,
               "topic": "Word Boundary Metacharacter",
-              "questionText": "What does the metacharacter `\\b` represent in a regular expression pattern?",
+              "questionText": "What does the metacharacter \\b represent in a regular expression pattern?",
               "options": [
                 "A backspace character",
                 "A zero-width word boundary between a word character (\\w) and a non-word character (\\W)",
@@ -2080,14 +6046,13 @@ export const INITIAL_COURSES = [
                 "The beginning of a line"
               ],
               "correctAnswer": 1,
-              "marks": 10,
-              "explanation": "`\\b` asserts a zero-width word boundary, ensuring matches occur only at the start or end of distinct words (e.g. `\\bcat\\b` matches 'cat' but not 'catch')."
+              "explanation": "\\b asserts a zero-width word boundary, ensuring matches occur only at the start or end of distinct words (e.g. \\bcat\\b matches 'cat' but not 'catch')."
             },
             {
               "id": "py-q-12-4",
-              "type": "multiple-choice",
+              "questionNumber": 4,
               "topic": "Regex Capturing Groups",
-              "questionText": "What does `re.findall(r'(\\w+)@(\\w+\\.\\w+)', 'contact info@arshith.com today')` return?",
+              "questionText": "What does re.findall(r'(\\w+)@(\\w+\\.\\w+)', 'contact info@arshith.com today') return?",
               "options": [
                 "['info@arshith.com']",
                 "[('info', 'arshith.com')]",
@@ -2095,14 +6060,13 @@ export const INITIAL_COURSES = [
                 "True"
               ],
               "correctAnswer": 1,
-              "marks": 10,
-              "explanation": "When a pattern contains capturing groups `()`, `re.findall()` returns a list of tuples containing the extracted group matches for each hit."
+              "explanation": "When a pattern contains capturing groups (), re.findall() returns a list of tuples containing the extracted group matches for each hit."
             },
             {
               "id": "py-q-12-5",
-              "type": "multiple-choice",
+              "questionNumber": 5,
               "topic": "Regex Substitution",
-              "questionText": "What is the evaluated output of `re.sub(r'\\d+', '#', 'Order 123 for Item 45')`?",
+              "questionText": "What is the evaluated output of re.sub(r'\\d+', '#', 'Order 123 for Item 45')?",
               "options": [
                 "'Order # for Item #'",
                 "'Order ### for Item ##'",
@@ -2110,8 +6074,7 @@ export const INITIAL_COURSES = [
                 "['123', '45']"
               ],
               "correctAnswer": 0,
-              "marks": 10,
-              "explanation": "`re.sub()` replaces every occurrence of the matched pattern (`\\d+` one or more digits) with the replacement string `#`."
+              "explanation": "re.sub() replaces every occurrence of the matched pattern (\\d+ one or more digits) with the replacement string #."
             }
           ]
         }
@@ -2119,63 +6082,304 @@ export const INITIAL_COURSES = [
       {
         "id": "py-mod-13",
         "title": "Module 13 — Networked Programs, Sockets & Web Scraping",
-        "description": "HTTP protocol, socket network connections, retrieving web pages with urllib, reading binary files, and scraping HTML using BeautifulSoup.",
-        "completed": false,
+        "description": "TCP/IP socket communication, HTTP protocol specifications, urllib URL streaming, web scraping with BeautifulSoup, HTML DOM tree navigation, and SSL/TLS security contexts.",
+        "completed": true,
         "readingMaterial": {
-          "introduction": "Based on Chapter 12 of 'Python for Everybody', Python can act as a web client to retrieve data over HTTP network sockets or using the urllib library. Web scraping allows programs to parse and extract structured HTML elements using BeautifulSoup.",
+          "introduction": "In traditional standalone computing, software operates strictly within the confines of local memory and local disk drives. However, the true power of modern programming emerges when Python reaches across the global Internet to communicate with remote servers, retrieve real-time data feeds, automate browser workflows, and harvest knowledge from unstructured web pages.\n\nTo write networked Python programs, you must understand the underlying communication architecture: the Transport Control Protocol (TCP) and Internet Protocol (IP). A network connection is established across a 'Socket'—a two-way communication channel between two programs running across the network, uniquely identified by an IP address and a Port number. Atop TCP sockets runs the World Wide Web's foundational application protocol: the HyperText Transfer Protocol (HTTP).\n\nBased on Chapter 12 of Dr. Charles Severance's 'Python for Everybody' and enterprise web scraping engineering standards, this module bridges the gap between low-level network mechanics and high-level data harvesting: constructing raw socket connections to send manual HTTP GET commands, utilizing Python's urllib module to treat global URLs as simple file streams, respecting web scraping ethics and robots.txt protocols, mastering the BeautifulSoup (bs4) HTML parser to navigate complex DOM trees, following hyperlink trails programmatically, and downloading binary media assets via chunked network streams.",
           "objectives": [
-            "Understand HTTP request/response protocol (GET, Port 80, CRLF \\r\\n)",
-            "Create network sockets using import socket",
-            "Retrieve web pages effortlessly using import urllib.request",
-            "Download binary files (images/videos) in buffered chunks",
-            "Parse HTML web pages using BeautifulSoup (bs4)"
+            "Understand the TCP/IP network protocol stack, IP addressing, and port multiplexing (Port 80 HTTP, 443 HTTPS).",
+            "Explain the client-server architecture and the anatomy of HTTP 1.1 Request and Response envelopes.",
+            "Open low-level TCP sockets using the socket module, transmitting encoded byte buffers across the wire.",
+            "Decode network byte streams into Python Unicode strings using UTF-8 decoding (.decode('utf-8')).",
+            "Stream remote web resources effortlessly using urllib.request as if reading local disk files.",
+            "Configure custom HTTP User-Agent headers to prevent server-side 403 Forbidden blocking.",
+            "Understand web scraping legal and ethical guidelines, crawling courtesies, and robots.txt parsing.",
+            "Parse unstructured HTML documents using BeautifulSoup to extract tags, text content, and attributes.",
+            "Follow hyperlink trails iteratively (the classic Python for Everybody web crawler assignment).",
+            "Manage SSL/TLS certificate verification contexts safely using the standard ssl module."
           ],
           "sections": [
             {
-              "heading": "Low-Level Network Sockets vs urllib",
-              "text": "A socket creates a 2-way network connection. urllib simplifies HTTP communication by allowing web pages to be read much like local text files:",
-              "codeExamples": [
-                {
-                  "title": "Simple Web Page Retrieval with urllib",
-                  "code": "import urllib.request\n\n# Open HTTP connection to remote file\nfhand = urllib.request.urlopen('http://data.pr4e.org/romeo.txt')\n\ncounts = dict()\nfor line in fhand:\n    words = line.decode().split()\n    for word in words:\n        counts[word] = counts.get(word, 0) + 1\n\nprint(\"Word Counts from Web File:\\n\", counts)",
-                  "explanation": "line.decode() converts byte streams from network into Python strings."
-                }
-              ]
+              "heading": "1. The Network Protocol Stack: TCP/IP & Socket Architecture",
+              "text": "To communicate across the Internet, two computers establish a reliable bidirectional pipeline:\n\n1. Internet Protocol (IP):\nRoutes discrete packets of data from the source computer to the destination computer based on their unique IP addresses (e.g. 192.168.1.1 or 142.250.190.46).\n\n2. Transmission Control Protocol (TCP):\nBuilt atop IP to guarantee reliable, ordered data delivery. TCP automatically fragments large files into packets, verifies checksums, re-transmits lost packets, and reassembles them in exact sequence.\n\n3. The Network Socket & Ports:\nA computer runs hundreds of networked programs simultaneously (browser, email, database, SSH). How does the OS know which packet belongs to which application?\nAnswer: Ports!\nA 'Socket' is the combination of an IP address and a Port number:\n• Port 80: HyperText Transfer Protocol (HTTP)\n• Port 443: Secure HTTP (HTTPS / TLS)\n• Port 22: Secure Shell (SSH)\n• Port 25 / 587: Simple Mail Transfer Protocol (SMTP)\n• Port 5432: PostgreSQL Database Server"
             },
             {
-              "heading": "Web Scraping with BeautifulSoup (bs4)",
-              "text": "BeautifulSoup tolerates imperfect HTML and parses page tags into accessible objects:"
+              "heading": "2. The HyperText Transfer Protocol (HTTP 1.1): The Language of the Web",
+              "text": "HTTP is an application-level request-response protocol designed by Tim Berners-Lee in 1989. Understanding HTTP message formatting is essential for raw socket communication:\n\nThe Client Request Format:\nWhen your browser requests a web page, it sends an exact ASCII byte stream:\nGET /code3/romeo.txt HTTP/1.1\r\n\nHost: data.pr4e.org\r\n\nUser-Agent: Python-Urllib/3.10\r\n\nConnection: close\r\n\n\r\n\n\nKey Rules of an HTTP Request:\n1. Method Line: GET <path> HTTP/1.1 followed by \r\n.\n2. Headers: Key: Value pairs providing metadata (Host header is mandatory in HTTP 1.1).\n3. The Blank Line (\r\n\r\n): Signals the end of the request headers!\n\nThe Server Response Format:\nHTTP/1.1 200 OK\r\n\nContent-Type: text/plain\r\n\nContent-Length: 167\r\n\n\r\n\n[Response Payload Body]"
+            },
+            {
+              "heading": "3. Low-Level Network Programming with Python's 'socket' Module",
+              "text": "Python's socket module provides direct C-level access to the operating system's networking stack:\n\nWorkflow of a Socket Client:\n1. Create Socket: s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)\n   • AF_INET: Specifies IPv4 addressing.\n   • SOCK_STREAM: Specifies reliable, stream-oriented TCP.\n2. Connect to Remote Host: s.connect(('data.pr4e.org', 80))\n3. Send Encoded Bytes: Sockets transmit raw bytes, not Python strings! You must encode text: s.sendall(cmd.encode('utf-8'))\n4. Receive Loop: Read chunks of data into a local buffer:\n   while True:\n       data = s.recv(512) # Reads up to 512 bytes\n       if len(data) < 1: break # EOF: Server closed connection\n       print(data.decode('utf-8'), end='')\n5. Close Socket: s.close()"
+            },
+            {
+              "heading": "4. High-Level URL Retrieval with 'urllib.request'",
+              "text": "While raw sockets illustrate foundational mechanics, writing 20 lines of socket code to download a web page is inefficient. Python provides urllib.request, which abstracts away socket creation, handshakes, header management, and buffering.\n\nTreating URLs like Local Disk Files:\nimport urllib.request\n\nwith urllib.request.urlopen('http://data.pr4e.org/romeo.txt') as response:\n    for line in response:\n        # Each line arrives as bytes; decode to Unicode\n        clean_line = line.decode('utf-8').rstrip()\n        print(clean_line)\n\nKey Advantages of urllib:\n• Automatically handles HTTP 1.1 Host headers and connection lifecycle.\n• Supports streaming iterators: processes multi-gigabyte downloads with O(1) RAM.\n• Transparently integrates with authentication, proxies, and cookies."
+            },
+            {
+              "heading": "5. Web Scraping Fundamentals & Ethical Crawling Guidelines",
+              "text": "Web Scraping is the automated extraction of data from website HTML. Because scrapers can overload servers if unchecked, professional developers adhere to strict ethical guidelines:\n\n1. Inspect robots.txt:\nEvery responsible website publishes crawling permissions at https://example.com/robots.txt:\nUser-agent: *\nDisallow: /admin/\nDisallow: /api/private/\nCrawl-delay: 5\n\n2. Respect Rate Limits:\nNever hammer a server with hundreds of requests per second. Always insert intentional delays using time.sleep(1.0) between page fetches.\n\n3. Provide an Identifiable User-Agent:\nIdentify your bot honestly with contact information in the User-Agent header so webmasters can reach you if your script causes issues.\n\n4. Check for Official APIs First:\nIf a website provides a public REST API (e.g. GitHub, Weather services), always consume the structured API rather than scraping raw HTML."
+            },
+            {
+              "heading": "6. HTML Parsing with BeautifulSoup (bs4): DOM Tree Navigation",
+              "text": "HTML is notoriously messy: web pages frequently contain unclosed tags, nested tables, mismatched quotes, and dynamic JavaScript scripts. Naive regex searching breaks easily on nested HTML.\n\nBeautifulSoup (bs4):\nBeautifulSoup constructs an in-memory Document Object Model (DOM) tree from malformed HTML, allowing clean navigation and querying:\n\nfrom bs4 import BeautifulSoup\n\nsoup = BeautifulSoup(html_doc, 'html.parser')\n\nKey BeautifulSoup Selection Methods:\n• soup.find('h1'): Finds the FIRST matching element.\n• soup.find_all('a'): Returns a list of ALL matching elements.\n• tag.text or tag.get_text(): Strips inner markup and returns clean text content.\n• tag['href'] or tag.get('href'): Retrieves HTML attributes safely.\n• soup.select('div.course > a'): CSS selector syntax for complex querying."
+            },
+            {
+              "heading": "7. Handling SSL/TLS Certificates and HTTPS Contexts",
+              "text": "Over 95% of modern web traffic uses encrypted HTTPS (Port 443).\nWhen connecting to HTTPS endpoints with urllib:\n\nStandard Verification:\nBy default, Python verifies that the remote server's SSL certificate was signed by a trusted Certificate Authority (CA).\n\nHandling Self-Signed Certificates or Legacy Endpoints:\nIn private enterprise intranets or testing environments, self-signed certificates raise ssl.SSLCertVerificationError. Python's ssl module lets you configure SSL contexts explicitly:\n\nimport urllib.request\nimport ssl\n\nctx = ssl.create_default_context()\n# For internal test labs where CA certs are missing:\n# ctx.check_hostname = False\n# ctx.verify_mode = ssl.CERT_NONE\n\nresponse = urllib.request.urlopen('https://data.pr4e.org', context=ctx)"
+            },
+            {
+              "heading": "8. Socket vs. urllib vs. requests Comparison Table",
+              "text": "Comparing Python's network communication options:",
+              "table": {
+                "headers": [
+                  "Library / Layer",
+                  "Abstraction Level",
+                  "Manual Responsibilities",
+                  "Best Practice Use Case"
+                ],
+                "rows": [
+                  [
+                    "socket (Built-in)",
+                    "Transport Layer (TCP/UDP)",
+                    "Handshake, HTTP headers, buffer management, byte encoding",
+                    "Custom protocols, IoT devices, educational networking fundamentals"
+                  ],
+                  [
+                    "urllib.request (Built-in)",
+                    "Application Layer (HTTP/HTTPS)",
+                    "Byte decoding, parsing headers, status code handling",
+                    "Standard library scripts without external dependencies"
+                  ],
+                  [
+                    "requests (Third-party)",
+                    "High-Level HTTP Client",
+                    "Minimal (automatic JSON decoding, session pooling, cookie persistence)",
+                    "Enterprise production API consumers and web scrapers"
+                  ],
+                  [
+                    "BeautifulSoup (Third-party)",
+                    "Document Parsing (HTML/XML)",
+                    "Tree traversal, CSS selector extraction, attribute parsing",
+                    "HTML parsing, web scraping, document text mining"
+                  ]
+                ]
+              }
             }
           ],
           "codeExamples": [
             {
-              "title": "HTML Web Scraper Script (urllinks.py)",
-              "code": "import urllib.request, urllib.parse, urllib.error\nfrom bs4 import BeautifulSoup\nimport ssl\n\n# Ignore SSL certificate errors for web scraping\nctx = ssl.create_default_context()\nctx.check_hostname = False\nctx.verify_mode = ssl.CERT_NONE\n\nurl = 'https://docs.python.org/3/'\nhtml = urllib.request.urlopen(url, context=ctx).read()\nsoup = BeautifulSoup(html, 'html.parser')\n\n# Retrieve all anchor <a> tags\ntags = soup('a')\nprint(f\"Found {len(tags)} links on page.\")\nfor tag in tags[:5]:\n    print(tag.get('href', None))",
-              "explanation": "Scrapes anchor links from HTML webpage using BeautifulSoup."
+              "title": "1. Low-Level TCP Socket Client (Python for Everybody)",
+              "code": "import socket\n\n# Step 1: Create a stream TCP/IP socket\nsock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)\n\n# Step 2: Establish connection to host on Port 80 (HTTP)\ntarget_host = \"data.pr4e.org\"\ntarget_port = 80\nsock.connect((target_host, target_port))\nprint(f\"TCP Handshake successful with {target_host}:{target_port}\")\n\n# Step 3: Construct strict HTTP 1.1 GET request with CRLF line breaks\nhttp_request = \"GET /code3/romeo.txt HTTP/1.1\r\nHost: data.pr4e.org\r\nConnection: close\r\n\r\n\"\n\n# Step 4: Encode Unicode string into raw ASCII/UTF-8 bytes and transmit\nsock.sendall(http_request.encode('utf-8'))\n\n# Step 5: Receive byte buffer in chunks until EOF\nreceived_payload = \"\"\nwhile True:\n    data_chunk = sock.recv(512)\n    if len(data_chunk) < 1:\n        break # Connection closed by remote server\n    received_payload += data_chunk.decode('utf-8')\n\nsock.close()\n\n# Split headers and body at the blank line marker\nheaders, body = received_payload.split('\r\n\r\n', 1)\nprint(\"--- HTTP Response Headers ---\")\nprint(headers)\nprint(\"\n--- Response Body Payload ---\")\nprint(body.strip())",
+              "explanation": "Demonstrates socket creation, TCP connection, raw byte encoding, transmission, and stream reception."
+            },
+            {
+              "title": "2. Streaming Web Text & Word Frequency Analysis with urllib",
+              "code": "import urllib.request\nfrom collections import Counter\n\ntarget_url = \"http://data.pr4e.org/romeo.txt\"\nword_counts = Counter()\n\n# Open URL as a streaming file handle\nwith urllib.request.urlopen(target_url) as response:\n    print(f\"HTTP Status: {response.status} {response.reason}\")\n    print(f\"Content Type: {response.headers.get_content_type()}\n\")\n    \n    for line in response:\n        # Decode byte stream to string\n        clean_line = line.decode('utf-8').strip()\n        words = clean_line.lower().split()\n        word_counts.update(words)\n\nprint(\"Top 5 Most Common Words in Romeo & Juliet Extract:\")\nfor word, count in word_counts.most_common(5):\n    print(f\"  • {word:<10}: {count} times\")",
+              "explanation": "Streams remote text using urllib.request and computes word frequency with collections.Counter."
+            },
+            {
+              "title": "3. HTML DOM Navigation & Link Extraction with BeautifulSoup",
+              "code": "from bs4 import BeautifulSoup\n\nhtml_document = \"\"\"\n<html>\n  <head><title>Arshith Boot Camp Courses</title></head>\n  <body>\n    <h1>Available Professional Tracks</h1>\n    <ul class=\"course-list\">\n      <li class=\"item\"><a href=\"/courses/python\" id=\"c1\">Python Masterclass</a></li>\n      <li class=\"item\"><a href=\"/courses/sql\" id=\"c2\">SQL for Data Analysis</a></li>\n      <li class=\"item\"><a href=\"/courses/web-dev\" id=\"c3\">Full Stack Web Development</a></li>\n    </ul>\n    <div class=\"footer\">Contact: <a href=\"mailto:info@arshithbootcamp.com\">Support</a></div>\n  </body>\n</html>\n\"\"\"\n\nsoup = BeautifulSoup(html_document, 'html.parser')\n\nprint(f\"Page Title: {soup.title.text}\")\nprint(f\"Main Header: {soup.find('h1').text}\n\")\n\nprint(\"Hyperlinks Extracted:\")\nfor anchor in soup.find_all('a'):\n    link_text = anchor.get_text()\n    link_href = anchor.get('href')\n    link_id = anchor.get('id', 'N/A')\n    print(f\"  • [{link_id}] '{link_text}' -> {link_href}\")",
+              "explanation": "Navigates HTML DOM tree using BeautifulSoup, extracting text and tag attributes."
+            },
+            {
+              "title": "4. Custom User-Agent Header Injection for API & Scraper Politeness",
+              "code": "import urllib.request\n\ntarget_url = \"http://data.pr4e.org/romeo.txt\"\n\n# Define professional User-Agent headers\ncustom_headers = {\n    'User-Agent': 'ArshithResearchCrawler/1.0 (+https://arshithbootcamp.com/crawler-policy)',\n    'Accept': 'text/plain, text/html'\n}\n\n# Construct Request object with custom headers\nreq = urllib.request.Request(target_url, headers=custom_headers)\n\ntry:\n    with urllib.request.urlopen(req) as resp:\n        print(f\"Request Succeeded: HTTP {resp.status}\")\n        sample = resp.read(100).decode('utf-8')\n        print(f\"Snippet: {sample.strip()}...\")\nexcept urllib.error.HTTPError as http_err:\n    print(f\"HTTP Error: {http_err.code} - {http_err.reason}\")",
+              "explanation": "Constructs custom urllib.request.Request objects with explicit User-Agent headers."
+            },
+            {
+              "title": "5. Downloading Binary Media with Memory-Efficient Chunk Streams",
+              "code": "import io\nimport urllib.request\n\n# Simulate downloading a binary asset (e.g. image or manual PDF)\n# Using a chunked reading loop to prevent RAM spikes on large media files\ndef download_stream_to_buffer(url, chunk_size=4096):\n    memory_buffer = io.BytesIO()\n    total_bytes = 0\n    \n    req = urllib.request.Request(url, headers={'User-Agent': 'PythonDownloader/3.10'})\n    with urllib.request.urlopen(req) as response:\n        while True:\n            chunk = response.read(chunk_size)\n            if not chunk:\n                break\n            memory_buffer.write(chunk)\n            total_bytes += len(chunk)\n            \n    memory_buffer.seek(0)\n    return memory_buffer, total_bytes\n\n# Test on live sample file\nbuffer, size = download_stream_to_buffer(\"http://data.pr4e.org/cover3.jpg\")\nprint(f\"Binary Download Complete: {size} bytes loaded into memory buffer.\")",
+              "explanation": "Demonstrates chunked binary streaming preventing high memory consumption during media downloads."
+            },
+            {
+              "title": "6. SSL/TLS Context Configuration for Secure HTTPS Connections",
+              "code": "import urllib.request\nimport ssl\n\n# Create standard SSL verification context\nssl_context = ssl.create_default_context()\n\nhttps_target = \"https://data.pr4e.org\"\ntry:\n    with urllib.request.urlopen(https_target, context=ssl_context) as resp:\n        print(f\"HTTPS Secure Connection Established: {resp.status}\")\n        print(f\"Security Protocol: {resp.version}\")\nexcept Exception as e:\n    print(f\"SSL / Connection Failure: {e}\")",
+              "explanation": "Shows how to configure ssl contexts explicitly when connecting to secure HTTPS endpoints."
             }
           ],
           "bestPractices": [
-            "Always handle network stream bytes decoding (bytes.decode('utf-8')).",
-            "Respect website robots.txt rules when writing web scrapers."
+            "Always check and comply with robots.txt directives before scraping any website.",
+            "Always configure descriptive User-Agent headers so server administrators can identify your script.",
+            "Add delays (time.sleep(1.0)) between sequential web requests to prevent server rate limiting or denial-of-service.",
+            "Never parse complex HTML using regular expressions; always use a dedicated parser like BeautifulSoup.",
+            "Always decode network byte streams using .decode('utf-8') before attempting string operations.",
+            "Use streaming chunk loops when downloading binary files (images/PDFs) to prevent memory exhaustion.",
+            "Wrap all network requests in try/except blocks catching urllib.error.URLError and urllib.error.HTTPError.",
+            "Use urllib.parse.urljoin() when following relative hyperlinks (e.g. '/about.html') to resolve absolute URLs."
           ],
           "commonMistakes": [
-            "Downloading huge binary files at once without buffering chunks (causes out-of-memory crashes)."
+            "Attempting to send Python Unicode strings across sockets without encoding them to bytes (.encode('utf-8')).",
+            "Forgetting the required double CRLF (\\r\\n\\r\\n) delimiter at the end of HTTP request headers, causing the server to hang.",
+            "Failing to handle HTTP status codes like 403 Forbidden or 404 Not Found gracefully.",
+            "Using greedy regex to parse HTML, leading to corrupted text and missing tags.",
+            "Scraping websites at maximum speed without sleep delays, leading to permanent IP bans.",
+            "Assuming all web text is encoded in UTF-8 without checking Content-Type charset headers."
           ],
           "practiceExercise": {
-            "title": "Download Remote Image",
-            "problem": "Write a script using urllib.request.urlopen() to download an image file in 100KB chunks and save it locally.",
-            "solutionCode": "import urllib.request\n\nurl = 'http://data.pr4e.org/cover3.jpg'\nimg = urllib.request.urlopen(url)\nwith open('cover.jpg', 'wb') as fout:\n    while True:\n        info = img.read(100000)\n        if len(info) < 1: break\n        fout.write(info)\nprint(\"Image downloaded successfully!\")"
+            "title": "Module 13 Hands-On Laboratory: Network Automation & Hyperlink Crawlers",
+            "problem": "Complete the following 5 hands-on networking and scraping challenges:\n\n1. Low-Level HTTP Protocol Inspector:\nWrite a socket script that connects to data.pr4e.org on Port 80, requests /code3/intro-short.txt, and separates the response headers from the body, printing each header key and value.\n\n2. Web Page Word Frequency Counter:\nUsing urllib.request, fetch the text content of http://data.pr4e.org/romeo.txt, filter out words with fewer than 4 characters, and print the top 10 most frequent words.\n\n3. HTML Table Scraper to Dictionary Records:\nParse an HTML table containing student names and grades using BeautifulSoup, converting each row into a clean Python dictionary.\n\n4. Hyperlink Trail Follower (The Spider Crawler):\nSimulate Dr. Chuck's classic Python for Everybody assignment: starting from an initial HTML page, find all anchor tags (<a href=\"...\">), follow the link at a specific position (e.g. 3rd link), repeat 4 times, and report the final destination.\n\n5. Robust URL Fetcher with Exponential Backoff Retry:\nBuild a safe_fetch_url(url, retries=3) function that handles network disconnections and HTTP 500 errors by backing off before failing gracefully.",
+            "solutionCode": "import io\nimport re\nimport socket\nimport urllib.request\nimport urllib.error\nfrom bs4 import BeautifulSoup\nfrom collections import Counter\n\n# ==============================================================================\n# Challenge 1: Low-Level HTTP Protocol Inspector\n# ==============================================================================\ndef inspect_http_headers_via_socket(host, path, port=80):\n    s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)\n    s.connect((host, port))\n    \n    cmd = f\"GET {path} HTTP/1.1\r\nHost: {host}\r\nConnection: close\r\n\r\n\"\n    s.sendall(cmd.encode('utf-8'))\n    \n    response = \"\"\n    while True:\n        data = s.recv(512)\n        if len(data) < 1: break\n        response += data.decode('utf-8')\n    s.close()\n    \n    header_part, body_part = response.split('\r\n\r\n', 1)\n    header_lines = header_part.split('\r\n')\n    status_line = header_lines[0]\n    \n    headers_dict = {}\n    for line in header_lines[1:]:\n        if \":\" in line:\n            k, v = line.split(\":\", 1)\n            headers_dict[k.strip()] = v.strip()\n            \n    return status_line, headers_dict, len(body_part)\n\nstatus, headers, body_len = inspect_http_headers_via_socket(\"data.pr4e.org\", \"/code3/intro-short.txt\")\nprint(\"Challenge 1 - Low-Level Socket Headers:\")\nprint(f\"  Status Line: {status}\")\nprint(f\"  Content-Type: {headers.get('Content-Type')}\")\nprint(f\"  Body Size: {body_len} bytes\")\n\n\n# ==============================================================================\n# Challenge 2: Web Page Word Frequency Counter\n# ==============================================================================\ndef analyze_web_word_frequency(url, min_len=4):\n    counts = Counter()\n    with urllib.request.urlopen(url) as resp:\n        for line in resp:\n            words = line.decode('utf-8').lower().split()\n            for w in words:\n                clean_word = re.sub(r'[^a-z]', '', w)\n                if len(clean_word) >= min_len:\n                    counts[clean_word] += 1\n    return counts\n\nweb_counts = analyze_web_word_frequency(\"http://data.pr4e.org/romeo.txt\", min_len=4)\nprint(\"\nChallenge 2 - Web Word Frequency (>= 4 chars):\")\nfor word, cnt in web_counts.most_common(5):\n    print(f\"  • {word:<12}: {cnt} occurrences\")\n\n\n# ==============================================================================\n# Challenge 3: HTML Table Scraper to Dictionary Records\n# ==============================================================================\nsample_table_html = \"\"\"\n<table id=\"grades\">\n  <tr><th>Student</th><th>Subject</th><th>Score</th></tr>\n  <tr><td>Ananya</td><td>Python</td><td>96</td></tr>\n  <tr><td>Rahul</td><td>SQL</td><td>88</td></tr>\n  <tr><td>Priya</td><td>Networking</td><td>92</td></tr>\n</table>\"\"\"\n\ndef scrape_table_to_dicts(html_str):\n    soup = BeautifulSoup(html_str, 'html.parser')\n    table = soup.find('table')\n    headers = [th.text.strip() for th in table.find_all('th')]\n    \n    records = []\n    for row in table.find_all('tr')[1:]:\n        cells = [td.text.strip() for td in row.find_all('td')]\n        if cells:\n            records.append(dict(zip(headers, cells)))\n    return records\n\nstudents_data = scrape_table_to_dicts(sample_table_html)\nprint(\"\nChallenge 3 - Scraped HTML Table:\")\nfor s in students_data:\n    print(f\"  Student: {s['Student']:<10} | Subject: {s['Subject']:<12} | Score: {s['Score']}\")\n\n\n# ==============================================================================\n# Challenge 4: Hyperlink Trail Follower (Spider Crawler Simulation)\n# ==============================================================================\nsample_pages = {\n    \"start.html\": '<a href=\"page2.html\">Next 1</a> <a href=\"page3.html\">Next 2</a>',\n    \"page3.html\": '<a href=\"page4.html\">Target</a> <a href=\"final.html\">Winner</a>',\n    \"final.html\": '<h1>Destination Reached!</h1>'\n}\n\ndef crawl_link_sequence(start_key, link_index, hops):\n    current = start_key\n    trail = [current]\n    \n    for _ in range(hops):\n        html = sample_pages.get(current, \"\")\n        soup = BeautifulSoup(html, 'html.parser')\n        links = [a.get('href') for a in soup.find_all('a')]\n        if len(links) > link_index:\n            current = links[link_index]\n            trail.append(current)\n        else:\n            break\n    return trail\n\npath_taken = crawl_link_sequence(\"start.html\", 1, 2)\nprint(\"\nChallenge 4 - Hyperlink Spider Trail:\")\nprint(f\"  Crawl Trail: {' -> '.join(path_taken)}\")\n\n\n# ==============================================================================\n# Challenge 5: Robust URL Fetcher with Error Handling\n# ==============================================================================\ndef safe_fetch_url(url, timeout=3):\n    req = urllib.request.Request(url, headers={'User-Agent': 'BootcampBot/1.0'})\n    try:\n        with urllib.request.urlopen(req, timeout=timeout) as response:\n            return response.status, response.read(60).decode('utf-8')\n    except urllib.error.HTTPError as e:\n        return e.code, f\"HTTP Error: {e.reason}\"\n    except urllib.error.URLError as e:\n        return 0, f\"URL Error: {e.reason}\"\n\nstatus_code, preview = safe_fetch_url(\"http://data.pr4e.org/romeo.txt\")\nprint(f\"\nChallenge 5 - Safe URL Fetch Status: HTTP {status_code}\")\nprint(f\"  Preview: {preview.strip()}...\")"
           },
           "keyTakeaways": [
-            "urllib reads web pages like local files over HTTP.",
-            "BeautifulSoup parses HTML tags for web scraping."
+            "TCP/IP sockets establish reliable byte-stream communication channels across IP addresses and port numbers.",
+            "HTTP is an application protocol following strict request/response header rules delimited by double CRLF (\\r\\n\\r\\n).",
+            "Low-level sockets transmit bytes (.encode('utf-8') / .decode('utf-8')).",
+            "urllib.request abstracts network sockets, allowing remote web resources to be streamed like local files.",
+            "Always inspect robots.txt and enforce courteous rate limits (time.sleep) when scraping web content.",
+            "BeautifulSoup constructs an in-memory DOM tree that navigates messy, unstructured HTML reliably."
           ],
           "references": [
             {
-              "title": "Python for Everybody Chapter 12",
+              "title": "Python for Everybody: Chapter 12 — Networked Programs",
               "url": "https://www.py4e.com/html3/12-network"
+            },
+            {
+              "title": "Python Documentation: socket — Low-level networking interface",
+              "url": "https://docs.python.org/3/library/socket.html"
+            },
+            {
+              "title": "Python Documentation: urllib.request — Extensible library for opening URLs",
+              "url": "https://docs.python.org/3/library/urllib.request.html"
             }
-          ]
+          ],
+          "mcqs": [
+            {
+              "id": 1,
+              "question": "Which standard port numbers are designated for unencrypted HTTP and encrypted HTTPS web traffic respectively?",
+              "options": [
+                "Port 21 and Port 22",
+                "Port 25 and Port 587",
+                "Port 80 and Port 443",
+                "Port 8080 and Port 3000"
+              ],
+              "correctAnswer": 2,
+              "explanation": "By global networking convention, unencrypted HTTP traffic operates on Port 80, while encrypted HTTPS traffic operates on Port 443."
+            },
+            {
+              "id": 2,
+              "question": "In the HTTP 1.1 protocol, what exact byte sequence marks the end of request headers and the start of the payload body?",
+              "options": [
+                "END_OF_HEADERS",
+                "\\n\\n",
+                "\\r\\n\\r\\n (two consecutive Carriage Return + Line Feed pairs)",
+                "<CRLF>"
+              ],
+              "correctAnswer": 2,
+              "explanation": "HTTP headers are separated from the response body by a blank line, represented as \\r\\n\\r\\n in standard network byte streams."
+            },
+            {
+              "id": 3,
+              "question": "Why must Python strings be encoded using .encode('utf-8') before being sent through a low-level socket?",
+              "options": [
+                "Network sockets transmit raw bytes over the physical wire, not abstract Python Unicode string objects",
+                "To compress the text by 50%",
+                "To encrypt the data against hackers",
+                "Because Python 3 does not support text strings"
+              ],
+              "correctAnswer": 0,
+              "explanation": "Sockets operate at the transport layer (TCP/IP) transmitting raw binary byte sequences. Text must be serialized into bytes before transmission."
+            },
+            {
+              "id": 4,
+              "question": "What is the purpose of the robots.txt file on a web server?",
+              "options": [
+                "It installs automated trading robots",
+                "It specifies guidelines and permissions for automated web crawlers and search engine spiders regarding which pages may be crawled",
+                "It speeds up webpage loading times",
+                "It blocks all Python connections automatically"
+              ],
+              "correctAnswer": 1,
+              "explanation": "robots.txt provides the Robots Exclusion Protocol directives informing compliant web crawlers which URI paths are permitted or disallowed."
+            },
+            {
+              "id": 5,
+              "question": "Why is BeautifulSoup preferred over regular expressions for web scraping HTML documents?",
+              "options": [
+                "BeautifulSoup runs inside a web browser",
+                "HTML is hierarchical and frequently malformed; BeautifulSoup builds a resilient DOM tree that handles nested tags and broken syntax reliably",
+                "Regular expressions cannot match strings longer than 100 characters",
+                "BeautifulSoup is written in assembly language"
+              ],
+              "correctAnswer": 1,
+              "explanation": "HTML is non-regular; nested structures, unclosed tags, and dynamic attributes cause regex parsers to fail. BeautifulSoup parses DOM trees robustly."
+            }
+          ],
+          "selfAssessment": {
+            "title": "Module Self-Assessment (5 Knowledge Check MCQs)",
+            "questions": [
+              {
+                "id": "py-q-13-1",
+                "questionNumber": 1,
+                "topic": "Socket Creation Parameters",
+                "questionText": "What do the socket constants socket.AF_INET and socket.SOCK_STREAM configure?",
+                "options": [
+                  "IPv4 network addressing and reliable TCP stream transport",
+                  "IPv6 addressing and UDP datagram transport",
+                  "Bluetooth wireless communication and peer-to-peer streaming",
+                  "Unix domain socket with raw packets"
+                ],
+                "correctAnswer": 0,
+                "explanation": "socket.AF_INET designates IPv4 address family, and socket.SOCK_STREAM designates connection-oriented, reliable TCP transport protocol."
+              },
+              {
+                "id": "py-q-13-2",
+                "questionNumber": 2,
+                "topic": "Byte Encoding on Sockets",
+                "questionText": "Why must strings be converted with .encode('utf-8') before sending them via socket.send()?",
+                "options": [
+                  "Network hardware can only transmit encrypted strings",
+                  "Low-level network sockets transfer raw bytes (octets), not abstract Python high-level Unicode string objects",
+                  "It compresses text to reduce transmission delay",
+                  "Python sockets do not support English text"
+                ],
+                "correctAnswer": 1,
+                "explanation": "Network network protocols operate strictly on byte sequences. Python strings must be serialized into bytes via an encoding like UTF-8 prior to transmission."
+              },
+              {
+                "id": "py-q-13-3",
+                "questionNumber": 3,
+                "topic": "Urllib Request Client",
+                "questionText": "Which standard library function handles opening HTTP URLs and returning response objects in Python?",
+                "options": [
+                  "urllib.parse.urlsplit()",
+                  "urllib.request.urlopen()",
+                  "http.server.HTTPServer()",
+                  "socket.gethostbyname()"
+                ],
+                "correctAnswer": 1,
+                "explanation": "urllib.request.urlopen('http://...') abstracts the low-level TCP handshake and HTTP protocol, returning an iterable file-like HTTPResponse object."
+              },
+              {
+                "id": "py-q-13-4",
+                "questionNumber": 4,
+                "topic": "BeautifulSoup DOM Parsing",
+                "questionText": "What does soup.find_all('a') return when parsing HTML with BeautifulSoup?",
+                "options": [
+                  "A single string containing all hyperlinks",
+                  "A ResultSet (list-like collection) of all <a> anchor tag elements found in the document tree",
+                  "The plaintext URLs without HTML tags",
+                  "Boolean True if anchor tags exist"
+                ],
+                "correctAnswer": 1,
+                "explanation": "find_all('a') scans the parsed DOM tree and returns all matching tag nodes, each supporting attribute extraction (e.g. tag.get('href'))."
+              },
+              {
+                "id": "py-q-13-5",
+                "questionNumber": 5,
+                "topic": "HTTP Response Status Codes",
+                "questionText": "Which HTTP status code signifies that a client requested a resource that does not exist on the server?",
+                "options": [
+                  "200 OK",
+                  "301 Moved Permanently",
+                  "404 Not Found",
+                  "500 Internal Server Error"
+                ],
+                "correctAnswer": 2,
+                "explanation": "HTTP 404 is the standard client error response code indicating that the server cannot locate the requested URI."
+              }
+            ]
+          }
         },
         "quiz": {
           "id": "quiz-py-mod-13",
@@ -2187,9 +6391,9 @@ export const INITIAL_COURSES = [
           "questions": [
             {
               "id": "py-q-13-1",
-              "type": "multiple-choice",
+              "questionNumber": 1,
               "topic": "Socket Creation Parameters",
-              "questionText": "What do the socket constants `socket.AF_INET` and `socket.SOCK_STREAM` configure?",
+              "questionText": "What do the socket constants socket.AF_INET and socket.SOCK_STREAM configure?",
               "options": [
                 "IPv4 network addressing and reliable TCP stream transport",
                 "IPv6 addressing and UDP datagram transport",
@@ -2197,14 +6401,13 @@ export const INITIAL_COURSES = [
                 "Unix domain socket with raw packets"
               ],
               "correctAnswer": 0,
-              "marks": 10,
-              "explanation": "`socket.AF_INET` designates IPv4 address family, and `socket.SOCK_STREAM` designates connection-oriented, reliable TCP transport protocol."
+              "explanation": "socket.AF_INET designates IPv4 address family, and socket.SOCK_STREAM designates connection-oriented, reliable TCP transport protocol."
             },
             {
               "id": "py-q-13-2",
-              "type": "multiple-choice",
+              "questionNumber": 2,
               "topic": "Byte Encoding on Sockets",
-              "questionText": "Why must strings be converted with `.encode('utf-8')` before sending them via `socket.send()`?",
+              "questionText": "Why must strings be converted with .encode('utf-8') before sending them via socket.send()?",
               "options": [
                 "Network hardware can only transmit encrypted strings",
                 "Low-level network sockets transfer raw bytes (octets), not abstract Python high-level Unicode string objects",
@@ -2212,12 +6415,11 @@ export const INITIAL_COURSES = [
                 "Python sockets do not support English text"
               ],
               "correctAnswer": 1,
-              "marks": 10,
               "explanation": "Network network protocols operate strictly on byte sequences. Python strings must be serialized into bytes via an encoding like UTF-8 prior to transmission."
             },
             {
               "id": "py-q-13-3",
-              "type": "multiple-choice",
+              "questionNumber": 3,
               "topic": "Urllib Request Client",
               "questionText": "Which standard library function handles opening HTTP URLs and returning response objects in Python?",
               "options": [
@@ -2227,27 +6429,25 @@ export const INITIAL_COURSES = [
                 "socket.gethostbyname()"
               ],
               "correctAnswer": 1,
-              "marks": 10,
-              "explanation": "`urllib.request.urlopen('http://...')` abstracts the low-level TCP handshake and HTTP protocol, returning an iterable file-like HTTPResponse object."
+              "explanation": "urllib.request.urlopen('http://...') abstracts the low-level TCP handshake and HTTP protocol, returning an iterable file-like HTTPResponse object."
             },
             {
               "id": "py-q-13-4",
-              "type": "multiple-choice",
+              "questionNumber": 4,
               "topic": "BeautifulSoup DOM Parsing",
-              "questionText": "What does `soup.find_all('a')` return when parsing HTML with BeautifulSoup?",
+              "questionText": "What does soup.find_all('a') return when parsing HTML with BeautifulSoup?",
               "options": [
                 "A single string containing all hyperlinks",
-                "A ResultSet (list-like collection) of all `<a>` anchor tag elements found in the document tree",
+                "A ResultSet (list-like collection) of all <a> anchor tag elements found in the document tree",
                 "The plaintext URLs without HTML tags",
                 "Boolean True if anchor tags exist"
               ],
               "correctAnswer": 1,
-              "marks": 10,
-              "explanation": "`find_all('a')` scans the parsed DOM tree and returns all matching tag nodes, each supporting attribute extraction (e.g. `tag.get('href')`)."
+              "explanation": "find_all('a') scans the parsed DOM tree and returns all matching tag nodes, each supporting attribute extraction (e.g. tag.get('href'))."
             },
             {
               "id": "py-q-13-5",
-              "type": "multiple-choice",
+              "questionNumber": 5,
               "topic": "HTTP Response Status Codes",
               "questionText": "Which HTTP status code signifies that a client requested a resource that does not exist on the server?",
               "options": [
@@ -2257,7 +6457,6 @@ export const INITIAL_COURSES = [
                 "500 Internal Server Error"
               ],
               "correctAnswer": 2,
-              "marks": 10,
               "explanation": "HTTP 404 is the standard client error response code indicating that the server cannot locate the requested URI."
             }
           ]
@@ -2266,87 +6465,305 @@ export const INITIAL_COURSES = [
       {
         "id": "py-mod-14",
         "title": "Module 14 — Web Services: XML, JSON & REST APIs",
-        "description": "Data exchange formats, parsing XML with ElementTree, parsing JSON with json library, REST APIs, and Service-Oriented Architecture (SOA).",
-        "completed": false,
+        "description": "Machine-to-machine data exchange, XML tree parsing with ElementTree, JSON serialization/deserialization, REST architecture principles, API authentication, and consuming external web services.",
+        "completed": true,
         "readingMaterial": {
-          "introduction": "Based on Chapter 13 of 'Python for Everybody', web services allow programs to exchange structured data across networks. XML and JSON are the two primary data formats, with JSON being the modern standard for REST APIs.",
+          "introduction": "In Module 13, we explored web scraping—extracting data from HTML designed primarily for human visual consumption. While scraping is valuable when no alternative exists, HTML is inherently fragile: a minor redesign of a website's CSS classes or tag structure immediately breaks scraper pipelines. To build robust, enterprise-grade distributed systems, modern software relies on 'Web Services'—structured machine-to-machine application programming interfaces (APIs) where systems exchange raw data over standardized network protocols without presentation markup.\n\nTwo dominant data interchange standards power the modern web: eXtensible Markup Language (XML), a hierarchical tag-based format historically dominant in enterprise banking and SOAP architectures; and JavaScript Object Notation (JSON), a lightweight, key-value format that has become the ubiquitous standard for modern RESTful web APIs and microservices.\n\nBased on Chapter 13 of Dr. Charles Severance's 'Python for Everybody' and enterprise API engineering standards, this module provides a complete, professional masterclass in consuming and architecting web services: parsing nested XML trees using the standard xml.etree.ElementTree library, serializing and deserializing JSON payloads using Python's json module, mastering RESTful API design principles (resource endpoints, HTTP verbs, status codes), parameterizing queries with urllib.parse, implementing API Key and Bearer Token authentication, and building defensive clients that handle rate limiting (HTTP 429) and network timeouts gracefully.",
           "objectives": [
-            "Compare XML (node trees) vs JSON (key-value dictionaries & lists)",
-            "Parse XML data using xml.etree.ElementTree",
-            "Parse JSON strings using import json and json.loads()",
-            "Understand Service-Oriented Architecture (SOA) and REST APIs",
-            "Handle API keys and authentication"
+            "Explain the fundamental difference between human-oriented HTML scraping and machine-oriented API communication.",
+            "Compare and contrast the architectural trade-offs between XML and JSON data interchange formats.",
+            "Parse, traverse, and extract text and attributes from hierarchical XML documents using xml.etree.ElementTree.",
+            "Master JSON serialization (dumps/dump) and deserialization (loads/load) and understand Python-to-JSON type mappings.",
+            "Explain the core tenets of REST architecture: Resource URIs, HTTP verbs (GET, POST, PUT, DELETE), and statelessness.",
+            "Interpret standard HTTP API response status codes (200 OK, 201 Created, 400 Bad Request, 401 Unauthorized, 404 Not Found, 429 Rate Limited).",
+            "Construct parameterized API queries safely using urllib.parse.urlencode() to prevent encoding errors.",
+            "Implement industry-standard API authentication patterns including API Keys and Authorization: Bearer <token> headers.",
+            "Consume real-world public web services (Geocoding, Open-Meteo Weather, GitHub REST API) robustly.",
+            "Handle API pagination, payload limits, rate limits, and transient error backoff defensively."
           ],
           "sections": [
             {
-              "heading": "XML vs JSON Data Formats",
-              "text": "XML uses nested opening/closing tags (<person><name>Chuck</name></person>). JSON maps directly to Python dictionaries and lists ({'name': 'Chuck'}), making JSON faster and simpler to parse.",
+              "heading": "1. The Evolution of Web Services: Moving Beyond Screen Scraping",
+              "text": "To understand web services, compare how applications interact across the web:\n\n1. Web Scraping (HTML):\nHTML is designed for presentation to human eyes (fonts, layouts, colors, responsive wrappers).\n• Problem: Fragile. When a marketing team updates a website's layout, classes change and scrapers crash.\n• Inefficiency: The server spends bandwidth and compute sending megabytes of CSS, images, and HTML styling when the client only wants a single price number.\n\n2. Web Services (REST / JSON / XML):\nA Web Service exposes structured programmatic endpoints (APIs) designed strictly for consumption by software code.\n• Resilience: The data contract (schema) remains stable even if the company's marketing website changes completely.\n• Compact: Transmits raw semantic data payloads (JSON or XML) with minimal network overhead."
+            },
+            {
+              "heading": "2. XML vs. JSON: Head-to-Head Comparative Architecture",
+              "text": "The two primary data interchange formats compared:",
               "table": {
                 "headers": [
-                  "Feature",
-                  "eXtensible Markup Language (XML)",
-                  "JavaScript Object Notation (JSON)"
+                  "Feature / Dimension",
+                  "XML (eXtensible Markup Language)",
+                  "JSON (JavaScript Object Notation)"
                 ],
                 "rows": [
                   [
-                    "Syntax",
-                    "Tag-based (<user>content</user>)",
-                    "Key-Value Object ({'user': 'content'})"
+                    "Syntax Structure",
+                    "Tags with open/close markers (<person>...</person>)",
+                    "Key-value pairs and arrays ({\"name\": \"value\"})"
+                  ],
+                  [
+                    "Metadata Storage",
+                    "Supports both child elements and tag attributes (<item id='1'>)",
+                    "Values only (metadata represented as nested keys)"
+                  ],
+                  [
+                    "Data Typing",
+                    "Text only; types must be parsed from strings or XSD schemas",
+                    "Native support for String, Number, Boolean, Array, Null"
                   ],
                   [
                     "Python Mapping",
-                    "Requires ElementTree parsing",
-                    "Directly maps to dict / list"
+                    "Requires specialized tree objects (ElementTree)",
+                    "Maps 1-to-1 directly to Python dicts, lists, and primitives"
                   ],
                   [
-                    "Verbosity",
-                    "High (closing tags & attributes)",
-                    "Low / Compact"
+                    "Payload Overhead",
+                    "Verbose; closing tags duplicate character byte counts",
+                    "Compact; minimal punctuation overhead"
                   ],
                   [
-                    "Primary Use Case",
-                    "Document markup & enterprise legacy",
-                    "Modern Web REST APIs"
+                    "Modern Dominance",
+                    "Legacy enterprise, SOAP web services, Android manifests, RSS",
+                    "De facto standard for 99% of modern REST APIs and microservices"
                   ]
                 ]
               }
+            },
+            {
+              "heading": "3. XML Parsing with 'xml.etree.ElementTree'",
+              "text": "Python's standard library includes ElementTree, a fast hierarchical XML parser:\n\nSample XML:\n<person>\n  <name>Dr. Ananya Sharma</name>\n  <phone type=\"intl\">+91 98765 43210</phone>\n  <email hide=\"yes\"/>\n</person>\n\nParsing Workflow:\nimport xml.etree.ElementTree as ET\n\n# Step 1: Parse XML string into Element tree\nroot = ET.fromstring(xml_data)\n\n# Step 2: Query child tags using find()\nprint(root.find('name').text) # 'Dr. Ananya Sharma'\n\n# Step 3: Extract tag attributes using get()\nprint(root.find('phone').get('type')) # 'intl'\nprint(root.find('email').get('hide')) # 'yes'\n\nSearching Multiple Children with findall():\nusers = root.findall('user') # Returns list of Element objects"
+            },
+            {
+              "heading": "4. JSON in Python: The 'json' Module & Type Mapping",
+              "text": "JSON maps directly onto Python's native data structures:\n\nPython <-> JSON Type Mapping Table:\n• Python dict <-> JSON Object ({...})\n• Python list/tuple <-> JSON Array ([...])\n• Python str <-> JSON String (\"...\")\n• Python int/float <-> JSON Number (42, 3.14)\n• Python True / False <-> JSON true / false\n• Python None <-> JSON null\n\nThe 4 Core JSON Functions:\n1. json.loads(str): Load from String -> Parses JSON text into a Python dict/list.\n2. json.dumps(obj): Dump to String -> Serializes a Python dict/list into a JSON string.\n3. json.load(file): Load from File -> Reads JSON directly from an open file handle.\n4. json.dump(obj, file): Dump to File -> Writes Python data to an open file in JSON format."
+            },
+            {
+              "heading": "5. REST Architecture & HTTP Verbs",
+              "text": "REST (Representational State Transfer) is the architectural pattern that governs modern web APIs:\n\n1. Resource-Oriented URIs:\nEndpoints represent nouns (resources), not actions:\n• Good: /api/v1/courses, /api/v1/students/42\n• Bad: /api/v1/get_all_courses, /api/v1/delete_student?id=42\n\n2. Standard HTTP Verbs (CRUD Operations):\n• GET: Read / Retrieve a resource (Idempotent: safe to repeat without side effects).\n• POST: Create a new resource on the server.\n• PUT: Replace an existing resource completely.\n• PATCH: Partially update specific fields of a resource.\n• DELETE: Remove a resource from the server.\n\n3. Standard HTTP Status Codes:\n• 200 OK: Request succeeded.\n• 201 Created: New resource successfully created (typical for POST).\n• 400 Bad Request: Invalid client payload or missing parameters.\n• 401 Unauthorized: Missing or invalid authentication token.\n• 403 Forbidden: Authenticated user lacks permission.\n• 404 Not Found: Target resource does not exist.\n• 429 Too Many Requests: Rate limit exceeded; client must back off.\n• 500 Internal Server Error: Unhandled crash inside the server code."
+            },
+            {
+              "heading": "6. Parameterizing Queries with 'urllib.parse.urlencode'",
+              "text": "When sending query parameters in an HTTP GET request (e.g. ?search=python programming&limit=10), spaces and special characters must be percent-encoded:\n• Space becomes '+' or '%20'.\n• Ampersand (&) becomes '%26'.\n\nNever Concatenate Query Strings Manually!\nManual string concatenation creates broken URLs and security bugs. Always use urllib.parse.urlencode():\n\nimport urllib.parse\n\nparams = {\n    'query': 'machine learning & python',\n    'max_results': 25,\n    'format': 'json'\n}\nquery_string = urllib.parse.urlencode(params)\nfull_url = f\"https://api.example.com/v1/search?{query_string}\"\n# Results in: https://api.example.com/v1/search?query=machine+learning+%26+python&max_results=25&format=json"
+            },
+            {
+              "heading": "7. API Authentication Standards: API Keys & Bearer Tokens",
+              "text": "Most production APIs require client authentication:\n\n1. Query Parameter Authentication (Simpler APIs):\nhttps://api.weather.com/v1/forecast?city=Bengaluru&apikey=secret_key_123\n\n2. HTTP Authorization Header (Industry Standard):\nSending tokens inside HTTP headers keeps sensitive credentials out of server access logs and browser histories:\nAuthorization: Bearer <jwt_or_oauth_token>\n\nIn Python:\nreq = urllib.request.Request(api_url)\nreq.add_header('Authorization', f'Bearer {api_token}')\nreq.add_header('Accept', 'application/json')\nwith urllib.request.urlopen(req) as resp:\n    ..."
+            },
+            {
+              "heading": "8. Defensive API Engineering: Handling Rate Limits & Downtime",
+              "text": "Production applications must anticipate external API failures:\n• Rate Limits (HTTP 429): Respect Retry-After headers and apply exponential backoff.\n• Network Timeouts: Always specify explicit timeout limits (e.g. timeout=10) on urlopen() calls to prevent worker threads from freezing indefinitely.\n• Schema Drift: Use dict.get(key, default) when accessing response dictionaries to prevent KeyError if the API provider removes or renames an optional field."
             }
           ],
           "codeExamples": [
             {
-              "title": "Parsing XML with ElementTree (xml1.py)",
-              "code": "import xml.etree.ElementTree as ET\n\ndata = '''\n<person>\n  <name>Chuck</name>\n  <phone type=\"intl\">+1 734 303 4456</phone>\n  <email hide=\"yes\"/>\n</person>'''\n\ntree = ET.fromstring(data)\nprint('Name:', tree.find('name').text)\nprint('Phone Type:', tree.find('phone').get('type'))",
-              "explanation": "ET.fromstring converts XML string into searchable element tree."
+              "title": "1. Parsing Nested XML Documents with ElementTree (Python for Everybody)",
+              "code": "import xml.etree.ElementTree as ET\n\nxml_data = \"\"\"<app_users>\n  <user id=\"U101\" role=\"admin\">\n    <name>Dr. Ananya Sharma</name>\n    <email>ananya@arshithbootcamp.com</email>\n    <skills>\n      <skill level=\"expert\">Python</skill>\n      <skill level=\"advanced\">SQLite</skill>\n    </skills>\n  </user>\n  <user id=\"U102\" role=\"student\">\n    <name>Rahul Kumar</name>\n    <email>rahul@gmail.com</email>\n    <skills>\n      <skill level=\"intermediate\">Python</skill>\n    </skills>\n  </user>\n</app_users>\"\"\"\n\n# Parse root element\ntree_root = ET.fromstring(xml_data)\nprint(f\"Root Tag: {tree_root.tag}\n\")\n\nfor user in tree_root.findall('user'):\n    user_id = user.get('id')\n    user_role = user.get('role')\n    user_name = user.find('name').text\n    user_email = user.find('email').text\n    \n    skill_nodes = user.find('skills').findall('skill')\n    skill_list = [f\"{s.text} ({s.get('level')})\" for s in skill_nodes]\n    \n    print(f\"User: {user_name} [{user_id}] | Role: {user_role}\")\n    print(f\"  Email:  {user_email}\")\n    print(f\"  Skills: {', '.join(skill_list)}\n\")",
+              "explanation": "Demonstrates XML hierarchy traversal, finding children, extracting text, and reading attributes."
             },
             {
-              "title": "Parsing JSON Data (json2.py)",
-              "code": "import json\n\ndata = '''\n[\n  { \"id\" : \"001\", \"x\" : \"2\", \"name\" : \"Chuck\" },\n  { \"id\" : \"009\", \"x\" : \"7\", \"name\" : \"Brent\" }\n]'''\n\ninfo = json.loads(data) # Converts JSON string to Python list of dicts\nprint('User count:', len(info))\n\nfor item in info:\n    print(f\"ID: {item['id']} | Name: {item['name']} | Attribute: {item['x']}\")",
-              "explanation": "json.loads() parses JSON string directly into native Python structures."
+              "title": "2. JSON Serialization & Deserialization in Action",
+              "code": "import json\n\n# Python Data Structure (Dictionary containing lists and nested dicts)\ncourse_payload = {\n    \"course_id\": \"python-01\",\n    \"title\": \"Python Programming Masterclass\",\n    \"is_certified\": True,\n    \"rating\": 4.9,\n    \"instructors\": [\"Dr. Ananya Sharma\", \"Dr. Charles Severance\"],\n    \"metrics\": {\n        \"enrolled_students\": 14200,\n        \"completion_rate\": 0.88\n    },\n    \"prerequisites\": None\n}\n\n# 1. Serialization: Convert Python object -> Formatted JSON String\njson_string = json.dumps(course_payload, indent=2, sort_keys=True)\nprint(\"--- Serialized JSON String ---\")\nprint(json_string[:250] + \"\n...\n\")\n\n# 2. Deserialization: Convert JSON String -> Native Python Dictionary\nreconstructed = json.loads(json_string)\nprint(\"--- Deserialized Native Python Access ---\")\nprint(f\"Course: {reconstructed['title']}\")\nprint(f\"Is Certified: {reconstructed['is_certified']} (Python Type: {type(reconstructed['is_certified']).__name__})\")\nprint(f\"Prerequisites: {reconstructed['prerequisites']} (Python Type: {type(reconstructed['prerequisites']).__name__})\")",
+              "explanation": "Contrasts json.dumps() formatting with json.loads() native Python dictionary parsing."
+            },
+            {
+              "title": "3. Parameterizing API Requests with urllib.parse",
+              "code": "import urllib.parse\nimport urllib.request\nimport json\n\nbase_api_url = \"https://nominatim.openstreetmap.org/search\"\n\n# Dictionary of raw search query parameters\nsearch_parameters = {\n    \"q\": \"Bengaluru, Karnataka, India\",\n    \"format\": \"json\",\n    \"limit\": 1\n}\n\n# Safe URL encoding\nencoded_query = urllib.parse.urlencode(search_parameters)\ncomplete_url = f\"{base_api_url}?{encoded_query}\"\n\nprint(f\"Constructed URL:\n  {complete_url}\n\")\n\n# Request with polite User-Agent header (required by OpenStreetMap policy)\nreq = urllib.request.Request(\n    complete_url,\n    headers={'User-Agent': 'ArshithBootCampGeocodingLab/1.0'}\n)\n\ntry:\n    with urllib.request.urlopen(req, timeout=5) as response:\n        raw_json = response.read().decode('utf-8')\n        results = json.loads(raw_json)\n        if results:\n            first_match = results[0]\n            print(f\"Location: {first_match['display_name']}\")\n            print(f\"Latitude: {first_match['lat']}, Longitude: {first_match['lon']}\")\nexcept Exception as err:\n    print(f\"Live API Query Note: Network or timeout ({err}) - simulated query successfully built.\")",
+              "explanation": "Uses urllib.parse.urlencode() for safe query string generation and consumes JSON responses."
+            },
+            {
+              "title": "4. Consuming REST Endpoints with Bearer Token Authorization",
+              "code": "import urllib.request\nimport json\n\ndef fetch_github_repository_metadata(owner, repo, api_token=None):\n    url = f\"https://api.github.com/repos/{owner}/{repo}\"\n    \n    headers = {\n        'Accept': 'application/vnd.github.v3+json',\n        'User-Agent': 'PythonRESTClient-v1'\n    }\n    \n    # Inject Authorization header if token provided\n    if api_token:\n        headers['Authorization'] = f\"Bearer {api_token}\"\n        \n    req = urllib.request.Request(url, headers=headers)\n    \n    try:\n        with urllib.request.urlopen(req, timeout=5) as resp:\n            data = json.loads(resp.read().decode('utf-8'))\n            return {\n                \"name\": data.get(\"name\"),\n                \"stars\": data.get(\"stargazers_count\"),\n                \"forks\": data.get(\"forks_count\"),\n                \"description\": data.get(\"description\")\n            }\n    except Exception as e:\n        # Fallback simulation for offline testing\n        return {\n            \"name\": repo,\n            \"stars\": 45000,\n            \"forks\": 12000,\n            \"description\": f\"Simulated metadata for {owner}/{repo}\"\n        }\n\nrepo_info = fetch_github_repository_metadata(\"python\", \"cpython\")\nprint(\"GitHub Repository Metadata:\")\nfor k, v in repo_info.items():\n    print(f\"  {k:<14}: {v}\")",
+              "explanation": "Demonstrates standard REST API headers, Authorization Bearer injection, and response parsing."
+            },
+            {
+              "title": "5. Resilient API Client with Rate Limit (429) & Backoff Handling",
+              "code": "import time\n\ndef mock_weather_api_call(attempt_counter):\n    if attempt_counter[0] < 2:\n        attempt_counter[0] += 1\n        # Simulate HTTP 429 Too Many Requests\n        raise Exception(\"HTTP Error 429: Too Many Requests (Rate limit exceeded)\")\n    return {\"city\": \"Bengaluru\", \"temperature_c\": 28.5, \"condition\": \"Partly Cloudy\"}\n\ndef fetch_with_backoff(api_func, max_attempts=3, backoff_factor=0.2):\n    attempts = [0]\n    for i in range(1, max_attempts + 1):\n        try:\n            return api_func(attempts)\n        except Exception as err:\n            if \"429\" in str(err) and i < max_attempts:\n                sleep_time = backoff_factor * (2 ** (i - 1))\n                print(f\"Rate limited on attempt {i}. Backing off for {sleep_time:.2f}s...\")\n                time.sleep(sleep_time)\n            else:\n                raise\n\nweather_data = fetch_with_backoff(mock_weather_api_call)\nprint(f\"\nResilient API Response Received:\")\nprint(f\"  City: {weather_data['city']} | Temp: {weather_data['temperature_c']}°C | Weather: {weather_data['condition']}\")",
+              "explanation": "Implements exponential backoff to handle HTTP 429 rate limits gracefully."
             }
           ],
           "bestPractices": [
-            "Use JSON for modern web services and API endpoints.",
-            "Always wrap json.loads() calls in try/except blocks to catch invalid JSON syntax."
+            "Always prefer consuming structured JSON REST APIs over scraping unstructured HTML.",
+            "Always construct URL query parameters using urllib.parse.urlencode() to prevent encoding errors.",
+            "Keep API tokens and secret keys out of source code; load them from environment variables (os.environ).",
+            "Pass sensitive credentials in HTTP headers (Authorization: Bearer) rather than in URL query strings.",
+            "Always declare explicit timeouts (timeout=10) on HTTP calls to prevent indefinite thread hangs.",
+            "Use dict.get('key', default) when extracting fields from JSON responses to defend against schema changes.",
+            "Respect API rate limits and HTTP 429 Retry-After directives using exponential backoff retry algorithms.",
+            "Use indent=2 and sort_keys=True with json.dumps() when writing logs or debugging output for human readability."
           ],
           "commonMistakes": [
-            "Confusing json.loads() (parse string) with json.load() (parse file handle)."
+            "Attempting to serialize non-serializable objects (like custom class instances or datetimes) directly with json.dumps().",
+            "Manually building URL query strings with string concatenation, causing breakages on spaces and special symbols.",
+            "Forgetting to decode HTTP byte responses (.decode('utf-8')) before passing them to json.loads().",
+            "Hardcoding private API keys in Git-tracked repositories, resulting in credential leaks.",
+            "Assuming API responses always return HTTP 200 without checking response status codes.",
+            "Failing to handle network timeouts, leading to frozen server processes when third-party APIs experience outages."
           ],
           "practiceExercise": {
-            "title": "Sum Comments from JSON API",
-            "problem": "Parse a JSON string containing a list of comments [{'name': 'A', 'count': 42}, ...] and compute total count sum.",
-            "solutionCode": "import json\n\njson_data = '[{\"name\": \"Arshith\", \"count\": 95}, {\"name\": \"Student\", \"count\": 88}]'\ncomments = json.loads(json_data)\ntotal_count = sum(c['count'] for c in comments)\nprint(f\"Total Comment Count: {total_count}\")"
+            "title": "Module 14 Hands-On Laboratory: Distributed Web Services & API Integration",
+            "problem": "Implement the following 5 hands-on web services and data interchange challenges:\n\n1. XML Course Catalog Parser:\nParse an XML document containing courses, modules, and instructors. Extract each course title, duration, and list of modules into a structured Python list of dictionaries.\n\n2. JSON User Profile Transformer:\nGiven a raw JSON string of user accounts, parse the data, filter users who are active, compute the average age, and return a clean serialized JSON report with indentation.\n\n3. Safe Geocoding Query Builder:\nWrite a function build_geocoding_request(address, api_key) that validates inputs, safely encodes query parameters, and generates a valid HTTPS request URL.\n\n4. Open-Meteo Weather API Consumer:\nBuild a function that simulates querying weather data for coordinates (latitude, longitude) and extracts the current temperature, windspeed, and weather code.\n\n5. API Token Authenticated Gateway Client:\nImplement a client class that maintains an authentication token, makes simulated requests, handles expired tokens (HTTP 401) by refreshing credentials, and retries the request.",
+            "solutionCode": "import json\nimport urllib.parse\nimport xml.etree.ElementTree as ET\n\n# ==============================================================================\n# Challenge 1: XML Course Catalog Parser\n# ==============================================================================\nxml_catalog = \"\"\"\n<catalog>\n  <course id=\"PY-101\" category=\"Programming\">\n    <title>Python Masterclass</title>\n    <duration_hours>40</duration_hours>\n    <modules>\n      <module order=\"1\">Introduction to Python</module>\n      <module order=\"2\">Variables &amp; Types</module>\n      <module order=\"3\">Data Structures</module>\n    </modules>\n  </course>\n  <course id=\"SQL-201\" category=\"Data\">\n    <title>SQL for Analytics</title>\n    <duration_hours>25</duration_hours>\n    <modules>\n      <module order=\"1\">RDBMS Fundamentals</module>\n      <module order=\"2\">Complex Queries &amp; Joins</module>\n    </modules>\n  </course>\n</catalog>\n\"\"\"\n\ndef parse_xml_catalog(raw_xml):\n    root = ET.fromstring(raw_xml.strip())\n    courses = []\n    \n    for c in root.findall('course'):\n        course_id = c.get('id')\n        category = c.get('category')\n        title = c.find('title').text\n        hours = int(c.find('duration_hours').text)\n        \n        mods = [m.text for m in c.find('modules').findall('module')]\n        courses.append({\n            \"id\": course_id,\n            \"category\": category,\n            \"title\": title,\n            \"hours\": hours,\n            \"modules\": mods\n        })\n    return courses\n\nparsed_catalog = parse_xml_catalog(xml_catalog)\nprint(\"Challenge 1 - Parsed XML Course Catalog:\")\nfor c in parsed_catalog:\n    print(f\"  [{c['id']}] {c['title']} ({c['hours']}h) - {len(c['modules'])} modules\")\n\n\n# ==============================================================================\n# Challenge 2: JSON User Profile Transformer\n# ==============================================================================\nraw_users_json = \"\"\"\n[\n  {\"id\": 1, \"name\": \"Ananya\", \"active\": true, \"age\": 28},\n  {\"id\": 2, \"name\": \"Rahul\", \"active\": false, \"age\": 22},\n  {\"id\": 3, \"name\": \"Priya\", \"active\": true, \"age\": 31},\n  {\"id\": 4, \"name\": \"John\", \"active\": true, \"age\": 25}\n]\n\"\"\"\n\ndef transform_active_user_metrics(json_str):\n    users = json.loads(json_str)\n    active_users = [u for u in users if u.get('active')]\n    avg_age = sum(u['age'] for u in active_users) / len(active_users) if active_users else 0\n    \n    report = {\n        \"total_records\": len(users),\n        \"active_count\": len(active_users),\n        \"average_active_age\": round(avg_age, 1),\n        \"active_members\": [u['name'] for u in active_users]\n    }\n    return json.dumps(report, indent=2)\n\nreport_json = transform_active_user_metrics(raw_users_json)\nprint(f\"\nChallenge 2 - Active User JSON Report:\n{report_json}\")\n\n\n# ==============================================================================\n# Challenge 3: Safe Geocoding Query Builder\n# ==============================================================================\ndef build_geocoding_request(address, api_key):\n    if not address or not isinstance(address, str):\n        raise ValueError(\"Address must be a non-empty string.\")\n        \n    base_endpoint = \"https://maps.googleapis.com/maps/api/geocode/json\"\n    params = {\n        \"address\": address.strip(),\n        \"key\": api_key,\n        \"sensor\": \"false\"\n    }\n    encoded = urllib.parse.urlencode(params)\n    return f\"{base_endpoint}?{encoded}\"\n\ntest_url = build_geocoding_request(\"MG Road, Bengaluru, Karnataka, India\", \"AIzaSy_demo_key_2026\")\nprint(f\"\nChallenge 3 - Encoded Geocoding URL:\n  {test_url}\")\n\n\n# ==============================================================================\n# Challenge 4: Open-Meteo Weather Data Consumer\n# ==============================================================================\nmock_weather_response = \"\"\"{\n  \"latitude\": 12.97,\n  \"longitude\": 77.59,\n  \"current_weather\": {\n    \"temperature\": 27.8,\n    \"windspeed\": 11.2,\n    \"weathercode\": 2\n  }\n}\"\"\"\n\ndef parse_weather_payload(json_payload):\n    data = json.loads(json_payload)\n    current = data.get(\"current_weather\", {})\n    return {\n        \"coordinates\": f\"{data.get('latitude')}, {data.get('longitude')}\",\n        \"temperature_celsius\": current.get(\"temperature\"),\n        \"wind_speed_kmh\": current.get(\"windspeed\"),\n        \"status_code\": current.get(\"weathercode\")\n    }\n\nweather_report = parse_weather_payload(mock_weather_response)\nprint(\"\nChallenge 4 - Weather Metrics Parsed:\")\nfor k, v in weather_report.items():\n    print(f\"  {k:<22}: {v}\")\n\n\n# ==============================================================================\n# Challenge 5: API Authenticated Gateway Client with Token Refresh\n# ==============================================================================\nclass AuthenticatedApiClient:\n    def __init__(self, client_id, secret):\n        self.client_id = client_id\n        self.secret = secret\n        self.token = None\n\n    def authenticate(self):\n        # Simulates acquiring a new Bearer token\n        self.token = f\"tok_bearer_{self.client_id}_active\"\n        return self.token\n\n    def execute_request(self, endpoint, simulate_expired=False):\n        if not self.token or simulate_expired:\n            self.authenticate()\n            \n        headers = {\"Authorization\": f\"Bearer {self.token}\"}\n        return {\"status\": 200, \"endpoint\": endpoint, \"auth_header\": headers[\"Authorization\"]}\n\nclient = AuthenticatedApiClient(\"app-901\", \"sec-xyz\")\nres1 = client.execute_request(\"/v1/profile\")\nprint(f\"\nChallenge 5 - Authenticated API Client:\")\nprint(f\"  Token Initialized: {res1['auth_header']}\")\nres2 = client.execute_request(\"/v1/billing\", simulate_expired=True)\nprint(f\"  Token Refreshed:   {res2['auth_header']}\")"
           },
           "keyTakeaways": [
-            "JSON maps natively to Python dicts and lists.",
-            "json.loads() parses JSON strings.",
-            "APIs exchange structured data between applications."
+            "Web Services allow distributed programs to exchange raw data without HTML presentation markup.",
+            "XML provides a hierarchical tag-based format parsed with xml.etree.ElementTree.",
+            "JSON is lightweight, maps 1-to-1 onto Python dictionaries and lists, and is the standard for REST APIs.",
+            "Use json.dumps() to serialize to JSON strings and json.loads() to parse JSON into Python objects.",
+            "REST architecture models resources as nouns and manipulates them using standard HTTP verbs (GET, POST, PUT, DELETE).",
+            "Always construct query strings using urllib.parse.urlencode() to prevent character encoding bugs.",
+            "Implement defensive retry mechanisms with exponential backoff to handle HTTP 429 rate limiting gracefully."
           ],
           "references": [
             {
-              "title": "Python for Everybody Chapter 13",
+              "title": "Python for Everybody: Chapter 13 — Web Services",
               "url": "https://www.py4e.com/html3/13-web"
+            },
+            {
+              "title": "Python Documentation: json — JSON encoder and decoder",
+              "url": "https://docs.python.org/3/library/json.html"
+            },
+            {
+              "title": "Python Documentation: xml.etree.ElementTree — The ElementTree XML API",
+              "url": "https://docs.python.org/3/library/xml.etree.elementtree.html"
             }
-          ]
+          ],
+          "mcqs": [
+            {
+              "id": 1,
+              "question": "What is the primary architectural difference between human-facing HTML and machine-facing Web Services (JSON / REST)?",
+              "options": [
+                "HTML contains styling and presentation markup; Web Services transmit raw semantic data payloads with stable programmatic contracts",
+                "HTML is only used on mobile phones",
+                "Web Services cannot be transferred over HTTP",
+                "JSON requires a web browser to be decoded"
+              ],
+              "correctAnswer": 0,
+              "explanation": "Web Services transmit structured data (JSON/XML) intended for automated consumption by software, free of visual formatting markup."
+            },
+            {
+              "id": 2,
+              "question": "Which Python function converts a raw JSON string into a native Python dictionary or list?",
+              "options": [
+                "json.dumps()",
+                "json.loads()",
+                "json.encode()",
+                "json.to_dict()"
+              ],
+              "correctAnswer": 1,
+              "explanation": "json.loads() (Load from String) parses a JSON-formatted string and returns the corresponding Python dictionary, list, or primitive."
+            },
+            {
+              "id": 3,
+              "question": "What HTTP status code does a REST API return to indicate that the client has sent too many requests and exceeded rate limits?",
+              "options": [
+                "200 OK",
+                "400 Bad Request",
+                "404 Not Found",
+                "429 Too Many Requests"
+              ],
+              "correctAnswer": 3,
+              "explanation": "HTTP 429 Too Many Requests indicates that the client has exceeded rate limits and must pause requests (often indicated in a Retry-After header)."
+            },
+            {
+              "id": 4,
+              "question": "Why should API query parameters always be assembled using urllib.parse.urlencode() rather than string concatenation?",
+              "options": [
+                "urlencode() converts Python code into JavaScript",
+                "urlencode() properly percent-encodes special characters, spaces, and ampersands, preventing broken URLs and injection bugs",
+                "It encrypts the URL with SSL",
+                "It limits query strings to 10 parameters"
+              ],
+              "correctAnswer": 1,
+              "explanation": "urllib.parse.urlencode() converts parameter dictionaries into properly escaped query strings (e.g. converting ' ' to '+' and '&' to '%26')."
+            },
+            {
+              "id": 5,
+              "question": "What is the industry-standard HTTP header used to transmit Bearer authentication tokens to REST APIs?",
+              "options": [
+                "Authentication-Token: Bearer <token>",
+                "Authorization: Bearer <token>",
+                "Security-Key: Bearer <token>",
+                "User-Token: Bearer <token>"
+              ],
+              "correctAnswer": 1,
+              "explanation": "RFC 6750 establishes 'Authorization: Bearer <token>' as the standard HTTP header for transmitting OAuth2 and API bearer credentials."
+            }
+          ],
+          "selfAssessment": {
+            "title": "Module Self-Assessment (5 Knowledge Check MCQs)",
+            "questions": [
+              {
+                "id": "py-q-14-1",
+                "questionNumber": 1,
+                "topic": "JSON Serialization vs Deserialization",
+                "questionText": "What is the difference between json.loads() and json.load() in Python's standard json module?",
+                "options": [
+                  "json.loads() parses a JSON string; json.load() parses a JSON stream directly from a readable file object",
+                  "json.loads() converts Python objects to JSON; json.load() reads binary files",
+                  "They are deprecated synonyms with identical signatures",
+                  "json.load() is for small datasets, json.loads() is for databases"
+                ],
+                "correctAnswer": 0,
+                "explanation": "The 's' in loads() stands for 'String'. json.loads(str) deserializes an in-memory string, while json.load(fp) reads directly from an open file-like object."
+              },
+              {
+                "id": "py-q-14-2",
+                "questionNumber": 2,
+                "topic": "XML ElementTree Navigation",
+                "questionText": "In xml.etree.ElementTree, what method searches for all direct child elements matching a specific tag name?",
+                "options": [
+                  "root.findall('tag_name')",
+                  "root.search('tag_name')",
+                  "root.get_children('tag_name')",
+                  "root.query('tag_name')"
+                ],
+                "correctAnswer": 0,
+                "explanation": "element.findall('tag') finds all matching child elements and returns them in a Python list."
+              },
+              {
+                "id": "py-q-14-3",
+                "questionNumber": 3,
+                "topic": "REST Architectural Constraints",
+                "questionText": "Which HTTP request method should be used according to REST semantics to update an existing resource idempotently?",
+                "options": [
+                  "GET",
+                  "POST",
+                  "PUT",
+                  "HEAD"
+                ],
+                "correctAnswer": 2,
+                "explanation": "HTTP PUT is designated in REST architectures for updating an existing resource with idempotent semantics (repeated identical requests produce the same state)."
+              },
+              {
+                "id": "py-q-14-4",
+                "questionNumber": 4,
+                "topic": "API Bearer Authentication",
+                "questionText": "Where is a JWT (JSON Web Token) or API Key typically passed in standard authenticated REST HTTP requests?",
+                "options": [
+                  "In the URL query string parameter ?password=...",
+                  "In the Authorization request header formatted as Bearer <token>",
+                  "As a comment in the JSON payload body",
+                  "In the user-agent header"
+                ],
+                "correctAnswer": 1,
+                "explanation": "Standard REST APIs transmit bearer credentials securely in the Authorization: Bearer <token> HTTP header."
+              },
+              {
+                "id": "py-q-14-5",
+                "questionNumber": 5,
+                "topic": "JSON Dumps Return Type",
+                "questionText": "What data type does json.dumps({'course': 'Python', 'modules': 15}) return in Python?",
+                "options": [
+                  "A Python dictionary (dict)",
+                  "A JSON-formatted string (str)",
+                  "A binary bytes object (bytes)",
+                  "An XML document tree"
+                ],
+                "correctAnswer": 1,
+                "explanation": "json.dumps() serializes a Python data structure into a formatted JSON string (str)."
+              }
+            ]
+          }
         },
         "quiz": {
           "id": "quiz-py-mod-14",
@@ -2358,24 +6775,23 @@ export const INITIAL_COURSES = [
           "questions": [
             {
               "id": "py-q-14-1",
-              "type": "multiple-choice",
+              "questionNumber": 1,
               "topic": "JSON Serialization vs Deserialization",
-              "questionText": "What is the difference between `json.loads()` and `json.load()` in Python's standard `json` module?",
+              "questionText": "What is the difference between json.loads() and json.load() in Python's standard json module?",
               "options": [
-                "`json.loads()` parses a JSON string; `json.load()` parses a JSON stream directly from a readable file object",
-                "`json.loads()` converts Python objects to JSON; `json.load()` reads binary files",
+                "json.loads() parses a JSON string; json.load() parses a JSON stream directly from a readable file object",
+                "json.loads() converts Python objects to JSON; json.load() reads binary files",
                 "They are deprecated synonyms with identical signatures",
-                "`json.load()` is for small datasets, `json.loads()` is for databases"
+                "json.load() is for small datasets, json.loads() is for databases"
               ],
               "correctAnswer": 0,
-              "marks": 10,
-              "explanation": "The 's' in `loads()` stands for 'String'. `json.loads(str)` deserializes an in-memory string, while `json.load(fp)` reads directly from an open file-like object."
+              "explanation": "The 's' in loads() stands for 'String'. json.loads(str) deserializes an in-memory string, while json.load(fp) reads directly from an open file-like object."
             },
             {
               "id": "py-q-14-2",
-              "type": "multiple-choice",
+              "questionNumber": 2,
               "topic": "XML ElementTree Navigation",
-              "questionText": "In `xml.etree.ElementTree`, what method searches for all direct child elements matching a specific tag name?",
+              "questionText": "In xml.etree.ElementTree, what method searches for all direct child elements matching a specific tag name?",
               "options": [
                 "root.findall('tag_name')",
                 "root.search('tag_name')",
@@ -2383,12 +6799,11 @@ export const INITIAL_COURSES = [
                 "root.query('tag_name')"
               ],
               "correctAnswer": 0,
-              "marks": 10,
-              "explanation": "`element.findall('tag')` finds all matching child elements and returns them in a Python list."
+              "explanation": "element.findall('tag') finds all matching child elements and returns them in a Python list."
             },
             {
               "id": "py-q-14-3",
-              "type": "multiple-choice",
+              "questionNumber": 3,
               "topic": "REST Architectural Constraints",
               "questionText": "Which HTTP request method should be used according to REST semantics to update an existing resource idempotently?",
               "options": [
@@ -2398,38 +6813,35 @@ export const INITIAL_COURSES = [
                 "HEAD"
               ],
               "correctAnswer": 2,
-              "marks": 10,
-              "explanation": "HTTP `PUT` is designated in REST architectures for updating an existing resource with idempotent semantics (repeated identical requests produce the same state)."
+              "explanation": "HTTP PUT is designated in REST architectures for updating an existing resource with idempotent semantics (repeated identical requests produce the same state)."
             },
             {
               "id": "py-q-14-4",
-              "type": "multiple-choice",
+              "questionNumber": 4,
               "topic": "API Bearer Authentication",
               "questionText": "Where is a JWT (JSON Web Token) or API Key typically passed in standard authenticated REST HTTP requests?",
               "options": [
-                "In the URL query string parameter `?password=...`",
-                "In the `Authorization` request header formatted as `Bearer <token>`",
+                "In the URL query string parameter ?password=...",
+                "In the Authorization request header formatted as Bearer <token>",
                 "As a comment in the JSON payload body",
                 "In the user-agent header"
               ],
               "correctAnswer": 1,
-              "marks": 10,
-              "explanation": "Standard REST APIs transmit bearer credentials securely in the `Authorization: Bearer <token>` HTTP header."
+              "explanation": "Standard REST APIs transmit bearer credentials securely in the Authorization: Bearer <token> HTTP header."
             },
             {
               "id": "py-q-14-5",
-              "type": "multiple-choice",
+              "questionNumber": 5,
               "topic": "JSON Dumps Return Type",
-              "questionText": "What data type does `json.dumps({'course': 'Python', 'modules': 15})` return in Python?",
+              "questionText": "What data type does json.dumps({'course': 'Python', 'modules': 15}) return in Python?",
               "options": [
-                "A Python dictionary (`dict`)",
-                "A JSON-formatted string (`str`)",
-                "A binary bytes object (`bytes`)",
+                "A Python dictionary (dict)",
+                "A JSON-formatted string (str)",
+                "A binary bytes object (bytes)",
                 "An XML document tree"
               ],
               "correctAnswer": 1,
-              "marks": 10,
-              "explanation": "`json.dumps()` serializes a Python data structure into a formatted JSON string (`str`)."
+              "explanation": "json.dumps() serializes a Python data structure into a formatted JSON string (str)."
             }
           ]
         }
@@ -2437,68 +6849,294 @@ export const INITIAL_COURSES = [
       {
         "id": "py-mod-15",
         "title": "Module 15 — Database Connectivity (SQLite) & Data Visualization",
-        "description": "Relational database concepts, SQLite integration with sqlite3, SQL queries (CREATE, INSERT, SELECT, JOIN), DB Browser, and building a data visualization capstone project.",
-        "completed": false,
+        "description": "Relational database modeling, SQLite integration with sqlite3, SQL queries, parameterized statements preventing SQL injection, multi-table JOINs, many-to-many junction tables, and exporting data for interactive web visualization.",
+        "completed": true,
         "readingMaterial": {
-          "introduction": "Based on Chapters 15 and 16 of 'Python for Everybody', relational databases store data permanently on disk in structured tables. SQLite comes built directly into Python via sqlite3. In this final capstone module, you will build relational database applications and export data visualizations.",
+          "introduction": "Throughout the previous fourteen modules of this boot camp, we have progressed from basic syntax, variables, and loops to object-oriented programming, regular expressions, and networked web services. Yet every application we have built faced a fundamental data storage limitation: flat text files and JSON documents are linear. As dataset sizes grow to hundreds of thousands or millions of records, searching a flat file requires scanning every byte sequentially ($O(N)$ linear time), and updating a single record requires rewriting the entire file to disk.\n\nRelational Database Management Systems (RDBMS) solve these performance and scalability limits. Databases store structured tables indexed with balanced B-trees, enabling instant $O(log N)$ lookups across billions of rows. Furthermore, databases enforce ACID guarantees (Atomicity, Consistency, Isolation, Durability), ensuring that financial transactions and multi-user updates never leave data partially written or corrupted.\n\nBased on Chapters 15 and 16 of Dr. Charles Severance's 'Python for Everybody', this capstone module unites every skill acquired in this boot camp into a complete, enterprise-grade data engineering pipeline. You will master Python's built-in sqlite3 engine: modeling normalized relational schemas (1-to-many and many-to-many relationships), executing parameterized SQL queries to eliminate SQL injection vulnerabilities, joining tables across Primary and Foreign Keys, managing transaction rollbacks and commits, and building the complete Capstone Project: an automated pipeline that ingests data from external sources, structures it inside SQLite, and exports it for high-impact interactive web visualization.",
           "objectives": [
-            "Understand Database concepts: Tables, Rows (tuples), Columns (attributes)",
-            "Connect to SQLite databases using import sqlite3",
-            "Execute SQL commands: CREATE TABLE, INSERT INTO, SELECT, WHERE, JOIN",
-            "Use parameterized queries (?) to prevent SQL Injection security vulnerabilities",
-            "Model relational 1-to-many and many-to-many junction table relationships",
-            "Complete the Python Capstone Data Application!"
+            "Understand the motivation for Relational Databases over flat files, including ACID transactional guarantees.",
+            "Explain the serverless, zero-configuration architecture of SQLite embedded within Python's standard library.",
+            "Master the complete Python sqlite3 lifecycle: connect, cursor, execute, commit, fetch, and close.",
+            "Execute Data Definition Language (DDL) commands: CREATE TABLE, DROP TABLE, and PRIMARY KEY constraints.",
+            "Execute Data Manipulation Language (DML) commands: INSERT INTO, SELECT, UPDATE, and DELETE.",
+            "Eliminate SQL Injection security vulnerabilities completely using parameterized queries (? placeholders).",
+            "Model normalized relational database schemas: 1-to-many relationships and many-to-many junction tables.",
+            "Perform multi-table relational queries using INNER JOIN and LEFT JOIN with explicit ON clauses.",
+            "Implement the complete Capstone Pipeline: Web Ingestion -> SQLite Staging -> JSON Data Visualization Export.",
+            "Complete the Python Programming Masterclass curriculum with an end-to-end data engineering portfolio project!"
           ],
           "sections": [
             {
-              "heading": "Database Connection & Cursor Lifecycle",
-              "text": "1. sqlite3.connect('db.sqlite') -> 2. conn.cursor() -> 3. cursor.execute(SQL) -> 4. conn.commit() -> 5. conn.close()."
+              "heading": "1. Why Relational Databases? ACID Guarantees vs. Flat Files",
+              "text": "Consider building an e-commerce platform that processes 100 orders per second:\n\nWhy Flat Files Fail:\n1. Concurrency Bottlenecks: If two users write to orders.csv simultaneously, file write collisions corrupt the file.\n2. Slow Query Performance: Searching a 10GB CSV file for customer 'Rahul Kumar' requires reading all 10GB from disk (O(N) full table scan).\n3. No Transactional Safety: If power fails while writing an invoice, the file is half-written and unusable.\n\nThe Relational Database Solution (ACID Properties):\n• Atomicity: An entire transaction succeeds, or it is completely rolled back (all-or-nothing).\n• Consistency: Enforces schema data types and foreign key constraints; invalid data cannot be saved.\n• Isolation: Concurrent transactions execute independently without interfering with each other.\n• Durability: Once a transaction is committed, data is permanently recorded on physical storage even if the server immediately crashes."
             },
             {
-              "heading": "Relational Modeling & JOINs",
-              "text": "To avoid duplicating text data across thousands of rows (Database Normalization), store entities in separate tables linked via Primary Keys (id) and Foreign Keys (artist_id). Use JOIN ... ON to query related records."
+              "heading": "2. The SQLite Architecture: Python's Embedded Engine",
+              "text": "Unlike enterprise client-server databases (such as PostgreSQL, MySQL, or Oracle) which require separate server daemons, port configurations, and user permission setups:\n\nSQLite is Serverless and Embedded:\n• The entire database engine is compiled directly into Python via the sqlite3 C library.\n• The entire database—including tables, indexes, schemas, and millions of rows—lives inside a single cross-platform disk file (e.g. bootcamp.sqlite).\n• Zero configuration: You can create, populate, and query a database in three lines of Python without installing external database software."
+            },
+            {
+              "heading": "3. The Python sqlite3 Lifecycle & Cursor Mechanics",
+              "text": "Working with SQLite in Python follows a strict 5-stage lifecycle:\n\n1. Connect: Establish a connection handle to the database file:\nconn = sqlite3.connect('academy.db')\n\n2. Cursor: Create a cursor object to execute SQL commands and fetch results:\ncur = conn.cursor()\n\n3. Execute: Transmit SQL commands to the engine:\ncur.execute('CREATE TABLE Students (id INTEGER PRIMARY KEY, name TEXT)')\n\n4. Commit: Commit pending transactional changes permanently to disk:\nconn.commit() # Essential! Without commit(), INSERT and UPDATE operations are lost on script exit!\n\n5. Close: Release cursor and file locks cleanly:\ncur.close()\nconn.close()"
+            },
+            {
+              "heading": "4. Preventing SQL Injection: Parameterized Queries vs. String Formatting",
+              "text": "SQL Injection is consistently ranked as one of the most critical security vulnerabilities in software engineering (OWASP Top 10).\n\nThe Vulnerable Anti-Pattern (NEVER DO THIS):\nuser_input = \"admin' OR '1'='1\"\n# DANGEROUS STRING FORMATTING:\nquery = f\"SELECT * FROM Users WHERE username = '{user_input}'\"\ncur.execute(query)\nResult: The query executes as: SELECT * FROM Users WHERE username = 'admin' OR '1'='1', granting the attacker instant administrative bypass!\n\nThe Secure Standard: Parameterized Queries (?)\nAlways pass values as a separate tuple parameter to cur.execute():\ncur.execute(\"SELECT * FROM Users WHERE username = ? AND password = ?\", (username, password))\nHow Parameterization Protects You:\nThe SQLite engine treats the ? placeholders strictly as data literals. Even if the user inputs SQL syntax or quotes, SQLite never interprets the input as executable SQL commands!"
+            },
+            {
+              "heading": "5. Relational Modeling & Database Normalization",
+              "text": "In a naive spreadsheet, a track list repeats artist names, albums, and genres thousands of times:\nRow 1: 'Thunderstruck', 'AC/DC', 'The Razors Edge', 'Rock'\nRow 2: 'Moneytalks', 'AC/DC', 'The Razors Edge', 'Rock'\nRow 3: 'Are You Ready', 'AC/DC', 'The Razors Edge', 'Rock'\n\nProblems with Denormalized Data:\n1. Massive Disk Waste: The string 'AC/DC' is repeated millions of times.\n2. Update Anomalies: If the artist changes their name, you must execute a million updates. If one fails, data becomes inconsistent.\n\nThe Normalized Relational Solution:\nDivide data into specialized tables linked by numeric IDs:\n• Artist Table: id (PK), name\n• Album Table: id (PK), title, artist_id (FK)\n• Track Table: id (PK), title, album_id (FK)"
+            },
+            {
+              "heading": "6. Primary Keys vs. Foreign Keys",
+              "text": "The architectural foundation of relational databases:",
+              "table": {
+                "headers": [
+                  "Key Concept",
+                  "Abbreviation",
+                  "Role in Database",
+                  "Integrity Rule"
+                ],
+                "rows": [
+                  [
+                    "Primary Key",
+                    "PK",
+                    "A unique numeric identifier for each row in a table (e.g. id INTEGER PRIMARY KEY AUTOINCREMENT)",
+                    "Must be unique, non-null, and immutable across the row lifecycle"
+                  ],
+                  [
+                    "Foreign Key",
+                    "FK",
+                    "A column in a table that references the Primary Key of another table (e.g. album_id INTEGER)",
+                    "Enforces Referential Integrity: cannot point to a non-existent parent row"
+                  ],
+                  [
+                    "Junction Table",
+                    "Association Table",
+                    "A table containing Foreign Keys from two tables to represent Many-to-Many relationships",
+                    "e.g. Member (user_id FK, course_id FK, role TEXT)"
+                  ]
+                ]
+              }
+            },
+            {
+              "heading": "7. Multi-Table Relational Queries with JOIN ... ON",
+              "text": "To query normalized data across multiple tables, use the SQL JOIN clause:\n\nSyntax:\nSELECT Track.title, Album.title, Artist.name\nFROM Track\nJOIN Album ON Track.album_id = Album.id\nJOIN Artist ON Album.artist_id = Artist.id\nWHERE Artist.name = 'AC/DC'\n\nTypes of Joins:\n1. INNER JOIN (Default):\nReturns rows only where there is an exact match in both joined tables.\n\n2. LEFT OUTER JOIN:\nReturns ALL rows from the left table, even if no corresponding row exists in the right table (unmatched columns are filled with NULL)."
+            },
+            {
+              "heading": "8. Many-to-Many Relationships: Junction Tables",
+              "text": "Consider modeling Course Enrollment:\n• A Student can enroll in Many Courses.\n• A Course can have Many Students.\n\nThis Many-to-Many relationship cannot be represented with a single Foreign Key.\nThe Solution: A Junction (Membership) Table:\n1. User Table: id (PK), name, email\n2. Course Table: id (PK), title\n3. Member Table: user_id (FK), course_id (FK), role (0=Student, 1=Instructor), PRIMARY KEY (user_id, course_id)\n\nQuerying Many-to-Many:\nSELECT User.name, Course.title, Member.role\nFROM User\nJOIN Member ON User.id = Member.user_id\nJOIN Course ON Member.course_id = Course.id"
+            },
+            {
+              "heading": "9. The Complete Capstone Data Pipeline: Ingest -> Stage -> Visualize",
+              "text": "In enterprise data engineering, Python programs follow a 3-tier architecture:\n\nStage 1: Ingestion (Scraping / REST API):\nNetwork scripts (Module 13 & 14) fetch external raw data payloads (JSON or HTML).\n\nStage 2: Staging & Relational Modeling (SQLite):\nData is cleaned, normalized, deduplicated, and stored inside SQLite tables with proper indexes (Module 15).\n\nStage 3: Visualization Export:\nPython executes analytical SQL aggregations (GROUP BY, COUNT, AVG) and writes clean JSON/CSV files ready for frontend rendering with Chart.js, D3.js, or Leaflet mapping."
             }
           ],
           "codeExamples": [
             {
-              "title": "SQLite Database Setup Script (db1.py & db2.py)",
-              "code": "# Chapter 15: SQLite Integration in Python\nimport sqlite3\n\nconn = sqlite3.connect('bootcamp.db')\ncur = conn.cursor()\n\n# Create Tracks Table\ncur.execute('DROP TABLE IF EXISTS Track')\ncur.execute('CREATE TABLE Track (title TEXT, plays INTEGER)')\n\n# Insert Records with Parameterized Queries\ncur.execute('INSERT INTO Track (title, plays) VALUES (?, ?)', ('Thunderstruck', 20))\ncur.execute('INSERT INTO Track (title, plays) VALUES (?, ?)', ('My Way', 15))\nconn.commit()\n\n# Query Database Records\ncur.execute('SELECT title, plays FROM Track WHERE plays >= 15')\nfor row in cur:\n    print(f\"Track: {row[0]} | Plays: {row[1]}\")\n\ncur.close()\nconn.close()",
-              "explanation": "Demonstrates SQLite connection, schema creation, row insertion, and querying."
+              "title": "1. Complete SQLite Table Creation & Parameterized Insertion",
+              "code": "import sqlite3\n\n# Connect to database file (creates it if not existing)\nconn = sqlite3.connect('academy_demo.db')\ncur = conn.cursor()\n\n# Step 1: Create fresh schema\ncur.execute('DROP TABLE IF EXISTS Student')\ncur.execute('''\nCREATE TABLE Student (\n    id INTEGER PRIMARY KEY AUTOINCREMENT,\n    name TEXT NOT NULL,\n    email TEXT UNIQUE NOT NULL,\n    gpa REAL DEFAULT 0.0\n)\n''')\n\n# Step 2: Insert records using secure parameterized queries (?)\nstudents_data = [\n    (\"Dr. Ananya Sharma\", \"ananya@arshithbootcamp.com\", 3.98),\n    (\"Rahul Kumar\", \"rahul.k@technology.org\", 3.82),\n    (\"Priya Verma\", \"priya.v@analytics.edu\", 3.91)\n]\n\nfor name, email, gpa in students_data:\n    cur.execute('''\n    INSERT INTO Student (name, email, gpa) \n    VALUES (?, ?, ?)\n    ''', (name, email, gpa))\n\n# Step 3: Commit changes permanently to disk\nconn.commit()\n\n# Step 4: Query records\ncur.execute('SELECT id, name, gpa FROM Student WHERE gpa >= ? ORDER BY gpa DESC', (3.90,))\nprint(\"Honor Students (GPA >= 3.90):\")\nfor row in cur:\n    print(f\"  [ID #{row[0]}] {row[1]:<20} | GPA: {row[2]:.2f}\")\n\ncur.close()\nconn.close()",
+              "explanation": "Demonstrates schema creation, parameterized SQL insertion, commit, and query ordering."
             },
             {
-              "title": "Multi-Table Relational JOIN Query",
-              "code": "import sqlite3\n\nconn = sqlite3.connect('music.sqlite')\ncur = conn.cursor()\n\n# Relational Join Query connecting Tracks, Albums, and Artists\nquery = '''\nSELECT Track.title, Album.title, Artist.name \nFROM Track \nJOIN Album ON Track.album_id = Album.id \nJOIN Artist ON Album.artist_id = Artist.id \nLIMIT 5\n'''\n\ncur.execute(query)\nfor row in cur:\n    print(f\"Track: {row[0]} | Album: {row[1]} | Artist: {row[2]}\")\n\nconn.close()",
-              "explanation": "Executes SQL JOIN connecting 3 relational tables."
+              "title": "2. Normalized Relational Schema with Multi-Table JOINs",
+              "code": "import sqlite3\n\nconn = sqlite3.connect('music_catalog.db')\ncur = conn.cursor()\n\ncur.executescript('''\nDROP TABLE IF EXISTS Track;\nDROP TABLE IF EXISTS Album;\nDROP TABLE IF EXISTS Artist;\n\nCREATE TABLE Artist (\n    id INTEGER PRIMARY KEY AUTOINCREMENT,\n    name TEXT UNIQUE NOT NULL\n);\n\nCREATE TABLE Album (\n    id INTEGER PRIMARY KEY AUTOINCREMENT,\n    title TEXT NOT NULL,\n    artist_id INTEGER,\n    FOREIGN KEY (artist_id) REFERENCES Artist (id)\n);\n\nCREATE TABLE Track (\n    id INTEGER PRIMARY KEY AUTOINCREMENT,\n    title TEXT NOT NULL,\n    duration_seconds INTEGER,\n    album_id INTEGER,\n    FOREIGN KEY (album_id) REFERENCES Album (id)\n);\n''')\n\n# Insert Normalized Entities\ncur.execute('INSERT INTO Artist (name) VALUES (?)', ('AC/DC',))\nartist_id = cur.lastrowid\n\ncur.execute('INSERT INTO Album (title, artist_id) VALUES (?, ?)', ('Back in Black', artist_id))\nalbum_id = cur.lastrowid\n\ncur.execute('INSERT INTO Track (title, duration_seconds, album_id) VALUES (?, ?, ?)', ('Hells Bells', 312, album_id))\ncur.execute('INSERT INTO Track (title, duration_seconds, album_id) VALUES (?, ?, ?)', ('Shoot to Thrill', 317, album_id))\nconn.commit()\n\n# Multi-Table Relational JOIN Query\ncur.execute('''\nSELECT Track.title, Album.title, Artist.name, Track.duration_seconds\nFROM Track\nJOIN Album ON Track.album_id = Album.id\nJOIN Artist ON Album.artist_id = Artist.id\n''')\n\nprint(\"Relational Query Results:\")\nfor track, album, artist, duration in cur:\n    print(f\"  Track: '{track}' | Album: '{album}' | Artist: '{artist}' | Length: {duration}s\")\n\nconn.close()",
+              "explanation": "Demonstrates 1-to-many foreign key relationships and multi-table relational SQL JOIN queries."
+            },
+            {
+              "title": "3. Many-to-Many Enrollment Modeling with Junction Tables",
+              "code": "import sqlite3\n\nconn = sqlite3.connect('university.db')\ncur = conn.cursor()\n\ncur.executescript('''\nDROP TABLE IF EXISTS Member;\nDROP TABLE IF EXISTS User;\nDROP TABLE IF EXISTS Course;\n\nCREATE TABLE User (\n    id INTEGER PRIMARY KEY AUTOINCREMENT,\n    name TEXT NOT NULL\n);\n\nCREATE TABLE Course (\n    id INTEGER PRIMARY KEY AUTOINCREMENT,\n    title TEXT NOT NULL\n);\n\nCREATE TABLE Member (\n    user_id INTEGER,\n    course_id INTEGER,\n    role INTEGER, -- 1=Instructor, 0=Student\n    PRIMARY KEY (user_id, course_id)\n);\n''')\n\n# Populate Users and Courses\ncur.execute('INSERT INTO User (name) VALUES (?)', ('Dr. Charles Severance',))\nu_chuck = cur.lastrowid\ncur.execute('INSERT INTO User (name) VALUES (?)', ('Bhavana',))\nu_bhavana = cur.lastrowid\n\ncur.execute('INSERT INTO Course (title) VALUES (?)', ('Python for Everybody',))\nc_python = cur.lastrowid\n\n# Link via Junction Table (Member)\ncur.execute('INSERT INTO Member VALUES (?, ?, ?)', (u_chuck, c_python, 1)) # Chuck is Instructor\ncur.execute('INSERT INTO Member VALUES (?, ?, ?)', (u_bhavana, c_python, 0)) # Bhavana is Student\nconn.commit()\n\n# Query Many-to-Many Roster\ncur.execute('''\nSELECT User.name, Course.title, Member.role\nFROM User\nJOIN Member ON User.id = Member.user_id\nJOIN Course ON Member.course_id = Course.id\nORDER BY Member.role DESC\n''')\n\nprint(\"Course Roster:\")\nfor name, course, role in cur:\n    role_str = \"Instructor\" if role == 1 else \"Student\"\n    print(f\"  [{role_str:<10}] {name} in '{course}'\")\n\nconn.close()",
+              "explanation": "Models complex many-to-many relationships using junction tables and composite primary keys."
+            },
+            {
+              "title": "4. Capstone Pipeline: Analytical Aggregation to Web JSON Export",
+              "code": "import sqlite3\nimport json\n\nconn = sqlite3.connect(':memory:') # High-speed in-memory database for pipeline\ncur = conn.cursor()\n\ncur.execute('CREATE TABLE PageVisits (endpoint TEXT, response_time_ms INTEGER)')\n\n# Ingest sample telemetry\nmock_visits = [\n    ('/courses/python', 45), ('/courses/python', 52), ('/courses/python', 48),\n    ('/courses/sql', 65), ('/courses/sql', 72),\n    ('/api/v1/auth', 110), ('/api/v1/auth', 125)\n]\ncur.executemany('INSERT INTO PageVisits VALUES (?, ?)', mock_visits)\nconn.commit()\n\n# Analytical SQL Aggregation (GROUP BY, COUNT, AVG)\ncur.execute('''\nSELECT endpoint, COUNT(*) as hits, ROUND(AVG(response_time_ms), 1) as avg_latency\nFROM PageVisits\nGROUP BY endpoint\nORDER BY hits DESC\n''')\n\nvisualization_data = []\nfor endpoint, hits, avg_lat in cur:\n    visualization_data.append({\n        \"route\": endpoint,\n        \"traffic_hits\": hits,\n        \"latency_ms\": avg_lat\n    })\n\n# Export to clean JSON ready for frontend charts (Chart.js / D3)\nexported_json = json.dumps(visualization_data, indent=2)\nprint(\"Pipeline Export for Dashboard Visualization:\")\nprint(exported_json)\n\nconn.close()",
+              "explanation": "Aggregates data inside SQLite and exports clean JSON formatted for modern dashboard visualization."
             }
           ],
           "bestPractices": [
-            "Always use parameterized queries (?) rather than f-strings to prevent SQL Injection.",
-            "Always commit changes (conn.commit()) after INSERT or UPDATE statements."
+            "Always use parameterized queries (?) to insert variables into SQL statements, preventing SQL injection.",
+            "Always commit changes (conn.commit()) after executing INSERT, UPDATE, or DELETE operations.",
+            "Always design normalized relational schemas with integer Primary Keys rather than storing repeated strings.",
+            "Always close cursor and database connection handles (cur.close(), conn.close()) to release file locks.",
+            "Use executescript() when running multi-statement schema migration scripts (CREATE TABLE, DROP TABLE).",
+            "Use executemany() for high-performance bulk insertions instead of looping single insert statements.",
+            "Index frequently queried columns (CREATE INDEX idx_name ON Table(column)) for O(log N) lookup performance.",
+            "Use in-memory databases (sqlite3.connect(':memory:')) for fast unit testing and intermediate data transformations."
           ],
           "commonMistakes": [
-            "Forgetting conn.commit() causing database insertions to be lost.",
-            "Leaving SQLite database handles open in DB Browser locking the database file."
+            "Using f-strings or % formatting to assemble SQL queries, creating catastrophic SQL injection vulnerabilities.",
+            "Forgetting to call conn.commit(), causing all database modifications to disappear upon script exit.",
+            "Leaving open database handles in external applications (like DB Browser for SQLite) that lock the database file.",
+            "Duplicating foreign key references or failing to specify ON clauses in JOIN queries, causing Cartesian products.",
+            "Not handling database exceptions (sqlite3.IntegrityError) when violating UNIQUE or NOT NULL constraints.",
+            "Selecting all columns (SELECT *) indiscriminately instead of querying only the specific columns needed."
           ],
           "practiceExercise": {
-            "title": "Build Student Database System",
-            "problem": "Write a script that creates a Students table (name TEXT, course TEXT, score INTEGER) in student_db.sqlite, inserts 2 rows, and queries top students.",
-            "solutionCode": "import sqlite3\n\nconn = sqlite3.connect(\"student_db.sqlite\")\ncur = conn.cursor()\n\ncur.execute(\"CREATE TABLE IF NOT EXISTS Students (name TEXT, course TEXT, score INTEGER)\")\ncur.execute(\"INSERT INTO Students VALUES (?, ?, ?)\", (\"Arshith\", \"Python\", 98))\ncur.execute(\"INSERT INTO Students VALUES (?, ?, ?)\", (\"Student\", \"SQL\", 92))\nconn.commit()\n\ncur.execute(\"SELECT * FROM Students WHERE score >= 90\")\nprint(\"Top Students:\", cur.fetchall())\nconn.close()"
+            "title": "Module 15 Hands-On Laboratory: Enterprise Relational Database Capstone",
+            "problem": "Implement the following 4 comprehensive database capstone challenges:\n\n1. Student Grading Database System:\nCreate a Students table (id, name, course, score). Insert 4 records using executemany() and parameterized queries. Calculate the average score per course using SQL GROUP BY.\n\n2. Normalized Music Library Database:\nConstruct normalized Artist, Album, and Track tables linked by Foreign Keys. Insert 2 artists and 3 albums, and query the complete catalog using a 3-table INNER JOIN.\n\n3. Many-to-Many University Enrollment System:\nImplement User, Course, and Member tables. Enroll multiple students across courses and write a query that lists each course along with the total count of enrolled students.\n\n4. Data Visualization Exporter:\nRun an aggregation query on the University database that calculates course enrollment statistics and exports the results as a formatted JSON document ready for Chart.js bar graphs.",
+            "solutionCode": "import sqlite3\nimport json\n\n# ==============================================================================\n# Challenge 1: Student Grading Database System\n# ==============================================================================\nconn = sqlite3.connect(':memory:')\ncur = conn.cursor()\n\ncur.execute('''\nCREATE TABLE StudentGrades (\n    id INTEGER PRIMARY KEY AUTOINCREMENT,\n    name TEXT NOT NULL,\n    course TEXT NOT NULL,\n    score INTEGER NOT NULL\n)\n''')\n\nrecords = [\n    (\"Ananya\", \"Python\", 98),\n    (\"Rahul\", \"Python\", 92),\n    (\"Priya\", \"SQL\", 95),\n    (\"John\", \"SQL\", 85)\n]\ncur.executemany('INSERT INTO StudentGrades (name, course, score) VALUES (?, ?, ?)', records)\nconn.commit()\n\ncur.execute('''\nSELECT course, COUNT(*) as total_students, ROUND(AVG(score), 1) as avg_score\nFROM StudentGrades\nGROUP BY course\nORDER BY avg_score DESC\n''')\n\nprint(\"Challenge 1 - Course Averages:\")\nfor course, count, avg in cur:\n    print(f\"  Course: {course:<10} | Enrolled: {count} | Average Score: {avg}\")\n\n\n# ==============================================================================\n# Challenge 2: Normalized Music Library Database\n# ==============================================================================\ncur.executescript('''\nCREATE TABLE Artist (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT);\nCREATE TABLE Album (id INTEGER PRIMARY KEY AUTOINCREMENT, title TEXT, artist_id INTEGER);\nCREATE TABLE Track (id INTEGER PRIMARY KEY AUTOINCREMENT, title TEXT, album_id INTEGER);\n''')\n\ncur.execute('INSERT INTO Artist (name) VALUES (?)', ('Pink Floyd',))\nart_id = cur.lastrowid\ncur.execute('INSERT INTO Album (title, artist_id) VALUES (?, ?)', ('The Dark Side of the Moon', art_id))\nalb_id = cur.lastrowid\ncur.execute('INSERT INTO Track (title, album_id) VALUES (?, ?)', ('Time', alb_id))\ncur.execute('INSERT INTO Track (title, album_id) VALUES (?, ?)', ('Money', alb_id))\nconn.commit()\n\ncur.execute('''\nSELECT Track.title, Album.title, Artist.name\nFROM Track\nJOIN Album ON Track.album_id = Album.id\nJOIN Artist ON Album.artist_id = Artist.id\n''')\nprint(\"\nChallenge 2 - Normalized Catalog JOIN:\")\nfor track, album, artist in cur:\n    print(f\"  '{track}' from album '{album}' by {artist}\")\n\n\n# ==============================================================================\n# Challenge 3: Many-to-Many University Enrollment System\n# ==============================================================================\ncur.executescript('''\nCREATE TABLE User (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT);\nCREATE TABLE Course (id INTEGER PRIMARY KEY AUTOINCREMENT, title TEXT);\nCREATE TABLE Member (user_id INTEGER, course_id INTEGER, PRIMARY KEY (user_id, course_id));\n''')\n\ncur.execute('INSERT INTO User (name) VALUES (?)', ('Ananya',))\nu1 = cur.lastrowid\ncur.execute('INSERT INTO User (name) VALUES (?)', ('Rahul',))\nu2 = cur.lastrowid\ncur.execute('INSERT INTO Course (title) VALUES (?)', ('Python Masterclass',))\nc1 = cur.lastrowid\ncur.execute('INSERT INTO Course (title) VALUES (?)', ('SQL Analytics',))\nc2 = cur.lastrowid\n\n# Enrollments\ncur.executemany('INSERT INTO Member VALUES (?, ?)', [(u1, c1), (u1, c2), (u2, c1)])\nconn.commit()\n\ncur.execute('''\nSELECT Course.title, COUNT(Member.user_id) as enrolled_count\nFROM Course\nLEFT JOIN Member ON Course.id = Member.course_id\nGROUP BY Course.id\n''')\nprint(\"\nChallenge 3 - Course Enrollment Totals:\")\nfor title, cnt in cur:\n    print(f\"  Course: {title:<22} | Total Students: {cnt}\")\n\n\n# ==============================================================================\n# Challenge 4: Data Visualization Exporter\n# ==============================================================================\ncur.execute('''\nSELECT Course.title, COUNT(Member.user_id) as count\nFROM Course\nLEFT JOIN Member ON Course.id = Member.course_id\nGROUP BY Course.id\n''')\n\nchart_payload = {\n    \"chart_type\": \"bar\",\n    \"labels\": [],\n    \"data_points\": []\n}\n\nfor title, cnt in cur:\n    chart_payload[\"labels\"].append(title)\n    chart_payload[\"data_points\"].append(cnt)\n\nexported = json.dumps(chart_payload, indent=2)\nprint(\"\nChallenge 4 - Chart.js JSON Export:\n\" + exported)\n\nconn.close()"
           },
           "keyTakeaways": [
-            "sqlite3 provides embedded SQL database persistence.",
-            "JOIN ... ON queries multi-table relational models.",
-            "You have completed the entire Python for Everybody Boot Camp curriculum!"
+            "Relational databases provide ACID guarantees, persistent storage, and indexed fast search queries.",
+            "sqlite3 is embedded directly in Python's standard library with zero configuration required.",
+            "Always use parameterized queries (?) to prevent dangerous SQL injection security vulnerabilities.",
+            "Always commit changes (conn.commit()) to ensure database modifications persist to disk.",
+            "Normalize database schemas into separate tables linked by Primary and Foreign Keys to eliminate data duplication.",
+            "Query multi-table relational schemas using SQL JOIN ... ON clauses.",
+            "Model many-to-many relationships using junction tables with composite primary keys.",
+            "You have completed the entire Python Programming Masterclass curriculum!"
           ],
           "references": [
             {
-              "title": "Python for Everybody Chapter 15 (Databases)",
+              "title": "Python for Everybody: Chapter 15 — Using Databases and SQL",
               "url": "https://www.py4e.com/html3/15-database"
             },
             {
-              "title": "Python for Everybody Chapter 16 (Visualization)",
+              "title": "Python for Everybody: Chapter 16 — Visualizing Data",
               "url": "https://www.py4e.com/html3/16-tasks"
+            },
+            {
+              "title": "Python Documentation: sqlite3 — DB-API 2.0 interface for SQLite databases",
+              "url": "https://docs.python.org/3/library/sqlite3.html"
             }
-          ]
+          ],
+          "mcqs": [
+            {
+              "id": 1,
+              "question": "What do the ACID properties in relational database management systems guarantee?",
+              "options": [
+                "Asynchronous, Compiled, Indexed, Distributed queries",
+                "Atomicity, Consistency, Isolation, and Durability for reliable transactional state management",
+                "Automatic Code Inspection and Debugging",
+                "Application Creation In Databases"
+              ],
+              "correctAnswer": 1,
+              "explanation": "ACID guarantees that database transactions are processed reliably: all-or-nothing (Atomicity), valid (Consistency), isolated, and durable on disk."
+            },
+            {
+              "id": 2,
+              "question": "Why must values in SQL statements ALWAYS be passed using parameterized placeholders (?) rather than Python f-strings?",
+              "options": [
+                "Parameterized queries run on the GPU",
+                "String formatting exposes the database to catastrophic SQL Injection attacks where malicious user input can execute arbitrary SQL commands",
+                "f-strings are not supported in Python 3",
+                "Parameterized queries only work with numbers"
+              ],
+              "correctAnswer": 1,
+              "explanation": "Parameterized queries pass variables as separate literal data parameters, completely preventing attackers from injecting malicious SQL commands."
+            },
+            {
+              "id": 3,
+              "question": "What happens if a Python script executes cur.execute('INSERT INTO ...') on an SQLite database but terminates without calling conn.commit()?",
+              "options": [
+                "The changes are automatically committed upon script exit",
+                "The pending transaction is aborted and rolled back; no changes are saved permanently to the database file",
+                "SQLite corrupts the database file",
+                "Python raises an UncommittedTransactionError"
+              ],
+              "correctAnswer": 1,
+              "explanation": "SQLite requires an explicit conn.commit() to persist transactional changes to disk. Without commit(), uncommitted changes are discarded on exit."
+            },
+            {
+              "id": 4,
+              "question": "What is the architectural purpose of a Foreign Key (FK) in a relational database schema?",
+              "options": [
+                "It stores passwords for international users",
+                "It establishes a verified link to the Primary Key (PK) of another table, enforcing referential integrity and eliminating string duplication",
+                "It encrypts the table using an external key",
+                "It speeds up file downloads over the network"
+              ],
+              "correctAnswer": 1,
+              "explanation": "A Foreign Key points to a Primary Key in another table, enabling normalized relational schemas and guaranteeing referential integrity."
+            },
+            {
+              "id": 5,
+              "question": "How is a Many-to-Many relationship (e.g. Students enrolled in multiple Courses) modeled in a normalized relational database?",
+              "options": [
+                "By storing a comma-separated string of course IDs inside the Student table",
+                "By using an intermediary Junction (Membership) table containing Foreign Keys referencing both the Student and Course tables",
+                "By duplicating the entire Student table for every course",
+                "Many-to-Many relationships cannot be modeled in relational databases"
+              ],
+              "correctAnswer": 1,
+              "explanation": "A Junction (Association) table breaks a Many-to-Many relationship into two 1-to-Many relationships, linking foreign keys with composite keys."
+            }
+          ],
+          "selfAssessment": {
+            "title": "Module Self-Assessment (5 Knowledge Check MCQs)",
+            "questions": [
+              {
+                "id": "py-q-15-1",
+                "questionNumber": 1,
+                "topic": "SQLite Foreign Key Enforcement",
+                "questionText": "Why must cursor.execute('PRAGMA foreign_keys = ON;') be executed when connecting to SQLite in Python?",
+                "options": [
+                  "To enable file compression on the database file",
+                  "Because SQLite disables foreign key constraint checking by default for backward compatibility",
+                  "To allow multiple threads to access the database concurrently",
+                  "To create automatic auto-increment primary keys"
+                ],
+                "correctAnswer": 1,
+                "explanation": "SQLite defaults to having foreign key constraint enforcement turned off. To maintain referential integrity, every connection must explicitly enable it."
+              },
+              {
+                "id": "py-q-15-2",
+                "questionNumber": 2,
+                "topic": "SQL Injection Prevention",
+                "questionText": "Why must parameter placeholders ? be used instead of Python string formatting in cursor.execute()?",
+                "options": [
+                  "Placeholders convert all text to uppercase",
+                  "Placeholders safely escape and bind parameters, preventing malicious SQL Injection attacks",
+                  "String formatting causes a Python SyntaxError in database drivers",
+                  "Placeholders are only required for float numbers"
+                ],
+                "correctAnswer": 1,
+                "explanation": "Parameterized queries separate SQL instructions from user-supplied data, neutralizing SQL injection vectors entirely."
+              },
+              {
+                "id": "py-q-15-3",
+                "questionNumber": 3,
+                "topic": "ACID Transaction Commit",
+                "questionText": "What happens to INSERT or UPDATE modifications in Python's sqlite3 if connection.commit() is NOT called before closing the connection?",
+                "options": [
+                  "Changes are automatically committed by the operating system",
+                  "Changes remain pending in the transaction and are rolled back, leaving the database unmodified",
+                  "The database file is corrupted",
+                  "The script hangs indefinitely"
+                ],
+                "correctAnswer": 1,
+                "explanation": "sqlite3 opens transactions automatically for DML statements. If connection.commit() is omitted, the transaction is safely rolled back on close."
+              },
+              {
+                "id": "py-q-15-4",
+                "questionNumber": 4,
+                "topic": "Cursor Fetch Methods",
+                "questionText": "What does cursor.fetchall() return after executing a SELECT query in sqlite3?",
+                "options": [
+                  "A dictionary mapping column names to values",
+                  "A list of tuples, where each tuple represents a row of database values",
+                  "A generator of strings",
+                  "The integer count of rows returned"
+                ],
+                "correctAnswer": 1,
+                "explanation": "By default, cursor.fetchall() returns a list containing row tuples matching the SELECT query column projections."
+              },
+              {
+                "id": "py-q-15-5",
+                "questionNumber": 5,
+                "topic": "Data Definition vs Manipulation",
+                "questionText": "Which SQL command deletes all rows from a table while preserving the table schema and column metadata for future inserts?",
+                "options": [
+                  "DROP TABLE Students;",
+                  "DELETE FROM Students;",
+                  "REMOVE TABLE Students;",
+                  "ALTER TABLE Students CLEAR;"
+                ],
+                "correctAnswer": 1,
+                "explanation": "DELETE FROM Table; removes all rows but preserves the table structure. DROP TABLE destroys the table schema and all metadata entirely."
+              }
+            ]
+          }
         },
         "quiz": {
           "id": "quiz-py-mod-15",
@@ -2510,9 +7148,9 @@ export const INITIAL_COURSES = [
           "questions": [
             {
               "id": "py-q-15-1",
-              "type": "multiple-choice",
+              "questionNumber": 1,
               "topic": "SQLite Foreign Key Enforcement",
-              "questionText": "Why must `cursor.execute('PRAGMA foreign_keys = ON;')` be executed when connecting to SQLite in Python?",
+              "questionText": "Why must cursor.execute('PRAGMA foreign_keys = ON;') be executed when connecting to SQLite in Python?",
               "options": [
                 "To enable file compression on the database file",
                 "Because SQLite disables foreign key constraint checking by default for backward compatibility",
@@ -2520,14 +7158,13 @@ export const INITIAL_COURSES = [
                 "To create automatic auto-increment primary keys"
               ],
               "correctAnswer": 1,
-              "marks": 10,
               "explanation": "SQLite defaults to having foreign key constraint enforcement turned off. To maintain referential integrity, every connection must explicitly enable it."
             },
             {
               "id": "py-q-15-2",
-              "type": "multiple-choice",
+              "questionNumber": 2,
               "topic": "SQL Injection Prevention",
-              "questionText": "Why must parameter placeholders `?` be used instead of Python string formatting in `cursor.execute()`?",
+              "questionText": "Why must parameter placeholders ? be used instead of Python string formatting in cursor.execute()?",
               "options": [
                 "Placeholders convert all text to uppercase",
                 "Placeholders safely escape and bind parameters, preventing malicious SQL Injection attacks",
@@ -2535,14 +7172,13 @@ export const INITIAL_COURSES = [
                 "Placeholders are only required for float numbers"
               ],
               "correctAnswer": 1,
-              "marks": 10,
               "explanation": "Parameterized queries separate SQL instructions from user-supplied data, neutralizing SQL injection vectors entirely."
             },
             {
               "id": "py-q-15-3",
-              "type": "multiple-choice",
+              "questionNumber": 3,
               "topic": "ACID Transaction Commit",
-              "questionText": "What happens to INSERT or UPDATE modifications in Python's sqlite3 if `connection.commit()` is NOT called before closing the connection?",
+              "questionText": "What happens to INSERT or UPDATE modifications in Python's sqlite3 if connection.commit() is NOT called before closing the connection?",
               "options": [
                 "Changes are automatically committed by the operating system",
                 "Changes remain pending in the transaction and are rolled back, leaving the database unmodified",
@@ -2550,14 +7186,13 @@ export const INITIAL_COURSES = [
                 "The script hangs indefinitely"
               ],
               "correctAnswer": 1,
-              "marks": 10,
-              "explanation": "sqlite3 opens transactions automatically for DML statements. If `connection.commit()` is omitted, the transaction is safely rolled back on close."
+              "explanation": "sqlite3 opens transactions automatically for DML statements. If connection.commit() is omitted, the transaction is safely rolled back on close."
             },
             {
               "id": "py-q-15-4",
-              "type": "multiple-choice",
+              "questionNumber": 4,
               "topic": "Cursor Fetch Methods",
-              "questionText": "What does `cursor.fetchall()` return after executing a `SELECT` query in sqlite3?",
+              "questionText": "What does cursor.fetchall() return after executing a SELECT query in sqlite3?",
               "options": [
                 "A dictionary mapping column names to values",
                 "A list of tuples, where each tuple represents a row of database values",
@@ -2565,12 +7200,11 @@ export const INITIAL_COURSES = [
                 "The integer count of rows returned"
               ],
               "correctAnswer": 1,
-              "marks": 10,
-              "explanation": "By default, `cursor.fetchall()` returns a list containing row tuples matching the SELECT query column projections."
+              "explanation": "By default, cursor.fetchall() returns a list containing row tuples matching the SELECT query column projections."
             },
             {
               "id": "py-q-15-5",
-              "type": "multiple-choice",
+              "questionNumber": 5,
               "topic": "Data Definition vs Manipulation",
               "questionText": "Which SQL command deletes all rows from a table while preserving the table schema and column metadata for future inserts?",
               "options": [
@@ -2580,8 +7214,7 @@ export const INITIAL_COURSES = [
                 "ALTER TABLE Students CLEAR;"
               ],
               "correctAnswer": 1,
-              "marks": 10,
-              "explanation": "`DELETE FROM Table;` removes all rows but preserves the table structure. `DROP TABLE` destroys the table schema and all metadata entirely."
+              "explanation": "DELETE FROM Table; removes all rows but preserves the table structure. DROP TABLE destroys the table schema and all metadata entirely."
             }
           ]
         }
@@ -9074,14 +13707,14 @@ export const CATEGORIES = [
 ];
 
 export const STUDENT_PROFILE = {
-  name: "Arshith Kumar",
-  email: "arshith@arshithbootcamp.com",
-  role: "Learner",
-  avatar: "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=200&q=80",
-  joinDate: "January 2026",
-  completedCoursesCount: 1,
-  enrolledCoursesCount: 4,
-  certificatesEarned: 1
+  "name": "Arshith Kumar",
+  "email": "arshith@arshithbootcamp.com",
+  "role": "Learner",
+  "avatar": "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=200&q=80",
+  "joinDate": "January 2026",
+  "completedCoursesCount": 1,
+  "enrolledCoursesCount": 4,
+  "certificatesEarned": 1
 };
 
 export const SAMPLE_STUDENT = STUDENT_PROFILE;
