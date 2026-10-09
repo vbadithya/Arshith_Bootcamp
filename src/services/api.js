@@ -29,7 +29,7 @@ async function request(url, options = {}) {
     ...(options.headers || {})
   };
 
-  if (token) {
+  if (token && !options.skipAuth) {
     headers['Authorization'] = `Bearer ${token}`;
   }
 
@@ -41,7 +41,13 @@ async function request(url, options = {}) {
 
     const data = await res.json();
     if (!res.ok) {
-      throw new Error(data.message || 'An error occurred during API request.');
+      // Handle Django array errors
+      let errorMsg = data.error || data.message;
+      if (!errorMsg && typeof data === 'object') {
+        const firstVal = Object.values(data)[0];
+        errorMsg = Array.isArray(firstVal) ? firstVal[0] : firstVal;
+      }
+      throw new Error(errorMsg || 'An error occurred.');
     }
     return data;
   } catch (err) {
@@ -51,11 +57,44 @@ async function request(url, options = {}) {
 }
 
 export const api = {
+  // Student Auth
+  studentLogin: (email, password) => 
+    request('/auth/login', {
+      method: 'POST',
+      body: JSON.stringify({ email, password }),
+      skipAuth: true
+    }).then(res => {
+      if (res.tokens && res.tokens.access) {
+        localStorage.setItem('arb_student_token', res.tokens.access);
+        localStorage.setItem('arb_student_user', JSON.stringify(res.user));
+      }
+      return { success: true, user: res.user };
+    }),
+
+  studentRegister: (name, email, password) => 
+    request('/auth/register', {
+      method: 'POST',
+      body: JSON.stringify({ full_name: name, email, password, confirm_password: password }),
+      skipAuth: true
+    }).then(res => {
+      if (res.tokens && res.tokens.access) {
+        localStorage.setItem('arb_student_token', res.tokens.access);
+        localStorage.setItem('arb_student_user', JSON.stringify(res.user));
+      }
+      return { success: true, user: res.user };
+    }),
+
+  studentLogout: () => {
+    localStorage.removeItem('arb_student_token');
+    localStorage.removeItem('arb_student_user');
+  },
+
   // Admin Auth
   adminLogin: (adminId, password, remember = true) => 
     request('/admin/login', {
       method: 'POST',
-      body: JSON.stringify({ adminId, password })
+      body: JSON.stringify({ adminId, password }),
+      skipAuth: true
     }).then(res => {
       if (res.token) setAdminToken(res.token, remember);
       return res;

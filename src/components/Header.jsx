@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { Search, Menu, X, GraduationCap, ChevronRight, LogIn, Sparkles } from 'lucide-react';
+import { Search, Menu, X, GraduationCap, ChevronRight, LogIn, Sparkles, User, LogOut } from 'lucide-react';
 
-export default function Header({ activeTab, setActiveTab, onOpenAuth, onSearchSubmit, searchQuery, setSearchQuery }) {
+export default function Header({ user, onLogout, activeTab, setActiveTab, onOpenAuth, onSearchSubmit, searchQuery, setSearchQuery }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const navLinks = [
@@ -83,21 +83,43 @@ export default function Header({ activeTab, setActiveTab, onOpenAuth, onSearchSu
               <Search className="w-4 h-4 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2" />
             </div>
 
-            {/* Login Button */}
-            <button
-              onClick={() => onOpenAuth('login')}
-              className="px-4 py-2 text-xs font-bold text-brand-900 bg-white border-2 border-brand-900 hover:bg-brand-50 rounded-full transition-all shadow-xs cursor-pointer"
-            >
-              Login
-            </button>
+            {user ? (
+              <div className="flex items-center gap-3 ml-2 border-l-2 border-slate-200 pl-4">
+                <span className="text-xs font-bold text-slate-700">Hi, {(user.full_name || user.name || 'Student').split(' ')[0]} 👋</span>
+                <button
+                  onClick={() => handleNavClick('dashboard')}
+                  className="px-4 py-2 text-xs font-extrabold text-white bg-brand-600 hover:bg-brand-700 active:scale-[0.98] rounded-full border-2 border-brand-800 shadow-md shadow-brand-600/25 transition-all cursor-pointer flex items-center gap-1.5"
+                >
+                  <User className="w-3.5 h-3.5" />
+                  Dashboard
+                </button>
+                <button
+                  onClick={onLogout}
+                  className="p-2 text-slate-400 hover:text-red-500 hover:bg-red-50 rounded-full transition-all cursor-pointer"
+                  title="Logout"
+                >
+                  <LogOut className="w-4 h-4" />
+                </button>
+              </div>
+            ) : (
+              <>
+                {/* Login Button */}
+                <button
+                  onClick={() => onOpenAuth('login')}
+                  className="px-4 py-2 text-xs font-bold text-brand-900 bg-white border-2 border-brand-900 hover:bg-brand-50 rounded-full transition-all shadow-xs cursor-pointer"
+                >
+                  Login
+                </button>
 
-            {/* Get Started Button */}
-            <button
-              onClick={() => onOpenAuth('signup')}
-              className="px-5 py-2 text-xs font-extrabold text-white bg-brand-600 hover:bg-brand-700 active:scale-[0.98] rounded-full border-2 border-brand-800 shadow-md shadow-brand-600/25 transition-all cursor-pointer"
-            >
-              Get Started
-            </button>
+                {/* Get Started Button */}
+                <button
+                  onClick={() => onOpenAuth('signup')}
+                  className="px-5 py-2 text-xs font-extrabold text-white bg-brand-600 hover:bg-brand-700 active:scale-[0.98] rounded-full border-2 border-brand-800 shadow-md shadow-brand-600/25 transition-all cursor-pointer"
+                >
+                  Get Started
+                </button>
+              </>
+            )}
           </div>
 
           {/* Mobile Right Controls */}
@@ -166,24 +188,49 @@ export default function Header({ activeTab, setActiveTab, onOpenAuth, onSearchSu
           </div>
 
           <div className="pt-3 border-t border-slate-100 flex flex-col gap-2">
-            <button
-              onClick={() => {
-                setMobileMenuOpen(false);
-                onOpenAuth('login');
-              }}
-              className="w-full py-2.5 text-center text-sm font-bold text-brand-900 border-2 border-brand-900 rounded-xl hover:bg-brand-50"
-            >
-              Login
-            </button>
-            <button
-              onClick={() => {
-                setMobileMenuOpen(false);
-                onOpenAuth('signup');
-              }}
-              className="w-full py-2.5 text-center text-sm font-bold text-white bg-brand-600 rounded-xl border-2 border-brand-800 shadow-md"
-            >
-              Get Started
-            </button>
+            {user ? (
+              <>
+                <button
+                  onClick={() => {
+                    setMobileMenuOpen(false);
+                    handleNavClick('dashboard');
+                  }}
+                  className="w-full py-2.5 text-center text-sm font-bold text-white bg-brand-600 rounded-xl border-2 border-brand-800 shadow-md"
+                >
+                  Dashboard
+                </button>
+                <button
+                  onClick={() => {
+                    setMobileMenuOpen(false);
+                    onLogout();
+                  }}
+                  className="w-full py-2.5 text-center text-sm font-bold text-red-600 border-2 border-red-200 rounded-xl hover:bg-red-50"
+                >
+                  Logout
+                </button>
+              </>
+            ) : (
+              <>
+                <button
+                  onClick={() => {
+                    setMobileMenuOpen(false);
+                    onOpenAuth('login');
+                  }}
+                  className="w-full py-2.5 text-center text-sm font-bold text-brand-900 border-2 border-brand-900 rounded-xl hover:bg-brand-50"
+                >
+                  Login
+                </button>
+                <button
+                  onClick={() => {
+                    setMobileMenuOpen(false);
+                    onOpenAuth('signup');
+                  }}
+                  className="w-full py-2.5 text-center text-sm font-bold text-white bg-brand-600 rounded-xl border-2 border-brand-800 shadow-md"
+                >
+                  Get Started
+                </button>
+              </>
+            )}
           </div>
         </div>
       )}

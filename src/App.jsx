@@ -31,6 +31,12 @@ export default function App() {
   // Admin Auth State
   const [adminUser, setAdminUser] = useState(null);
 
+  // Student Auth State
+  const [studentUser, setStudentUser] = useState(() => {
+    const savedUser = localStorage.getItem('arb_student_user');
+    return savedUser ? JSON.parse(savedUser) : null;
+  });
+
   // View state
   const [activeTab, setActiveTab] = useState(() => {
     const path = window.location.pathname;
@@ -177,6 +183,13 @@ export default function App() {
     window.history.pushState(null, '', '/');
   };
 
+  const handleStudentLogout = () => {
+    api.studentLogout();
+    setStudentUser(null);
+    setActiveTab('home');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   const currentSelectedCourse = courses.find(c => c.id === selectedCourseId) || courses[0];
   const currentCert = SAMPLE_CERTIFICATES.find(c => c.id === selectedCertId) || {
     id: selectedCertId,
@@ -209,6 +222,8 @@ export default function App() {
       {/* Top Header */}
       {isPublicPage && (
         <Header
+          user={studentUser}
+          onLogout={handleStudentLogout}
           activeTab={activeTab}
           setActiveTab={setActiveTab}
           onOpenAuth={handleOpenAuth}
@@ -291,6 +306,7 @@ export default function App() {
 
         {activeTab === 'dashboard' && (
           <StudentDashboard
+            user={studentUser}
             courses={courses}
             onSelectCourse={handleSelectCourse}
             onStartLearning={handleStartLearning}
@@ -351,7 +367,10 @@ export default function App() {
         isOpen={authModalOpen}
         onClose={() => setAuthModalOpen(false)}
         initialMode={authMode}
-        onSuccess={() => setActiveTab('dashboard')}
+        onSuccess={(user) => {
+          setStudentUser(user);
+          setActiveTab('dashboard');
+        }}
       />
 
       <VideoModal

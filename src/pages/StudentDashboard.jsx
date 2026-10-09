@@ -6,7 +6,7 @@ import {
 import { STUDENT_PROFILE, SAMPLE_CERTIFICATES } from '../data/coursesData';
 import { generateCoursePDF } from '../utils/pdfGenerator';
 
-export default function StudentDashboard({ courses, onSelectCourse, onStartLearning, onViewCertificate }) {
+export default function StudentDashboard({ user, courses, onSelectCourse, onStartLearning, onViewCertificate }) {
   const enrolledCourses = courses.filter(c => c.progress > 0);
   const completedCourses = courses.filter(c => c.progress === 100);
   const inProgressCourse = enrolledCourses.sort((a, b) => b.progress - a.progress)[0] || courses[0];
@@ -28,7 +28,7 @@ export default function StudentDashboard({ courses, onSelectCourse, onStartLearn
               />
               <div>
                 <h1 className="text-2xl sm:text-3xl font-black tracking-tight">
-                  Welcome back, {STUDENT_PROFILE.name} 👋
+                  Welcome back, {user?.full_name || user?.name || STUDENT_PROFILE.name} 👋
                 </h1>
                 <p className="text-xs sm:text-sm text-emerald-200/90 font-medium mt-0.5">
                   Arshith Boot Camp Student Dashboard • Keep building your skills!
