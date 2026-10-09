@@ -2,25 +2,34 @@ export const INITIAL_COURSES = [
   {
     "id": "python-programming",
     "title": "Python Programming",
+    "slug": "python-programming",
     "category": "Programming",
     "level": "Beginner to Intermediate",
-    "duration": "40 hours",
+    "duration": "30 hours",
     "rating": 4.9,
     "studentsCount": "14.2k",
     "studentsNumeric": 14200,
-    "price": 999,
-    "isFree": false,
+    "price": 0,
+    "isFree": true,
     "bestseller": true,
     "progress": 47,
-    "iconBg": "bg-blue-50 border 2 border-blue-200 text-blue-600",
+    "status": "published",
+    "featured": false,
+    "certificateAvailable": true,
+    "sequentialLearning": true,
+    "iconBg": "bg-blue-50 border-2 border-blue-200 text-blue-600",
     "iconType": "python",
     "introVideoUrl": "https://www.youtube.com/embed/kqtD5dpn9C8",
+    "thumbnail": "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=600&q=80",
+    "shortDescription": "Master Python from absolute scratch based on Python for Everybody curriculum.",
     "description": "Master Python from absolute scratch! Based on the world-renowned 'Python for Everybody' curriculum by Dr. Charles Severance, cover variables, conditionals, loops, functions, data structures, files, regex, web services, OOP, and databases.",
     "instructor": {
       "name": "Dr. Ananya Sharma & Dr. Charles Severance",
       "role": "Lead Educators @ Arshith Boot Camp & Authors of Python for Everybody",
       "avatar": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=200&q=80"
     },
+    "prerequisites": null,
+    "skills": [],
     "whatYouWillLearn": [
       "Computer hardware architecture, interpreter vs compiler, and Python syntax foundations",
       "Variables, expressions, PEMDAS order of operations, and input handling",
@@ -38,7 +47,7 @@ export const INITIAL_COURSES = [
     "modules": [
       {
         "id": "py-mod-1",
-        "title": "Module 01 — Introduction to Python & Computer Architecture",
+        "title": "Module 01 \u0393\u00c7\u00f6 Introduction to Python & Computer Architecture",
         "description": "Overview of Python language, computer hardware architecture (CPU, Main vs Secondary Memory), interpreter vs compiler, reserved words, and writing your first program.",
         "completed": true,
         "readingMaterial": {
@@ -137,7 +146,7 @@ export const INITIAL_COURSES = [
           "bestPractices": [
             "Write code in a text editor saved with .py extension for complex scripts.",
             "Use indentation (4 spaces per block) consistently.",
-            "When stuck debugging, practice 'retreating'—back up to working code before rebuilding."
+            "When stuck debugging, practice 'retreating'\u0393\u00c7\u00f6back up to working code before rebuilding."
           ],
           "commonMistakes": [
             "Using reserved words like 'class' or 'def' as variable names.",
@@ -166,7 +175,7 @@ export const INITIAL_COURSES = [
         },
         "quiz": {
           "id": "quiz-py-mod-1",
-          "title": "Module 01 Quiz — Introduction to Python & Computer Architecture",
+          "title": "Module 01 Quiz \u0393\u00c7\u00f6 Introduction to Python & Computer Architecture",
           "passingScore": 70,
           "timeLimitMinutes": 15,
           "maxAttempts": 3,
@@ -252,7 +261,7 @@ export const INITIAL_COURSES = [
       },
       {
         "id": "py-mod-2",
-        "title": "Module 02 — Variables, Expressions and Statements",
+        "title": "Module 02 \u0393\u00c7\u00f6 Variables, Expressions and Statements",
         "description": "Values, data types (int, float, str), assignment statements, variable naming rules, arithmetic operators, and user input.",
         "completed": true,
         "readingMaterial": {
@@ -345,7 +354,7 @@ export const INITIAL_COURSES = [
           "practiceExercise": {
             "title": "Celsius to Fahrenheit Converter",
             "problem": "Write a program that prompts the user for a Celsius temperature, converts it to Fahrenheit using (Celsius * 9/5) + 32, and prints the converted temperature.",
-            "solutionCode": "celsius_str = input(\"Enter Celsius temperature: \")\ncelsius = float(celsius_str)\nfahrenheit = (celsius * 9/5) + 32\nprint(f\"Fahrenheit Temperature: {fahrenheit:.2f}°F\")"
+            "solutionCode": "celsius_str = input(\"Enter Celsius temperature: \")\ncelsius = float(celsius_str)\nfahrenheit = (celsius * 9/5) + 32\nprint(f\"Fahrenheit Temperature: {fahrenheit:.2f}\u252c\u2591F\")"
           },
           "keyTakeaways": [
             "Variables refer to values stored in memory.",
@@ -366,7 +375,7 @@ export const INITIAL_COURSES = [
         },
         "quiz": {
           "id": "quiz-py-mod-2",
-          "title": "Module 02 Quiz — Variables, Expressions and Statements",
+          "title": "Module 02 Quiz \u0393\u00c7\u00f6 Variables, Expressions and Statements",
           "passingScore": 70,
           "timeLimitMinutes": 15,
           "maxAttempts": 3,
@@ -452,7 +461,7 @@ export const INITIAL_COURSES = [
       },
       {
         "id": "py-mod-3",
-        "title": "Module 03 — Operators, Expressions & Precedence",
+        "title": "Module 03 \u0393\u00c7\u00f6 Operators, Expressions & Precedence",
         "description": "Expressions, operator precedence (PEMDAS), string operations, modulus calculations, and writing clean mathematical statements.",
         "completed": true,
         "readingMaterial": {
@@ -499,7 +508,7 @@ export const INITIAL_COURSES = [
             "Do not rely on memorizing obscure operator precedence tables."
           ],
           "commonMistakes": [
-            "Writing 1.0 / 2.0 * pi expecting 1/(2π)—division happens first, resulting in (1/2)*π."
+            "Writing 1.0 / 2.0 * pi expecting 1/(2\u2567\u00c7)\u0393\u00c7\u00f6division happens first, resulting in (1/2)*\u2567\u00c7."
           ],
           "practiceExercise": {
             "title": "Evaluate Expressions",
@@ -520,7 +529,7 @@ export const INITIAL_COURSES = [
         },
         "quiz": {
           "id": "quiz-py-mod-3",
-          "title": "Module 03 Quiz — Operators, Expressions & Precedence",
+          "title": "Module 03 Quiz \u0393\u00c7\u00f6 Operators, Expressions & Precedence",
           "passingScore": 70,
           "timeLimitMinutes": 15,
           "maxAttempts": 3,
@@ -606,7 +615,7 @@ export const INITIAL_COURSES = [
       },
       {
         "id": "py-mod-4",
-        "title": "Module 04 — Conditional Execution & Exception Handling",
+        "title": "Module 04 \u0393\u00c7\u00f6 Conditional Execution & Exception Handling",
         "description": "Boolean expressions, logical operators, if/elif/else statements, nested conditionals, and catching exceptions using try/except.",
         "completed": true,
         "readingMaterial": {
@@ -703,7 +712,7 @@ export const INITIAL_COURSES = [
           "practiceExercise": {
             "title": "Safe Temperature Converter",
             "problem": "Write a Fahrenheit to Celsius converter wrapped in try/except to catch invalid input.",
-            "solutionCode": "inp = input(\"Enter Fahrenheit Temperature: \")\ntry:\n    fahr = float(inp)\n    cel = (fahr - 32.0) * 5.0 / 9.0\n    print(f\"Celsius: {cel:.2f}°C\")\nexcept:\n    print(\"Please enter a valid numeric temperature.\")"
+            "solutionCode": "inp = input(\"Enter Fahrenheit Temperature: \")\ntry:\n    fahr = float(inp)\n    cel = (fahr - 32.0) * 5.0 / 9.0\n    print(f\"Celsius: {cel:.2f}\u252c\u2591C\")\nexcept:\n    print(\"Please enter a valid numeric temperature.\")"
           },
           "keyTakeaways": [
             "if/elif/else controls program execution branching.",
@@ -719,7 +728,7 @@ export const INITIAL_COURSES = [
         },
         "quiz": {
           "id": "quiz-py-mod-4",
-          "title": "Module 04 Quiz — Conditional Execution & Exception Handling",
+          "title": "Module 04 Quiz \u0393\u00c7\u00f6 Conditional Execution & Exception Handling",
           "passingScore": 70,
           "timeLimitMinutes": 15,
           "maxAttempts": 3,
@@ -805,7 +814,7 @@ export const INITIAL_COURSES = [
       },
       {
         "id": "py-mod-5",
-        "title": "Module 05 — Iteration & Loops",
+        "title": "Module 05 \u0393\u00c7\u00f6 Iteration & Loops",
         "description": "Updating variables, while statements, infinite loops, break & continue, for loops, counting, summing, and min/max search patterns.",
         "completed": true,
         "readingMaterial": {
@@ -877,7 +886,7 @@ export const INITIAL_COURSES = [
         },
         "quiz": {
           "id": "quiz-py-mod-5",
-          "title": "Module 05 Quiz — Iteration & Loops",
+          "title": "Module 05 Quiz \u0393\u00c7\u00f6 Iteration & Loops",
           "passingScore": 70,
           "timeLimitMinutes": 15,
           "maxAttempts": 3,
@@ -963,7 +972,7 @@ export const INITIAL_COURSES = [
       },
       {
         "id": "py-mod-6",
-        "title": "Module 06 — Functions & Modular Code",
+        "title": "Module 06 \u0393\u00c7\u00f6 Functions & Modular Code",
         "description": "Built-in functions, type conversion, math & random modules, defining custom functions (def), parameters, arguments, fruitful vs void functions, and scope.",
         "completed": true,
         "readingMaterial": {
@@ -1011,7 +1020,7 @@ export const INITIAL_COURSES = [
           ],
           "practiceExercise": {
             "title": "Custom Math Helper Function",
-            "problem": "Write a function calculate_circle_area(radius) that imports math and returns area = π * r².",
+            "problem": "Write a function calculate_circle_area(radius) that imports math and returns area = \u2567\u00c7 * r\u252c\u2593.",
             "solutionCode": "import math\n\ndef calculate_circle_area(radius):\n    if radius < 0:\n        return None\n    return math.pi * (radius ** 2)\n\nprint(f\"Area (r=5): {calculate_circle_area(5):.2f}\")"
           },
           "keyTakeaways": [
@@ -1028,7 +1037,7 @@ export const INITIAL_COURSES = [
         },
         "quiz": {
           "id": "quiz-py-mod-6",
-          "title": "Module 06 Quiz — Functions & Modular Code",
+          "title": "Module 06 Quiz \u0393\u00c7\u00f6 Functions & Modular Code",
           "passingScore": 70,
           "timeLimitMinutes": 15,
           "maxAttempts": 3,
@@ -1114,7 +1123,7 @@ export const INITIAL_COURSES = [
       },
       {
         "id": "py-mod-7",
-        "title": "Module 07 — Data Structures: Lists, Dictionaries & Tuples",
+        "title": "Module 07 \u0393\u00c7\u00f6 Data Structures: Lists, Dictionaries & Tuples",
         "description": "Sequences, mutability, lists, dictionaries as key-value mappings & counters, tuples immutability, DSU sorting pattern, and list comprehensions.",
         "completed": true,
         "readingMaterial": {
@@ -1208,7 +1217,7 @@ export const INITIAL_COURSES = [
           ],
           "commonMistakes": [
             "Trying to mutate tuple elements: t[0] = 'A' (TypeError).",
-            "Writing t = t.sort()—list.sort() modifies in-place and returns None."
+            "Writing t = t.sort()\u0393\u00c7\u00f6list.sort() modifies in-place and returns None."
           ],
           "practiceExercise": {
             "title": "Hour Distribution Histogram",
@@ -1237,7 +1246,7 @@ export const INITIAL_COURSES = [
         },
         "quiz": {
           "id": "quiz-py-mod-7",
-          "title": "Module 07 Quiz — Data Structures: Lists, Dictionaries & Tuples",
+          "title": "Module 07 Quiz \u0393\u00c7\u00f6 Data Structures: Lists, Dictionaries & Tuples",
           "passingScore": 70,
           "timeLimitMinutes": 15,
           "maxAttempts": 3,
@@ -1323,7 +1332,7 @@ export const INITIAL_COURSES = [
       },
       {
         "id": "py-mod-8",
-        "title": "Module 08 — Strings, Slicing & Text Parsing",
+        "title": "Module 08 \u0393\u00c7\u00f6 Strings, Slicing & Text Parsing",
         "description": "Strings as sequences, indexing, len(), string slicing, immutability, string methods (find, strip, lower), string parsing, and f-strings.",
         "completed": false,
         "readingMaterial": {
@@ -1372,7 +1381,7 @@ export const INITIAL_COURSES = [
             "Use str.lower() before comparing text strings to prevent case-sensitivity bugs."
           ],
           "commonMistakes": [
-            "IndexError when trying to access s[len(s)]—indices run from 0 to len(s)-1.",
+            "IndexError when trying to access s[len(s)]\u0393\u00c7\u00f6indices run from 0 to len(s)-1.",
             "Attempting s[0] = 'A' (Strings are immutable)."
           ],
           "practiceExercise": {
@@ -1394,7 +1403,7 @@ export const INITIAL_COURSES = [
         },
         "quiz": {
           "id": "quiz-py-mod-8",
-          "title": "Module 08 Quiz — Strings, Slicing & Text Parsing",
+          "title": "Module 08 Quiz \u0393\u00c7\u00f6 Strings, Slicing & Text Parsing",
           "passingScore": 70,
           "timeLimitMinutes": 15,
           "maxAttempts": 3,
@@ -1480,7 +1489,7 @@ export const INITIAL_COURSES = [
       },
       {
         "id": "py-mod-9",
-        "title": "Module 09 — File Handling & Persistence",
+        "title": "Module 09 \u0393\u00c7\u00f6 File Handling & Persistence",
         "description": "Secondary memory persistence, opening files (open()), file handles, reading lines, searching files, writing files, and using context managers (with open).",
         "completed": false,
         "readingMaterial": {
@@ -1542,7 +1551,7 @@ export const INITIAL_COURSES = [
         },
         "quiz": {
           "id": "quiz-py-mod-9",
-          "title": "Module 09 Quiz — File Handling & Persistence",
+          "title": "Module 09 Quiz \u0393\u00c7\u00f6 File Handling & Persistence",
           "passingScore": 70,
           "timeLimitMinutes": 15,
           "maxAttempts": 3,
@@ -1628,7 +1637,7 @@ export const INITIAL_COURSES = [
       },
       {
         "id": "py-mod-10",
-        "title": "Module 10 — Exception Handling & Debugging Strategies",
+        "title": "Module 10 \u0393\u00c7\u00f6 Exception Handling & Debugging Strategies",
         "description": "Deep dive into try/except, handling specific errors (ValueError, FileNotFoundError, ZeroDivisionError), debugging by bisection, and traceback analysis.",
         "completed": false,
         "readingMaterial": {
@@ -1689,7 +1698,7 @@ export const INITIAL_COURSES = [
         },
         "quiz": {
           "id": "quiz-py-mod-10",
-          "title": "Module 10 Quiz — Exception Handling & Debugging Strategies",
+          "title": "Module 10 Quiz \u0393\u00c7\u00f6 Exception Handling & Debugging Strategies",
           "passingScore": 70,
           "timeLimitMinutes": 15,
           "maxAttempts": 3,
@@ -1775,7 +1784,7 @@ export const INITIAL_COURSES = [
       },
       {
         "id": "py-mod-11",
-        "title": "Module 11 — Object-Oriented Programming (OOP)",
+        "title": "Module 11 \u0393\u00c7\u00f6 Object-Oriented Programming (OOP)",
         "description": "Managing larger programs, classes, objects, instance attributes, methods, self, __init__ constructors, __del__ destructors, and inheritance.",
         "completed": false,
         "readingMaterial": {
@@ -1837,7 +1846,7 @@ export const INITIAL_COURSES = [
         },
         "quiz": {
           "id": "quiz-py-mod-11",
-          "title": "Module 11 Quiz — Object-Oriented Programming (OOP)",
+          "title": "Module 11 Quiz \u0393\u00c7\u00f6 Object-Oriented Programming (OOP)",
           "passingScore": 70,
           "timeLimitMinutes": 15,
           "maxAttempts": 3,
@@ -1923,7 +1932,7 @@ export const INITIAL_COURSES = [
       },
       {
         "id": "py-mod-12",
-        "title": "Module 12 — Regular Expressions (re module)",
+        "title": "Module 12 \u0393\u00c7\u00f6 Regular Expressions (re module)",
         "description": "Pattern matching, re.search(), re.findall(), special regex characters (^, $, ., \\s, \\S, *, +, ?), character classes, and data extraction.",
         "completed": false,
         "readingMaterial": {
@@ -2032,7 +2041,7 @@ export const INITIAL_COURSES = [
         },
         "quiz": {
           "id": "quiz-py-mod-12",
-          "title": "Module 12 Quiz — Regular Expressions (re module)",
+          "title": "Module 12 Quiz \u0393\u00c7\u00f6 Regular Expressions (re module)",
           "passingScore": 70,
           "timeLimitMinutes": 15,
           "maxAttempts": 3,
@@ -2118,7 +2127,7 @@ export const INITIAL_COURSES = [
       },
       {
         "id": "py-mod-13",
-        "title": "Module 13 — Networked Programs, Sockets & Web Scraping",
+        "title": "Module 13 \u0393\u00c7\u00f6 Networked Programs, Sockets & Web Scraping",
         "description": "HTTP protocol, socket network connections, retrieving web pages with urllib, reading binary files, and scraping HTML using BeautifulSoup.",
         "completed": false,
         "readingMaterial": {
@@ -2179,7 +2188,7 @@ export const INITIAL_COURSES = [
         },
         "quiz": {
           "id": "quiz-py-mod-13",
-          "title": "Module 13 Quiz — Networked Programs, Sockets & Web Scraping",
+          "title": "Module 13 Quiz \u0393\u00c7\u00f6 Networked Programs, Sockets & Web Scraping",
           "passingScore": 70,
           "timeLimitMinutes": 15,
           "maxAttempts": 3,
@@ -2265,7 +2274,7 @@ export const INITIAL_COURSES = [
       },
       {
         "id": "py-mod-14",
-        "title": "Module 14 — Web Services: XML, JSON & REST APIs",
+        "title": "Module 14 \u0393\u00c7\u00f6 Web Services: XML, JSON & REST APIs",
         "description": "Data exchange formats, parsing XML with ElementTree, parsing JSON with json library, REST APIs, and Service-Oriented Architecture (SOA).",
         "completed": false,
         "readingMaterial": {
@@ -2350,7 +2359,7 @@ export const INITIAL_COURSES = [
         },
         "quiz": {
           "id": "quiz-py-mod-14",
-          "title": "Module 14 Quiz — Web Services: XML, JSON & REST APIs",
+          "title": "Module 14 Quiz \u0393\u00c7\u00f6 Web Services: XML, JSON & REST APIs",
           "passingScore": 70,
           "timeLimitMinutes": 15,
           "maxAttempts": 3,
@@ -2436,7 +2445,7 @@ export const INITIAL_COURSES = [
       },
       {
         "id": "py-mod-15",
-        "title": "Module 15 — Database Connectivity (SQLite) & Data Visualization",
+        "title": "Module 15 \u0393\u00c7\u00f6 Database Connectivity (SQLite) & Data Visualization",
         "description": "Relational database concepts, SQLite integration with sqlite3, SQL queries (CREATE, INSERT, SELECT, JOIN), DB Browser, and building a data visualization capstone project.",
         "completed": false,
         "readingMaterial": {
@@ -2502,7 +2511,7 @@ export const INITIAL_COURSES = [
         },
         "quiz": {
           "id": "quiz-py-mod-15",
-          "title": "Module 15 Quiz — Database Connectivity (SQLite) & Data Visualization",
+          "title": "Module 15 Quiz \u0393\u00c7\u00f6 Database Connectivity (SQLite) & Data Visualization",
           "passingScore": 70,
           "timeLimitMinutes": 15,
           "maxAttempts": 3,
@@ -2599,10 +2608,10 @@ export const INITIAL_COURSES = [
         {
           "id": "qp-py-set-a",
           "paperCode": "PY-QP-SETA",
-          "groupName": "Alphabetical Group A–F",
+          "groupName": "Alphabetical Group A\u0393\u00c7\u00f4F",
           "letterRange": "A-F",
           "studentNamePattern": "Candidate first name starting with A, B, C, D, E, or F",
-          "studentName": "Arshith Kumar (Candidate Group A–F)",
+          "studentName": "Arshith Kumar (Candidate Group A\u0393\u00c7\u00f4F)",
           "rollNo": "2026-PY-SETA",
           "title": "Paper 1 (Set A): Python Architecture, Core Syntax & Data Structures",
           "subtitle": "CPython Execution Model, Memory References, Compound Expressions & Sequences",
@@ -2920,10 +2929,10 @@ export const INITIAL_COURSES = [
         {
           "id": "qp-py-set-b",
           "paperCode": "PY-QP-SETB",
-          "groupName": "Alphabetical Group G–L",
+          "groupName": "Alphabetical Group G\u0393\u00c7\u00f4L",
           "letterRange": "G-L",
           "studentNamePattern": "Candidate first name starting with G, H, I, J, K, or L",
-          "studentName": "Geetha Lakshmi (Candidate Group G–L)",
+          "studentName": "Geetha Lakshmi (Candidate Group G\u0393\u00c7\u00f4L)",
           "rollNo": "2026-PY-SETB",
           "title": "Paper 2 (Set B): Control Flow, Functions, Closures & Scope",
           "subtitle": "Short-Circuit Logic, Recursion, First-Class Functions, Generators & Namespaces",
@@ -3241,10 +3250,10 @@ export const INITIAL_COURSES = [
         {
           "id": "qp-py-set-c",
           "paperCode": "PY-QP-SETC",
-          "groupName": "Alphabetical Group M–R",
+          "groupName": "Alphabetical Group M\u0393\u00c7\u00f4R",
           "letterRange": "M-R",
           "studentNamePattern": "Candidate first name starting with M, N, O, P, Q, or R",
-          "studentName": "Manoj Rao / Priya Sharma (Candidate Group M–R)",
+          "studentName": "Manoj Rao / Priya Sharma (Candidate Group M\u0393\u00c7\u00f4R)",
           "rollNo": "2026-PY-SETC",
           "title": "Paper 3 (Set C): OOP, Exception Architecture & File I/O",
           "subtitle": "Classes, Dunder Protocols, MRO Linearization, Custom Exceptions & File Buffering",
@@ -3498,12 +3507,12 @@ export const INITIAL_COURSES = [
               "questionNumber": 17,
               "moduleRef": "py-mod-12",
               "topic": "Lookaround Assertions in Regex",
-              "questionText": "What does the regular expression pattern r'(?<=\\$)\\d+' match in the string 'Price: $150 or €120'?",
+              "questionText": "What does the regular expression pattern r'(?<=\\$)\\d+' match in the string 'Price: $150 or \u0393\u00e9\u00bc120'?",
               "codeSnippet": null,
               "options": [
                 "'$150'",
                 "'150'",
-                "['$150', '€120']",
+                "['$150', '\u0393\u00e9\u00bc120']",
                 "No match"
               ],
               "correctAnswer": 1,
@@ -3562,10 +3571,10 @@ export const INITIAL_COURSES = [
         {
           "id": "qp-py-set-d",
           "paperCode": "PY-QP-SETD",
-          "groupName": "Alphabetical Group S–Z",
+          "groupName": "Alphabetical Group S\u0393\u00c7\u00f4Z",
           "letterRange": "S-Z",
           "studentNamePattern": "Candidate first name starting with S, T, U, V, W, X, Y, or Z",
-          "studentName": "Suresh Kumar / Varun Adithya (Candidate Group S–Z)",
+          "studentName": "Suresh Kumar / Varun Adithya (Candidate Group S\u0393\u00c7\u00f4Z)",
           "rollNo": "2026-PY-SETD",
           "title": "Paper 4 (Set D): Regex, Sockets, Web Services & SQLite Persistence",
           "subtitle": "Pattern Matching, Network Protocols, JSON/XML APIs & Relational Integrity",
@@ -4188,30 +4197,63 @@ export const INITIAL_COURSES = [
           "explanation": "Operator precedence evaluates 'not', then 'and', then 'or'. (1) '[] and \"python\"' short-circuits to []. (2) 'not 0' is True; 'True and {}' returns {}. (3) The remaining 'or' chain is '0 or [] or {} or 42'. (4) However, notice: 'not 0 and {}' evaluates to {}. Since {} is falsy, the evaluation proceeds to 'or 42', returning 42. Wait, let's trace: 0 (falsy) -> [] (falsy) -> {} (falsy) -> 42 is truthy, so the final result is 42!"
         }
       ]
-    }
+    },
+    "finalProject": {
+      "id": "py-final-project",
+      "title": "Automated Log Parser & Database Analytics Suite",
+      "description": "Build an automated CLI tool in Python that reads server log files, extracts IP addresses and user agents using regular expressions, calculates frequency statistics, and persists data into SQLite.",
+      "requirements": [
+        "Read log files from disk using try/except file error handling",
+        "Use regular expressions (re module) to extract IP addresses and timestamps",
+        "Store word and IP frequency distributions using Python dictionaries",
+        "Create an SQLite database schema with tables for Logs and Analytics",
+        "Export final report summary as JSON and text format"
+      ],
+      "instructions": "Upload your Python script (.py), sample dataset, and SQLite database file or submit GitHub Repository URL and video demo link.",
+      "allowedFileTypes": [
+        ".zip",
+        ".py",
+        ".pdf"
+      ],
+      "maxFileSizeMb": 50,
+      "githubUrlAllowed": true,
+      "liveProjectUrlAllowed": true,
+      "passingScore": 75,
+      "published": true
+    },
+    "updatedAt": "2026-10-01T11:13:24.675Z"
   },
   {
-    "id": "sql-data-analysis",
+    "id": "sql-mastery",
     "title": "SQL & Relational Databases",
+    "slug": "sql-mastery",
     "category": "SQL",
     "level": "All Levels",
     "duration": "35 hours",
-    "rating": 4.9,
-    "studentsCount": "14.8k",
-    "studentsNumeric": 14800,
+    "rating": 4.8,
+    "studentsCount": "11.5k",
+    "studentsNumeric": 11500,
     "price": 0,
     "isFree": true,
-    "bestseller": true,
+    "bestseller": false,
     "progress": 0,
-    "iconBg": "bg-cyan-50 border-2 border-cyan-200 text-cyan-600",
+    "status": "published",
+    "featured": false,
+    "certificateAvailable": true,
+    "sequentialLearning": true,
+    "iconBg": "bg-emerald-50 border-2 border-emerald-200 text-emerald-600",
     "iconType": "database",
     "introVideoUrl": "https://www.youtube.com/embed/HXV3zeQKqGY",
-    "description": "Master Relational Databases & SQL with our comprehensive 15-module curriculum based on the complete SQL manual. Covers DDL, DML, filtering, aggregation, Joins, Subqueries, CTEs, Views, Indexes, Transactions, DCL security, Python integration, AI-assisted SQL, and Capstone E-Commerce Project.",
+    "thumbnail": "https://images.unsplash.com/photo-1544383835-bda2bc66a55d?auto=format&fit=crop&w=600&q=80",
+    "shortDescription": "Master SQL queries, table joins, aggregations, database design, indexing, and normalization.",
+    "description": "Master SQL & Relational Databases with our 15-module curriculum covering DDL, DML, WHERE filtering, ORDER BY, aggregate functions, GROUP BY, HAVING, JOINS, Subqueries, CTEs, Views, Indexes, Transactions (TCL), DCL security, Python integration, and AI-assisted SQL.",
     "instructor": {
-      "name": "Siddharth Nair & Dr. Ananya Sharma",
-      "role": "Principal Data Architect @ Arshith Boot Camp",
+      "name": "Rohan Varma",
+      "role": "Senior Database Architect @ Arshith Boot Camp",
       "avatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80"
     },
+    "prerequisites": null,
+    "skills": [],
     "whatYouWillLearn": [
       "Introduction to SQL, Databases, RDBMS, and Data Types",
       "Data Definition Language (DDL): CREATE, ALTER, DROP, TRUNCATE",
@@ -4230,7 +4272,7 @@ export const INITIAL_COURSES = [
     "modules": [
       {
         "id": "sql-mod-1",
-        "title": "Module 01 — Introduction to SQL & Databases",
+        "title": "Module 01 \u0393\u00c7\u00f6 Introduction to SQL & Databases",
         "description": "Master foundational relational database engineering: Dr. Edgar F. Codd's Relational Theory, RDBMS vs Flat Files vs NoSQL, deep RDBMS Engine Architecture (Parser, AST, Cost-Based Optimizer, Execution Engine, WAL, Buffer Pool), Localhost (127.0.0.1) vs Enterprise Cloud Servers, Connection Strings, DBA Security Roles, and complete breakdown of the 5 SQL Sub-Languages (DDL, DML, DQL, DCL, TCL).",
         "completed": false,
         "order": 1,
@@ -4414,9 +4456,9 @@ export const INITIAL_COURSES = [
               },
               "bulletPoints": [
                 "Critical Difference: DROP vs TRUNCATE vs DELETE:",
-                "• DROP TABLE: Destroys the table definition, schema, indexes, and all data permanently from disk storage.",
-                "• TRUNCATE TABLE: A fast DDL operation that deallocates all data storage pages at once, resetting auto-increment counters back to 1. Cannot be rolled back in some engines.",
-                "• DELETE FROM: A DML operation that removes rows individually, writing undo logs for every row deleted. Does NOT reset auto-increment counters."
+                "\u0393\u00c7\u00f3 DROP TABLE: Destroys the table definition, schema, indexes, and all data permanently from disk storage.",
+                "\u0393\u00c7\u00f3 TRUNCATE TABLE: A fast DDL operation that deallocates all data storage pages at once, resetting auto-increment counters back to 1. Cannot be rolled back in some engines.",
+                "\u0393\u00c7\u00f3 DELETE FROM: A DML operation that removes rows individually, writing undo logs for every row deleted. Does NOT reset auto-increment counters."
               ]
             },
             {
@@ -4448,7 +4490,7 @@ export const INITIAL_COURSES = [
             },
             {
               "title": "Full Workflow: Schema Definition (DDL), Data Insert (DML) & Privilege Control (DCL)",
-              "code": "-- Step 1: DDL — Create a secure production schema and table\nCREATE TABLE enterprise_employees (\n    employee_id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,\n    full_name VARCHAR(100) NOT NULL,\n    email VARCHAR(150) UNIQUE NOT NULL,\n    department VARCHAR(50) NOT NULL,\n    salary NUMERIC(10, 2) CHECK (salary > 0),\n    hire_date DATE DEFAULT CURRENT_DATE\n);\n\n-- Step 2: DML — Insert initial seed records inside a transaction\nBEGIN TRANSACTION;\n\nINSERT INTO enterprise_employees (full_name, email, department, salary)\nVALUES \n    ('Dr. Edgar Codd', 'edgar.codd@ibm.research.com', 'Research', 145000.00),\n    ('Ada Lovelace', 'ada.lovelace@analytics.org', 'Engineering', 160000.00);\n\nCOMMIT; -- TCL: Commit changes permanently to disk\n\n-- Step 3: DQL — Query inserted records\nSELECT employee_id, full_name, department, salary \nFROM enterprise_employees \nWHERE department = 'Engineering';\n\n-- Step 4: DCL — Create read-only role and grant SELECT privileges\nCREATE ROLE analyst_read_only WITH LOGIN PASSWORD 'SecurePass123!';\nGRANT SELECT ON enterprise_employees TO analyst_read_only;",
+              "code": "-- Step 1: DDL \u0393\u00c7\u00f6 Create a secure production schema and table\nCREATE TABLE enterprise_employees (\n    employee_id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,\n    full_name VARCHAR(100) NOT NULL,\n    email VARCHAR(150) UNIQUE NOT NULL,\n    department VARCHAR(50) NOT NULL,\n    salary NUMERIC(10, 2) CHECK (salary > 0),\n    hire_date DATE DEFAULT CURRENT_DATE\n);\n\n-- Step 2: DML \u0393\u00c7\u00f6 Insert initial seed records inside a transaction\nBEGIN TRANSACTION;\n\nINSERT INTO enterprise_employees (full_name, email, department, salary)\nVALUES \n    ('Dr. Edgar Codd', 'edgar.codd@ibm.research.com', 'Research', 145000.00),\n    ('Ada Lovelace', 'ada.lovelace@analytics.org', 'Engineering', 160000.00);\n\nCOMMIT; -- TCL: Commit changes permanently to disk\n\n-- Step 3: DQL \u0393\u00c7\u00f6 Query inserted records\nSELECT employee_id, full_name, department, salary \nFROM enterprise_employees \nWHERE department = 'Engineering';\n\n-- Step 4: DCL \u0393\u00c7\u00f6 Create read-only role and grant SELECT privileges\nCREATE ROLE analyst_read_only WITH LOGIN PASSWORD 'SecurePass123!';\nGRANT SELECT ON enterprise_employees TO analyst_read_only;",
               "explanation": "Demonstrates an end-to-end relational database workflow combining DDL table creation, DML data population, TCL transaction commit, DQL querying, and DCL role-based access control."
             }
           ],
@@ -4479,7 +4521,7 @@ export const INITIAL_COURSES = [
       },
       {
         "id": "sql-mod-2",
-        "title": "Module 02 — SQL Syntax, Keywords & Data Types",
+        "title": "Module 02 \u0393\u00c7\u00f6 SQL Syntax, Keywords & Data Types",
         "description": "Master SQL lexical rules, uppercase keyword conventions, single/multi-line comments, identifier quoting rules, and the complete relational Data Type System: Integers (SMALLINT, INT, BIGINT), Financial Fixed-Point Decimals (NUMERIC/DECIMAL), Floating-Point (REAL, DOUBLE PRECISION), Strings (CHAR, VARCHAR, TEXT), Timestamps (TIMESTAMP, TIMESTAMPTZ, INTERVAL), Booleans, JSONB, UUIDs, and Type Casting (CAST, ::).",
         "completed": false,
         "order": 2,
@@ -4506,9 +4548,9 @@ export const INITIAL_COURSES = [
                 "Statement Semicolon Terminator (;): Terminates individual SQL statements. Required when executing multi-statement batch scripts or API transactions.",
                 "Case Sensitivity of Identifiers: SQL keywords are case-insensitive (`select` equals `SELECT`). However, table and column name case sensitivity depends on the operating system file system (Linux vs Windows) and database configuration (e.g., MySQL `lower_case_table_names`).",
                 "Identifier Quoting Rules: Unquoted identifiers are automatically folded to lowercase (in PostgreSQL) or uppercase (in Oracle). To preserve mixed-case or use reserved words as identifiers, wrap them in engine-specific quotes:",
-                "• ANSI SQL & PostgreSQL: Use double quotes -> SELECT \"First Name\" FROM \"User Accounts\";",
-                "• MySQL / MariaDB: Use backticks -> SELECT `first name` FROM `user accounts`;",
-                "• Microsoft SQL Server: Use square brackets -> SELECT [first name] FROM [user accounts];",
+                "\u0393\u00c7\u00f3 ANSI SQL & PostgreSQL: Use double quotes -> SELECT \"First Name\" FROM \"User Accounts\";",
+                "\u0393\u00c7\u00f3 MySQL / MariaDB: Use backticks -> SELECT `first name` FROM `user accounts`;",
+                "\u0393\u00c7\u00f3 Microsoft SQL Server: Use square brackets -> SELECT [first name] FROM [user accounts];",
                 "Single Quote Literal Rule: String literals and dates MUST always be enclosed in SINGLE QUOTES ('John Doe', '2026-10-03'). Double quotes are reserved for identifiers."
               ],
               "table": {
@@ -4569,17 +4611,17 @@ export const INITIAL_COURSES = [
               "text": "Relational engines provide distinct numeric types tailored for storage efficiency and mathematical accuracy:",
               "bulletPoints": [
                 "Fixed-Width Integers:",
-                "• SMALLINT (2 Bytes): Range -32,768 to +32,767. Used for small status codes, month numbers, or age.",
-                "• INT / INTEGER (4 Bytes): Range ~-2.14 Billion to +2.14 Billion. Standard default for surrogate keys and counts.",
-                "• BIGINT (8 Bytes): Range ~-9 Quintillion to +9 Quintillion. Required for high-volume primary keys (e.g. global transactions, log event IDs).",
-                "• Auto-Increment Sequences: SERIAL (PostgreSQL), AUTO_INCREMENT (MySQL), or IDENTITY (MS SQL) automatically generate incrementing integer keys.",
-                "Fixed-Point Exact Decimals — DECIMAL(p, s) / NUMERIC(p, s):",
-                "• Precision (p): Total count of significant digits across the entire number (both left and right of the decimal point).",
-                "• Scale (s): Count of digits to the right of the decimal point (e.g. NUMERIC(10, 2) stores up to $99,999,999.99).",
-                "• MANDATORY FOR MONEY: Always use NUMERIC/DECIMAL for financial calculations, account balances, and pricing. It guarantees exact decimal precision with zero rounding error.",
-                "Approximate Floating-Point — REAL (4 Bytes) & DOUBLE PRECISION (8 Bytes):",
-                "• Stores floating-point numbers according to IEEE 754 binary floating-point standards.",
-                "• FORBIDDEN FOR CURRENCY: Floating-point math exhibits binary rounding artifacts (e.g. 0.1 + 0.2 = 0.30000000000000004). Use ONLY for scientific measurements, GPS coordinates, or statistical data where approximate precision is acceptable."
+                "\u0393\u00c7\u00f3 SMALLINT (2 Bytes): Range -32,768 to +32,767. Used for small status codes, month numbers, or age.",
+                "\u0393\u00c7\u00f3 INT / INTEGER (4 Bytes): Range ~-2.14 Billion to +2.14 Billion. Standard default for surrogate keys and counts.",
+                "\u0393\u00c7\u00f3 BIGINT (8 Bytes): Range ~-9 Quintillion to +9 Quintillion. Required for high-volume primary keys (e.g. global transactions, log event IDs).",
+                "\u0393\u00c7\u00f3 Auto-Increment Sequences: SERIAL (PostgreSQL), AUTO_INCREMENT (MySQL), or IDENTITY (MS SQL) automatically generate incrementing integer keys.",
+                "Fixed-Point Exact Decimals \u0393\u00c7\u00f6 DECIMAL(p, s) / NUMERIC(p, s):",
+                "\u0393\u00c7\u00f3 Precision (p): Total count of significant digits across the entire number (both left and right of the decimal point).",
+                "\u0393\u00c7\u00f3 Scale (s): Count of digits to the right of the decimal point (e.g. NUMERIC(10, 2) stores up to $99,999,999.99).",
+                "\u0393\u00c7\u00f3 MANDATORY FOR MONEY: Always use NUMERIC/DECIMAL for financial calculations, account balances, and pricing. It guarantees exact decimal precision with zero rounding error.",
+                "Approximate Floating-Point \u0393\u00c7\u00f6 REAL (4 Bytes) & DOUBLE PRECISION (8 Bytes):",
+                "\u0393\u00c7\u00f3 Stores floating-point numbers according to IEEE 754 binary floating-point standards.",
+                "\u0393\u00c7\u00f3 FORBIDDEN FOR CURRENCY: Floating-point math exhibits binary rounding artifacts (e.g. 0.1 + 0.2 = 0.30000000000000004). Use ONLY for scientific measurements, GPS coordinates, or statistical data where approximate precision is acceptable."
               ],
               "table": {
                 "headers": [
@@ -4639,17 +4681,17 @@ export const INITIAL_COURSES = [
               "heading": "3. Character & Text Data Types: CHAR, VARCHAR, and Extended TEXT",
               "text": "String data types manage textual information with different memory alignment and storage characteristics:",
               "bulletPoints": [
-                "Fixed-Length String — CHAR(n):",
-                "• Allocates exactly n bytes on disk regardless of actual text length.",
-                "• If the input string is shorter than n, the engine pads trailing blank spaces (e.g. CHAR(5) storing 'US' pads 3 spaces: 'US   ').",
-                "• Ideal for fixed-length codes: Country ISO Codes ('USA', 'IND'), State Codes ('NY', 'CA'), or Hash Digests (SHA-256).",
-                "Variable-Length String — VARCHAR(n):",
-                "• Stores variable-length text up to a maximum limit of n characters.",
-                "• Stores only actual character bytes plus a 1 or 2 byte length prefix. No space padding occurs.",
-                "• Standard default for names, email addresses, usernames, and street addresses.",
-                "Unlimited Extended Text — TEXT / CLOB:",
-                "• Stores large blocks of text (blog posts, JSON documents, HTML bodies, raw logs) up to 1GB or 4GB in size.",
-                "• TOAST Storage Engine (PostgreSQL): When text exceeds 2KB, PostgreSQL automatically compresses and stores the text out-of-page in TOAST (The Oversized-Attribute Storage Technique) tables to keep main data pages small and index scans fast."
+                "Fixed-Length String \u0393\u00c7\u00f6 CHAR(n):",
+                "\u0393\u00c7\u00f3 Allocates exactly n bytes on disk regardless of actual text length.",
+                "\u0393\u00c7\u00f3 If the input string is shorter than n, the engine pads trailing blank spaces (e.g. CHAR(5) storing 'US' pads 3 spaces: 'US   ').",
+                "\u0393\u00c7\u00f3 Ideal for fixed-length codes: Country ISO Codes ('USA', 'IND'), State Codes ('NY', 'CA'), or Hash Digests (SHA-256).",
+                "Variable-Length String \u0393\u00c7\u00f6 VARCHAR(n):",
+                "\u0393\u00c7\u00f3 Stores variable-length text up to a maximum limit of n characters.",
+                "\u0393\u00c7\u00f3 Stores only actual character bytes plus a 1 or 2 byte length prefix. No space padding occurs.",
+                "\u0393\u00c7\u00f3 Standard default for names, email addresses, usernames, and street addresses.",
+                "Unlimited Extended Text \u0393\u00c7\u00f6 TEXT / CLOB:",
+                "\u0393\u00c7\u00f3 Stores large blocks of text (blog posts, JSON documents, HTML bodies, raw logs) up to 1GB or 4GB in size.",
+                "\u0393\u00c7\u00f3 TOAST Storage Engine (PostgreSQL): When text exceeds 2KB, PostgreSQL automatically compresses and stores the text out-of-page in TOAST (The Oversized-Attribute Storage Technique) tables to keep main data pages small and index scans fast."
               ]
             },
             {
@@ -4732,11 +4774,11 @@ export const INITIAL_COURSES = [
               "bulletPoints": [
                 "Implicit Coercion: The database engine automatically converts data types when compatible (e.g. comparing INTEGER 10 to NUMERIC 10.00).",
                 "Explicit Type Casting: Forces data conversion explicitly using standard ANSI syntax or vendor shortcuts:",
-                "• ANSI Standard: CAST(expression AS target_type) -> CAST('2026-10-03' AS DATE), CAST(price AS VARCHAR)",
-                "• PostgreSQL Shorthand: expression::target_type -> '2026-10-03'::DATE, price::NUMERIC(10,2)",
+                "\u0393\u00c7\u00f3 ANSI Standard: CAST(expression AS target_type) -> CAST('2026-10-03' AS DATE), CAST(price AS VARCHAR)",
+                "\u0393\u00c7\u00f3 PostgreSQL Shorthand: expression::target_type -> '2026-10-03'::DATE, price::NUMERIC(10,2)",
                 "Data Conversion Failures:",
-                "• Numeric Overflow Error: Attempting to insert 99999 into a NUMERIC(4,2) column.",
-                "• String Truncation Error: Attempting to insert a 20-character string into a VARCHAR(10) column (`STRING DATA RIGHT TRUNCATION`)."
+                "\u0393\u00c7\u00f3 Numeric Overflow Error: Attempting to insert 99999 into a NUMERIC(4,2) column.",
+                "\u0393\u00c7\u00f3 String Truncation Error: Attempting to insert a 20-character string into a VARCHAR(10) column (`STRING DATA RIGHT TRUNCATION`)."
               ]
             }
           ],
@@ -4781,13 +4823,13 @@ export const INITIAL_COURSES = [
       },
       {
         "id": "sql-mod-3",
-        "title": "Module 03 — DDL: Creating & Managing Database Structures",
+        "title": "Module 03 \u0393\u00c7\u00f6 DDL: Creating & Managing Database Structures",
         "description": "Master Data Definition Language (DDL) architecture: CREATE DATABASE, CREATE SCHEMA, CREATE TABLE, Generated Columns, Temporary Tables (CTAS), zero-downtime ALTER TABLE migrations (ADD, DROP, RENAME, ALTER TYPE), and structural destruction mechanics (DROP TABLE vs TRUNCATE TABLE vs DELETE FROM).",
         "completed": false,
         "order": 3,
         "published": true,
         "readingMaterial": {
-          "introduction": "Welcome to Module 3! Data Definition Language (DDL) is the sub-language of SQL responsible for defining, altering, managing, and destroying relational database structures—including databases, schemas, tables, views, indexes, and constraints. Unlike DML (which manipulates row data inside tables), DDL statements modify the system catalog (data dictionary) and physical storage allocations on disk. Mastering DDL is essential for database architects, software engineers, and DevOps professionals who design resilient database schemas and manage production schema migrations.",
+          "introduction": "Welcome to Module 3! Data Definition Language (DDL) is the sub-language of SQL responsible for defining, altering, managing, and destroying relational database structures\u0393\u00c7\u00f6including databases, schemas, tables, views, indexes, and constraints. Unlike DML (which manipulates row data inside tables), DDL statements modify the system catalog (data dictionary) and physical storage allocations on disk. Mastering DDL is essential for database architects, software engineers, and DevOps professionals who design resilient database schemas and manage production schema migrations.",
           "objectives": [
             "Master DDL statement fundamentals: CREATE, ALTER, DROP, TRUNCATE, and RENAME",
             "Understand System Catalogs & Data Dictionaries (pg_catalog, information_schema)",
@@ -4805,8 +4847,8 @@ export const INITIAL_COURSES = [
               "text": "When you execute a DDL statement, the database engine updates internal system metadata tables known as the System Catalog or Data Dictionary (e.g., `information_schema.tables`, `pg_class`, `pg_attribute`). DDL statements alter table schemas, physical page layouts, and index definitions.",
               "bulletPoints": [
                 "Transactional DDL vs Auto-Commit DDL:",
-                "• PostgreSQL: Supports fully transactional DDL! You can execute `CREATE TABLE` or `ALTER TABLE` inside a `BEGIN...COMMIT` block. If an error occurs, `ROLLBACK` restores the previous schema state perfectly.",
-                "• MySQL / Oracle: DDL statements issue an implicit `COMMIT` immediately before and after execution. DDL operations CANNOT be rolled back in MySQL or Oracle!",
+                "\u0393\u00c7\u00f3 PostgreSQL: Supports fully transactional DDL! You can execute `CREATE TABLE` or `ALTER TABLE` inside a `BEGIN...COMMIT` block. If an error occurs, `ROLLBACK` restores the previous schema state perfectly.",
+                "\u0393\u00c7\u00f3 MySQL / Oracle: DDL statements issue an implicit `COMMIT` immediately before and after execution. DDL operations CANNOT be rolled back in MySQL or Oracle!",
                 "Metadata Locking (AccessExclusiveLock): Executing `ALTER TABLE` or `DROP TABLE` acquires an exclusive lock on the table. While a DDL lock is held, all concurrent client `SELECT`, `INSERT`, `UPDATE`, and `DELETE` queries are blocked in a queue. Minimizing lock duration is crucial for zero-downtime production migrations.",
                 "Defensive DDL Guard Clauses: Always use `IF EXISTS` and `IF NOT EXISTS` in migration scripts to prevent script execution crashes (e.g. `CREATE TABLE IF NOT EXISTS users (...)`, `DROP TABLE IF EXISTS audit_logs`)."
               ],
@@ -4863,11 +4905,11 @@ export const INITIAL_COURSES = [
               "bulletPoints": [
                 "Character Encodings (UTF8 / UTF8MB4): UTF-8 is the universal standard for web applications, supporting international languages, accents, and symbols. MySQL requires `utf8mb4` to fully support 4-byte UTF-8 characters including modern Emojis.",
                 "Collations (String Comparison Rules): Governs how string values are sorted, compared, and matched:",
-                "• `en_US.UTF-8` or `utf8mb4_bin`: Case-sensitive string matching ('Admin' != 'admin').",
-                "• `utf8mb4_unicode_ci`: Case-insensitive (`_ci`) string matching ('Admin' == 'admin').",
+                "\u0393\u00c7\u00f3 `en_US.UTF-8` or `utf8mb4_bin`: Case-sensitive string matching ('Admin' != 'admin').",
+                "\u0393\u00c7\u00f3 `utf8mb4_unicode_ci`: Case-insensitive (`_ci`) string matching ('Admin' == 'admin').",
                 "Multi-Tenant Logical Isolation (CREATE SCHEMA): A single database container can host multiple logical namespaces called Schemas. Using schemas isolates microservice data or multi-tenant customer accounts without needing separate database servers:",
-                "• `CREATE SCHEMA tenant_a;`, `CREATE SCHEMA tenant_b;`",
-                "• `SET search_path TO tenant_a, public;` (Directs default query resolution to the `tenant_a` schema)."
+                "\u0393\u00c7\u00f3 `CREATE SCHEMA tenant_a;`, `CREATE SCHEMA tenant_b;`",
+                "\u0393\u00c7\u00f3 `SET search_path TO tenant_a, public;` (Directs default query resolution to the `tenant_a` schema)."
               ]
             },
             {
@@ -4877,12 +4919,12 @@ export const INITIAL_COURSES = [
                 "Column Default Values: `DEFAULT CURRENT_TIMESTAMP` automatically stamps creation dates; `DEFAULT 'Pending'` populates default status strings when values are omitted during INSERT operations.",
                 "Identity Sequences (ANSI Standard): `GENERATED ALWAYS AS IDENTITY` replaces legacy proprietary auto-increment types (`SERIAL`), automatically generating sequential numbers (1, 2, 3...).",
                 "Generated Stored Columns: Automatically computes values on-the-fly or persists them on disk:",
-                "• Syntax: `total_price NUMERIC(10,2) GENERATED ALWAYS AS (unit_price * quantity) STORED`",
-                "• The engine calculates `total_price` automatically upon INSERT or UPDATE. Client applications cannot manually overwrite generated columns!",
+                "\u0393\u00c7\u00f3 Syntax: `total_price NUMERIC(10,2) GENERATED ALWAYS AS (unit_price * quantity) STORED`",
+                "\u0393\u00c7\u00f3 The engine calculates `total_price` automatically upon INSERT or UPDATE. Client applications cannot manually overwrite generated columns!",
                 "Create Table As Select (CTAS): Copies existing table data and structure into a new table instantly:",
-                "• `CREATE TABLE archived_orders AS SELECT * FROM orders WHERE order_date < '2025-01-01';`",
+                "\u0393\u00c7\u00f3 `CREATE TABLE archived_orders AS SELECT * FROM orders WHERE order_date < '2025-01-01';`",
                 "Session Temporary Tables (CREATE TEMP TABLE):",
-                "• Temporary tables exist only for the duration of a client database connection session. They are automatically dropped when the connection closes, making them perfect for complex ETL data transformations."
+                "\u0393\u00c7\u00f3 Temporary tables exist only for the duration of a client database connection session. They are automatically dropped when the connection closes, making them perfect for complex ETL data transformations."
               ],
               "table": {
                 "headers": [
@@ -4930,16 +4972,16 @@ export const INITIAL_COURSES = [
               "text": "As software applications evolve, database table structures must adapt without disrupting active production traffic. The `ALTER TABLE` statement modifies existing table definitions:",
               "bulletPoints": [
                 "Adding Columns (ADD COLUMN):",
-                "• `ALTER TABLE employees ADD COLUMN middle_name VARCHAR(50) NULL;`",
-                "• Rule: When adding a `NOT NULL` column to a table with existing rows, you MUST provide a `DEFAULT` value (e.g. `ADD COLUMN status VARCHAR(20) NOT NULL DEFAULT 'Active'`), otherwise the migration crashes.",
+                "\u0393\u00c7\u00f3 `ALTER TABLE employees ADD COLUMN middle_name VARCHAR(50) NULL;`",
+                "\u0393\u00c7\u00f3 Rule: When adding a `NOT NULL` column to a table with existing rows, you MUST provide a `DEFAULT` value (e.g. `ADD COLUMN status VARCHAR(20) NOT NULL DEFAULT 'Active'`), otherwise the migration crashes.",
                 "Dropping Columns (DROP COLUMN):",
-                "• `ALTER TABLE employees DROP COLUMN IF EXISTS middle_name CASCADE;` (`CASCADE` drops dependent views or foreign keys automatically).",
+                "\u0393\u00c7\u00f3 `ALTER TABLE employees DROP COLUMN IF EXISTS middle_name CASCADE;` (`CASCADE` drops dependent views or foreign keys automatically).",
                 "Renaming Columns & Tables (RENAME):",
-                "• `ALTER TABLE employees RENAME COLUMN surname TO last_name;`",
-                "• `ALTER TABLE employees RENAME TO staff_members;`",
+                "\u0393\u00c7\u00f3 `ALTER TABLE employees RENAME COLUMN surname TO last_name;`",
+                "\u0393\u00c7\u00f3 `ALTER TABLE employees RENAME TO staff_members;`",
                 "Altering Data Types (ALTER COLUMN TYPE / USING):",
-                "• Changing data types (e.g. converting `VARCHAR` to `INTEGER`) can cause data truncation errors.",
-                "• PostgreSQL Explicit Conversion: `ALTER TABLE products ALTER COLUMN code TYPE INT USING (code::integer);`"
+                "\u0393\u00c7\u00f3 Changing data types (e.g. converting `VARCHAR` to `INTEGER`) can cause data truncation errors.",
+                "\u0393\u00c7\u00f3 PostgreSQL Explicit Conversion: `ALTER TABLE products ALTER COLUMN code TYPE INT USING (code::integer);`"
               ]
             },
             {
@@ -5049,13 +5091,13 @@ export const INITIAL_COURSES = [
       },
       {
         "id": "sql-mod-4",
-        "title": "Module 04 — Constraints & Keys",
+        "title": "Module 04 \u0393\u00c7\u00f6 Constraints & Keys",
         "description": "Master Relational Database Integrity: Column vs Table-Level Constraints, PRIMARY KEY (Single & Composite), UNIQUE Constraints (and NULL handling rules), FOREIGN KEY Referential Integrity with ON DELETE / ON UPDATE Cascading Actions (CASCADE, RESTRICT, SET NULL, SET DEFAULT), CHECK Constraints, NOT NULL, DEFAULT, and Deferred Constraint Validation (DEFERRABLE INITIALLY DEFERRED).",
         "completed": false,
         "order": 4,
         "published": true,
         "readingMaterial": {
-          "introduction": "Welcome to Module 4! Constraints are the fundamental rules enforced by a Relational Database Management System (RDBMS) to guarantee Data Integrity across all database operations. Without constraints, databases degrade into chaotic stores of dirty, orphaned, duplicate, or corrupted data. Constraints operate directly inside the storage engine, enforcing Domain Integrity, Entity Integrity, and Referential Integrity automatically—regardless of what buggy code backend applications or external clients attempt to execute.",
+          "introduction": "Welcome to Module 4! Constraints are the fundamental rules enforced by a Relational Database Management System (RDBMS) to guarantee Data Integrity across all database operations. Without constraints, databases degrade into chaotic stores of dirty, orphaned, duplicate, or corrupted data. Constraints operate directly inside the storage engine, enforcing Domain Integrity, Entity Integrity, and Referential Integrity automatically\u0393\u00c7\u00f6regardless of what buggy code backend applications or external clients attempt to execute.",
           "objectives": [
             "Differentiate the 3 Pillars of Database Integrity: Entity Integrity, Referential Integrity, and Domain Integrity",
             "Understand Column-Level vs Table-Level Constraint syntax and Named Constraints (CONSTRAINT pk_name)",
@@ -5126,14 +5168,14 @@ export const INITIAL_COURSES = [
               "text": "Entity integrity requires that rows can be uniquely identified and retrieved without ambiguity:",
               "bulletPoints": [
                 "PRIMARY KEY Constraints:",
-                "• A table can have at most ONE Primary Key.",
-                "• Implicity enforces `NOT NULL` and `UNIQUE` on all key columns.",
-                "• Single-Column Key: Usually an auto-incrementing integer (`BIGINT IDENTITY`) or a 128-bit `UUID`.",
-                "• Composite Primary Key: Composed of two or more columns combined (e.g. `PRIMARY KEY (order_id, product_id)` in an `order_items` junction table).",
+                "\u0393\u00c7\u00f3 A table can have at most ONE Primary Key.",
+                "\u0393\u00c7\u00f3 Implicity enforces `NOT NULL` and `UNIQUE` on all key columns.",
+                "\u0393\u00c7\u00f3 Single-Column Key: Usually an auto-incrementing integer (`BIGINT IDENTITY`) or a 128-bit `UUID`.",
+                "\u0393\u00c7\u00f3 Composite Primary Key: Composed of two or more columns combined (e.g. `PRIMARY KEY (order_id, product_id)` in an `order_items` junction table).",
                 "UNIQUE Constraints:",
-                "• A table can have MULTIPLE Unique constraints.",
-                "• Prevents duplicate non-null entries (e.g. `email VARCHAR(255) UNIQUE`).",
-                "• ANSI NULL Rule: Standard SQL allows multiple `NULL` values in a UNIQUE column because `NULL != NULL` in relational logic. (Note: Microsoft SQL Server restricts UNIQUE columns to a single NULL unless filtered indexes are used)."
+                "\u0393\u00c7\u00f3 A table can have MULTIPLE Unique constraints.",
+                "\u0393\u00c7\u00f3 Prevents duplicate non-null entries (e.g. `email VARCHAR(255) UNIQUE`).",
+                "\u0393\u00c7\u00f3 ANSI NULL Rule: Standard SQL allows multiple `NULL` values in a UNIQUE column because `NULL != NULL` in relational logic. (Note: Microsoft SQL Server restricts UNIQUE columns to a single NULL unless filtered indexes are used)."
               ]
             },
             {
@@ -5184,9 +5226,9 @@ export const INITIAL_COURSES = [
                 "NOT NULL: Guarantees that a column cannot store missing or undefined values.",
                 "DEFAULT: Supplies an automatic fallback value when an INSERT statement omits the column (`DEFAULT 'Pending'`, `DEFAULT CURRENT_TIMESTAMP`).",
                 "CHECK Constraints: Evaluates a boolean expression on every INSERT or UPDATE operation. If the expression evaluates to FALSE, the transaction aborts with a constraint violation error:",
-                "• Single-Column Check: `salary NUMERIC(10,2) CHECK (salary >= 0)`",
-                "• Pattern Matching Check: `email VARCHAR(255) CHECK (email LIKE '%@%.%')`",
-                "• Multi-Column Cross-Field Check: `CHECK (end_date >= start_date)` (Enforces that event end dates cannot precede start dates)."
+                "\u0393\u00c7\u00f3 Single-Column Check: `salary NUMERIC(10,2) CHECK (salary >= 0)`",
+                "\u0393\u00c7\u00f3 Pattern Matching Check: `email VARCHAR(255) CHECK (email LIKE '%@%.%')`",
+                "\u0393\u00c7\u00f3 Multi-Column Cross-Field Check: `CHECK (end_date >= start_date)` (Enforces that event end dates cannot precede start dates)."
               ]
             },
             {
@@ -5195,12 +5237,12 @@ export const INITIAL_COURSES = [
               "bulletPoints": [
                 "Named Constraints Syntax: Always assign explicit, descriptive names to constraints (e.g. `CONSTRAINT fk_orders_customers FOREIGN KEY (customer_id) REFERENCES customers(customer_id)`). Named constraints ensure clear debugging error messages and allow clean dropping via `ALTER TABLE orders DROP CONSTRAINT fk_orders_customers;`.",
                 "Deferred Constraint Validation (DEFERRABLE):",
-                "• Standard constraints are evaluated immediately after every individual SQL statement.",
-                "• `DEFERRABLE INITIALLY DEFERRED` instructs the engine to delay foreign key validation until the final `COMMIT` statement of a transaction.",
-                "• Critical for circular table dependencies (e.g., Table A references Table B, and Table B references Table A) or bulk ETL data loading.",
+                "\u0393\u00c7\u00f3 Standard constraints are evaluated immediately after every individual SQL statement.",
+                "\u0393\u00c7\u00f3 `DEFERRABLE INITIALLY DEFERRED` instructs the engine to delay foreign key validation until the final `COMMIT` statement of a transaction.",
+                "\u0393\u00c7\u00f3 Critical for circular table dependencies (e.g., Table A references Table B, and Table B references Table A) or bulk ETL data loading.",
                 "Zero-Lock Migration Pattern (NOT VALID): In PostgreSQL, adding a constraint to a table with 50 million rows can lock the table for minutes while validating existing data. The `NOT VALID` pattern solves this:",
-                "• Step 1: `ALTER TABLE orders ADD CONSTRAINT fk_cust FOREIGN KEY (customer_id) REFERENCES customers(customer_id) NOT VALID;` (Acquires a split-second lock, validating new rows only).",
-                "• Step 2: `ALTER TABLE orders VALIDATE CONSTRAINT fk_cust;` (Scans existing data in the background without blocking concurrent writes!)."
+                "\u0393\u00c7\u00f3 Step 1: `ALTER TABLE orders ADD CONSTRAINT fk_cust FOREIGN KEY (customer_id) REFERENCES customers(customer_id) NOT VALID;` (Acquires a split-second lock, validating new rows only).",
+                "\u0393\u00c7\u00f3 Step 2: `ALTER TABLE orders VALIDATE CONSTRAINT fk_cust;` (Scans existing data in the background without blocking concurrent writes!)."
               ]
             }
           ],
@@ -5245,13 +5287,13 @@ export const INITIAL_COURSES = [
       },
       {
         "id": "sql-mod-5",
-        "title": "Module 05 — DML: INSERT, UPDATE & DELETE",
+        "title": "Module 05 \u0393\u00c7\u00f6 DML: INSERT, UPDATE & DELETE",
         "description": "Master Data Manipulation Language (DML): Single & Bulk Batch INSERT INTO, RETURNING clause, INSERT INTO ... SELECT, WHERE Safety Controls in UPDATE & DELETE, UPDATE ... JOIN, Hard Deletes vs Soft Deletes (is_deleted, partial indexes), and Atomic UPSERT operations (INSERT ... ON CONFLICT DO UPDATE, MERGE INTO).",
         "completed": false,
         "order": 5,
         "published": true,
         "readingMaterial": {
-          "introduction": "Welcome to Module 5! Data Manipulation Language (DML) encompasses the core SQL commands used to insert, modify, update, and delete data records stored inside relational database tables. While DDL defines the empty schema containers, DML manages the live data state of the application. DML operations acquire Row-Level Exclusive Locks (X-Locks) and generate Write-Ahead Logging (WAL) entries to guarantee ACID transaction safety. Mastering DML statements—including bulk insertions, multi-table updates, soft delete patterns, and atomic UPSERT operations—is essential for building high-concurrency backend web applications and ETL data pipelines.",
+          "introduction": "Welcome to Module 5! Data Manipulation Language (DML) encompasses the core SQL commands used to insert, modify, update, and delete data records stored inside relational database tables. While DDL defines the empty schema containers, DML manages the live data state of the application. DML operations acquire Row-Level Exclusive Locks (X-Locks) and generate Write-Ahead Logging (WAL) entries to guarantee ACID transaction safety. Mastering DML statements\u0393\u00c7\u00f6including bulk insertions, multi-table updates, soft delete patterns, and atomic UPSERT operations\u0393\u00c7\u00f6is essential for building high-concurrency backend web applications and ETL data pipelines.",
           "objectives": [
             "Master single-row and high-performance multi-row batch INSERT INTO statements",
             "Retrieve auto-generated primary keys instantly using the RETURNING clause",
@@ -5271,10 +5313,10 @@ export const INITIAL_COURSES = [
                 "Single-Row INSERT: Inserts one row per network round-trip. (Anti-pattern when inserting thousands of rows due to network latency).",
                 "Multi-Row Batch INSERT: Combines hundreds of rows into a single SQL statement: `INSERT INTO users (name, email) VALUES ('Alice', 'a@test.com'), ('Bob', 'b@test.com'), ('Carol', 'c@test.com');`. Reduces network overhead by up to 90%!",
                 "The RETURNING Clause (PostgreSQL / Oracle / SQL Server OUTPUT):",
-                "• By default, `INSERT` returns only the count of inserted rows (e.g., `INSERT 0 1`).",
-                "• Adding `RETURNING id, created_at` instructs the engine to return the auto-generated primary key and default values instantly without requiring a second `SELECT` query.",
+                "\u0393\u00c7\u00f3 By default, `INSERT` returns only the count of inserted rows (e.g., `INSERT 0 1`).",
+                "\u0393\u00c7\u00f3 Adding `RETURNING id, created_at` instructs the engine to return the auto-generated primary key and default values instantly without requiring a second `SELECT` query.",
                 "Bulk Copying with INSERT INTO ... SELECT:",
-                "• Ingests filtered data streams directly from a source table into a target table: `INSERT INTO archived_orders (order_id, total) SELECT id, amount FROM orders WHERE status = 'Completed';`"
+                "\u0393\u00c7\u00f3 Ingests filtered data streams directly from a source table into a target table: `INSERT INTO archived_orders (order_id, total) SELECT id, amount FROM orders WHERE status = 'Completed';`"
               ],
               "table": {
                 "headers": [
@@ -5323,9 +5365,9 @@ export const INITIAL_COURSES = [
               "bulletPoints": [
                 "CATASTROPHIC ACCIDENT WARNING: Executing `UPDATE users SET status = 'Inactive';` WITHOUT a `WHERE` clause modifies EVERY SINGLE ROW in the table! Always test `WHERE` clause filters using a `SELECT` statement first before executing an `UPDATE`.",
                 "Multi-Column Updates & Arithmetic Expressions: Modify multiple columns simultaneously using calculated expressions:",
-                "• `UPDATE products SET unit_price = unit_price * 1.10, updated_at = CURRENT_TIMESTAMP WHERE category_id = 4;`",
+                "\u0393\u00c7\u00f3 `UPDATE products SET unit_price = unit_price * 1.10, updated_at = CURRENT_TIMESTAMP WHERE category_id = 4;`",
                 "Multi-Table Updates (UPDATE ... FROM / JOIN): Update target table rows based on join matches in secondary reference tables:",
-                "• `UPDATE employees e SET salary = salary + 5000 FROM departments d WHERE e.department_id = d.id AND d.name = 'Engineering';`",
+                "\u0393\u00c7\u00f3 `UPDATE employees e SET salary = salary + 5000 FROM departments d WHERE e.department_id = d.id AND d.name = 'Engineering';`",
                 "The RETURNING Clause on UPDATE: `UPDATE accounts SET balance = balance - 100 WHERE id = 5 RETURNING id, balance;` returns the updated row values instantly."
               ]
             },
@@ -5360,8 +5402,8 @@ export const INITIAL_COURSES = [
                 "2. Accidental Deletion Recovery: Reversing an accidental deletion is a simple `UPDATE` query.",
                 "3. Referential Integrity Protection: Prevents foreign key constraint violation errors when deleting parent rows referenced by historical child orders.",
                 "Handling UNIQUE Constraints with Soft Deletes (Partial Indexes):",
-                "• Problem: If a soft-deleted user has `email = 'alex@test.com'`, a new user attempting to register with `'alex@test.com'` will crash due to the `UNIQUE` email constraint!",
-                "• Solution: Use a Partial Unique Index in PostgreSQL: `CREATE UNIQUE INDEX uq_active_users_email ON users(email) WHERE is_deleted = FALSE;` This allows new active users to register while preserving soft-deleted historical rows!"
+                "\u0393\u00c7\u00f3 Problem: If a soft-deleted user has `email = 'alex@test.com'`, a new user attempting to register with `'alex@test.com'` will crash due to the `UNIQUE` email constraint!",
+                "\u0393\u00c7\u00f3 Solution: Use a Partial Unique Index in PostgreSQL: `CREATE UNIQUE INDEX uq_active_users_email ON users(email) WHERE is_deleted = FALSE;` This allows new active users to register while preserving soft-deleted historical rows!"
               ]
             },
             {
@@ -5369,13 +5411,13 @@ export const INITIAL_COURSES = [
               "text": "In concurrent multi-threaded web applications, checking if a record exists with a `SELECT` and then issuing an `INSERT` or `UPDATE` causes severe Race Conditions. An UPSERT ('Update or Insert') performs this atomically in a single statement:",
               "bulletPoints": [
                 "PostgreSQL UPSERT (INSERT ... ON CONFLICT):",
-                "• ON CONFLICT DO UPDATE (Update existing record):",
+                "\u0393\u00c7\u00f3 ON CONFLICT DO UPDATE (Update existing record):",
                 "  `INSERT INTO user_stats (user_id, login_count) VALUES (42, 1) ON CONFLICT (user_id) DO UPDATE SET login_count = user_stats.login_count + EXCLUDED.login_count;`",
-                "• Note: `EXCLUDED` is a special pseudo-table referencing the values attempted in the `INSERT` clause.",
-                "• ON CONFLICT DO NOTHING (Idempotent write operation):",
+                "\u0393\u00c7\u00f3 Note: `EXCLUDED` is a special pseudo-table referencing the values attempted in the `INSERT` clause.",
+                "\u0393\u00c7\u00f3 ON CONFLICT DO NOTHING (Idempotent write operation):",
                 "  `INSERT INTO newsletter_subscribers (email) VALUES ('user@test.com') ON CONFLICT (email) DO NOTHING;` (Silently skips insertion if email already exists, preventing duplicate key errors).",
                 "ANSI Standard MERGE INTO (SQL Server, Oracle, PostgreSQL 15+):",
-                "• Synchronizes a target table with a source dataset based on join key matching:",
+                "\u0393\u00c7\u00f3 Synchronizes a target table with a source dataset based on join key matching:",
                 "  `MERGE INTO inventory t USING staging_inventory s ON (t.product_id = s.product_id) WHEN MATCHED THEN UPDATE SET t.stock = t.stock + s.stock WHEN NOT MATCHED THEN INSERT (product_id, stock) VALUES (s.product_id, s.stock);`"
               ]
             }
@@ -5422,13 +5464,13 @@ export const INITIAL_COURSES = [
       },
       {
         "id": "sql-mod-6",
-        "title": "Module 06 — SELECT Statement: Retrieving Data",
+        "title": "Module 06 \u0393\u00c7\u00f6 SELECT Statement: Retrieving Data",
         "description": "Master Data Query Language (DQL): Declarative Querying, the 8-step Logical Query Processing Order (FROM -> WHERE -> GROUP BY -> HAVING -> SELECT -> DISTINCT -> ORDER BY -> LIMIT), Selective Column Projection vs SELECT * Anti-Pattern, Computed Arithmetic Fields, Division-by-Zero Protection (NULLIF), String Concatenation (||, CONCAT), Constant Literals, Table Aliases, and Index-Only Scan Optimization.",
         "completed": false,
         "order": 6,
         "published": true,
         "readingMaterial": {
-          "introduction": "Welcome to Module 6! The SELECT statement is the foundational command of Data Query Language (DQL). It enables software engineers, database architects, and data analysts to extract, project, compute, transform, and format structured data streams stored within database tables. SQL is a declarative language—meaning you specify *what* data you require, while the database engine's Cost-Based Optimizer (CBO) determines *how* to execute the retrieval using index scans, table heap scans, or hash joins. Mastering SELECT statement projection, logical processing order, and expression evaluation is critical for writing performant, enterprise-grade database queries.",
+          "introduction": "Welcome to Module 6! The SELECT statement is the foundational command of Data Query Language (DQL). It enables software engineers, database architects, and data analysts to extract, project, compute, transform, and format structured data streams stored within database tables. SQL is a declarative language\u0393\u00c7\u00f6meaning you specify *what* data you require, while the database engine's Cost-Based Optimizer (CBO) determines *how* to execute the retrieval using index scans, table heap scans, or hash joins. Mastering SELECT statement projection, logical processing order, and expression evaluation is critical for writing performant, enterprise-grade database queries.",
           "objectives": [
             "Master the Declarative Nature of SQL: Distinguishing query intent from physical execution strategy",
             "Deconstruct the 8-Step Logical Query Processing Order of SQL clauses",
@@ -5545,9 +5587,9 @@ export const INITIAL_COURSES = [
               "bulletPoints": [
                 "Arithmetic Math Operators: Use `+`, `-`, `*`, `/`, and `%` on numeric columns (e.g., `unit_price * quantity AS subtotal`).",
                 "Division-by-Zero Protection (NULLIF):",
-                "• Dividing by zero causes relational query execution to crash with a `division by zero` error.",
-                "• Solution: Wrap denominators in `NULLIF(denominator, 0)`. The `NULLIF(a, b)` function returns `NULL` if `a == b`, preventing crashes because any number divided by `NULL` safely yields `NULL` instead of an error!",
-                "• Example: `SELECT total_revenue / NULLIF(total_orders, 0) AS avg_order_value;`",
+                "\u0393\u00c7\u00f3 Dividing by zero causes relational query execution to crash with a `division by zero` error.",
+                "\u0393\u00c7\u00f3 Solution: Wrap denominators in `NULLIF(denominator, 0)`. The `NULLIF(a, b)` function returns `NULL` if `a == b`, preventing crashes because any number divided by `NULL` safely yields `NULL` instead of an error!",
+                "\u0393\u00c7\u00f3 Example: `SELECT total_revenue / NULLIF(total_orders, 0) AS avg_order_value;`",
                 "Constant Literal Projections: Project static values, strings, or current timestamps alongside column data (e.g., `SELECT 'USD' AS currency_code, 0.08 AS sales_tax_rate`)."
               ]
             },
@@ -5610,13 +5652,13 @@ export const INITIAL_COURSES = [
       },
       {
         "id": "sql-mod-7",
-        "title": "Module 07 — Filtering Data with WHERE & Operators",
+        "title": "Module 07 \u0393\u00c7\u00f6 Filtering Data with WHERE & Operators",
         "description": "Master Row-Level Data Filtering: SARGable Queries vs Non-SARGable Index Traps, Functional B-Tree Expression Indexes, Comparison Operators (=, <>, !=, <, >, <=, >=), Inclusive Ranges (BETWEEN ... AND ...), Set Membership (IN, NOT IN), Three-Valued Logic (3VL: TRUE, FALSE, UNKNOWN), IS NULL / IS NOT NULL, Null-Safe Equality (IS DISTINCT FROM), The Catastrophic NOT IN (..., NULL) Trap, Boolean Precedence (NOT > AND > OR), Short-Circuit Evaluation, Pattern Matching (LIKE, ILIKE, %, _), Wildcard Escaping, and POSIX Regular Expressions (~, ~*).",
         "completed": false,
         "order": 7,
         "published": true,
         "readingMaterial": {
-          "introduction": "Welcome to Module 7! The WHERE clause is the primary mechanism for restricting query result sets to rows that satisfy explicit boolean filtering criteria. In relational database engines, the WHERE clause is evaluated during Step 2 of the 8-step logical execution pipeline—filtering raw table heap rows *before* any grouping, aggregate calculations, or sorting take place. Mastering WHERE clause operators, Three-Valued Logic (3VL), parenthetical boolean precedence, and SARGable index optimization is essential for writing high-performance database queries across multi-million row datasets.",
+          "introduction": "Welcome to Module 7! The WHERE clause is the primary mechanism for restricting query result sets to rows that satisfy explicit boolean filtering criteria. In relational database engines, the WHERE clause is evaluated during Step 2 of the 8-step logical execution pipeline\u0393\u00c7\u00f6filtering raw table heap rows *before* any grouping, aggregate calculations, or sorting take place. Mastering WHERE clause operators, Three-Valued Logic (3VL), parenthetical boolean precedence, and SARGable index optimization is essential for writing high-performance database queries across multi-million row datasets.",
           "objectives": [
             "Master the WHERE clause role in Step 2 of the 8-step logical execution pipeline",
             "Understand SARGable Queries (Search Argumentable): Writing predicates that utilize B-Tree index scans",
@@ -5726,16 +5768,16 @@ export const INITIAL_COURSES = [
               "text": "In standard binary computer logic, expressions evaluate to either TRUE or FALSE. Relational SQL uses Three-Valued Logic (3VL), introducing a third state: UNKNOWN (resulting from operations on NULL values):",
               "bulletPoints": [
                 "3VL Truth Tables:",
-                "• `TRUE AND UNKNOWN` -> `UNKNOWN` | `TRUE OR UNKNOWN` -> `TRUE`",
-                "• `FALSE AND UNKNOWN` -> `FALSE` | `FALSE OR UNKNOWN` -> `UNKNOWN`",
-                "• `NOT (UNKNOWN)` -> `UNKNOWN`",
+                "\u0393\u00c7\u00f3 `TRUE AND UNKNOWN` -> `UNKNOWN` | `TRUE OR UNKNOWN` -> `TRUE`",
+                "\u0393\u00c7\u00f3 `FALSE AND UNKNOWN` -> `FALSE` | `FALSE OR UNKNOWN` -> `UNKNOWN`",
+                "\u0393\u00c7\u00f3 `NOT (UNKNOWN)` -> `UNKNOWN`",
                 "Why 'col = NULL' Fails: Comparing anything to NULL using `= NULL` or `!= NULL` yields `UNKNOWN`, which evaluates as `FALSE` in WHERE clauses, returning zero rows!",
                 "Null-Safe Equality (IS DISTINCT FROM): Evaluates whether two values are distinct, handling NULLs gracefully without yielding UNKNOWN (`NULL IS DISTINCT FROM NULL` returns `FALSE`; `5 IS DISTINCT FROM NULL` returns `TRUE`).",
                 "THE CATASTROPHIC 'NOT IN (..., NULL)' TRAP:",
-                "• Consider: `WHERE status NOT IN ('Active', 'Pending', NULL)`",
-                "• Internally, SQL expands `NOT IN` to: `status != 'Active' AND status != 'Pending' AND status != NULL`.",
-                "• Because `status != NULL` evaluates to `UNKNOWN`, the entire `AND` expression evaluates to `UNKNOWN`/`FALSE` for EVERY ROW in the table! The query returns ZERO rows unconditionally!",
-                "• Solution: Always filter out NULLs before using `NOT IN` (or use `NOT EXISTS`)."
+                "\u0393\u00c7\u00f3 Consider: `WHERE status NOT IN ('Active', 'Pending', NULL)`",
+                "\u0393\u00c7\u00f3 Internally, SQL expands `NOT IN` to: `status != 'Active' AND status != 'Pending' AND status != NULL`.",
+                "\u0393\u00c7\u00f3 Because `status != NULL` evaluates to `UNKNOWN`, the entire `AND` expression evaluates to `UNKNOWN`/`FALSE` for EVERY ROW in the table! The query returns ZERO rows unconditionally!",
+                "\u0393\u00c7\u00f3 Solution: Always filter out NULLs before using `NOT IN` (or use `NOT EXISTS`)."
               ]
             },
             {
@@ -5744,10 +5786,10 @@ export const INITIAL_COURSES = [
               "bulletPoints": [
                 "Operator Precedence Order: `NOT` is evaluated first, `AND` is evaluated second, and `OR` is evaluated third ($NOT > AND > OR$).",
                 "Catastrophic Security Logic Bug Example:",
-                "• Query: `WHERE department = 'IT' OR department = 'Sales' AND status = 'Active'`",
-                "• Because `AND` takes precedence over `OR`, SQL evaluates this as: `department = 'IT' OR (department = 'Sales' AND status = 'Active')`!",
-                "• Consequence: ALL employees in the IT department are returned, INCLUDING terminated/inactive IT employees! Security checks are completely bypassed.",
-                "• Correct Scoped Query: `WHERE (department = 'IT' OR department = 'Sales') AND status = 'Active'`.",
+                "\u0393\u00c7\u00f3 Query: `WHERE department = 'IT' OR department = 'Sales' AND status = 'Active'`",
+                "\u0393\u00c7\u00f3 Because `AND` takes precedence over `OR`, SQL evaluates this as: `department = 'IT' OR (department = 'Sales' AND status = 'Active')`!",
+                "\u0393\u00c7\u00f3 Consequence: ALL employees in the IT department are returned, INCLUDING terminated/inactive IT employees! Security checks are completely bypassed.",
+                "\u0393\u00c7\u00f3 Correct Scoped Query: `WHERE (department = 'IT' OR department = 'Sales') AND status = 'Active'`.",
                 "Short-Circuit Evaluation: Relational engines evaluate boolean expressions left-to-right and stop as soon as the result is guaranteed (e.g. if the left side of `AND` is `FALSE`, the right side is skipped)."
               ]
             },
@@ -5758,12 +5800,12 @@ export const INITIAL_COURSES = [
                 "Percent Wildcard (%): Matches zero, one, or multiple arbitrary characters (`'A%'` matches `'A'`, `'Alex'`, `'Amanda'`).",
                 "Underscore Wildcard (_): Matches exactly one single character (`'_cat'` matches `'cat'`, `'hat'`, but NOT `'flat'`).",
                 "LIKE vs ILIKE:",
-                "• `LIKE`: Case-sensitive pattern matching (`'admin%'` does NOT match `'Admin'`).",
-                "• `ILIKE`: Case-insensitive pattern matching (PostgreSQL extension: `'admin%'` matches `'Admin'`, `'ADMIN'`).",
+                "\u0393\u00c7\u00f3 `LIKE`: Case-sensitive pattern matching (`'admin%'` does NOT match `'Admin'`).",
+                "\u0393\u00c7\u00f3 `ILIKE`: Case-insensitive pattern matching (PostgreSQL extension: `'admin%'` matches `'Admin'`, `'ADMIN'`).",
                 "Escaping Wildcards: To search for literal `%` or `_` characters inside text, specify an `ESCAPE` clause:",
-                "• `WHERE discount_code LIKE '10%' ESCAPE ''` (Matches literal string `'10%'`).",
+                "\u0393\u00c7\u00f3 `WHERE discount_code LIKE '10%' ESCAPE ''` (Matches literal string `'10%'`).",
                 "Regular Expression Matching (~ and ~*): PostgreSQL provides POSIX regex operators:",
-                "• `WHERE email ~ '^[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,}$'` (Enforces regex email validation)."
+                "\u0393\u00c7\u00f3 `WHERE email ~ '^[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,}$'` (Enforces regex email validation)."
               ]
             }
           ],
@@ -5808,7 +5850,7 @@ export const INITIAL_COURSES = [
       },
       {
         "id": "sql-mod-8",
-        "title": "Module 08 — DISTINCT, ORDER BY & LIMIT",
+        "title": "Module 08 \u0393\u00c7\u00f6 DISTINCT, ORDER BY & LIMIT",
         "description": "Master Result Set Presentation & Pagination Architecture: Single & Multi-Column SELECT DISTINCT Deduplication, Memory Allocation (work_mem Hash vs Sort Aggregates), PostgreSQL DISTINCT ON (expression), Deterministic Multi-Column ORDER BY Sorting (ASC/DESC), Custom CASE Statement Priority Sorting, Expression Sorting, NULL Positioning (NULLS FIRST / NULLS LAST), ANSI FETCH FIRST n ROWS ONLY, Web API Pagination Mechanics (LIMIT n OFFSET m), Deep Pagination Penalty Analysis, Keyset / Cursor-Based Composite Tuple Pagination (WHERE (created_at, id) < (:last_time, :last_id)), and Top-N Tie-Breaking Strategies.",
         "completed": false,
         "order": 8,
@@ -5835,13 +5877,13 @@ export const INITIAL_COURSES = [
                 "Single-Column Deduplication: `SELECT DISTINCT department FROM employees;` scans output rows and returns unique department strings.",
                 "Multi-Column Tuple Deduplication: `SELECT DISTINCT department, status FROM employees;` compares the combined tuple value across all projected columns.",
                 "Engine Memory Allocation (work_mem):",
-                "• Hash Aggregates: The engine builds an in-memory hash table of unique tuple keys inside RAM (`work_mem`). Ideal for unsorted data.",
-                "• Sort Aggregates: The engine sorts output rows first, then scans sequentially to drop adjacent duplicates. Used when data is pre-sorted by an index.",
-                "• Spill to Disk (External Sort): If deduplication memory exceeds `work_mem`, the engine spills temporary work files to disk, drastically increasing query latency.",
+                "\u0393\u00c7\u00f3 Hash Aggregates: The engine builds an in-memory hash table of unique tuple keys inside RAM (`work_mem`). Ideal for unsorted data.",
+                "\u0393\u00c7\u00f3 Sort Aggregates: The engine sorts output rows first, then scans sequentially to drop adjacent duplicates. Used when data is pre-sorted by an index.",
+                "\u0393\u00c7\u00f3 Spill to Disk (External Sort): If deduplication memory exceeds `work_mem`, the engine spills temporary work files to disk, drastically increasing query latency.",
                 "PostgreSQL DISTINCT ON (expression):",
-                "• Standard ANSI SQL `DISTINCT` operates on ALL projected columns in `SELECT`.",
-                "• PostgreSQL `DISTINCT ON (department)` evaluates uniqueness based ONLY on the specified group key, while allowing you to project other un-deduplicated columns!",
-                "• Must be paired with `ORDER BY department, salary DESC` to control which specific row per group is retained (e.g., retrieving the highest-paid employee per department in a single query pass)."
+                "\u0393\u00c7\u00f3 Standard ANSI SQL `DISTINCT` operates on ALL projected columns in `SELECT`.",
+                "\u0393\u00c7\u00f3 PostgreSQL `DISTINCT ON (department)` evaluates uniqueness based ONLY on the specified group key, while allowing you to project other un-deduplicated columns!",
+                "\u0393\u00c7\u00f3 Must be paired with `ORDER BY department, salary DESC` to control which specific row per group is retained (e.g., retrieving the highest-paid employee per department in a single query pass)."
               ],
               "table": {
                 "headers": [
@@ -5878,12 +5920,12 @@ export const INITIAL_COURSES = [
               "bulletPoints": [
                 "Multi-Column Precedence ($A \\rightarrow B \\rightarrow C$): `ORDER BY department ASC, salary DESC, employee_id ASC` sorts primarily by department alphabetically, breaks ties by highest salary, and breaks secondary ties by primary key ID.",
                 "Custom Priority Sorting (CASE Statements): Sort rows by business priority rules rather than alphabetical or numerical order:",
-                "• `ORDER BY CASE priority WHEN 'Critical' THEN 1 WHEN 'High' THEN 2 WHEN 'Medium' THEN 3 ELSE 4 END, created_at DESC;`",
+                "\u0393\u00c7\u00f3 `ORDER BY CASE priority WHEN 'Critical' THEN 1 WHEN 'High' THEN 2 WHEN 'Medium' THEN 3 ELSE 4 END, created_at DESC;`",
                 "Sorting by Calculated Expressions & Aliases: Because `ORDER BY` executes in Step 7 (AFTER `SELECT` in Step 5), you can sort by calculated aliases: `SELECT salary * 12 AS annual_pay FROM employees ORDER BY annual_pay DESC;`.",
                 "Explicit NULL Positioning (NULLS FIRST / NULLS LAST):",
-                "• Relational engines differ in default NULL sorting (PostgreSQL puts NULLs last in ASC, first in DESC; MySQL puts NULLs first in ASC).",
-                "• Explicit Overrides: `ORDER BY bonus DESC NULLS LAST` guarantees missing bonus rows appear at the bottom of executive compensation reports!",
-                "• MySQL Workaround: In MySQL (which lacks native NULLS LAST), use boolean sorting: `ORDER BY (bonus IS NULL) ASC, bonus DESC`."
+                "\u0393\u00c7\u00f3 Relational engines differ in default NULL sorting (PostgreSQL puts NULLs last in ASC, first in DESC; MySQL puts NULLs first in ASC).",
+                "\u0393\u00c7\u00f3 Explicit Overrides: `ORDER BY bonus DESC NULLS LAST` guarantees missing bonus rows appear at the bottom of executive compensation reports!",
+                "\u0393\u00c7\u00f3 MySQL Workaround: In MySQL (which lacks native NULLS LAST), use boolean sorting: `ORDER BY (bonus IS NULL) ASC, bonus DESC`."
               ],
               "table": {
                 "headers": [
@@ -5925,14 +5967,14 @@ export const INITIAL_COURSES = [
               "text": "Web, mobile, and API applications present large datasets across multi-page views (Page 1, Page 2, Page 3...). Two primary strategies exist for implementing database pagination:",
               "bulletPoints": [
                 "1. Offset-Based Pagination (LIMIT n OFFSET m / ANSI FETCH FIRST):",
-                "• `LIMIT n` (or `FETCH FIRST n ROWS ONLY`): Page Size (number of items returned per page, e.g., `LIMIT 20`).",
-                "• `OFFSET m`: Skip Count, calculated as `OFFSET = (PageNumber - 1) * PageSize`.",
-                "• Page 1: `LIMIT 20 OFFSET 0` | Page 2: `LIMIT 20 OFFSET 20` | Page 3: `LIMIT 20 OFFSET 40`.",
-                "• THE DEEP PAGINATION PERFORMANCE PENALTY: When requesting Page 10,000 (`OFFSET 200000 LIMIT 20`), the database engine MUST read, parse, sort, and discard 200,000 rows from disk before returning the 20 target rows! Query execution latency degrades exponentially.",
+                "\u0393\u00c7\u00f3 `LIMIT n` (or `FETCH FIRST n ROWS ONLY`): Page Size (number of items returned per page, e.g., `LIMIT 20`).",
+                "\u0393\u00c7\u00f3 `OFFSET m`: Skip Count, calculated as `OFFSET = (PageNumber - 1) * PageSize`.",
+                "\u0393\u00c7\u00f3 Page 1: `LIMIT 20 OFFSET 0` | Page 2: `LIMIT 20 OFFSET 20` | Page 3: `LIMIT 20 OFFSET 40`.",
+                "\u0393\u00c7\u00f3 THE DEEP PAGINATION PERFORMANCE PENALTY: When requesting Page 10,000 (`OFFSET 200000 LIMIT 20`), the database engine MUST read, parse, sort, and discard 200,000 rows from disk before returning the 20 target rows! Query execution latency degrades exponentially.",
                 "2. Keyset / Cursor-Based Composite Tuple Pagination (High-Performance Alternative):",
-                "• Remembers the last seen composite tuple `(created_at, id)` from the bottom of the previous feed page:",
-                "• Syntax: `WHERE (created_at, article_id) < (:last_created_at, :last_article_id) ORDER BY created_at DESC, article_id DESC LIMIT 20;`",
-                "• Uses a composite B-Tree index scan to jump directly to target rows in sub-milliseconds ($O(\\log N)$ complexity), regardless of page depth! Page 10,000 executes just as fast as Page 1!"
+                "\u0393\u00c7\u00f3 Remembers the last seen composite tuple `(created_at, id)` from the bottom of the previous feed page:",
+                "\u0393\u00c7\u00f3 Syntax: `WHERE (created_at, article_id) < (:last_created_at, :last_article_id) ORDER BY created_at DESC, article_id DESC LIMIT 20;`",
+                "\u0393\u00c7\u00f3 Uses a composite B-Tree index scan to jump directly to target rows in sub-milliseconds ($O(\\log N)$ complexity), regardless of page depth! Page 10,000 executes just as fast as Page 1!"
               ],
               "table": {
                 "headers": [
@@ -6010,7 +6052,7 @@ export const INITIAL_COURSES = [
       },
       {
         "id": "sql-mod-9",
-        "title": "Module 09 — Aggregate Functions, GROUP BY & HAVING",
+        "title": "Module 09 \u0393\u00c7\u00f6 Aggregate Functions, GROUP BY & HAVING",
         "description": "Master Data Analytics & Aggregation Architecture: The 5 Core Aggregate Functions (COUNT(*), COUNT(col), COUNT(DISTINCT col), SUM, AVG, MIN, MAX), Whitespace Syntax Rules, NULL Handling Mechanics, Conditional Aggregation (FILTER (WHERE ...)), Categorical Grouping (GROUP BY Single & Composite Keys), The Golden Rule of SQL Aggregation, WHERE vs HAVING Execution Order, and Multidimensional Enterprise Reporting (ROLLUP, CUBE, GROUPING SETS).",
         "completed": false,
         "order": 9,
@@ -6081,8 +6123,8 @@ export const INITIAL_COURSES = [
                 "Crucial AVG() NULL Trap: `AVG(salary)` divides the total sum by the count of NON-NULL salary entries, NOT total table rows! If 4 employees earn $100k and 1 employee has a `NULL` salary, `AVG()` computes `$400k / 4 = $100k`, NOT `$400k / 5 = $80k`. If you want NULLs treated as zero, use `AVG(COALESCE(salary, 0))`.",
                 "Whitespace Syntax Rule: No whitespace is allowed between the aggregate function name and the opening parenthesis (e.g. `COUNT(*)` is valid; `COUNT (*)` causes a syntax error in strict database parsers).",
                 "Conditional Aggregation (FILTER Clause): ANSI SQL and PostgreSQL allow embedding a `WHERE` condition directly inside an aggregate function:",
-                "• Syntax: `SUM(order_total) FILTER (WHERE status = 'Completed') AS completed_revenue`",
-                "• Computes status-specific subtotals in a single query pass without requiring multiple subqueries!"
+                "\u0393\u00c7\u00f3 Syntax: `SUM(order_total) FILTER (WHERE status = 'Completed') AS completed_revenue`",
+                "\u0393\u00c7\u00f3 Computes status-specific subtotals in a single query pass without requiring multiple subqueries!"
               ]
             },
             {
@@ -6092,9 +6134,9 @@ export const INITIAL_COURSES = [
                 "Single-Column Grouping: `GROUP BY department` aggregates rows by unique department names.",
                 "Composite Multi-Column Grouping: `GROUP BY region, department` aggregates rows by unique combinations of region and department.",
                 "THE GOLDEN RULE OF SQL AGGREGATION:",
-                "• Every non-aggregated column listed in the `SELECT` projection list MUST be explicitly included in the `GROUP BY` clause!",
-                "• Invalid Query: `SELECT department, job_title, AVG(salary) FROM employees GROUP BY department;` (Crashes with `job_title must appear in the GROUP BY clause` because `job_title` has multiple values per department!).",
-                "• Valid Query: `SELECT department, job_title, AVG(salary) FROM employees GROUP BY department, job_title;`."
+                "\u0393\u00c7\u00f3 Every non-aggregated column listed in the `SELECT` projection list MUST be explicitly included in the `GROUP BY` clause!",
+                "\u0393\u00c7\u00f3 Invalid Query: `SELECT department, job_title, AVG(salary) FROM employees GROUP BY department;` (Crashes with `job_title must appear in the GROUP BY clause` because `job_title` has multiple values per department!).",
+                "\u0393\u00c7\u00f3 Valid Query: `SELECT department, job_title, AVG(salary) FROM employees GROUP BY department, job_title;`."
               ]
             },
             {
@@ -6136,8 +6178,8 @@ export const INITIAL_COURSES = [
               },
               "bulletPoints": [
                 "Combining WHERE and HAVING for Maximum Performance:",
-                "• Always use `WHERE` to filter raw rows first (e.g. `WHERE is_active = TRUE`), reducing the volume of rows that must be processed in RAM during the `GROUP BY` step.",
-                "• Use `HAVING` solely to filter aggregate group totals (e.g. `HAVING COUNT(employee_id) > 5`)."
+                "\u0393\u00c7\u00f3 Always use `WHERE` to filter raw rows first (e.g. `WHERE is_active = TRUE`), reducing the volume of rows that must be processed in RAM during the `GROUP BY` step.",
+                "\u0393\u00c7\u00f3 Use `HAVING` solely to filter aggregate group totals (e.g. `HAVING COUNT(employee_id) > 5`)."
               ]
             },
             {
@@ -6145,15 +6187,15 @@ export const INITIAL_COURSES = [
               "text": "Enterprise financial dashboards require subtotals and grand totals alongside standard grouped metrics. Modern SQL engines provide super-aggregate extensions:",
               "bulletPoints": [
                 "1. GROUP BY ROLLUP(region, department):",
-                "• Generates hierarchical subtotals and a grand total row in a single query pass!",
-                "• Produces 3 grouping levels: `(region, department)`, `(region)`, and `()` (Grand Total).",
+                "\u0393\u00c7\u00f3 Generates hierarchical subtotals and a grand total row in a single query pass!",
+                "\u0393\u00c7\u00f3 Produces 3 grouping levels: `(region, department)`, `(region)`, and `()` (Grand Total).",
                 "2. GROUP BY CUBE(region, department):",
-                "• Generates ALL possible subtotal combinations across all listed dimensions.",
-                "• Produces 4 grouping levels: `(region, department)`, `(region)`, `(department)`, and `()` (Grand Total).",
+                "\u0393\u00c7\u00f3 Generates ALL possible subtotal combinations across all listed dimensions.",
+                "\u0393\u00c7\u00f3 Produces 4 grouping levels: `(region, department)`, `(region)`, `(department)`, and `()` (Grand Total).",
                 "3. GROUP BY GROUPING SETS ((region), (department)):",
-                "• Explicitly defines exact subtotal dimensions to compute without generating unneeded combinations.",
+                "\u0393\u00c7\u00f3 Explicitly defines exact subtotal dimensions to compute without generating unneeded combinations.",
                 "4. Identifying Subtotal Rows with GROUPING():",
-                "• The `GROUPING(column)` function returns `1` if a column is aggregated into a subtotal/grand total row, and `0` for regular rows. Use `CASE WHEN GROUPING(region) = 1 THEN 'All Regions' ELSE region END` to format clean report headers!"
+                "\u0393\u00c7\u00f3 The `GROUPING(column)` function returns `1` if a column is aggregated into a subtotal/grand total row, and `0` for regular rows. Use `CASE WHEN GROUPING(region) = 1 THEN 'All Regions' ELSE region END` to format clean report headers!"
               ],
               "table": {
                 "headers": [
@@ -6223,7 +6265,7 @@ export const INITIAL_COURSES = [
       },
       {
         "id": "sql-mod-10",
-        "title": "Module 10 — SQL Joins & Relationships",
+        "title": "Module 10 \u0393\u00c7\u00f6 SQL Joins & Relationships",
         "description": "Master Relational Normalization (1NF, 2NF, 3NF, BCNF), Relational Algebra (Selection, Projection, Join), Entity Relationships (1:1, 1:N, N:M Junction Tables), Complete Join Family: INNER JOIN, Non-Equi Joins, LEFT (OUTER) JOIN, RIGHT JOIN, FULL OUTER JOIN, CROSS JOIN (Cartesian Product), SELF JOIN (Hierarchical Trees), Anti-Join Pattern (LEFT JOIN ... WHERE right.id IS NULL), Semi-Join Pattern (EXISTS), RDBMS Physical Join Algorithms (Nested Loop, Hash Join, Sort-Merge Join), and Foreign Key B-Tree Indexing Optimization.",
         "completed": false,
         "order": 10,
@@ -6232,7 +6274,7 @@ export const INITIAL_COURSES = [
           "introduction": "Welcome to Module 10! Relational database normalization breaks flat, redundant data files down into logical, atomic tables connected by Primary and Foreign Key relationships. SQL Joins allow software developers, database architects, and data engineers to reconstruct related data across multiple tables on-the-fly. Understanding how the relational engine parses join conditions and selects physical join algorithms (Nested Loop, Hash Join, Sort-Merge Join) is essential for writing high-performance multi-table queries across enterprise datasets.",
           "objectives": [
             "Master Relational Normalization: 1NF (Atomicity), 2NF (Partial Key Dependencies), 3NF (Transitive Dependencies), and Boyce-Codd Normal Form (BCNF)",
-            "Analyze Relational Algebra Operations: Selection (σ), Projection (π), Cartesian Product (×), and Natural Join (⋈)",
+            "Analyze Relational Algebra Operations: Selection (\u2567\u00e2), Projection (\u2567\u00c7), Cartesian Product (\u251c\u00f9), and Natural Join (\u0393\u00ef\u00ea)",
             "Map Entity Relationships: One-to-One (1:1), One-to-Many (1:N), and Many-to-Many (N:M) with Composite Key Junction Tables",
             "Master INNER JOIN & Non-Equi Joins: Joining on equality predicates and numeric range bounds (BETWEEN)",
             "Master LEFT (OUTER) JOIN: Preserving all rows from the primary left table ($A \\cup (A \\cap B)$)",
@@ -6248,15 +6290,15 @@ export const INITIAL_COURSES = [
               "text": "Database normalization organizes tables according to Dr. Edgar F. Codd's Relational Algebra to eliminate insertion, update, and deletion anomalies:",
               "bulletPoints": [
                 "Relational Algebra Operators:",
-                "• Selection ($sigma$): Filters rows matching a predicate (equivalent to SQL `WHERE`).",
-                "• Projection ($pi$): Selects specific columns (equivalent to SQL `SELECT col1, col2`).",
-                "• Cartesian Product ($\\times$): Generates all paired combinations (equivalent to SQL `CROSS JOIN`).",
-                "• Natural Join ($\\bowtie$): Combines rows sharing matching key attributes.",
+                "\u0393\u00c7\u00f3 Selection ($sigma$): Filters rows matching a predicate (equivalent to SQL `WHERE`).",
+                "\u0393\u00c7\u00f3 Projection ($pi$): Selects specific columns (equivalent to SQL `SELECT col1, col2`).",
+                "\u0393\u00c7\u00f3 Cartesian Product ($\\times$): Generates all paired combinations (equivalent to SQL `CROSS JOIN`).",
+                "\u0393\u00c7\u00f3 Natural Join ($\\bowtie$): Combines rows sharing matching key attributes.",
                 "Database Normalization Levels:",
-                "• First Normal Form (1NF): Atomic values per cell (no array strings or comma-separated values). Every row must have a unique Primary Key.",
-                "• Second Normal Form (2NF): Meets 1NF, and all non-key attributes are fully functionally dependent on the ENTIRE Primary Key (eliminates partial key dependencies on composite keys).",
-                "• Third Normal Form (3NF): Meets 2NF, and no non-key attribute depends on another non-key attribute (eliminates transitive dependencies: $A \\rightarrow B \\rightarrow C$).",
-                "• Boyce-Codd Normal Form (BCNF): A stricter version of 3NF ensuring every determinant is a super key."
+                "\u0393\u00c7\u00f3 First Normal Form (1NF): Atomic values per cell (no array strings or comma-separated values). Every row must have a unique Primary Key.",
+                "\u0393\u00c7\u00f3 Second Normal Form (2NF): Meets 1NF, and all non-key attributes are fully functionally dependent on the ENTIRE Primary Key (eliminates partial key dependencies on composite keys).",
+                "\u0393\u00c7\u00f3 Third Normal Form (3NF): Meets 2NF, and no non-key attribute depends on another non-key attribute (eliminates transitive dependencies: $A \\rightarrow B \\rightarrow C$).",
+                "\u0393\u00c7\u00f3 Boyce-Codd Normal Form (BCNF): A stricter version of 3NF ensuring every determinant is a super key."
               ],
               "table": {
                 "headers": [
@@ -6416,7 +6458,7 @@ export const INITIAL_COURSES = [
       },
       {
         "id": "sql-mod-11",
-        "title": "Module 11 — Subqueries, UNION & Advanced Querying",
+        "title": "Module 11 \u0393\u00c7\u00f6 Subqueries, UNION & Advanced Querying",
         "description": "Master Advanced Querying Architectures: Subquery Classification (Scalar, Multi-Row, Multi-Column Row Constructors), Multi-Row Operators (IN, NOT IN, ANY/SOME, ALL), Correlated Subqueries, Existence Optimization (EXISTS vs NOT EXISTS), Common Table Expressions (CTEs - WITH clause, AS MATERIALIZED optimization fences), Recursive CTEs (WITH RECURSIVE for Graphs, Trees & Cycle Detection), and Set Operators (UNION, UNION ALL, INTERSECT, EXCEPT/MINUS).",
         "completed": false,
         "order": 11,
@@ -6474,8 +6516,8 @@ export const INITIAL_COURSES = [
               },
               "bulletPoints": [
                 "Multi-Row Operators (ANY & ALL):",
-                "• `WHERE salary > ANY (SELECT salary FROM employees WHERE dept = 'IT')`: Returns TRUE if salary exceeds AT LEAST ONE IT salary (equivalent to `> MIN()`).",
-                "• `WHERE salary > ALL (SELECT salary FROM employees WHERE dept = 'IT')`: Returns TRUE if salary exceeds EVERY SINGLE IT salary (equivalent to `> MAX()`)."
+                "\u0393\u00c7\u00f3 `WHERE salary > ANY (SELECT salary FROM employees WHERE dept = 'IT')`: Returns TRUE if salary exceeds AT LEAST ONE IT salary (equivalent to `> MIN()`).",
+                "\u0393\u00c7\u00f3 `WHERE salary > ALL (SELECT salary FROM employees WHERE dept = 'IT')`: Returns TRUE if salary exceeds EVERY SINGLE IT salary (equivalent to `> MAX()`)."
               ]
             },
             {
@@ -6484,9 +6526,9 @@ export const INITIAL_COURSES = [
               "bulletPoints": [
                 "Correlated Subquery Mechanism: `WHERE salary > (SELECT AVG(salary) FROM employees WHERE department = e.department)` (Calculates department-specific averages dynamically per row!).",
                 "EXISTS vs IN Performance Optimization:",
-                "• `EXISTS (subquery)`: Returns TRUE as soon as the subquery finds a SINGLE matching row, short-circuiting execution immediately.",
-                "• `IN (subquery)`: Builds the complete result list in memory before evaluating the predicate.",
-                "• Golden Rule: Use `EXISTS` and `NOT EXISTS` instead of `IN` / `NOT IN` when testing for record existence across large child tables. `EXISTS` short-circuits instantly and avoids the `NOT IN (..., NULL)` trap!"
+                "\u0393\u00c7\u00f3 `EXISTS (subquery)`: Returns TRUE as soon as the subquery finds a SINGLE matching row, short-circuiting execution immediately.",
+                "\u0393\u00c7\u00f3 `IN (subquery)`: Builds the complete result list in memory before evaluating the predicate.",
+                "\u0393\u00c7\u00f3 Golden Rule: Use `EXISTS` and `NOT EXISTS` instead of `IN` / `NOT IN` when testing for record existence across large child tables. `EXISTS` short-circuits instantly and avoids the `NOT IN (..., NULL)` trap!"
               ]
             },
             {
@@ -6496,11 +6538,11 @@ export const INITIAL_COURSES = [
                 "Standard CTE Syntax: `WITH dept_averages AS (SELECT department, AVG(salary) AS avg_sal FROM employees GROUP BY department) SELECT * FROM employees e JOIN dept_averages d ON e.department = d.department WHERE e.salary > d.avg_sal;`",
                 "Multiple Chained CTEs: You can chain multiple CTEs separated by commas (`WITH cte1 AS (...), cte2 AS (...)`).",
                 "CTE Materialization Optimization Fences (PostgreSQL 12+):",
-                "• `WITH cte AS MATERIALIZED (...)`: Forces the engine to evaluate the CTE into a physical temporary RAM storage block once.",
-                "• `WITH cte AS NOT MATERIALIZED (...)`: Allows the query optimizer to inline the CTE directly into the main query tree for join optimizations.",
+                "\u0393\u00c7\u00f3 `WITH cte AS MATERIALIZED (...)`: Forces the engine to evaluate the CTE into a physical temporary RAM storage block once.",
+                "\u0393\u00c7\u00f3 `WITH cte AS NOT MATERIALIZED (...)`: Allows the query optimizer to inline the CTE directly into the main query tree for join optimizations.",
                 "Recursive CTEs (WITH RECURSIVE):",
-                "• Used to query hierarchical graph structures (org charts, bill of materials, category trees, network routing).",
-                "• Structure: Consists of an **Anchor Member** (base query), `UNION ALL`, and a **Recursive Member** referencing the CTE name until a termination condition is met."
+                "\u0393\u00c7\u00f3 Used to query hierarchical graph structures (org charts, bill of materials, category trees, network routing).",
+                "\u0393\u00c7\u00f3 Structure: Consists of an **Anchor Member** (base query), `UNION ALL`, and a **Recursive Member** referencing the CTE name until a termination condition is met."
               ]
             },
             {
@@ -6586,7 +6628,7 @@ export const INITIAL_COURSES = [
       },
       {
         "id": "sql-mod-12",
-        "title": "Module 12 — SQL Functions & Conditional Logic",
+        "title": "Module 12 \u0393\u00c7\u00f6 SQL Functions & Conditional Logic",
         "description": "Master Built-in SQL Functions & Expression Architecture: Deterministic vs Non-Deterministic Functions, String Functions (LENGTH, SUBSTRING, REPLACE, TRIM, POSITION, UPPER, LOWER, INITCAP, LPAD/RPAD, REGEXP_REPLACE), Mathematical Functions (ROUND, TRUNC, CEIL, FLOOR, ABS, MOD, POWER), Date/Time Functions (CURRENT_DATE, EXTRACT, DATE_TRUNC time-series bucketing, AGE, INTERVAL math), Conditional Expressions (Simple CASE, Searched CASE WHEN ... THEN ... ELSE ... END), and Null Handling Functions (COALESCE, NULLIF, NVL, IFNULL).",
         "completed": false,
         "order": 12,
@@ -6753,8 +6795,8 @@ export const INITIAL_COURSES = [
               "text": "Conditional expressions provide `if-then-else` branching logic directly inside SQL queries:",
               "bulletPoints": [
                 "Searched CASE Expression (Most Versatile):",
-                "• Syntax: `CASE WHEN salary > 100000 THEN 'Executive' WHEN salary > 60000 THEN 'Senior' ELSE 'Junior' END AS tier`",
-                "• Evaluates boolean conditions sequentially; returns the `THEN` value of the first matching `TRUE` condition.",
+                "\u0393\u00c7\u00f3 Syntax: `CASE WHEN salary > 100000 THEN 'Executive' WHEN salary > 60000 THEN 'Senior' ELSE 'Junior' END AS tier`",
+                "\u0393\u00c7\u00f3 Evaluates boolean conditions sequentially; returns the `THEN` value of the first matching `TRUE` condition.",
                 "Simple CASE Expression: Evaluates discrete matches: `CASE department_id WHEN 1 THEN 'IT' WHEN 2 THEN 'HR' ELSE 'Other' END`.",
                 "COALESCE(val1, val2, ...): Returns the FIRST NON-NULL value in a list of arguments. Used to substitute fallback values for missing data: `COALESCE(phone_number, mobile_number, 'N/A')`.",
                 "NULLIF(val1, val2): Returns `NULL` if `val1 == val2`; otherwise returns `val1`. Prevents division-by-zero errors: `total / NULLIF(count, 0)`.",
@@ -6789,7 +6831,7 @@ export const INITIAL_COURSES = [
           ],
           "practiceExercise": {
             "title": "Date Functions & CASE Expression Challenge",
-            "problem": "Perform the following two tasks:\n1. Write a SQL query using `COALESCE` that returns `work_phone`, `mobile_phone`, or 'No Phone On File' in order of preference.\n\n2. Write a SQL SELECT query on an `orders` table returning `order_id`, `order_total`, and a column `shipping_speed` calculated via `CASE`:\n   • 'Express' if `order_total >= 200`\n   • 'Priority' if `order_total >= 100`\n   • 'Standard' for all other amounts.",
+            "problem": "Perform the following two tasks:\n1. Write a SQL query using `COALESCE` that returns `work_phone`, `mobile_phone`, or 'No Phone On File' in order of preference.\n\n2. Write a SQL SELECT query on an `orders` table returning `order_id`, `order_total`, and a column `shipping_speed` calculated via `CASE`:\n   \u0393\u00c7\u00f3 'Express' if `order_total >= 200`\n   \u0393\u00c7\u00f3 'Priority' if `order_total >= 100`\n   \u0393\u00c7\u00f3 'Standard' for all other amounts.",
             "solutionCode": "-- Exercise 1 COALESCE Solution:\nSELECT COALESCE(work_phone, mobile_phone, 'No Phone On File') AS contact_phone\nFROM contacts;\n\n-- Exercise 2 CASE Query Solution:\nSELECT \n    order_id,\n    order_total,\n    CASE \n        WHEN order_total >= 200.00 THEN 'Express'\n        WHEN order_total >= 100.00 THEN 'Priority'\n        ELSE 'Standard'\n    END AS shipping_speed\nFROM orders;"
           },
           "keyTakeaways": [
@@ -6803,7 +6845,7 @@ export const INITIAL_COURSES = [
       },
       {
         "id": "sql-mod-13",
-        "title": "Module 13 — Views, Indexes & Database Optimization",
+        "title": "Module 13 \u0393\u00c7\u00f6 Views, Indexes & Database Optimization",
         "description": "Master Database Performance Engineering & Architecture: Standard Virtual Views (CREATE VIEW, Updatable Views, Security Column Masking), Materialized Views (CREATE MATERIALIZED VIEW, REFRESH MATERIALIZED VIEW CONCURRENTLY), B-Tree Index Architecture (Root, Branch, Leaf TIDs, O(log N) logarithmic search), Composite Multi-Column Indexes, Leftmost Prefix Rule, Unique Indexes, Partial / Filtered Indexes (WHERE clause scoped), Expression / Functional Indexes (UPPER/LOWER), Specialized Indexes (Hash, GIN for JSONB, GiST), Cost-Based Optimizer (CBO Table Statistics), EXPLAIN ANALYZE Plan Inspection (Seq Scan, Index Scan, Index-Only Scan, Bitmap Heap Scan), Index Write Penalties, and Unused Index Cleanup.",
         "completed": false,
         "order": 13,
@@ -6853,8 +6895,8 @@ export const INITIAL_COURSES = [
               "bulletPoints": [
                 "Security Column Masking: Virtual Views allow granting users access to calculated or masked fields without exposing raw table columns (e.g. `SELECT id, name, 'XXX-XX-' || RIGHT(ssn, 4) AS masked_ssn FROM employees`).",
                 "Refreshing Materialized Views:",
-                "• `REFRESH MATERIALIZED VIEW view_name;` (Default: Acquires an exclusive lock, blocking concurrent client read queries while refreshing).",
-                "• `REFRESH MATERIALIZED VIEW CONCURRENTLY view_name;` (Zero-Downtime Refresh: Updates cached rows in the background without blocking concurrent client reads; requires a unique index on the materialized view!)."
+                "\u0393\u00c7\u00f3 `REFRESH MATERIALIZED VIEW view_name;` (Default: Acquires an exclusive lock, blocking concurrent client read queries while refreshing).",
+                "\u0393\u00c7\u00f3 `REFRESH MATERIALIZED VIEW CONCURRENTLY view_name;` (Zero-Downtime Refresh: Updates cached rows in the background without blocking concurrent client reads; requires a unique index on the materialized view!)."
               ]
             },
             {
@@ -6863,13 +6905,13 @@ export const INITIAL_COURSES = [
               "bulletPoints": [
                 "B-Tree Search Complexity: Navigating a B-Tree index requires $O(\\log N)$ operations. Looking up a row in a 10,000,000 row table requires only ~3 to 4 index page reads!",
                 "Composite Multi-Column Indexes & The Leftmost Prefix Rule:",
-                "• A composite index created on `(country, state, city)` is sorted primarily by `country`, then `state`, then `city`.",
-                "• Leftmost Prefix Rule: Queries filtering by `country` or `(country, state)` use the index. Queries filtering ONLY by `city` CANNOT use the index because the leftmost lead column (`country`) is omitted!",
+                "\u0393\u00c7\u00f3 A composite index created on `(country, state, city)` is sorted primarily by `country`, then `state`, then `city`.",
+                "\u0393\u00c7\u00f3 Leftmost Prefix Rule: Queries filtering by `country` or `(country, state)` use the index. Queries filtering ONLY by `city` CANNOT use the index because the leftmost lead column (`country`) is omitted!",
                 "Partial Indexes (Filtered Indexes):",
-                "• `CREATE INDEX idx_active_users ON users (email) WHERE is_active = TRUE;`",
-                "• Indexes ONLY matching rows, saving up to 90% of disk space and reducing index maintenance write penalties!",
+                "\u0393\u00c7\u00f3 `CREATE INDEX idx_active_users ON users (email) WHERE is_active = TRUE;`",
+                "\u0393\u00c7\u00f3 Indexes ONLY matching rows, saving up to 90% of disk space and reducing index maintenance write penalties!",
                 "Expression Indexes (Functional Indexes):",
-                "• `CREATE INDEX idx_upper_email ON users (UPPER(email));` enables non-SARGable function calls like `WHERE UPPER(email) = 'TEST@GMAIL.COM'` to use B-Tree index lookups!",
+                "\u0393\u00c7\u00f3 `CREATE INDEX idx_upper_email ON users (UPPER(email));` enables non-SARGable function calls like `WHERE UPPER(email) = 'TEST@GMAIL.COM'` to use B-Tree index lookups!",
                 "GIN (Generalized Inverted Index): Specialized index for multi-value types (JSONB documents, array columns, full-text search)."
               ],
               "table": {
@@ -6952,10 +6994,10 @@ export const INITIAL_COURSES = [
               },
               "bulletPoints": [
                 "Understanding Plan Cost Notation: `cost=0.00..450.12 rows=105 width=32`",
-                "• `0.00`: Startup cost (cost to fetch first row).",
-                "• `450.12`: Total estimated cost (CPU + Disk I/O units) to complete the node.",
-                "• `rows=105`: Estimated number of rows output by the node.",
-                "• `width=32`: Average byte width per returned row tuple."
+                "\u0393\u00c7\u00f3 `0.00`: Startup cost (cost to fetch first row).",
+                "\u0393\u00c7\u00f3 `450.12`: Total estimated cost (CPU + Disk I/O units) to complete the node.",
+                "\u0393\u00c7\u00f3 `rows=105`: Estimated number of rows output by the node.",
+                "\u0393\u00c7\u00f3 `width=32`: Average byte width per returned row tuple."
               ]
             },
             {
@@ -7008,13 +7050,13 @@ export const INITIAL_COURSES = [
       },
       {
         "id": "sql-mod-14",
-        "title": "Module 14 — Transactions, TCL & Database Security",
+        "title": "Module 14 \u0393\u00c7\u00f6 Transactions, TCL & Database Security",
         "description": "Master Database Reliability & Security Engineering: ACID Properties (Atomicity, Consistency, Isolation, Durability), Write-Ahead Logging (WAL), Multi-Version Concurrency Control (MVCC tuple xmin/xmax), Transaction Control Language (BEGIN, COMMIT, ROLLBACK, SAVEPOINT), Concurrency Anomalies (Dirty Reads, Non-Repeatable Reads, Phantom Reads, Serialization Anomalies), Transaction Isolation Levels (READ UNCOMMITTED, READ COMMITTED, REPEATABLE READ, SERIALIZABLE), Pessimistic Row Locking (SELECT ... FOR UPDATE), Database Security (DCL GRANT, REVOKE, RBAC Principle of Least Privilege), and PostgreSQL Row-Level Security (RLS) Multi-Tenant Isolation.",
         "completed": false,
         "order": 14,
         "published": true,
         "readingMaterial": {
-          "introduction": "Welcome to Module 14! In modern multi-user enterprise applications, thousands of client transactions execute concurrently against the database server. Ensuring data correctness requires robust Transaction Control Language (TCL), strict concurrency isolation levels, explicit row locking, and fine-grained security role permissions. Transactions guarantee ACID properties (Atomicity, Consistency, Isolation, Durability)—ensuring multi-step operations (like bank funds transfers or inventory allocation) either succeed 100% or fail safely with zero data corruption. Mastering TCL transactions, MVCC concurrency control, and Role-Based Access Security (RBAC) is mandatory for enterprise backend engineers.",
+          "introduction": "Welcome to Module 14! In modern multi-user enterprise applications, thousands of client transactions execute concurrently against the database server. Ensuring data correctness requires robust Transaction Control Language (TCL), strict concurrency isolation levels, explicit row locking, and fine-grained security role permissions. Transactions guarantee ACID properties (Atomicity, Consistency, Isolation, Durability)\u0393\u00c7\u00f6ensuring multi-step operations (like bank funds transfers or inventory allocation) either succeed 100% or fail safely with zero data corruption. Mastering TCL transactions, MVCC concurrency control, and Role-Based Access Security (RBAC) is mandatory for enterprise backend engineers.",
           "objectives": [
             "Master the 4 ACID Guarantees: Atomicity, Consistency, Isolation, and Durability",
             "Understand Write-Ahead Logging (WAL) and Multi-Version Concurrency Control (MVCC xmin/xmax tuple versions)",
@@ -7044,8 +7086,8 @@ export const INITIAL_COURSES = [
                 "COMMIT: Permanently writes all uncommitted transactional state changes to disk storage.",
                 "ROLLBACK: Aborts the transaction and reverts all uncommitted modifications back to the initial state.",
                 "SAVEPOINT name & ROLLBACK TO name:",
-                "• Creates intermediate checkpoints within a long multi-step transaction.",
-                "• Allows rolling back partial failures to a specific savepoint without aborting the entire transaction!"
+                "\u0393\u00c7\u00f3 Creates intermediate checkpoints within a long multi-step transaction.",
+                "\u0393\u00c7\u00f3 Allows rolling back partial failures to a specific savepoint without aborting the entire transaction!"
               ]
             },
             {
@@ -7097,9 +7139,9 @@ export const INITIAL_COURSES = [
               },
               "bulletPoints": [
                 "Anomaly Definitions:",
-                "• Dirty Read: Reading uncommitted data modified by another concurrent transaction (which might subsequently roll back!).",
-                "• Non-Repeatable Read: Re-reading a row within the same transaction yields DIFFERENT column values because another transaction committed an UPDATE.",
-                "• Phantom Read: Re-executing a range query within the same transaction yields NEW rows because another transaction committed an INSERT.",
+                "\u0393\u00c7\u00f3 Dirty Read: Reading uncommitted data modified by another concurrent transaction (which might subsequently roll back!).",
+                "\u0393\u00c7\u00f3 Non-Repeatable Read: Re-reading a row within the same transaction yields DIFFERENT column values because another transaction committed an UPDATE.",
+                "\u0393\u00c7\u00f3 Phantom Read: Re-executing a range query within the same transaction yields NEW rows because another transaction committed an INSERT.",
                 "Pessimistic Row Locking (SELECT ... FOR UPDATE): Locks target rows with an Exclusive Lock (X-Lock), forcing concurrent transactions to wait until the current transaction commits."
               ]
             },
@@ -7108,13 +7150,13 @@ export const INITIAL_COURSES = [
               "text": "Securing database access requires enforcing Principle of Least Privilege security models:",
               "bulletPoints": [
                 "Role-Based Access Control (RBAC):",
-                "• `CREATE ROLE app_service_user WITH LOGIN PASSWORD 'SecurePass123!';`",
-                "• `GRANT SELECT, INSERT, UPDATE ON ALL TABLES IN SCHEMA public TO app_service_user;`",
-                "• `REVOKE DELETE ON ALL TABLES IN SCHEMA public FROM app_service_user;` (Prevents application service account from deleting data).",
+                "\u0393\u00c7\u00f3 `CREATE ROLE app_service_user WITH LOGIN PASSWORD 'SecurePass123!';`",
+                "\u0393\u00c7\u00f3 `GRANT SELECT, INSERT, UPDATE ON ALL TABLES IN SCHEMA public TO app_service_user;`",
+                "\u0393\u00c7\u00f3 `REVOKE DELETE ON ALL TABLES IN SCHEMA public FROM app_service_user;` (Prevents application service account from deleting data).",
                 "Row-Level Security (RLS in PostgreSQL):",
-                "• Enforces fine-grained security policies directly inside the storage engine, restricting which rows a specific user or tenant can view:",
-                "• `ALTER TABLE tenant_data ENABLE ROW LEVEL SECURITY;`",
-                "• `CREATE POLICY tenant_isolation_policy ON tenant_data FOR ALL USING (tenant_id = current_setting('app.current_tenant_id'));`"
+                "\u0393\u00c7\u00f3 Enforces fine-grained security policies directly inside the storage engine, restricting which rows a specific user or tenant can view:",
+                "\u0393\u00c7\u00f3 `ALTER TABLE tenant_data ENABLE ROW LEVEL SECURITY;`",
+                "\u0393\u00c7\u00f3 `CREATE POLICY tenant_isolation_policy ON tenant_data FOR ALL USING (tenant_id = current_setting('app.current_tenant_id'));`"
               ]
             }
           ],
@@ -7145,7 +7187,7 @@ export const INITIAL_COURSES = [
           ],
           "practiceExercise": {
             "title": "ACID & Concurrency Anomalies Challenge",
-            "problem": "Perform the following two tasks:\n1. Match each concurrency anomaly to its definition:\n   a. Dirty Read\n   b. Non-Repeatable Read\n   c. Phantom Read\n   • i. Re-reading a row yields different column values committed by another transaction.\n   • ii. Reading uncommitted data that may subsequently be rolled back.\n   • iii. Re-executing a range query returns new rows inserted by another committed transaction.\n\n2. Write a SQL DCL script that creates a role `billing_app`, grants `SELECT`, `INSERT`, `UPDATE` on table `invoices`, and explicitly revokes `DELETE` permissions.",
+            "problem": "Perform the following two tasks:\n1. Match each concurrency anomaly to its definition:\n   a. Dirty Read\n   b. Non-Repeatable Read\n   c. Phantom Read\n   \u0393\u00c7\u00f3 i. Re-reading a row yields different column values committed by another transaction.\n   \u0393\u00c7\u00f3 ii. Reading uncommitted data that may subsequently be rolled back.\n   \u0393\u00c7\u00f3 iii. Re-executing a range query returns new rows inserted by another committed transaction.\n\n2. Write a SQL DCL script that creates a role `billing_app`, grants `SELECT`, `INSERT`, `UPDATE` on table `invoices`, and explicitly revokes `DELETE` permissions.",
             "solutionCode": "-- Exercise 1 Anomaly Matching Answers:\n-- a. Dirty Read          -> ii. Reading uncommitted data that may be rolled back.\n-- b. Non-Repeatable Read -> i. Re-reading a row yields different column values.\n-- c. Phantom Read        -> iii. Range query returns new inserted rows.\n\n-- Exercise 2 DCL Script Answer:\nCREATE ROLE billing_app WITH LOGIN PASSWORD 'BillingSecret2026!';\nGRANT SELECT, INSERT, UPDATE ON TABLE invoices TO billing_app;\nREVOKE DELETE ON TABLE invoices FROM billing_app;"
           },
           "keyTakeaways": [
@@ -7159,7 +7201,7 @@ export const INITIAL_COURSES = [
       },
       {
         "id": "sql-mod-15",
-        "title": "Module 15 — SQL for Data Analytics, Python & AI + Final Project",
+        "title": "Module 15 \u0393\u00c7\u00f6 SQL for Data Analytics, Python & AI + Final Project",
         "description": "Master Advanced Data Analytics & AI Integration Architecture: Window Functions (ROW_NUMBER(), RANK(), DENSE_RANK(), NTILE(), FIRST_VALUE, LAST_VALUE), PARTITION BY & Window Framing (ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW), Navigation Functions (LAG, LEAD for MoM / YoY Growth %), Python Data Science Integration (psycopg2, sqlite3, SQLAlchemy create_engine, pandas.read_sql), SQL for AI & Vector Databases (pgvector extension, Cosine Distance <=> for RAG), and Comprehensive Capstone Final Project.",
         "completed": false,
         "order": 15,
@@ -7215,9 +7257,9 @@ export const INITIAL_COURSES = [
               },
               "bulletPoints": [
                 "Window Function Structure: `FUNCTION() OVER (PARTITION BY category ORDER BY sales DESC)`",
-                "• `PARTITION BY`: Segregates rows into independent calculation windows (similar to GROUP BY, but rows are NOT collapsed!).",
-                "• `ORDER BY`: Defines row calculation sequence within each partition.",
-                "Window Function Execution Stage: Window functions execute during Step 5 (`SELECT`) of the 8-step logical query pipeline—AFTER `WHERE`, `GROUP BY`, and `HAVING` have executed!"
+                "\u0393\u00c7\u00f3 `PARTITION BY`: Segregates rows into independent calculation windows (similar to GROUP BY, but rows are NOT collapsed!).",
+                "\u0393\u00c7\u00f3 `ORDER BY`: Defines row calculation sequence within each partition.",
+                "Window Function Execution Stage: Window functions execute during Step 5 (`SELECT`) of the 8-step logical query pipeline\u0393\u00c7\u00f6AFTER `WHERE`, `GROUP BY`, and `HAVING` have executed!"
               ]
             },
             {
@@ -7227,8 +7269,8 @@ export const INITIAL_COURSES = [
                 "LAG(column, offset, default): Accesses data from a PREVIOUS row in the partition (e.g. `LAG(monthly_sales, 1)` retrieves previous month's revenue to calculate Month-over-Month growth %).",
                 "LEAD(column, offset, default): Accesses data from a FOLLOWING row in the partition.",
                 "Window Framing Specifications (ROWS BETWEEN ...):",
-                "• Cumulative Running Total: `SUM(order_total) OVER (PARTITION BY customer_id ORDER BY order_date ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW)` (Calculates a cumulative lifetime spend total that updates dynamically row-by-row!).",
-                "• 3-Period Moving Average: `AVG(sales) OVER (ORDER BY sales_month ROWS BETWEEN 2 PRECEDING AND CURRENT ROW)` (Smooths out short-term fluctuations in financial metrics)."
+                "\u0393\u00c7\u00f3 Cumulative Running Total: `SUM(order_total) OVER (PARTITION BY customer_id ORDER BY order_date ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW)` (Calculates a cumulative lifetime spend total that updates dynamically row-by-row!).",
+                "\u0393\u00c7\u00f3 3-Period Moving Average: `AVG(sales) OVER (ORDER BY sales_month ROWS BETWEEN 2 PRECEDING AND CURRENT ROW)` (Smooths out short-term fluctuations in financial metrics)."
               ],
               "table": {
                 "headers": [
@@ -7275,19 +7317,19 @@ export const INITIAL_COURSES = [
                 "pgvector Extension: PostgreSQL extension for storing high-dimensional vector embeddings generated by AI models (`CREATE EXTENSION vector;`).",
                 "Vector Data Type: `embedding vector(1536)` (Stores 1536-dimensional floating-point vectors representing semantic meaning).",
                 "Cosine Distance Similarity Search Operator (<=>):",
-                "• `SELECT document_text FROM vector_store ORDER BY embedding <=> '[0.015, -0.023, ...]' LIMIT 5;`",
-                "• Performs ultra-fast Retrieval Augmented Generation (RAG) vector searches directly inside SQL queries!"
+                "\u0393\u00c7\u00f3 `SELECT document_text FROM vector_store ORDER BY embedding <=> '[0.015, -0.023, ...]' LIMIT 5;`",
+                "\u0393\u00c7\u00f3 Performs ultra-fast Retrieval Augmented Generation (RAG) vector searches directly inside SQL queries!"
               ]
             },
             {
               "heading": "5. Comprehensive Capstone Final Project Architecture",
               "text": "The capstone project synthesizes all 15 modules into an end-to-end database solution:",
               "bulletPoints": [
-                "Step 1: Schema Design (DDL) — Multi-tenant schema with identity columns, generated stored columns, and CHECK constraints.",
-                "Step 2: Data Ingestion (DML) — Multi-row batch insertions and atomic UPSERT (`ON CONFLICT DO UPDATE`) handling.",
-                "Step 3: Relational Querying — Multi-table INNER/LEFT JOINs and Anti-Joins.",
-                "Step 4: Advanced Analytics — Chained CTEs, Window Functions (`DENSE_RANK`, `LAG`, running totals), and `GROUP BY ROLLUP` subtotals.",
-                "Step 5: Python Integration — Exporting analytical DataFrames for executive presentation."
+                "Step 1: Schema Design (DDL) \u0393\u00c7\u00f6 Multi-tenant schema with identity columns, generated stored columns, and CHECK constraints.",
+                "Step 2: Data Ingestion (DML) \u0393\u00c7\u00f6 Multi-row batch insertions and atomic UPSERT (`ON CONFLICT DO UPDATE`) handling.",
+                "Step 3: Relational Querying \u0393\u00c7\u00f6 Multi-table INNER/LEFT JOINs and Anti-Joins.",
+                "Step 4: Advanced Analytics \u0393\u00c7\u00f6 Chained CTEs, Window Functions (`DENSE_RANK`, `LAG`, running totals), and `GROUP BY ROLLUP` subtotals.",
+                "Step 5: Python Integration \u0393\u00c7\u00f6 Exporting analytical DataFrames for executive presentation."
               ]
             }
           ],
@@ -7343,7 +7385,7 @@ export const INITIAL_COURSES = [
         {
           "id": "qp-sql-set-a",
           "paperCode": "SQL-QP-SETA",
-          "groupName": "Alphabetical Group A–F",
+          "groupName": "Alphabetical Group A\u0393\u00c7\u00f4F",
           "letterRange": "A-F",
           "studentNamePattern": "Candidate first name starting with A, B, C, D, E, or F",
           "title": "Paper 1 (Set A): Database Architecture, Relational Modeling & Core DDL/DML",
@@ -7657,7 +7699,7 @@ export const INITIAL_COURSES = [
         {
           "id": "qp-sql-set-b",
           "paperCode": "SQL-QP-SETB",
-          "groupName": "Alphabetical Group G–L",
+          "groupName": "Alphabetical Group G\u0393\u00c7\u00f4L",
           "letterRange": "G-L",
           "studentNamePattern": "Candidate first name starting with G, H, I, J, K, or L",
           "title": "Paper 2 (Set B): Advanced Multi-Table JOINs, Aggregations & Grouping Sets",
@@ -7971,7 +8013,7 @@ export const INITIAL_COURSES = [
         {
           "id": "qp-sql-set-c",
           "paperCode": "SQL-QP-SETC",
-          "groupName": "Alphabetical Group M–R",
+          "groupName": "Alphabetical Group M\u0393\u00c7\u00f4R",
           "letterRange": "M-R",
           "studentNamePattern": "Candidate first name starting with M, N, O, P, Q, or R",
           "title": "Paper 3 (Set C): Subqueries, CTEs, Window Functions & Analytical SQL",
@@ -8285,7 +8327,7 @@ export const INITIAL_COURSES = [
         {
           "id": "qp-sql-set-d",
           "paperCode": "SQL-QP-SETD",
-          "groupName": "Alphabetical Group S–Z",
+          "groupName": "Alphabetical Group S\u0393\u00c7\u00f4Z",
           "letterRange": "S-Z",
           "studentNamePattern": "Candidate first name starting with S, T, U, V, W, X, Y, or Z",
           "title": "Paper 4 (Set D): Query Performance Optimization, Indexing, ACID & Transactions",
@@ -8899,172 +8941,7913 @@ export const INITIAL_COURSES = [
           "explanation": "Third Normal Form (3NF) requires the table to be in 2NF and have no transitive dependencies: every non-prime attribute must depend non-transitively directly on the primary key ('the key, the whole key, and nothing but the key')."
         }
       ]
-    }
+    },
+    "finalProject": {
+      "id": "sql-final-project",
+      "title": "E-Commerce Relational Database Design & Query Suite",
+      "description": "Design a normalized 3NF database schema for an e-commerce platform including customers, orders, inventory, and payments.",
+      "requirements": [
+        "Draw ER diagram",
+        "Write DDL scripts",
+        "Write 10 analytical queries"
+      ],
+      "instructions": "Submit SQL script file and ER diagram documentation.",
+      "allowedFileTypes": [
+        ".sql",
+        ".zip",
+        ".pdf"
+      ],
+      "maxFileSizeMb": 20,
+      "githubUrlAllowed": true,
+      "liveProjectUrlAllowed": false,
+      "passingScore": 80,
+      "published": true
+    },
+    "updatedAt": "2026-10-01T11:13:39.780Z",
+    "projects": [
+      {
+        "id": "prj-sql-1",
+        "courseId": "sql-mastery",
+        "projectNumber": 1,
+        "title": "E-Commerce Relational Database Schema & Data Ingestion",
+        "shortDescription": "Design a complete 3NF normalized schema for an e-commerce platform and populate with relational seed data.",
+        "detailedDescription": "Create a scalable relational database architecture representing customers, products, categories, orders, order items, and payment transactions. Implement primary keys, foreign keys, CHECK constraints, and default values.",
+        "objective": "Demonstrate database design principles, entity-relationship modeling, 3NF normalization, and data integrity constraints.",
+        "requirements": [
+          "Design at least 6 interconnected tables conforming to 3NF standards",
+          "Enforce referential integrity using FOREIGN KEY constraints with ON DELETE RESTRICT / CASCADE",
+          "Create sample data insertion scripts (INSERT INTO) with realistic retail datasets",
+          "Write validation queries verifying constraint enforcement"
+        ],
+        "technologies": [
+          "SQL",
+          "PostgreSQL / SQLite",
+          "Data Modeling",
+          "DDL",
+          "DML",
+          "Constraints"
+        ],
+        "expectedOutput": "A schema.sql file containing complete CREATE TABLE statements and a seed.sql file with realistic data.",
+        "difficulty": "Beginner",
+        "estimatedTime": "2\u0393\u00c7\u00f43 Days",
+        "submissionInstructions": "1. Upload schema.sql and seed.sql to your GitHub repository.\n2. Include an ER diagram image or text description in README.md.\n3. Submit your GitHub repository URL below.",
+        "resources": [],
+        "status": "active",
+        "createdAt": "2026-10-01T00:00:00.000Z",
+        "updatedAt": "2026-10-01T00:00:00.000Z"
+      },
+      {
+        "id": "prj-sql-2",
+        "courseId": "sql-mastery",
+        "projectNumber": 2,
+        "title": "Business Intelligence Analytics & Window Functions Suite",
+        "shortDescription": "Formulate analytical reporting queries using window functions, CTEs, and multidimensional aggregations.",
+        "detailedDescription": "Develop a suite of business intelligence queries calculating monthly recurring revenue (MRR), customer cohort retention, running sales totals, moving averages, and top-N ranking per product category.",
+        "objective": "Master Common Table Expressions (CTEs), window functions (ROW_NUMBER, RANK, DENSE_RANK, LAG, LEAD), and complex GROUP BY aggregations.",
+        "requirements": [
+          "Compute month-over-month revenue growth using LAG() window functions",
+          "Calculate 7-day moving averages of daily orders and customer lifetime value (LTV)",
+          "Identify high-value churn risks using recency and frequency segmentation CTEs",
+          "Structure each query with clean formatting, comments, and benchmark output"
+        ],
+        "technologies": [
+          "SQL",
+          "Window Functions",
+          "CTEs",
+          "Analytics",
+          "Aggregations"
+        ],
+        "expectedOutput": "A comprehensive analytics.sql suite containing documented, performant business queries.",
+        "difficulty": "Intermediate",
+        "estimatedTime": "3\u0393\u00c7\u00f44 Days",
+        "submissionInstructions": "1. Push your SQL query files and execution outputs to GitHub.\n2. Submit your GitHub repository URL below.",
+        "resources": [],
+        "status": "active",
+        "createdAt": "2026-10-01T00:00:00.000Z",
+        "updatedAt": "2026-10-01T00:00:00.000Z"
+      },
+      {
+        "id": "prj-sql-3",
+        "courseId": "sql-mastery",
+        "projectNumber": 3,
+        "title": "High-Volume Database Optimization & Trigger Auditing Suite",
+        "shortDescription": "Optimize slow queries using indexes, analyze EXPLAIN query plans, and implement automated audit triggers.",
+        "detailedDescription": "Analyze and optimize execution plans for slow-running queries. Create B-tree and composite indexes, implement database triggers that automatically log record modifications into an audit_logs table, and write stored procedures/transactions.",
+        "objective": "Master database performance tuning, indexing trade-offs, EXPLAIN query plan analysis, and database audit automation.",
+        "requirements": [
+          "Provide before-and-after query execution plans using EXPLAIN QUERY PLAN",
+          "Create strategic composite indexes reducing sequential table scans",
+          "Implement AFTER INSERT/UPDATE/DELETE triggers that record changes to an audit table",
+          "Wrap financial state transitions in ACID transactions with savepoints"
+        ],
+        "technologies": [
+          "SQL",
+          "Indexing",
+          "EXPLAIN Plans",
+          "Triggers",
+          "Transactions",
+          "Performance Tuning"
+        ],
+        "expectedOutput": "A production database optimization report and trigger suite script demonstrating measurable performance gains.",
+        "difficulty": "Advanced",
+        "estimatedTime": "4\u0393\u00c7\u00f45 Days",
+        "submissionInstructions": "1. Upload optimization scripts, before/after EXPLAIN logs, and trigger definitions to GitHub.\n2. Submit your GitHub repository URL below.",
+        "resources": [],
+        "status": "active",
+        "createdAt": "2026-10-01T00:00:00.000Z",
+        "updatedAt": "2026-10-01T00:00:00.000Z"
+      }
+    ]
   },
   {
     "id": "web-development",
     "title": "Web Development",
+    "slug": "web-development",
     "category": "Web Development",
-    "level": "Beginner to Advanced",
-    "duration": "50 hours",
+    "level": "Intermediate",
+    "duration": "60 hours",
     "rating": 4.9,
-    "studentsCount": "18.5k",
-    "studentsNumeric": 18500,
-    "price": 1499,
-    "isFree": false,
+    "studentsCount": "18.9k",
+    "studentsNumeric": 18900,
+    "price": 0,
+    "isFree": true,
     "bestseller": true,
-    "progress": 18,
-    "iconBg": "bg-emerald-50 border 2 border-emerald-200 text-emerald-600",
-    "iconType": "code",
-    "introVideoUrl": "https://www.youtube.com/embed/dpw9EHDh2bM",
-    "description": "Become a Full-Stack Web Developer! HTML5, CSS3, Flexbox, Grid, Responsive Design, JavaScript ES6+, DOM Manipulation, Fetch API, Git, and Modern Frontend Architecture.",
+    "progress": 100,
+    "status": "published",
+    "featured": false,
+    "certificateAvailable": true,
+    "sequentialLearning": true,
+    "iconBg": "bg-purple-50 border-2 border-purple-200 text-purple-600",
+    "iconType": "layout",
+    "introVideoUrl": "https://www.youtube.com/embed/nu_pCVPKzTk",
+    "thumbnail": "https://images.unsplash.com/photo-1547658719-da2b51169166?auto=format&fit=crop&w=600&q=80",
+    "shortDescription": "Build modern responsive web applications with HTML5, CSS3, Tailwind, React, Node.js, Express, and MongoDB.",
+    "description": "Build modern responsive web applications with HTML5, CSS3, Tailwind, React, Node.js, Express, and MongoDB. Complete full-stack bootcamp.",
     "instructor": {
-      "name": "Rahul Verma",
-      "role": "Lead Web Engineer @ Arshith Boot Camp",
-      "avatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80"
+      "name": "Vikramaditya Rao",
+      "role": "Lead Full Stack Architect @ Arshith Boot Camp",
+      "avatar": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=200&q=80"
     },
+    "prerequisites": null,
+    "skills": [],
     "whatYouWillLearn": [
-      "How HTTP, DNS, Browsers, and Web Servers interact",
-      "Semantic HTML5 tags, accessibility (a11y), and SEO standards",
-      "CSS3 Box Model, Flexbox, Grid, Animations & Custom Variables",
-      "Responsive Web Design across Mobile, Tablet, and Desktop displays",
-      "JavaScript ES6+: Async/Await, Promises, Closures, DOM Events",
-      "Building a complete, production-ready Full-Stack Web Application"
+      "Responsive Web Design with HTML5, CSS Grid, Flexbox, and Tailwind CSS",
+      "Modern ES6+ JavaScript, Async/Await, and DOM manipulation",
+      "React Component Architecture, Hooks, Context API, and State Management",
+      "Node.js & Express RESTful API Development",
+      "MongoDB database modeling with Mongoose"
     ],
     "modules": [
       {
         "id": "web-mod-1",
-        "title": "Module 01 — How the Web Works",
-        "description": "Clients, Servers, HTTP request/response cycle, IP addresses, DNS resolution, and browser rendering engines.",
+        "title": "Module 01 \u0393\u00c7\u00f6 Introduction to Web Development & Internet Fundamentals",
+        "description": "How websites work, browsers, servers, HTTP/HTTPS, domains, hosting, client-server architecture, developer tools.",
         "completed": true,
         "readingMaterial": {
-          "introduction": "Understanding how browsers communicate with web servers over HTTP/HTTPS is the foundation of web development.",
+          "introduction": "Web development is the process of creating, building, deploying, and maintaining websites and web applications. Before learning HTML, CSS, JavaScript, React, or backend technologies, it is important to understand how the web actually works. This module introduces the fundamental concepts behind modern websites, including client-server architecture, browsers, servers, HTTP/HTTPS, URLs, domains, DNS, web hosting, static/dynamic sites, developer tools, and client storage.",
           "objectives": [
-            "Understand Client-Server architecture",
-            "Trace HTTP GET/POST request lifecycle",
-            "Role of HTML, CSS, and JavaScript in browsers"
+            "Explain how the World Wide Web works and differentiate it from the Internet.",
+            "Understand client-server architecture and the roles of browsers and web servers.",
+            "Describe how HTTP and HTTPS function, including URL structure and DNS resolution.",
+            "Differentiate between static and dynamic websites and frontend vs backend.",
+            "Utilize browser Developer Tools to inspect HTML, CSS, network requests, and console errors."
           ],
           "sections": [
             {
-              "heading": "The Request-Response Cycle",
-              "text": "1. Browser enters URL -> 2. DNS resolves IP -> 3. TCP Handshake -> 4. HTTP Request -> 5. Server responds HTML -> 6. Browser renders DOM."
+              "title": "1. Module Overview & Learning Objectives",
+              "content": "This module introduces the fundamental concepts behind modern websites. Learners will understand how websites work, how browsers communicate with servers via HTTP/HTTPS, URLs, domains, DNS, web hosting, frontend vs backend, static vs dynamic sites, and browser Developer Tools.",
+              "bullets": [
+                "Explain how the World Wide Web works and differentiate it from the Internet.",
+                "Understand client-server architecture and the roles of browsers and web servers.",
+                "Describe how HTTP and HTTPS function, including URL structure and DNS resolution.",
+                "Differentiate between static and dynamic websites and frontend vs backend.",
+                "Utilize browser Developer Tools to inspect HTML, CSS, network requests, and console errors."
+              ]
+            },
+            {
+              "title": "2. Internet vs World Wide Web & Website Fundamentals",
+              "content": "The Internet is the global network infrastructure that connects computers, servers, and devices. The World Wide Web (WWW) is a service operating on top of the Internet that allows users to access interconnected web pages.",
+              "table": {
+                "headers": [
+                  "Feature",
+                  "Internet",
+                  "World Wide Web (WWW)"
+                ],
+                "rows": [
+                  [
+                    "Definition",
+                    "Global network infrastructure",
+                    "Service running over the Internet"
+                  ],
+                  [
+                    "Scope",
+                    "Connects devices and networks",
+                    "Connects web pages & web resources"
+                  ],
+                  [
+                    "Protocols",
+                    "Uses TCP/IP, IP, FTP, SMTP, etc.",
+                    "Primarily uses HTTP/HTTPS"
+                  ],
+                  [
+                    "Services",
+                    "Supports email, file transfer, streaming",
+                    "Provides websites & web applications"
+                  ]
+                ]
+              },
+              "bullets": [
+                "A Website is a collection of related web pages (HTML, CSS, JS, images, APIs) under a domain.",
+                "A Web Application is an interactive website processing user input (e.g., e-commerce, banking, LMS, social media)."
+              ]
+            },
+            {
+              "title": "3. How Websites Work & Browser Rendering Pipeline",
+              "content": "When a user enters a URL into a browser, a sequence of events occurs: URL processing \u0393\u00e5\u00c6 DNS Resolution \u0393\u00e5\u00c6 TCP/TLS Connection \u0393\u00e5\u00c6 HTTP Request \u0393\u00e5\u00c6 Server Processing \u0393\u00e5\u00c6 HTTP Response \u0393\u00e5\u00c6 Browser Parsing & Rendering.",
+              "bullets": [
+                "HTML Parsing creates the DOM (Document Object Model).",
+                "CSS Parsing creates the CSSOM (CSS Object Model).",
+                "DOM + CSSOM combine into the Render Tree.",
+                "Layout determines geometry; Paint renders pixels to screen."
+              ]
+            },
+            {
+              "title": "4. Web Servers & Client-Server Architecture",
+              "content": "Web applications rely on client-server architecture. The Client (browser) sends requests, and the Server (software like Nginx, Apache, Node.js) processes requests and returns resources (HTML, CSS, JS, JSON).",
+              "bullets": [
+                "Client Request: 'Give me product details for ID 25.'",
+                "Server Logic: Queries database, formats JSON/HTML.",
+                "Server Response: Returns HTTP status 200 OK with payload to the client."
+              ]
+            },
+            {
+              "title": "5. Frontend vs Backend Development",
+              "content": "Frontend focuses on user interfaces and interactions in the browser using HTML, CSS, JavaScript, and React. Backend focuses on server-side logic, databases, authentication, and REST APIs using Node.js, Express, Python, or SQL.",
+              "table": {
+                "headers": [
+                  "Aspect",
+                  "Frontend",
+                  "Backend"
+                ],
+                "rows": [
+                  [
+                    "Execution Environment",
+                    "Runs in user browser",
+                    "Runs on web server / cloud"
+                  ],
+                  [
+                    "Core Responsibilities",
+                    "UI design, forms, responsiveness, animations",
+                    "Business logic, database, APIs, authentication"
+                  ],
+                  [
+                    "Technologies",
+                    "HTML5, CSS3, JavaScript, React",
+                    "Node.js, Express, PostgreSQL, MongoDB"
+                  ],
+                  [
+                    "Primary Data Output",
+                    "DOM elements, rendered UI",
+                    "JSON data, HTTP status codes"
+                  ]
+                ]
+              }
+            },
+            {
+              "title": "6. URLs & URL Components",
+              "content": "A Uniform Resource Locator (URL) identifies the location of a web resource. Example: https://www.example.com/products?id=25",
+              "bullets": [
+                "Protocol (https://): Specifies how communication occurs securely.",
+                "Domain (example.com): Human-readable address mapped to an IP address.",
+                "Path (/products): Identifies a specific route or server resource.",
+                "Query Parameters (?id=25): Key-value pairs passing extra data to the server."
+              ]
+            },
+            {
+              "title": "7. HTTP, HTTPS & HTTP Methods",
+              "content": "HTTP (HyperText Transfer Protocol) governs client-server communication. HTTPS adds TLS encryption to protect passwords, payments, and tokens.",
+              "bullets": [
+                "GET: Retrieve data from server (e.g., GET /products).",
+                "POST: Submit or create data (e.g., POST /login).",
+                "PUT: Replace an entire resource (e.g., PUT /products/25).",
+                "PATCH: Partially update a resource (e.g., PATCH /products/25).",
+                "DELETE: Remove a resource (e.g., DELETE /products/25)."
+              ]
+            },
+            {
+              "title": "8. HTTP Responses & Status Codes",
+              "content": "Servers reply with numerical status codes indicating request results:",
+              "bullets": [
+                "2xx Success: 200 OK, 201 Created, 204 No Content",
+                "3xx Redirection: 301 Moved Permanently, 302 Found, 304 Not Modified",
+                "4xx Client Error: 400 Bad Request, 401 Unauthorized, 403 Forbidden, 404 Not Found",
+                "5xx Server Error: 500 Internal Server Error, 502 Bad Gateway, 503 Service Unavailable"
+              ]
+            },
+            {
+              "title": "9. Domains, Subdomains & DNS Resolution",
+              "content": "Domains (example.com) replace hard-to-remember IP addresses (e.g., 203.0.113.10). Subdomains (api.example.com, blog.example.com) organize sub-services. DNS (Domain Name System) maps domains to IPs via DNS Resolvers and Root/TLD servers.",
+              "bullets": [
+                "TLD (Top-Level Domain): .com, .org, .edu, .in",
+                "Subdomain: www.example.com, api.example.com",
+                "IPv4 (192.168.1.1) vs IPv6 (2001:db8::1) addressing"
+              ]
+            },
+            {
+              "title": "10. Web Hosting & Hosting Models",
+              "content": "Web hosting provides server infrastructure to store and serve files online.",
+              "bullets": [
+                "Shared Hosting: Multiple sites share one server's resources.",
+                "VPS (Virtual Private Server): Dedicated virtualized CPU/RAM allocation.",
+                "Dedicated Hosting: Entire physical server reserved for one client.",
+                "Cloud Hosting: Scalable instances (AWS, GCP, Azure, Vercel).",
+                "Serverless: Execution on-demand without managing server OS directly."
+              ]
+            },
+            {
+              "title": "11. Static vs Dynamic Websites & Architecture",
+              "content": "Static sites serve fixed pre-built HTML/CSS files. Dynamic sites compute content on-the-fly using databases and backend servers.",
+              "bullets": [
+                "Static: Fast, secure, simple hosting, ideal for portfolios and docs.",
+                "Dynamic: Interactive, user accounts, personal recommendations, e-commerce.",
+                "Modern Stack Architecture: Client (React) \u0393\u00e5\u00f6 REST API (Node/Express) \u0393\u00e5\u00f6 Database (PostgreSQL/MongoDB)."
+              ]
+            },
+            {
+              "title": "12. Browser Developer Tools Deep-Dive",
+              "content": "Browser DevTools (F12 or Ctrl+Shift+I) are essential for debugging:",
+              "bullets": [
+                "Elements Panel: Inspect and edit live HTML DOM & CSS Styles.",
+                "Console Panel: Inspect JS logs, errors, execute test scripts.",
+                "Network Panel: Monitor HTTP requests, methods, status codes, payload & timings.",
+                "Sources Panel: Debug JS with breakpoints and source maps.",
+                "Application Panel: Inspect LocalStorage, SessionStorage, Cookies & Cache."
+              ]
+            },
+            {
+              "title": "13. Client-Side Browser Storage",
+              "content": "Web applications store non-sensitive state on the client:",
+              "bullets": [
+                "LocalStorage: Data persists across browser restarts until cleared (`localStorage.setItem('user', 'Alex')`).",
+                "SessionStorage: Data cleared automatically when the browser tab closes.",
+                "Security Warning: Storage is accessible via JS and vulnerable to XSS; never store secret passwords or confidential keys here!"
+              ]
+            },
+            {
+              "title": "14. Complete Request Lifecycle & Dev Workflow",
+              "content": "The end-to-end lifecycle spans 14 steps from user URL entry to full page render. The development workflow involves requirements \u0393\u00e5\u00c6 design \u0393\u00e5\u00c6 HTML/CSS/JS \u0393\u00e5\u00c6 frontend framework \u0393\u00e5\u00c6 backend API \u0393\u00e5\u00c6 database \u0393\u00e5\u00c6 testing \u0393\u00e5\u00c6 deployment \u0393\u00e5\u00c6 monitoring.",
+              "bullets": [
+                "Core Tools: VS Code, Git/GitHub, Node.js, Web Browsers, Cloud Hosting.",
+                "Real-world apps in E-commerce, Banking, Education, and Social Media."
+              ]
+            },
+            {
+              "title": "15. Practice & Interview Questions Summary",
+              "content": "Mastering these 56 core topics prepares learners for entry-level technical interviews and practical full-stack projects.",
+              "bullets": [
+                "Q: What happens when typing a URL into a browser? (DNS -> TCP/TLS -> HTTP GET -> Server processing -> Render Tree)",
+                "Q: Difference between HTTP and HTTPS? (TLS encryption protecting sensitive credentials)",
+                "Q: Purpose of HTTP status 404 vs 500? (404 is client requested unknown resource, 500 is server runtime failure)"
+              ]
             }
           ],
           "codeExamples": [
             {
-              "title": "HTTP Response Status Codes",
-              "code": "200 OK          - Request succeeded\n201 Created     - Resource created\n400 Bad Request - Invalid client syntax\n404 Not Found   - Resource does not exist\n500 Server Error - Internal server crash",
-              "explanation": "HTTP status codes indicate request outcome."
+              "title": "Mini Practical Activity: Creating and Inspecting First Webpage",
+              "code": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <title>My First Webpage</title>\n    <style>\n        body { font-family: sans-serif; background: #0f172a; color: #f8fafc; padding: 2rem; }\n        h1 { color: #38bdf8; }\n        .card { background: #1e293b; padding: 1.5rem; border-radius: 12px; border: 1px solid #334155; }\n    </style>\n</head>\n<body>\n    <div class=\"card\">\n        <h1>Welcome to Web Development</h1>\n        <p>This is my first webpage demonstrating client-side rendering.</p>\n        <button onclick=\"console.log('Button clicked!')\">Test Console</button>\n    </div>\n</body>\n</html>",
+              "explanation": "Save as index.html, open in Google Chrome, press F12, and inspect the DOM in Elements and logs in Console."
+            },
+            {
+              "title": "Inspecting HTTP Requests with Fetch API",
+              "code": "// Fetching product details from a REST API\nfetch('https://api.example.com/products/25', {\n    method: 'GET',\n    headers: {\n        'Accept': 'application/json'\n    }\n})\n.then(response => {\n    console.log('HTTP Status Code:', response.status); // e.g. 200\n    return response.json();\n})\n.then(data => console.log('Payload:', data))\n.catch(error => console.error('Network Error:', error));",
+              "explanation": "This asynchronous JS call sends an HTTP GET request to a remote server and logs response metadata."
+            },
+            {
+              "title": "Browser Storage API Usage",
+              "code": "// Storing user preferences in LocalStorage\nlocalStorage.setItem('theme', 'dark');\n\n// Retrieving user preference\nconst currentTheme = localStorage.getItem('theme');\nconsole.log('Stored Theme:', currentTheme); // Outputs: \"dark\"\n\n// SessionStorage example (persists only for current tab session)\nsessionStorage.setItem('activeTab', 'dashboard');",
+              "explanation": "LocalStorage persists indefinitely in the browser, while SessionStorage expires when the tab closes."
             }
           ],
           "bestPractices": [
-            "Always serve web applications over encrypted HTTPS."
+            "Always enforce HTTPS in production to encrypt client-server communication.",
+            "Structure URLs cleanly with logical paths (/products/25) and relevant query parameters.",
+            "Utilize proper HTTP methods (GET for retrieval, POST for creation, DELETE for removal).",
+            "Inspect the Network and Console panels frequently during development to catch errors early.",
+            "Never store sensitive secrets, passwords, or raw tokens in client-side LocalStorage."
           ],
           "commonMistakes": [
-            "Confusing domain registrar with web host server."
+            "Confusing the Internet (network infrastructure) with the World Wide Web (http/web service).",
+            "Storing sensitive user credentials in browser LocalStorage where XSS scripts can access them.",
+            "Ignoring HTTP status codes and treating all API errors as generic 500 failures.",
+            "Assuming changes made inside browser DevTools modify source files permanently.",
+            "Failing to optimize network requests leading to high latency and poor user experience."
           ],
-          "practiceExercise": {
-            "title": "Inspect Network Tab",
-            "problem": "Open browser DevTools (F12) Network tab and inspect loaded assets.",
-            "solutionCode": "Press F12 -> Select Network tab -> Refresh page"
-          },
-          "keyTakeaways": [
-            "Browsers render HTML structure, CSS styling, and JS interactivity.",
-            "DNS maps human domain names to IP addresses."
-          ],
-          "references": [
+          "practiceExercises": [
             {
-              "title": "MDN How the Web Works",
-              "url": "https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/How_the_Web_works"
+              "title": "Web Request Lifecycle Simulation",
+              "task": "Diagram or detail step-by-step the journey of a user visiting https://shop.example.com/item?id=99 from DNS lookup to final screen paint.",
+              "solution": "1. Browser checks cache / DNS resolver for shop.example.com -> Returns IP 198.51.100.4. 2. Establishes TCP/TLS handshake. 3. Sends GET /item?id=99 HTTP request. 4. Server queries database for item 99. 5. Server returns 200 OK with HTML/CSS. 6. Browser parses HTML/CSS, constructs DOM/CSSOM, runs layout and paint."
+            },
+            {
+              "title": "DevTools Network Inspection Challenge",
+              "task": "Open Chrome DevTools on any live news or shopping site, navigate to the Network tab, filter by 'Fetch/XHR', and identify 3 key request parameters (URL, HTTP Method, Status Code).",
+              "solution": "Expected observation: URL (e.g. https://api.site.com/v1/feed), Method (GET), Status Code (200 OK), Content-Type (application/json)."
+            }
+          ],
+          "keyTakeaways": [
+            "The Web operates on a Client-Server model powered by HTTP/HTTPS protocols over the global Internet.",
+            "Browsers parse HTML and CSS to create the DOM/CSSOM, building the render tree for visual output.",
+            "DNS translates human-friendly domain names (example.com) into machine IP addresses.",
+            "HTTP Request methods (GET, POST, PUT, DELETE) and Response Status Codes (2xx, 4xx, 5xx) govern API communications.",
+            "Browser Developer Tools (F12) are indispensable for inspecting DOM, CSS, JavaScript errors, and network traffic."
+          ],
+          "mcqs": [
+            {
+              "id": "mod1-q1",
+              "question": "What is the primary difference between the Internet and the World Wide Web (WWW)?",
+              "options": [
+                "The Internet is a programming language, while the Web is a database.",
+                "The Internet is the hardware network infrastructure; the Web is an HTTP service running on top of it.",
+                "The Internet only handles emails, while the Web only handles video streaming.",
+                "There is no difference; both terms refer to the exact same software protocol."
+              ],
+              "correctAnswer": 1,
+              "explanation": "The Internet is the global physical and logical network infrastructure, while the World Wide Web is a web service operating over HTTP/HTTPS."
+            },
+            {
+              "id": "mod1-q2",
+              "question": "Which HTTP status code group indicates a client-side error, such as requesting a page that does not exist?",
+              "options": [
+                "2xx (e.g., 200 OK)",
+                "3xx (e.g., 301 Moved)",
+                "4xx (e.g., 404 Not Found)",
+                "5xx (e.g., 500 Internal Error)"
+              ],
+              "correctAnswer": 2,
+              "explanation": "4xx status codes (like 404 Not Found or 401 Unauthorized) represent errors originating from client requests."
+            },
+            {
+              "id": "mod1-q3",
+              "question": "What is the main function of the Domain Name System (DNS)?",
+              "options": [
+                "To encrypt passwords sent across the web",
+                "To translate human-readable domain names (like google.com) into numerical IP addresses",
+                "To host HTML files on cloud servers",
+                "To render CSS styles in the web browser"
+              ],
+              "correctAnswer": 1,
+              "explanation": "DNS acts as the Internet's phonebook, converting domain names into numerical IP addresses so browsers can locate servers."
+            },
+            {
+              "id": "mod1-q4",
+              "question": "In the URL 'https://example.com/shop?category=shoes', which part represents the Query Parameter?",
+              "options": [
+                "https://",
+                "example.com",
+                "/shop",
+                "?category=shoes"
+              ],
+              "correctAnswer": 3,
+              "explanation": "'?category=shoes' is the query parameter used to pass key-value data to the web server."
+            },
+            {
+              "id": "mod1-q5",
+              "question": "Why should sensitive data like passwords NOT be stored in browser LocalStorage?",
+              "options": [
+                "LocalStorage is deleted every 5 minutes automatically.",
+                "LocalStorage cannot store strings or numbers.",
+                "LocalStorage is accessible by JavaScript in the browser and is vulnerable to Cross-Site Scripting (XSS).",
+                "LocalStorage can only be read by web servers, not browsers."
+              ],
+              "correctAnswer": 2,
+              "explanation": "LocalStorage is stored unencrypted in the browser and accessible to client-side scripts, making it vulnerable to XSS attacks."
             }
           ]
         }
+      },
+      {
+        "id": "web-mod-2",
+        "title": "Module 02 \u0393\u00c7\u00f6 HTML5 \u0393\u00c7\u00f6 Web Page Structure",
+        "description": "HTML syntax, semantic elements, headings, links, images, tables, forms, multimedia, accessibility, SEO basics.",
+        "completed": true,
+        "readingMaterial": {
+          "introduction": "HTML5 is the standard markup language used to structure content on the web. It provides the structural foundation on which websites and web applications are built. While CSS controls visual presentation and JavaScript provides interactivity, HTML defines the structure and semantic meaning of webpage content.",
+          "objectives": [
+            "Explain what HTML is and create a valid HTML5 document structure.",
+            "Understand elements, tags, void elements, attributes, and correct nesting rules.",
+            "Structure pages with headings (H1-H6), paragraphs, formatting tags, lists, and tables.",
+            "Build accessible HTML forms with diverse input types, labels, and built-in validation.",
+            "Utilize semantic HTML5 tags (<header>, <nav>, <main>, <article>, <section>, <footer>) for SEO and web accessibility."
+          ],
+          "sections": [
+            {
+              "title": "1. Module Overview & Learning Objectives",
+              "content": "This module covers HTML syntax, document structure, headings, links, images, lists, tables, forms, multimedia, semantic elements, accessibility fundamentals, SEO basics, and best practices for writing modern HTML5.",
+              "bullets": [
+                "Create valid HTML5 documents with proper doctype and viewport declarations.",
+                "Structure web content using headings, paragraphs, lists, and accessible data tables.",
+                "Create internal, external, email, telephone, and bookmark hyperlinks.",
+                "Embed images with alt attributes and multimedia (<audio>, <video>, <iframe>).",
+                "Implement semantic HTML5 structural tags for search engine optimization and screen reader compatibility."
+              ]
+            },
+            {
+              "title": "2. What Is HTML? & Core Web Technologies",
+              "content": "HTML (HyperText Markup Language) describes the structure of a webpage. Modern web development relies on three core technologies working together.",
+              "table": {
+                "headers": [
+                  "Technology",
+                  "Primary Role",
+                  "Example Output"
+                ],
+                "rows": [
+                  [
+                    "HTML5",
+                    "Structure and semantic meaning",
+                    "DOM elements, text hierarchy, forms"
+                  ],
+                  [
+                    "CSS3",
+                    "Presentation and visual styling",
+                    "Colors, typography, Flexbox/Grid layouts"
+                  ],
+                  [
+                    "JavaScript (ES6+)",
+                    "Behavior and interactivity",
+                    "Dynamic DOM updates, API requests, state"
+                  ]
+                ]
+              }
+            },
+            {
+              "title": "3. Basic HTML5 Document Structure & Elements",
+              "content": "An HTML5 document starts with <!DOCTYPE html> followed by <html>, <head>, and <body>. Elements consist of opening tags, content, and closing tags, or self-closing void elements (<img/>, <input/>, <br/>).",
+              "bullets": [
+                "<!DOCTYPE html>: Specifies the HTML5 standard to the browser.",
+                "<html lang='en'>: Declares the root element and primary document language.",
+                "<head>: Contains metadata, character set (<meta charset='UTF-8'>), title, and linked stylesheets.",
+                "<body>: Contains all visible webpage content displayed to the user."
+              ]
+            },
+            {
+              "title": "4. Headings, Paragraphs & Text Formatting",
+              "content": "HTML provides six heading levels (<h1> to <h6>) for content hierarchy, paragraph elements (<p>), and inline text formatting tags.",
+              "bullets": [
+                "<h1> to <h6>: Heading hierarchy (use one <h1> per page for primary topic).",
+                "<strong>: Indicates strong importance (bold text rendered semantically).",
+                "<em>: Represents structural emphasis (italicized).",
+                "<mark>: Highlights text; <small>: Legal/fine print; <del>/<ins>: Revisions."
+              ]
+            },
+            {
+              "title": "5. Links & Anchor Attributes",
+              "content": "Hyperlinks are created with <a> tags and the href attribute. Links can be external, internal paths, email mailto, telephone tel, or page fragment bookmarks (#section-id).",
+              "bullets": [
+                "External Link: <a href='https://example.com' target='_blank' rel='noopener noreferrer'>Visit</a>",
+                "Page Fragment Link: <a href='#contact'>Jump to Contact</a>",
+                "Security Best Practice: Use rel='noopener noreferrer' when opening links in new tabs (_blank)."
+              ]
+            },
+            {
+              "title": "6. Images & Image Optimization",
+              "content": "Images are embedded using <img> void tags with src, alt, width, height, and loading attributes.",
+              "bullets": [
+                "src: Path to image file (JPEG, PNG, WebP, SVG).",
+                "alt: Descriptive alternative text for screen readers and SEO.",
+                "loading='lazy': Defers loading offscreen images until scrolled near the viewport."
+              ]
+            },
+            {
+              "title": "7. Lists & Tabular Data Structures",
+              "content": "HTML supports Unordered Lists (<ul>), Ordered Lists (<ol>), Description Lists (<dl>), and data Tables (<table>).",
+              "bullets": [
+                "<ul> and <ol>: Contain list item (<li>) elements.",
+                "<dl>: Contains description terms (<dt>) and description data (<dd>).",
+                "Tables: Consist of <caption>, <thead>, <tbody>, <tfoot>, <tr> (rows), <th> (headers), and <td> (data cells)."
+              ]
+            },
+            {
+              "title": "8. Forms, Inputs & Form Validation",
+              "content": "Forms (<form>) collect user input using interactive controls (<input>, <select>, <textarea>, <button>).",
+              "table": {
+                "headers": [
+                  "Input Type",
+                  "Use Case",
+                  "Validation Attributes"
+                ],
+                "rows": [
+                  [
+                    "text / search",
+                    "Single line text, search queries",
+                    "required, minlength, maxlength"
+                  ],
+                  [
+                    "email",
+                    "Email addresses (browser validated)",
+                    "required, pattern"
+                  ],
+                  [
+                    "password",
+                    "Masked security credentials",
+                    "required, minlength"
+                  ],
+                  [
+                    "number",
+                    "Numeric quantities",
+                    "min, max, step"
+                  ],
+                  [
+                    "date / time",
+                    "Native date/time picker",
+                    "min, max"
+                  ],
+                  [
+                    "checkbox / radio",
+                    "Option selection controls",
+                    "checked"
+                  ]
+                ]
+              }
+            },
+            {
+              "title": "9. Multimedia & Embedded Content",
+              "content": "HTML5 provides native media playback via <audio> and <video> elements with controls, autoplay, loop, and poster attributes. External widgets are embedded via <iframe>.",
+              "bullets": [
+                "<video controls poster='cover.jpg'><source src='video.mp4' type='video/mp4'></video>",
+                "<audio controls><source src='podcast.mp3' type='audio/mpeg'></audio>",
+                "<iframe src='...' title='Embedded map or video'></iframe>"
+              ]
+            },
+            {
+              "title": "10. Semantic HTML5 Structural Elements",
+              "content": "Semantic elements convey explicit meaning to browsers, search engines, and screen readers instead of unsemantic generic <div> tags.",
+              "bullets": [
+                "<header>: Introductory page/section header, logos, and titles.",
+                "<nav>: Major site navigation link blocks.",
+                "<main>: Primary unique content container for the document.",
+                "<section>: Thematic grouping of content with a heading.",
+                "<article>: Self-contained reusable component (blog post, product card).",
+                "<aside>: Sidebar or tangential related content.",
+                "<footer>: Page/section footer with copyright, links, and contact info."
+              ]
+            },
+            {
+              "title": "11. Web Accessibility (a11y) Fundamentals",
+              "content": "Accessibility ensures websites can be navigated by all users, including those using screen readers or keyboard navigation.",
+              "bullets": [
+                "Always associate form inputs with explicit <label for='input-id'> elements.",
+                "Ensure all interactive elements (<button>, <a>, <input>) are keyboard focusable via Tab key.",
+                "Provide descriptive link text (e.g. 'Read Web Dev Guide') instead of 'Click Here'.",
+                "Use <figure> and <figcaption> to pair images with textual captions."
+              ]
+            },
+            {
+              "title": "12. Search Engine Optimization (SEO) & Metadata",
+              "content": "HTML metadata in the <head> guides search engine indexing and responsive rendering.",
+              "bullets": [
+                "<title>: Primary page title displayed in search result titles and browser tabs.",
+                "<meta name='description'>: Concise summary snippet for search result listings.",
+                "<meta name='viewport' content='width=device-width, initial-scale=1.0'>: Essential responsive scaling.",
+                "<html lang='en'>: Explicit document language specification."
+              ]
+            },
+            {
+              "title": "13. HTML Best Practices & Common Pitfalls",
+              "content": "Writing clean, professional HTML requires avoiding anti-patterns.",
+              "bullets": [
+                "Avoid using <div> for everything when semantic tags (<nav>, <article>) exist.",
+                "Never use headings (<h1>-<h6>) purely to increase text size\u0393\u00c7\u00f6use CSS for visual styling.",
+                "Do not use tables for page layout\u0393\u00c7\u00f6reserve tables strictly for tabular datasets.",
+                "Always supply alt text for informative images; use alt='' for purely decorative graphics."
+              ]
+            },
+            {
+              "title": "14. Practice & Interview Questions Summary",
+              "content": "Mastering HTML5 structural principles prepares developers for technical evaluations.",
+              "bullets": [
+                "Q: Difference between <section> and <article>? (<article> is self-contained/distributable; <section> is a thematic group).",
+                "Q: Why is <meta name='viewport'> critical? (It sets page width to device screen width and disables unwanted mobile auto-zoom).",
+                "Q: What is the difference between <button> and <a>? (<button> triggers page actions/scripts; <a> navigates to URLs)."
+              ]
+            }
+          ],
+          "codeExamples": [
+            {
+              "title": "Complete Semantic HTML5 Webpage Structure",
+              "code": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <meta name=\"description\" content=\"Professional HTML5 semantic webpage example.\">\n    <title>Web Development Course Landing Page</title>\n</head>\n<body>\n    <header>\n        <h1>Web Development Academy</h1>\n        <nav>\n            <a href=\"#overview\">Overview</a>\n            <a href=\"#modules\">Modules</a>\n            <a href=\"#enroll\">Enroll</a>\n        </nav>\n    </header>\n\n    <main>\n        <section id=\"overview\">\n            <h2>Course Overview</h2>\n            <p>Master modern web development from HTML5 structure to full-stack deployment.</p>\n        </section>\n\n        <section id=\"modules\">\n            <h2>Course Curriculum</h2>\n            <article>\n                <h3>Module 01: Web Fundamentals</h3>\n                <p>Learn client-server architecture, HTTP/HTTPS, and browser rendering.</p>\n            </article>\n            <article>\n                <h3>Module 02: HTML5 Structure</h3>\n                <p>Master semantic elements, forms, multimedia, and web accessibility.</p>\n            </article>\n        </section>\n    </main>\n\n    <footer>\n        <p>&copy; 2026 Web Development Academy. All rights reserved.</p>\n    </footer>\n</body>\n</html>",
+              "explanation": "Demonstrates standard HTML5 document layout using header, nav, main, section, article, and footer tags."
+            },
+            {
+              "title": "Accessible HTML5 Registration Form with Validation",
+              "code": "<form action=\"/api/register\" method=\"POST\">\n    <fieldset>\n        <legend>Student Registration</legend>\n\n        <div>\n            <label for=\"fullname\">Full Name:</label>\n            <input type=\"text\" id=\"fullname\" name=\"fullname\" required minlength=\"3\" placeholder=\"Alex Johnson\">\n        </div>\n\n        <div>\n            <label for=\"useremail\">Email Address:</label>\n            <input type=\"email\" id=\"useremail\" name=\"useremail\" required placeholder=\"alex@example.com\">\n        </div>\n\n        <div>\n            <label for=\"track\">Select Learning Track:</label>\n            <select id=\"track\" name=\"track\" required>\n                <option value=\"\">-- Choose Track --</option>\n                <option value=\"frontend\">Frontend Development</option>\n                <option value=\"fullstack\">Full-Stack Development</option>\n            </select>\n        </div>\n\n        <div>\n            <label for=\"comments\">Background Notes:</label>\n            <textarea id=\"comments\" name=\"comments\" rows=\"4\"></textarea>\n        </div>\n\n        <button type=\"submit\">Submit Registration</button>\n    </fieldset>\n</form>",
+              "explanation": "Utilizes explicit <label for> matching, input validation attributes (required, minlength, type='email'), and fieldsets."
+            }
+          ],
+          "bestPractices": [
+            "Always use semantic HTML5 elements (<header>, <nav>, <main>, <article>, <footer>) over generic <div> tags.",
+            "Ensure every form input has an associated <label for='input-id'> element for screen reader accessibility.",
+            "Provide clear, descriptive alt attributes for all informative images.",
+            "Include <meta name='viewport' content='width=device-width, initial-scale=1.0'> on every webpage.",
+            "Maintain a logical heading hierarchy (one <h1> per page, followed sequentially by <h2>, <h3>)."
+          ],
+          "commonMistakes": [
+            "Using <div> and <span> tags exclusively for page layout without semantic meaning.",
+            "Using heading elements (<h1>-<h6>) simply to make text larger instead of using CSS font-size.",
+            "Creating forms without proper <label> tags, breaking keyboard accessibility and screen readers.",
+            "Using HTML <table> elements to create whole page layouts instead of CSS Flexbox or Grid.",
+            "Omitting the alt attribute on <img> elements or filling it with generic words like 'image'."
+          ],
+          "practiceExercises": [
+            {
+              "title": "HTML5 Course Landing Page Project",
+              "task": "Create a complete HTML5 landing page with header, nav bar, hero section, curriculum list, pricing table, registration form, and footer using pure semantic HTML.",
+              "solution": "Page includes <!DOCTYPE html>, <html lang='en'>, <head> metadata, <header> with <nav>, <main> with multiple <section> blocks, <table> for pricing, <form> with input controls, and <footer>."
+            },
+            {
+              "title": "Accessible Data Table Challenge",
+              "task": "Build a course schedule table with <caption>, <thead>, <tbody>, <th> with scope='col', and <td> cells.",
+              "solution": "<table><caption>Weekly Class Schedule</caption><thead><tr><th scope='col'>Day</th><th scope='col'>Topic</th></tr></thead><tbody><tr><td>Monday</td><td>HTML5 Forms</td></tr></tbody></table>"
+            }
+          ],
+          "keyTakeaways": [
+            "HTML defines the structural foundation and semantic meaning of web content.",
+            "Semantic tags (<header>, <nav>, <main>, <article>) enhance SEO and screen reader accessibility.",
+            "Forms require associated <label> elements and native validation attributes for usability.",
+            "Proper heading hierarchy and image alt text are critical for web accessibility compliance.",
+            "HTML structure works hand-in-hand with CSS styling and JavaScript behavior."
+          ],
+          "mcqs": [
+            {
+              "id": "mod2-q1",
+              "question": "Which semantic HTML5 element should be used to enclose the primary navigation links of a website?",
+              "options": [
+                "<header>",
+                "<nav>",
+                "<section>",
+                "<aside>"
+              ],
+              "correctAnswer": 1,
+              "explanation": "The <nav> element is specifically designated for major block navigation links across a website."
+            },
+            {
+              "id": "mod2-q2",
+              "question": "What is the primary purpose of the 'alt' attribute on an <img> element?",
+              "options": [
+                "To specify the CSS background color of the image",
+                "To provide alternative text for screen readers and when the image fails to load",
+                "To rotate the image by 90 degrees",
+                "To automatically resize the image to full screen"
+              ],
+              "correctAnswer": 1,
+              "explanation": "The alt attribute provides a textual description of the image for web accessibility and fallbacks."
+            },
+            {
+              "id": "mod2-q3",
+              "question": "Which HTML attribute prevents a user from submitting a form if a specific input field is empty?",
+              "options": [
+                "disabled",
+                "readonly",
+                "required",
+                "validate"
+              ],
+              "correctAnswer": 2,
+              "explanation": "The 'required' attribute enforces built-in browser form validation before submission."
+            },
+            {
+              "id": "mod2-q4",
+              "question": "Why is it recommended to use <button type='submit'> instead of <div onclick='...'> for form submissions?",
+              "options": [
+                "Buttons automatically load external CSS stylesheets.",
+                "Buttons provide native keyboard focus (Tab/Enter) and accessible ARIA roles out of the box.",
+                "<div> tags cannot execute JavaScript click events.",
+                "Buttons make the web server run faster."
+              ],
+              "correctAnswer": 1,
+              "explanation": "Native <button> elements provide built-in keyboard accessibility and screen reader support without manual JavaScript hackery."
+            },
+            {
+              "id": "mod2-q5",
+              "question": "What is the function of the declaration <meta name='viewport' content='width=device-width, initial-scale=1.0'>?",
+              "options": [
+                "It sets the website language to English.",
+                "It configures the viewport width to match the screen width of the device for responsive design.",
+                "It imports Google Fonts automatically.",
+                "It disables JavaScript execution on mobile devices."
+              ],
+              "correctAnswer": 1,
+              "explanation": "The viewport meta tag ensures the browser renders the page at the device's physical screen width, enabling responsive CSS layouts."
+            }
+          ]
+        }
+      },
+      {
+        "id": "web-mod-3",
+        "title": "Module 03 \u0393\u00c7\u00f6 CSS3 \u0393\u00c7\u00f6 Styling & Responsive Design",
+        "description": "Selectors, box model, colors, typography, positioning, Flexbox, Grid, media queries, responsive layouts.",
+        "completed": true,
+        "readingMaterial": {
+          "introduction": "CSS3 (Cascading Style Sheets) styles HTML elements, controlling layout geometry through the Box Model, Flexbox, CSS Grid, and Media Queries for fully responsive mobile-first web applications.",
+          "objectives": [
+            "Master the CSS Box Model (margin, border, padding, content width)",
+            "Build 1D layouts with Flexbox and 2D layouts with CSS Grid",
+            "Apply mobile-first responsive design using CSS Media Queries (@media)"
+          ],
+          "sections": [
+            {
+              "heading": "The CSS Box Model",
+              "text": "Every element is a rectangular box comprising content, padding, border, and margin. Setting `box-sizing: border-box;` includes padding and border within total element width."
+            },
+            {
+              "heading": "Flexbox vs CSS Grid",
+              "text": "Flexbox is designed for 1D row or column layouts (`flex-direction: row`). CSS Grid is built for 2D complex grid layouts (`grid-template-columns: repeat(3, 1fr)`)."
+            }
+          ],
+          "codeExamples": [
+            {
+              "title": "Responsive Flexbox Center Layout",
+              "code": ".container {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  gap: 1rem;\n}\n\n@media (max-width: 768px) {\n  .container {\n    flex-direction: column;\n  }\n}",
+              "explanation": "Flexbox centers elements horizontally and vertically, wrapping into a column on screens narrower than 768px."
+            }
+          ],
+          "bestPractices": [
+            "Always apply `box-sizing: border-box;` globally using universal selectors.",
+            "Design mobile-first by writing base styles for small screens and expanding using min-width media queries."
+          ],
+          "commonMistakes": [
+            "Hardcoding static pixel widths (`width: 1200px`) causing horizontal scrollbars on mobile devices."
+          ],
+          "practiceExercise": {
+            "title": "Center a Card Component",
+            "problem": "Use Flexbox to center a div horizontally and vertically inside a full-height container.",
+            "solutionCode": ".parent { display: flex; justify-content: center; align-items: center; min-height: 100vh; }"
+          },
+          "keyTakeaways": [
+            "Flexbox aligns items in 1 dimension; CSS Grid aligns items in 2 dimensions.",
+            "Media queries enable adaptive layouts across desktop, tablet, and mobile screens."
+          ],
+          "mcqs": [
+            {
+              "id": 1,
+              "question": "What CSS property ensures padding and borders are included in an element's total calculated width?",
+              "options": [
+                "box-sizing: border-box;",
+                "box-sizing: content-box;",
+                "margin: 0;",
+                "display: inline;"
+              ],
+              "correctAnswer": 0,
+              "explanation": "border-box includes padding and border in width calculations."
+            },
+            {
+              "id": 2,
+              "question": "Which Flexbox property aligns items along the primary main axis?",
+              "options": [
+                "align-items",
+                "justify-content",
+                "flex-wrap",
+                "align-content"
+              ],
+              "correctAnswer": 1,
+              "explanation": "justify-content handles alignment along the main axis."
+            },
+            {
+              "id": 3,
+              "question": "Which CSS Grid property specifies a 3-column layout with equal fractional widths?",
+              "options": [
+                "grid-template-columns: 1fr 1fr 1fr;",
+                "grid-columns: 3;",
+                "flex: 3;",
+                "display: grid-3;"
+              ],
+              "correctAnswer": 0,
+              "explanation": "grid-template-columns: 1fr 1fr 1fr creates 3 equal-width columns."
+            },
+            {
+              "id": 4,
+              "question": "Which CSS media query targets screen widths smaller than or equal to 768px?",
+              "options": [
+                "@media (max-width: 768px)",
+                "@media (min-width: 768px)",
+                "@screen 768",
+                "@device 768px"
+              ],
+              "correctAnswer": 0,
+              "explanation": "@media (max-width: 768px) applies styles to viewports up to 768px wide."
+            },
+            {
+              "id": 5,
+              "question": "What positioning type positions an element relative to the browser viewport, keeping it fixed during scrolling?",
+              "options": [
+                "position: absolute;",
+                "position: fixed;",
+                "position: relative;",
+                "position: static;"
+              ],
+              "correctAnswer": 1,
+              "explanation": "position: fixed positions an element relative to the viewport window."
+            }
+          ],
+          "references": [
+            {
+              "title": "MDN CSS Flexbox Guide",
+              "url": "https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Flexbox"
+            }
+          ]
+        }
+      },
+      {
+        "id": "web-mod-4",
+        "title": "Module 04 \u0393\u00c7\u00f6 Modern CSS & UI Design",
+        "description": "Advanced layouts, transitions, animations, variables, reusable components, responsive UI, modern design principles.",
+        "completed": true,
+        "readingMaterial": {
+          "introduction": "Modern CSS introduces CSS custom properties (variables), smooth CSS transitions, keyframe animations, glassmorphism, and modern UI design principles to build sleek, state-of-the-art visual interfaces.",
+          "objectives": [
+            "Declare and use CSS Custom Properties (Variables) for theme management",
+            "Create smooth interactive hover states and `@keyframes` animations",
+            "Apply modern design aesthetics (glassmorphism, subtle micro-animations, curated color palettes)"
+          ],
+          "sections": [
+            {
+              "heading": "CSS Custom Properties (Variables)",
+              "text": "CSS variables (`:root { --primary: #10b981; }`) allow declaring reusable color tokens, typography scales, and spacing values across stylesheets, enabling effortless dark mode switching."
+            },
+            {
+              "heading": "Transitions & Keyframe Animations",
+              "text": "CSS transitions smoothly animate state changes (e.g. `transition: transform 0.3s ease`). Keyframe animations (`@keyframes`) define multi-step custom web animations."
+            }
+          ],
+          "codeExamples": [
+            {
+              "title": "CSS Custom Properties & Hover Animation",
+              "code": ":root {\n  --brand-color: #6366f1;\n}\n\n.card {\n  background: var(--brand-color);\n  transition: transform 0.2s ease, box-shadow 0.2s ease;\n}\n\n.card:hover {\n  transform: translateY(-4px);\n  box-shadow: 0 10px 25px rgba(0,0,0,0.3);\n}",
+              "explanation": "Applies CSS variables and a subtle micro-animation transform on card hover."
+            }
+          ],
+          "bestPractices": [
+            "Use CSS variables for theme colors to enable quick global design updates.",
+            "Keep micro-animations subtle (duration under 300ms) to enhance UI feel without causing lag."
+          ],
+          "commonMistakes": [
+            "Animating layout properties like `width` or `margin` causing browser repaint lag; animate `transform` and `opacity` instead."
+          ],
+          "practiceExercise": {
+            "title": "Create a Pulsing Button",
+            "problem": "Define a CSS @keyframes animation that scales a button slightly in a continuous loop.",
+            "solutionCode": "@keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.05); } } .btn { animation: pulse 2s infinite; }"
+          },
+          "keyTakeaways": [
+            "CSS Variables simplify design system maintenance.",
+            "Hardware-accelerated CSS properties (`transform`, `opacity`) ensure 60fps animations."
+          ],
+          "mcqs": [
+            {
+              "id": 1,
+              "question": "How do you reference a CSS custom property (variable) named '--accent-color'?",
+              "options": [
+                "var(--accent-color)",
+                "get(--accent-color)",
+                "$accent-color",
+                "attr(--accent-color)"
+              ],
+              "correctAnswer": 0,
+              "explanation": "CSS variables are accessed using the var() function."
+            },
+            {
+              "id": 2,
+              "question": "Which CSS properties are hardware-accelerated for smooth 60fps animations?",
+              "options": [
+                "transform and opacity",
+                "width and height",
+                "margin and padding",
+                "top and left"
+              ],
+              "correctAnswer": 0,
+              "explanation": "transform and opacity are GPU-accelerated and do not trigger layout reflow."
+            },
+            {
+              "id": 3,
+              "question": "Where are global CSS variables typically defined to ensure page-wide availability?",
+              "options": [
+                ":root selector",
+                "body tag only",
+                "@media block",
+                "* selector"
+              ],
+              "correctAnswer": 0,
+              "explanation": ":root represents the highest-level element in the document tree."
+            },
+            {
+              "id": 4,
+              "question": "Which CSS rule is used to create multi-step keyframe web animations?",
+              "options": [
+                "@keyframes",
+                "@animation",
+                "@transition",
+                "@frames"
+              ],
+              "correctAnswer": 0,
+              "explanation": "@keyframes defines animation frames and properties over time."
+            },
+            {
+              "id": 5,
+              "question": "What CSS property creates translucent glassmorphism background effects?",
+              "options": [
+                "backdrop-filter: blur(10px);",
+                "filter: drop-shadow();",
+                "opacity: 0.5;",
+                "box-shadow: glass;"
+              ],
+              "correctAnswer": 0,
+              "explanation": "backdrop-filter applies graphical blur effects to elements behind glass layers."
+            }
+          ],
+          "references": [
+            {
+              "title": "MDN CSS Custom Properties",
+              "url": "https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties"
+            }
+          ]
+        }
+      },
+      {
+        "id": "web-mod-5",
+        "title": "Module 05 \u0393\u00c7\u00f6 JavaScript Fundamentals",
+        "description": "Variables, data types, operators, conditions, loops, functions, arrays, objects, scope, error handling.",
+        "completed": true,
+        "readingMaterial": {
+          "introduction": "JavaScript is the core programming language of the web. It enables dynamic user interactions, data processing, object-oriented state management, and algorithmic control flow.",
+          "objectives": [
+            "Understand JavaScript data types, scope (let vs const vs var), and hoisting",
+            "Master functions, arrow syntax, array iteration methods (map, filter, reduce)",
+            "Implement robust control flow and error handling with try/catch blocks"
+          ],
+          "sections": [
+            {
+              "heading": "Variables & Scope: let, const, and var",
+              "text": "`const` declares block-scoped reassignable-immutable variables; `let` declares block-scoped reassignable variables. Avoid legacy `var` due to function-scope hoisting quirks."
+            },
+            {
+              "heading": "Array Iteration Methods",
+              "text": "Functional array methods like `.map()`, `.filter()`, and `.reduce()` transform and filter arrays immutably without mutating original source arrays."
+            }
+          ],
+          "codeExamples": [
+            {
+              "title": "Array Transformation with Map & Filter",
+              "code": "const prices = [10, 25, 40, 100];\nconst discountedHighPrices = prices\n  .filter(p => p >= 25)\n  .map(p => p * 0.9);\nconsole.log(discountedHighPrices); // [22.5, 36, 90]",
+              "explanation": "Filters prices >= 25 and applies a 10% discount to matching elements."
+            }
+          ],
+          "bestPractices": [
+            "Prefer `const` by default; use `let` only when variable reassignment is required.",
+            "Use strict equality (`===`) instead of loose equality (`==`) to avoid unintended type coercion."
+          ],
+          "commonMistakes": [
+            "Mutating arrays directly with `.sort()` or `.push()` when immutability is intended."
+          ],
+          "practiceExercise": {
+            "title": "Filter Even Numbers",
+            "problem": "Write a function that accepts an array of numbers and returns only the even numbers using .filter().",
+            "solutionCode": "const getEvens = arr => arr.filter(n => n % 2 === 0);"
+          },
+          "keyTakeaways": [
+            "let and const enforce block scope.",
+            "Functional array methods (.map, .filter) enable declarative data transformation."
+          ],
+          "mcqs": [
+            {
+              "id": 1,
+              "question": "Which keyword declares a block-scoped variable that CANNOT be reassigned?",
+              "options": [
+                "const",
+                "let",
+                "var",
+                "static"
+              ],
+              "correctAnswer": 0,
+              "explanation": "const enforces block scope and prevents reassignment."
+            },
+            {
+              "id": 2,
+              "question": "What does the strict equality operator (===) compare in JavaScript?",
+              "options": [
+                "Values only",
+                "Values and Data Types",
+                "Memory Addresses only",
+                "String Lengths"
+              ],
+              "correctAnswer": 1,
+              "explanation": "=== checks both value equality and data type equality without type coercion."
+            },
+            {
+              "id": 3,
+              "question": "Which array method returns a brand-new array containing transformed elements?",
+              "options": [
+                ".forEach()",
+                ".map()",
+                ".push()",
+                ".splice()"
+              ],
+              "correctAnswer": 1,
+              "explanation": ".map() creates a new array populated with results of calling a function on every element."
+            },
+            {
+              "id": 4,
+              "question": "What is the result of `typeof null` in JavaScript?",
+              "options": [
+                "'null'",
+                "'object'",
+                "'undefined'",
+                "'boolean'"
+              ],
+              "correctAnswer": 1,
+              "explanation": "typeof null returns 'object' due to a historical JavaScript design implementation."
+            },
+            {
+              "id": 5,
+              "question": "Which block catches runtime errors in JavaScript?",
+              "options": [
+                "try { ... } catch (err) { ... }",
+                "if error { ... }",
+                "do { ... } catch",
+                "assert { ... }"
+              ],
+              "correctAnswer": 0,
+              "explanation": "try...catch blocks handle runtime exceptions without application crash."
+            }
+          ],
+          "references": [
+            {
+              "title": "MDN JavaScript First Steps",
+              "url": "https://developer.mozilla.org/en-US/docs/Learn/JavaScript/First_steps"
+            }
+          ]
+        }
+      },
+      {
+        "id": "web-mod-6",
+        "title": "Module 06 \u0393\u00c7\u00f6 Advanced JavaScript & DOM",
+        "description": "ES6+, destructuring, spread/rest, modules, DOM manipulation, events, forms, browser APIs, local storage.",
+        "completed": true,
+        "readingMaterial": {
+          "introduction": "Advanced JavaScript focuses on ES6+ syntax (Destructuring, Spread/Rest, Modules) and DOM (Document Object Model) manipulation to create interactive user interfaces and persist local state.",
+          "objectives": [
+            "Utilize ES6+ destructuring, spread/rest operators (`...`), and ES Modules (`import/export`)",
+            "Manipulate DOM nodes dynamically and attach event listeners using Event Delegation",
+            "Persist user data across browser refreshes with Web Storage (`localStorage`)"
+          ],
+          "sections": [
+            {
+              "heading": "DOM Manipulation & Event Listener Delegation",
+              "text": "The DOM tree represents HTML in memory. Event delegation attaches a single event listener to a parent container to manage child element events efficiently."
+            },
+            {
+              "heading": "Web Storage API: localStorage",
+              "text": "`localStorage.setItem('key', JSON.stringify(data))` stores key-value string data persistently in the browser across sessions."
+            }
+          ],
+          "codeExamples": [
+            {
+              "title": "DOM Event Delegation & LocalStorage",
+              "code": "const list = document.querySelector('#item-list');\n\nlist.addEventListener('click', (e) => {\n  if (e.target.matches('.delete-btn')) {\n    e.target.closest('li').remove();\n    localStorage.setItem('itemsCount', list.children.length);\n  }\n});",
+              "explanation": "Deletes item elements using event delegation and syncs item count to localStorage."
+            }
+          ],
+          "bestPractices": [
+            "Use Event Delegation for dynamically generated list items instead of adding listeners to individual nodes.",
+            "Always parse items retrieved from `localStorage` using `JSON.parse()`."
+          ],
+          "commonMistakes": [
+            "Storing raw object references in `localStorage` without converting them via `JSON.stringify()`."
+          ],
+          "practiceExercise": {
+            "title": "Save Object to LocalStorage",
+            "problem": "Save a user profile object `{ name: 'Alice', age: 25 }` to localStorage under key 'user'.",
+            "solutionCode": "localStorage.setItem('user', JSON.stringify({ name: 'Alice', age: 25 }));"
+          },
+          "keyTakeaways": [
+            "Event Delegation improves memory efficiency.",
+            "LocalStorage persists string data in browser storage."
+          ],
+          "mcqs": [
+            {
+              "id": 1,
+              "question": "Which ES6 syntax allows extracting properties from objects into distinct variables?",
+              "options": [
+                "Object Destructuring",
+                "Array Slicing",
+                "Spread Syntax",
+                "Module Import"
+              ],
+              "correctAnswer": 0,
+              "explanation": "Destructuring `const { name, age } = user;` extracts object properties cleanly."
+            },
+            {
+              "id": 2,
+              "question": "What operator (`...`) expands array elements or object properties into new containers?",
+              "options": [
+                "Spread Operator",
+                "Rest Parameter",
+                "Ternary Operator",
+                "Optional Chaining"
+              ],
+              "correctAnswer": 0,
+              "explanation": "The spread operator expands iterable items into elements."
+            },
+            {
+              "id": 3,
+              "question": "What method adds a new DOM element inside a parent container?",
+              "options": [
+                "parent.appendChild(child)",
+                "parent.addNode(child)",
+                "parent.insert(child)",
+                "parent.push(child)"
+              ],
+              "correctAnswer": 0,
+              "explanation": "appendChild adds a node to the end of a parent element's child list."
+            },
+            {
+              "id": 4,
+              "question": "How do you store a JavaScript object in `localStorage`?",
+              "options": [
+                "localStorage.setItem('k', JSON.stringify(obj))",
+                "localStorage.set('k', obj)",
+                "localStorage.write('k', obj)",
+                "localStorage.push(obj)"
+              ],
+              "correctAnswer": 0,
+              "explanation": "LocalStorage stores strings; objects must be serialized via JSON.stringify."
+            },
+            {
+              "id": 5,
+              "question": "What is Event Delegation in DOM scripting?",
+              "options": [
+                "Attaching a single event listener to a parent element to handle events triggered on child elements",
+                "Delegating event execution to a Web Worker background thread",
+                "Deleting all event listeners on page unload",
+                "Preventing default form submit behaviors"
+              ],
+              "correctAnswer": 0,
+              "explanation": "Event delegation leverages event bubbling to handle child events from a parent listener."
+            }
+          ],
+          "references": [
+            {
+              "title": "MDN DOM Introduction",
+              "url": "https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Introduction"
+            }
+          ]
+        }
+      },
+      {
+        "id": "web-mod-7",
+        "title": "Module 07 \u0393\u00c7\u00f6 Asynchronous JavaScript & APIs",
+        "description": "Callbacks, Promises, async/await, Fetch API, JSON, REST APIs, API integration, error handling.",
+        "completed": true,
+        "readingMaterial": {
+          "introduction": "Asynchronous JavaScript manages non-blocking operations like fetching remote REST API data using Promises and `async/await` syntax without freezing the browser UI thread.",
+          "objectives": [
+            "Understand the JavaScript Event Loop, Callbacks, and Promises (`resolve/reject`)",
+            "Fetch data asynchronously using `async/await` and the `fetch()` API",
+            "Handle API request errors, HTTP status codes, and JSON parsing gracefully"
+          ],
+          "sections": [
+            {
+              "heading": "Promises & Async / Await Syntax",
+              "text": "`async/await` is syntactic sugar over Promises. Marking a function `async` allows using `await` before asynchronous calls, writing non-blocking code in a linear synchronous-looking format."
+            },
+            {
+              "heading": "Consuming REST APIs with fetch()",
+              "text": "The Fetch API sends HTTP requests. Checking `if (!response.ok)` catches 404/500 HTTP status errors before attempting `response.json()`."
+            }
+          ],
+          "codeExamples": [
+            {
+              "title": "Async / Await API Fetching with Error Handling",
+              "code": "async function fetchUserData(userId) {\n  try {\n    const res = await fetch(`https://jsonplaceholder.typicode.com/users/${userId}`);\n    if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);\n    const data = await res.json();\n    console.log('User:', data.name);\n  } catch (err) {\n    console.error('Fetch failed:', err.message);\n  }\n}",
+              "explanation": "Uses async/await with try/catch to handle network requests and HTTP status codes cleanly."
+            }
+          ],
+          "bestPractices": [
+            "Always check `response.ok` when using `fetch()`, because HTTP 404/500 errors do not reject Promises automatically.",
+            "Wrap `await` calls inside `try...catch` blocks to capture network timeouts."
+          ],
+          "commonMistakes": [
+            "Forgetting to `await` `response.json()`, resulting in a pending Promise object instead of parsed data."
+          ],
+          "practiceExercise": {
+            "title": "Fetch API Data",
+            "problem": "Write an async function that fetches posts from `https://jsonplaceholder.typicode.com/posts/1` and logs the post title.",
+            "solutionCode": "async function getPost() { const r = await fetch('https://jsonplaceholder.typicode.com/posts/1'); const d = await r.json(); console.log(d.title); }"
+          },
+          "keyTakeaways": [
+            "async/await makes asynchronous code clean and readable.",
+            "fetch() returns a Promise resolving to a Response object."
+          ],
+          "mcqs": [
+            {
+              "id": 1,
+              "question": "What state is a JavaScript Promise in before it settles as resolved or rejected?",
+              "options": [
+                "Pending",
+                "Fulfilled",
+                "Rejected",
+                "Settled"
+              ],
+              "correctAnswer": 0,
+              "explanation": "A Promise starts in the 'pending' state."
+            },
+            {
+              "id": 2,
+              "question": "What keyword can ONLY be used inside functions marked with the `async` keyword?",
+              "options": [
+                "await",
+                "yield",
+                "defer",
+                "promise"
+              ],
+              "correctAnswer": 0,
+              "explanation": "await pauses async function execution until a Promise settles."
+            },
+            {
+              "id": 3,
+              "question": "Does the native `fetch()` API automatically reject its Promise on HTTP 404 Not Found status?",
+              "options": [
+                "No, it resolves normally; response.ok must be checked",
+                "Yes, it rejects instantly",
+                "It crashes the script",
+                "It re-sends the request"
+              ],
+              "correctAnswer": 0,
+              "explanation": "fetch() only rejects on network failures; HTTP 404/500 responses still resolve."
+            },
+            {
+              "id": 4,
+              "question": "Which JavaScript method converts a JSON string into a native object?",
+              "options": [
+                "JSON.parse()",
+                "JSON.stringify()",
+                "JSON.toObject()",
+                "Object.parse()"
+              ],
+              "correctAnswer": 0,
+              "explanation": "JSON.parse() parses a JSON string into JavaScript objects."
+            },
+            {
+              "id": 5,
+              "question": "What architecture uses HTTP verbs (GET, POST, PUT, DELETE) to manage web resources?",
+              "options": [
+                "REST API",
+                "GraphQL API",
+                "WebSockets",
+                "SOAP Protocol"
+              ],
+              "correctAnswer": 0,
+              "explanation": "RESTful architecture uses standard HTTP methods for resource CRUD actions."
+            }
+          ],
+          "references": [
+            {
+              "title": "MDN Using Fetch",
+              "url": "https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch"
+            }
+          ]
+        }
+      },
+      {
+        "id": "web-mod-8",
+        "title": "Module 08 \u0393\u00c7\u00f6 Git, GitHub & Web Development Workflow",
+        "description": "Git fundamentals, repositories, branches, commits, pull requests, GitHub, collaboration, version control.",
+        "completed": true,
+        "readingMaterial": {
+          "introduction": "Git is the industry-standard distributed version control system. Combined with GitHub, developers track file changes, manage feature branches, perform code reviews via Pull Requests, and collaborate seamlessly.",
+          "objectives": [
+            "Initialize Git repositories and manage staging, commits, and status (`git status`, `git commit`)",
+            "Create, merge, and resolve conflicts across feature branches (`git branch`, `git checkout`)",
+            "Push local code to GitHub, manage remotes (`git push`), and collaborate via Pull Requests"
+          ],
+          "sections": [
+            {
+              "heading": "Git Workflow: Staging & Committing",
+              "text": "Git tracks local file changes through three states: Working Directory -> Staging Area (`git add`) -> Local Repository (`git commit -m 'message'`)."
+            },
+            {
+              "heading": "Branching & GitHub Pull Requests",
+              "text": "Branching isolation allows developers to build features on separate branches (`git checkout -b feature-name`) before creating Pull Requests on GitHub for team code review and merging into `main`."
+            }
+          ],
+          "codeExamples": [
+            {
+              "title": "Standard Git Feature Branch Workflow",
+              "code": "# Create and switch to a feature branch\ngit checkout -b feature/login-page\n\n# Stage and commit changes\ngit add .\ngit commit -m \"Add responsive login form and styles\"\n\n# Push branch to remote GitHub repository\ngit push -u origin feature/login-page",
+              "explanation": "Demonstrates creating a feature branch, committing changes, and pushing to GitHub."
+            }
+          ],
+          "bestPractices": [
+            "Write clear, imperative commit messages (e.g. 'Fix navigation bar bug on mobile').",
+            "Never commit sensitive API keys or database passwords; add them to `.gitignore`."
+          ],
+          "commonMistakes": [
+            "Committing large `node_modules/` folders to Git repositories instead of listing them in `.gitignore`."
+          ],
+          "practiceExercise": {
+            "title": "Create a Git Commit",
+            "problem": "Stage all modified files and create a commit with message 'Initial project setup'.",
+            "solutionCode": "git add . && git commit -m \"Initial project setup\""
+          },
+          "keyTakeaways": [
+            "Git tracks source code revision history locally.",
+            "GitHub hosts remote repositories and facilitates collaborative Pull Requests."
+          ],
+          "mcqs": [
+            {
+              "id": 1,
+              "question": "Which command initializes a brand-new local Git repository in the current folder?",
+              "options": [
+                "git init",
+                "git start",
+                "git create",
+                "git clone"
+              ],
+              "correctAnswer": 0,
+              "explanation": "git init initializes a new empty Git repository."
+            },
+            {
+              "id": 2,
+              "question": "What Git command moves modified files from Working Directory to the Staging Area?",
+              "options": [
+                "git add .",
+                "git commit",
+                "git stage",
+                "git push"
+              ],
+              "correctAnswer": 0,
+              "explanation": "git add stages changes for the next commit."
+            },
+            {
+              "id": 3,
+              "question": "Which file prevents specified files (like node_modules or .env) from being tracked by Git?",
+              "options": [
+                ".gitignore",
+                ".gitkeep",
+                "package.json",
+                "README.md"
+              ],
+              "correctAnswer": 0,
+              "explanation": ".gitignore specifies untracked files that Git should ignore."
+            },
+            {
+              "id": 4,
+              "question": "What command creates and immediately switches to a new Git branch?",
+              "options": [
+                "git checkout -b branch-name",
+                "git new branch-name",
+                "git branch -create branch-name",
+                "git switch -make branch-name"
+              ],
+              "correctAnswer": 0,
+              "explanation": "git checkout -b creates and switches to a new branch."
+            },
+            {
+              "id": 5,
+              "question": "How do developers request code review before merging feature branches into main on GitHub?",
+              "options": [
+                "Pull Request (PR)",
+                "Push Notification",
+                "Merge Request Commit",
+                "Fork Branch"
+              ],
+              "correctAnswer": 0,
+              "explanation": "Pull Requests let developers review and discuss changes before merging."
+            }
+          ],
+          "references": [
+            {
+              "title": "Git Official Documentation",
+              "url": "https://git-scm.com/doc"
+            }
+          ]
+        }
+      },
+      {
+        "id": "web-mod-9",
+        "title": "Module 09 \u0393\u00c7\u00f6 Frontend Development with React",
+        "description": "React fundamentals, components, JSX, props, state, events, conditional rendering, lists, forms.",
+        "completed": true,
+        "readingMaterial": {
+          "introduction": "React is a component-driven JavaScript library for building single-page user interfaces. It uses JSX syntax and state management (`useState`) to update the DOM efficiently via Virtual DOM diffing.",
+          "objectives": [
+            "Understand React component architecture, JSX syntax, and props passing",
+            "Manage interactive component state using the `useState` Hook",
+            "Render dynamic lists with array mapping and conditional rendering"
+          ],
+          "sections": [
+            {
+              "heading": "JSX & Component Props",
+              "text": "JSX allows writing HTML-like tags inside JavaScript. Components accept inputs called `props`, making UIs modular, reusable, and predictable."
+            },
+            {
+              "heading": "Component State with useState",
+              "text": "State represents dynamic data that changes over time. Calling `useState(initialValue)` returns current state and an updater function (`const [count, setCount] = useState(0)`)."
+            }
+          ],
+          "codeExamples": [
+            {
+              "title": "React Counter Component with useState",
+              "code": "import React, { useState } from 'react';\n\nexport default function Counter() {\n  const [count, setCount] = useState(0);\n\n  return (\n    <div className=\"p-4 border rounded-xl\">\n      <p>Current Count: {count}</p>\n      <button onClick={() => setCount(count + 1)}>Increment</button>\n    </div>\n  );\n}",
+              "explanation": "Manages counter state with React's useState hook and updates UI on click."
+            }
+          ],
+          "bestPractices": [
+            "Keep components small, focused, and reusable.",
+            "Always provide a unique `key` prop when rendering lists with `.map()`."
+          ],
+          "commonMistakes": [
+            "Mutating state directly (`state.count = 5`) instead of using setter functions (`setCount(5)`)."
+          ],
+          "practiceExercise": {
+            "title": "Build a Toggle Component",
+            "problem": "Create a React component that toggles text visibility on button click using useState.",
+            "solutionCode": "function Toggle() { const [show, setShow] = useState(false); return <button onClick={()=>setShow(!show)}>{show ? \"Hide\" : \"Show\"}</button>; }"
+          },
+          "keyTakeaways": [
+            "Props pass data down; State manages local component changes.",
+            "Virtual DOM re-renders efficiently when state updates."
+          ],
+          "mcqs": [
+            {
+              "id": 1,
+              "question": "What syntax allows writing HTML-like markup inside JavaScript files in React?",
+              "options": [
+                "JSX",
+                "HTML5",
+                "TypeScript",
+                "JSON"
+              ],
+              "correctAnswer": 0,
+              "explanation": "JSX (JavaScript XML) is a syntax extension for React."
+            },
+            {
+              "id": 2,
+              "question": "Which React Hook declares local dynamic state variables inside functional components?",
+              "options": [
+                "useState",
+                "useEffect",
+                "useContext",
+                "useRef"
+              ],
+              "correctAnswer": 0,
+              "explanation": "useState creates component state and its updater function."
+            },
+            {
+              "id": 3,
+              "question": "How are read-only properties passed down from a parent React component to a child component?",
+              "options": [
+                "Via Props",
+                "Via State",
+                "Via Global Window",
+                "Via CSS classes"
+              ],
+              "correctAnswer": 0,
+              "explanation": "Props pass data downwards from parent to child components."
+            },
+            {
+              "id": 4,
+              "question": "Why must list elements rendered via `.map()` have a unique `key` prop in React?",
+              "options": [
+                "To help React identify which items have changed, added, or removed for efficient Virtual DOM diffing",
+                "To apply CSS styles to individual items",
+                "To prevent JavaScript memory leaks",
+                "To enable automatic list sorting"
+              ],
+              "correctAnswer": 0,
+              "explanation": "Unique key props optimize reconciliation performance during list re-renders."
+            },
+            {
+              "id": 5,
+              "question": "What happens when a React component's state or props change?",
+              "options": [
+                "The component re-renders to reflect updated state in UI",
+                "The browser window reloads",
+                "The database is deleted",
+                "State resets to initial values"
+              ],
+              "correctAnswer": 0,
+              "explanation": "React re-renders components whenever state or props change."
+            }
+          ],
+          "references": [
+            {
+              "title": "React Official Documentation",
+              "url": "https://react.dev/"
+            }
+          ]
+        }
+      },
+      {
+        "id": "web-mod-10",
+        "title": "Module 10 \u0393\u00c7\u00f6 Advanced React & Modern Frontend Development",
+        "description": "Hooks, Context API, routing, reusable components, API integration, state management, performance optimization.",
+        "completed": true,
+        "readingMaterial": {
+          "introduction": "Advanced React covers side-effect management (`useEffect`), global state with Context API, multi-page client routing with React Router, and performance optimization.",
+          "objectives": [
+            "Manage side effects, subscriptions, and API calls using the `useEffect` Hook",
+            "Share global application state across component trees using React Context API",
+            "Implement SPA client-side routing using React Router (`Routes`, `Route`, `Link`)"
+          ],
+          "sections": [
+            {
+              "heading": "The useEffect Hook & Dependency Array",
+              "text": "`useEffect(() => { ... }, [dependencies])` manages side effects (data fetching, DOM updates). An empty dependency array `[]` runs the effect once on initial component mount."
+            },
+            {
+              "heading": "Global State with Context API & Routing",
+              "text": "Context API solves prop-drilling by providing a global data provider. React Router enables seamless multi-page client-side navigation without full browser reloads."
+            }
+          ],
+          "codeExamples": [
+            {
+              "title": "API Data Fetching with useEffect Hook",
+              "code": "import React, { useState, useEffect } from 'react';\n\nexport default function UserList() {\n  const [users, setUsers] = useState([]);\n\n  useEffect(() => {\n    fetch('https://jsonplaceholder.typicode.com/users')\n      .then(res => res.json())\n      .then(data => setUsers(data));\n  }, []); // Empty array runs once on mount\n\n  return (\n    <ul>{users.map(u => <li key={u.id}>{u.name}</li>)}</ul>\n  );\n}",
+              "explanation": "Fetches user data asynchronously on component mount using useEffect."
+            }
+          ],
+          "bestPractices": [
+            "Always specify correct variables in the `useEffect` dependency array to prevent infinite re-render loops.",
+            "Use Context API for global state like authentication or dark theme preferences."
+          ],
+          "commonMistakes": [
+            "Omitting dependency arrays in `useEffect`, causing side effects to trigger on every single render."
+          ],
+          "practiceExercise": {
+            "title": "Create a Document Title Effect",
+            "problem": "Write a useEffect hook that updates `document.title` whenever a `score` state variable changes.",
+            "solutionCode": "useEffect(() => { document.title = `Score: ${score}`; }, [score]);"
+          },
+          "keyTakeaways": [
+            "useEffect manages component lifecycles and side effects.",
+            "React Router enables fast client-side navigation."
+          ],
+          "mcqs": [
+            {
+              "id": 1,
+              "question": "Which Hook handles side effects like data fetching or DOM subscriptions in React?",
+              "options": [
+                "useEffect",
+                "useState",
+                "useMemo",
+                "useReducer"
+              ],
+              "correctAnswer": 0,
+              "explanation": "useEffect manages side effects in functional components."
+            },
+            {
+              "id": 2,
+              "question": "When does a `useEffect` hook with an empty dependency array `[]` execute?",
+              "options": [
+                "Only once after initial component mount",
+                "On every single component re-render",
+                "When the component unmounts only",
+                "Never"
+              ],
+              "correctAnswer": 0,
+              "explanation": "An empty dependency array causes useEffect to run once after the initial render."
+            },
+            {
+              "id": 3,
+              "question": "What React feature resolves 'prop-drilling' by passing data globally through component trees?",
+              "options": [
+                "Context API (useContext)",
+                "Redux Saga",
+                "Local State",
+                "Props Spreading"
+              ],
+              "correctAnswer": 0,
+              "explanation": "Context API shares state across component trees without manual prop drilling."
+            },
+            {
+              "id": 4,
+              "question": "Which component in React Router v6 defines individual route mappings?",
+              "options": [
+                "<Route path='/' element={<Home />} />",
+                "<Link href='/'>",
+                "<Navigate to='/'>",
+                "<Switch path='/'>"
+              ],
+              "correctAnswer": 0,
+              "explanation": "<Route> pairs URL paths with React element views."
+            },
+            {
+              "id": 5,
+              "question": "What Hook memoizes expensive mathematical calculation results across re-renders?",
+              "options": [
+                "useMemo",
+                "useCallback",
+                "useRef",
+                "useEffect"
+              ],
+              "correctAnswer": 0,
+              "explanation": "useMemo caches calculated values to optimize performance."
+            }
+          ],
+          "references": [
+            {
+              "title": "React Router Documentation",
+              "url": "https://reactrouter.com/"
+            }
+          ]
+        }
+      },
+      {
+        "id": "web-mod-11",
+        "title": "Module 11 \u0393\u00c7\u00f6 UI/UX & Professional Frontend Projects",
+        "description": "Design principles, responsive interfaces, accessibility, UX patterns, dashboards, e-commerce interfaces, portfolio development.",
+        "completed": true,
+        "readingMaterial": {
+          "introduction": "Professional Frontend Development blends technical code with User Experience (UX) design principles, implementing visual hierarchy, responsive layouts, web accessibility standards (WCAG), and production portfolio projects.",
+          "objectives": [
+            "Apply key UI/UX design principles: visual hierarchy, typography contrast, whitespace, and micro-interactions",
+            "Implement Web Accessibility Standards (WCAG 2.1 compliance, focus management, ARIA roles)",
+            "Build production-ready frontend projects (dashboards, e-commerce storefronts, portfolios)"
+          ],
+          "sections": [
+            {
+              "heading": "Visual Hierarchy & Whitespace",
+              "text": "Effective UIs use font sizing, color contrast, and generous whitespace to guide user attention naturally toward primary call-to-action (CTA) elements."
+            },
+            {
+              "heading": "Web Accessibility (WCAG)",
+              "text": "Accessibility ensures web applications are usable by everyone, including people with visual, auditory, or motor impairments, using keyboard navigation and screen-reader compliant contrast."
+            }
+          ],
+          "codeExamples": [
+            {
+              "title": "Accessible Card Component with ARIA Attributes",
+              "code": "<article className=\"card p-6 bg-slate-900 border border-slate-800 rounded-2xl shadow-md\">\n  <h3 className=\"text-xl font-bold text-white mb-2\">Portfolio Project</h3>\n  <p className=\"text-sm text-slate-300 mb-4\">Responsive full-stack web application.</p>\n  <a href=\"/project\" aria-label=\"View Portfolio Project Details\" className=\"px-4 py-2 bg-emerald-500 text-slate-950 font-bold rounded-lg\">\n    View Case Study\n  </a>\n</article>",
+              "explanation": "Uses semantic <article> and explicit aria-label for screen reader accessibility."
+            }
+          ],
+          "bestPractices": [
+            "Ensure color contrast ratios meet WCAG AA standards (minimum 4.5:1 ratio for normal text).",
+            "Make all interactive elements accessible via keyboard Navigation (Tab key focus states)."
+          ],
+          "commonMistakes": [
+            "Removing CSS focus outlines (`outline: none`) without providing custom accessible focus indicators."
+          ],
+          "practiceExercise": {
+            "title": "Create Focus State",
+            "problem": "Add a high-visibility ring outline to buttons when focused via keyboard Tab navigation.",
+            "solutionCode": ".btn:focus-visible { outline: 2px solid #10b981; outline-offset: 2px; }"
+          },
+          "keyTakeaways": [
+            "Good UX minimizes cognitive load for users.",
+            "Accessibility is a fundamental requirement, not an optional feature."
+          ],
+          "mcqs": [
+            {
+              "id": 1,
+              "question": "What minimum contrast ratio is required by WCAG AA standards for normal text?",
+              "options": [
+                "4.5:1",
+                "2.0:1",
+                "10:1",
+                "1:1"
+              ],
+              "correctAnswer": 0,
+              "explanation": "WCAG AA requires at least 4.5:1 contrast for regular text size."
+            },
+            {
+              "id": 2,
+              "question": "What accessibility attribute provides additional descriptive context for screen readers when visible text is insufficient?",
+              "options": [
+                "aria-label",
+                "alt-title",
+                "screen-reader-text",
+                "src-desc"
+              ],
+              "correctAnswer": 0,
+              "explanation": "aria-label specifies a string label for assistive technologies."
+            },
+            {
+              "id": 3,
+              "question": "What design principle uses size, weight, and color to direct user focus to important elements first?",
+              "options": [
+                "Visual Hierarchy",
+                "Data Normalization",
+                "Flexbox Wrapping",
+                "DOM Bubbling"
+              ],
+              "correctAnswer": 0,
+              "explanation": "Visual hierarchy structures visual elements in order of importance."
+            },
+            {
+              "id": 4,
+              "question": "Why should developers avoid setting `outline: none;` without custom focus styles?",
+              "options": [
+                "It breaks keyboard navigation for visually impaired users relying on Tab focus indicators",
+                "It prevents CSS Grid from rendering",
+                "It causes React state errors",
+                "It disables button click events"
+              ],
+              "correctAnswer": 0,
+              "explanation": "Removing outlines hides focus states needed for keyboard accessibility."
+            },
+            {
+              "id": 5,
+              "question": "What is an important UX practice when submitting asynchronous forms?",
+              "options": [
+                "Disabling the submit button and showing a loading spinner during request execution",
+                "Refreshing the browser immediately",
+                "Clearing all fields before the request completes",
+                "Closing the browser window"
+              ],
+              "correctAnswer": 0,
+              "explanation": "Showing loading states prevents duplicate form submissions and confirms action progress."
+            }
+          ],
+          "references": [
+            {
+              "title": "W3C Web Accessibility Initiative (WAI)",
+              "url": "https://www.w3.org/WAI/"
+            }
+          ]
+        }
+      },
+      {
+        "id": "web-mod-12",
+        "title": "Module 12 \u0393\u00c7\u00f6 Backend Development with Node.js",
+        "description": "Node.js fundamentals, npm, modules, file system, environment variables, server creation, Express.js.",
+        "completed": true,
+        "readingMaterial": {
+          "introduction": "Node.js brings JavaScript to the server, providing an event-driven non-blocking I/O runtime. Express.js simplifies server creation, HTTP routing, and middleware processing for scalable backend development.",
+          "objectives": [
+            "Understand Node.js asynchronous event-driven non-blocking I/O runtime architecture",
+            "Use npm package management, CommonJS (`require`) and ES Modules (`import`), and `dotenv` environment configuration",
+            "Build HTTP REST servers and custom middleware using Express.js"
+          ],
+          "sections": [
+            {
+              "heading": "Node.js Event Loop & Non-Blocking I/O",
+              "text": "Node.js uses a single-threaded event loop to handle concurrent asynchronous requests without spawning threads per connection, yielding high backend performance for I/O-intensive workloads."
+            },
+            {
+              "heading": "Express.js Server Creation & Middleware",
+              "text": "Express simplifies backend development. Middleware functions (`(req, res, next) => { ... }`) execute sequentially, transforming request objects or handling error logic before responses are sent."
+            }
+          ],
+          "codeExamples": [
+            {
+              "title": "Basic Express.js HTTP Server",
+              "code": "const express = require('express');\nconst app = express();\nconst PORT = process.env.PORT || 5000;\n\napp.use(express.json()); // Body parser middleware\n\napp.get('/api/health', (req, res) => {\n  res.status(200).json({ status: 'OK', message: 'Backend Server Operational' });\n});\n\napp.listen(PORT, () => console.log(`Server running on port ${PORT}`));",
+              "explanation": "Initializes an Express server with JSON body parser and a health-check endpoint."
+            }
+          ],
+          "bestPractices": [
+            "Store secret API keys, database credentials, and ports inside `.env` environment files.",
+            "Always parse incoming JSON request bodies using `app.use(express.json())`."
+          ],
+          "commonMistakes": [
+            "Blocking the Node.js event loop with long-running synchronous CPU calculations."
+          ],
+          "practiceExercise": {
+            "title": "Create Express Route",
+            "problem": "Write an Express GET route '/api/info' returning JSON `{ version: '1.0.0' }`.",
+            "solutionCode": "app.get('/api/info', (req, res) => res.json({ version: '1.0.0' }));"
+          },
+          "keyTakeaways": [
+            "Node.js runs JavaScript server-side using the V8 engine.",
+            "Express middleware processes requests sequentially."
+          ],
+          "mcqs": [
+            {
+              "id": 1,
+              "question": "What is Node.js built upon?",
+              "options": [
+                "Google Chrome V8 JavaScript Engine",
+                "Python Interpreter",
+                "Java Virtual Machine",
+                "WebAssembly Engine"
+              ],
+              "correctAnswer": 0,
+              "explanation": "Node.js executes JavaScript server-side using Chrome's V8 engine."
+            },
+            {
+              "id": 2,
+              "question": "What is the primary function of Node.js Package Manager (npm)?",
+              "options": [
+                "Installing, managing, and sharing third-party JavaScript libraries and dependencies",
+                "Compiling CSS into HTML",
+                "Managing SQL database indexes",
+                "Configuring DNS domains"
+              ],
+              "correctAnswer": 0,
+              "explanation": "npm manages project packages and dependencies via package.json."
+            },
+            {
+              "id": 3,
+              "question": "Which Express middleware parses incoming requests with JSON payloads?",
+              "options": [
+                "app.use(express.json())",
+                "app.use(express.parse())",
+                "app.use(express.body())",
+                "app.use(express.text())"
+              ],
+              "correctAnswer": 0,
+              "explanation": "express.json() parses incoming JSON request bodies."
+            },
+            {
+              "id": 4,
+              "question": "How do you access environment variables loaded from a `.env` file in Node.js?",
+              "options": [
+                "process.env.VARIABLE_NAME",
+                "window.env.VARIABLE_NAME",
+                "global.VARIABLE_NAME",
+                "env.get('VARIABLE_NAME')"
+              ],
+              "correctAnswer": 0,
+              "explanation": "Environment variables are accessible on process.env in Node."
+            },
+            {
+              "id": 5,
+              "question": "What parameter in Express middleware functions passes control to the next middleware function in line?",
+              "options": [
+                "next()",
+                "continue()",
+                "proceed()",
+                "forward()"
+              ],
+              "correctAnswer": 0,
+              "explanation": "Calling next() passes request control to the next middleware."
+            }
+          ],
+          "references": [
+            {
+              "title": "Express.js Official Guide",
+              "url": "https://expressjs.com/"
+            }
+          ]
+        }
+      },
+      {
+        "id": "web-mod-13",
+        "title": "Module 13 \u0393\u00c7\u00f6 REST APIs & Backend Application Development",
+        "description": "Express routing, middleware, controllers, authentication basics, validation, error handling, REST API architecture.",
+        "completed": true,
+        "readingMaterial": {
+          "introduction": "REST (Representational State Transfer) architecture structures backend web APIs using HTTP verbs (GET, POST, PUT, DELETE) and JSON payloads, using controller patterns and error-handling middleware.",
+          "objectives": [
+            "Design RESTful URL endpoint schemas following industry naming conventions",
+            "Implement modular Express router controllers (`express.Router()`) and request validation",
+            "Build centralized error-handling middleware to return consistent HTTP error responses"
+          ],
+          "sections": [
+            {
+              "heading": "RESTful URL Naming & HTTP Methods",
+              "text": "REST APIs map CRUD operations to HTTP methods: `GET /api/products` (read list), `POST /api/products` (create), `PUT /api/products/:id` (update), and `DELETE /api/products/:id` (delete)."
+            },
+            {
+              "heading": "Centralized Error Handling Middleware",
+              "text": "Centralized error middleware `(err, req, res, next) => { ... }` intercepts all backend runtime exceptions, logging errors and returning standard JSON status codes."
+            }
+          ],
+          "codeExamples": [
+            {
+              "title": "Modular Express Router Controller",
+              "code": "const express = require('express');\nconst router = express.Router();\n\n// GET /api/users\nrouter.get('/', (req, res) => {\n  res.json([{ id: 1, name: 'Alice' }]);\n});\n\n// POST /api/users\nrouter.post('/', (req, res) => {\n  const { name } = req.body;\n  if (!name) return res.status(400).json({ error: 'Name is required' });\n  res.status(201).json({ id: Date.now(), name });\n});\n\nmodule.exports = router;",
+              "explanation": "Defines modular Express routes for user resource endpoints."
+            }
+          ],
+          "bestPractices": [
+            "Use noun-based plural URLs (`/api/users`) rather than action verbs (`/api/getUsers`).",
+            "Return appropriate HTTP status codes: 200 (OK), 201 (Created), 400 (Bad Request), 404 (Not Found), 500 (Server Error)."
+          ],
+          "commonMistakes": [
+            "Returning HTTP 200 OK status codes when returning error JSON payloads."
+          ],
+          "practiceExercise": {
+            "title": "Build a DELETE Route",
+            "problem": "Create an Express DELETE route `/api/items/:id` that responds with status 200 and `{ message: 'Item deleted' }`.",
+            "solutionCode": "router.delete('/items/:id', (req, res) => res.status(200).json({ message: 'Item deleted' }));"
+          },
+          "keyTakeaways": [
+            "REST APIs use standard HTTP verbs for CRUD operations.",
+            "Express Routers keep backend routes organized and modular."
+          ],
+          "mcqs": [
+            {
+              "id": 1,
+              "question": "Which HTTP method should be used to create a brand-new resource in a REST API?",
+              "options": [
+                "POST",
+                "GET",
+                "PUT",
+                "DELETE"
+              ],
+              "correctAnswer": 0,
+              "explanation": "POST requests create new resources in REST APIs."
+            },
+            {
+              "id": 2,
+              "question": "What HTTP status code signifies that a resource was successfully created?",
+              "options": [
+                "201 Created",
+                "200 OK",
+                "301 Moved",
+                "400 Bad Request"
+              ],
+              "correctAnswer": 0,
+              "explanation": "HTTP 201 Created indicates successful resource creation."
+            },
+            {
+              "id": 3,
+              "question": "How do you extract URL path parameters (e.g. `/api/users/:id`) in Express?",
+              "options": [
+                "req.params.id",
+                "req.query.id",
+                "req.body.id",
+                "req.header.id"
+              ],
+              "correctAnswer": 0,
+              "explanation": "req.params contains route parameters matched in path strings."
+            },
+            {
+              "id": 4,
+              "question": "Which HTTP method is idempotent and completely replaces an existing target resource?",
+              "options": [
+                "PUT",
+                "POST",
+                "PATCH",
+                "CONNECT"
+              ],
+              "correctAnswer": 0,
+              "explanation": "PUT replaces target resource representations completely."
+            },
+            {
+              "id": 5,
+              "question": "What feature in Express allows grouping route handlers into modular separate file files?",
+              "options": [
+                "express.Router()",
+                "express.Cluster()",
+                "express.Server()",
+                "express.Module()"
+              ],
+              "correctAnswer": 0,
+              "explanation": "express.Router() creates modular, mountable route handlers."
+            }
+          ],
+          "references": [
+            {
+              "title": "RESTful API Design Best Practices",
+              "url": "https://restfulapi.net/"
+            }
+          ]
+        }
+      },
+      {
+        "id": "web-mod-14",
+        "title": "Module 14 \u0393\u00c7\u00f6 Databases & Data Management",
+        "description": "SQL fundamentals, MySQL/PostgreSQL, tables, relationships, CRUD, joins, indexes, MongoDB and NoSQL concepts.",
+        "completed": true,
+        "readingMaterial": {
+          "introduction": "Databases persist application data. This module covers Relational SQL databases (PostgreSQL/MySQL schema tables, foreign key relationships, JOINs) and NoSQL Document databases (MongoDB, Mongoose ORM).",
+          "objectives": [
+            "Master SQL CRUD operations (SELECT, INSERT, UPDATE, DELETE) and JOIN operations",
+            "Design relational database schemas with primary/foreign key relationships",
+            "Work with NoSQL document stores (MongoDB) and Mongoose models in Node.js"
+          ],
+          "sections": [
+            {
+              "heading": "Relational SQL vs NoSQL Document Databases",
+              "text": "SQL databases structure data in strict tables with relations and ACID transactions. NoSQL databases (MongoDB) store flexible JSON-like BSON documents."
+            },
+            {
+              "heading": "SQL JOIN Operations",
+              "text": "SQL `INNER JOIN` matches rows in both tables. `LEFT JOIN` returns all records from the left table and matched records from the right table."
+            }
+          ],
+          "codeExamples": [
+            {
+              "title": "SQL JOIN Query & Mongoose Schema",
+              "code": "-- SQL Inner Join Query\nSELECT users.name, orders.total_price\nFROM users\nINNER JOIN orders ON users.id = orders.user_id;\n\n// Mongoose MongoDB Model\nconst mongoose = require('mongoose');\nconst ProductSchema = new mongoose.Schema({\n  title: { type: String, required: true },\n  price: { type: Number, required: true }\n});\nmodule.exports = mongoose.model('Product', ProductSchema);",
+              "explanation": "Demonstrates SQL relational JOIN querying alongside Mongoose MongoDB document model definitions."
+            }
+          ],
+          "bestPractices": [
+            "Create database Indexes on frequently queried foreign key fields to speed up SELECT queries.",
+            "Always sanitize database queries or use ORMs/parameterized queries to prevent SQL Injection attacks."
+          ],
+          "commonMistakes": [
+            "Storing unhashed plain-text passwords inside user table columns."
+          ],
+          "practiceExercise": {
+            "title": "Write a SQL SELECT Query",
+            "problem": "Write a SQL query selecting name and email from users table where age is greater than 21.",
+            "solutionCode": "SELECT name, email FROM users WHERE age > 21;"
+          },
+          "keyTakeaways": [
+            "SQL databases use rigid tables and relationships; NoSQL stores flexible documents.",
+            "JOIN queries combine data across relational tables."
+          ],
+          "mcqs": [
+            {
+              "id": 1,
+              "question": "Which SQL clause filters records based on specified search criteria?",
+              "options": [
+                "WHERE",
+                "GROUP BY",
+                "ORDER BY",
+                "SELECT"
+              ],
+              "correctAnswer": 0,
+              "explanation": "WHERE filters rows matching conditions."
+            },
+            {
+              "id": 2,
+              "question": "What key uniquely identifies each record in a SQL table?",
+              "options": [
+                "Primary Key",
+                "Foreign Key",
+                "Index Key",
+                "Unique Pointer"
+              ],
+              "correctAnswer": 0,
+              "explanation": "A Primary Key uniquely identifies each row in a database table."
+            },
+            {
+              "id": 3,
+              "question": "Which SQL JOIN returns all rows from the left table and matched rows from the right table?",
+              "options": [
+                "LEFT JOIN",
+                "INNER JOIN",
+                "RIGHT JOIN",
+                "FULL OUTER JOIN"
+              ],
+              "correctAnswer": 0,
+              "explanation": "LEFT JOIN retains all left table rows regardless of right table matches."
+            },
+            {
+              "id": 4,
+              "question": "What format does MongoDB use to store data documents internally?",
+              "options": [
+                "BSON (Binary JSON)",
+                "XML",
+                "CSV",
+                "Plain Text"
+              ],
+              "correctAnswer": 0,
+              "explanation": "MongoDB stores document records in BSON format."
+            },
+            {
+              "id": 5,
+              "question": "What is Mongoose in Node.js development?",
+              "options": [
+                "An Object Data Modeling (ODM) library for MongoDB and Node.js",
+                "A CSS styling framework",
+                "An Express routing package",
+                "A React state library"
+              ],
+              "correctAnswer": 0,
+              "explanation": "Mongoose provides schema-based data modeling for MongoDB in Node."
+            }
+          ],
+          "references": [
+            {
+              "title": "MongoDB Developer Documentation",
+              "url": "https://www.mongodb.com/docs/"
+            }
+          ]
+        }
+      },
+      {
+        "id": "web-mod-15",
+        "title": "Module 15 \u0393\u00c7\u00f6 Authentication, Security & Full-Stack Integration",
+        "description": "Login/register, password hashing, JWT, sessions, authorization, CORS, validation, common web security practices.",
+        "completed": true,
+        "readingMaterial": {
+          "introduction": "Full-Stack Security protects applications against vulnerabilities (XSS, CSRF, SQL Injection). This module covers user authentication (bcrypt password hashing, JSON Web Tokens), authorization middleware, and CORS policies.",
+          "objectives": [
+            "Hash user passwords securely using `bcrypt` before database storage",
+            "Implement stateless token authentication with JSON Web Tokens (JWT)",
+            "Configure CORS (Cross-Origin Resource Sharing) and HTTP security headers"
+          ],
+          "sections": [
+            {
+              "heading": "Password Hashing with Bcrypt & Salt",
+              "text": "Never store plain-text passwords. `bcrypt.hash(password, saltRounds)` applies a one-way cryptographic hash with salt, making rainbow-table attacks ineffective."
+            },
+            {
+              "heading": "JWT (JSON Web Token) Authentication",
+              "text": "JWTs provide stateless authentication. Upon login, the server signs a JWT payload returned to the client, which attaches the token (`Authorization: Bearer <token>`) to subsequent API requests."
+            }
+          ],
+          "codeExamples": [
+            {
+              "title": "JWT Authentication Middleware in Express",
+              "code": "const jwt = require('jsonwebtoken');\n\nfunction authenticateToken(req, res, next) {\n  const authHeader = req.headers['authorization'];\n  const token = authHeader && authHeader.split(' ')[1];\n  if (!token) return res.sendStatus(401);\n\n  jwt.verify(token, process.env.JWT_SECRET, (err, user) => {\n    if (err) return res.sendStatus(403);\n    req.user = user;\n    next();\n  });\n}",
+              "explanation": "Verifies incoming JWT bearer tokens in request headers to protect API endpoints."
+            }
+          ],
+          "bestPractices": [
+            "Always hash passwords with `bcrypt` (minimum 10-12 salt rounds) before saving to databases.",
+            "Store JWT secrets strictly in environment variables (`.env`)."
+          ],
+          "commonMistakes": [
+            "Storing plain-text passwords or secret keys in GitHub source code."
+          ],
+          "practiceExercise": {
+            "title": "Sign a JWT Token",
+            "problem": "Sign a JWT payload `{ userId: 123 }` using secret 'mysecret' with a 1-hour expiration.",
+            "solutionCode": "const token = jwt.sign({ userId: 123 }, 'mysecret', { expiresIn: '1h' });"
+          },
+          "keyTakeaways": [
+            "Passwords must be hashed with salt prior to storage.",
+            "JWT enables stateless full-stack API authentication."
+          ],
+          "mcqs": [
+            {
+              "id": 1,
+              "question": "Which cryptographic hashing library is recommended for hashing user passwords in Node.js?",
+              "options": [
+                "bcrypt",
+                "md5",
+                "sha1",
+                "base64"
+              ],
+              "correctAnswer": 0,
+              "explanation": "bcrypt is specifically designed for password hashing with salted work factors."
+            },
+            {
+              "id": 2,
+              "question": "What three parts comprise a JSON Web Token (JWT)?",
+              "options": [
+                "Header, Payload, Signature",
+                "Username, Password, Secret",
+                "Client, Server, Database",
+                "Key, Value, Expiry"
+              ],
+              "correctAnswer": 0,
+              "explanation": "A JWT consists of Header, Payload, and Signature separated by dots."
+            },
+            {
+              "id": 3,
+              "question": "What HTTP header typically carries a JWT bearer token from client to server?",
+              "options": [
+                "Authorization",
+                "Content-Type",
+                "Accept-Token",
+                "User-Agent"
+              ],
+              "correctAnswer": 0,
+              "explanation": "The Authorization header carries 'Bearer <token>' credentials."
+            },
+            {
+              "id": 4,
+              "question": "What security policy prevents browser scripts on domain A from making unauthorized requests to domain B?",
+              "options": [
+                "CORS (Cross-Origin Resource Sharing)",
+                "DOM Policy",
+                "JWT Filter",
+                "DNS Lookup"
+              ],
+              "correctAnswer": 0,
+              "explanation": "CORS controls cross-origin HTTP access policies in web browsers."
+            },
+            {
+              "id": 5,
+              "question": "What HTTP response status code indicates an invalid or expired authentication token?",
+              "options": [
+                "401 Unauthorized / 403 Forbidden",
+                "200 OK",
+                "404 Not Found",
+                "500 Internal Error"
+              ],
+              "correctAnswer": 0,
+              "explanation": "HTTP 401/403 indicate unauthenticated or unauthorized access."
+            }
+          ],
+          "references": [
+            {
+              "title": "JWT.io Introduction",
+              "url": "https://jwt.io/introduction"
+            }
+          ]
+        }
+      },
+      {
+        "id": "web-mod-16",
+        "title": "Module 16 \u0393\u00c7\u00f6 Full-Stack Web Development Project",
+        "description": "React frontend + Node/Express backend + database + authentication + APIs + complete production-style application.",
+        "completed": true,
+        "readingMaterial": {
+          "introduction": "Full-Stack Integration connects a React frontend with a Node/Express REST API backend and a database layer, establishing state synchronization, authentication persistence, and end-to-end CRUD features.",
+          "objectives": [
+            "Connect React frontend state (`fetch`/`axios`) to Express Node backend REST API endpoints",
+            "Implement persistent client-side user sessions with JWT stored in HTTP-only cookies or state",
+            "Build a complete production-grade full-stack web application"
+          ],
+          "sections": [
+            {
+              "heading": "Full-Stack Architecture & Data Flow",
+              "text": "User actions in the React UI trigger HTTP fetch requests to Express API routes. Express validates input, interacts with the database (MongoDB/SQL), and returns JSON data to React to update state."
+            },
+            {
+              "heading": "State Synchronization & Error Toast Notifications",
+              "text": "Handling loading states, network errors, and optimistic state updates ensures a responsive user experience during async API operations."
+            }
+          ],
+          "codeExamples": [
+            {
+              "title": "React Full-Stack API Integration Call",
+              "code": "async function handleCreateProduct(productData, token) {\n  const res = await fetch('/api/products', {\n    method: 'POST',\n    headers: {\n      'Content-Type': 'application/json',\n      'Authorization': `Bearer ${token}` \n    },\n    body: JSON.stringify(productData)\n  });\n  const data = await res.json();\n  return data;\n}",
+              "explanation": "Sends an authenticated POST request from React frontend to Express backend API."
+            }
+          ],
+          "bestPractices": [
+            "Keep API endpoint URLs organized in a dedicated frontend `services/api.js` file.",
+            "Always display loading spinners and user-friendly error messages during network calls."
+          ],
+          "commonMistakes": [
+            "Hardcoding local development backend URLs (`http://localhost:5000`) directly in frontend components."
+          ],
+          "practiceExercise": {
+            "title": "Handle API Error Response",
+            "problem": "Check if response is not ok and throw an error message extracted from backend JSON.",
+            "solutionCode": "if (!res.ok) { const err = await res.json(); throw new Error(err.message || 'API Request Failed'); }"
+          },
+          "keyTakeaways": [
+            "React manages UI component state; Express manages business logic & data persistence.",
+            "Clean full-stack applications decouple frontend views from backend services."
+          ],
+          "mcqs": [
+            {
+              "id": 1,
+              "question": "What tech stack combines MongoDB, Express.js, React, and Node.js?",
+              "options": [
+                "MERN Stack",
+                "LAMP Stack",
+                "MEAN Stack",
+                "Django Stack"
+              ],
+              "correctAnswer": 0,
+              "explanation": "MERN stack stands for MongoDB, Express, React, and Node.js."
+            },
+            {
+              "id": 2,
+              "question": "Where should backend API base URLs be stored in frontend production builds?",
+              "options": [
+                "Environment variables (process.env.VITE_API_URL)",
+                "Hardcoded in every component file",
+                "In HTML alt tags",
+                "In CSS stylesheets"
+              ],
+              "correctAnswer": 0,
+              "explanation": "Environment variables allow switching API base URLs between local and production."
+            },
+            {
+              "id": 3,
+              "question": "What is an Optimistic UI Update in full-stack web applications?",
+              "options": [
+                "Updating the UI immediately assuming the API request will succeed, and rolling back if it fails",
+                "Disabling all user clicks permanently",
+                "Fetching data before the user clicks",
+                "Reloading the entire page on every click"
+              ],
+              "correctAnswer": 0,
+              "explanation": "Optimistic updates improve perceived performance by updating UI state immediately."
+            },
+            {
+              "id": 4,
+              "question": "What component pattern decouples API calls from React UI view components?",
+              "options": [
+                "Service / API Abstraction Layer",
+                "CSS Grid Layer",
+                "State Hoisting",
+                "Bcrypt Hashing"
+              ],
+              "correctAnswer": 0,
+              "explanation": "API service modules encapsulate HTTP fetch logic away from JSX component views."
+            },
+            {
+              "id": 5,
+              "question": "What HTTP method should a full-stack client send to update a specific record field?",
+              "options": [
+                "PATCH or PUT",
+                "GET",
+                "POST",
+                "OPTION"
+              ],
+              "correctAnswer": 0,
+              "explanation": "PATCH updates partial fields; PUT replaces the target resource."
+            }
+          ],
+          "references": [
+            {
+              "title": "Full Stack Open Course Guide",
+              "url": "https://fullstackopen.com/en/"
+            }
+          ]
+        }
+      },
+      {
+        "id": "web-mod-17",
+        "title": "Module 17 \u0393\u00c7\u00f6 Deployment, DevOps Basics & Capstone Project",
+        "description": "Production build, environment variables, hosting, domain, deployment, CI/CD basics, monitoring, optimization, final project.",
+        "completed": true,
+        "readingMaterial": {
+          "introduction": "The Capstone Project culminates the Web Development course. It covers optimizing production bundles (`npm run build`), configuring hosting platforms (Vercel, Render, Netlify), setting up custom DNS domains, CI/CD, and monitoring.",
+          "objectives": [
+            "Optimize and bundle React frontend and Express backend for production deployment",
+            "Deploy full-stack applications to cloud platforms (Vercel, Netlify, Render, Railway)",
+            "Configure custom DNS domains, SSL certificates, environment variables, and basic CI/CD pipelines"
+          ],
+          "sections": [
+            {
+              "heading": "Production Build & Asset Optimization",
+              "text": "Running `npm run build` transpiles, minifies, and bundles JavaScript, CSS, and HTML assets into compressed `dist/` files optimized for lightning-fast CDN delivery."
+            },
+            {
+              "heading": "Cloud Deployment & Continuous Integration (CI/CD)",
+              "text": "Hosting frontend apps on Vercel/Netlify and Node backends on Render/Railway with connected GitHub repositories enables automated CI/CD deployments on every git push."
+            }
+          ],
+          "codeExamples": [
+            {
+              "title": "Vercel / Render Environment Variable & Build Script",
+              "code": "// package.json build scripts\n{\n  \"scripts\": {\n    \"dev\": \"vite\",\n    \"build\": \"vite build\",\n    \"preview\": \"vite preview\",\n    \"start\": \"node server/index.js\"\n  }\n}",
+              "explanation": "Standard npm production build and startup scripts configured for cloud deployment."
+            }
+          ],
+          "bestPractices": [
+            "Never check secrets or API keys into public repositories; configure environment variables on the cloud hosting dashboard.",
+            "Test production build outputs locally (`npm run preview`) before deploying."
+          ],
+          "commonMistakes": [
+            "Deploying development mode builds containing unminified code and source maps."
+          ],
+          "practiceExercise": {
+            "title": "Test Local Production Preview",
+            "problem": "Execute Vite build command and preview the production bundle locally.",
+            "solutionCode": "npm run build && npm run preview"
+          },
+          "keyTakeaways": [
+            "Production builds minify and bundle assets for fast loading.",
+            "CI/CD pipelines deploy GitHub commits to production cloud servers automatically."
+          ],
+          "mcqs": [
+            {
+              "id": 1,
+              "question": "What command creates a minified, production-optimized static asset build in Vite/React?",
+              "options": [
+                "npm run build",
+                "npm start",
+                "npm test",
+                "npm init"
+              ],
+              "correctAnswer": 0,
+              "explanation": "npm run build bundles and minifies assets for production deployment."
+            },
+            {
+              "id": 2,
+              "question": "Which cloud platform is specifically optimized for automated frontend deployment directly from GitHub?",
+              "options": [
+                "Vercel / Netlify",
+                "MySQL Server",
+                "Localhost",
+                "Git Terminal"
+              ],
+              "correctAnswer": 0,
+              "explanation": "Vercel and Netlify provide seamless, automated frontend deployment from GitHub."
+            },
+            {
+              "id": 3,
+              "question": "What does CI/CD stand for in modern software development workflows?",
+              "options": [
+                "Continuous Integration / Continuous Deployment",
+                "Client Interface / Code Design",
+                "Computer Infrastructure / Cloud Database",
+                "Central Inspection / Custom Domain"
+              ],
+              "correctAnswer": 0,
+              "explanation": "CI/CD stands for Continuous Integration and Continuous Deployment."
+            },
+            {
+              "id": 4,
+              "question": "Where should production database connection URIs be specified when deploying to cloud hosts like Render or Vercel?",
+              "options": [
+                "In the cloud host's Environment Variables dashboard settings",
+                "Hardcoded inside index.html",
+                "In a public GitHub commit",
+                "In CSS variables"
+              ],
+              "correctAnswer": 0,
+              "explanation": "Cloud host environment variable settings store production secrets securely."
+            },
+            {
+              "id": 5,
+              "question": "What tool checks code quality and formatting before committing code in production teams?",
+              "options": [
+                "ESLint & Prettier",
+                "Docker Engine",
+                "Bcrypt",
+                "Postman"
+              ],
+              "correctAnswer": 0,
+              "explanation": "ESLint and Prettier enforce code quality and formatting rules across team codebases."
+            }
+          ],
+          "references": [
+            {
+              "title": "Vercel Deployment Guide",
+              "url": "https://vercel.com/docs"
+            }
+          ]
+        }
+      }
+    ],
+    "finalTest": {
+      "id": "web-final-test",
+      "title": "Full Stack Development Certification Exam",
+      "description": "Testing React components, hooks, Express API routes, and database modeling.",
+      "passingScore": 75,
+      "timeLimitMinutes": 45,
+      "maxAttempts": 2,
+      "published": true,
+      "questions": [
+        {
+          "id": "webt1",
+          "type": "multiple-choice",
+          "questionText": "Which React hook is used to manage local component state?",
+          "options": [
+            "useEffect",
+            "useState",
+            "useContext",
+            "useRef"
+          ],
+          "correctAnswer": 1,
+          "marks": 20
+        }
+      ]
+    },
+    "finalProject": {
+      "id": "web-final-project",
+      "title": "SaaS Learning Management Portal Platform",
+      "description": "Develop a full-stack MERN/PERN web application with user authentication, course management, video player, and admin dashboard.",
+      "requirements": [
+        "React frontend with Tailwind",
+        "Node/Express backend REST API",
+        "Authentication with JWT",
+        "Responsive UI"
+      ],
+      "instructions": "Deploy app to live host (Vercel/Netlify/Render) and submit GitHub repo link.",
+      "allowedFileTypes": [
+        ".zip",
+        ".pdf"
+      ],
+      "maxFileSizeMb": 50,
+      "githubUrlAllowed": true,
+      "liveProjectUrlAllowed": true,
+      "passingScore": 80,
+      "published": true
+    },
+    "updatedAt": "2026-10-01T11:14:03.912Z",
+    "projects": [
+      {
+        "id": "proj-web-development-1-5083",
+        "courseId": "web-development",
+        "projectNumber": 1,
+        "title": "Python Interactive Calculator & Unit Converter",
+        "shortDescription": "Build a CLI-based interactive financial & measurement unit converter supporting menu options, error handling, and file logging.",
+        "detailedDescription": "In this project, you will build a Python console application that performs mathematical calculations, temperature/currency unit conversions, and logs calculation history to a local text file using file I/O and try/except blocks.",
+        "objective": "Master Python fundamentals including functions, input parsing, loops, exception handling, and file operations.",
+        "requirements": [
+          "Implement an interactive CLI loop using while loops and break conditions.",
+          "Create modular functions for calculation algorithms and unit conversion.",
+          "Use try/except blocks to catch ZeroDivisionError and ValueError on user input.",
+          "Save calculation history to a history.txt log file with timestamps."
+        ],
+        "technologies": [
+          "Python 3",
+          "CLI Architecture",
+          "File I/O",
+          "Datetime",
+          "Exception Handling"
+        ],
+        "expectedOutput": "A clean, bug-free Python script (calculator.py) with structured functions and calculation log output.",
+        "difficulty": "Beginner",
+        "estimatedTime": "2\u0393\u00c7\u00f43 Days",
+        "submissionInstructions": "1. Complete calculator.py locally. 2. Push repository to GitHub. 3. Submit GitHub URL.",
+        "resources": "https://docs.python.org/3/tutorial/controlflow.html",
+        "active": true,
+        "createdAt": "2026-10-08T12:55:35.074Z",
+        "updatedAt": "2026-10-08T12:55:35.075Z"
+      },
+      {
+        "id": "proj-web-development-2-5083",
+        "courseId": "web-development",
+        "projectNumber": 2,
+        "title": "CLI Task & Expense Management System",
+        "shortDescription": "Create an object-oriented task and expense manager using JSON file persistence and list/dictionary data structures.",
+        "detailedDescription": "Build an OOP-driven Python application that allows users to create, categorize, update, search, and delete tasks and daily expenses. Data must be serialized to JSON files.",
+        "objective": "Apply Object-Oriented Programming (Classes, Methods, Enums) and JSON data serialization in Python.",
+        "requirements": [
+          "Design Task and Expense classes with properties (id, title, category, amount, status, date).",
+          "Implement CRUD operations for tasks and expenses.",
+          "Persist and load records from data.json file.",
+          "Filter tasks by completion status and summarize expenses by category."
+        ],
+        "technologies": [
+          "Python 3",
+          "OOP",
+          "JSON Serialization",
+          "Data Structures",
+          "Modules"
+        ],
+        "expectedOutput": "An executable Python application with CLI menu interface and persistent JSON storage.",
+        "difficulty": "Intermediate",
+        "estimatedTime": "3\u0393\u00c7\u00f44 Days",
+        "submissionInstructions": "Upload complete project folder with README.md to GitHub and paste repository link.",
+        "resources": "https://docs.python.org/3/library/json.html",
+        "active": true,
+        "createdAt": "2026-10-08T12:55:35.075Z",
+        "updatedAt": "2026-10-08T12:55:35.075Z"
+      },
+      {
+        "id": "proj-web-development-3-5083",
+        "courseId": "web-development",
+        "projectNumber": 3,
+        "title": "API & Web Scraping Data Dashboard",
+        "shortDescription": "Fetch web data using urllib/requests & BeautifulSoup, process XML/JSON payloads, and store records into SQLite database.",
+        "detailedDescription": "Build an automated Python data pipeline that scrapes live course or weather data, parses JSON/XML responses, and inserts structured records into a relational SQLite database.",
+        "objective": "Demonstrate proficiency in network programming, web scraping, API parsing, and relational SQL database storage.",
+        "requirements": [
+          "Fetch remote web API data using requests/urllib.",
+          "Parse HTML DOM tree using BeautifulSoup or XML/JSON structures.",
+          "Create SQLite tables using sqlite3 and perform insert/select queries.",
+          "Generate summary analytical statistics printed to stdout or written to CSV."
+        ],
+        "technologies": [
+          "Python 3",
+          "BeautifulSoup4",
+          "Requests / urllib",
+          "SQLite3",
+          "SQL Queries"
+        ],
+        "expectedOutput": "Complete Python scraping & database script with database file (.sqlite3) schema and documentation.",
+        "difficulty": "Advanced",
+        "estimatedTime": "4\u0393\u00c7\u00f45 Days",
+        "submissionInstructions": "Commit project code and database initialization script to GitHub repository.",
+        "resources": "https://www.crummy.com/software/BeautifulSoup/bs4/doc/",
+        "active": true,
+        "createdAt": "2026-10-08T12:55:35.075Z",
+        "updatedAt": "2026-10-08T12:55:35.075Z"
       }
     ]
   },
   {
-    "id": "ai-data-science",
-    "title": "AI with Data Science",
+    "id": "data-science-ai",
+    "title": "Data Science & AI Foundations",
+    "slug": "data-science-ai",
     "category": "AI",
     "level": "Intermediate to Advanced",
-    "duration": "60 hours",
+    "duration": "50 hours",
     "rating": 4.9,
-    "studentsCount": "12.1k",
-    "studentsNumeric": 12100,
-    "price": 2499,
-    "isFree": false,
+    "studentsCount": "9.8k",
+    "studentsNumeric": 9800,
+    "price": 0,
+    "isFree": true,
     "bestseller": false,
-    "progress": 12,
-    "iconBg": "bg-purple-50 border 2 border-purple-200 text-purple-600",
-    "iconType": "barchart",
-    "introVideoUrl": "https://www.youtube.com/embed/LHBE6Q9XlzI",
-    "description": "Master Data Analysis, Machine Learning, & AI! NumPy arrays, Pandas DataFrames, Data Visualization, Scikit-Learn Regression/Classification, and Generative AI applications.",
+    "progress": 25,
+    "status": "published",
+    "featured": false,
+    "certificateAvailable": true,
+    "sequentialLearning": true,
+    "iconBg": "bg-amber-50 border-2 border-amber-200 text-amber-600",
+    "iconType": "brain",
+    "introVideoUrl": "https://www.youtube.com/embed/aircAruvnKk",
+    "thumbnail": "https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?auto=format&fit=crop&w=600&q=80",
+    "shortDescription": "Learn Python for Data Analysis, NumPy, Pandas, Matplotlib, Scikit-Learn, and Neural Networks.",
+    "description": "Learn Python for Data Analysis, NumPy, Pandas, Matplotlib, Scikit-Learn, and Neural Networks. Complete AI pipeline.",
     "instructor": {
-      "name": "Dr. Ananya Sharma & Karan Mehta",
-      "role": "AI Research Specialists @ Arshith Boot Camp",
-      "avatar": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=200&q=80"
+      "name": "Dr. Ananya Sharma",
+      "role": "AI Research Scientist @ Arshith Boot Camp",
+      "avatar": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=200&q=80"
     },
+    "prerequisites": null,
+    "skills": [],
     "whatYouWillLearn": [
-      "NumPy vectorization, matrix mathematics, and N-dimensional arrays",
-      "Pandas DataFrames for data cleaning, transformation, indexing, and merging",
-      "Exploratory Data Analysis (EDA) and plotting with Matplotlib & Seaborn",
-      "Supervised Machine Learning algorithms: Linear/Logistic Regression, Decision Trees, Random Forests",
-      "Model Evaluation metrics: Precision, Recall, F1-score, ROC-AUC curves",
-      "Building an end-to-end AI Predictive Capstone Project"
+      "Data Manipulation with NumPy & Pandas",
+      "Exploratory Data Analysis (EDA) and Visualization",
+      "Supervised Learning: Linear/Logistic Regression, Decision Trees, Random Forests",
+      "Unsupervised Learning: K-Means Clustering and PCA",
+      "Intro to Deep Learning with PyTorch/TensorFlow"
     ],
     "modules": [
       {
         "id": "ds-mod-1",
-        "title": "Module 01 — Introduction to AI and Data Science",
+        "title": "Module 01 \u0393\u00c7\u00f6 Introduction to AI and Data Science",
         "description": "Overview of Data Science pipeline, Machine Learning paradigms (Supervised, Unsupervised, Reinforcement), and AI industry applications.",
         "completed": true,
+        "order": 1,
+        "published": true,
         "readingMaterial": {
-          "introduction": "Data Science extracts actionable business insights from raw structured and unstructured datasets using scientific methods, algorithms, and Machine Learning.",
+          "introduction": "Artificial Intelligence (AI) and Data Science are two of the most important fields in modern technology. Organizations generate enormous amounts of data through websites, applications, sensors, transactions, social media, business operations, and connected devices. Data Science provides the methods required to collect, process, analyze, visualize, and interpret this information, while Artificial Intelligence enables computer systems to perform tasks that traditionally require human intelligence.",
           "objectives": [
-            "Understand Data Science Lifecycle: Collection -> Cleaning -> EDA -> Modeling -> Deployment",
-            "Difference between AI, Machine Learning, and Deep Learning",
-            "Configure Jupyter Notebook & Anaconda environments"
+            "Understand the meaning and importance of Artificial Intelligence and Data Science",
+            "Explain the relationship between AI, ML, Deep Learning, and Data Science",
+            "Describe the complete 9-step Data Science pipeline (Problem Definition to Monitoring)",
+            "Differentiate between structured, semi-structured, and unstructured data",
+            "Understand Supervised, Unsupervised, and Reinforcement Learning paradigms",
+            "Identify common machine learning tasks: classification, regression, clustering, and anomaly detection",
+            "Understand AI industry applications across Healthcare, Finance, Retail, Manufacturing, Transportation & GenAI",
+            "Recognize the importance of data quality, model evaluation, and responsible AI principles"
           ],
           "sections": [
             {
-              "heading": "AI vs ML vs Deep Learning Hierarchy",
-              "text": "Artificial Intelligence (Broadest domain) -> Machine Learning (Statistical learning from data) -> Deep Learning (Multi-layer Neural Networks)."
+              "heading": "3. What is Artificial Intelligence?",
+              "text": "Artificial Intelligence is the field of computing concerned with building systems capable of performing tasks that normally require aspects of human intelligence, such as learning from information, recognizing patterns, understanding language, making predictions, and solving problems.",
+              "bulletPoints": [
+                "Learning from information & recognizing complex patterns",
+                "Understanding human language (NLP) & image recognition (Computer Vision)",
+                "Making predictions, solving optimization problems, and generating new content (Generative AI)",
+                "Traditional rule-based IF-THEN logic vs Machine Learning pattern-based models"
+              ]
+            },
+            {
+              "heading": "4. What is Data Science?",
+              "text": "Data Science is an interdisciplinary field that combines Statistics, Mathematics, Programming, Machine Learning, Data Engineering, Data Visualization, and Domain Knowledge to extract useful information and insights from data. The goal is to transform raw data into actionable business intelligence.",
+              "bulletPoints": [
+                "Combines quantitative statistics, computing algorithms, and domain expertise",
+                "Converts raw unstructured/structured facts into strategic decision support",
+                "Answers key questions: Which products sell best? Which customers churn? Where is demand rising?"
+              ]
+            },
+            {
+              "heading": "5. AI, Machine Learning, Deep Learning & Data Science Hierarchy",
+              "text": "These terms are closely related but not identical. Artificial Intelligence is the broad umbrella of intelligent systems. Machine Learning is a subset of AI where systems learn patterns from data. Deep Learning is a subset of ML using multi-layer neural networks. Data Science overlaps all these fields by utilizing statistical and ML tools for data analysis."
+            },
+            {
+              "heading": "6. Data Categorization: Structured, Unstructured & Semi-Structured",
+              "text": "Data is a collection of facts, observations, or measurements. Data exists in 3 primary structural forms:",
+              "bulletPoints": [
+                "Structured Data: Organized in predefined rows and columns (e.g., SQL tables, CSV spreadsheets).",
+                "Unstructured Data: No fixed tabular layout (e.g., Images, Videos, Audio recordings, Social media text).",
+                "Semi-Structured Data: Contains organizational tags without rigid tables (e.g., JSON, XML, HTML)."
+              ],
+              "table": {
+                "headers": [
+                  "Data Type",
+                  "Structure",
+                  "Common Examples",
+                  "Primary Storage"
+                ],
+                "rows": [
+                  [
+                    "Structured",
+                    "Fixed Rows & Columns",
+                    "Customer SQL Records, Transactions",
+                    "RDBMS / PostgreSQL"
+                  ],
+                  [
+                    "Semi-Structured",
+                    "Key-Value / Tags",
+                    "JSON payload, XML feeds, HTML",
+                    "NoSQL / MongoDB"
+                  ],
+                  [
+                    "Unstructured",
+                    "No Rigid Schema",
+                    "Images, Video files, PDF text",
+                    "Data Lakes / Object Storage"
+                  ]
+                ]
+              }
+            },
+            {
+              "heading": "7 - 16. The 9-Step Data Science Pipeline",
+              "text": "A successful Data Science project follows an interconnected workflow:",
+              "bulletPoints": [
+                "Step 1 \u0393\u00c7\u00f6 Problem Definition: Define business problem, target metric, and ML formulation.",
+                "Step 2 \u0393\u00c7\u00f6 Data Collection: Gather data from databases, APIs, web scraping, logs, or sensors.",
+                "Step 3 \u0393\u00c7\u00f6 Data Cleaning: Fix missing values, duplicates, outliers, and invalid data types.",
+                "Step 4 \u0393\u00c7\u00f6 Exploratory Data Analysis (EDA): Examine distributions, correlations, and visual trends.",
+                "Step 5 \u0393\u00c7\u00f6 Feature Engineering: Transform raw variables into informative predictor inputs.",
+                "Step 6 \u0393\u00c7\u00f6 Model Building: Select algorithms (Regression, Classification, Clustering) and fit models.",
+                "Step 7 \u0393\u00c7\u00f6 Model Evaluation: Assess performance using train/validation/test splits and metrics.",
+                "Step 8 \u0393\u00c7\u00f6 Deployment: Integrate trained model into web apps, REST APIs, or microservices.",
+                "Step 9 \u0393\u00c7\u00f6 Monitoring & Maintenance: Track prediction drift over time and retrain as data changes."
+              ]
+            },
+            {
+              "heading": "17 - 25. Machine Learning Paradigms",
+              "text": "Machine Learning is divided into three core learning paradigms:",
+              "bulletPoints": [
+                "Supervised Learning: Trained on labeled data (Input -> Known Target). Includes Classification (discrete labels like Spam/Ham) and Regression (continuous outputs like Price).",
+                "Unsupervised Learning: Discovers patterns in unlabeled data. Includes Clustering (K-Means), Dimensionality Reduction (PCA), and Anomaly Detection.",
+                "Reinforcement Learning: An Agent interacts with an Environment, taking Actions, observing States, and receiving Rewards to learn an optimal decision policy."
+              ],
+              "table": {
+                "headers": [
+                  "Paradigm",
+                  "Training Data",
+                  "Core Objective",
+                  "Primary Examples"
+                ],
+                "rows": [
+                  [
+                    "Supervised",
+                    "Labeled (X + y)",
+                    "Predict target value",
+                    "Spam Filter, House Prices"
+                  ],
+                  [
+                    "Unsupervised",
+                    "Unlabeled (X)",
+                    "Discover inherent structure",
+                    "Customer Segmentation, PCA"
+                  ],
+                  [
+                    "Reinforcement",
+                    "State & Rewards",
+                    "Maximize long-term reward",
+                    "Robotics, Game Playing AI"
+                  ]
+                ]
+              }
+            },
+            {
+              "heading": "26 - 36. AI Industry Applications & Emerging Tech",
+              "text": "AI and Data Science power real-world applications across major industries:",
+              "bulletPoints": [
+                "Healthcare: Medical image analysis, disease detection, patient risk prediction, drug discovery.",
+                "Finance: Fraud detection, credit scoring, transaction monitoring, algorithmic trading.",
+                "Retail & E-Commerce: Recommendation engines, demand forecasting, inventory optimization.",
+                "Manufacturing & Logistics: Sensor predictive maintenance, supply chain route optimization.",
+                "Natural Language Processing (NLP): Chatbots, translation, sentiment analysis, text summarization.",
+                "Computer Vision: Object detection, facial recognition, autonomous vehicle perception.",
+                "Generative AI & LLMs: Large Language Models (GPT, Gemini) generating text, code, audio, and images."
+              ]
+            },
+            {
+              "heading": "37 - 42. Data Quality & Responsible AI Principles",
+              "text": "Models are heavily influenced by input data quality ('Better data -> better predictions'). Responsible AI requires embedding core ethical principles into development:",
+              "bulletPoints": [
+                "Fairness: Testing models to prevent unwanted bias across demographic groups.",
+                "Transparency & Explainability: Understanding how model predictions are made.",
+                "Privacy & Security: Protecting sensitive personal data and securing models against attacks.",
+                "Reliability & Human Oversight: Testing under realistic conditions and incorporating human review for high-impact decisions."
+              ]
             }
           ],
           "codeExamples": [
             {
-              "title": "Jupyter Environment Test",
-              "code": "import sys\nprint(f\"Python Version: {sys.version}\")\nprint(\"Arshith Boot Camp AI Workspace Active!\")",
-              "explanation": "Verifies Python runtime inside Jupyter environment."
+              "title": "1. Rule-Based Filtering vs Machine Learning Email Classification",
+              "code": "import numpy as np\nfrom sklearn.feature_extraction.text import CountVectorizer\nfrom sklearn.naive_bayes import MultinomialNB\n\n# Sample Email Corpus & Labels (1 = Spam, 0 = Not Spam)\nemails = [\n    \"Win free prize money now click link\",\n    \"Project team meeting scheduled tomorrow at 10am\",\n    \"Exclusive discount offer buy now\",\n    \"Attached is the monthly financial report\"\n]\nlabels = [1, 0, 1, 0]\n\n# Vectorize text features into numerical matrix\nvectorizer = CountVectorizer()\nX = vectorizer.fit_transform(emails)\n\n# Train Naive Bayes Classification Model\nmodel = MultinomialNB().fit(X, labels)\nprint(\"Model Training Complete! Accuracy:\", model.score(X, labels))",
+              "explanation": "Demonstrates how raw text is converted into numerical matrices for statistical machine learning."
+            },
+            {
+              "title": "2. Semi-Structured JSON Parsing into Structured Pandas DataFrame",
+              "code": "import json\nimport pandas as pd\n\n# Semi-structured JSON customer activity logs\njson_data = '''[\n  {\"customer_id\": 101, \"name\": \"Rahul\", \"city\": \"Bengaluru\", \"spending\": 12500},\n  {\"customer_id\": 102, \"name\": \"Priya\", \"city\": \"Mumbai\", \"spending\": 34000}\n]'''\n\n# Parse semi-structured JSON and transform to tabular DataFrame\ndata = json.loads(json_data)\ndf = pd.DataFrame(data)\nprint(df)",
+              "explanation": "Converts semi-structured JSON documents into structured columns and rows for data analysis."
             }
           ],
-          "bestPractices": [
-            "Use virtual environments to manage data science dependencies."
-          ],
-          "commonMistakes": [
-            "Jumping directly into ML modeling without exploratory data analysis."
-          ],
           "practiceExercise": {
-            "title": "Check Environment",
-            "problem": "Verify Python kernel version in Jupyter.",
-            "solutionCode": "import sys; print(sys.version)"
+            "title": "Classify Machine Learning Tasks",
+            "problem": "Identify whether each scenario uses Supervised, Unsupervised, or Reinforcement Learning:\n1. Predicting next month's sales revenue based on past 5 years of data.\n2. Grouping 10,000 credit card users into 4 distinct spending personas.\n3. Training a virtual chess agent to select moves by playing against itself.",
+            "solutionCode": "1. Sales Revenue Prediction -> Supervised Learning (Regression)\n2. User Persona Grouping -> Unsupervised Learning (Clustering)\n3. Virtual Chess Agent -> Reinforcement Learning (Agent & Reward Policy)"
           },
           "keyTakeaways": [
-            "Data Science combines statistics, computer science, and domain expertise.",
-            "Jupyter Notebooks are the industry standard for interactive analysis."
+            "Artificial Intelligence is the broad domain; Machine Learning and Deep Learning are specialized techniques.",
+            "Data Science transforms raw structured, semi-structured, and unstructured data into strategic decisions.",
+            "The 9-step pipeline guides data projects from problem formulation through modeling to production deployment.",
+            "Supervised (labeled target), Unsupervised (pattern discovery), and Reinforcement (rewards) form the 3 ML paradigms.",
+            "Responsible AI prioritizes Data Quality, Fairness, Privacy, Transparency, and Human Oversight."
           ],
           "references": [
             {
-              "title": "NumPy Documentation Overview",
-              "url": "https://numpy.org/doc/stable/"
+              "title": "IBM Data Science & AI Foundations",
+              "url": "https://www.ibm.com/topics/data-science"
+            },
+            {
+              "title": "Scikit-Learn Machine Learning Guide",
+              "url": "https://scikit-learn.org/stable/user_guide.html"
+            }
+          ],
+          "mcqs": [
+            {
+              "id": 1,
+              "question": "Which of the following best defines Data Science?",
+              "options": [
+                "A subset of Python programming limited to web development",
+                "An interdisciplinary field using statistics, computing, and domain expertise to extract insights from data",
+                "A database management system exclusively designed for SQL querying",
+                "The process of building physical robotics hardware"
+              ],
+              "correctAnswer": 1,
+              "explanation": "Data Science combines domain expertise, programming skills, and statistics/math to extract actionable insights from structured and unstructured data."
+            },
+            {
+              "id": 2,
+              "question": "What is the key difference between Machine Learning and Traditional Programming?",
+              "options": [
+                "Traditional programming uses data to output rules, while ML uses rules to output data",
+                "Machine Learning algorithms are hardcoded by software engineers without data input",
+                "Traditional programming relies on explicit rules + data -> output; ML learns rules from data + target answers",
+                "Machine Learning only works with numerical spreadsheet data"
+              ],
+              "correctAnswer": 2,
+              "explanation": "In traditional programming, humans write explicit logic/rules and pass data to get outputs. In ML, algorithms learn patterns/rules from historical data and answers."
+            },
+            {
+              "id": 3,
+              "question": "Which phase comes first in the CRISP-DM lifecycle?",
+              "options": [
+                "Data Preparation",
+                "Business Understanding",
+                "Model Evaluation",
+                "Deployment"
+              ],
+              "correctAnswer": 1,
+              "explanation": "CRISP-DM starts with Business Understanding to clarify project objectives and requirements before data collection or modeling begins."
+            },
+            {
+              "id": 4,
+              "question": "What category of Machine Learning uses labeled input-output target pairs?",
+              "options": [
+                "Unsupervised Learning",
+                "Reinforcement Learning",
+                "Supervised Learning",
+                "Self-Organizing Maps"
+              ],
+              "correctAnswer": 2,
+              "explanation": "Supervised Learning models learn mapping functions from input features (X) to explicit ground-truth target labels (y)."
+            },
+            {
+              "id": 5,
+              "question": "What is an example of an Unsupervised Learning task?",
+              "options": [
+                "Predicting house prices given location and size",
+                "Classifying emails into Spam or Not Spam",
+                "Clustering customers into distinct behavioral segments without pre-existing labels",
+                "Predicting patient readmission probability"
+              ],
+              "correctAnswer": 2,
+              "explanation": "Customer segmentation uses clustering (Unsupervised Learning) to discover hidden groupings in unlabeled customer data."
+            }
+          ]
+        }
+      },
+      {
+        "id": "ds-mod-2",
+        "title": "Module 02 \u0393\u00c7\u00f6 Python for Data Science",
+        "description": "Master essential Python data structures, list comprehensions, lambda functions, map/filter, control flow, and data handling libraries.",
+        "completed": true,
+        "order": 2,
+        "published": true,
+        "readingMaterial": {
+          "introduction": "Python is one of the most widely used programming languages in Data Science, Artificial Intelligence, Machine Learning, automation, and scientific computing. Its simple syntax, extensive ecosystem, and large collection of libraries (NumPy, Pandas) make Python particularly suitable for working with data, performing statistical analytics, and developing predictive machine learning pipelines.",
+          "objectives": [
+            "Understand Python syntax, indentation rules, comments, and dynamic typing",
+            "Work with built-in data types: int, float, bool, str, list, tuple, set, dict, NoneType",
+            "Master arithmetic, comparison, logical, assignment, and membership (in / not in) operators",
+            "Implement conditional control flow (if / elif / else) and loops (for, while, range, break, continue, pass)",
+            "Define reusable functions with positional, keyword, and default parameters",
+            "Apply functional programming tools: lambda functions, map(), filter(), and list/dictionary comprehensions",
+            "Perform string manipulation, exception handling (try / except / finally), and file I/O operations (TXT, CSV, JSON)",
+            "Understand the foundational role of NumPy and Pandas in the Data Science workflow"
+          ],
+          "sections": [
+            {
+              "heading": "3. Why Python for Data Science?",
+              "text": "Python provides a combination of simple syntax, extensive data libraries, strong community support, and rapid development capabilities. A typical Data Science workflow progresses seamlessly: Raw Data -> Python -> Pandas/NumPy -> Data Cleaning -> Analysis -> Visualization -> Machine Learning -> Prediction."
+            },
+            {
+              "heading": "4 - 8. Python Syntax, Variables & Built-In Data Types",
+              "text": "Python uses indentation (4 spaces) rather than curly braces {} to define code blocks. Variables act as dynamic references to values. Built-in data types include integers (whole numbers), floats (decimals), booleans (True/False), strings (text), lists, tuples, sets, dictionaries, and NoneType. Explicit type conversion functions include int(), float(), str(), bool(), list(), tuple(), and set()."
+            },
+            {
+              "heading": "9 - 15. Operators, Conditionals & Loops",
+              "text": "Operators perform arithmetic (+, -, *, /, //, %, **), comparison (==, !=, >, <, >=, <=), logical (and, or, not), and membership (in, not in) operations. Conditional statements (if, elif, else) and loops (for, while, range()) direct execution flow. Keywords break (terminates loop), continue (skips iteration), and pass (placeholder) control loop execution."
+            },
+            {
+              "heading": "16 - 19. Python Data Structures (Lists, Tuples, Sets, Dictionaries)",
+              "text": "Lists are ordered, mutable collections. Tuples are ordered, immutable collections. Sets store unique, unordered elements (ideal for deduplication and set operations like union/intersection). Dictionaries store key-value pairs (dict.keys(), dict.values(), dict.items(), dict.get()).",
+              "table": {
+                "headers": [
+                  "Data Structure",
+                  "Mutability",
+                  "Ordering",
+                  "Syntax Example",
+                  "Primary Data Use Case"
+                ],
+                "rows": [
+                  [
+                    "List",
+                    "Mutable",
+                    "Ordered",
+                    "[10, 20, 30]",
+                    "Dynamic data collections"
+                  ],
+                  [
+                    "Tuple",
+                    "Immutable",
+                    "Ordered",
+                    "(10, 20)",
+                    "Fixed coordinates & records"
+                  ],
+                  [
+                    "Set",
+                    "Mutable",
+                    "Unordered",
+                    "{1, 2, 3}",
+                    "Unique filtering & membership"
+                  ],
+                  [
+                    "Dictionary",
+                    "Mutable",
+                    "Key-Value Pairs",
+                    "{'age': 24}",
+                    "Structured record lookup"
+                  ]
+                ]
+              }
+            },
+            {
+              "heading": "20 - 32. Functional Programming: Lambda, Map, Filter & Comprehensions",
+              "text": "Python supports functional data transformation: Lambda expressions (anonymous single-line functions), map() (applies transform across iterable), filter() (selects items matching boolean criteria), and List/Dictionary Comprehensions ([x*2 for x in data if x > 10]) which offer concise, high-performance syntax."
+            },
+            {
+              "heading": "34 - 38. Exception Handling, File I/O & Modules",
+              "text": "Exception handling (try, except, else, finally) prevents program crashes during file or network errors. Context managers (with open('data.csv', 'r') as file) ensure proper file resource closure. Modules (import math, import csv, import json) expose standard library utilities."
+            },
+            {
+              "heading": "39 - 53. NumPy, Pandas & Data Processing Patterns",
+              "text": "NumPy provides vectorized N-dimensional arrays (ndarray) for linear algebra and high-speed numerical operations. Pandas provides DataFrames and Series for tabular data wrangling, indexing, filtering, and aggregation. Automation scripts combine file management (os.listdir()) and JSON API parsing with Pandas analytics."
+            },
+            {
+              "heading": "54 - 58. Best Practices & Common Mistakes",
+              "text": "Write readable code with explicit variable names, break complex code into functions, validate inputs, handle exceptions gracefully, and leverage vectorization in NumPy/Pandas rather than manual slow Python loops."
+            }
+          ],
+          "codeExamples": [
+            {
+              "title": "1. Functional Data Cleaning with List Comprehensions & String Methods",
+              "code": "names = [\" rahul \", \"PRIYA\", \" Arun \", \"SNEHA \"]\nclean_names = [name.strip().title() for name in names]\nprint(\"Cleaned Names:\", clean_names)\n\nscores = [65, 85, 92, 78, 88, 55]\nhigh_scores = [s for s in scores if s >= 80]\nprint(\"High Scores (>=80):\", high_scores)",
+              "explanation": "Trims whitespace, capitalizes names, and filters numerical scores using functional list comprehensions."
+            },
+            {
+              "title": "2. Tabular Data Filtering & Aggregation with Pandas",
+              "code": "import pandas as pd\n\n# Create student performance dataset\nstudents = [\n    {\"name\": \"Rahul\", \"score\": 85, \"city\": \"Bengaluru\"},\n    {\"name\": \"Priya\", \"score\": 92, \"city\": \"Mumbai\"},\n    {\"name\": \"Arun\", \"score\": 76, \"city\": \"Delhi\"},\n    {\"name\": \"Sneha\", \"score\": 88, \"city\": \"Bengaluru\"}\n]\n\n# Load into Pandas DataFrame\ndf = pd.DataFrame(students)\n\n# Filter students from Bengaluru with score >= 80\nbg_top = df[(df[\"city\"] == \"Bengaluru\") & (df[\"score\"] >= 80)]\nprint(bg_top)",
+              "explanation": "Loads dictionary records into Pandas DataFrame and executes multi-condition boolean filtering."
+            }
+          ],
+          "practiceExercise": {
+            "title": "Mini Project: Student Performance Analyzer",
+            "problem": "Write a Python script that takes a list of student records: [{'name': 'Rahul', 'score': 85}, {'name': 'Priya', 'score': 92}, {'name': 'Arun', 'score': 76}], computes the average score using list comprehension and sum()/len(), and assigns grades ('A+' for >=90, 'A' for >=80, 'B' for >=70).",
+            "solutionCode": "students = [{'name': 'Rahul', 'score': 85}, {'name': 'Priya', 'score': 92}, {'name': 'Arun', 'score': 76}]\nscores = [s['score'] for s in students]\navg_score = sum(scores) / len(scores)\nprint(f\"Average Score: {avg_score:.2f}\")\nfor s in students:\n    g = 'A+' if s['score']>=90 else ('A' if s['score']>=80 else 'B')\n    print(f\"{s['name']}: Grade {g}\")"
+          },
+          "keyTakeaways": [
+            "Python's simple syntax and massive library ecosystem (NumPy, Pandas) make it the primary language for Data Science.",
+            "Mastering built-in data structures (Lists, Tuples, Sets, Dictionaries) is essential for handling raw data payloads.",
+            "List comprehensions, lambda expressions, map(), and filter() provide concise and efficient functional data processing.",
+            "File I/O (CSV, JSON) and exception handling (try-except) ensure robust data ingestion pipelines.",
+            "NumPy arrays and Pandas DataFrames form the analytical foundation for Machine Learning and AI workflows."
+          ],
+          "references": [
+            {
+              "title": "Official Python 3 Documentation",
+              "url": "https://docs.python.org/3/tutorial/"
+            },
+            {
+              "title": "Pandas User Guide & Data Structures",
+              "url": "https://pandas.pydata.org/docs/user_guide/index.html"
+            }
+          ],
+          "mcqs": [
+            {
+              "id": 1,
+              "question": "Which Python data structure is mutable, ordered, and allows duplicate elements?",
+              "options": [
+                "Tuple",
+                "Set",
+                "List",
+                "Dictionary key"
+              ],
+              "correctAnswer": 2,
+              "explanation": "Lists `[1, 2, 2]` are ordered, mutable sequence containers in Python."
+            },
+            {
+              "id": 2,
+              "question": "What will `list(range(2, 10, 2))` output in Python?",
+              "options": [
+                "[2, 3, 4, 5, 6, 7, 8, 9, 10]",
+                "[2, 4, 6, 8]",
+                "[2, 4, 6, 8, 10]",
+                "[4, 6, 8, 10]"
+              ],
+              "correctAnswer": 1,
+              "explanation": "`range(start, stop, step)` stops before the end value. `range(2, 10, 2)` produces `[2, 4, 6, 8]`."
+            },
+            {
+              "id": 3,
+              "question": "What is the output of `[x**2 for x in range(4) if x % 2 == 0]`?",
+              "options": [
+                "[0, 1, 4, 9]",
+                "[0, 4]",
+                "[1, 9]",
+                "[0, 2, 4]"
+              ],
+              "correctAnswer": 1,
+              "explanation": "`range(4)` gives 0, 1, 2, 3. Even numbers are 0 and 2. Squaring them yields `[0, 4]`."
+            },
+            {
+              "id": 4,
+              "question": "How do Lambda functions differ from standard `def` functions in Python?",
+              "options": [
+                "Lambda functions cannot accept arguments",
+                "Lambda functions are anonymous, single-expression inline functions",
+                "Lambda functions run faster because they bypass Python bytecode",
+                "Lambda functions are exclusively used for database connection strings"
+              ],
+              "correctAnswer": 1,
+              "explanation": "Lambda functions (`lambda x: x * 2`) are concise, single-expression anonymous functions."
+            },
+            {
+              "id": 5,
+              "question": "What keyword is used to handle exceptions gracefully in Python?",
+              "options": [
+                "try / except",
+                "do / catch",
+                "if / error",
+                "assert / break"
+              ],
+              "correctAnswer": 0,
+              "explanation": "`try / except` blocks catch runtime exceptions and prevent script crashes."
+            }
+          ]
+        }
+      },
+      {
+        "id": "ds-mod-3",
+        "title": "Module 03 \u0393\u00c7\u00f6 NumPy for Vectorized Computing",
+        "description": "Multi-dimensional array operations, broadcasting, indexing, slicing, linear algebra methods, and high-performance numerical computation.",
+        "completed": true,
+        "order": 3,
+        "published": true,
+        "readingMaterial": {
+          "introduction": "NumPy, short for Numerical Python, is one of the fundamental libraries in the Python Data Science ecosystem. It provides efficient multidimensional arrays (ndarray) and a large collection of mathematical, statistical, and linear algebra operations. While standard Python lists process elements sequentially, NumPy processes large numerical collections using vectorized operations in compiled C memory, serving as the computational backbone for Pandas, Scikit-Learn, and Deep Learning frameworks.",
+          "objectives": [
+            "Understand the purpose of NumPy and the architectural differences between Python lists and NumPy ndarrays",
+            "Create 1D, 2D, and 3D arrays using array(), zeros(), ones(), full(), arange(), linspace(), and eye()",
+            "Inspect array attributes: shape, ndim, size, and data type (dtype / astype)",
+            "Master array indexing, 2D grid slicing, boolean masking (filtering), and value modification",
+            "Apply vectorized element-wise arithmetic, scalar operations, and broadcasting rules across mismatched dimensions",
+            "Execute matrix operations: transposition (.T), dot product (np.dot), matrix multiplication (@), determinant, inverse, and linear equations (np.linalg.solve)",
+            "Perform axis-based aggregation (sum, mean, std, var, min, max, argmin, argmax) along axis=0 and axis=1",
+            "Handle missing data (NaN / np.isnan / np.nanmean) and differentiate between array views and independent copies (.copy())"
+          ],
+          "sections": [
+            {
+              "heading": "3 - 6. What is NumPy & Why Vectorization Matters",
+              "text": "NumPy introduces the N-dimensional array object (ndarray). Unlike Python lists that store pointers to objects, NumPy arrays store data in contiguous memory blocks. This enables vectorization \u0393\u00c7\u00f6 executing math operations across entire arrays without explicit Python loops.",
+              "bulletPoints": [
+                "Contiguous Memory Allocation: Fast C-level execution avoiding Python object overhead.",
+                "Vectorized Math: Expression like 'arr * 2' doubles all elements simultaneously.",
+                "Core Data Science Foundation: Underpins Pandas DataFrames, Scikit-Learn features, and PyTorch tensors."
+              ]
+            },
+            {
+              "heading": "7 - 13. Array Creation & Structural Attributes",
+              "text": "NumPy supports 0D scalars, 1D vectors, 2D matrices, and 3D+ tensors. Key attributes include .shape (dimensions), .ndim (number of axes), .size (total elements), and .dtype.",
+              "bulletPoints": [
+                "np.zeros((rows, cols)) / np.ones((rows, cols)): Creates arrays populated with 0.0 or 1.0.",
+                "np.arange(start, stop, step): Generates sequence of numbers over a step interval.",
+                "np.linspace(start, stop, num): Generates 'num' evenly spaced values over a range.",
+                "np.eye(N): Generates an N x N Identity Matrix with ones on the main diagonal."
+              ],
+              "table": {
+                "headers": [
+                  "Creation Function",
+                  "Syntax Example",
+                  "Output Shape",
+                  "Common Data Use Case"
+                ],
+                "rows": [
+                  [
+                    "np.array()",
+                    "np.array([1, 2, 3])",
+                    "(3,)",
+                    "Convert Python list to ndarray"
+                  ],
+                  [
+                    "np.zeros()",
+                    "np.zeros((3, 4))",
+                    "(3, 4)",
+                    "Initialize weights or canvas grid"
+                  ],
+                  [
+                    "np.arange()",
+                    "np.arange(0, 10, 2)",
+                    "(5,)",
+                    "Generate stepped iteration indexes"
+                  ],
+                  [
+                    "np.linspace()",
+                    "np.linspace(0, 1, 5)",
+                    "(5,)",
+                    "Generate continuous plot samples"
+                  ],
+                  [
+                    "np.eye()",
+                    "np.eye(3)",
+                    "(3, 3)",
+                    "Linear algebra identity matrix"
+                  ]
+                ]
+              }
+            },
+            {
+              "heading": "14 - 21. Indexing, 2D Slicing & Boolean Indexing",
+              "text": "Array elements are accessed via zero-based indexing (arr[row, col]). Slicing extracts sub-regions (arr[0:2, 1:3]). Boolean indexing (arr[arr > 25]) filters array values directly based on conditional criteria."
+            },
+            {
+              "heading": "22 - 26. Vectorization & Broadcasting Rules",
+              "text": "Broadcasting permits arithmetic between arrays of different shapes without copying data. Two dimensions are compatible when they are equal, or one of them is 1. Dimensions align from the trailing axis backwards."
+            },
+            {
+              "heading": "27 - 32. Reshaping, Transposition & Array Stacking",
+              "text": "Arrays are reshaped using arr.reshape(rows, cols) provided total size remains constant. Transposition (arr.T) swaps rows and columns. Arrays can be concatenated or stacked vertically (np.vstack) and horizontally (np.hstack)."
+            },
+            {
+              "heading": "33 - 39. Mathematical Functions, Aggregation & Axis Operations",
+              "text": "NumPy provides fast math (np.sqrt, np.exp, np.log) and statistical aggregations (np.sum, np.mean, np.median, np.std, np.var). Aggregation across axis=0 operates down columns, while axis=1 operates across rows. np.argmin() and np.argmax() return the index positions of minimum/maximum values."
+            },
+            {
+              "heading": "40 - 46. Linear Algebra & System Solving (np.linalg)",
+              "text": "The np.linalg module provides linear algebra routines: Matrix multiplication (@ or np.dot), Determinant (np.linalg.det), Matrix Inverse (np.linalg.inv), Euclidean Vector Norm (np.linalg.norm), and linear equation solving (np.linalg.solve(A, b))."
+            },
+            {
+              "heading": "47 - 58. Missing Values (NaN), Views vs Copies & Ecosystem Role",
+              "text": "Missing data is represented as np.nan, handled via nan-safe functions (np.nanmean, np.nanmedian). Slicing creates a view (modifying it changes original array); use .copy() for independent arrays. NumPy connects raw numerical data to Pandas DataFrames and Machine Learning feature matrices."
+            }
+          ],
+          "codeExamples": [
+            {
+              "title": "1. Vectorized Broadcasting & Data Feature Normalization",
+              "code": "import numpy as np\n\n# Sample feature matrix: 3 samples, 3 features (e.g. Age, Income, Score)\ndata = np.array([\n    [25, 50000, 75],\n    [30, 60000, 85],\n    [35, 75000, 95]\n])\n\n# Calculate mean per feature column (axis=0)\nmeans = np.mean(data, axis=0)\nstd_devs = np.std(data, axis=0)\n\n# Vectorized Z-Score Normalization via Broadcasting: (X - mu) / sigma\nnormalized_data = (data - means) / std_devs\nprint(\"Column Means:\", means)\nprint(\"Z-Score Normalized Matrix:\\n\", np.round(normalized_data, 2))",
+              "explanation": "Demonstrates column-wise aggregation (axis=0) and vectorized broadcasting for data normalization."
+            },
+            {
+              "title": "2. Linear Algebra System Solver (np.linalg.solve)",
+              "code": "import numpy as np\n\n# Solve system of linear equations:\n# 2x + 1y = 5\n# 1x + 3y = 6\nA = np.array([[2, 1], [1, 3]])\nb = np.array([5, 6])\n\n# Solve for x and y\nsolution = np.linalg.solve(A, b)\nprint(\"Solution Vector [x, y]:\", solution)\n\n# Verify via matrix multiplication (A @ x)\nverification = A @ solution\nprint(\"Verification (A @ solution):\", verification)",
+              "explanation": "Solves linear equation system Ax = b using NumPy's high-performance linalg solver."
+            }
+          ],
+          "practiceExercise": {
+            "title": "Student Marks Matrix & Axis Analysis",
+            "problem": "Create a 4x3 NumPy matrix representing 4 students across 3 subjects:\nmarks = np.array([[85, 90, 78], [72, 88, 91], [90, 95, 89], [65, 70, 75]])\nCalculate: 1. Average mark for each student (row-wise), 2. Average mark for each subject (column-wise), 3. The overall highest mark.",
+            "solutionCode": "import numpy as np\nmarks = np.array([[85, 90, 78], [72, 88, 91], [90, 95, 89], [65, 70, 75]])\nstudent_avg = np.mean(marks, axis=1)\nsubject_avg = np.mean(marks, axis=0)\nhighest_mark = np.max(marks)\nprint(\"Student Averages (axis=1):\", student_avg)\nprint(\"Subject Averages (axis=0):\", subject_avg)\nprint(\"Overall Highest Mark:\", highest_mark)"
+          },
+          "keyTakeaways": [
+            "NumPy ndarrays store numbers in contiguous memory for high-speed vectorized C computation.",
+            "Array creation functions (arange, linspace, zeros, ones, eye) generate structured numerical grids easily.",
+            "Broadcasting enables seamless arithmetic across arrays of compatible shapes without memory duplication.",
+            "Understanding axis=0 (down columns) and axis=1 (across rows) is essential for multidimensional statistical operations.",
+            "Linear algebra routines (np.linalg.solve, @ dot product, inv, det) power machine learning model math."
+          ],
+          "references": [
+            {
+              "title": "NumPy Official Documentation & Quickstart",
+              "url": "https://numpy.org/doc/stable/user/quickstart.html"
+            },
+            {
+              "title": "NumPy Array Programming Guide",
+              "url": "https://numpy.org/doc/stable/user/basics.html"
+            }
+          ],
+          "mcqs": [
+            {
+              "id": 1,
+              "question": "Why is NumPy faster than standard Python lists for numerical operations?",
+              "options": [
+                "NumPy uses dynamic type checks for every array element",
+                "NumPy stores data in contiguous memory buffers and uses vectorized C operations",
+                "NumPy automatically executes all scripts on GPU chips",
+                "NumPy converts numerical data into plain text files before processing"
+              ],
+              "correctAnswer": 1,
+              "explanation": "NumPy arrays (ndarrays) are homogeneous, packed in contiguous memory blocks, and execute compiled C routines without Python loop overhead."
+            },
+            {
+              "id": 2,
+              "question": "What is the result of multiplying two 1D NumPy arrays `np.array([1, 2]) * np.array([3, 4])`?",
+              "options": [
+                "[3, 8]",
+                "11 (Dot Product)",
+                "[[3, 4], [6, 8]]",
+                "Error"
+              ],
+              "correctAnswer": 0,
+              "explanation": "The `*` operator in NumPy performs element-wise multiplication: `[1*3, 2*4] = [3, 8]`."
+            },
+            {
+              "id": 3,
+              "question": "What mechanism allows NumPy to perform arithmetic operations on arrays of different shapes?",
+              "options": [
+                "Memory Swapping",
+                "Broadcasting",
+                "Dynamic Resizing",
+                "Vector Concatenation"
+              ],
+              "correctAnswer": 1,
+              "explanation": "Broadcasting automatically stretches compatible smaller dimensions across larger array dimensions without making unnecessary data copies."
+            },
+            {
+              "id": 4,
+              "question": "Which NumPy method changes array shape without modifying underlying data?",
+              "options": [
+                "np.reshape()",
+                "np.append()",
+                "np.convert()",
+                "np.split()"
+              ],
+              "correctAnswer": 0,
+              "explanation": "`reshape()` returns a new view of the array with specified dimensions as long as total element count remains identical."
+            },
+            {
+              "id": 5,
+              "question": "What does boolean masking `arr[arr > 5]` return?",
+              "options": [
+                "A boolean array of True/False values",
+                "A 1D array containing only elements greater than 5",
+                "The index positions of elements greater than 5",
+                "Modifies elements greater than 5 to 0"
+              ],
+              "correctAnswer": 1,
+              "explanation": "Boolean indexing `arr[mask]` filters and extracts array elements that evaluate to `True`."
+            }
+          ]
+        }
+      },
+      {
+        "id": "ds-mod-4",
+        "title": "Module 04 \u0393\u00c7\u00f6 Pandas DataFrames and Series",
+        "description": "Core Pandas data structures, importing CSV/JSON/Excel files, indexing, selecting, filtering, grouping, and aggregation.",
+        "completed": true,
+        "order": 4,
+        "published": true,
+        "readingMaterial": {
+          "introduction": "Pandas is one of the most important Python libraries for data manipulation, data analysis, and tabular data processing. It provides powerful data structures\u0393\u00c7\u00f6Series (one-dimensional labeled data) and DataFrames (two-dimensional labeled tabular data)\u0393\u00c7\u00f6and high-level functions that streamline data importing, inspecting, indexing, selecting, filtering, grouping, aggregating, and exporting across data science workflows.",
+          "objectives": [
+            "Understand Series (1D) and DataFrame (2D) core Pandas architectures",
+            "Import and export datasets across CSV (read_csv), JSON (read_json), and Excel (read_excel) file formats",
+            "Inspect datasets using head(), tail(), info(), describe(), .shape, and .dtypes",
+            "Perform label-based (loc[]) and position-based (iloc[]) row and column selections",
+            "Filter data using single and multiple conditions (& / | / isin / query())",
+            "Add, modify, rename, and drop columns and reset DataFrame indexes",
+            "Detect and handle missing values (isna(), dropna(), fillna()) and remove duplicates (drop_duplicates())",
+            "Execute multi-dimensional grouping with groupby(), apply aggregation metrics (.agg()), and perform merges/concatenations"
+          ],
+          "sections": [
+            {
+              "heading": "3 - 9. What is Pandas & Series Data Structure",
+              "text": "Pandas (import pandas as pd) is built on top of Python's numerical ecosystem to handle structured tabular data. A Series is a 1D labeled array supporting index-based access, element-wise arithmetic, and statistical methods (.mean(), .median(), .std()).",
+              "bulletPoints": [
+                "Series Architecture: 1D array with explicit data labels (index) and typed values.",
+                "Element-Wise Operations: Arithmetic like 'series * 2' applies across all elements.",
+                "Statistical Methods: Built-in mean(), median(), min(), max(), and std() functions."
+              ]
+            },
+            {
+              "heading": "10 - 17. DataFrame Structure & Dataset Inspection",
+              "text": "A DataFrame is a 2D labeled table composed of Rows (records), Columns (variables), and Indexes. First-step inspection methods include df.head(n), df.tail(n), df.info() (memory, dtypes, null counts), and df.describe() (statistical distribution).",
+              "table": {
+                "headers": [
+                  "Inspection Method",
+                  "Output Summary",
+                  "Primary Data Use Case"
+                ],
+                "rows": [
+                  [
+                    "df.head(n)",
+                    "First n rows of DataFrame",
+                    "Quick visual structure check"
+                  ],
+                  [
+                    "df.info()",
+                    "Dtypes, memory, null counts",
+                    "Identify column types & missing values"
+                  ],
+                  [
+                    "df.describe()",
+                    "Mean, std, min, max, percentiles",
+                    "Numerical statistical distribution"
+                  ],
+                  [
+                    "df.shape",
+                    "(Rows, Columns) tuple",
+                    "Dataset dimensions verification"
+                  ]
+                ]
+              }
+            },
+            {
+              "heading": "18 - 23. File I/O Tools: CSV, JSON & Excel Data Sources",
+              "text": "Pandas supports file I/O: pd.read_csv() (with sep, usecols, parse_dates), pd.read_json(), and pd.read_excel() (with sheet_name). Processed data can be saved via df.to_csv('out.csv', index=False), df.to_json(), or df.to_excel().",
+              "table": {
+                "headers": [
+                  "Data Format",
+                  "Import Function",
+                  "Export Function",
+                  "Common Use Case"
+                ],
+                "rows": [
+                  [
+                    "CSV",
+                    "pd.read_csv('file.csv')",
+                    "df.to_csv('out.csv')",
+                    "Tabular log & database exports"
+                  ],
+                  [
+                    "JSON",
+                    "pd.read_json('file.json')",
+                    "df.to_json('out.json')",
+                    "Web API data payloads"
+                  ],
+                  [
+                    "Excel",
+                    "pd.read_excel('file.xlsx')",
+                    "df.to_excel('out.xlsx')",
+                    "Business spreadsheet reports"
+                  ]
+                ]
+              }
+            },
+            {
+              "heading": "24 - 27. Row & Column Selection: loc[] vs iloc[]",
+              "text": "Selecting a single column df['Name'] returns a Series; selecting multiple columns df[['Name', 'Score']] returns a DataFrame. df.loc[] performs label-based selection, while df.iloc[] performs position-based index selection."
+            },
+            {
+              "heading": "28 - 33. Multi-Condition Filtering & Data Sorting",
+              "text": "Filter rows using boolean conditions with parentheses: df[(df['Age'] > 20) & (df['Score'] > 80)]. Use df['City'].isin([...]) for multi-value matching, df.query() for string-based queries, and df.sort_values(by, ascending=False) for sorting."
+            },
+            {
+              "heading": "34 - 38. Column Transformations & Index Management",
+              "text": "Create calculated columns (df['Total'] = df['Price'] * df['Qty']), rename columns (df.rename(columns={...})), drop columns (df.drop(columns=[...])), and reset DataFrame indexes (df.reset_index(drop=True))."
+            },
+            {
+              "heading": "39 - 47. Data Cleaning: Missing Values, Duplicates & Datetime",
+              "text": "Detect missing data with df.isna().sum(). Handle nulls via df.dropna() or df.fillna(df['col'].mean()). Remove duplicates via df.drop_duplicates(). Convert dates using pd.to_datetime() and extract .dt.year, .dt.month, .dt.day. Apply custom functions using df['col'].apply(fn)."
+            },
+            {
+              "heading": "48 - 58. GroupBy, Aggregations, Merging & Pivot Tables",
+              "text": "Group data using df.groupby('Dept')['Salary'].agg(['mean', 'min', 'max']). Use transform() to broadcast group statistics back to original rows. Merge datasets via pd.merge(customers, orders, on='id', how='left') and build multi-dimensional summaries using pd.pivot_table() and pd.crosstab()."
+            },
+            {
+              "heading": "59 - 80. Analytics Workflow & Machine Learning Preparation",
+              "text": "Pandas acts as the bridge connecting raw messy files to Machine Learning models by separating predictor feature matrices (X = df[['Age', 'Income']]) and target labels (y = df['Target'])."
+            }
+          ],
+          "codeExamples": [
+            {
+              "title": "1. Complete Data Cleaning & Missing Value Processing",
+              "code": "import pandas as pd\nimport numpy as np\n\n# Raw messy dataset with nulls and duplicates\nraw_data = {\n    \"Customer\": [\"Alice\", \"Bob\", \"Charlie\", \"Alice\", \"David\"],\n    \"Age\": [22, np.nan, 24, 22, 29],\n    \"Score\": [85, 90, np.nan, 85, 78]\n}\ndf = pd.DataFrame(raw_data)\n\n# 1. Remove duplicate records\ndf = df.drop_duplicates()\n\n# 2. Impute missing numerical values with column medians\ndf[\"Age\"] = df[\"Age\"].fillna(df[\"Age\"].median())\ndf[\"Score\"] = df[\"Score\"].fillna(df[\"Score\"].mean())\nprint(\"Cleaned DataFrame:\\n\", df)",
+              "explanation": "Demonstrates deduplication and statistical null value imputation across DataFrame columns."
+            },
+            {
+              "title": "2. Multi-Group Data Aggregation & Pivot Table Analysis",
+              "code": "import pandas as pd\n\n# Retail sales dataset\nsales_data = {\n    \"Category\": [\"Grocery\", \"Grocery\", \"Natural\", \"Grocery\", \"Natural\"],\n    \"City\": [\"Bengaluru\", \"Mumbai\", \"Bengaluru\", \"Mumbai\", \"Bengaluru\"],\n    \"Sales\": [800, 1500, 750, 1050, 950]\n}\ndf = pd.DataFrame(sales_data)\n\n# GroupBy multi-aggregation\nsummary = df.groupby([\"Category\", \"City\"])[\"Sales\"].agg([\"sum\", \"mean\", \"count\"])\nprint(\"GroupBy Summary:\\n\", summary)\n\n# Pivot Table creation\npivot = pd.pivot_table(df, values=\"Sales\", index=\"Category\", columns=\"City\", aggfunc=\"sum\", fill_value=0)\nprint(\"\\nPivot Table:\\n\", pivot)",
+              "explanation": "Groups sales data by multiple categorical dimensions and calculates a cross-tabulated pivot table."
+            }
+          ],
+          "practiceExercise": {
+            "title": "Student Performance & Grade Analyzer",
+            "problem": "Given a DataFrame: df = pd.DataFrame({'Name': ['Alice', 'Bob', 'Charlie', 'David'], 'Math': [85, 72, 90, 65], 'Science': [88, 75, 92, 70]}), calculate an 'Average' column across Math & Science, filter students with Average > 80, and export result to a CSV format.",
+            "solutionCode": "import pandas as pd\ndf = pd.DataFrame({'Name': ['Alice', 'Bob', 'Charlie', 'David'], 'Math': [85, 72, 90, 65], 'Science': [88, 75, 92, 70]})\ndf['Average'] = df[['Math', 'Science']].mean(axis=1)\nhigh_performers = df[df['Average'] > 80]\nprint(\"High Performers:\\n\", high_performers)\n# high_performers.to_csv('high_performers.csv', index=False)"
+          },
+          "keyTakeaways": [
+            "Series (1D) and DataFrames (2D) are the core Pandas data structures for tabular data manipulation.",
+            "File I/O functions (read_csv, read_json, read_excel, to_csv) enable seamless ingestion and export.",
+            "Use loc[] for label-based selection and iloc[] for integer position selection.",
+            "Data cleaning tools (isna(), fillna(), dropna(), drop_duplicates()) ensure data quality before modeling.",
+            "GroupBy (.groupby()), multi-aggregations (.agg()), and Pivot Tables provide fast business intelligence summaries."
+          ],
+          "references": [
+            {
+              "title": "Official Pandas Documentation",
+              "url": "https://pandas.pydata.org/docs/user_guide/index.html"
+            },
+            {
+              "title": "Pandas 10-Minute Quickstart Guide",
+              "url": "https://pandas.pydata.org/docs/user_guide/10min.html"
+            }
+          ],
+          "mcqs": [
+            {
+              "id": 1,
+              "question": "What is the primary difference between a Pandas Series and a DataFrame?",
+              "options": [
+                "A Series is 1-dimensional; a DataFrame is 2-dimensional with rows and columns",
+                "A Series stores strings; a DataFrame stores only numbers",
+                "A DataFrame is 1D; a Series is 3D",
+                "There is no functional difference"
+              ],
+              "correctAnswer": 0,
+              "explanation": "A Pandas Series is a 1D labeled array; a DataFrame is a 2D tabular data structure with labeled rows and columns."
+            },
+            {
+              "id": 2,
+              "question": "What is the difference between `.loc[]` and `.iloc[]` in Pandas?",
+              "options": [
+                ".loc is index-position based; .iloc is label based",
+                ".loc is label/name based; .iloc is integer-position based",
+                ".loc only selects columns; .iloc only selects rows",
+                ".loc operates on Series; .iloc operates on DataFrames"
+              ],
+              "correctAnswer": 1,
+              "explanation": "`.loc[row_label, col_label]` uses explicit index labels, whereas `.iloc[row_pos, col_pos]` uses 0-indexed integer positions."
+            },
+            {
+              "id": 3,
+              "question": "Which Pandas function is best suited for aggregating data by categorical groups?",
+              "options": [
+                "df.pivot()",
+                "df.groupby()",
+                "df.merge()",
+                "df.sort_values()"
+              ],
+              "correctAnswer": 1,
+              "explanation": "`df.groupby('category').agg(...)` splits data into groups, applies functions (mean, sum), and combines results."
+            },
+            {
+              "id": 4,
+              "question": "Which join type retains only records with matching keys in BOTH DataFrames during a merge?",
+              "options": [
+                "Left Join",
+                "Right Join",
+                "Outer Join",
+                "Inner Join"
+              ],
+              "correctAnswer": 3,
+              "explanation": "An `inner` join matches keys present in both left and right DataFrames."
+            },
+            {
+              "id": 5,
+              "question": "What Pandas function reads a comma-separated text file directly into a DataFrame?",
+              "options": [
+                "pd.load_csv()",
+                "pd.read_csv()",
+                "pd.open_csv()",
+                "pd.parse_csv()"
+              ],
+              "correctAnswer": 1,
+              "explanation": "`pd.read_csv('filename.csv')` parses CSV files directly into Pandas DataFrames."
+            }
+          ]
+        }
+      },
+      {
+        "id": "ds-mod-5",
+        "title": "Module 05 \u0393\u00c7\u00f6 Data Cleaning and Preprocessing",
+        "description": "Handling missing values, duplicated records, outlier detection, data transformations, string operations, and data type casting.",
+        "completed": true,
+        "order": 5,
+        "published": true,
+        "readingMaterial": {
+          "introduction": "Data Cleaning and Preprocessing is one of the most critical stages in a Data Science and Machine Learning workflow. Real-world raw datasets are messy, incomplete, and noisy. They contain missing values, duplicate records, incorrect data types, extreme outliers, and inconsistent categorical strings. Preprocessing transforms raw unrefined data into high-quality, analysis-ready datasets for statistical modeling and predictive machine learning algorithms.",
+          "objectives": [
+            "Understand the essential role of data preprocessing in Machine Learning and analytical reliability",
+            "Detect and handle missing values (isna(), dropna(), mean/median/mode imputation, ffill, bfill)",
+            "Identify and eliminate duplicate records (duplicated(), drop_duplicates(subset=[...]))",
+            "Detect outliers using Interquartile Range (IQR = Q3 - Q1) and Z-score (Z = (x - mu) / sigma) methods",
+            "Perform safe data type conversion (astype(), pd.to_numeric(), pd.to_datetime())",
+            "Standardize inconsistent text (str.strip(), str.lower(), str.title(), str.replace(), str.contains())",
+            "Apply numerical transformations (log1p), Min-Max Normalization [0, 1], and Standard Scaler (Z-Score)",
+            "Prevent Data Leakage by fitting preprocessing pipelines (Scikit-Learn Pipeline & SimpleImputer) on training data only"
+          ],
+          "sections": [
+            {
+              "heading": "3 - 6. Why Data Cleaning Matters & Quality Inspection",
+              "text": "Garbage in, garbage out: poor quality data produces flawed statistical models and unreliable predictions. Initial data inspection involves df.shape, df.columns, df.dtypes, df.info(), and df.describe() to pinpoint missing values, wrong data types, and anomalies.",
+              "table": {
+                "headers": [
+                  "Data Quality Problem",
+                  "Example Scenario",
+                  "Primary Remediation Strategy"
+                ],
+                "rows": [
+                  [
+                    "Missing Values",
+                    "Age = NaN / Null",
+                    "Mean/Median Imputation or dropna()"
+                  ],
+                  [
+                    "Duplicate Records",
+                    "Same customer record twice",
+                    "df.drop_duplicates(subset=['ID'])"
+                  ],
+                  [
+                    "Invalid Values",
+                    "Age = -10 or Quantity = -5",
+                    "Domain validation filter or pd.NA"
+                  ],
+                  [
+                    "Outliers",
+                    "Salary = 50,000,000 in general staff",
+                    "IQR bounds or Z-Score capping"
+                  ],
+                  [
+                    "Inconsistent Strings",
+                    "'Bengaluru' vs 'bangalore'",
+                    "str.strip().str.title() & mapping"
+                  ],
+                  [
+                    "Wrong Data Types",
+                    "'25' stored as string object",
+                    "pd.to_numeric(errors='coerce')"
+                  ]
+                ]
+              }
+            },
+            {
+              "heading": "7 - 14. Missing Value Detection & Imputation Strategies",
+              "text": "Detect missing data with df.isna().sum() and percentage df.isna().mean() * 100. Drop missing values via df.dropna() or impute numerical values using column mean/median (df['Age'].fillna(df['Age'].median())). Categorical missing values use mode or 'Unknown'. Time-series data uses forward fill (ffill) or backward fill (bfill)."
+            },
+            {
+              "heading": "15 - 18. Duplicate Records & Logical Data Validation",
+              "text": "Identify duplicates via df.duplicated().sum() and eliminate them using df.drop_duplicates(subset=['ID']). Validate business logic (e.g. df[(df['Age'] < 0) | (df['Age'] > 120)]) to catch impossible data entries."
+            },
+            {
+              "heading": "19 - 24. Outlier Detection: IQR & Z-Score Methods",
+              "text": "An outlier is an observation unusually distant from other values. The IQR method calculates IQR = Q3 - Q1, defining lower bound Q1 - 1.5*IQR and upper bound Q3 + 1.5*IQR. The Z-Score method calculates Z = (x - mu) / sigma, flagging values with |Z| > 3. Strategies include keeping, log-transforming, capping (winsorizing), or dropping.",
+              "table": {
+                "headers": [
+                  "Detection Method",
+                  "Mathematical Formula",
+                  "Optimal Dataset Distribution"
+                ],
+                "rows": [
+                  [
+                    "IQR Method",
+                    "Q1 - 1.5*IQR to Q3 + 1.5*IQR",
+                    "Robust against skewed distributions & extreme values"
+                  ],
+                  [
+                    "Z-Score Method",
+                    "Z = (x - mu) / sigma (|Z| > 3)",
+                    "Approximately normally distributed Gaussian data"
+                  ],
+                  [
+                    "Domain Bounds",
+                    "Known business constraints (e.g. Age > 0)",
+                    "Fixed physical/logical rules"
+                  ]
+                ]
+              }
+            },
+            {
+              "heading": "25 - 29. Data Type Casting & Datetime Conversion",
+              "text": "Inspect dtypes via df.dtypes. Cast valid numbers using df['Col'].astype(int/float) or use pd.to_numeric(df['Col'], errors='coerce') to set invalid entries to NaN. Parse dates with pd.to_datetime(df['Date'], errors='coerce') and extract .dt.year, .dt.month, .dt.day."
+            },
+            {
+              "heading": "30 - 36. String Normalization & Categorical Cleaning",
+              "text": "Clean inconsistent text using pandas string accessors: .str.strip() (removes extra spaces), .str.title() / .str.lower(), .str.replace('old', 'new'), and .str.contains('pattern', na=False). Map synonyms using dict replacement (df['City'].replace({'Bangalore': 'Bengaluru'}))."
+            },
+            {
+              "heading": "37 - 41. Feature Scaling: Normalization vs Standardization",
+              "text": "Log transformation (np.log1p(x)) reduces right skewness. Min-Max Normalization scales values to [0, 1] using x' = (x - xmin)/(xmax - xmin). Standardization scales values to Mean=0 and StdDev=1 using Z = (x - mu)/sigma (StandardScaler).",
+              "table": {
+                "headers": [
+                  "Scaling Method",
+                  "Formula",
+                  "Output Range",
+                  "Machine Learning Relevance"
+                ],
+                "rows": [
+                  [
+                    "Min-Max Normalization",
+                    "(x - xmin) / (xmax - xmin)",
+                    "[0, 1]",
+                    "Algorithms bounded by scale (KNN, Neural Networks)"
+                  ],
+                  [
+                    "Standardization (Z-Score)",
+                    "(x - mu) / sigma",
+                    "Mean=0, StdDev=1",
+                    "Linear Models, SVMs, PCA, Logistic Regression"
+                  ],
+                  [
+                    "Log Transformation",
+                    "np.log1p(x)",
+                    "Unskewed continuous",
+                    "Heavy right-skewed data (Income, Revenue)"
+                  ]
+                ]
+              }
+            },
+            {
+              "heading": "50 - 54. Data Leakage & Scikit-Learn Pipelines",
+              "text": "Data leakage occurs when test set information influences training transformations. Avoid leakage by splitting dataset into train/test FIRST, then fitting imputers and scalers on train set ONLY, applying fitted transforms to test set. Scikit-Learn Pipeline([('imputer', SimpleImputer()), ('scaler', StandardScaler())]) automates this safely."
+            },
+            {
+              "heading": "55 - 60. Preprocessing Best Practices & Reference Formulas",
+              "text": "Always understand data before deleting records, preserve raw copies (df.copy()), validate after cleaning, document transformations, and prevent leakage."
+            }
+          ],
+          "codeExamples": [
+            {
+              "title": "1. End-to-End Data Cleaning Pipeline",
+              "code": "import pandas as pd\nimport numpy as np\n\n# Messy raw customer dataset\nraw_data = {\n    \"Name\": [\" Alice \", \"BOB\", \"alice\", \"Charlie\", \"David\"],\n    \"Age\": [25, 30, np.nan, 28, 150],\n    \"City\": [\"Bangalore\", \"HYDERABAD\", \"bangalore\", np.nan, \"Chennai\"],\n    \"Salary\": [50000, 60000, 55000, np.nan, 70000]\n}\ndf = pd.DataFrame(raw_data)\n\n# 1. Remove duplicates\ndf = df.drop_duplicates()\n\n# 2. Clean text fields\ndf[\"Name\"] = df[\"Name\"].str.strip().str.title()\ndf[\"City\"] = df[\"City\"].str.strip().str.title().replace({\"Bangalore\": \"Bengaluru\"})\n\n# 3. Validate age outliers (>120 -> NaN)\ndf.loc[(df[\"Age\"] < 0) | (df[\"Age\"] > 120), \"Age\"] = np.nan\n\n# 4. Impute missing numerical values with median\ndf[\"Age\"] = df[\"Age\"].fillna(df[\"Age\"].median())\ndf[\"Salary\"] = df[\"Salary\"].fillna(df[\"Salary\"].median())\ndf[\"City\"] = df[\"City\"].fillna(\"Unknown\")\n\nprint(\"Cleaned & Validated DataFrame:\\n\", df)",
+              "explanation": "Executes a complete 4-step data cleaning pipeline: deduplication, string standardization, outlier validation, and median imputation."
+            },
+            {
+              "title": "2. IQR Outlier Detection & Scikit-Learn Feature Scaling",
+              "code": "import pandas as pd\nimport numpy as np\nfrom sklearn.preprocessing import StandardScaler\n\n# Generate sample numerical distribution\ndata = pd.DataFrame({\"Salary\": [45000, 50000, 52000, 48000, 51000, 150000]})\n\n# Calculate IQR boundaries\nQ1 = data[\"Salary\"].quantile(0.25)\nQ3 = data[\"Salary\"].quantile(0.75)\nIQR = Q3 - Q1\nlower_bound = Q1 - 1.5 * IQR\nupper_bound = Q3 + 1.5 * IQR\n\noutliers = data[(data[\"Salary\"] < lower_bound) | (data[\"Salary\"] > upper_bound)]\nprint(\"Detected Outliers via IQR:\\n\", outliers)\n\n# Apply StandardScaler\nscaler = StandardScaler()\ndata[\"Salary_Scaled\"] = scaler.fit_transform(data[[\"Salary\"]])\nprint(\"\\nScaled Dataset:\\n\", data)",
+              "explanation": "Identifies statistical outliers via IQR method and standardizes feature values using Scikit-Learn StandardScaler."
+            }
+          ],
+          "practiceExercise": {
+            "title": "Messy Dataset Cleaning Challenge",
+            "problem": "Given a messy DataFrame with names ' john ', 'SARAH ', missing ages [25, NaN, 30], and salary string '$50000', clean string names to titlecase, impute age with median, strip '$' from salary, and convert salary to float.",
+            "solutionCode": "import pandas as pd, numpy as np\ndf = pd.DataFrame({'Name': [' john ', 'SARAH '], 'Age': [25, np.nan], 'Salary': ['$50000', '$60000']})\ndf['Name'] = df['Name'].str.strip().str.title()\ndf['Age'] = df['Age'].fillna(df['Age'].median())\ndf['Salary'] = df['Salary'].str.replace('$', '', regex=False).astype(float)\nprint(df)"
+          },
+          "keyTakeaways": [
+            "Data cleaning (imputation, deduplication, type casting) consumes 70% of a data scientist's workflow.",
+            "IQR (Q3-Q1) and Z-score methods identify statistical outliers without assuming rigid removal rules.",
+            "Text standardization (strip, title, replace) fixes inconsistent categorical representations.",
+            "Min-Max Normalization [0, 1] and Z-Score Standardization (Mean=0, StdDev=1) scale features appropriately.",
+            "Fit preprocessing transformations on training data ONLY to prevent catastrophic data leakage."
+          ],
+          "references": [
+            {
+              "title": "Scikit-Learn Preprocessing Guide",
+              "url": "https://scikit-learn.org/stable/modules/preprocessing.html"
+            },
+            {
+              "title": "Pandas Data Cleaning Best Practices",
+              "url": "https://pandas.pydata.org/docs/user_guide/missing_data.html"
+            }
+          ],
+          "mcqs": [
+            {
+              "id": 1,
+              "question": "What Pandas method drops rows or columns containing missing (NaN) values?",
+              "options": [
+                "df.remove_null()",
+                "df.dropna()",
+                "df.fillna()",
+                "df.clean_na()"
+              ],
+              "correctAnswer": 1,
+              "explanation": "`df.dropna(axis=0)` removes rows with missing values; `df.dropna(axis=1)` drops columns."
+            },
+            {
+              "id": 2,
+              "question": "What technique fills missing continuous numerical values with summary statistics (mean or median)?",
+              "options": [
+                "Data Normalization",
+                "Imputation",
+                "One-Hot Encoding",
+                "Outlier Trimming"
+              ],
+              "correctAnswer": 1,
+              "explanation": "Imputation replaces missing data values with substituted estimate values (mean, median, or mode)."
+            },
+            {
+              "id": 3,
+              "question": "Which IQR formula correctly identifies extreme low and high outliers?",
+              "options": [
+                "Low: Q1 - 1.5*IQR, High: Q3 + 1.5*IQR",
+                "Low: Mean - 2*Std, High: Mean + 2*Std",
+                "Low: Min - 1.5, High: Max + 1.5",
+                "Low: Q1 - 3*Q3, High: Q3 + 3*Q1"
+              ],
+              "correctAnswer": 0,
+              "explanation": "Tukey's fences define outliers as data points below Q1 - 1.5*IQR or above Q3 + 1.5*IQR."
+            },
+            {
+              "id": 4,
+              "question": "What happens when `df.duplicated()` is called without arguments?",
+              "options": [
+                "Deletes all duplicate rows automatically",
+                "Returns a boolean Series identifying identical duplicate rows",
+                "Returns the total count of missing values",
+                "Sorts the DataFrame by duplicate keys"
+              ],
+              "correctAnswer": 1,
+              "explanation": "`df.duplicated()` returns True for duplicate rows; `df.drop_duplicates()` removes them."
+            },
+            {
+              "id": 5,
+              "question": "Why should duplicate data records be evaluated carefully before removal?",
+              "options": [
+                "Duplicates increase database storage limits automatically",
+                "Repeated rows may represent legitimate identical transactions rather than accidental data errors",
+                "Duplicate rows cause Python syntax errors during runtime",
+                "Duplicates automatically transform numerical columns into string objects"
+              ],
+              "correctAnswer": 1,
+              "explanation": "Some datasets legitimately contain identical repeated measurements; removing them blindly distorts real probability distributions."
+            }
+          ]
+        }
+      },
+      {
+        "id": "m6",
+        "title": "Module 06 \u0393\u00c7\u00f6 Data Visualization (Matplotlib & Seaborn)",
+        "description": "Creating line plots, bar charts, scatter plots, histograms, heatmaps, box plots, and customizing plots for data storytelling.",
+        "completed": true,
+        "readingMaterial": {
+          "introduction": "Data Visualization is the process of representing data graphically so that patterns, trends, relationships, distributions, and anomalies can be understood instantly. In Data Science and Machine Learning, visualization plays an essential role in Exploratory Data Analysis (EDA), statistical validation, model evaluation, and business decision-making. Matplotlib provides foundational low-level chart control, while Seaborn offers high-level statistical plotting integrated directly with Pandas DataFrames.",
+          "objectives": [
+            "Understand the role of data visualization in Data Science and Exploratory Data Analysis (EDA)",
+            "Master Matplotlib pyplot workflows, figure sizing, custom axes, legends, and annotations",
+            "Master Seaborn statistical visualizations (scatter plots, line plots, bar charts, count plots, box plots, violin plots, heatmaps, and pair plots)",
+            "Create and interpret Line Plots, Bar Charts, Scatter Plots, Histograms (with KDE), Box Plots, and Heatmaps",
+            "Customize chart titles, axis labels, legends, grid lines, label rotation, and figure dimensions",
+            "Construct multi-panel layout dashboards using Matplotlib plt.subplots()",
+            "Export high-resolution raster images (PNG 300 DPI) and vector graphics (SVG format) for web and publication",
+            "Apply Data Storytelling principles to select the optimal chart for specific analytical questions and business insights"
+          ],
+          "sections": [
+            {
+              "heading": "1 - 4. Overview, Objectives & Chart Selection Matrix",
+              "text": "Data Visualization transforms raw numbers into intuitive visual insights. Choosing the right visualization depends on the data type and the specific analytical question being asked.",
+              "table": {
+                "headers": [
+                  "Chart Type",
+                  "Primary Purpose",
+                  "Best Use Case Scenario",
+                  "Recommended Library"
+                ],
+                "rows": [
+                  [
+                    "Line Plot",
+                    "Trends over continuous sequence",
+                    "Monthly revenue, stock prices, time series",
+                    "Matplotlib / Seaborn"
+                  ],
+                  [
+                    "Bar Chart",
+                    "Compare discrete categories",
+                    "Category sales, regional performance, counts",
+                    "Matplotlib / Seaborn"
+                  ],
+                  [
+                    "Scatter Plot",
+                    "Relationship between 2 variables",
+                    "Height vs Weight, Study hours vs Score",
+                    "Matplotlib / Seaborn"
+                  ],
+                  [
+                    "Histogram",
+                    "Distribution & frequency of continuous data",
+                    "Age distribution, income spread, exam marks",
+                    "Matplotlib / Seaborn"
+                  ],
+                  [
+                    "Box Plot",
+                    "Distribution, median, quartiles & outliers",
+                    "Salary distribution by department, anomaly checks",
+                    "Matplotlib / Seaborn"
+                  ],
+                  [
+                    "Heatmap",
+                    "Matrix intensity & feature correlation",
+                    "Correlation matrices, confusion matrices",
+                    "Seaborn"
+                  ],
+                  [
+                    "Violin Plot",
+                    "Distribution shape + Box plot summary",
+                    "Detailed category distribution comparison",
+                    "Seaborn"
+                  ],
+                  [
+                    "Count Plot",
+                    "Frequency count of categorical variables",
+                    "Employees per department, survey choices",
+                    "Seaborn"
+                  ],
+                  [
+                    "Pair Plot",
+                    "Pairwise numerical relationships across dataset",
+                    "Multi-variable Exploratory Data Analysis (EDA)",
+                    "Seaborn"
+                  ]
+                ]
+              }
+            },
+            {
+              "heading": "5 - 13. Matplotlib Fundamentals: Workflow, Figure Sizing & Categorical Charts",
+              "text": "Matplotlib is Python's core plotting library imported via `import matplotlib.pyplot as plt`. A typical workflow involves creating a figure (`plt.figure(figsize=(10, 6))`), plotting data (`plt.plot()`, `plt.bar()`, `plt.barh()`), adding titles (`plt.title()`), labels (`plt.xlabel()`, `plt.ylabel()`), legends (`plt.legend()`), and displaying (`plt.show()`). Grouped bar charts use `numpy.arange()` to offset bar positions cleanly."
+            },
+            {
+              "heading": "14 - 19. Scatter Plots, Histograms & Box Plot Outlier Analysis",
+              "text": "Scatter plots reveal positive, negative, non-linear, or clustered relationships between numerical variables. Histograms divide numerical data into continuous interval 'bins' to highlight data skewness and central tendency. Box plots summarize key distribution metrics: minimum, Q1 (25th percentile), median (50th percentile), Q3 (75th percentile), maximum (whiskers = 1.5 * IQR), and individual statistical outliers plotted beyond whiskers."
+            },
+            {
+              "heading": "20 - 22. Heatmaps & Correlation Matrix Analysis",
+              "text": "Heatmaps map numerical matrix values to color intensities. Calculating correlation via `df.corr(numeric_only=True)` produces values between -1.0 (strong negative linear relationship), 0.0 (no linear relationship), and +1.0 (strong positive linear relationship). Seaborn's `sns.heatmap(correlation, annot=True)` displays formatted correlation values cleanly."
+            },
+            {
+              "heading": "23 - 34. Seaborn Statistical Plotting Library",
+              "text": "Seaborn builds on top of Matplotlib and integrates directly with Pandas DataFrames. It simplifies adding categorical variables via the `hue` parameter (`sns.scatterplot(data=df, x='Age', y='Salary', hue='Department')`), overlaying Kernel Density Estimation (KDE) curves on histograms (`sns.histplot(kde=True)`), comparing category distributions via Violin Plots (`sns.violinplot()`), and generating dataset-wide pairwise relationships using `sns.pairplot(df)`.",
+              "table": {
+                "headers": [
+                  "Seaborn Function",
+                  "Input Arguments",
+                  "Visual Output Description"
+                ],
+                "rows": [
+                  [
+                    "sns.scatterplot()",
+                    "data=df, x, y, hue",
+                    "Scatter plot color-coded by categorical group"
+                  ],
+                  [
+                    "sns.lineplot()",
+                    "data=df, x, y, hue",
+                    "Line chart with automated confidence intervals"
+                  ],
+                  [
+                    "sns.barplot()",
+                    "data=df, x, y, estimator",
+                    "Bar chart showing category mean / summary statistic"
+                  ],
+                  [
+                    "sns.countplot()",
+                    "data=df, x or y",
+                    "Bar chart showing total row counts per category"
+                  ],
+                  [
+                    "sns.histplot()",
+                    "data=df, x, bins, kde=True",
+                    "Histogram with smooth Kernel Density Estimation curve"
+                  ],
+                  [
+                    "sns.boxplot()",
+                    "data=df, x, y, hue",
+                    "Category-wise box plots for outlier comparison"
+                  ],
+                  [
+                    "sns.violinplot()",
+                    "data=df, x, y",
+                    "KDE distribution shape merged with box plot markers"
+                  ],
+                  [
+                    "sns.heatmap()",
+                    "data=corr, annot=True, fmt='.2f'",
+                    "Color-coded correlation / matrix grid with text values"
+                  ],
+                  [
+                    "sns.pairplot()",
+                    "data=df, hue",
+                    "Matrix of scatter plots and histograms for all numerical features"
+                  ]
+                ]
+              }
+            },
+            {
+              "heading": "35 - 43. Chart Customization, Subplots & Vector SVG Export",
+              "text": "Customization enhances clarity and presentation quality. Set descriptive titles (`plt.title('Monthly Sales Trend \u0393\u00c7\u00f6 2026', fontsize=16)`), label axes (`plt.xlabel()`), add subtle grid lines (`plt.grid(True, alpha=0.3)`), rotate long x-axis ticks (`plt.xticks(rotation=45, ha='right')`), annotate critical data points (`plt.annotate()`), and create multi-chart layouts using `fig, axes = plt.subplots(2, 2, figsize=(10, 8))`. Save plots cleanly as PNG (`plt.savefig('chart.png', dpi=300, bbox_inches='tight')`) or vector graphics (`plt.savefig('chart.svg', format='svg')`)."
+            },
+            {
+              "heading": "44 - 48. Data Storytelling & Chart Selection Workflow",
+              "text": "Data Storytelling connects data to business insights through a structured workflow: Question -> Data -> Visualization -> Pattern -> Interpretation -> Insight. Use SVG diagrams below to guide visualization selection."
+            },
+            {
+              "heading": "49 - 53. Visualization Best Practices, Mistakes & Library Comparison",
+              "text": "Adhere to best practices: keep charts simple, use descriptive titles, label all axes, avoid visual clutter, preserve accurate scale baseline, and avoid misleading pie charts or missing legends.",
+              "table": {
+                "headers": [
+                  "Feature / Dimension",
+                  "Matplotlib",
+                  "Seaborn"
+                ],
+                "rows": [
+                  [
+                    "Abstraction Level",
+                    "Low-level explicit canvas & elements",
+                    "High-level statistical abstractions"
+                  ],
+                  [
+                    "Pandas Integration",
+                    "Requires manual series passing",
+                    "Native DataFrame integration (`data=df`)"
+                  ],
+                  [
+                    "Statistical Estimation",
+                    "Manual calculation required",
+                    "Automated (means, CI, KDE, aggregations)"
+                  ],
+                  [
+                    "Default Aesthetic",
+                    "Basic standard styling",
+                    "Modern curated themes & color palettes"
+                  ],
+                  [
+                    "Customization Depth",
+                    "Complete pixel-level control",
+                    "Customizable directly or via underlying Matplotlib axes"
+                  ]
+                ]
+              }
+            },
+            {
+              "heading": "54 - 58. Practice Exercises, Interview Preparation & Mini Project",
+              "text": "Practice exercises include building line plots, grouped bar charts, correlation heatmaps, multi-panel subplots, and exporting publication-quality SVG files. Mini project involves conducting full EDA visualization on a 7-column sales dataset."
+            }
+          ],
+          "codeExamples": [
+            {
+              "title": "1. Complete Matplotlib Multi-Panel Subplot Dashboard",
+              "code": "import matplotlib.pyplot as plt\nimport numpy as np\n\n# Sample dataset\nmonths = [\"Jan\", \"Feb\", \"Mar\", \"Apr\", \"May\", \"Jun\"]\nsales = [12000, 15000, 14000, 18000, 21000, 24000]\ncategories = [\"Fruits\", \"Veggies\", \"Oils\", \"Spices\"]\ncat_sales = [250, 320, 180, 270]\nages = [21, 22, 23, 25, 26, 27, 29, 30, 31, 32, 35, 36, 38, 40]\n\n# Create 2x2 Subplots figure\nfig, axes = plt.subplots(2, 2, figsize=(12, 10))\n\n# Subplot 1: Line Plot\naxes[0, 0].plot(months, sales, marker=\"o\", color=\"#0284c7\", linestyle=\"--\")\naxes[0, 0].set_title(\"Monthly Sales Trend\", fontsize=12)\naxes[0, 0].set_xlabel(\"Month\")\naxes[0, 0].set_ylabel(\"Sales (\u0393\u00e9\u2563)\")\naxes[0, 0].grid(True, alpha=0.3)\n\n# Subplot 2: Bar Chart\naxes[0, 1].bar(categories, cat_sales, color=\"#10b981\")\naxes[0, 1].set_title(\"Category Sales Comparison\", fontsize=12)\naxes[0, 1].set_xlabel(\"Category\")\naxes[0, 1].set_ylabel(\"Units Sold\")\n\n# Subplot 3: Histogram\naxes[1, 0].hist(ages, bins=5, color=\"#f59e0b\", edgecolor=\"black\")\naxes[1, 0].set_title(\"Age Distribution\", fontsize=12)\naxes[1, 0].set_xlabel(\"Age Group\")\naxes[1, 0].set_ylabel(\"Frequency\")\n\n# Subplot 4: Box Plot\naxes[1, 1].boxplot(sales, patch_artist=True, boxprops=dict(facecolor=\"#8b5cf6\"))\naxes[1, 1].set_title(\"Sales Outlier Distribution\", fontsize=12)\naxes[1, 1].set_ylabel(\"Sales (\u0393\u00e9\u2563)\")\n\nplt.tight_layout()\nplt.savefig(\"dashboard.png\", dpi=300, bbox_inches=\"tight\")\nplt.show()",
+              "explanation": "Creates a 2x2 grid dashboard using plt.subplots(), styling 4 distinct plot types, setting labels, grids, layout formatting, and exporting to PNG."
+            },
+            {
+              "title": "2. Seaborn Statistical EDA Pipeline & Correlation Heatmap",
+              "code": "import pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Sample DataFrame\ndata = {\n    \"Age\": [25, 30, 35, 40, 45, 50, 55, 60],\n    \"Salary\": [45000, 52000, 61000, 68000, 75000, 83000, 92000, 105000],\n    \"Experience\": [2, 5, 8, 12, 15, 18, 22, 25],\n    \"Department\": [\"IT\", \"HR\", \"IT\", \"Finance\", \"IT\", \"Finance\", \"HR\", \"IT\"]\n}\ndf = pd.DataFrame(data)\n\n# 1. Scatter plot with hue and linear regression fit\nplt.figure(figsize=(8, 5))\nsns.scatterplot(data=df, x=\"Experience\", y=\"Salary\", hue=\"Department\", s=100)\nplt.title(\"Experience vs Salary by Department\", fontsize=14)\nplt.grid(True, alpha=0.3)\nplt.show()\n\n# 2. Correlation Matrix Heatmap\nplt.figure(figsize=(7, 5))\ncorrelation = df[[\"Age\", \"Salary\", \"Experience\"]].corr()\nsns.heatmap(correlation, annot=True, cmap=\"Blues\", fmt=\".2f\", linewidths=1)\nplt.title(\"Numerical Feature Correlation Matrix\", fontsize=14)\nplt.show()",
+              "explanation": "Demonstrates Seaborn integration with Pandas DataFrames to visualize multi-category scatter relationships and plot formatted correlation heatmaps."
+            }
+          ],
+          "bestPractices": [
+            "Keep charts simple and uncluttered \u0393\u00c7\u00f6 let the data speak clearly without unnecessary decorations",
+            "Always provide clear, descriptive titles and explicit axis labels with units (e.g. Sales in \u0393\u00e9\u2563)",
+            "Add legends whenever plotting multiple series or hue categories to eliminate ambiguity",
+            "Use subtle grid lines (alpha=0.3) to aid visual estimation without distracting from data trends",
+            "Rotate long categorical labels (plt.xticks(rotation=45, ha='right')) to prevent overlapping text",
+            "Choose colormaps thoughtfully (e.g. sequential gradients for heatmaps, qualitative palettes for categories)",
+            "Always inspect and handle outliers before interpreting distribution metrics",
+            "Export charts in vector SVG format for scalable web rendering and publication graphics"
+          ],
+          "commonMistakes": [
+            "Using pie charts for datasets with many categories, making part-to-whole visual judgment inaccurate",
+            "Omitting axis labels or chart titles, rendering visualizations ambiguous to viewers",
+            "Truncating or manipulating y-axis scales, creating deceptive visual distortions of underlying values",
+            "Overplotting dense datasets without adding transparency (alpha) or sample aggregation",
+            "Attempting to present too many variables in a single crowded chart instead of using subplots",
+            "Assuming statistical correlation implies direct causality between two variables"
+          ],
+          "practiceExercise": {
+            "instructions": "Perform a complete Data Visualization workflow on a multi-category sales dataset using Matplotlib and Seaborn.",
+            "tasks": [
+              "1. Create a line plot displaying monthly revenue trends with custom markers ('o'), dashed line style ('--'), and annotated peak sales point.",
+              "2. Build a grouped bar chart comparing sales across 4 product categories for 2025 vs 2026 using np.arange() offsets.",
+              "3. Generate a Seaborn histplot with an overlaid KDE curve to inspect order amount distributions.",
+              "4. Calculate a feature correlation matrix (df.corr()) and render a Seaborn heatmap with numerical annotations (annot=True, fmt='.2f').",
+              "5. Assemble a 2x2 subplot dashboard and save the final figure as both a high-resolution PNG (300 DPI) and scalable SVG file."
+            ]
+          },
+          "keyTakeaways": [
+            "Data Visualization transforms raw numbers into intuitive graphical evidence for EDA, modeling, and business reporting.",
+            "Matplotlib provides detailed low-level figure control, canvas customization, and subplot layouts.",
+            "Seaborn delivers high-level statistical functions (scatter with hue, boxplot, violinplot, pairplot, heatmap) that integrate seamlessly with Pandas DataFrames.",
+            "Effective chart selection is essential: Line Plots for time trends, Bar Charts for category comparison, Scatter Plots for relationships, Histograms/Box Plots for distributions, and Heatmaps for matrix correlations.",
+            "Data Storytelling connects technical charts to actionable insights, driving evidence-based decision making."
+          ],
+          "references": [
+            {
+              "title": "Matplotlib Official Documentation",
+              "url": "https://matplotlib.org/stable/contents.html"
+            },
+            {
+              "title": "Seaborn Official Documentation",
+              "url": "https://seaborn.pydata.org/"
+            }
+          ],
+          "mcqs": [
+            {
+              "id": 1,
+              "question": "Which plot type is most appropriate for visualizing continuous numerical distributions and detecting skewness?",
+              "options": [
+                "Scatter Plot",
+                "Histogram",
+                "Pie Chart",
+                "Line Plot"
+              ],
+              "correctAnswer": 1,
+              "explanation": "Histograms divide continuous values into discrete bins to show frequency distribution and skewness."
+            },
+            {
+              "id": 2,
+              "question": "What type of chart is ideal for exploring bivariate relationships and correlations between two continuous variables?",
+              "options": [
+                "Bar Chart",
+                "Scatter Plot",
+                "Box Plot",
+                "Heatmap"
+              ],
+              "correctAnswer": 1,
+              "explanation": "Scatter plots plot individual data points along X and Y axes to display relationships and clusters."
+            },
+            {
+              "id": 3,
+              "question": "In Seaborn, what parameter adds a third categorical dimension to plots by color-coding data points?",
+              "options": [
+                "color_map",
+                "hue",
+                "category_color",
+                "palette_id"
+              ],
+              "correctAnswer": 1,
+              "explanation": "The hue parameter in Seaborn groups data points by a categorical variable using distinct color hues."
+            },
+            {
+              "id": 4,
+              "question": "What Matplotlib component represents five-number summaries (Min, Q1, Median, Q3, Max) and highlights outliers?",
+              "options": [
+                "Bar Graph",
+                "Violin Plot",
+                "Box Plot",
+                "Area Chart"
+              ],
+              "correctAnswer": 2,
+              "explanation": "Box plots visualize quartiles (Q1, Q2, Q3), whiskers, and individual outlier points."
+            },
+            {
+              "id": 5,
+              "question": "Which chart effectively displays correlation matrices across many numerical variables in Seaborn?",
+              "options": [
+                "sns.heatmap()",
+                "sns.barplot()",
+                "sns.lineplot()",
+                "sns.countplot()"
+              ],
+              "correctAnswer": 0,
+              "explanation": "`sns.heatmap(df.corr(), annot=True)` renders color-coded matrices showing pairwise correlation coefficients."
+            }
+          ]
+        },
+        "order": 6,
+        "published": true
+      },
+      {
+        "id": "ds-mod-7",
+        "title": "Module 07 \u0393\u00c7\u00f6 Statistics & Probability Fundamentals",
+        "description": "Descriptive statistics (mean, median, std dev, variance), probability distributions, hypothesis testing, p-values, and confidence intervals.",
+        "completed": true,
+        "readingMaterial": {
+          "introduction": "Statistics and Probability form the mathematical bedrock of Data Science and Machine Learning. Statistics provides methods to summarize, analyze, and infer patterns from data, while probability offers a quantitative framework for reasoning under uncertainty. These concepts enable data scientists to evaluate sample metrics, perform hypothesis testing, assess p-values, and quantify prediction confidence intervals.",
+          "objectives": [
+            "Differentiate population parameters (\u256c\u255d, \u2567\u00e2) from sample statistics (x\u2560\u00e4, s)",
+            "Calculate measures of central tendency (Mean, Median, Mode) and dispersion (Range, Variance, Standard Deviation, IQR, Percentiles)",
+            "Master Probability Fundamentals, Sample Spaces, Conditional Probability, and Bayes' Theorem",
+            "Analyze Discrete (Bernoulli, Binomial, Poisson) and Continuous (Normal, Uniform) Probability Distributions",
+            "Apply the Empirical 68-95-99.7 Rule, Z-scores, and the Central Limit Theorem (CLT)",
+            "Formulate Statistical Hypotheses (Null H\u0393\u00e9\u00c7 vs Alternative H\u0393\u00e9\u00fc) and evaluate Significance Levels (\u256c\u2592 = 0.05)",
+            "Interpret P-Values, calculate Confidence Intervals, and prevent Type I (False Positive) & Type II (False Negative) errors",
+            "Perform Hypothesis Tests in Python using SciPy (One-Sample t-test, Independent 2-Sample t-test, Paired t-test, Chi-Square test, ANOVA)"
+          ],
+          "sections": [
+            {
+              "heading": "1 - 6. Overview, Objectives & Population vs Sample Fundamentals",
+              "text": "Statistics is divided into Descriptive Statistics (summarizing observed data) and Inferential Statistics (drawing population conclusions from sample data). A population includes all individuals of interest, while a sample is a representative subset used for analysis.",
+              "table": {
+                "headers": [
+                  "Statistical Concept",
+                  "Population Metric",
+                  "Sample Metric",
+                  "Python Function"
+                ],
+                "rows": [
+                  [
+                    "Mean (Average)",
+                    "\u256c\u255d (Mu)",
+                    "x\u2560\u00e4 (x-bar)",
+                    "np.mean(x) / df['col'].mean()"
+                  ],
+                  [
+                    "Variance",
+                    "\u2567\u00e2\u252c\u2593 (Sigma squared)",
+                    "s\u252c\u2593 (Sample variance)",
+                    "np.var(x, ddof=1)"
+                  ],
+                  [
+                    "Standard Deviation",
+                    "\u2567\u00e2 (Sigma)",
+                    "s (Sample std dev)",
+                    "np.std(x, ddof=1)"
+                  ],
+                  [
+                    "Size / Count",
+                    "N (Total population size)",
+                    "n (Sample subset size)",
+                    "len(x) / count()"
+                  ],
+                  [
+                    "Proportion",
+                    "P",
+                    "p\u2560\u00e9 (p-hat)",
+                    "df['col'].value_counts(normalize=True)"
+                  ]
+                ]
+              }
+            },
+            {
+              "heading": "7 - 14. Measures of Central Tendency: Mean, Median & Mode",
+              "text": "Central tendency describes the central value of a distribution. Arithmetic Mean (\u256c\u255d = \u256c\u00fax / N) is best for symmetric data without extreme values. Median (middle value of sorted data) is robust against outliers and heavily skewed data (such as income or housing prices). Mode is the most frequent value, suitable for categorical features.",
+              "table": {
+                "headers": [
+                  "Measure",
+                  "Mathematical Formula / Rule",
+                  "Optimal Data Scenario",
+                  "Sensitivity to Outliers"
+                ],
+                "rows": [
+                  [
+                    "Mean",
+                    "\u256c\u255d = \u256c\u00fa x_i / N",
+                    "Symmetric numerical data",
+                    "High (strongly shifted by extreme values)"
+                  ],
+                  [
+                    "Median",
+                    "Middle element of ordered sequence",
+                    "Skewed continuous data (Income, Sales)",
+                    "Low (robust metric)"
+                  ],
+                  [
+                    "Mode",
+                    "Most frequent observation",
+                    "Categorical strings or discrete metrics",
+                    "None"
+                  ]
+                ]
+              }
+            },
+            {
+              "heading": "15 - 23. Measures of Dispersion, IQR & Percentiles",
+              "text": "Dispersion measures data spread. Range = Max - Min. Population Variance \u2567\u00e2\u252c\u2593 = \u256c\u00fa(x - \u256c\u255d)\u252c\u2593 / N, while Sample Variance s\u252c\u2593 = \u256c\u00fa(x - x\u2560\u00e4)\u252c\u2593 / (n - 1) uses Bessel's correction (n - 1). Standard deviation s = \u0393\u00ea\u00dcs\u252c\u2593 returns spread in original units. The Interquartile Range IQR = Q3 - Q1 measures middle 50% spread. Percentiles indicate values below which a specified percentage of observations fall."
+            },
+            {
+              "heading": "24 - 32. Probability Theory, Conditional Probability & Bayes' Theorem",
+              "text": "Probability ranges between 0.0 (impossible) and 1.0 (certain). Addition rule: P(A \u0393\u00ea\u00ac B) = P(A) + P(B) - P(A \u0393\u00ea\u2310 B). Conditional probability: P(A|B) = P(A \u0393\u00ea\u2310 B) / P(B). Bayes' Theorem allows updating prior probabilities based on new evidence: P(A|B) = [P(B|A) * P(A)] / P(B), forming the basis for Naive Bayes classification and medical diagnostics."
+            },
+            {
+              "heading": "33 - 42. Probability Distributions: Discrete & Continuous",
+              "text": "Discrete variables take countable values (Bernoulli, Binomial P(X=k) = (n k) p^k (1-p)^(n-k), Poisson). Continuous variables take real-valued intervals (Uniform, Normal Distribution). The Normal Distribution is symmetric around mean \u256c\u255d. The Empirical Rule states ~68% of data falls within \u256c\u255d \u252c\u2592 1\u2567\u00e2, ~95% within \u256c\u255d \u252c\u2592 2\u2567\u00e2, and ~99.7% within \u256c\u255d \u252c\u2592 3\u2567\u00e2. Z-Score z = (x - \u256c\u255d) / \u2567\u00e2 standardizes observations.",
+              "table": {
+                "headers": [
+                  "Distribution Name",
+                  "Variable Type",
+                  "Key Parameters",
+                  "Real-World Application"
+                ],
+                "rows": [
+                  [
+                    "Bernoulli",
+                    "Discrete binary",
+                    "p (success probability)",
+                    "Single coin toss, single click (1/0)"
+                  ],
+                  [
+                    "Binomial",
+                    "Discrete count",
+                    "n (trials), p (probability)",
+                    "Number of conversions out of 100 users"
+                  ],
+                  [
+                    "Poisson",
+                    "Discrete rate",
+                    "\u256c\u2557 (average rate per interval)",
+                    "Website traffic requests per minute"
+                  ],
+                  [
+                    "Continuous Uniform",
+                    "Continuous interval",
+                    "a (min), b (max)",
+                    "Random number generator between [0, 1]"
+                  ],
+                  [
+                    "Normal (Gaussian)",
+                    "Continuous bell-curve",
+                    "\u256c\u255d (mean), \u2567\u00e2 (std dev)",
+                    "Heights, exam scores, measurement errors"
+                  ],
+                  [
+                    "Standard Normal",
+                    "Continuous (Z)",
+                    "\u256c\u255d = 0, \u2567\u00e2 = 1",
+                    "Z-score hypothesis testing baseline"
+                  ]
+                ]
+              }
+            },
+            {
+              "heading": "43 - 46. Central Limit Theorem (CLT) & Standard Error",
+              "text": "The Central Limit Theorem (CLT) states that as sample size n increases (typically n \u0393\u00eb\u00d1 30), the sampling distribution of the sample mean x\u2560\u00e4 approaches a normal distribution, regardless of the population distribution shape. The Standard Error of the mean SE = s / \u0393\u00ea\u00dcn measures sample mean variability."
+            },
+            {
+              "heading": "47 - 54. Hypothesis Testing Framework & Error Analysis",
+              "text": "Hypothesis testing evaluates claims: Null Hypothesis H\u0393\u00e9\u00c7 (no effect/difference) vs Alternative Hypothesis H\u0393\u00e9\u00fc (significant effect). Significance level \u256c\u2592 (commonly 0.05) sets the risk threshold for Type I error (rejecting true H\u0393\u00e9\u00c7 / false positive). Type II error \u256c\u2593 represents failing to reject false H\u0393\u00e9\u00c7 (false negative). Power = 1 - \u256c\u2593.",
+              "table": {
+                "headers": [
+                  "Statistical Decision",
+                  "H\u0393\u00e9\u00c7 is True in Reality",
+                  "H\u0393\u00e9\u00c7 is False in Reality"
+                ],
+                "rows": [
+                  [
+                    "Reject H\u0393\u00e9\u00c7",
+                    "Type I Error (False Positive, \u256c\u2592)",
+                    "Correct Decision (True Positive, 1 - \u256c\u2593)"
+                  ],
+                  [
+                    "Fail to Reject H\u0393\u00e9\u00c7",
+                    "Correct Decision (True Negative, 1 - \u256c\u2592)",
+                    "Type II Error (False Negative, \u256c\u2593)"
+                  ]
+                ]
+              }
+            },
+            {
+              "heading": "55 - 58. Confidence Intervals & Parameter Estimation",
+              "text": "A 95% Confidence Interval provides a range of plausible values for a population mean: x\u2560\u00e4 \u252c\u2592 z* (s / \u0393\u00ea\u00dcn). If sampling is repeated 95% of constructed intervals contain true population mean \u256c\u255d. Prediction intervals account for individual variance and are wider than confidence intervals."
+            },
+            {
+              "heading": "59 - 63. Common Statistical Tests & SciPy Implementations",
+              "text": "Choose appropriate tests based on variables: One-sample t-test (compare sample mean to value), Independent 2-sample t-test (compare 2 groups), Paired t-test (before vs after), Chi-Square test (categorical independence), and One-Way ANOVA (compare 3+ group means).",
+              "table": {
+                "headers": [
+                  "Statistical Test",
+                  "Scipy Function Call",
+                  "Data Condition / Requirement"
+                ],
+                "rows": [
+                  [
+                    "1-Sample t-test",
+                    "scipy.stats.ttest_1samp(data, popmean)",
+                    "Compare sample mean to known reference value"
+                  ],
+                  [
+                    "Independent 2-Sample t-test",
+                    "scipy.stats.ttest_ind(group1, group2)",
+                    "Compare continuous means of 2 independent groups"
+                  ],
+                  [
+                    "Paired t-test",
+                    "scipy.stats.ttest_rel(before, after)",
+                    "Compare matched pairs (pre-test vs post-test)"
+                  ],
+                  [
+                    "Chi-Square Test",
+                    "scipy.stats.chi2_contingency(table)",
+                    "Analyze association between 2 categorical variables"
+                  ],
+                  [
+                    "One-Way ANOVA",
+                    "scipy.stats.f_oneway(g1, g2, g3)",
+                    "Compare continuous means across 3+ independent groups"
+                  ]
+                ]
+              }
+            }
+          ],
+          "codeExamples": [
+            {
+              "title": "1. Descriptive Statistics, Z-Scores & Quartile Analysis in Python",
+              "code": "import numpy as np\nimport pandas as pd\nfrom scipy import stats\n\n# Sample continuous dataset (e.g. Daily Customer Spend in \u0393\u00e9\u2563)\nspend = [100, 120, 115, 95, 250, 300, 110, 105, 125, 130, 990]\n\n# 1. Central Tendency & Dispersion\nmean_val = np.mean(spend)\nmedian_val = np.median(spend)\nvar_val = np.var(spend, ddof=1) # Sample variance\nstd_val = np.std(spend, ddof=1)   # Sample standard deviation\n\n# 2. Quartiles & IQR\nQ1 = np.percentile(spend, 25)\nQ3 = np.percentile(spend, 75)\nIQR = Q3 - Q1\n\n# 3. Z-Score Outlier Flagging\nz_scores = stats.zscore(spend)\noutliers = [val for val, z in zip(spend, z_scores) if abs(z) > 2.0]\n\nprint(f\"Mean: {mean_val:.2f}, Median: {median_val:.2f}\")\nprint(f\"Std Dev: {std_val:.2f}, IQR: {IQR:.2f}\")\nprint(f\"Flagged Outliers (|Z| > 2.0): {outliers}\")",
+              "explanation": "Calculates sample mean, median, sample variance, standard deviation, IQR, and flags extreme outliers using SciPy zscore."
+            },
+            {
+              "title": "2. Hypothesis Testing Pipeline with SciPy (t-test & Chi-Square)",
+              "code": "from scipy import stats\nimport pandas as pd\n\n# Scenario 1: Independent 2-Sample t-test (Mobile vs Desktop Conversion spend)\nmobile_spend = [45, 50, 55, 60, 52, 48, 58]\ndesktop_spend = [65, 70, 68, 72, 75, 80, 71]\n\nt_stat, p_val_t = stats.ttest_ind(mobile_spend, desktop_spend)\nprint(\"T-test p-value:\", p_val_t)\nif p_val_t < 0.05:\n    print(\"Conclusion: Reject H0 - Significant difference in spend between platforms.\")\n\n# Scenario 2: Chi-Square Test of Independence (Device Type vs Purchase Action)\ncontingency_matrix = [\n    [120, 80],  # Mobile: [Purchased, Abandoned]\n    [150, 50]   # Desktop: [Purchased, Abandoned]\n]\nchi2, p_val_chi2, dof, expected = stats.chi2_contingency(contingency_matrix)\nprint(\"\\nChi-Square p-value:\", p_val_chi2)\nif p_val_chi2 < 0.05:\n    print(\"Conclusion: Reject H0 - Device type is significantly associated with purchase action.\")",
+              "explanation": "Runs an independent 2-sample t-test to evaluate group means and a Chi-Square test of independence to assess categorical relationships."
+            }
+          ],
+          "bestPractices": [
+            "Always inspect distribution shape (histogram / Q-Q plot) before picking mean vs median or parametric vs non-parametric tests",
+            "Formulate Null (H\u0393\u00e9\u00c7) and Alternative (H\u0393\u00e9\u00fc) hypotheses explicitly prior to running statistical tests",
+            "Define significance level \u256c\u2592 (typically 0.05) beforehand to prevent confirmation bias or p-hacking",
+            "Distinguish between statistical significance (p < 0.05) and practical business significance (effect size)",
+            "Always report confidence intervals alongside point estimates to communicate measurement uncertainty",
+            "Ensure sufficient sample size (n \u0393\u00eb\u00d1 30) for Central Limit Theorem assumptions to hold reliably"
+          ],
+          "commonMistakes": [
+            "Mistaking p-value as the probability that the null hypothesis is true",
+            "Confusing Population parameters (\u256c\u255d, \u2567\u00e2) with Sample statistics (x\u2560\u00e4, s)",
+            "Using the mean to describe heavily skewed distributions containing severe outliers",
+            "Confusing Type I error (False Positive) with Type II error (False Negative)",
+            "P-hacking: running dozens of tests until an arbitrary p < 0.05 occurs by random chance"
+          ],
+          "practiceExercise": {
+            "instructions": "Perform descriptive statistical analysis and hypothesis testing on a sample customer dataset in Python.",
+            "tasks": [
+              "1. Calculate mean, median, sample variance, standard deviation, and 90th percentile for customer purchase amounts.",
+              "2. Compute Z-scores for each observation and identify potential outliers (|Z| > 2.5).",
+              "3. Conduct a one-sample t-test (scipy.stats.ttest_1samp) to evaluate if average spend differs from reference \u0393\u00e9\u2563100 (\u256c\u2592=0.05).",
+              "4. Calculate a 95% confidence interval for the population mean purchase amount.",
+              "5. Execute an independent 2-sample t-test comparing purchase amounts between mobile and desktop users."
+            ]
+          },
+          "keyTakeaways": [
+            "Descriptive statistics summarize existing data, while Inferential statistics allow generalization to populations.",
+            "The Normal Distribution and Empirical Rule (68-95-99.7%) govern standard continuous phenomena, with Z-scores standardizing deviations.",
+            "The Central Limit Theorem ensures sample means follow a normal distribution as sample size n grows.",
+            "Hypothesis testing evaluates p-values against significance threshold \u256c\u2592 (0.05) to accept or reject H\u0393\u00e9\u00c7.",
+            "Confidence intervals express the range of plausible values for a population parameter."
+          ],
+          "references": [
+            {
+              "title": "SciPy Stats Module API Reference",
+              "url": "https://docs.scipy.org/doc/scipy/reference/stats.html"
+            },
+            {
+              "title": "NIST Engineering Statistics Handbook",
+              "url": "https://www.itl.nist.gov/div898/handbook/"
+            }
+          ],
+          "mcqs": [
+            {
+              "id": 1,
+              "question": "Which measure of central tendency is least sensitive to extreme outliers?",
+              "options": [
+                "Mean",
+                "Median",
+                "Standard Deviation",
+                "Variance"
+              ],
+              "correctAnswer": 1,
+              "explanation": "The Median represents the 50th percentile and remains robust against extreme outlier values, unlike the Mean."
+            },
+            {
+              "id": 2,
+              "question": "What proportion of data falls within 1 standard deviation (+/- 1 sigma) of the mean in a Normal Distribution?",
+              "options": [
+                "50%",
+                "68%",
+                "95%",
+                "99.7%"
+              ],
+              "correctAnswer": 1,
+              "explanation": "Under the Empirical Rule (68-95-99.7 rule), approximately 68% of data lies within 1 standard deviation of the mean."
+            },
+            {
+              "id": 3,
+              "question": "What does a P-value less than alpha = 0.05 indicate in hypothesis testing?",
+              "options": [
+                "Accept the Null Hypothesis (H0)",
+                "Reject the Null Hypothesis (H0) in favor of the Alternative Hypothesis (H1)",
+                "The sample size is too small for statistical analysis",
+                "The test is 100% free of Type I and Type II errors"
+              ],
+              "correctAnswer": 1,
+              "explanation": "When P <= alpha (typically 0.05), the observed data is unlikely under H0, leading to rejection of the Null Hypothesis."
+            },
+            {
+              "id": 4,
+              "question": "What is a Type I Error in statistical hypothesis testing?",
+              "options": [
+                "Failing to reject H0 when H0 is false",
+                "Rejecting a true Null Hypothesis (H0) (False Positive)",
+                "Choosing a sample size that is too large",
+                "Calculating variance instead of standard deviation"
+              ],
+              "correctAnswer": 1,
+              "explanation": "A Type I Error occurs when a true Null Hypothesis is incorrectly rejected."
+            },
+            {
+              "id": 5,
+              "question": "According to the Central Limit Theorem (CLT), what happens to the sampling distribution of the sample mean as sample size n increases?",
+              "options": [
+                "It becomes uniform regardless of population distribution",
+                "It approaches a Normal Distribution regardless of the underlying population shape",
+                "Its variance increases towards infinity",
+                "It transforms into a skewed Binomial distribution"
+              ],
+              "correctAnswer": 1,
+              "explanation": "The CLT states that the sample mean distribution approaches a normal distribution as sample size n >= 30 grows."
+            }
+          ]
+        },
+        "order": 7,
+        "published": true
+      },
+      {
+        "id": "ds-mod-8",
+        "title": "Module 08 \u0393\u00c7\u00f6 Exploratory Data Analysis (EDA)",
+        "description": "End-to-end data exploration, univariate/bivariate analysis, correlation matrices, feature relationships, and insights extraction.",
+        "completed": true,
+        "readingMaterial": {
+          "introduction": "Exploratory Data Analysis (EDA) is the systematic process of examining, summarizing, visualizing, and understanding a dataset before applying statistical models or Machine Learning algorithms. EDA combines statistics, visualization, domain knowledge, and critical thinking to uncover data structure, assess quality, detect anomalies, analyze distributions, investigate correlations, and extract actionable business insights.",
+          "objectives": [
+            "Master end-to-end Exploratory Data Analysis (EDA) workflows using Pandas, Matplotlib, and Seaborn",
+            "Inspect dataset structure, dimensions, data types, missing value percentages, and duplicate records",
+            "Perform Univariate Analysis on numerical features (histograms, KDE plots, box plots, skewness) and categorical features (count plots, frequency tables)",
+            "Execute Bivariate and Multivariate Analysis to examine feature interactions, scatter patterns, and cross-tabulations",
+            "Calculate Pearson and Spearman Correlation Matrices, render heatmaps, and avoid correlation vs causation fallacies",
+            "Identify and investigate outliers using Interquartile Range (IQR = Q3 - Q1) and Z-score thresholds",
+            "Conduct time-series EDA, detect potential Data Leakage, and perform domain-guided Feature Engineering",
+            "Extract actionable business insights and construct comprehensive 14-part EDA technical reports"
+          ],
+          "sections": [
+            {
+              "heading": "1 - 6. Overview, Objectives & The 13-Step EDA Workflow",
+              "text": "EDA is an iterative investigative process preceding Machine Learning modeling. It distinguishes itself from Data Cleaning by focusing on uncovering patterns, distributions, and feature relationships rather than simply fixing data errors. The workflow moves logically from raw dataset loading to structure inspection, quality checks, univariate/bivariate/multivariate analysis, correlation heatmaps, outlier investigation, and insight extraction.",
+              "table": {
+                "headers": [
+                  "EDA Stage",
+                  "Primary Analytical Task",
+                  "Pandas / Seaborn Method",
+                  "Output / Insight Goal"
+                ],
+                "rows": [
+                  [
+                    "1. Dataset Structure",
+                    "Inspect dimensions & data types",
+                    "df.shape, df.info(), df.dtypes",
+                    "Understand rows, columns, memory & schema"
+                  ],
+                  [
+                    "2. Quality Assessment",
+                    "Detect missing values & duplicates",
+                    "df.isnull().sum(), df.duplicated()",
+                    "Quantify completeness & record uniqueness"
+                  ],
+                  [
+                    "3. Descriptive Summary",
+                    "Calculate central tendency & spread",
+                    "df.describe(include='all')",
+                    "Summary statistics for numerical & categorical features"
+                  ],
+                  [
+                    "4. Univariate Analysis",
+                    "Analyze individual variable distribution",
+                    "plt.hist(), sns.kdeplot(), countplot()",
+                    "Assess skewness, frequency, peaks & range"
+                  ],
+                  [
+                    "5. Bivariate Analysis",
+                    "Examine pairs of variables",
+                    "sns.scatterplot(), boxplot(), crosstab()",
+                    "Uncover category differences & feature trends"
+                  ],
+                  [
+                    "6. Correlation Analysis",
+                    "Measure numerical feature association",
+                    "df.corr(), sns.heatmap(annot=True)",
+                    "Identify multi-collinearity & strong feature signals"
+                  ],
+                  [
+                    "7. Outlier Detection",
+                    "Locate extreme numerical anomalies",
+                    "IQR bounds, Z-score (scipy.stats)",
+                    "Flag rare events, errors, or extreme outliers"
+                  ],
+                  [
+                    "8. Insight Extraction",
+                    "Synthesize findings into decisions",
+                    "Analytical reporting & feature selection",
+                    "Guide data preprocessing & model architecture"
+                  ]
+                ]
+              }
+            },
+            {
+              "heading": "7 - 14. Dataset Loading, Inspection & Feature Categorization",
+              "text": "Load datasets via `pd.read_csv()`. Inspect records using `df.head()`, `df.tail()`, and random `df.sample(5)`. Check exact matrix dimensions with `df.shape` (rows, columns) and inspect data types with `df.info()`. Separate features into numerical (`df.select_dtypes(include='number')`) and categorical (`df.select_dtypes(include=['object', 'category'])`) to apply appropriate statistical methods."
+            },
+            {
+              "heading": "15 - 17. Data Quality Audit: Missing Values & Duplicate Records",
+              "text": "Calculate missing value counts (`df.isnull().sum()`) and percentage proportions (`df.isnull().mean() * 100`). Identify duplicate rows via `df.duplicated().sum()`. Investigate duplicate origins prior to deletion (`df.drop_duplicates()`), as repeated entries can reflect valid business occurrences."
+            },
+            {
+              "heading": "18 - 25. Univariate Analysis: Numerical Distributions & Categorical Frequencies",
+              "text": "Univariate analysis evaluates one feature at a time. For continuous numerical variables, construct Histograms (`plt.hist(bins=20)`), Kernel Density Estimation plots (`sns.kdeplot()`), and Box Plots (`sns.boxplot()`) to inspect center, spread, skewness, and tails. For categorical features, generate frequency counts (`df['col'].value_counts()`), proportion tables (`normalize=True`), and Count Plots (`sns.countplot()`)."
+            },
+            {
+              "heading": "26 - 35. Bivariate, GroupBy & Multivariate Feature Exploration",
+              "text": "Bivariate analysis examines relationships between two features: Scatter Plots (`sns.scatterplot()`) for Numerical vs Numerical, Box Plots / Violin Plots (`sns.boxplot()`) for Categorical vs Numerical, and Cross-tabulations (`pd.crosstab()`) for Categorical vs Categorical. GroupBy aggregation (`df.groupby('Region')['Spending'].agg(['mean', 'median', 'std', 'count'])`) extracts multi-level category summaries."
+            },
+            {
+              "heading": "36 - 41. Pearson & Spearman Correlation Analysis & Heatmaps",
+              "text": "Correlation measures numerical association ranging between -1.0 (inverse relationship), 0.0 (no linear association), and +1.0 (positive relationship). Pearson correlation measures linear relationships, while Spearman rank correlation measures monotonic associations. Visualize matrices using `sns.heatmap(df.corr(), annot=True, fmt='.2f')`. CRITICAL RULE: Correlation does not imply causation.",
+              "table": {
+                "headers": [
+                  "Correlation Type",
+                  "Mathematical Metric",
+                  "Best Applied Scenario",
+                  "Sensitivity to Non-Linearity / Outliers"
+                ],
+                "rows": [
+                  [
+                    "Pearson Correlation (r)",
+                    "Linear covariance / standard deviation product",
+                    "Continuous normally distributed linear features",
+                    "High sensitivity to non-linear trends & extreme outliers"
+                  ],
+                  [
+                    "Spearman Rank Correlation (\u2567\u00fc)",
+                    "Monotonic relationship on ranked values",
+                    "Ordinal data or non-linear monotonic features",
+                    "Robust against continuous outliers"
+                  ],
+                  [
+                    "Kendall Tau (\u2567\u00e4)",
+                    "Pairwise concordant / discordant counting",
+                    "Small sample sizes with tied rank values",
+                    "High statistical robustness"
+                  ]
+                ]
+              }
+            },
+            {
+              "heading": "42 - 46. Outlier Detection: IQR Method, Z-Score & Distribution Skewness",
+              "text": "Outliers are extreme observations distant from the main distribution. The IQR method flags values outside `[Q1 - 1.5*IQR, Q3 + 1.5*IQR]`. Z-score detection flags observations with `|Z| > 3`. Assess skewness (`df.skew()`): positive skew indicates long right tail (Income, Sales), while negative skew indicates long left tail."
+            },
+            {
+              "heading": "47 - 54. Time-Series EDA, Feature Engineering & Data Leakage Awareness",
+              "text": "Convert date columns using `pd.to_datetime()` to analyze trend, seasonality, and periodic spikes. Engineer temporal features (`.dt.year`, `.dt.month`, `.dt.dayofweek`, `.dt.is_weekend`). Audit features for Data Leakage\u0393\u00c7\u00f6ensuring future target information (e.g. Cancellation Date in Churn prediction) is never included in training features."
+            },
+            {
+              "heading": "55 - 63. Visualization Selection Matrix & Best Practices",
+              "text": "Select visualizations based on analytical goals. Adhere to best practices: inspect data before modeling, review distributions beyond simple averages, check missing data patterns, avoid automatic outlier deletion without domain context, and communicate clear analytical insights.",
+              "table": {
+                "headers": [
+                  "Analytical Question",
+                  "Recommended Visualization",
+                  "Primary Python Tool"
+                ],
+                "rows": [
+                  [
+                    "Single Continuous Distribution",
+                    "Histogram / KDE Plot",
+                    "plt.hist() / sns.kdeplot()"
+                  ],
+                  [
+                    "Distribution Summary & Outliers",
+                    "Box Plot / Violin Plot",
+                    "sns.boxplot() / sns.violinplot()"
+                  ],
+                  [
+                    "Categorical Frequencies",
+                    "Bar Chart / Count Plot",
+                    "sns.countplot()"
+                  ],
+                  [
+                    "Two Continuous Variables",
+                    "Scatter Plot",
+                    "sns.scatterplot()"
+                  ],
+                  [
+                    "Numerical by Categorical Group",
+                    "Box Plot / Grouped Bar Chart",
+                    "sns.boxplot(x='Category', y='Value')"
+                  ],
+                  [
+                    "Two Categorical Variables",
+                    "Stacked Bar / Heatmap Crosstab",
+                    "pd.crosstab() + sns.heatmap()"
+                  ],
+                  [
+                    "Feature Correlation Grid",
+                    "Annotated Heatmap",
+                    "sns.heatmap(df.corr(), annot=True)"
+                  ],
+                  [
+                    "Multi-Feature Pairwise Grid",
+                    "Pair Plot Matrix",
+                    "sns.pairplot(df)"
+                  ],
+                  [
+                    "Temporal Trends",
+                    "Line Plot over Time",
+                    "plt.plot(df['Date'], df['Value'])"
+                  ]
+                ]
+              }
+            },
+            {
+              "heading": "64 - 69. Mini-Project, 14-Part Report Template & Module Summary",
+              "text": "Apply end-to-end EDA on customer sales datasets (Age, Income, Region, Orders, Spending, Satisfaction) and compile reports using the 14-part structure: Executive Summary, Quality Audit, Descriptive Stats, Univariate/Bivariate Analysis, Correlations, Outliers, Key Insights, and Modeling Recommendations."
+            }
+          ],
+          "codeExamples": [
+            {
+              "title": "1. End-to-End Automated EDA Pipeline in Python",
+              "code": "import pandas as pd\nimport numpy as np\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Sample Customer Dataset\nnp.random.seed(42)\ndata = {\n    \"Customer_ID\": [f\"CUST_{i:04d}\" for i in range(1, 101)],\n    \"Age\": np.random.randint(18, 65, 100),\n    \"Gender\": np.random.choice([\"Male\", \"Female\"], 100),\n    \"Region\": np.random.choice([\"North\", \"South\", \"East\", \"West\"], 100),\n    \"Income\": np.random.normal(55000, 15000, 100),\n    \"Spending\": np.random.normal(3000, 800, 100),\n    \"Satisfaction\": np.random.randint(1, 6, 100)\n}\ndf = pd.DataFrame(data)\n\n# 1. Structure & Quality Audit\nprint(\"Shape:\", df.shape)\nprint(\"\\nMissing Values:\\n\", df.isnull().sum())\nprint(\"Duplicates:\", df.duplicated().sum())\nprint(\"\\nStatistical Summary:\\n\", df.describe())\n\n# 2. Correlation Matrix Heatmap\nplt.figure(figsize=(8, 5))\nnum_df = df.select_dtypes(include=\"number\")\nsns.heatmap(num_df.corr(), annot=True, cmap=\"coolwarm\", fmt=\".2f\")\nplt.title(\"Customer Feature Correlation Matrix\")\nplt.tight_layout()\nplt.show()",
+              "explanation": "Executes an end-to-end dataset quality audit, descriptive statistics summary, feature selection, and correlation matrix visualization."
+            },
+            {
+              "title": "2. Bivariate GroupBy & Outlier Detection Pipeline",
+              "code": "import pandas as pd\nimport numpy as np\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n# 1. Bivariate GroupBy Aggregation\nregion_summary = df.groupby([\"Region\", \"Gender\"])[\"Spending\"].agg(\n    [\"count\", \"mean\", \"median\", \"std\", \"min\", \"max\"]\n).reset_index()\nprint(\"Region & Gender Spending Summary:\\n\", region_summary)\n\n# 2. IQR Outlier Bounds Calculation\nQ1 = df[\"Spending\"].quantile(0.25)\nQ3 = df[\"Spending\"].quantile(0.75)\nIQR = Q3 - Q1\nlower_bound = Q1 - 1.5 * IQR\nupper_bound = Q3 + 1.5 * IQR\n\noutliers = df[(df[\"Spending\"] < lower_bound) | (df[\"Spending\"] > upper_bound)]\nprint(f\"\\nDetected Spending Outliers ({len(outliers)} records):\\n\", outliers[[\"Customer_ID\", \"Spending\"]])\n\n# 3. Categorical vs Numerical Boxplot\nplt.figure(figsize=(8, 5))\nsns.boxplot(data=df, x=\"Region\", y=\"Spending\", hue=\"Gender\")\nplt.title(\"Spending Distribution across Regions by Gender\")\nplt.show()",
+              "explanation": "Computes multi-level GroupBy statistical aggregations, detects outliers via 1.5*IQR bounds, and plots category-wise comparative box plots."
+            }
+          ],
+          "bestPractices": [
+            "Always inspect raw dataset structure, data types, missing counts, and shape before starting any data analysis",
+            "Combine numerical metrics (mean, median, std, skewness) with visual charts (histograms, box plots) for thorough univariate exploration",
+            "Use median and IQR for skewed distributions, reserving mean and standard deviation for symmetric continuous features",
+            "Check cross-tabulations and GroupBy aggregations to discover subtle category segment differences",
+            "Visualize correlation matrices using Seaborn heatmaps with numerical text annotations (annot=True)",
+            "Remember that correlation measures association\u0393\u00c7\u00f6never infer causality without experimental domain validation",
+            "Audit feature sets for Data Leakage to ensure target information is not inadvertently exposed",
+            "Structure EDA findings into a clean, reproducible 14-part technical report with actionable recommendations"
+          ],
+          "commonMistakes": [
+            "Jumping directly to Machine Learning model training without exploring dataset quality and distributions",
+            "Relying solely on overall averages, which obscure skewness, multi-modal peaks, and segment differences",
+            "Ignoring missing value patterns or dropping incomplete rows without evaluating missingness proportion",
+            "Automatically deleting outliers without investigating whether they represent genuine high-value business cases",
+            "Confusing Pearson correlation (linear) with Spearman rank correlation (monotonic)",
+            "Creating dozens of arbitrary charts without linking them to specific analytical questions or business goals"
+          ],
+          "practiceExercise": {
+            "instructions": "Conduct an end-to-end Exploratory Data Analysis on a 10-column customer sales dataset in Python.",
+            "tasks": [
+              "1. Inspect dataset dimensions, data types, missing value percentages, and total duplicate records.",
+              "2. Perform univariate analysis on Income and Spending using histograms with overlaid KDE curves and box plots.",
+              "3. Generate a cross-tabulation table between Customer Region and Purchase Category with row proportions.",
+              "4. Calculate Pearson correlation matrix across all numerical features and plot an annotated heatmap.",
+              "5. Flag potential Spending outliers using the IQR method (Q1 - 1.5*IQR, Q3 + 1.5*IQR) and summarize findings."
+            ]
+          },
+          "keyTakeaways": [
+            "EDA is an investigative process combining descriptive statistics, visualization, and domain knowledge to understand data.",
+            "Univariate analysis explores single feature distributions, Bivariate compares pairs, and Multivariate evaluates multi-feature interactions.",
+            "Correlation heatmaps quickly highlight strong feature associations, while IQR and Z-scores locate potential outliers.",
+            "EDA identifies data quality issues, missing values, duplicates, and data leakage before Machine Learning modeling.",
+            "The ultimate objective of EDA is converting raw data observations into validated, actionable business insights."
+          ],
+          "references": [
+            {
+              "title": "Pandas User Guide \u0393\u00c7\u00f6 Exploratory Data Analysis",
+              "url": "https://pandas.pydata.org/docs/user_guide/index.html"
+            },
+            {
+              "title": "Seaborn Data Visualization Gallery",
+              "url": "https://seaborn.pydata.org/examples/index.html"
+            }
+          ],
+          "mcqs": [
+            {
+              "id": 1,
+              "question": "What is the main objective of Exploratory Data Analysis (EDA)?",
+              "options": [
+                "To deploy Machine Learning models into cloud production immediately",
+                "To understand data structure, detect anomalies, test hypotheses, and uncover feature relationships",
+                "To write HTML/CSS code for marketing websites",
+                "To replace statistical hypothesis testing with automated code"
+              ],
+              "correctAnswer": 1,
+              "explanation": "EDA uses statistical summaries and visual diagnostics to understand data features, relationships, anomalies, and underlying assumptions."
+            },
+            {
+              "id": 2,
+              "question": "What statistical value indicates a strong negative linear correlation between two variables?",
+              "options": [
+                "+1.0",
+                "0.0",
+                "-0.95",
+                "+0.5"
+              ],
+              "correctAnswer": 2,
+              "explanation": "Pearson correlation coefficients range from -1.0 to +1.0. A value near -1.0 (such as -0.95) signals strong negative linear correlation."
+            },
+            {
+              "id": 3,
+              "question": "What occurs when two or more independent features in a regression model are highly correlated with each other?",
+              "options": [
+                "Overfitting",
+                "Multicollinearity",
+                "Heteroscedasticity",
+                "Data Leakage"
+              ],
+              "correctAnswer": 1,
+              "explanation": "Multicollinearity occurs when predictor variables are highly correlated, inflating parameter estimate variance."
+            },
+            {
+              "id": 4,
+              "question": "When evaluating target variable distribution in classification, what indicates an imbalanced dataset?",
+              "options": [
+                "Equal 50%-50% distribution between classes",
+                "One class dominates (e.g., 99% Negative vs 1% Positive)",
+                "The target variable contains continuous decimal numbers",
+                "The dataset has more columns than rows"
+              ],
+              "correctAnswer": 1,
+              "explanation": "Imbalanced datasets occur when target class frequencies are heavily skewed (e.g. 99% vs 1% in fraud detection)."
+            },
+            {
+              "id": 5,
+              "question": "Which Seaborn visualization plots pairwise relationships across all numerical features simultaneously?",
+              "options": [
+                "sns.pairplot()",
+                "sns.boxplot()",
+                "sns.countplot()",
+                "sns.rugplot()"
+              ],
+              "correctAnswer": 0,
+              "explanation": "`sns.pairplot(df)` generates a grid of scatter plots and histograms for all numerical feature pairs."
+            }
+          ]
+        },
+        "order": 8,
+        "published": true
+      },
+      {
+        "id": "ds-mod-9",
+        "title": "Module 09 \u0393\u00c7\u00f6 Machine Learning Fundamentals & Scikit-Learn",
+        "description": "Machine Learning workflow, train/test splitting, estimator API syntax, baseline models, and fit/predict paradigms.",
+        "completed": true,
+        "readingMaterial": {
+          "introduction": "Machine Learning (ML) is a subfield of Artificial Intelligence that enables computers to learn patterns from data and make predictions or decisions without explicit rule programming. Scikit-Learn provides a standard Python library with a clean, consistent Estimator API for preprocessing, train/test splitting, baseline benchmarking, model training using fit(), prediction via predict(), cross-validation, and pipeline automation.",
+          "objectives": [
+            "Differentiate Traditional Rule-Based Programming from Machine Learning data-driven paradigms",
+            "Categorize ML problems into Supervised Learning (Regression vs Classification), Unsupervised Learning (Clustering, Dimensionality Reduction), and Reinforcement Learning",
+            "Extract feature matrix X and target vector y from raw tabular datasets",
+            "Master train/test splitting using Scikit-Learn train_test_split() with stratified sampling for imbalanced classes",
+            "Understand Scikit-Learn's Estimator API lifecycle: fit(), predict(), transform(), and fit_transform()",
+            "Establish baseline reference benchmarks using DummyClassifier and DummyRegressor",
+            "Train and evaluate Linear Regression (MAE, MSE, R\u252c\u2593) and Logistic Regression (Accuracy, Precision, Recall, F1-score, Confusion Matrix)",
+            "Diagnose Overfitting vs Underfitting, navigate the Bias-Variance trade-off, and build reproducible Scikit-Learn Pipelines and ColumnTransformers"
+          ],
+          "sections": [
+            {
+              "heading": "1 - 5. Overview, Objectives & ML Paradigms",
+              "text": "Machine Learning shifts programming from explicit rules (Input + Rules -> Output) to data-driven pattern discovery (Input + Output -> Learning Algorithm -> Model -> Predictions). ML is categorized into Supervised Learning (predicting continuous numerical target Y via Regression or discrete category label via Classification), Unsupervised Learning (clustering, pattern discovery without Y), and Reinforcement Learning (agent-environment interaction).",
+              "table": {
+                "headers": [
+                  "ML Paradigm",
+                  "Target Variable (y)",
+                  "Primary Goal",
+                  "Example Algorithms"
+                ],
+                "rows": [
+                  [
+                    "Supervised: Regression",
+                    "Continuous Numerical (Price, Sales)",
+                    "Predict continuous numerical value",
+                    "Linear Regression, Ridge, DecisionTreeRegressor"
+                  ],
+                  [
+                    "Supervised: Classification",
+                    "Discrete Categorical (Spam/Not Spam)",
+                    "Predict class label or probability",
+                    "Logistic Regression, DecisionTreeClassifier, Random Forest"
+                  ],
+                  [
+                    "Unsupervised Learning",
+                    "None (Unlabeled dataset)",
+                    "Discover hidden patterns & clusters",
+                    "K-Means, DBSCAN, PCA, Agglomerative Clustering"
+                  ],
+                  [
+                    "Reinforcement Learning",
+                    "Reward Signals",
+                    "Optimize sequential decision-making",
+                    "Q-Learning, Deep Q-Networks (DQN), PPO"
+                  ]
+                ]
+              }
+            },
+            {
+              "heading": "6 - 9. The End-to-End ML Workflow & Feature/Target Matrix Setup",
+              "text": "The ML workflow follows a disciplined pipeline: Problem Definition -> Data Collection -> EDA -> Data Preprocessing -> Feature/Target Extraction -> Train/Test Split -> Baseline Model -> Candidate Training -> Evaluation -> Hyperparameter Tuning -> Final Deployment. Features (X) comprise input variables, while Target (y) represents the outcome column."
+            },
+            {
+              "heading": "10 - 15. Scikit-Learn Architecture & The Unified Estimator API",
+              "text": "Scikit-Learn (`sklearn`) provides a standardized Estimator API across all algorithms. The lifecycle follows four primary methods: 1) Instantiate `model = Model()`, 2) Train model parameters using `model.fit(X_train, y_train)`, 3) Generate predictions via `predictions = model.predict(X_test)`, and 4) Transform features using `scaler.transform(X_test)` or `fit_transform()`. Preprocessing scalers and encoders MUST be fitted ONLY on training data to prevent data leakage."
+            },
+            {
+              "heading": "16 - 22. Dataset Splitting, Validation & Stratified Sampling",
+              "text": "Separate datasets using `train_test_split(X, y, test_size=0.2, random_state=42)`. Use `random_state` to ensure reproducible data splits. For classification problems\u0393\u00c7\u00f6especially with imbalanced class distributions\u0393\u00c7\u00f6pass `stratify=y` to preserve identical class proportions across training (80%) and testing (20%) subsets."
+            },
+            {
+              "heading": "23 - 25. Establishing Baseline Models: Dummy Classifiers & Regressors",
+              "text": "Before evaluating complex ML models, establish a simple baseline to set performance minimums. Scikit-Learn provides `DummyRegressor(strategy='mean')` (predicting training mean) and `DummyClassifier(strategy='most_frequent')` (predicting majority class). Complex algorithms must significantly outperform baselines to justify model complexity.",
+              "table": {
+                "headers": [
+                  "Baseline Estimator",
+                  "Strategy Parameter",
+                  "Baseline Prediction Behavior",
+                  "Benchmarking Use Case"
+                ],
+                "rows": [
+                  [
+                    "DummyRegressor",
+                    "strategy='mean'",
+                    "Predicts training set mean for all samples",
+                    "Regression baseline for MAE / MSE comparison"
+                  ],
+                  [
+                    "DummyRegressor",
+                    "strategy='median'",
+                    "Predicts training set median for all samples",
+                    "Regression baseline robust to target outliers"
+                  ],
+                  [
+                    "DummyClassifier",
+                    "strategy='most_frequent'",
+                    "Predicts majority class for all samples",
+                    "Classification baseline for accuracy comparison"
+                  ],
+                  [
+                    "DummyClassifier",
+                    "strategy='stratified'",
+                    "Generates random predictions following class distribution",
+                    "Classification baseline for imbalanced targets"
+                  ]
+                ]
+              }
+            },
+            {
+              "heading": "26 - 30. Regression & Classification Evaluation Metrics",
+              "text": "Evaluate Regression using Mean Absolute Error (MAE = \u256c\u00fa|y - y_hat| / n), Mean Squared Error (MSE = \u256c\u00fa(y - y_hat)\u252c\u2593 / n), and R\u252c\u2593 Score (R\u252c\u2593 = 1 - SS_res / SS_tot). Evaluate Classification using Accuracy, Precision (TP / (TP + FP)), Recall (TP / (TP + FN)), F1-Score (2 * Precision * Recall / (Precision + Recall)), and Confusion Matrix."
+            },
+            {
+              "heading": "31 - 34. Overfitting, Underfitting & The Bias-Variance Trade-Off",
+              "text": "Overfitting occurs when a model memorizes training noise (High Variance), achieving 99% training accuracy but failing on test data (70% test accuracy). Underfitting occurs when a model is too simplistic to capture patterns (High Bias), performing poorly on both sets. Generalization measures how accurately a model predicts unseen test data."
+            },
+            {
+              "heading": "35 - 40. Preprocessing Pipelines & ColumnTransformers",
+              "text": "Features require scaling and encoding. Standardize numerical features via `StandardScaler()` ($Z = \frac{x - mu}{sigma}$). One-hot encode categorical features via `OneHotEncoder(handle_unknown='ignore')`. Combine numerical and categorical preprocessing using `ColumnTransformer` and build end-to-end reproducible pipelines using `sklearn.pipeline.Pipeline`."
+            },
+            {
+              "heading": "41 - 48. Cross-Validation, Hyperparameter Tuning & Residual Error Analysis",
+              "text": "Model parameters (weights, coefficients) are learned during `fit()`, whereas Hyperparameters (tree depth, regularization alpha, number of neighbors) are set before training. Estimate model performance using K-Fold Cross-Validation (`cross_val_score(cv=5)`). Tune hyperparameters using `GridSearchCV` or `RandomizedSearchCV`. Conduct residual error analysis ($e_i = y_i - hat{y}_i$) to diagnose systematic model flaws."
+            },
+            {
+              "heading": "49 - 59. End-to-End Architecture, Best Practices & Mini-Project",
+              "text": "Build production-ready ML pipelines following the architecture: Data Preparation -> EDA -> Feature Engineering -> Train/Test Split -> Baseline -> Pipeline Construction -> Fit -> Predict -> Cross-Validation -> Hyperparameter Tuning -> Deployment. Complete the Customer Churn Prediction mini-project using Logistic Regression, Decision Trees, and Random Forests."
+            }
+          ],
+          "codeExamples": [
+            {
+              "title": "1. End-to-End Classification Pipeline with ColumnTransformer & Scikit-Learn",
+              "code": "import pandas as pd\nimport numpy as np\nfrom sklearn.model_selection import train_test_split\nfrom sklearn.compose import ColumnTransformer\nfrom sklearn.preprocessing import StandardScaler, OneHotEncoder\nfrom sklearn.pipeline import Pipeline\nfrom sklearn.linear_model import LogisticRegression\nfrom sklearn.metrics import accuracy_score, classification_report, confusion_matrix\n\n# Sample Customer Churn Dataset\nnp.random.seed(42)\ndata = {\n    \"Age\": np.random.randint(18, 65, 200),\n    \"Income\": np.random.normal(55000, 15000, 200),\n    \"Tenure\": np.random.randint(1, 10, 200),\n    \"ContractType\": np.random.choice([\"Month-to-Month\", \"One-Year\", \"Two-Year\"], 200),\n    \"Churn\": np.random.choice([0, 1], 200, p=[0.75, 0.25])\n}\ndf = pd.DataFrame(data)\n\n# 1. Feature & Target Extraction\nX = df[[\"Age\", \"Income\", \"Tenure\", \"ContractType\"]]\ny = df[\"Churn\"]\n\n# 2. Stratified Train/Test Split\nX_train, X_test, y_train, y_test = train_test_split(\n    X, y, test_size=0.2, random_state=42, stratify=y\n)\n\n# 3. ColumnTransformer for Numerical & Categorical Features\nnum_features = [\"Age\", \"Income\", \"Tenure\"]\ncat_features = [\"ContractType\"]\n\npreprocessor = ColumnTransformer([\n    (\"num\", StandardScaler(), num_features),\n    (\"cat\", OneHotEncoder(handle_unknown=\"ignore\"), cat_features)\n])\n\n# 4. Pipeline Construction\nclf = Pipeline([\n    (\"preprocessor\", preprocessor),\n    (\"classifier\", LogisticRegression(max_iter=1000))\n])\n\n# 5. Fit, Predict & Evaluate\nclf.fit(X_train, y_train)\ny_pred = clf.predict(X_test)\n\nprint(f\"Test Accuracy: {accuracy_score(y_test, y_pred):.4f}\")\nprint(\"\\nClassification Report:\\n\", classification_report(y_test, y_pred))\nprint(\"Confusion Matrix:\\n\", confusion_matrix(y_test, y_pred))",
+              "explanation": "Constructs a robust Scikit-Learn classification pipeline using ColumnTransformer for mixed-type features, fitting scaling and encoding on training data only."
+            },
+            {
+              "title": "2. Linear Regression Workflow & Model Evaluation Metrics",
+              "code": "import numpy as np\nimport pandas as pd\nfrom sklearn.model_selection import train_test_split\nfrom sklearn.linear_model import LinearRegression\nfrom sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score\n\n# Sample House Price Dataset\nnp.random.seed(42)\nX_data = np.random.rand(100, 3) * 100 # SqFt, Bedrooms, Age\ny_data = X_data[:, 0] * 300 + X_data[:, 1] * 5000 - X_data[:, 2] * 200 + np.random.randn(100) * 5000\n\nX_train, X_test, y_train, y_test = train_test_split(X_data, y_data, test_size=0.2, random_state=42)\n\n# Train Linear Regression\nmodel = LinearRegression()\nmodel.fit(X_train, y_train)\ny_pred = model.predict(X_test)\n\n# Calculate Metrics\nmae = mean_absolute_error(y_test, y_pred)\nmse = mean_squared_error(y_test, y_pred)\nr2 = r2_score(y_test, y_pred)\n\nprint(f\"Linear Regression Evaluation:\")\nprint(f\"MAE: \u0393\u00e9\u2563{mae:.2f}\")\nprint(f\"MSE: {mse:.2f}\")\nprint(f\"R\u252c\u2593 Score: {r2:.4f}\")",
+              "explanation": "Demonstrates the fit/predict workflow for continuous target regression and evaluates model performance using MAE, MSE, and R\u252c\u2593 score."
+            }
+          ],
+          "bestPractices": [
+            "Always define problem type (Regression vs Classification) and establish a baseline model before training complex algorithms",
+            "Split dataset into training and testing sets BEFORE fitting any scaling, encoding, or feature transformation steps",
+            "Use stratified sampling (stratify=y) in train_test_split for classification problems with imbalanced targets",
+            "Fit scalers (StandardScaler) and encoders (OneHotEncoder) on X_train ONLY, applying learned transforms to X_test",
+            "Use Scikit-Learn Pipelines and ColumnTransformers to prevent data leakage and maintain clean, reproducible workflows",
+            "Select evaluation metrics aligned with business outcomes (e.g. Recall for medical diagnosis/churn, Precision for spam detection)",
+            "Diagnose overfitting by comparing training set performance against cross-validation and test set performance",
+            "Perform error analysis on prediction residuals (y - y_hat) to discover systematic model weaknesses"
+          ],
+          "commonMistakes": [
+            "Fitting feature scalers or imputers on the ENTIRE dataset before train/test split, causing severe Data Leakage",
+            "Evaluating models on the exact same dataset used for training, leading to deceptively high accuracy scores",
+            "Ignoring class imbalance and relying solely on accuracy for classification problems",
+            "Failing to establish a baseline model (DummyClassifier / DummyRegressor) to benchmark algorithm improvements",
+            "Repeatedly tuning hyperparameters against the test set instead of using K-Fold Cross-Validation",
+            "Confusing model parameters (learned weights) with model hyperparameters (set prior to fit)"
+          ],
+          "practiceExercise": {
+            "instructions": "Build a complete Scikit-Learn classification workflow for Customer Churn prediction in Python.",
+            "tasks": [
+              "1. Extract feature matrix X (Age, Income, Tenure, Support_Calls) and target vector y (Churn).",
+              "2. Split dataset into 80% training and 20% testing sets using train_test_split with stratify=y and random_state=42.",
+              "3. Instantiate a DummyClassifier baseline (strategy='most_frequent') and compute baseline test accuracy.",
+              "4. Construct a Scikit-Learn Pipeline combining StandardScaler and LogisticRegression(max_iter=1000).",
+              "5. Fit the pipeline on X_train, predict on X_test, and print Classification Report, Confusion Matrix, and ROC-AUC score."
+            ]
+          },
+          "keyTakeaways": [
+            "Machine Learning shifts development from explicit manual rules to data-driven learning algorithms.",
+            "Scikit-Learn provides a uniform Estimator API pattern across all algorithms: Instantiate -> fit() -> predict().",
+            "Train/Test splitting isolates unseen test data, while Stratified Sampling preserves class proportions.",
+            "Baseline models (DummyClassifier, DummyRegressor) establish mandatory performance minimums.",
+            "Pipelines and ColumnTransformers automate feature scaling, categorical encoding, and model fitting cleanly without data leakage."
+          ],
+          "references": [
+            {
+              "title": "Scikit-Learn Official User Guide",
+              "url": "https://scikit-learn.org/stable/user_guide.html"
+            },
+            {
+              "title": "Scikit-Learn API Reference",
+              "url": "https://scikit-learn.org/stable/modules/classes.html"
+            }
+          ],
+          "mcqs": [
+            {
+              "id": 1,
+              "question": "In Scikit-Learn's estimator API, what does the `.fit(X, y)` method do?",
+              "options": [
+                "Generates predictions on new unseen data",
+                "Computes model parameters/weights from training data features and targets",
+                "Exports model to a JSON configuration file",
+                "Cleans missing values from X"
+              ],
+              "correctAnswer": 1,
+              "explanation": "`.fit(X, y)` trains estimator parameters from training features X and labels y."
+            },
+            {
+              "id": 2,
+              "question": "What characterizes an Overfitted Machine Learning model?",
+              "options": [
+                "High error on training data, high error on test data",
+                "Low error on training data, but high error on unseen test data",
+                "Equal low error on both training and test data",
+                "Unable to learn patterns from simple datasets"
+              ],
+              "correctAnswer": 1,
+              "explanation": "Overfitting (high variance) occurs when a model memorizes training noise and fails to generalize to unseen test data."
+            },
+            {
+              "id": 3,
+              "question": "What is the Bias-Variance Tradeoff?",
+              "options": [
+                "Balancing model underfitting (high bias) against model overfitting (high variance) to minimize total error",
+                "Trading training speed for GPU memory utilization",
+                "Choosing between classification accuracy and precision",
+                "Balancing missing value imputation against outlier deletion"
+              ],
+              "correctAnswer": 0,
+              "explanation": "Total expected generalization error equals Bias^2 + Variance + Irreducible Error. Minimizing total error requires balancing bias and variance."
+            },
+            {
+              "id": 4,
+              "question": "Why should `train_test_split()` be performed BEFORE preprocessing or feature scaling?",
+              "options": [
+                "To prevent Data Leakage from test set statistics into the training pipeline",
+                "Because Scikit-Learn estimators refuse to fit scaled data",
+                "To reduce Python RAM usage",
+                "To automatically convert categorical strings into integers"
+              ],
+              "correctAnswer": 0,
+              "explanation": "Fitting scalers/transformers on the full dataset leaks held-out test statistics into training, distorting validation scores."
+            },
+            {
+              "id": 5,
+              "question": "What function call splits features X and labels y into 80% training and 20% test subsets in Scikit-Learn?",
+              "options": [
+                "train_test_split(X, y, test_size=0.2, random_state=42)",
+                "split_data(X, y, ratio=80/20)",
+                "KFold(X, y, n_splits=5)",
+                "GridSearchCV(X, y, split=0.2)"
+              ],
+              "correctAnswer": 0,
+              "explanation": "`train_test_split(X, y, test_size=0.2)` randomly partitions 80% data for training and 20% for testing."
+            }
+          ]
+        },
+        "order": 9,
+        "published": true
+      },
+      {
+        "id": "ds-mod-10",
+        "title": "Module 10 \u0393\u00c7\u00f6 Linear & Ridge/Lasso Regression",
+        "description": "Simple and multiple linear regression, cost functions (MSE/RMSE), gradient descent, and L1/L2 regularization (Lasso & Ridge).",
+        "completed": true,
+        "readingMaterial": {
+          "introduction": "Regression is a foundational supervised Machine Learning technique for predicting continuous numerical values (such as house prices, sales revenue, customer spend, and delivery times). This module explores Simple Linear Regression, Multiple Linear Regression, Cost Functions (MSE, RMSE, MAE), Gradient Descent optimization, Normal Equations, and Regularization techniques (Ridge L2, Lasso L1, and Elastic Net) to control model complexity and prevent overfitting.",
+          "objectives": [
+            "Understand the difference between Supervised Classification (discrete categories) and Regression (continuous continuous target outputs)",
+            "Formulate Simple Linear Regression (y = \u256c\u2593\u0393\u00e9\u00c7 + \u256c\u2593\u0393\u00e9\u00fcx) and Multiple Linear Regression (y = \u256c\u2593\u0393\u00e9\u00c7 + \u256c\u2593\u0393\u00e9\u00fcx\u0393\u00e9\u00fc + \u256c\u2593\u0393\u00e9\u00e9x\u0393\u00e9\u00e9 + ... + \u256c\u2593\u0393\u00e9\u00d6x\u0393\u00e9\u00d6)",
+            "Interpret Intercepts (\u256c\u2593\u0393\u00e9\u00c7), Slopes/Coefficients (\u256c\u2593\u0393\u00e9\u00fc), and calculate Prediction Residual Errors (e\u00df\u2561\u00f3 = y\u00df\u2561\u00f3 - y\u2560\u00e9\u00df\u2561\u00f3)",
+            "Quantify prediction loss using Mean Squared Error (MSE), Root Mean Squared Error (RMSE), and Mean Absolute Error (MAE)",
+            "Understand Gradient Descent optimization, Learning Rate \u256c\u2592 tuning, Batch/Stochastic/Mini-Batch variants, and Analytical Normal Equations",
+            "Diagnose Multicollinearity and Overfitting in Linear Regression models",
+            "Apply L2 Regularization (Ridge Regression) to shrink coefficients and stabilize correlated features",
+            "Apply L1 Regularization (Lasso Regression) to enforce sparsity and perform automated feature selection",
+            "Build reproducible Scikit-Learn Pipelines with StandardScaler and cross-validated alpha selection (RidgeCV, LassoCV, ElasticNet)"
+          ],
+          "sections": [
+            {
+              "heading": "1 - 4. Overview, Objectives & Classification vs Regression",
+              "text": "Regression predicts continuous numerical outputs (e.g. Price, Temperature, Revenue) whereas Classification predicts discrete categorical labels (e.g. Spam/Ham, Churn/No Churn). Regression constructs a fitting hyper-plane through continuous feature space.",
+              "table": {
+                "headers": [
+                  "ML Task",
+                  "Target Data Type",
+                  "Output Example",
+                  "Evaluation Metrics",
+                  "Common Algorithms"
+                ],
+                "rows": [
+                  [
+                    "Regression",
+                    "Continuous Numerical",
+                    "House Price (\u0393\u00e9\u256375,00,000), Delivery Time (28.5 mins)",
+                    "MSE, RMSE, MAE, R\u252c\u2593 Score",
+                    "Linear Regression, Ridge, Lasso, ElasticNet"
+                  ],
+                  [
+                    "Classification",
+                    "Discrete Categorical",
+                    "Customer Churn (Yes/No), Email (Spam/Ham)",
+                    "Accuracy, Precision, Recall, F1, ROC-AUC",
+                    "Logistic Regression, Decision Trees, Random Forest"
+                  ]
+                ]
+              }
+            },
+            {
+              "heading": "5 - 11. Simple & Multiple Linear Regression Equations & Matrix Formulation",
+              "text": "Simple Linear Regression models target y with a single feature x: y = \u256c\u2593\u0393\u00e9\u00c7 + \u256c\u2593\u0393\u00e9\u00fcx. Intercept \u256c\u2593\u0393\u00e9\u00c7 represents the baseline output when x=0, while Slope \u256c\u2593\u0393\u00e9\u00fc represents the change in y per unit increase in x. Multiple Linear Regression incorporates n features: y = \u256c\u2593\u0393\u00e9\u00c7 + \u256c\u2593\u0393\u00e9\u00fcx\u0393\u00e9\u00fc + \u256c\u2593\u0393\u00e9\u00e9x\u0393\u00e9\u00e9 + ... + \u256c\u2593\u0393\u00e9\u00d6x\u0393\u00e9\u00d6. In matrix notation: Y = X\u256c\u2593 + \u256c\u2561."
+            },
+            {
+              "heading": "12 - 19. Prediction Residuals, Loss Functions (MSE, RMSE, MAE) & R\u252c\u2593",
+              "text": "Residual e\u00df\u2561\u00f3 = y\u00df\u2561\u00f3 - y\u2560\u00e9\u00df\u2561\u00f3 is the difference between observed and predicted values. Cost functions quantify overall model error. Mean Squared Error MSE = (1/n) \u256c\u00fa(y\u00df\u2561\u00f3 - y\u2560\u00e9\u00df\u2561\u00f3)\u252c\u2593 squares errors to penalize larger deviations. RMSE = \u0393\u00ea\u00dcMSE restores original target units. Mean Absolute Error MAE = (1/n) \u256c\u00fa|y\u00df\u2561\u00f3 - y\u2560\u00e9\u00df\u2561\u00f3| provides an un-squared linear average error. R\u252c\u2593 Score measures proportion of variance explained.",
+              "table": {
+                "headers": [
+                  "Regression Loss / Metric",
+                  "Mathematical Formula",
+                  "Unit of Measurement",
+                  "Sensitivity to Outliers"
+                ],
+                "rows": [
+                  [
+                    "Mean Squared Error (MSE)",
+                    "MSE = (1/n) \u256c\u00fa (y\u00df\u2561\u00f3 - y\u2560\u00e9\u00df\u2561\u00f3)\u252c\u2593",
+                    "Squared Target Units (\u0393\u00e9\u2563\u252c\u2593)",
+                    "Very High (squared penalty on large errors)"
+                  ],
+                  [
+                    "Root Mean Squared Error (RMSE)",
+                    "RMSE = \u0393\u00ea\u00dcMSE",
+                    "Original Target Units (\u0393\u00e9\u2563)",
+                    "High (directly reflects MSE penalty in original scale)"
+                  ],
+                  [
+                    "Mean Absolute Error (MAE)",
+                    "MAE = (1/n) \u256c\u00fa |y\u00df\u2561\u00f3 - y\u2560\u00e9\u00df\u2561\u00f3|",
+                    "Original Target Units (\u0393\u00e9\u2563)",
+                    "Moderate (linear penalty without squaring)"
+                  ],
+                  [
+                    "Coefficient of Determination (R\u252c\u2593)",
+                    "R\u252c\u2593 = 1 - (SS_res / SS_tot)",
+                    "Dimensionless Ratio [0.0 to 1.0]",
+                    "Dependent on underlying residual sum of squares"
+                  ]
+                ]
+              }
+            },
+            {
+              "heading": "20 - 25. Optimization: Gradient Descent & Normal Equation",
+              "text": "Gradient Descent updates parameters iteratively in the opposite direction of the loss gradient: \u256c\u2555 := \u256c\u2555 - \u256c\u2592 (\u0393\u00ea\u00e9J/\u0393\u00ea\u00e9\u256c\u2555). Learning Rate \u256c\u2592 dictates step size: too small leads to slow convergence; too large causes overshooting. Batch GD uses all samples, Stochastic GD uses 1 sample per step, and Mini-Batch GD uses small batches. Analytical Ordinary Least Squares calculates \u256c\u2593 = (X\u00df\u2561\u00c7X)\u0393\u00fc\u2557\u252c\u2563X\u00df\u2561\u00c7Y."
+            },
+            {
+              "heading": "26 - 30. Overfitting & L2 Regularization (Ridge Regression)",
+              "text": "Complex linear models with many features risk overfitting training noise. Regularization adds a complexity penalty to the cost function: Loss = MSE + Penalty. L2 Regularization (Ridge Regression) adds penalized squared coefficients: Loss = MSE + \u256c\u2557 \u256c\u00fa \u256c\u2593\u0393\u2592\u255d\u252c\u2593. Ridge shrinks coefficients toward zero without setting them strictly to zero, stabilizing models against multicollinearity."
+            },
+            {
+              "heading": "31 - 36. L1 Regularization (Lasso Regression) & Feature Selection",
+              "text": "L1 Regularization (Lasso Regression) adds absolute coefficient penalties: Loss = MSE + \u256c\u2557 \u256c\u00fa |\u256c\u2593\u0393\u2592\u255d|. Unlike Ridge, Lasso can shrink uninformative feature coefficients EXACTLY to zero (\u256c\u2593\u0393\u2592\u255d = 0), performing automated feature selection. Regularization strength is controlled by `alpha` in Scikit-Learn.",
+              "table": {
+                "headers": [
+                  "Regularization Feature",
+                  "L2 Regularization (Ridge)",
+                  "L1 Regularization (Lasso)",
+                  "Elastic Net"
+                ],
+                "rows": [
+                  [
+                    "Penalty Term",
+                    "\u256c\u2557 \u256c\u00fa \u256c\u2593\u0393\u2592\u255d\u252c\u2593 (Squared magnitudes)",
+                    "\u256c\u2557 \u256c\u00fa |\u256c\u2593\u0393\u2592\u255d| (Absolute magnitudes)",
+                    "r\u252c\u2556\u256c\u2557 \u256c\u00fa |\u256c\u2593\u0393\u2592\u255d| + ((1-r)/2)\u252c\u2556\u256c\u2557 \u256c\u00fa \u256c\u2593\u0393\u2592\u255d\u252c\u2593"
+                  ],
+                  [
+                    "Coefficient Effect",
+                    "Shrinks coefficients smoothly toward zero",
+                    "Drives uninformative coefficients exactly to 0",
+                    "Combines feature selection & smooth shrinkage"
+                  ],
+                  [
+                    "Sparsity (Zero Weights)",
+                    "No (retains all features with small weights)",
+                    "Yes (produces sparse models)",
+                    "Yes (if L1 ratio > 0)"
+                  ],
+                  [
+                    "Handling Multicollinearity",
+                    "Excellent (distributes weights across correlated features)",
+                    "Selects one feature arbitrarily from correlated group",
+                    "Robust balance across correlated groups"
+                  ],
+                  [
+                    "Scikit-Learn Class",
+                    "from sklearn.linear_model import Ridge",
+                    "from sklearn.linear_model import Lasso",
+                    "from sklearn.linear_model import ElasticNet"
+                  ]
+                ]
+              }
+            },
+            {
+              "heading": "37 - 40. Feature Scaling, Elastic Net & Hyperparameter Tuning",
+              "text": "Feature scaling (`StandardScaler`) is MANDATORY before Ridge, Lasso, or Elastic Net regularization because unscaled features with large ranges face unequal penalties. Elastic Net combines L1 and L2 penalties via `l1_ratio`. Select optimal alpha using cross-validation classes: `RidgeCV`, `LassoCV`, and `ElasticNetCV`."
+            },
+            {
+              "heading": "41 - 48. Multicollinearity, Bias-Variance Balance & Residual Analysis",
+              "text": "Multicollinearity occurs when predictors are highly correlated, causing unstable standard errors. Ridge regression resolves multicollinearity. Regularization balances the Bias-Variance trade-off by introducing slight bias to achieve substantial variance reduction. Inspect residual plots (e\u00df\u2561\u00f3 vs y\u2560\u00e9\u00df\u2561\u00f3) to verify constant variance (homoscedasticity) and linearity."
+            },
+            {
+              "heading": "49 - 56. Best Practices, Mini-Project & Module Summary",
+              "text": "Build robust regression models: scale features in Pipelines, tune alpha via cross-validation, evaluate MAE/RMSE/R\u252c\u2593 metrics, analyze residuals, and compare Linear, Ridge, and Lasso baselines on real-world datasets."
+            }
+          ],
+          "codeExamples": [
+            {
+              "title": "1. Linear, Ridge, Lasso & ElasticNet Benchmarking Pipeline",
+              "code": "import numpy as np\nimport pandas as pd\nfrom sklearn.model_selection import train_test_split\nfrom sklearn.pipeline import Pipeline\nfrom sklearn.preprocessing import StandardScaler\nfrom sklearn.linear_model import LinearRegression, Ridge, Lasso, ElasticNet\nfrom sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score\n\n# Generate Synthetic Dataset\nnp.random.seed(42)\nX_raw = np.random.rand(150, 5) * 100\ny_raw = 15*X_raw[:, 0] + 0.5*X_raw[:, 1] - 5*X_raw[:, 2] + np.random.randn(150)*10\n\nX_train, X_test, y_train, y_test = train_test_split(X_raw, y_raw, test_size=0.2, random_state=42)\n\nmodels = {\n    \"Linear Regression\": LinearRegression(),\n    \"Ridge (L2, \u256c\u2592=1.0)\": Ridge(alpha=1.0),\n    \"Lasso (L1, \u256c\u2592=0.1)\": Lasso(alpha=0.1),\n    \"ElasticNet (\u256c\u2592=0.1, l1=0.5)\": ElasticNet(alpha=0.1, l1_ratio=0.5)\n}\n\nresults = []\nfor name, model in models.items():\n    pipe = Pipeline([(\"scaler\", StandardScaler()), (\"reg\", model)])\n    pipe.fit(X_train, y_train)\n    y_pred = pipe.predict(X_test)\n    \n    mae = mean_absolute_error(y_test, y_pred)\n    rmse = mean_squared_error(y_test, y_pred) ** 0.5\n    r2 = r2_score(y_test, y_pred)\n    results.append({\"Model\": name, \"MAE\": mae, \"RMSE\": rmse, \"R\u252c\u2593\": r2})\n\nresults_df = pd.DataFrame(results)\nprint(\"Regression Model Comparison:\\n\", results_df.to_string(index=False))",
+              "explanation": "Builds a comparative Scikit-Learn regression pipeline benchmarking Ordinary Linear Regression, Ridge, Lasso, and ElasticNet with standardized feature scaling."
+            },
+            {
+              "title": "2. Cross-Validated Regularization Strength Tuning (RidgeCV & LassoCV)",
+              "code": "import numpy as np\nfrom sklearn.model_selection import train_test_split\nfrom sklearn.preprocessing import StandardScaler\nfrom sklearn.pipeline import make_pipeline\nfrom sklearn.linear_model import RidgeCV, LassoCV\n\n# Generate sample dataset\nnp.random.seed(42)\nX_sample = np.random.randn(100, 10)\ny_sample = 3 * X_sample[:, 0] - 2 * X_sample[:, 1] + np.random.randn(100) * 0.5\n\nX_train, X_test, y_train, y_test = train_test_split(X_sample, y_sample, test_size=0.2, random_state=42)\n\n# 1. RidgeCV Alpha Search\nalphas = np.logspace(-3, 3, 50)\nridge_cv = make_pipeline(StandardScaler(), RidgeCV(alphas=alphas, cv=5))\nridge_cv.fit(X_train, y_train)\n\n# 2. LassoCV Alpha Search\nlasso_cv = make_pipeline(StandardScaler(), LassoCV(alphas=alphas, cv=5, random_state=42))\nlasso_cv.fit(X_train, y_train)\n\nprint(f\"Optimal Ridge Alpha: {ridge_cv.named_steps['ridgecv'].alpha_:.4f}\")\nprint(f\"Optimal Lasso Alpha: {lasso_cv.named_steps['lassocv'].alpha_:.4f}\")",
+              "explanation": "Automatically finds optimal L1 and L2 regularization strength parameters (alpha) using 5-fold cross-validation classes RidgeCV and LassoCV."
+            }
+          ],
+          "bestPractices": [
+            "Always standard scale numerical features (StandardScaler) inside a Pipeline before fitting Ridge, Lasso, or Elastic Net regularized models",
+            "Evaluate regression models using multiple metrics: MAE for linear scale error, RMSE to detect large outliers, and R\u252c\u2593 for variance explained",
+            "Tune regularization hyperparameter `alpha` using cross-validation (RidgeCV / LassoCV) rather than selecting values arbitrarily",
+            "Use Lasso regression when feature selection is desired, as L1 regularization zero-weights uninformative predictors",
+            "Use Ridge regression when dealing with correlated features (multicollinearity) to shrink coefficients smoothly",
+            "Inspect prediction residual distribution plots (residuals vs predicted values) to check for non-linearity or heteroscedasticity",
+            "Never compute preprocessing transformations on the entire dataset prior to train/test split to prevent data leakage",
+            "Do not interpret regression coefficients as causal mechanisms without rigorous experimental domain validation"
+          ],
+          "commonMistakes": [
+            "Fitting regularized models (Ridge/Lasso) on unscaled features, resulting in unequal penalty application",
+            "Relying exclusively on R\u252c\u2593 score while ignoring MAE, RMSE, or high residual variance",
+            "Assuming high multicollinearity ruins prediction accuracy\u0393\u00c7\u00f6it destabilizes individual coefficient interpretation, which Ridge resolves",
+            "Arbitrarily choosing alpha parameters without cross-validation tuning",
+            "Confusing L1 regularization (Lasso absolute penalty) with L2 regularization (Ridge squared penalty)",
+            "Evaluating models on training data instead of held-out test data"
+          ],
+          "practiceExercise": {
+            "instructions": "Build, evaluate, and compare Linear, Ridge, and Lasso Regression models on a House Price dataset in Python.",
+            "tasks": [
+              "1. Extract continuous numerical features (Area, Bedrooms, Bathrooms, Age, Distance) and target variable (Price).",
+              "2. Perform train/test split (80% train, 20% test, random_state=42).",
+              "3. Construct a Scikit-Learn Pipeline combining StandardScaler and Ordinary LinearRegression.",
+              "4. Train RidgeCV and LassoCV pipelines with 5-fold cross-validation across alphas = np.logspace(-3, 3, 50).",
+              "5. Compare MAE, RMSE, and R\u252c\u2593 metrics across Linear, Ridge, and Lasso models on the held-out test set."
+            ]
+          },
+          "keyTakeaways": [
+            "Linear Regression models continuous numerical outputs by fitting an optimal straight line/hyperplane minimizing residual sum of squares.",
+            "MSE and RMSE penalize large errors heavily due to squaring, while MAE offers an un-squared linear error metric.",
+            "Gradient Descent optimizes model weights iteratively, while the Normal Equation solves parameters analytically.",
+            "Ridge Regression (L2 penalty \u256c\u2557 \u256c\u00fa \u256c\u2593\u0393\u2592\u255d\u252c\u2593) shrinks weights smoothly to handle multicollinearity and prevent overfitting.",
+            "Lasso Regression (L1 penalty \u256c\u2557 \u256c\u00fa |\u256c\u2593\u0393\u2592\u255d|) forces uninformative weights to zero, providing built-in feature selection."
+          ],
+          "references": [
+            {
+              "title": "Scikit-Learn Linear Models Documentation",
+              "url": "https://scikit-learn.org/stable/modules/linear_model.html"
+            },
+            {
+              "title": "An Introduction to Statistical Learning (ISLR) \u0393\u00c7\u00f6 Linear & Regularized Regression",
+              "url": "https://www.statlearning.com/"
+            }
+          ],
+          "mcqs": [
+            {
+              "id": 1,
+              "question": "What objective function does Ordinary Least Squares (OLS) Linear Regression minimize?",
+              "options": [
+                "Sum of Absolute Errors (MAE)",
+                "Sum of Squared Residuals (SSR / SSE)",
+                "Classification Cross-Entropy Loss",
+                "Maximum Likelihood Ratio"
+              ],
+              "correctAnswer": 1,
+              "explanation": "OLS minimizes the sum of squared differences between observed values y and predicted values y_hat."
+            },
+            {
+              "id": 2,
+              "question": "What type of regularization penalty does Lasso Regression (L1) add to the loss function?",
+              "options": [
+                "Sum of squared weights (lambda * sum(w_j^2))",
+                "Sum of absolute weight values (lambda * sum(|w_j|))",
+                "Logarithmic probability penalty",
+                "Gradient step penalty"
+              ],
+              "correctAnswer": 1,
+              "explanation": "Lasso uses an L1 penalty (absolute weight magnitudes), forcing insignificant feature coefficients to exact zero."
+            },
+            {
+              "id": 3,
+              "question": "What key advantage does Lasso Regression offer over Ridge Regression?",
+              "options": [
+                "It handles non-linear image classification",
+                "It performs automatic Feature Selection by shrinking irrelevant feature coefficients to exact zero",
+                "It eliminates the need for target variables",
+                "It operates without requiring feature scaling"
+              ],
+              "correctAnswer": 1,
+              "explanation": "Lasso's L1 penalty creates sparse models by setting unused feature weights to 0, performing feature selection."
+            },
+            {
+              "id": 4,
+              "question": "What metric measures the proportion of target variance explained by a regression model?",
+              "options": [
+                "R-Squared (R^2)",
+                "Mean Absolute Error (MAE)",
+                "Precision",
+                "ROC-AUC"
+              ],
+              "correctAnswer": 0,
+              "explanation": "R^2 (Coefficient of Determination) represents the fraction of total target variance explained by model features (0.0 to 1.0)."
+            },
+            {
+              "id": 5,
+              "question": "Why should features be scaled (e.g. StandardScaler) before fitting Ridge or Lasso regression models?",
+              "options": [
+                "Because regularization penalties shrink weights equally; unscaled large-magnitude features would be penalized unfairly",
+                "Linear regression cannot calculate slopes on unscaled numbers",
+                "To convert continuous target variables into binary categories",
+                "To prevent zero-division errors in matrix inversion"
+              ],
+              "correctAnswer": 0,
+              "explanation": "Regularization applies uniform weight penalties lambda. Features on larger scales would have artificially small weights and evade regularization unless scaled."
+            }
+          ]
+        },
+        "order": 10,
+        "published": true
+      },
+      {
+        "id": "ds-mod-11",
+        "title": "Module 11 \u0393\u00c7\u00f6 Classification Algorithms",
+        "description": "Logistic Regression, Decision Trees, Random Forests, K-Nearest Neighbors (KNN), Support Vector Machines (SVM), and Naive Bayes.",
+        "completed": true,
+        "readingMaterial": {
+          "introduction": "Classification is a fundamental Supervised Machine Learning task used to predict discrete category labels (such as Spam vs Legitimate, Churn vs Retained, or Disease vs Healthy). This module explores six core classification algorithms: Logistic Regression, Decision Trees, Random Forests, K-Nearest Neighbors (KNN), Support Vector Machines (SVM), and Naive Bayes. Learners will master mathematical decision boundaries, probability estimation, distance metrics, kernel tricks, and multi-metric evaluation.",
+          "objectives": [
+            "Distinguish Classification (predicting discrete category labels) from Regression (predicting continuous numerical outputs)",
+            "Categorize classification tasks into Binary, Multiclass, and Multilabel problem structures",
+            "Formulate Logistic Regression using the Sigmoid activation function \u2567\u00e2(z) = 1 / (1 + e\u0393\u00fc\u2557\u00df\u2562\u2557) and probability decision thresholds",
+            "Build Decision Tree classifiers using Gini Impurity and Entropy split criteria while controlling tree depth to prevent overfitting",
+            "Apply Ensemble Learning via Random Forests (Bootstrap Aggregation / Bagging) and evaluate Gini Feature Importance",
+            "Implement distance-based classification using K-Nearest Neighbors (KNN) and standard scaling for Euclidean space",
+            "Construct Support Vector Machines (SVM) using max-margin hyperplanes, soft-margin C penalties, and non-linear RBF kernel tricks",
+            "Apply Naive Bayes classifiers (Gaussian, Multinomial, Bernoulli) using Bayes' Theorem and conditional feature independence",
+            "Evaluate classifiers using Confusion Matrices, Accuracy, Precision, Recall, F1-Score, ROC-AUC, and Precision-Recall curves"
+          ],
+          "sections": [
+            {
+              "heading": "1 - 5. Overview, Objectives & Classification Paradigms",
+              "text": "Classification models map input features X to discrete categorical targets Y. Binary Classification handles 2 classes (Spam/Not Spam), Multiclass handles 3+ mutually exclusive classes (Cat/Dog/Bird), and Multilabel permits multiple simultaneous tags per sample (Genre tags).",
+              "table": {
+                "headers": [
+                  "Classification Problem Type",
+                  "Target Class Structure",
+                  "Example Application",
+                  "Output Format"
+                ],
+                "rows": [
+                  [
+                    "Binary Classification",
+                    "2 Mutually Exclusive Classes (0 vs 1)",
+                    "Email Spam Filter, Credit Fraud Detection",
+                    "Single probability score / binary class"
+                  ],
+                  [
+                    "Multiclass Classification",
+                    "3+ Mutually Exclusive Classes",
+                    "Handwritten Digit Recognition (0-9)",
+                    "Softmax probability distribution over N classes"
+                  ],
+                  [
+                    "Multilabel Classification",
+                    "Multiple Non-Exclusive Tags",
+                    "Article Topic Tagging (Tech, AI, Politics)",
+                    "Multi-hot binary indicator array"
+                  ]
+                ]
+              }
+            },
+            {
+              "heading": "6 - 11. Logistic Regression & Sigmoid Probability Mapping",
+              "text": "Logistic Regression maps continuous linear combinations z = \u256c\u2593\u0393\u00e9\u00c7 + \u256c\u00fa \u256c\u2593\u0393\u2592\u255dx\u0393\u2592\u255d into probability scores between 0.0 and 1.0 using the Sigmoid/Logistic function: \u2567\u00e2(z) = 1 / (1 + e\u0393\u00fc\u2557\u00df\u2562\u2557). Convert probabilities to predictions using a threshold (default 0.5): p \u0393\u00eb\u00d1 0.5 -> Class 1. Predict probabilities via `predict_proba()`."
+            },
+            {
+              "heading": "12 - 18. Decision Trees: Impurity Split Criteria & Overfitting Control",
+              "text": "Decision Trees partition feature space recursively using decision rules. Node purity is measured via Gini Impurity (1 - \u256c\u00fa p\u0393\u00e9\u00fb\u252c\u2593) or Entropy (-\u256c\u00fa p\u0393\u00e9\u00fb log\u0393\u00e9\u00e9 p\u0393\u00e9\u00fb). Prevent overfitting by pruning tree depth using `max_depth`, `min_samples_split`, and `min_samples_leaf`."
+            },
+            {
+              "heading": "19 - 23. Random Forests & Ensemble Feature Importance",
+              "text": "Random Forest is a Bootstrap Aggregated (Bagged) ensemble of Decision Trees. Randomness is introduced via bootstrap row sampling and random feature subset selection at each split. Trees vote on final predictions, drastically reducing single-tree variance. Extract `feature_importances_` to identify dominant features."
+            },
+            {
+              "heading": "24 - 29. K-Nearest Neighbors (KNN) & Distance Metric Scaling",
+              "text": "KNN classifies samples based on majority voting among the K nearest training samples in feature space using Euclidean Distance: d = \u0393\u00ea\u00dc(\u256c\u00fa (x\u00df\u2561\u00f3 - y\u00df\u2561\u00f3)\u252c\u2593). Feature scaling (`StandardScaler`) is MANDATORY to prevent high-magnitude features from dominating distances. Choose K via cross-validation."
+            },
+            {
+              "heading": "30 - 36. Support Vector Machines (SVM), Margins & Kernel Tricks",
+              "text": "SVM constructs an optimal maximum-margin hyperplane w\u00df\u2561\u00c7x + b = 0 separating classes. Support Vectors are boundary points defining margin width. Soft-margin parameter `C` controls misclassification penalties. Non-linear classification projects features into higher dimensions using Kernel tricks: RBF K(x, y) = exp(-\u256c\u2502 ||x - y||\u252c\u2593), Polynomial, and Linear.",
+              "table": {
+                "headers": [
+                  "Classifier Algorithm",
+                  "Core Mathematical Mechanism",
+                  "Feature Scaling Needed?",
+                  "Best Use Case Scenario"
+                ],
+                "rows": [
+                  [
+                    "Logistic Regression",
+                    "Sigmoid curve probability mapping",
+                    "Yes (for gradient convergence & regularization)",
+                    "Linearly separable binary/multiclass problems with probabilities"
+                  ],
+                  [
+                    "Decision Tree",
+                    "Recursive feature splitting via Gini/Entropy",
+                    "No (scale-invariant tree splits)",
+                    "Interpretable rule-based non-linear classification"
+                  ],
+                  [
+                    "Random Forest",
+                    "Ensemble majority voting over bagged trees",
+                    "No (scale-invariant tree splits)",
+                    "High-dimensional tabular datasets with non-linear feature interactions"
+                  ],
+                  [
+                    "K-Nearest Neighbors (KNN)",
+                    "K-majority voting over Euclidean distance",
+                    "Yes (CRITICAL for distance calculations)",
+                    "Small to medium low-noise datasets"
+                  ],
+                  [
+                    "Support Vector Machine (SVM)",
+                    "Max-margin hyperplane with RBF kernels",
+                    "Yes (CRITICAL for margin calculation)",
+                    "Complex high-dimensional non-linear boundaries"
+                  ],
+                  [
+                    "Naive Bayes",
+                    "Bayes' theorem with conditional independence",
+                    "No (for GaussianNB/MultinomialNB)",
+                    "Text classification, spam filters, fast probabilistic baselines"
+                  ]
+                ]
+              }
+            },
+            {
+              "heading": "37 - 41. Naive Bayes Classifiers & Bayes' Theorem",
+              "text": "Naive Bayes applies Bayes' Theorem: P(Y|X) = [P(X|Y)P(Y)] / P(X), assuming conditional independence among features given class Y. Use `GaussianNB` for continuous numerical features, `MultinomialNB` for term frequencies, and `BernoulliNB` for binary feature indicators."
+            },
+            {
+              "heading": "42 - 56. Classification Metrics: Confusion Matrix, Precision, Recall, F1 & ROC-AUC",
+              "text": "Do NOT rely solely on Accuracy for imbalanced datasets! Build Confusion Matrices (TP, TN, FP - Type I error, FN - Type II error). Calculate Precision = TP / (TP + FP) (minimizing false positives), Recall = TP / (TP + FN) (minimizing false negatives), and F1-Score = 2 * (P * R) / (P + R). Summarize ranking using ROC-AUC curves.",
+              "table": {
+                "headers": [
+                  "Evaluation Metric",
+                  "Mathematical Formula",
+                  "Primary Focus",
+                  "Optimal Business Use Case"
+                ],
+                "rows": [
+                  [
+                    "Accuracy",
+                    "(TP + TN) / Total",
+                    "Overall correct prediction ratio",
+                    "Balanced class distributions"
+                  ],
+                  [
+                    "Precision",
+                    "TP / (TP + FP)",
+                    "Minimizing False Positives (FP)",
+                    "Spam detection, loan approval (avoid false alarms)"
+                  ],
+                  [
+                    "Recall (Sensitivity)",
+                    "TP / (TP + FN)",
+                    "Minimizing False Negatives (FN)",
+                    "Medical diagnosis, fraud detection (avoid missing positive cases)"
+                  ],
+                  [
+                    "F1-Score",
+                    "2 \u252c\u2556 (Precision \u252c\u2556 Recall) / (Precision + Recall)",
+                    "Harmonic mean of Precision & Recall",
+                    "Imbalanced datasets requiring balanced precision/recall"
+                  ],
+                  [
+                    "ROC-AUC Score",
+                    "Area under True Positive Rate vs False Positive Rate",
+                    "Threshold-independent ranking capability",
+                    "Comprehensive classifier ranking evaluation"
+                  ]
+                ]
+              }
+            },
+            {
+              "heading": "57 - 70. Algorithm Selection, Pipelines, Mini-Project & Summary",
+              "text": "Select classifiers based on data scale, non-linearity, and interpretability. Build end-to-end Scikit-Learn Pipelines with `ColumnTransformer`, execute 5-fold cross-validation, tune hyperparameters via `GridSearchCV`, and complete the 6-algorithm Customer Churn benchmarking mini-project."
+            }
+          ],
+          "codeExamples": [
+            {
+              "title": "1. 6-Algorithm Classification Benchmarking Pipeline",
+              "code": "import pandas as pd\nimport numpy as np\nfrom sklearn.model_selection import train_test_split\nfrom sklearn.pipeline import Pipeline\nfrom sklearn.preprocessing import StandardScaler\nfrom sklearn.linear_model import LogisticRegression\nfrom sklearn.tree import DecisionTreeClassifier\nfrom sklearn.ensemble import RandomForestClassifier\nfrom sklearn.neighbors import KNeighborsClassifier\nfrom sklearn.svm import SVC\nfrom sklearn.naive_bayes import GaussianNB\nfrom sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score\n\n# Generate Synthetic Dataset\nnp.random.seed(42)\nX_raw = np.random.randn(200, 4)\ny_raw = (X_raw[:, 0] + X_raw[:, 1]*0.5 > 0).astype(int)\n\nX_train, X_test, y_train, y_test = train_test_split(X_raw, y_raw, test_size=0.2, random_state=42, stratify=y_raw)\n\nclassifiers = {\n    \"Logistic Regression\": LogisticRegression(),\n    \"Decision Tree\": DecisionTreeClassifier(max_depth=5, random_state=42),\n    \"Random Forest\": RandomForestClassifier(n_estimators=100, random_state=42),\n    \"KNN (K=5)\": KNeighborsClassifier(n_neighbors=5),\n    \"SVM (RBF Kernel)\": SVC(kernel=\"rbf\", probability=True),\n    \"Naive Bayes\": GaussianNB()\n}\n\nresults = []\nfor name, clf in classifiers.items():\n    pipe = Pipeline([(\"scaler\", StandardScaler()), (\"model\", clf)])\n    pipe.fit(X_train, y_train)\n    y_pred = pipe.predict(X_test)\n    \n    results.append({\n        \"Algorithm\": name,\n        \"Accuracy\": accuracy_score(y_test, y_pred),\n        \"Precision\": precision_score(y_test, y_pred, zero_division=0),\n        \"Recall\": recall_score(y_test, y_pred, zero_division=0),\n        \"F1-Score\": f1_score(y_test, y_pred, zero_division=0)\n    })\n\nresults_df = pd.DataFrame(results)\nprint(\"Classifier Performance Benchmarking:\\n\", results_df.to_string(index=False))",
+              "explanation": "Constructs a unified Scikit-Learn evaluation pipeline comparing 6 core classification algorithms across Accuracy, Precision, Recall, and F1-score."
+            },
+            {
+              "title": "2. Random Forest GridSearchCV & Classification Report",
+              "code": "from sklearn.model_selection import GridSearchCV, train_test_split\nfrom sklearn.ensemble import RandomForestClassifier\nfrom sklearn.metrics import classification_report, confusion_matrix\nimport numpy as np\n\nnp.random.seed(42)\nX_data = np.random.randn(150, 5)\ny_data = np.random.choice([0, 1], 150, p=[0.7, 0.3])\n\nX_train, X_test, y_train, y_test = train_test_split(X_data, y_data, test_size=0.2, random_state=42, stratify=y_data)\n\nparam_grid = {\n    \"n_estimators\": [50, 100],\n    \"max_depth\": [3, 5, None],\n    \"min_samples_split\": [2, 5]\n}\n\ngrid_search = GridSearchCV(\n    RandomForestClassifier(random_state=42),\n    param_grid,\n    cv=5,\n    scoring=\"f1\"\n)\ngrid_search.fit(X_train, y_train)\n\nbest_rf = grid_search.best_estimator_\ny_pred = best_rf.predict(X_test)\n\nprint(\"Best Parameters:\", grid_search.best_params_)\nprint(\"\\nClassification Report:\\n\", classification_report(y_test, y_pred))\nprint(\"Confusion Matrix:\\n\", confusion_matrix(y_test, y_pred))",
+              "explanation": "Tunes Random Forest hyperparameters via 5-fold cross-validated GridSearchCV optimizing for F1-score and prints detailed metric summaries."
+            }
+          ],
+          "bestPractices": [
+            "Never rely on accuracy alone for imbalanced datasets\u0393\u00c7\u00f6evaluate Precision, Recall, F1-Score, and Confusion Matrices",
+            "Apply StandardScaler before fitting distance-based classifiers (KNN, SVM) and gradient-based models (Logistic Regression)",
+            "Prune Decision Trees using `max_depth` and `min_samples_leaf` to prevent overfitting high-variance training noise",
+            "Use Random Forest ensembles to capture complex non-linear feature interactions without manual scaling",
+            "Optimize decision thresholds based on business domain costs (e.g. lower threshold to boost Recall for medical diagnosis)",
+            "Fit all feature scalers and encoders on X_train ONLY before transforming X_test inside Scikit-Learn Pipelines",
+            "Tune model hyperparameters using K-Fold Cross-Validation (`GridSearchCV` / `RandomizedSearchCV`)",
+            "Evaluate ROC-AUC scores for threshold-independent classifier ranking performance"
+          ],
+          "commonMistakes": [
+            "Evaluating imbalanced classification models using accuracy alone, which masks total failure on minority classes",
+            "Fitting KNN or SVM classifiers without scaling continuous features first, allowing large-scale variables to distort distances",
+            "Allowing Decision Trees to grow infinitely deep, resulting in severe training set overfitting",
+            "Confusing Precision (minimizing false positives) with Recall (minimizing false negatives)",
+            "Fitting preprocessing scalers on the entire dataset prior to train/test split, causing severe Data Leakage",
+            "Ignoring feature correlation when interpreting Logistic Regression coefficients"
+          ],
+          "practiceExercise": {
+            "instructions": "Train, evaluate, and compare 6 classification algorithms on a Customer Churn dataset in Python.",
+            "tasks": [
+              "1. Extract customer features (Age, Tenure, MonthlySpend, SupportCalls) and target binary class (Churn: 0/1).",
+              "2. Perform stratified 80/20 train/test split (`stratify=y`, `random_state=42`).",
+              "3. Construct Scikit-Learn Pipelines for Logistic Regression, Decision Tree, Random Forest, KNN, SVM, and Naive Bayes.",
+              "4. Train all 6 models on X_train and generate predictions on held-out X_test.",
+              "5. Compile a comparison table of Accuracy, Precision, Recall, F1-Score, and plot Confusion Matrices for the top 2 models."
+            ]
+          },
+          "keyTakeaways": [
+            "Classification models map continuous/categorical inputs to discrete target class predictions.",
+            "Logistic Regression estimates class probabilities using the Sigmoid curve: \u2567\u00e2(z) = 1 / (1 + e\u0393\u00fc\u2557\u00df\u2562\u2557).",
+            "Decision Trees split feature space recursively using Gini Impurity, while Random Forests ensemble multiple trees to reduce variance.",
+            "KNN relies on Euclidean distance voting (requiring scaling), while SVM maximizes hyperplane decision margins.",
+            "Evaluate classifiers using Precision, Recall, F1-Score, and Confusion Matrices to handle imbalanced real-world targets effectively."
+          ],
+          "references": [
+            {
+              "title": "Scikit-Learn Supervised Classification Documentation",
+              "url": "https://scikit-learn.org/stable/supervised_learning.html"
+            },
+            {
+              "title": "Hands-On Machine Learning with Scikit-Learn, Keras, and TensorFlow by Aur\u251c\u2310lien G\u251c\u2310ron",
+              "url": "https://www.oreilly.com/library/view/hands-on-machine-learning/9781492032632/"
+            }
+          ],
+          "mcqs": [
+            {
+              "id": 1,
+              "question": "What mathematical function maps any real-valued number into a probability range between 0 and 1 in Logistic Regression?",
+              "options": [
+                "ReLU Function",
+                "Sigmoid (Logit) Function",
+                "Softmax Function",
+                "Linear Identity Function"
+              ],
+              "correctAnswer": 1,
+              "explanation": "The Sigmoid function sigma(z) = 1 / (1 + e^(-z)) squashes linear outputs into valid (0, 1) probability values."
+            },
+            {
+              "id": 2,
+              "question": "How does K-Nearest Neighbors (KNN) classify a new query data point?",
+              "options": [
+                "By constructing linear decision boundaries using gradient descent",
+                "By taking a majority vote of the K nearest training data points in feature space",
+                "By building non-overlapping decision trees",
+                "By calculating global variance across all columns"
+              ],
+              "correctAnswer": 1,
+              "explanation": "KNN computes distance (e.g. Euclidean) to all training points and assigns the majority class label among its K nearest neighbors."
+            },
+            {
+              "id": 3,
+              "question": "What metric is used by Decision Trees to measure node impurity during splits?",
+              "options": [
+                "Gini Impurity / Entropy",
+                "R-Squared",
+                "Mean Squared Error",
+                "Euclidean Distance"
+              ],
+              "correctAnswer": 0,
+              "explanation": "Decision trees select feature splits that maximize Information Gain by reducing Gini Impurity or Entropy at child nodes."
+            },
+            {
+              "id": 4,
+              "question": "How does Random Forest reduce overfitting compared to a single Decision Tree?",
+              "options": [
+                "By training a single very deep tree with no depth limits",
+                "By aggregating predictions from an ensemble of diverse trees built on bootstrap samples and random feature subsets (Bagging)",
+                "By converting classification tasks into linear regression",
+                "By using L1 regularization penalties on tree nodes"
+              ],
+              "correctAnswer": 1,
+              "explanation": "Random Forest combines Bagging (Bootstrap Aggregation) with random feature selection, averaging predictions to lower model variance."
+            },
+            {
+              "id": 5,
+              "question": "What hyperparameter controls the maximum depth of individual trees in a Random Forest to prevent overfitting?",
+              "options": [
+                "n_estimators",
+                "max_depth",
+                "criterion",
+                "min_samples_split"
+              ],
+              "correctAnswer": 1,
+              "explanation": "`max_depth` caps tree growth, constraining model complexity and preventing deep tree overfitting."
+            }
+          ]
+        },
+        "order": 11,
+        "published": true
+      },
+      {
+        "id": "ds-mod-12",
+        "title": "Module 12 \u0393\u00c7\u00f6 Unsupervised Learning & Clustering",
+        "description": "K-Means clustering, Hierarchical clustering, DBSCAN, and Dimensionality Reduction using Principal Component Analysis (PCA).",
+        "completed": true,
+        "readingMaterial": {
+          "introduction": "Unsupervised Learning discovers inherent patterns, hidden groupings, and structures in unlabeled datasets without target labels. This module explores four fundamental algorithms: K-Means Clustering, Hierarchical Agglomerative Clustering, Density-Based Spatial Clustering of Applications with Noise (DBSCAN), and Principal Component Analysis (PCA) for dimensionality reduction.",
+          "objectives": [
+            "Distinguish Supervised Learning (labeled targets) from Unsupervised Learning (unlabeled structure discovery)",
+            "Calculate Euclidean distance metrics and apply mandatory feature scaling (StandardScaler) for distance-based clustering",
+            "Partition data into K distinct clusters using K-Means centroids, Inertia loss optimization, and prediction methods",
+            "Determine optimal cluster count K using the Elbow Method (Inertia curve inflection) and Silhouette Score analysis",
+            "Construct Hierarchical Agglomerative Clusters, evaluate Linkage methods (Ward, Complete, Average, Single), and plot Dendrograms",
+            "Perform Density-Based Spatial Clustering (DBSCAN) to identify arbitrary-shaped clusters and noise/outlier points without specifying K",
+            "Understand Principal Component Analysis (PCA) mathematically: Covariance matrices, Eigenvalues, Eigenvectors, and Explained Variance Ratios",
+            "Reduce high-dimensional feature spaces for 2D/3D visualization and build hybrid PCA + K-Means clustering pipelines"
+          ],
+          "sections": [
+            {
+              "heading": "1 - 5. Overview, Objectives & Supervised vs Unsupervised Learning",
+              "text": "Unsupervised Learning processes unlabeled datasets X to discover underlying distribution structures. The primary tasks are Clustering (partitioning samples into cohesive groups) and Dimensionality Reduction (compressing feature dimensions while preserving variance).",
+              "table": {
+                "headers": [
+                  "Task Dimension",
+                  "Supervised Learning",
+                  "Unsupervised Learning"
+                ],
+                "rows": [
+                  [
+                    "Dataset Requirement",
+                    "Features X + Target Labels Y",
+                    "Features X only (Unlabeled)"
+                  ],
+                  [
+                    "Primary Goal",
+                    "Learn predictive mapping function f(X) -> Y",
+                    "Discover hidden groupings, density & variance patterns"
+                  ],
+                  [
+                    "Core Tasks",
+                    "Classification & Regression",
+                    "Clustering & Dimensionality Reduction"
+                  ],
+                  [
+                    "Evaluation Metric",
+                    "Accuracy, Precision, Recall, MAE, MSE, R\u252c\u2593",
+                    "Silhouette Score, Inertia, Explained Variance, Domain Validation"
+                  ],
+                  [
+                    "Primary Algorithms",
+                    "Linear/Logistic Regression, Trees, Random Forest, SVM",
+                    "K-Means, Agglomerative Clustering, DBSCAN, PCA"
+                  ]
+                ]
+              }
+            },
+            {
+              "heading": "6 - 9. Distance Metrics, Similarity & Mandatory Feature Scaling",
+              "text": "Clustering algorithms rely on distance metrics such as Euclidean Distance: d(A, B) = \u0393\u00ea\u00dc(\u256c\u00fa (x\u00df\u2561\u00f3 - y\u00df\u2561\u00f3)\u252c\u2593). Features with large numerical ranges (e.g. Income \u0393\u00e9\u256350,000 vs Age 30) will dominate distance calculations. Feature scaling (`StandardScaler` Z = (x - \u256c\u255d) / \u2567\u00e2) is MANDATORY before clustering."
+            },
+            {
+              "heading": "10 - 15. K-Means Clustering: Centroids, Within-Cluster Loss & Inference",
+              "text": "K-Means partitions data into K clusters by minimizing Within-Cluster Sum of Squares (Inertia Loss): J = \u256c\u00fa \u256c\u00fa ||x\u00df\u2561\u00f3 - \u256c\u255d\u0393\u00e9\u00fb||\u252c\u2593. The algorithm iteratively: 1) Initializes K centroids, 2) Assigns points to nearest centroid, 3) Updates centroids to cluster means, until convergence."
+            },
+            {
+              "heading": "16 - 22. Selecting K: Elbow Method, Silhouette Score & K-Means Limits",
+              "text": "Select optimal cluster count K using the Elbow Method (locating the inflection point on an Inertia vs K plot) and Silhouette Score s(i) = [b(i) - a(i)] / max(a(i), b(i)), which measures cohesion vs separation between -1.0 and +1.0. K-Means assumes spherical clusters of equal size."
+            },
+            {
+              "heading": "23 - 30. Hierarchical Agglomerative Clustering & Dendrograms",
+              "text": "Hierarchical Agglomerative Clustering merges nearby points bottom-up into a cluster tree (Dendrogram). Linkage criteria define cluster distance: Ward (minimizes within-cluster variance increase), Complete (maximum pairwise distance), Average (mean distance), and Single (minimum distance)."
+            },
+            {
+              "heading": "31 - 37. DBSCAN: Density-Based Clustering & Noise Detection",
+              "text": "DBSCAN (Density-Based Spatial Clustering of Applications with Noise) groups dense regions defined by radius `eps` and `min_samples`. It categorizes points as Core Points (dense centers), Border Points (cluster edges), or Noise Points (-1 label, outliers). DBSCAN finds arbitrary cluster shapes without specifying K.",
+              "table": {
+                "headers": [
+                  "Algorithm",
+                  "Requires Cluster Count K?",
+                  "Cluster Shape Capability",
+                  "Outlier / Noise Handling",
+                  "Scikit-Learn Class"
+                ],
+                "rows": [
+                  [
+                    "K-Means",
+                    "Yes (Specified beforehand)",
+                    "Spherical / Convex clusters only",
+                    "Poor (forces outliers into nearest centroid)",
+                    "from sklearn.cluster import KMeans"
+                  ],
+                  [
+                    "Hierarchical",
+                    "Optional (Dendrogram linkage cut)",
+                    "Hierarchical / Multi-level nested groups",
+                    "Moderate (isolated branches)",
+                    "from sklearn.cluster import AgglomerativeClustering"
+                  ],
+                  [
+                    "DBSCAN",
+                    "No (Discovers cluster count automatically)",
+                    "Arbitrary / Non-convex dense shapes",
+                    "Excellent (flags sparse points as Noise = -1)",
+                    "from sklearn.cluster import DBSCAN"
+                  ]
+                ]
+              }
+            },
+            {
+              "heading": "38 - 47. Principal Component Analysis (PCA) & Explained Variance",
+              "text": "PCA reduces feature dimensions by transforming correlated features into orthogonal Principal Components ordered by variance captured. PCA computes Covariance Matrix \u256c\u00fa, Eigenvalues \u256c\u2557\u00df\u2561\u00f3, and Eigenvectors. Cumulative Explained Variance Ratio determines components retaining desired variance (e.g. 95%)."
+            },
+            {
+              "heading": "48 - 61. Hybrid PCA + Clustering Pipelines, Applications & Summary",
+              "text": "Combine PCA feature compression with K-Means clustering for customer segmentation. Evaluate clusters using Silhouette Scores, analyze segment centroids, and build end-to-end unsupervised pipelines in Scikit-Learn."
+            }
+          ],
+          "codeExamples": [
+            {
+              "title": "1. K-Means Elbow Method & Silhouette Analysis Pipeline",
+              "code": "import numpy as np\nimport pandas as pd\nimport matplotlib.pyplot as plt\nfrom sklearn.preprocessing import StandardScaler\nfrom sklearn.cluster import KMeans\nfrom sklearn.metrics import silhouette_score\n\n# Generate Synthetic Customer Data\nnp.random.seed(42)\nX_raw = np.random.randn(300, 4) * 100 + [50, 50000, 5, 200]\n\n# 1. Mandatory Scaling\nscaler = StandardScaler()\nX_scaled = scaler.fit_transform(X_raw)\n\n# 2. Elbow Method & Silhouette Evaluation\ninertias = []\nsilhouette_scores = []\nK_range = range(2, 8)\n\nfor k in K_range:\n    kmeans = KMeans(n_clusters=k, random_state=42, n_init=\"auto\")\n    labels = kmeans.fit_predict(X_scaled)\n    inertias.append(kmeans.inertia_)\n    silhouette_scores.append(silhouette_score(X_scaled, labels))\n\nfor k, inertia, sil in zip(K_range, inertias, silhouette_scores):\n    print(f\"K={k}: Inertia={inertia:.2f}, Silhouette Score={sil:.4f}\")",
+              "explanation": "Scales features using StandardScaler, executes K-Means across cluster range K=2..7, and computes Inertia and Silhouette scores to select optimal clusters."
+            },
+            {
+              "title": "2. Hybrid PCA Dimensionality Reduction + K-Means Pipeline",
+              "code": "import pandas as pd\nimport numpy as np\nfrom sklearn.preprocessing import StandardScaler\nfrom sklearn.decomposition import PCA\nfrom sklearn.cluster import KMeans\nfrom sklearn.metrics import silhouette_score\n\n# Generate High-Dimensional Dataset\nnp.random.seed(42)\nX_high = np.random.randn(200, 10)\n\n# 1. Scale & Apply PCA\nscaler = StandardScaler()\nX_scaled = scaler.fit_transform(X_high)\n\npca = PCA(n_components=0.95) # Retain 95% variance\nX_pca = pca.fit_transform(X_scaled)\n\nprint(f\"Original Dimensions: {X_high.shape[1]}\")\nprint(f\"PCA Reduced Dimensions: {X_pca.shape[1]}\")\nprint(\"Explained Variance Ratio per Component:\", pca.explained_variance_ratio_)\nprint(f\"Total Cumulative Variance: {sum(pca.explained_variance_ratio_):.4f}\")\n\n# 2. Fit K-Means on PCA Components\nkmeans = KMeans(n_clusters=3, random_state=42, n_init=\"auto\")\ncluster_labels = kmeans.fit_predict(X_pca)\nscore = silhouette_score(X_pca, cluster_labels)\nprint(f\"Silhouette Score on PCA Reduced Space: {score:.4f}\")",
+              "explanation": "Standardizes high-dimensional inputs, applies PCA to preserve 95% total variance, fits K-Means clustering on principal components, and evaluates Silhouette performance."
+            }
+          ],
+          "bestPractices": [
+            "Always apply StandardScaler to continuous numerical features prior to distance-based clustering (K-Means, Hierarchical, DBSCAN) or variance-based PCA",
+            "Combine the Elbow Method (Inertia inflection) with Silhouette Scores (cohesion vs separation) to evaluate optimal cluster count K",
+            "Use DBSCAN when cluster shapes are non-convex, density varies, or explicit noise/outlier detection (-1 label) is required",
+            "Examine Cumulative Explained Variance Ratios when selecting the number of PCA principal components (e.g. retaining 95% total variance)",
+            "Standardize features before fitting PCA because PCA is variance-seeking and unscaled large-range variables distort principal components",
+            "Validate discovered clusters by calculating group feature means (`df.groupby('Cluster').mean()`) to extract meaningful domain segments",
+            "Be cautious when using PCA before clustering, as PCA maximizes overall variance rather than cluster separation",
+            "Never compute preprocessing transformations on test sets when evaluating supervised downstream tasks following unsupervised feature reduction"
+          ],
+          "commonMistakes": [
+            "Fitting K-Means or DBSCAN on unscaled features, allowing high-magnitude variables to dominate Euclidean distance calculations",
+            "Assuming K-Means can discover non-spherical or crescent-shaped clusters\u0393\u00c7\u00f6use DBSCAN or Spectral Clustering instead",
+            "Arbitrarily choosing K without checking Inertia Elbow curves or Silhouette Scores",
+            "Applying PCA without standardizing features first, resulting in principal components dominated by raw feature scale rather than true variance",
+            "Treating cluster ID numbers (0, 1, 2) as ordered continuous metrics in downstream supervised models"
+          ],
+          "practiceExercise": {
+            "instructions": "Build an end-to-end Customer Segmentation and Dimensionality Reduction pipeline using PCA and K-Means in Python.",
+            "tasks": [
+              "1. Load 5 customer features (Age, Income, SpendingScore, OrderFrequency, AvgOrderValue) and standardize using StandardScaler.",
+              "2. Calculate Inertia and Silhouette Scores for K-Means across K = 2 to 8 to identify optimal customer segments.",
+              "3. Fit PCA preserving 90% cumulative variance and transform feature matrix into principal components.",
+              "4. Train K-Means (n_clusters=4) on PCA-transformed components and append cluster assignments to DataFrame.",
+              "5. Calculate group feature means per cluster (`df.groupby('Cluster').mean()`) and define business segment profiles."
+            ]
+          },
+          "keyTakeaways": [
+            "Unsupervised Learning discovers inherent patterns, cluster groupings, and feature structures from unlabeled data.",
+            "K-Means partitions data into K clusters around centroids by minimizing Within-Cluster Sum of Squares (Inertia).",
+            "Hierarchical Agglomerative Clustering builds bottom-up Dendrogram trees, while DBSCAN groups dense regions and flags Noise (-1).",
+            "PCA transforms correlated features into orthogonal Principal Components ordered by Explained Variance Ratio.",
+            "Feature scaling (StandardScaler) is mandatory before distance-based clustering and variance-seeking PCA."
+          ],
+          "references": [
+            {
+              "title": "Scikit-Learn Clustering Documentation",
+              "url": "https://scikit-learn.org/stable/modules/clustering.html"
+            },
+            {
+              "title": "Scikit-Learn Decompositions (PCA) Documentation",
+              "url": "https://scikit-learn.org/stable/modules/decomposition.html"
+            }
+          ],
+          "mcqs": [
+            {
+              "id": 1,
+              "question": "What is the main goal of K-Means Clustering?",
+              "options": [
+                "To predict continuous target values y",
+                "To partition N unlabeled data points into K distinct clusters minimizing within-cluster inertia (sum of squared distances to centroids)",
+                "To classify text messages as Spam or Ham",
+                "To compute linear regression slopes"
+              ],
+              "correctAnswer": 1,
+              "explanation": "K-Means groups unlabeled data points into K clusters by minimizing the sum of squared distances between data points and cluster centroids."
+            },
+            {
+              "id": 2,
+              "question": "What diagnostic method helps determine the optimal number of clusters K in K-Means?",
+              "options": [
+                "Elbow Method (Inertia Plot)",
+                "Confusion Matrix",
+                "ROC-AUC Curve",
+                "Residual Plot"
+              ],
+              "correctAnswer": 0,
+              "explanation": "The Elbow Method plots inertia (WCSS) against K; the optimal K is located at the point where inertia reduction levels off (the 'elbow')."
+            },
+            {
+              "id": 3,
+              "question": "What key advantage does DBSCAN offer over K-Means clustering?",
+              "options": [
+                "DBSCAN requires users to pre-specify the exact number of clusters K",
+                "DBSCAN can discover arbitrarily shaped clusters and automatically flags low-density noise/outliers",
+                "DBSCAN only works on 1D continuous data",
+                "DBSCAN uses linear regression equations"
+              ],
+              "correctAnswer": 1,
+              "explanation": "DBSCAN (Density-Based Spatial Clustering) clusters based on point density (eps, min_samples), discovering arbitrary shapes and identifying noise points (-1)."
+            },
+            {
+              "id": 4,
+              "question": "What is the primary purpose of Principal Component Analysis (PCA)?",
+              "options": [
+                "To perform target classification using decision boundaries",
+                "Dimensionality reduction: transforming high-dimensional features into uncorrelated orthogonal components while retaining maximum variance",
+                "To impute missing values in categorical columns",
+                "To increase feature column count"
+              ],
+              "correctAnswer": 1,
+              "explanation": "PCA projects high-dimensional data onto orthogonal principal component axes that capture maximum data variance."
+            },
+            {
+              "id": 5,
+              "question": "What metric measures cluster separation quality in Unsupervised Learning without ground-truth labels?",
+              "options": [
+                "Silhouette Score",
+                "F1-Score",
+                "Mean Absolute Error",
+                "Accuracy Score"
+              ],
+              "correctAnswer": 0,
+              "explanation": "The Silhouette Score (-1 to +1) measures how similar an object is to its own cluster compared to neighboring clusters."
+            }
+          ]
+        },
+        "order": 12,
+        "published": true
+      },
+      {
+        "id": "ds-mod-13",
+        "title": "Module 13 \u0393\u00c7\u00f6 Model Evaluation Metrics & Validation",
+        "description": "Confusion matrix, Accuracy, Precision, Recall, F1-Score, ROC-AUC curve, and k-Fold Cross-Validation strategies.",
+        "completed": true,
+        "readingMaterial": {
+          "introduction": "Evaluating model performance correctly ensures models generalize cleanly to unobserved real-world data rather than simply memorizing training set noise. This module explores classification metric evaluation (Confusion Matrices, Accuracy, Precision, Recall, F1-Score, ROC Curves, AUC), decision threshold tuning, and validation strategies (k-Fold Cross-Validation, Stratified K-Fold, and Data Leakage prevention via Scikit-Learn Pipelines).",
+          "objectives": [
+            "Distinguish Training Performance from Generalization Performance on held-out test data",
+            "Construct and interpret Confusion Matrices: True Positives (TP), True Negatives (TN), False Positives (FP - Type I Error), and False Negatives (FN - Type II Error)",
+            "Calculate Accuracy, Precision, Recall (Sensitivity), and F1-Score (Harmonic Mean)",
+            "Understand why Accuracy fails on imbalanced datasets and select domain-appropriate metrics",
+            "Evaluate classification threshold trade-offs and compute ROC Curves and Area Under Curve (ROC-AUC)",
+            "Implement K-Fold Cross-Validation and Stratified K-Fold Cross-Validation using Scikit-Learn `cross_val_score`",
+            "Prevent Data Leakage by encapsulating feature scalers and models inside Scikit-Learn Pipelines",
+            "Compare multiple candidate classifiers using cross-validated scoring and build reproducible model validation systems"
+          ],
+          "sections": [
+            {
+              "heading": "1 - 4. Overview, Objectives & Train/Validation/Test Partitioning",
+              "text": "Models must be evaluated on unseen data to quantify generalization. Partition datasets into Training (80% for parameter learning), Validation (for hyperparameter tuning and model selection), and Test sets (held-out final benchmark).",
+              "table": {
+                "headers": [
+                  "Dataset Partition",
+                  "Primary Purpose",
+                  "Access Frequency During ML Development"
+                ],
+                "rows": [
+                  [
+                    "Training Set",
+                    "Train model weights and parameters via fit()",
+                    "Used repeatedly in training loops"
+                  ],
+                  [
+                    "Validation Set",
+                    "Compare candidate architectures & tune hyperparameters",
+                    "Used iteratively during model selection / cross-validation"
+                  ],
+                  [
+                    "Held-Out Test Set",
+                    "Final unbiased estimation of generalization performance",
+                    "Evaluated ONCE at the end of the project"
+                  ]
+                ]
+              }
+            },
+            {
+              "heading": "5 - 7. Classification Prediction Outcomes & The Confusion Matrix",
+              "text": "Predictions fall into 4 outcomes: True Positive (TP: Actual=1, Pred=1), True Negative (TN: Actual=0, Pred=0), False Positive (FP: Actual=0, Pred=1, Type I Error), and False Negative (FN: Actual=1, Pred=0, Type II Error). A Confusion Matrix organizes these counts into a 2x2 grid.",
+              "table": {
+                "headers": [
+                  "Confusion Matrix Element",
+                  "Prediction vs Actual Reality",
+                  "Statistical Error Type",
+                  "Domain Impact Scenario"
+                ],
+                "rows": [
+                  [
+                    "True Positive (TP)",
+                    "Predicted Positive, Actually Positive",
+                    "Correct Classification",
+                    "Correctly flagged fraud transaction"
+                  ],
+                  [
+                    "False Positive (FP)",
+                    "Predicted Positive, Actually Negative",
+                    "Type I Error (False Alarm)",
+                    "Legitimate email sent to Spam folder"
+                  ],
+                  [
+                    "False Negative (FN)",
+                    "Predicted Negative, Actually Positive",
+                    "Type II Error (Missed Detection)",
+                    "Undetected medical condition / missed fraud"
+                  ],
+                  [
+                    "True Negative (TN)",
+                    "Predicted Negative, Actually Negative",
+                    "Correct Classification",
+                    "Normal transaction approved smoothly"
+                  ]
+                ]
+              }
+            },
+            {
+              "heading": "8 - 10. Accuracy & The Imbalanced Dataset Trap",
+              "text": "Accuracy = (TP + TN) / (TP + TN + FP + FN). Accuracy works well for balanced classes, but is DECEPTIVE for imbalanced datasets (e.g. 99% Negative, 1% Positive). A naive model predicting 0 for all samples achieves 99% accuracy while missing 100% of positive cases."
+            },
+            {
+              "heading": "11 - 18. Precision, Recall, F1-Score & Harmonic Mean Justification",
+              "text": "Precision = TP / (TP + FP) measures positive prediction quality (critical when False Positives are costly, e.g. spam filters). Recall = TP / (TP + FN) measures positive coverage (critical when False Negatives are costly, e.g. disease screening). F1-Score = 2 * (Precision * Recall) / (Precision + Recall) combines both metrics using the Harmonic Mean, penalizing extreme imbalances.",
+              "table": {
+                "headers": [
+                  "Metric Name",
+                  "Mathematical Formula",
+                  "Core Question Answered",
+                  "Primary Focus Application"
+                ],
+                "rows": [
+                  [
+                    "Accuracy",
+                    "(TP + TN) / Total",
+                    "How many total predictions were correct?",
+                    "Balanced binary / multiclass targets"
+                  ],
+                  [
+                    "Precision",
+                    "TP / (TP + FP)",
+                    "Of all positive predictions, how many were true?",
+                    "Spam filtering, loan approvals (low False Positives)"
+                  ],
+                  [
+                    "Recall (Sensitivity)",
+                    "TP / (TP + FN)",
+                    "Of all actual positives, how many were detected?",
+                    "Medical screening, fraud detection (low False Negatives)"
+                  ],
+                  [
+                    "F1-Score",
+                    "2 \u252c\u2556 (Precision \u252c\u2556 Recall) / (Precision + Recall)",
+                    "How well are Precision and Recall balanced?",
+                    "Imbalanced datasets requiring dual optimization"
+                  ]
+                ]
+              }
+            },
+            {
+              "heading": "19 - 21. Scikit-Learn Metric Functions & Classification Reports",
+              "text": "Scikit-Learn provides `accuracy_score()`, `precision_score()`, `recall_score()`, `f1_score()`, `confusion_matrix()`, and `ConfusionMatrixDisplay()`. The `classification_report()` generates per-class precision, recall, F1, and support counts."
+            },
+            {
+              "heading": "22 - 28. ROC Curve, AUC & Threshold Trade-Offs",
+              "text": "The Receiver Operating Characteristic (ROC) curve plots True Positive Rate (TPR = Recall) against False Positive Rate (FPR = FP / (FP + TN)) across varying probability thresholds. Area Under Curve (ROC-AUC) ranges from 0.5 (random chance) to 1.0 (perfect classification). Compute via `roc_auc_score(y_test, y_prob)`."
+            },
+            {
+              "heading": "29 - 31. Classification Thresholds & Precision-Recall Trade-Off",
+              "text": "Classifiers output probabilities mapped to classes via a threshold (default 0.50). Lowering the threshold increases Recall (detecting more positive cases) at the cost of lower Precision (more false alarms). Adjust thresholds based on business domain costs."
+            },
+            {
+              "heading": "32 - 39. K-Fold & Stratified K-Fold Cross-Validation",
+              "text": "K-Fold Cross-Validation splits training data into K folds, evaluating the model K times so every sample serves as validation once. Mean CV score = (1/K) \u256c\u00fa S\u00df\u2561\u00f3. Use `StratifiedKFold` for classification to preserve target class proportions across all K folds."
+            },
+            {
+              "heading": "40 - 47. Preventing Data Leakage with Pipelines & Domain Metric Selection",
+              "text": "Data Leakage occurs when test/validation data influences training transformations (e.g. standardizing full dataset before splitting). Scikit-Learn `Pipeline` encapsulates preprocessing so fit() operates on training folds only. Match metrics to business objectives: Medical -> Recall, Spam -> Precision, Imbalanced Fraud -> F1 / ROC-AUC."
+            },
+            {
+              "heading": "48 - 55. Mini-Project, Validation Checklist & Summary",
+              "text": "Execute multi-metric evaluation across Logistic Regression, Random Forest, and SVM classifiers using 5-fold Stratified Cross-Validation, confusion matrices, ROC curves, and the 13-point model validation checklist."
+            }
+          ],
+          "codeExamples": [
+            {
+              "title": "1. Comprehensive Classification Evaluation Pipeline (Metrics, Confusion Matrix & ROC-AUC)",
+              "code": "import numpy as np\nimport pandas as pd\nimport matplotlib.pyplot as plt\nfrom sklearn.model_selection import train_test_split\nfrom sklearn.preprocessing import StandardScaler\nfrom sklearn.linear_model import LogisticRegression\nfrom sklearn.metrics import (\n    accuracy_score, precision_score, recall_score, f1_score,\n    confusion_matrix, ConfusionMatrixDisplay, roc_curve, roc_auc_score, classification_report\n)\n\n# Generate Imbalanced Dataset\nnp.random.seed(42)\nX_raw = np.random.randn(300, 4)\ny_raw = np.random.choice([0, 1], 300, p=[0.8, 0.2]) # 80:20 imbalanced\n\nX_train, X_test, y_train, y_test = train_test_split(X_raw, y_raw, test_size=0.2, random_state=42, stratify=y_raw)\n\n# Scale and Fit Model\nscaler = StandardScaler()\nX_train_scaled = scaler.fit_transform(X_train)\nX_test_scaled = scaler.transform(X_test)\n\nmodel = LogisticRegression()\nmodel.fit(X_train_scaled, y_train)\n\ny_pred = model.predict(X_test_scaled)\ny_prob = model.predict_proba(X_test_scaled)[:, 1]\n\n# 1. Print Standard Metrics\nprint(f\"Accuracy:  {accuracy_score(y_test, y_pred):.4f}\")\nprint(f\"Precision: {precision_score(y_test, y_pred, zero_division=0):.4f}\")\nprint(f\"Recall:    {recall_score(y_test, y_pred, zero_division=0):.4f}\")\nprint(f\"F1-Score:  {f1_score(y_test, y_pred, zero_division=0):.4f}\")\nprint(f\"ROC-AUC:   {roc_auc_score(y_test, y_prob):.4f}\")\n\n# 2. Detailed Classification Report\nprint(\"\\nClassification Report:\\n\", classification_report(y_test, y_pred))",
+              "explanation": "Computes complete evaluation metrics (Accuracy, Precision, Recall, F1, ROC-AUC) and prints formatted classification reports on held-out test data."
+            },
+            {
+              "title": "2. Stratified 5-Fold Cross-Validation Pipeline Comparison",
+              "code": "from sklearn.model_selection import StratifiedKFold, cross_val_score\nfrom sklearn.pipeline import Pipeline\nfrom sklearn.preprocessing import StandardScaler\nfrom sklearn.linear_model import LogisticRegression\nfrom sklearn.ensemble import RandomForestClassifier\nfrom sklearn.svm import SVC\nimport numpy as np\nimport pandas as pd\n\nnp.random.seed(42)\nX_data = np.random.randn(250, 5)\ny_data = np.random.choice([0, 1], 250, p=[0.75, 0.25])\n\n# Stratified K-Fold setup\nskf = StratifiedKFold(n_splits=5, shuffle=True, random_state=42)\n\nmodels = {\n    \"Logistic Regression\": LogisticRegression(),\n    \"Random Forest\": RandomForestClassifier(n_estimators=100, random_state=42),\n    \"SVM (RBF)\": SVC(kernel=\"rbf\")\n}\n\nfor name, clf in models.items():\n    pipe = Pipeline([(\"scaler\", StandardScaler()), (\"model\", clf)])\n    scores = cross_val_score(pipe, X_data, y_data, cv=skf, scoring=\"f1\")\n    print(f\"{name:20s} | Mean F1: {scores.mean():.4f} | Std Dev: {scores.std():.4f}\")",
+              "explanation": "Evaluates multiple classifiers using Stratified 5-Fold Cross-Validation on F1-score, encapsulating feature scaling inside Pipelines to prevent data leakage."
+            }
+          ],
+          "bestPractices": [
+            "Never evaluate classification models on training data alone\u0393\u00c7\u00f6always measure performance on held-out test sets or cross-validation folds",
+            "Avoid relying exclusively on Accuracy for imbalanced datasets; evaluate Precision, Recall, F1-Score, and ROC-AUC",
+            "Use `StratifiedKFold` cross-validation for classification problems to preserve class proportions across all validation folds",
+            "Encapsulate preprocessing scalers and classifiers inside Scikit-Learn `Pipeline` objects to prevent data leakage during cross-validation",
+            "Select metrics aligned with domain risks: Recall for medical screening/fraud (low FN), Precision for spam/loan approvals (low FP)",
+            "Inspect Confusion Matrices (TP, TN, FP, FN) to understand specific error types beyond single scalar metrics",
+            "Evaluate ROC-AUC scores using probability predictions (`predict_proba`) for threshold-independent classifier ranking",
+            "Keep held-out test sets completely untouched until final model verification after hyperparameter tuning"
+          ],
+          "commonMistakes": [
+            "Reporting 99% accuracy on an imbalanced dataset where the model simply predicts the majority class for all samples",
+            "Preprocessing or scaling the entire dataset before train/test splitting, introducing severe Data Leakage",
+            "Tuning hyperparameters directly against the held-out test set, causing indirect test set overfitting",
+            "Ignoring the Precision-Recall trade-off when adjusting decision thresholds",
+            "Confusing Type I errors (False Positives / False Alarms) with Type II errors (False Negatives / Missed Cases)",
+            "Using standard K-Fold instead of StratifiedKFold for severely imbalanced classification datasets"
+          ],
+          "practiceExercise": {
+            "instructions": "Perform comprehensive multi-metric evaluation and cross-validation on a Customer Churn classifier in Python.",
+            "tasks": [
+              "1. Load 5 customer features and binary target (Churn: 0/1) and perform stratified 80/20 train/test split.",
+              "2. Train a Logistic Regression model inside a StandardScaler Pipeline.",
+              "3. Generate predictions and print Confusion Matrix, Accuracy, Precision, Recall, F1-Score, and ROC-AUC.",
+              "4. Plot the ROC Curve showing True Positive Rate vs False Positive Rate across probability thresholds.",
+              "5. Execute 5-fold StratifiedKFold cross-validation on the pipeline and compare mean F1-Score against a Random Forest baseline."
+            ]
+          },
+          "keyTakeaways": [
+            "Model evaluation measures generalization performance on unseen test data to detect overfitting.",
+            "The Confusion Matrix categorizes predictions into True Positives, True Negatives, False Positives (Type I), and False Negatives (Type II).",
+            "Precision measures positive prediction quality, Recall measures positive coverage, and F1-Score calculates their harmonic mean.",
+            "ROC Curves plot TPR vs FPR, with AUC summarizing ranking capability from 0.5 (random) to 1.0 (perfect).",
+            "Stratified K-Fold Cross-Validation and Pipelines ensure reliable, leakage-free performance estimation."
+          ],
+          "references": [
+            {
+              "title": "Scikit-Learn Model Evaluation & Metrics Documentation",
+              "url": "https://scikit-learn.org/stable/modules/model_evaluation.html"
+            },
+            {
+              "title": "Scikit-Learn Cross-Validation Guide",
+              "url": "https://scikit-learn.org/stable/modules/cross_validation.html"
+            }
+          ],
+          "mcqs": [
+            {
+              "id": 1,
+              "question": "In a Confusion Matrix, what does a False Positive (Type I Error) represent?",
+              "options": [
+                "A negative instance correctly predicted as negative",
+                "A negative instance incorrectly predicted as positive",
+                "A positive instance correctly predicted as positive",
+                "A positive instance incorrectly predicted as negative"
+              ],
+              "correctAnswer": 1,
+              "explanation": "False Positive (FP) occurs when the actual class is negative (0) but the model incorrectly predicts positive (1)."
+            },
+            {
+              "id": 2,
+              "question": "Which metric is defined as TP / (TP + FP)?",
+              "options": [
+                "Recall (Sensitivity)",
+                "Precision",
+                "Accuracy",
+                "F1-Score"
+              ],
+              "correctAnswer": 1,
+              "explanation": "Precision measures the proportion of positive predictions that were actually correct."
+            },
+            {
+              "id": 3,
+              "question": "When detecting rare diseases or fraud where missing a positive case is catastrophic, which metric should be prioritized?",
+              "options": [
+                "Precision",
+                "Recall (Sensitivity)",
+                "Accuracy",
+                "Specificity"
+              ],
+              "correctAnswer": 1,
+              "explanation": "Recall (TP / (TP + FN)) measures the model's ability to identify all true positive instances, minimizing dangerous False Negatives."
+            },
+            {
+              "id": 4,
+              "question": "What does the F1-Score calculate?",
+              "options": [
+                "The arithmetic mean of Precision and Recall",
+                "The harmonic mean of Precision and Recall: 2 * (Precision * Recall) / (Precision + Recall)",
+                "The difference between True Positive Rate and False Positive Rate",
+                "The percentage of correct predictions overall"
+              ],
+              "correctAnswer": 1,
+              "explanation": "F1-Score is the harmonic mean of Precision and Recall, providing a balanced metric for imbalanced datasets."
+            },
+            {
+              "id": 5,
+              "question": "Why is Stratified K-Fold Cross-Validation preferred for imbalanced classification tasks?",
+              "options": [
+                "It runs 100 times faster than standard cross-validation",
+                "It preserves the original class ratio across every fold split",
+                "It eliminates the need for a validation set",
+                "It automatically scales numerical feature columns"
+              ],
+              "correctAnswer": 1,
+              "explanation": "Stratified K-Fold ensures every fold contains approximately the same percentage of targeted sample labels as the complete dataset."
+            }
+          ]
+        },
+        "order": 13,
+        "published": true
+      },
+      {
+        "id": "ds-mod-14",
+        "title": "Module 14 \u0393\u00c7\u00f6 Feature Engineering & Hyperparameter Tuning",
+        "description": "One-hot encoding, feature scaling (StandardScaler/MinMaxScaler), feature selection, GridSearch process, and RandomSearch CV.",
+        "completed": true,
+        "readingMaterial": {
+          "introduction": "Machine Learning performance depends fundamentally on the quality, representation, and selection of input features. Feature Engineering transforms raw variables into informative representations that maximize model learning capacity. Hyperparameter Tuning then systematically optimizes algorithm hyperparameters (via GridSearchCV and RandomizedSearchCV) to achieve superior generalization performance on unseen data.",
+          "objectives": [
+            "Understand the importance of feature engineering.",
+            "Identify numerical and categorical features.",
+            "Convert categorical variables into numerical representations.",
+            "Implement One-Hot Encoding.",
+            "Understand Standardization and Normalization.",
+            "Apply StandardScaler.",
+            "Apply MinMaxScaler.",
+            "Understand when feature scaling is important.",
+            "Select useful features.",
+            "Identify redundant or irrelevant features.",
+            "Understand model parameters and hyperparameters.",
+            "Define hyperparameter search spaces.",
+            "Implement GridSearchCV.",
+            "Implement RandomizedSearchCV.",
+            "Combine preprocessing and model training using Pipelines.",
+            "Use cross-validation during hyperparameter tuning.",
+            "Compare tuned and baseline models.",
+            "Avoid data leakage during preprocessing and tuning.",
+            "--"
+          ],
+          "sections": [
+            {
+              "heading": "Module 14 \u0393\u00c7\u00f6 Feature Engineering & Hyperparameter Tuning Overview",
+              "text": "## One-Hot Encoding, Feature Scaling, Feature Selection, GridSearchCV, and RandomizedSearchCV\r\n\r\n---"
+            },
+            {
+              "heading": "What is Feature Engineering?",
+              "text": "Feature Engineering is the process of transforming raw data into features that provide useful information to a Machine Learning model.\r\n\r\nFor example, a dataset may contain:\r\n\r\n\r\n\r\nInstead of directly using the date, we could derive:\r\n\r\n```text\r\nAge\r\n```\r\n\r\nSimilarly:\r\n\r\n```text\r\nPurchase Date\r\n```\r\n\r\ncan be transformed into:\r\n\r\n```text\r\nDay\r\nMonth\r\nYear\r\nDay of Week\r\nWeekend / Weekday\r\n```\r\n\r\nThe objective is to create representations that help the model identify useful patterns.\r\n\r\n---",
+              "code": "text\r\nDate of Birth"
+            },
+            {
+              "heading": "Why Feature Engineering Matters",
+              "text": "A Machine Learning model learns patterns from the features provided to it.\r\n\r\nPoor features can result in:\r\n\r\n\r\n\r\nGood features can provide:\r\n\r\n```text\r\nUseful Representation\r\n        \u0393\u00e5\u00f4\r\nBetter Pattern Detection\r\n        \u0393\u00e5\u00f4\r\nImproved Model Performance\r\n```\r\n\r\nFeature engineering can sometimes have a greater impact than simply changing the Machine Learning algorithm.\r\n\r\n---",
+              "code": "text\r\nPoor Representation\r\n        \u0393\u00e5\u00f4\r\nWeak Learning\r\n        \u0393\u00e5\u00f4\r\nPoor Predictions"
+            },
+            {
+              "heading": "Types of Features",
+              "text": "Features can generally be classified into several categories.\r\n\r\n### Numerical Features\r\n\r\nExamples:\r\n\r\n\r\n\r\n### Categorical Features\r\n\r\nExamples:\r\n\r\n```text\r\nGender\r\nCity\r\nDepartment\r\nProduct Category\r\nPayment Method\r\n```\r\n\r\n### Ordinal Features\r\n\r\nCategories with a meaningful order.\r\n\r\nExample:\r\n\r\n```text\r\nLow\r\nMedium\r\nHigh\r\n```\r\n\r\n### Binary Features\r\n\r\nFeatures containing two possible states.\r\n\r\nExample:\r\n\r\n```text\r\nYes / No\r\nTrue / False\r\n0 / 1\r\n```\r\n\r\n---",
+              "code": "text\r\nAge\r\nSalary\r\nHeight\r\nWeight\r\nTemperature\r\nPrice"
+            },
+            {
+              "heading": "Categorical Data Problem",
+              "text": "Many Machine Learning algorithms expect numerical input.\r\n\r\nConsider:\r\n\r\n\r\n\r\nA model cannot directly perform mathematical operations on these text values.\r\n\r\nTherefore, categorical variables must be converted into numerical representations.\r\n\r\nOne common approach is:\r\n\r\n**One-Hot Encoding**\r\n\r\n---",
+              "code": "text\r\nCity\r\n------\r\nBangalore\r\nHyderabad\r\nChennai"
+            },
+            {
+              "heading": "One-Hot Encoding",
+              "text": "One-Hot Encoding creates a separate binary column for each category.\r\n\r\nOriginal:\r\n\r\n\r\n\r\nAfter encoding:\r\n\r\n```text\r\nBangalore    Hyderabad    Chennai\r\n    1            0           0\r\n    0            1           0\r\n    0            0           1\r\n    1            0           0\r\n```\r\n\r\nEach row receives a value of:\r\n\r\n```text\r\n1 \u0393\u00e5\u00c6 Category is present\r\n0 \u0393\u00e5\u00c6 Category is absent\r\n```\r\n\r\n---",
+              "code": "text\r\nCity\r\n------\r\nBangalore\r\nHyderabad\r\nChennai\r\nBangalore"
+            },
+            {
+              "heading": "One-Hot Encoding in Scikit-Learn",
+              "text": "The option:\r\n\r\n```python\r\nhandle_unknown=\"ignore\"\r\n```\r\n\r\nhelps prevent errors when the test or production dataset contains a category that was not observed during training.\r\n\r\n---",
+              "code": "from sklearn.preprocessing import OneHotEncoder\r\n\r\nencoder = OneHotEncoder(\r\n    handle_unknown=\"ignore\"\r\n)\r\n\r\nX_encoded = encoder.fit_transform(\r\n    X_categorical\r\n)"
+            },
+            {
+              "heading": "Pandas get_dummies()",
+              "text": "One-Hot Encoding can also be performed using Pandas.\r\n\r\n\r\n\r\nFor example:\r\n\r\n```text\r\nCity\r\nBangalore\r\nHyderabad\r\nChennai\r\n```\r\n\r\ncan become:\r\n\r\n```text\r\nCity_Bangalore\r\nCity_Hyderabad\r\nCity_Chennai\r\n```\r\n\r\n---",
+              "code": "import pandas as pd\r\n\r\ndf_encoded = pd.get_dummies(\r\n    df,\r\n    columns=[\"City\"]\r\n)"
+            },
+            {
+              "heading": "Avoiding the Dummy Variable Trap",
+              "text": "When appropriate for a linear model, one category can be dropped to avoid perfect multicollinearity.\r\n\r\nExample:\r\n\r\n\r\n\r\nIf there are three categories:\r\n\r\n```text\r\nA\r\nB\r\nC\r\n```\r\n\r\ntwo columns may be sufficient:\r\n\r\n```text\r\nB\r\nC\r\n```\r\n\r\nThe remaining category can be inferred when both values are zero.\r\n\r\nThe need to drop one category depends on the model and modeling objective; many modern models can handle the full one-hot representation without requiring this step.\r\n\r\n---",
+              "code": "encoder = OneHotEncoder(\r\n    drop=\"first\",\r\n    handle_unknown=\"ignore\"\r\n)"
+            },
+            {
+              "heading": "Feature Scaling",
+              "text": "Different numerical features can have very different ranges.\r\n\r\nExample:\r\n\r\n\r\n\r\nA model based on distances or gradients may be affected by these different scales.\r\n\r\nFeature scaling transforms numerical variables into comparable ranges.\r\n\r\n---",
+              "code": "text\r\nAge       \u0393\u00e5\u00c6 18\u0393\u00c7\u00f470\r\nSalary    \u0393\u00e5\u00c6 20,000\u0393\u00c7\u00f4500,000\r\nExperience \u0393\u00e5\u00c6 0\u0393\u00c7\u00f430"
+            },
+            {
+              "heading": "Standardization",
+              "text": "Standardization transforms data so that the feature has approximately:\r\n\r\n\r\n\r\nFormula:\r\n\r\n\\[\r\nz =\r\n\\frac{x-\\mu}{\\sigma}\r\n\\]\r\n\r\nWhere:\r\n\r\n- \\(x\\) = original value\r\n- \\(\\mu\\) = mean\r\n- \\(\\sigma\\) = standard deviation\r\n- \\(z\\) = standardized value\r\n\r\n---",
+              "code": "text\r\nMean = 0\r\nStandard Deviation = 1"
+            },
+            {
+              "heading": "StandardScaler",
+              "text": "Scikit-Learn provides:\r\n\r\n\r\n\r\nFor test data:\r\n\r\n```python\r\nX_test_scaled = scaler.transform(\r\n    X_test\r\n)\r\n```\r\n\r\nNotice that the scaler is **fit only on training data**.\r\n\r\n---",
+              "code": "from sklearn.preprocessing import StandardScaler\r\n\r\nscaler = StandardScaler()\r\n\r\nX_scaled = scaler.fit_transform(\r\n    X_train\r\n)"
+            },
+            {
+              "heading": "Why fit Only on Training Data?",
+              "text": "Incorrect:\r\n\r\n\r\n\r\nThis can allow information from the test data to influence preprocessing.\r\n\r\nCorrect:\r\n\r\n```text\r\nDataset\r\n   \u0393\u00e5\u00f4\r\nTrain/Test Split\r\n   \u0393\u00e5\u00f4\r\nTraining Data \u0393\u00e5\u00c6 Fit Scaler\r\n   \u0393\u00e5\u00f4\r\nTest Data \u0393\u00e5\u00c6 Transform using same Scaler\r\n```\r\n\r\nThis helps prevent data leakage.\r\n\r\n---",
+              "code": "text\r\nEntire Dataset\r\n      \u0393\u00e5\u00f4\r\nFit Scaler\r\n      \u0393\u00e5\u00f4\r\nTrain/Test Split"
+            },
+            {
+              "heading": "Min-Max Scaling",
+              "text": "Min-Max Scaling transforms values into a specified range, commonly:\r\n\r\n\r\n\r\nFormula:\r\n\r\n\\[\r\nx' =\r\n\\frac{x-x_{min}}\r\n{x_{max}-x_{min}}\r\n\\]\r\n\r\n---",
+              "code": "text\r\n0 to 1"
+            },
+            {
+              "heading": "MinMaxScaler",
+              "text": "The transformed values are generally within the specified feature range when applied to values within the training range.\r\n\r\n---",
+              "code": "from sklearn.preprocessing import MinMaxScaler\r\n\r\nscaler = MinMaxScaler()\r\n\r\nX_train_scaled = scaler.fit_transform(\r\n    X_train\r\n)\r\n\r\nX_test_scaled = scaler.transform(\r\n    X_test\r\n)"
+            },
+            {
+              "heading": "StandardScaler vs MinMaxScaler",
+              "text": "| Feature | StandardScaler | MinMaxScaler |\r\n|---|---|---|\r\n| Main transformation | Mean = 0, SD \u0393\u00eb\u00ea 1 | Fixed range |\r\n| Common range | Not fixed | Usually 0\u0393\u00c7\u00f41 |\r\n| Sensitive to outliers | Yes | Yes |\r\n| Useful for distance-based models | Yes | Yes |\r\n| Useful for gradient-based models | Yes | Yes |\r\n| Formula based on | Mean & SD | Min & Max |\r\n\r\nThe appropriate scaler depends on the dataset and model.\r\n\r\n---"
+            },
+            {
+              "heading": "Algorithms That Often Benefit from Scaling",
+              "text": "Scaling is particularly important for algorithms that depend on distances or feature magnitudes.\r\n\r\nExamples:\r\n\r\n\r\n\r\nTree-based models such as:\r\n\r\n```text\r\nDecision Trees\r\nRandom Forests\r\nGradient-Boosted Trees\r\n```\r\n\r\ngenerally do not require feature scaling for their core split calculations.\r\n\r\n---",
+              "code": "text\r\nK-Nearest Neighbors\r\nSupport Vector Machines\r\nLogistic Regression\r\nLinear Regression\r\nNeural Networks\r\nK-Means\r\nPCA"
+            },
+            {
+              "heading": "Feature Selection",
+              "text": "Feature Selection is the process of selecting the most useful input variables for a Machine Learning model.\r\n\r\nSuppose a dataset contains:\r\n\r\n\r\n\r\nbut only:\r\n\r\n```text\r\n20 Features\r\n```\r\n\r\nare genuinely useful.\r\n\r\nUsing all 100 features may increase:\r\n\r\n- Training complexity\r\n- Noise\r\n- Redundancy\r\n- Risk of overfitting\r\n- Computational cost\r\n\r\nFeature selection attempts to retain useful information while reducing unnecessary features.\r\n\r\n---",
+              "code": "text\r\n100 Features"
+            },
+            {
+              "heading": "Benefits of Feature Selection",
+              "text": "Feature selection can help:\r\n\r\n\r\n\r\nHowever, removing features does not automatically improve performance; it should be validated experimentally.\r\n\r\n---",
+              "code": "text\r\nReduce Noise\r\n      \u0393\u00e5\u00f4\r\nReduce Complexity\r\n      \u0393\u00e5\u00f4\r\nImprove Interpretability\r\n      \u0393\u00e5\u00f4\r\nReduce Training Time\r\n      \u0393\u00e5\u00f4\r\nPotentially Improve Generalization"
+            },
+            {
+              "heading": "Types of Feature Selection",
+              "text": "Three common approaches are:\r\n\r\n### Filter Methods\r\n\r\nFeatures are selected using statistical characteristics.\r\n\r\nExamples:\r\n\r\n- Correlation\r\n- Variance\r\n- Mutual Information\r\n- Chi-Square tests\r\n\r\n### Wrapper Methods\r\n\r\nDifferent feature subsets are evaluated using a model.\r\n\r\nExamples:\r\n\r\n- Recursive Feature Elimination\r\n- Sequential Feature Selection\r\n\r\n### Embedded Methods\r\n\r\nFeature selection occurs during model training.\r\n\r\nExamples:\r\n\r\n- Lasso Regression\r\n- Tree-based feature importance\r\n\r\n---"
+            },
+            {
+              "heading": "Removing Low-Variance Features",
+              "text": "Features that have almost no variation may provide little useful information.\r\n\r\nScikit-Learn provides:\r\n\r\n\r\n\r\nThe threshold should be selected based on the dataset and feature representation.\r\n\r\n---",
+              "code": "from sklearn.feature_selection import VarianceThreshold\r\n\r\nselector = VarianceThreshold(\r\n    threshold=0.01\r\n)\r\n\r\nX_selected = selector.fit_transform(\r\n    X\r\n)"
+            },
+            {
+              "heading": "Correlation-Based Feature Selection",
+              "text": "Highly correlated features may contain redundant information.\r\n\r\nExample:\r\n\r\n\r\n\r\nThese provide essentially the same information.\r\n\r\nA correlation matrix can help identify highly related numerical features.\r\n\r\nExample:\r\n\r\n```python\r\ncorrelation_matrix = df.corr(\r\n    numeric_only=True\r\n)\r\n\r\nprint(correlation_matrix)\r\n```\r\n\r\nCorrelation-based removal should be applied carefully because correlation alone does not determine whether a feature is useful.\r\n\r\n---",
+              "code": "text\r\nHeight in cm\r\nHeight in meters"
+            },
+            {
+              "heading": "Recursive Feature Elimination",
+              "text": "Recursive Feature Elimination, or RFE, repeatedly removes less useful features.\r\n\r\n\r\n\r\nRFE can help identify a smaller subset of useful features.\r\n\r\n---",
+              "code": "from sklearn.feature_selection import RFE\r\nfrom sklearn.linear_model import LogisticRegression\r\n\r\nmodel = LogisticRegression(\r\n    max_iter=1000\r\n)\r\n\r\nselector = RFE(\r\n    estimator=model,\r\n    n_features_to_select=5\r\n)\r\n\r\nX_selected = selector.fit_transform(\r\n    X,\r\n    y\r\n)"
+            },
+            {
+              "heading": "Feature Importance",
+              "text": "Tree-based models can provide feature importance values.\r\n\r\nExample:\r\n\r\n\r\n\r\nA feature importance score can help identify which features contributed strongly to the model's splitting decisions.\r\n\r\nFeature importance should be interpreted carefully and does not automatically establish causality.\r\n\r\n---",
+              "code": "from sklearn.ensemble import RandomForestClassifier\r\n\r\nmodel = RandomForestClassifier(\r\n    random_state=42\r\n)\r\n\r\nmodel.fit(\r\n    X_train,\r\n    y_train\r\n)\r\n\r\nimportance = model.feature_importances_\r\n\r\nprint(importance)"
+            },
+            {
+              "heading": "Parameters vs Hyperparameters",
+              "text": "This distinction is fundamental.\r\n\r\n### Parameters\r\n\r\nLearned automatically from training data.\r\n\r\nExamples:\r\n\r\n\r\n\r\n### Hyperparameters\r\n\r\nSet before or during the training process.\r\n\r\nExamples:\r\n\r\n```text\r\nLearning rate\r\nTree depth\r\nNumber of trees\r\nNumber of neighbors\r\nRegularization strength\r\n```\r\n\r\n---",
+              "code": "text\r\nLinear Regression coefficients\r\nNeural network weights\r\nDecision tree split structure"
+            },
+            {
+              "heading": "What is Hyperparameter Tuning?",
+              "text": "Hyperparameter tuning is the process of testing different hyperparameter configurations to find settings that provide strong validation performance.\r\n\r\nExample:\r\n\r\n\r\n\r\nDifferent combinations can be evaluated.\r\n\r\n---",
+              "code": "text\r\nRandom Forest\r\n\r\nn_estimators:\r\n50\r\n100\r\n200\r\n\r\nmax_depth:\r\n5\r\n10\r\n20"
+            },
+            {
+              "heading": "Baseline Model",
+              "text": "Before tuning, it is useful to establish a baseline.\r\n\r\nExample:\r\n\r\n\r\n\r\nThe tuned model can then be compared against this baseline.\r\n\r\n---",
+              "code": "from sklearn.ensemble import RandomForestClassifier\r\n\r\nbaseline = RandomForestClassifier(\r\n    random_state=42\r\n)\r\n\r\nbaseline.fit(\r\n    X_train,\r\n    y_train\r\n)\r\n\r\nbaseline_score = baseline.score(\r\n    X_test,\r\n    y_test\r\n)\r\n\r\nprint(\r\n    \"Baseline Score:\",\r\n    baseline_score\r\n)"
+            },
+            {
+              "heading": "Grid Search",
+              "text": "Grid Search evaluates all combinations from a predefined hyperparameter grid.\r\n\r\nSuppose:\r\n\r\n\r\n\r\nThe search evaluates:\r\n\r\n```text\r\n2 \u251c\u00f9 2 \u251c\u00f9 2 = 8 combinations\r\n```\r\n\r\nEach combination can be evaluated using cross-validation.\r\n\r\n---",
+              "code": "text\r\nn_estimators:\r\n100, 200\r\n\r\nmax_depth:\r\n5, 10\r\n\r\nmin_samples_split:\r\n2, 5"
+            },
+            {
+              "heading": "GridSearchCV",
+              "text": "Scikit-Learn provides:\r\n\r\n\r\n\r\nExample:\r\n\r\n```python\r\nfrom sklearn.ensemble import RandomForestClassifier\r\nfrom sklearn.model_selection import GridSearchCV\r\n\r\nmodel = RandomForestClassifier(\r\n    random_state=42\r\n)\r\n\r\nparam_grid = {\r\n    \"n_estimators\": [100, 200],\r\n    \"max_depth\": [5, 10, None],\r\n    \"min_samples_split\": [2, 5]\r\n}\r\n\r\ngrid_search = GridSearchCV(\r\n    estimator=model,\r\n    param_grid=param_grid,\r\n    cv=5,\r\n    scoring=\"f1\",\r\n    n_jobs=-1\r\n)\r\n\r\ngrid_search.fit(\r\n    X_train,\r\n    y_train\r\n)\r\n```\r\n\r\n---",
+              "code": "from sklearn.model_selection import GridSearchCV"
+            },
+            {
+              "heading": "Best Parameters",
+              "text": "After the search:\r\n\r\n\r\n\r\nExample output:\r\n\r\n```text\r\n{\r\n    'max_depth': 10,\r\n    'min_samples_split': 2,\r\n    'n_estimators': 200\r\n}\r\n```\r\n\r\nThe exact values depend on the dataset and search space.\r\n\r\n---",
+              "code": "print(\r\n    grid_search.best_params_\r\n)"
+            },
+            {
+              "heading": "Best Cross-Validation Score",
+              "text": "This represents the best mean cross-validation score found during the search.\r\n\r\nThe final model should still be evaluated on an untouched test set.\r\n\r\n---",
+              "code": "print(\r\n    grid_search.best_score_\r\n)"
+            },
+            {
+              "heading": "Best Estimator",
+              "text": "This allows the selected configuration to be used for final evaluation.\r\n\r\n---",
+              "code": "best_model = grid_search.best_estimator_\r\n\r\npredictions = best_model.predict(\r\n    X_test\r\n)"
+            },
+            {
+              "heading": "Randomized Search",
+              "text": "Grid Search can become computationally expensive when many hyperparameters and values are included.\r\n\r\nRandomized Search evaluates a selected number of randomly sampled configurations from the defined distributions or lists.\r\n\r\nScikit-Learn provides:\r\n\r\n\r\n\r\n---",
+              "code": "from sklearn.model_selection import RandomizedSearchCV"
+            },
+            {
+              "heading": "RandomizedSearchCV Example",
+              "text": "---",
+              "code": "from sklearn.model_selection import RandomizedSearchCV\r\nfrom sklearn.ensemble import RandomForestClassifier\r\n\r\nmodel = RandomForestClassifier(\r\n    random_state=42\r\n)\r\n\r\nparam_distributions = {\r\n    \"n_estimators\": [100, 200, 300, 500],\r\n    \"max_depth\": [5, 10, 20, None],\r\n    \"min_samples_split\": [2, 5, 10],\r\n    \"min_samples_leaf\": [1, 2, 4]\r\n}\r\n\r\nrandom_search = RandomizedSearchCV(\r\n    estimator=model,\r\n    param_distributions=param_distributions,\r\n    n_iter=20,\r\n    cv=5,\r\n    scoring=\"f1\",\r\n    random_state=42,\r\n    n_jobs=-1\r\n)\r\n\r\nrandom_search.fit(\r\n    X_train,\r\n    y_train\r\n)"
+            },
+            {
+              "heading": "Grid Search vs Randomized Search",
+              "text": "| Feature | GridSearchCV | RandomizedSearchCV |\r\n|---|---|---|\r\n| Search method | Exhaustive combinations | Randomly sampled combinations |\r\n| Computational cost | Can be high | Usually lower |\r\n| Search space | Usually smaller | Can be much larger |\r\n| Number of trials | All combinations | `n_iter` configurations |\r\n| Best use | Small focused search | Large search spaces |\r\n\r\n---"
+            },
+            {
+              "heading": "Example Search Space",
+              "text": "Suppose:\r\n\r\n\r\n\r\nGrid Search evaluates:\r\n\r\n\\[\r\n3\\times3\\times3=27\r\n\\]\r\n\r\nconfigurations.\r\n\r\nRandomized Search could instead evaluate:\r\n\r\n```text\r\n10\r\n```\r\n\r\nrandomly selected configurations.\r\n\r\n---",
+              "code": "text\r\nLearning Rate:\r\n0.001\r\n0.01\r\n0.1\r\n\r\nMax Depth:\r\n5\r\n10\r\n20\r\n\r\nNumber of Estimators:\r\n100\r\n200\r\n300"
+            },
+            {
+              "heading": "Cross-Validation During Hyperparameter Tuning",
+              "text": "Hyperparameter tuning should generally use validation data appropriately.\r\n\r\nA typical workflow is:\r\n\r\n\r\n\r\nThis helps prevent using the test set for model selection.\r\n\r\n---",
+              "code": "text\r\nComplete Dataset\r\n      \u0393\u00e5\u00f4\r\nTrain / Test Split\r\n      \u0393\u00e5\u00f4\r\nTraining Data\r\n      \u0393\u00e5\u00f4\r\nGridSearchCV / RandomizedSearchCV\r\n      \u0393\u00e5\u00f4\r\nCross-Validation\r\n      \u0393\u00e5\u00f4\r\nBest Hyperparameters\r\n      \u0393\u00e5\u00f4\r\nFinal Model\r\n      \u0393\u00e5\u00f4\r\nUntouched Test Data\r\n      \u0393\u00e5\u00f4\r\nFinal Evaluation"
+            },
+            {
+              "heading": "Pipeline for Preprocessing and Tuning",
+              "text": "When preprocessing is required, Scikit-Learn Pipelines are extremely useful.\r\n\r\nExample:\r\n\r\n\r\n\r\n---",
+              "code": "from sklearn.pipeline import Pipeline\r\nfrom sklearn.preprocessing import StandardScaler\r\nfrom sklearn.linear_model import LogisticRegression\r\n\r\npipeline = Pipeline([\r\n    (\"scaler\", StandardScaler()),\r\n    (\"model\", LogisticRegression(\r\n        max_iter=1000\r\n    ))\r\n])"
+            },
+            {
+              "heading": "Tuning a Pipeline",
+              "text": "Hyperparameters can be referenced using:\r\n\r\n\r\n\r\nExample:\r\n\r\n```python\r\nparam_grid = {\r\n    \"model__C\": [0.01, 0.1, 1, 10],\r\n    \"model__solver\": [\r\n        \"liblinear\",\r\n        \"lbfgs\"\r\n    ]\r\n}\r\n```\r\n\r\nThen:\r\n\r\n```python\r\ngrid_search = GridSearchCV(\r\n    pipeline,\r\n    param_grid,\r\n    cv=5,\r\n    scoring=\"accuracy\"\r\n)\r\n\r\ngrid_search.fit(\r\n    X_train,\r\n    y_train\r\n)\r\n```\r\n\r\n---",
+              "code": "text\r\nstep_name__parameter_name"
+            },
+            {
+              "heading": "Handling Numerical and Categorical Features",
+              "text": "Real-world datasets often contain both numerical and categorical columns.\r\n\r\nFor example:\r\n\r\n\r\n\r\nDifferent preprocessing steps can be applied to each feature type.\r\n\r\nScikit-Learn provides:\r\n\r\n```python\r\nColumnTransformer\r\n```\r\n\r\nfor this purpose.\r\n\r\n---",
+              "code": "text\r\nNumerical:\r\nAge\r\nIncome\r\nExperience\r\n\r\nCategorical:\r\nCity\r\nDepartment\r\nGender"
+            },
+            {
+              "heading": "ColumnTransformer Example",
+              "text": "---",
+              "code": "from sklearn.compose import ColumnTransformer\r\nfrom sklearn.preprocessing import (\r\n    StandardScaler,\r\n    OneHotEncoder\r\n)\r\n\r\nnumeric_features = [\r\n    \"age\",\r\n    \"income\",\r\n    \"experience\"\r\n]\r\n\r\ncategorical_features = [\r\n    \"city\",\r\n    \"department\"\r\n]\r\n\r\npreprocessor = ColumnTransformer([\r\n    (\r\n        \"num\",\r\n        StandardScaler(),\r\n        numeric_features\r\n    ),\r\n    (\r\n        \"cat\",\r\n        OneHotEncoder(\r\n            handle_unknown=\"ignore\"\r\n        ),\r\n        categorical_features\r\n    )\r\n])"
+            },
+            {
+              "heading": "Complete Preprocessing Pipeline",
+              "text": "This approach keeps preprocessing and model training together.\r\n\r\n---",
+              "code": "from sklearn.pipeline import Pipeline\r\nfrom sklearn.linear_model import LogisticRegression\r\n\r\npipeline = Pipeline([\r\n    (\r\n        \"preprocessor\",\r\n        preprocessor\r\n    ),\r\n    (\r\n        \"model\",\r\n        LogisticRegression(\r\n            max_iter=1000\r\n        )\r\n    )\r\n])\r\n\r\npipeline.fit(\r\n    X_train,\r\n    y_train\r\n)"
+            },
+            {
+              "heading": "Pipeline + GridSearchCV",
+              "text": "This ensures preprocessing is performed correctly within each cross-validation training process.\r\n\r\n---",
+              "code": "param_grid = {\r\n    \"model__C\": [\r\n        0.01,\r\n        0.1,\r\n        1,\r\n        10\r\n    ]\r\n}\r\n\r\ngrid_search = GridSearchCV(\r\n    pipeline,\r\n    param_grid,\r\n    cv=5,\r\n    scoring=\"f1\",\r\n    n_jobs=-1\r\n)\r\n\r\ngrid_search.fit(\r\n    X_train,\r\n    y_train\r\n)"
+            },
+            {
+              "heading": "Hyperparameter Tuning Workflow",
+              "text": "---",
+              "code": "text\r\nRaw Dataset\r\n     \u0393\u00e5\u00f4\r\nData Cleaning\r\n     \u0393\u00e5\u00f4\r\nFeature Engineering\r\n     \u0393\u00e5\u00f4\r\nTrain/Test Split\r\n     \u0393\u00e5\u00f4\r\nPreprocessing Pipeline\r\n     \u0393\u00e5\u00f4\r\nBaseline Model\r\n     \u0393\u00e5\u00f4\r\nDefine Hyperparameter Space\r\n     \u0393\u00e5\u00f4\r\nGridSearch / RandomizedSearch\r\n     \u0393\u00e5\u00f4\r\nCross-Validation\r\n     \u0393\u00e5\u00f4\r\nSelect Best Configuration\r\n     \u0393\u00e5\u00f4\r\nTrain Final Model\r\n     \u0393\u00e5\u00f4\r\nEvaluate on Test Set"
+            },
+            {
+              "heading": "Common Hyperparameters",
+              "text": "Different algorithms expose different hyperparameters.\r\n\r\n### Logistic Regression\r\n\r\n\r\n\r\n### Decision Tree\r\n\r\n```text\r\nmax_depth\r\nmin_samples_split\r\nmin_samples_leaf\r\ncriterion\r\n```\r\n\r\n### Random Forest\r\n\r\n```text\r\nn_estimators\r\nmax_depth\r\nmax_features\r\nmin_samples_split\r\n```\r\n\r\n### KNN\r\n\r\n```text\r\nn_neighbors\r\nweights\r\nmetric\r\n```\r\n\r\n### SVM\r\n\r\n```text\r\nC\r\nkernel\r\ngamma\r\n```\r\n\r\n### Neural Networks\r\n\r\n```text\r\nlearning_rate\r\nbatch_size\r\nnumber_of_layers\r\nnumber_of_neurons\r\nepochs\r\n```\r\n\r\n---",
+              "code": "text\r\nC\r\nsolver\r\npenalty"
+            },
+            {
+              "heading": "Hyperparameter Tuning and Overfitting",
+              "text": "Tuning can improve validation performance, but excessive tuning can also lead to overfitting to the validation process.\r\n\r\nFor example:\r\n\r\n\r\n\r\nTherefore:\r\n\r\n- Keep a final test set separate.\r\n- Use appropriate cross-validation.\r\n- Avoid repeatedly checking the test set.\r\n- Prefer a principled evaluation strategy.\r\n\r\n---",
+              "code": "text\r\nMany Search Iterations\r\n        \u0393\u00e5\u00f4\r\nRepeated Validation Decisions\r\n        \u0393\u00e5\u00f4\r\nRisk of Over-Optimizing Validation Performance"
+            },
+            {
+              "heading": "Feature Engineering Example",
+              "text": "Suppose an e-commerce dataset contains:\r\n\r\n\r\n\r\nUseful engineered features might include:\r\n\r\n```text\r\nTotal_Value = Price \u251c\u00f9 Quantity\r\n\r\nOrder_Month\r\nOrder_Day\r\nOrder_Weekday\r\n\r\nAge_Group\r\n\r\nCity_Encoded\r\n```\r\n\r\nFor example:\r\n\r\n```python\r\ndf[\"Total_Value\"] = (\r\n    df[\"Price\"] *\r\n    df[\"Quantity\"]\r\n)\r\n\r\ndf[\"Order_Date\"] = pd.to_datetime(\r\n    df[\"Order_Date\"]\r\n)\r\n\r\ndf[\"Order_Month\"] = (\r\n    df[\"Order_Date\"].dt.month\r\n)\r\n\r\ndf[\"Order_Day\"] = (\r\n    df[\"Order_Date\"].dt.day\r\n)\r\n\r\ndf[\"Order_Weekday\"] = (\r\n    df[\"Order_Date\"].dt.dayofweek\r\n)\r\n```\r\n\r\n---",
+              "code": "text\r\nPrice\r\nQuantity\r\nOrder_Date\r\nCustomer_Age\r\nCity"
+            },
+            {
+              "heading": "Feature Selection vs Feature Engineering",
+              "text": "These concepts are related but different.\r\n\r\n### Feature Engineering\r\n\r\nCreates or transforms features.\r\n\r\nExample:\r\n\r\n\r\n\r\n### Feature Selection\r\n\r\nChooses useful features from an existing set.\r\n\r\nExample:\r\n\r\n```text\r\n100 Features\r\n      \u0393\u00e5\u00f4\r\nSelect 20 Useful Features\r\n```\r\n\r\n---",
+              "code": "text\r\nPrice + Quantity\r\n        \u0393\u00e5\u00f4\r\nTotal Sales"
+            },
+            {
+              "heading": "Mini Project \u0393\u00c7\u00f6 Feature Engineering",
+              "text": "## Objective\r\n\r\nCreate useful features from an e-commerce dataset and prepare the data for Machine Learning.\r\n\r\n### Dataset\r\n\r\n\r\n\r\n### Tasks\r\n\r\n1. Convert `Order_Date` to datetime.\r\n2. Extract month.\r\n3. Extract day of week.\r\n4. Calculate total order value.\r\n5. One-hot encode `City`.\r\n6. Identify numerical features.\r\n7. Apply StandardScaler.\r\n8. Check for redundant features.\r\n9. Train a baseline model.\r\n10. Compare performance before and after feature engineering.\r\n\r\n---",
+              "code": "text\r\nCustomer_ID\r\nAge\r\nCity\r\nProduct\r\nPrice\r\nQuantity\r\nOrder_Date"
+            },
+            {
+              "heading": "Mini Project \u0393\u00c7\u00f6 Hyperparameter Tuning",
+              "text": "## Objective\r\n\r\nOptimize a Random Forest classification model.\r\n\r\n### Steps\r\n\r\n\r\n\r\nExample:\r\n\r\n```python\r\nfrom sklearn.ensemble import RandomForestClassifier\r\nfrom sklearn.model_selection import (\r\n    GridSearchCV\r\n)\r\n\r\nmodel = RandomForestClassifier(\r\n    random_state=42\r\n)\r\n\r\nparam_grid = {\r\n    \"n_estimators\": [\r\n        100,\r\n        200,\r\n        300\r\n    ],\r\n    \"max_depth\": [\r\n        5,\r\n        10,\r\n        20,\r\n        None\r\n    ],\r\n    \"min_samples_split\": [\r\n        2,\r\n        5,\r\n        10\r\n    ]\r\n}\r\n\r\ngrid = GridSearchCV(\r\n    model,\r\n    param_grid,\r\n    cv=5,\r\n    scoring=\"f1\",\r\n    n_jobs=-1\r\n)\r\n\r\ngrid.fit(\r\n    X_train,\r\n    y_train\r\n)\r\n\r\nprint(\r\n    \"Best Parameters:\",\r\n    grid.best_params_\r\n)\r\n\r\nprint(\r\n    \"Best CV Score:\",\r\n    grid.best_score_\r\n)\r\n```\r\n\r\n---",
+              "code": "text\r\nLoad Dataset\r\n     \u0393\u00e5\u00f4\r\nClean Data\r\n     \u0393\u00e5\u00f4\r\nSplit Data\r\n     \u0393\u00e5\u00f4\r\nCreate Baseline\r\n     \u0393\u00e5\u00f4\r\nDefine Parameter Grid\r\n     \u0393\u00e5\u00f4\r\nGridSearchCV\r\n     \u0393\u00e5\u00f4\r\nEvaluate Best Model\r\n     \u0393\u00e5\u00f4\r\nRandomizedSearchCV\r\n     \u0393\u00e5\u00f4\r\nCompare Results"
+            },
+            {
+              "heading": "Model Comparison",
+              "text": "A useful comparison table can include:\r\n\r\n| Model | Baseline Score | Tuned Score | Best Parameters |\r\n|---|---:|---:|---|\r\n| Logistic Regression | \u0393\u00c7\u00f6 | \u0393\u00c7\u00f6 | C |\r\n| Decision Tree | \u0393\u00c7\u00f6 | \u0393\u00c7\u00f6 | max_depth |\r\n| Random Forest | \u0393\u00c7\u00f6 | \u0393\u00c7\u00f6 | n_estimators, max_depth |\r\n| SVM | \u0393\u00c7\u00f6 | \u0393\u00c7\u00f6 | C, kernel |\r\n| KNN | \u0393\u00c7\u00f6 | \u0393\u00c7\u00f6 | n_neighbors |\r\n\r\nActual values should be calculated from the project dataset.\r\n\r\n---"
+            },
+            {
+              "heading": "Practical Checklist",
+              "text": "Before finalizing a Machine Learning pipeline:\r\n\r\n\r\n\r\n---",
+              "code": "text\r\n\u0393\u00ff\u00c9 Identify numerical features\r\n\u0393\u00ff\u00c9 Identify categorical features\r\n\u0393\u00ff\u00c9 Create meaningful engineered features\r\n\u0393\u00ff\u00c9 Handle missing values\r\n\u0393\u00ff\u00c9 Encode categorical variables\r\n\u0393\u00ff\u00c9 Apply scaling when appropriate\r\n\u0393\u00ff\u00c9 Check redundant features\r\n\u0393\u00ff\u00c9 Perform feature selection when useful\r\n\u0393\u00ff\u00c9 Create a baseline model\r\n\u0393\u00ff\u00c9 Define hyperparameter search space\r\n\u0393\u00ff\u00c9 Choose an evaluation metric\r\n\u0393\u00ff\u00c9 Apply cross-validation\r\n\u0393\u00ff\u00c9 Run GridSearchCV or RandomizedSearchCV\r\n\u0393\u00ff\u00c9 Select best configuration\r\n\u0393\u00ff\u00c9 Evaluate on untouched test data\r\n\u0393\u00ff\u00c9 Compare against baseline\r\n\u0393\u00ff\u00c9 Check for data leakage\r\n\u0393\u00ff\u00c9 Document final preprocessing and model settings"
+            },
+            {
+              "heading": "Practice Exercises",
+              "text": "## Beginner\r\n\r\n1. What is Feature Engineering?\r\n2. Why is Feature Engineering important?\r\n3. What is One-Hot Encoding?\r\n4. What is Standardization?\r\n5. What is Min-Max Scaling?\r\n6. What is StandardScaler?\r\n7. What is MinMaxScaler?\r\n8. What is Feature Selection?\r\n9. What is a hyperparameter?\r\n10. What is Grid Search?\r\n\r\n## Intermediate\r\n\r\n11. Encode a categorical column using OneHotEncoder.\r\n12. Apply StandardScaler to numerical features.\r\n13. Apply MinMaxScaler.\r\n14. Compare StandardScaler and MinMaxScaler.\r\n15. Identify highly correlated features.\r\n16. Implement RFE.\r\n17. Build a preprocessing Pipeline.\r\n18. Implement GridSearchCV.\r\n19. Implement RandomizedSearchCV.\r\n20. Compare baseline and tuned models.\r\n\r\n## Advanced\r\n\r\n21. Build a complete ColumnTransformer pipeline.\r\n22. Perform feature selection inside cross-validation.\r\n23. Compare Grid Search and Randomized Search.\r\n24. Optimize a Random Forest model.\r\n25. Optimize an SVM model.\r\n26. Tune Logistic Regression regularization.\r\n27. Analyze the effect of feature scaling on KNN.\r\n28. Build a leakage-safe preprocessing pipeline.\r\n29. Compare model performance before and after feature engineering.\r\n30. Build an end-to-end feature engineering and hyperparameter optimization workflow.\r\n\r\n---"
+            },
+            {
+              "heading": "Interview Questions",
+              "text": "### Feature Engineering\r\n\r\n1. What is Feature Engineering?\r\n2. Why is Feature Engineering important?\r\n3. What is the difference between Feature Engineering and Feature Selection?\r\n4. What is One-Hot Encoding?\r\n5. Why shouldn't categorical variables always be label encoded?\r\n6. What is the dummy variable trap?\r\n7. What is feature scaling?\r\n8. What is Standardization?\r\n9. What is Normalization?\r\n10. What is the difference between StandardScaler and MinMaxScaler?\r\n\r\n### Feature Selection\r\n\r\n11. What is feature selection?\r\n12. What are filter methods?\r\n13. What are wrapper methods?\r\n14. What are embedded methods?\r\n15. What is RFE?\r\n16. How can correlation be used for feature selection?\r\n17. What is feature importance?\r\n18. Can removing features improve model performance?\r\n\r\n### Hyperparameter Tuning\r\n\r\n19. What is a hyperparameter?\r\n20. What is the difference between a parameter and a hyperparameter?\r\n21. What is GridSearchCV?\r\n22. What is RandomizedSearchCV?\r\n23. What is the difference between Grid Search and Random Search?\r\n24. Why is cross-validation used during hyperparameter tuning?\r\n25. What does `best_params_` represent?\r\n26. What does `best_score_` represent?\r\n27. Why should the test set not be used during hyperparameter tuning?\r\n28. What is the purpose of `n_iter` in RandomizedSearchCV?\r\n29. How do you choose a scoring metric for hyperparameter tuning?\r\n30. How can hyperparameter tuning lead to overfitting?\r\n\r\n---"
+            }
+          ],
+          "codeExamples": [
+            {
+              "title": "Why Feature Engineering Matters",
+              "code": "text\r\nPoor Representation\r\n        \u0393\u00e5\u00f4\r\nWeak Learning\r\n        \u0393\u00e5\u00f4\r\nPoor Predictions",
+              "explanation": "A Machine Learning model learns patterns from the features provided to it.\r \r Poor features can result in:\r \r \r \r Good features can provide:\r \r ```text\r Useful Representation\r     "
+            },
+            {
+              "title": "Types of Features",
+              "code": "text\r\nAge\r\nSalary\r\nHeight\r\nWeight\r\nTemperature\r\nPrice",
+              "explanation": "Features can generally be classified into several categories.\r \r ### Numerical Features\r \r Examples:\r \r \r \r ### Categorical Features\r \r Examples:\r \r ```text\r Gender\r City\r Departme"
+            },
+            {
+              "title": "Categorical Data Problem",
+              "code": "text\r\nCity\r\n------\r\nBangalore\r\nHyderabad\r\nChennai",
+              "explanation": "Many Machine Learning algorithms expect numerical input.\r \r Consider:\r \r \r \r A model cannot directly perform mathematical operations on these text values.\r \r Therefore, categorical"
+            },
+            {
+              "title": "One-Hot Encoding",
+              "code": "text\r\nCity\r\n------\r\nBangalore\r\nHyderabad\r\nChennai\r\nBangalore",
+              "explanation": "One-Hot Encoding creates a separate binary column for each category.\r \r Original:\r \r \r \r After encoding:\r \r ```text\r Bangalore    Hyderabad    Chennai\r     1            0          "
+            },
+            {
+              "title": "One-Hot Encoding in Scikit-Learn",
+              "code": "from sklearn.preprocessing import OneHotEncoder\r\n\r\nencoder = OneHotEncoder(\r\n    handle_unknown=\"ignore\"\r\n)\r\n\r\nX_encoded = encoder.fit_transform(\r\n    X_categorical\r\n)",
+              "explanation": "The option:\r \r ```python\r handle_unknown=\"ignore\"\r ```\r \r helps prevent errors when the test or production dataset contains a category that was not observed during training.\r \r ---"
+            },
+            {
+              "title": "Pandas get_dummies()",
+              "code": "import pandas as pd\r\n\r\ndf_encoded = pd.get_dummies(\r\n    df,\r\n    columns=[\"City\"]\r\n)",
+              "explanation": "One-Hot Encoding can also be performed using Pandas.\r \r \r \r For example:\r \r ```text\r City\r Bangalore\r Hyderabad\r Chennai\r ```\r \r can become:\r \r ```text\r City_Bangalore\r City_Hydera"
+            },
+            {
+              "title": "Avoiding the Dummy Variable Trap",
+              "code": "encoder = OneHotEncoder(\r\n    drop=\"first\",\r\n    handle_unknown=\"ignore\"\r\n)",
+              "explanation": "When appropriate for a linear model, one category can be dropped to avoid perfect multicollinearity.\r \r Example:\r \r \r \r If there are three categories:\r \r ```text\r A\r B\r C\r ```\r \r t"
+            },
+            {
+              "title": "Feature Scaling",
+              "code": "text\r\nAge       \u0393\u00e5\u00c6 18\u0393\u00c7\u00f470\r\nSalary    \u0393\u00e5\u00c6 20,000\u0393\u00c7\u00f4500,000\r\nExperience \u0393\u00e5\u00c6 0\u0393\u00c7\u00f430",
+              "explanation": "Different numerical features can have very different ranges.\r \r Example:\r \r \r \r A model based on distances or gradients may be affected by these different scales.\r \r Feature scalin"
+            },
+            {
+              "title": "Standardization",
+              "code": "text\r\nMean = 0\r\nStandard Deviation = 1",
+              "explanation": "Standardization transforms data so that the feature has approximately:\r \r \r \r Formula:\r \r \\[\r z =\r \\frac{x-\\mu}{\\sigma}\r \\]\r \r Where:\r \r - \\(x\\) = original value\r - \\(\\mu\\) = mean\r"
+            },
+            {
+              "title": "StandardScaler",
+              "code": "from sklearn.preprocessing import StandardScaler\r\n\r\nscaler = StandardScaler()\r\n\r\nX_scaled = scaler.fit_transform(\r\n    X_train\r\n)",
+              "explanation": "Scikit-Learn provides:\r \r \r \r For test data:\r \r ```python\r X_test_scaled = scaler.transform(\r     X_test\r )\r ```\r \r Notice that the scaler is **fit only on training data**.\r \r ---"
+            }
+          ],
+          "bestPractices": [
+            "Always fit scalers and encoders ONLY on training data to prevent data leakage",
+            "Use Scikit-Learn ColumnTransformer and Pipeline objects for robust preprocessing",
+            "Prefer RandomizedSearchCV for high-dimensional parameter spaces to save computation time",
+            "Keep a held-out test set untouched until final model evaluation",
+            "Cross-validate parameter grids across multiple folds rather than single train/test splits"
+          ],
+          "commonMistakes": [
+            "Scaling or encoding data before performing train/test split (Data Leakage)",
+            "Tuning hyperparameters directly on the test set",
+            "Falling into the Dummy Variable Trap (multicollinearity from un-dropped baseline column)",
+            "Using distance-based models (KNN, SVM, K-Means) without scaling continuous features",
+            "Confusing feature importance from trees with casual relationship or feature validity"
+          ],
+          "practiceExercise": {
+            "title": "Complete Preprocessing Pipeline with GridSearchCV",
+            "problem": "Build a Scikit-Learn Pipeline combining ColumnTransformer (StandardScaler + OneHotEncoder) with a RandomForestClassifier, and tune n_estimators using GridSearchCV.",
+            "solutionCode": "from sklearn.compose import ColumnTransformer\nfrom sklearn.preprocessing import StandardScaler, OneHotEncoder\nfrom sklearn.ensemble import RandomForestClassifier\nfrom sklearn.pipeline import Pipeline\nfrom sklearn.model_selection import GridSearchCV\n\npreprocessor = ColumnTransformer(\n    transformers=[\n        ('num', StandardScaler(), ['age', 'fare']),\n        ('cat', OneHotEncoder(drop='first'), ['embarked', 'sex'])\n    ]\n)\n\npipeline = Pipeline([\n    ('preprocessor', preprocessor),\n    ('classifier', RandomForestClassifier(random_state=42))\n])\n\nparam_grid = {\n    'classifier__n_estimators': [50, 100, 200],\n    'classifier__max_depth': [5, 10, None]\n}\n\ngrid_search = GridSearchCV(pipeline, param_grid, cv=5, scoring='accuracy')\ngrid_search.fit(X_train, y_train)\nprint(\"Best Params:\", grid_search.best_params_)\nprint(\"Best CV Score:\", grid_search.best_score_)"
+          },
+          "keyTakeaways": [
+            "Feature engineering often provides larger accuracy gains than algorithm selection alone.",
+            "Categorical values require encoding (One-Hot Encoding or Ordinal Encoding).",
+            "Distance-based models (KNN, SVM, Gradient Descent) mandate feature scaling (StandardScaler / MinMaxScaler).",
+            "GridSearchCV performs exhaustive search; RandomizedSearchCV samples efficiently from distributions.",
+            "Scikit-Learn Pipelines prevent data leakage and streamline production deployments."
+          ],
+          "references": [
+            {
+              "title": "Scikit-Learn Preprocessing & Feature Engineering Guide",
+              "url": "https://scikit-learn.org/stable/modules/preprocessing.html"
+            },
+            {
+              "title": "Scikit-Learn Hyperparameter Tuning",
+              "url": "https://scikit-learn.org/stable/modules/grid_search.html"
+            }
+          ],
+          "mcqs": [
+            {
+              "id": 1,
+              "question": "What is the Dummy Variable Trap in One-Hot Encoding?",
+              "options": [
+                "Creating missing values during encoding",
+                "Perfect Multicollinearity caused by including redundant binary dummy columns (K dummies for K categories instead of K-1)",
+                "Failing to convert numbers into text",
+                "Converting continuous values into categorical strings"
+              ],
+              "correctAnswer": 1,
+              "explanation": "If a category has K distinct values, adding K dummy variables creates perfect multicollinearity. Dropping one column (drop='first') solves this."
+            },
+            {
+              "id": 2,
+              "question": "What formula does StandardScaler use to transform continuous feature x?",
+              "options": [
+                "z = (x - min) / (max - min)",
+                "z = (x - mu) / sigma (Mean = 0, Std = 1)",
+                "z = log(x)",
+                "z = x^2"
+              ],
+              "correctAnswer": 1,
+              "explanation": "StandardScaler calculates Z-scores by subtracting feature mean mu and dividing by standard deviation sigma."
+            },
+            {
+              "id": 3,
+              "question": "What is the key functional difference between GridSearchCV and RandomizedSearchCV?",
+              "options": [
+                "GridSearchCV tests a random subset; RandomizedSearchCV tests all combinations",
+                "GridSearchCV exhaustively evaluates every combination in a parameter grid; RandomizedSearchCV randomly samples a fixed number of parameter settings",
+                "GridSearchCV only works for regression; RandomizedSearchCV only works for classification",
+                "GridSearchCV does not use cross-validation"
+              ],
+              "correctAnswer": 1,
+              "explanation": "GridSearchCV performs exhaustive search over all grid points. RandomizedSearchCV samples n_iter combinations, saving computation on large grids."
+            },
+            {
+              "id": 4,
+              "question": "Why should Scikit-Learn Pipeline objects be used when tuning hyperparameters?",
+              "options": [
+                "To prevent Data Leakage by ensuring scaling and encoding are fitted only within each cross-validation fold",
+                "To automatically double GPU memory speeds",
+                "To convert Python code into executable C binaries",
+                "To eliminate the need for cross-validation"
+              ],
+              "correctAnswer": 0,
+              "explanation": "Pipelines bundle preprocessing and estimation into a unified estimator, ensuring transformers fit strictly on training folds inside CV loops."
+            },
+            {
+              "id": 5,
+              "question": "What feature selection technique iteratively trains models and prunes the weakest features based on coefficient/importance weights?",
+              "options": [
+                "VarianceThreshold",
+                "Recursive Feature Elimination (RFE)",
+                "One-Hot Encoding",
+                "MinMaxScaler"
+              ],
+              "correctAnswer": 1,
+              "explanation": "RFE fits a model, evaluates feature importance/coefficients, removes the lowest-ranked features, and repeats until the desired feature count remains."
+            }
+          ]
+        }
+      },
+      {
+        "id": "ds-mod-15",
+        "title": "Module 15 \u0393\u00c7\u00f6 Introduction to AI Applications & LLMs",
+        "description": "Overview of Artificial Intelligence, Deep Learning basics, Neural Networks, Transformers, Large Language Models (LLMs), and Prompt Engineering.",
+        "completed": true,
+        "readingMaterial": {
+          "introduction": "Artificial Intelligence (AI) extends statistical Machine Learning with Artificial Neural Networks, Deep Learning architectures, and Transformer models. This module introduces AI fundamentals, Deep Learning mechanisms (neurons, activation functions, backpropagation), Transformer attention mechanisms (Query, Key, Value), Large Language Models (LLMs), and Prompt Engineering techniques for real-world AI applications.",
+          "objectives": [
+            "Understand the concept of Artificial Intelligence.",
+            "Differentiate AI, Machine Learning, and Deep Learning.",
+            "Understand the fundamentals of neural networks.",
+            "Explain neurons, weights, biases, and activation functions.",
+            "Understand forward propagation and backpropagation.",
+            "Identify common Deep Learning architectures.",
+            "Understand the basic architecture of Transformers.",
+            "Explain attention and self-attention.",
+            "Understand Large Language Models.",
+            "Understand how LLMs process and generate text.",
+            "Understand tokens and embeddings.",
+            "Learn the fundamentals of Prompt Engineering.",
+            "Design effective prompts for different AI tasks.",
+            "Understand common AI applications.",
+            "Identify limitations and responsible-AI considerations.",
+            "--"
+          ],
+          "sections": [
+            {
+              "heading": "Module 15 \u0393\u00c7\u00f6 Introduction to AI Applications & LLMs Overview",
+              "text": "## Artificial Intelligence, Deep Learning, Neural Networks, Transformers, Large Language Models, and Prompt Engineering\r\n\r\n---"
+            },
+            {
+              "heading": "What is Artificial Intelligence?",
+              "text": "Artificial Intelligence is the field of computing concerned with building systems capable of performing tasks that normally require human-like intelligence.\r\n\r\nExamples include:\r\n\r\n\r\n\r\nA simple representation is:\r\n\r\n```text\r\n                 ARTIFICIAL INTELLIGENCE\r\n                          \u0393\u00f6\u00e9\r\n       \u0393\u00f6\u00ee\u0393\u00f6\u00c7\u0393\u00f6\u00c7\u0393\u00f6\u00c7\u0393\u00f6\u00c7\u0393\u00f6\u00c7\u0393\u00f6\u00c7\u0393\u00f6\u00c7\u0393\u00f6\u00c7\u0393\u00f6\u00c7\u0393\u00f6\u00c7\u0393\u00f6\u00c7\u0393\u00f6\u00c7\u0393\u00f6\u00c7\u0393\u00f6\u00c7\u0393\u00f6\u00c7\u0393\u00f6\u00c7\u0393\u00f6\u00c7\u0393\u00f6\u00c7\u0393\u00f6\u255d\u0393\u00f6\u00c7\u0393\u00f6\u00c7\u0393\u00f6\u00c7\u0393\u00f6\u00c7\u0393\u00f6\u00c7\u0393\u00f6\u00c7\u0393\u00f6\u00c7\u0393\u00f6\u00c7\u0393\u00f6\u00c7\u0393\u00f6\u00c7\u0393\u00f6\u00c7\u0393\u00f6\u00c7\u0393\u00f6\u00c7\u0393\u00f6\u00c7\u0393\u00f6\u00c7\u0393\u00f6\u00c7\u0393\u00f6\u00c7\u0393\u00f6\u00c7\u0393\u00f6\u00c9\r\n       \u0393\u00e5\u00f4                  \u0393\u00e5\u00f4                  \u0393\u00e5\u00f4\r\n   Learning            Reasoning         Perception\r\n       \u0393\u00f6\u00e9                  \u0393\u00f6\u00e9                  \u0393\u00f6\u00e9\r\n       \u0393\u00e5\u00f4                  \u0393\u00e5\u00f4                  \u0393\u00e5\u00f4\r\nMachine Learning      Decision Making    Vision / Speech\r\n       \u0393\u00f6\u00e9\r\n       \u0393\u00e5\u00f4\r\nDeep Learning\r\n       \u0393\u00f6\u00e9\r\n       \u0393\u00e5\u00f4\r\nTransformers / LLMs\r\n```\r\n\r\n---",
+              "code": "Understanding language\r\nRecognizing images\r\nMaking predictions\r\nPlanning\r\nReasoning\r\nGenerating content\r\nLearning from data"
+            },
+            {
+              "heading": "AI vs Machine Learning vs Deep Learning",
+              "text": "These terms are related but not identical.\r\n\r\n### Artificial Intelligence\r\n\r\nThe broad field of creating intelligent systems.\r\n\r\n### Machine Learning\r\n\r\nA subset of AI where systems learn patterns from data.\r\n\r\n### Deep Learning\r\n\r\nA subset of Machine Learning that uses multi-layer neural networks.\r\n\r\nThe relationship can be represented as:\r\n\r\n\r\n\r\n---",
+              "code": "Artificial Intelligence\r\n        \u0393\u00f6\u00e9\r\n        \u0393\u00f6\u00f6\u0393\u00f6\u00c7\u0393\u00f6\u00c7 Machine Learning\r\n                \u0393\u00f6\u00e9\r\n                \u0393\u00f6\u00f6\u0393\u00f6\u00c7\u0393\u00f6\u00c7 Deep Learning\r\n                        \u0393\u00f6\u00e9\r\n                        \u0393\u00f6\u00f6\u0393\u00f6\u00c7\u0393\u00f6\u00c7 Modern AI Models"
+            },
+            {
+              "heading": "Types of Artificial Intelligence",
+              "text": "AI can be discussed using several classifications.\r\n\r\n## Narrow AI\r\n\r\nSystems designed for specific tasks.\r\n\r\nExamples:\r\n\r\n- Recommendation systems\r\n- Spam detection\r\n- Voice assistants\r\n- Image classifiers\r\n- Fraud detection\r\n\r\nMost practical AI systems today fall into this category.\r\n\r\n## General AI\r\n\r\nA hypothetical form of AI capable of performing a broad range of intellectual tasks with general-purpose adaptability comparable to humans.\r\n\r\nGeneral AI remains a research goal rather than an established everyday technology.\r\n\r\n---"
+            },
+            {
+              "heading": "AI Applications Across Industries",
+              "text": "Artificial Intelligence is being applied across many industries.\r\n\r\n### Healthcare\r\n\r\n\r\n\r\n### Finance\r\n\r\n```text\r\nFraud detection\r\nCredit risk analysis\r\nAlgorithmic trading\r\nCustomer support\r\n```\r\n\r\n### Retail\r\n\r\n```text\r\nProduct recommendations\r\nDemand forecasting\r\nCustomer segmentation\r\nPersonalized marketing\r\n```\r\n\r\n### Manufacturing\r\n\r\n```text\r\nPredictive maintenance\r\nQuality inspection\r\nRobotics\r\nProduction optimization\r\n```\r\n\r\n### Education\r\n\r\n```text\r\nAI tutors\r\nPersonalized learning\r\nAutomated feedback\r\nContent generation\r\n```\r\n\r\n### Software Development\r\n\r\n```text\r\nCode generation\r\nCode explanation\r\nTesting assistance\r\nDocumentation\r\nDebugging assistance\r\n```\r\n\r\n---",
+              "code": "Medical image analysis\r\nPatient risk prediction\r\nDrug discovery\r\nClinical decision support"
+            },
+            {
+              "heading": "What is Deep Learning?",
+              "text": "Deep Learning is a branch of Machine Learning that uses neural networks containing multiple computational layers.\r\n\r\nTraditional Machine Learning often relies heavily on manually designed features.\r\n\r\nDeep Learning can learn increasingly complex representations directly from large amounts of data.\r\n\r\nExample:\r\n\r\n\r\n\r\n---",
+              "code": "Raw Image\r\n    \u0393\u00e5\u00f4\r\nEarly Layers\r\nEdges / Shapes\r\n    \u0393\u00e5\u00f4\r\nMiddle Layers\r\nPatterns / Objects\r\n    \u0393\u00e5\u00f4\r\nDeep Layers\r\nComplex Features\r\n    \u0393\u00e5\u00f4\r\nPrediction"
+            },
+            {
+              "heading": "Neural Networks",
+              "text": "A Neural Network is a computational model inspired loosely by the structure of biological neural systems.\r\n\r\nA basic neural network contains:\r\n\r\n\r\n\r\nExample:\r\n\r\n```text\r\nInput Features\r\n     \u0393\u00f6\u00e9\r\n     \u0393\u00e5\u00f4\r\n\u0393\u00f6\u00ee\u0393\u00f6\u00c7\u0393\u00f6\u00c7\u0393\u00f6\u00c7\u0393\u00f6\u00c7\u0393\u00f6\u00c7\u0393\u00f6\u00c7\u0393\u00f6\u00c7\u0393\u00f6\u00c7\u0393\u00f6\u00c7\u0393\u00f6\u00c7\u0393\u00f6\u00c7\u0393\u00f6\u00c7\u0393\u00f6\u00c7\u0393\u00f6\u00c9\r\n\u0393\u00f6\u00e9 Hidden      \u0393\u00f6\u00e9\r\n\u0393\u00f6\u00e9 Layer       \u0393\u00f6\u00e9\r\n\u0393\u00f6\u00f6\u0393\u00f6\u00c7\u0393\u00f6\u00c7\u0393\u00f6\u00c7\u0393\u00f6\u00c7\u0393\u00f6\u00c7\u0393\u00f6\u00c7\u0393\u00f6\u00c7\u0393\u00f6\u00c7\u0393\u00f6\u00c7\u0393\u00f6\u00c7\u0393\u00f6\u00c7\u0393\u00f6\u00c7\u0393\u00f6\u00c7\u0393\u00f6\u00ff\r\n     \u0393\u00f6\u00e9\r\n     \u0393\u00e5\u00f4\r\n\u0393\u00f6\u00ee\u0393\u00f6\u00c7\u0393\u00f6\u00c7\u0393\u00f6\u00c7\u0393\u00f6\u00c7\u0393\u00f6\u00c7\u0393\u00f6\u00c7\u0393\u00f6\u00c7\u0393\u00f6\u00c7\u0393\u00f6\u00c7\u0393\u00f6\u00c7\u0393\u00f6\u00c7\u0393\u00f6\u00c7\u0393\u00f6\u00c7\u0393\u00f6\u00c9\r\n\u0393\u00f6\u00e9 Output      \u0393\u00f6\u00e9\r\n\u0393\u00f6\u00e9 Layer       \u0393\u00f6\u00e9\r\n\u0393\u00f6\u00f6\u0393\u00f6\u00c7\u0393\u00f6\u00c7\u0393\u00f6\u00c7\u0393\u00f6\u00c7\u0393\u00f6\u00c7\u0393\u00f6\u00c7\u0393\u00f6\u00c7\u0393\u00f6\u00c7\u0393\u00f6\u00c7\u0393\u00f6\u00c7\u0393\u00f6\u00c7\u0393\u00f6\u00c7\u0393\u00f6\u00c7\u0393\u00f6\u00ff\r\n```\r\n\r\n---",
+              "code": "Input Layer\r\n     \u0393\u00e5\u00f4\r\nHidden Layer(s)\r\n     \u0393\u00e5\u00f4\r\nOutput Layer"
+            },
+            {
+              "heading": "Artificial Neuron",
+              "text": "A basic artificial neuron receives inputs, applies weights, adds a bias, and passes the result through an activation function.\r\n\r\nThe mathematical representation is:\r\n\r\n\\[\r\nz = w_1x_1 + w_2x_2 + ... + w_nx_n + b\r\n\\]\r\n\r\nThen:\r\n\r\n\\[\r\na = f(z)\r\n\\]\r\n\r\nWhere:\r\n\r\n- \\(x\\) = input\r\n- \\(w\\) = weight\r\n- \\(b\\) = bias\r\n- \\(f\\) = activation function\r\n- \\(a\\) = neuron output\r\n\r\n---"
+            },
+            {
+              "heading": "Weights and Biases",
+              "text": "### Weights\r\n\r\nWeights determine the contribution of each input feature.\r\n\r\nFor example:\r\n\r\n\r\n\r\nThe model learns these values during training.\r\n\r\n### Bias\r\n\r\nBias provides an additional adjustable value that helps shift the activation function.\r\n\r\n---",
+              "code": "Input 1 \u0393\u00e5\u00c6 Weight 0.8\r\nInput 2 \u0393\u00e5\u00c6 Weight 0.2\r\nInput 3 \u0393\u00e5\u00c6 Weight -0.4"
+            },
+            {
+              "heading": "Activation Functions",
+              "text": "Activation functions introduce non-linearity into neural networks.\r\n\r\nCommon activation functions include:\r\n\r\n### Sigmoid\r\n\r\n\\[\r\n\\sigma(x)=\\frac{1}{1+e^{-x}}\r\n\\]\r\n\r\nOutput range:\r\n\r\n\r\n\r\nOften useful for binary probability outputs.\r\n\r\n### ReLU\r\n\r\n\\[\r\nReLU(x)=max(0,x)\r\n\\]\r\n\r\nReLU is widely used in hidden layers of neural networks.\r\n\r\n### Tanh\r\n\r\n\\[\r\ntanh(x)\r\n\\]\r\n\r\nOutput range:\r\n\r\n```text\r\n-1 to +1\r\n```\r\n\r\n### Softmax\r\n\r\nSoftmax converts a vector of scores into values that can be interpreted as a probability distribution across classes.\r\n\r\n---",
+              "code": "0 to 1"
+            },
+            {
+              "heading": "Forward Propagation",
+              "text": "Forward propagation is the process of passing input data through the network to produce a prediction.\r\n\r\n\r\n\r\nFor example:\r\n\r\n```python\r\noutput = activation(\r\n    weights @ inputs + bias\r\n)\r\n```\r\n\r\n---",
+              "code": "Input\r\n  \u0393\u00e5\u00f4\r\nWeighted Sum\r\n  \u0393\u00e5\u00f4\r\nActivation\r\n  \u0393\u00e5\u00f4\r\nHidden Layer\r\n  \u0393\u00e5\u00f4\r\nWeighted Sum\r\n  \u0393\u00e5\u00f4\r\nActivation\r\n  \u0393\u00e5\u00f4\r\nOutput"
+            },
+            {
+              "heading": "Loss Function",
+              "text": "A model needs a way to measure how far its prediction is from the desired output.\r\n\r\nThis is the role of a **loss function**.\r\n\r\nExamples include:\r\n\r\n### Mean Squared Error\r\n\r\n\\[\r\nMSE =\r\n\\frac{1}{n}\r\n\\sum_{i=1}^{n}(y_i-\\hat{y_i})^2\r\n\\]\r\n\r\nCommonly used for regression.\r\n\r\n### Cross-Entropy Loss\r\n\r\nCommonly used for classification problems.\r\n\r\nThe objective during training is generally to minimize the selected loss.\r\n\r\n---"
+            },
+            {
+              "heading": "Backpropagation",
+              "text": "Backpropagation is a key algorithm for training neural networks.\r\n\r\nIt calculates how changes in model parameters affect the loss and uses those gradients to update the parameters.\r\n\r\nSimplified process:\r\n\r\n\r\n\r\n---",
+              "code": "Prediction\r\n    \u0393\u00e5\u00f4\r\nCalculate Loss\r\n    \u0393\u00e5\u00f4\r\nCalculate Gradients\r\n    \u0393\u00e5\u00f4\r\nBackpropagate Error\r\n    \u0393\u00e5\u00f4\r\nUpdate Weights\r\n    \u0393\u00e5\u00f4\r\nRepeat"
+            },
+            {
+              "heading": "Gradient Descent",
+              "text": "Gradient Descent is an optimization technique used to minimize a loss function.\r\n\r\nA simplified parameter update is:\r\n\r\n\\[\r\n\\theta_{new}\r\n=\r\n\\theta_{old}\r\n-\r\n\\eta\\nabla L(\\theta)\r\n\\]\r\n\r\nWhere:\r\n\r\n- \\(\\theta\\) = model parameters\r\n- \\(\\eta\\) = learning rate\r\n- \\(L\\) = loss function\r\n- \\(\\nabla L\\) = gradient\r\n\r\n---"
+            },
+            {
+              "heading": "Learning Rate",
+              "text": "The learning rate controls how large the parameter updates are.\r\n\r\n### Very Small Learning Rate\r\n\r\n\r\n\r\n### Very Large Learning Rate\r\n\r\n```text\r\nUnstable Training\r\n```\r\n\r\nA suitable learning rate helps the model converge effectively.\r\n\r\n---",
+              "code": "Slow Training"
+            },
+            {
+              "heading": "Epochs, Batches, and Iterations",
+              "text": "### Epoch\r\n\r\nOne complete pass through the training dataset.\r\n\r\n### Batch\r\n\r\nA subset of training examples processed together.\r\n\r\n### Iteration\r\n\r\nOne parameter-update step for a batch.\r\n\r\nExample:\r\n\r\n\r\n\r\n---",
+              "code": "10,000 Training Samples\r\nBatch Size = 100\r\n\r\nIterations per Epoch = 100"
+            },
+            {
+              "heading": "Common Deep Learning Architectures",
+              "text": "Different neural network architectures are designed for different types of data.\r\n\r\n### Feedforward Neural Networks\r\n\r\nUseful for general structured prediction tasks.\r\n\r\n### Convolutional Neural Networks\r\n\r\nCommonly used for image and spatial data.\r\n\r\n### Recurrent Neural Networks\r\n\r\nDesigned for sequential data and historically important for language and time-series applications.\r\n\r\n### LSTM / GRU\r\n\r\nSpecialized recurrent architectures designed to better handle longer dependencies.\r\n\r\n### Transformers\r\n\r\nModern architecture widely used for language and many other sequence-processing tasks.\r\n\r\n---"
+            },
+            {
+              "heading": "What is a Transformer?",
+              "text": "The Transformer is a neural network architecture introduced in the landmark 2017 research paper **\"Attention Is All You Need.\"**\r\n\r\nTransformers became foundational to many modern language models because they use attention mechanisms to model relationships between elements in a sequence.\r\n\r\nA simplified view:\r\n\r\n\r\n\r\n---",
+              "code": "Input Tokens\r\n     \u0393\u00e5\u00f4\r\nEmbeddings\r\n     \u0393\u00e5\u00f4\r\nPositional Information\r\n     \u0393\u00e5\u00f4\r\nSelf-Attention\r\n     \u0393\u00e5\u00f4\r\nFeed-Forward Network\r\n     \u0393\u00e5\u00f4\r\nRepeated Transformer Layers\r\n     \u0393\u00e5\u00f4\r\nOutput Representation"
+            },
+            {
+              "heading": "Why Transformers Are Important",
+              "text": "Transformers provide several advantages for many sequence-processing tasks:\r\n\r\n- Strong handling of long-range relationships\r\n- Highly parallelizable training\r\n- Effective representation learning\r\n- Scalability to large datasets and models\r\n- Flexible architecture\r\n\r\nTransformers are now widely used beyond traditional text processing, including multimodal AI systems.\r\n\r\n---"
+            },
+            {
+              "heading": "Attention Mechanism",
+              "text": "Attention allows a model to assign different levels of importance to different parts of an input when producing a representation.\r\n\r\nConsider:\r\n\r\n\r\n\r\nTo interpret **\"it\"**, the model needs to consider relationships between words in the sentence.\r\n\r\nAttention helps models learn such contextual relationships.\r\n\r\n---",
+              "code": "\"The animal didn't cross the road because it was tired.\""
+            },
+            {
+              "heading": "Self-Attention",
+              "text": "Self-Attention allows tokens within the same sequence to interact with one another.\r\n\r\nThe core computation is commonly represented as:\r\n\r\n\\[\r\nAttention(Q,K,V)\r\n=\r\nsoftmax\r\n\\left(\r\n\\frac{QK^T}{\\sqrt{d_k}}\r\n\\right)V\r\n\\]\r\n\r\nWhere:\r\n\r\n- \\(Q\\) = Queries\r\n- \\(K\\) = Keys\r\n- \\(V\\) = Values\r\n- \\(d_k\\) = key dimension\r\n\r\nThis mechanism enables the model to determine which tokens are relevant to one another.\r\n\r\n---"
+            },
+            {
+              "heading": "Query, Key, and Value",
+              "text": "A simplified explanation:\r\n\r\n### Query\r\n\r\n\"What information am I looking for?\"\r\n\r\n### Key\r\n\r\n\"What information do I represent?\"\r\n\r\n### Value\r\n\r\n\"What information should I provide?\"\r\n\r\nThe attention mechanism uses relationships between queries and keys to determine how strongly to combine the corresponding values.\r\n\r\n---"
+            },
+            {
+              "heading": "What is an LLM?",
+              "text": "A **Large Language Model (LLM)** is a large neural network trained on extensive text data to learn patterns in language.\r\n\r\nLLMs can perform tasks such as:\r\n\r\n\r\n\r\nExamples of widely known LLM families include:\r\n\r\n- GPT\r\n- Claude\r\n- Gemini\r\n- Llama\r\n- Mistral\r\n\r\n---",
+              "code": "Text generation\r\nQuestion answering\r\nSummarization\r\nTranslation\r\nClassification\r\nInformation extraction\r\nCode generation\r\nReasoning assistance"
+            },
+            {
+              "heading": "How LLMs Process Text",
+              "text": "LLMs do not generally process raw text directly.\r\n\r\nText is converted into smaller units called **tokens**.\r\n\r\nExample:\r\n\r\n\r\n\r\n---",
+              "code": "\"Artificial Intelligence\"\r\n          \u0393\u00e5\u00f4\r\n      Tokenization\r\n          \u0393\u00e5\u00f4\r\n      Token IDs\r\n          \u0393\u00e5\u00f4\r\n      Embeddings\r\n          \u0393\u00e5\u00f4\r\n   Transformer Layers\r\n          \u0393\u00e5\u00f4\r\n    Output Probabilities"
+            },
+            {
+              "heading": "Tokenization",
+              "text": "Tokenization converts text into tokens that the model can process.\r\n\r\nA sentence such as:\r\n\r\n\r\n\r\nmay be divided into several token units depending on the tokenizer.\r\n\r\nThe exact tokenization varies between models.\r\n\r\n---",
+              "code": "Machine learning is powerful."
+            },
+            {
+              "heading": "Embeddings",
+              "text": "An embedding represents an item such as a token as a numerical vector.\r\n\r\nConceptually:\r\n\r\n\r\n\r\nFor example:\r\n\r\n```text\r\n\"king\"\r\n \u0393\u00e5\u00f4\r\n[0.21, -0.14, 0.87, ...]\r\n```\r\n\r\nEmbeddings allow models to represent semantic and contextual relationships mathematically.\r\n\r\n---",
+              "code": "Word / Token\r\n      \u0393\u00e5\u00f4\r\nNumerical Representation\r\n      \u0393\u00e5\u00f4\r\nVector"
+            },
+            {
+              "heading": "LLM Training",
+              "text": "Modern language models typically involve large-scale training processes.\r\n\r\nA simplified view is:\r\n\r\n\r\n\r\nThe model learns statistical patterns and representations from its training data.\r\n\r\n---",
+              "code": "Large Dataset\r\n      \u0393\u00e5\u00f4\r\nTokenization\r\n      \u0393\u00e5\u00f4\r\nTraining\r\n      \u0393\u00e5\u00f4\r\nPrediction Objective\r\n      \u0393\u00e5\u00f4\r\nLoss Calculation\r\n      \u0393\u00e5\u00f4\r\nBackpropagation\r\n      \u0393\u00e5\u00f4\r\nParameter Updates\r\n      \u0393\u00e5\u00f4\r\nRepeated Training"
+            },
+            {
+              "heading": "Next-Token Prediction",
+              "text": "Many autoregressive language models are trained to predict the next token based on previous context.\r\n\r\nExample:\r\n\r\n\r\n\r\nPossible next-token probabilities might conceptually favor:\r\n\r\n```text\r\nblue\r\n```\r\n\r\nThe model repeatedly predicts tokens to generate a sequence.\r\n\r\nThe actual training and inference mechanisms can vary between model architectures and systems.\r\n\r\n---",
+              "code": "\"The sky is\""
+            },
+            {
+              "heading": "Context Window",
+              "text": "A context window refers to the amount of information a model can consider within a particular interaction or processing request.\r\n\r\nA larger context window can allow models to work with:\r\n\r\n\r\n\r\nThe supported context length depends on the specific model and system.\r\n\r\n---",
+              "code": "Long Documents\r\nLarge Conversations\r\nMultiple Files\r\nCodebases\r\nDetailed Instructions"
+            },
+            {
+              "heading": "What is Generative AI?",
+              "text": "Generative AI refers to AI systems capable of generating new content.\r\n\r\nExamples:\r\n\r\n\r\n\r\nLLMs are an important category of Generative AI systems focused primarily on language and related tasks.\r\n\r\n---",
+              "code": "Text\r\nImages\r\nAudio\r\nVideo\r\nCode\r\nSynthetic Data"
+            },
+            {
+              "heading": "Generative AI Applications",
+              "text": "### Content Creation\r\n\r\n\r\n\r\n### Education\r\n\r\n```text\r\nAI Tutors\r\nQuestion Generation\r\nSummarization\r\nLearning Assistance\r\n```\r\n\r\n### Software Development\r\n\r\n```text\r\nCode Generation\r\nDebugging\r\nDocumentation\r\nTest Generation\r\n```\r\n\r\n### Business\r\n\r\n```text\r\nReport Generation\r\nCustomer Support\r\nData Analysis\r\nDocument Processing\r\n```\r\n\r\n---",
+              "code": "Articles\r\nEmails\r\nMarketing Copy\r\nSocial Media Content"
+            },
+            {
+              "heading": "What is Prompt Engineering?",
+              "text": "Prompt Engineering is the practice of designing instructions and context that guide an AI model toward a desired output.\r\n\r\nA prompt can contain:\r\n\r\n\r\n\r\nInstead of:\r\n\r\n```text\r\n\"Explain AI.\"\r\n```\r\n\r\na more structured prompt could be:\r\n\r\n```text\r\n\"You are a data science instructor.\r\nExplain Artificial Intelligence to a beginner.\r\nUse simple language, three real-world examples,\r\nand a short summary at the end.\"\r\n```\r\n\r\n---",
+              "code": "Role\r\nTask\r\nContext\r\nConstraints\r\nExamples\r\nOutput Format"
+            },
+            {
+              "heading": "Components of a Good Prompt",
+              "text": "A strong prompt can contain:\r\n\r\n### 1. Role\r\n\r\nDefine the perspective or expertise.\r\n\r\n\r\n\r\n### 2. Task\r\n\r\nClearly state what should be done.\r\n\r\n```text\r\n\"Explain logistic regression.\"\r\n```\r\n\r\n### 3. Context\r\n\r\nProvide relevant background.\r\n\r\n```text\r\n\"The audience has basic Python knowledge.\"\r\n```\r\n\r\n### 4. Constraints\r\n\r\nSpecify limitations.\r\n\r\n```text\r\n\"Keep the explanation under 500 words.\"\r\n```\r\n\r\n### 5. Output Format\r\n\r\nSpecify the desired structure.\r\n\r\n```text\r\n\"Use headings, examples, and a summary table.\"\r\n```\r\n\r\n---",
+              "code": "\"You are a Machine Learning instructor.\""
+            },
+            {
+              "heading": "Zero-Shot Prompting",
+              "text": "Zero-shot prompting asks the model to perform a task without providing examples.\r\n\r\nExample:\r\n\r\n\r\n\r\nNo examples are provided beforehand.\r\n\r\n---",
+              "code": "\"Classify this review as positive or negative:\r\n\r\n'The product quality is excellent.'\""
+            },
+            {
+              "heading": "Few-Shot Prompting",
+              "text": "Few-shot prompting provides examples before the actual task.\r\n\r\nExample:\r\n\r\n\r\n\r\nThe examples help demonstrate the desired task and output pattern.\r\n\r\n---",
+              "code": "Review: \"Excellent product.\"\r\nSentiment: Positive\r\n\r\nReview: \"Very disappointing.\"\r\nSentiment: Negative\r\n\r\nReview: \"The product is good.\"\r\nSentiment:"
+            },
+            {
+              "heading": "Structured Output Prompting",
+              "text": "Prompts can request structured outputs.\r\n\r\nExample:\r\n\r\n\r\n\r\nThis is useful for:\r\n\r\n```text\r\nData Extraction\r\nAutomation\r\nAPI Workflows\r\nDocument Processing\r\n```\r\n\r\n---",
+              "code": "\"Extract the following information and return JSON:\r\n\r\nName\r\nEmail\r\nPhone\r\nCompany\r\n\""
+            },
+            {
+              "heading": "Prompt Engineering Workflow",
+              "text": "Prompt engineering is generally iterative rather than a one-time process.\r\n\r\n---",
+              "code": "Define Objective\r\n      \u0393\u00e5\u00f4\r\nProvide Context\r\n      \u0393\u00e5\u00f4\r\nDefine Task\r\n      \u0393\u00e5\u00f4\r\nAdd Constraints\r\n      \u0393\u00e5\u00f4\r\nSpecify Output Format\r\n      \u0393\u00e5\u00f4\r\nTest Prompt\r\n      \u0393\u00e5\u00f4\r\nEvaluate Response\r\n      \u0393\u00e5\u00f4\r\nRefine Prompt"
+            },
+            {
+              "heading": "AI Hallucinations",
+              "text": "AI systems can sometimes produce information that appears plausible but is incorrect or unsupported.\r\n\r\nThis behavior is often referred to as **hallucination**.\r\n\r\nExamples:\r\n\r\n\r\n\r\nTherefore, important information should be independently verified.\r\n\r\n---",
+              "code": "Incorrect facts\r\nInvented references\r\nIncorrect calculations\r\nMade-up citations\r\nUnsupported claims"
+            },
+            {
+              "heading": "Limitations of LLMs",
+              "text": "LLMs can be powerful, but they have limitations.\r\n\r\n### Potential Issues\r\n\r\n- Incorrect information\r\n- Context limitations\r\n- Bias in outputs\r\n- Outdated knowledge depending on the system\r\n- Prompt sensitivity\r\n- Hallucinations\r\n- Privacy concerns\r\n- Security risks\r\n- Inconsistent reasoning\r\n\r\nLLMs should therefore be treated as AI systems that require appropriate validation and oversight.\r\n\r\n---"
+            },
+            {
+              "heading": "Responsible AI",
+              "text": "Responsible AI focuses on developing and using AI systems safely and ethically.\r\n\r\nImportant considerations include:\r\n\r\n\r\n\r\nAI applications should consider both technical performance and their potential impact on people.\r\n\r\n---",
+              "code": "Fairness\r\nPrivacy\r\nSecurity\r\nTransparency\r\nAccountability\r\nReliability\r\nHuman Oversight"
+            },
+            {
+              "heading": "AI Application Architecture",
+              "text": "A modern AI application can be represented as:\r\n\r\n\r\n\r\nMore advanced applications can add retrieval, tools, databases, monitoring, and security layers.\r\n\r\n---",
+              "code": "USER\r\n               \u0393\u00e5\u00f4\r\n        APPLICATION UI\r\n               \u0393\u00e5\u00f4\r\n        PROMPT / INPUT\r\n               \u0393\u00e5\u00f4\r\n        AI APPLICATION\r\n               \u0393\u00e5\u00f4\r\n     \u0393\u00f6\u00ee\u0393\u00f6\u00c7\u0393\u00f6\u00c7\u0393\u00f6\u00c7\u0393\u00f6\u00c7\u0393\u00f6\u00c7\u0393\u00f6\u00c7\u0393\u00f6\u00c7\u0393\u00f6\u00c7\u0393\u00f6\u00c7\u0393\u00f6\u2524\u0393\u00f6\u00c7\u0393\u00f6\u00c7\u0393\u00f6\u00c7\u0393\u00f6\u00c7\u0393\u00f6\u00c7\u0393\u00f6\u00c7\u0393\u00f6\u00c7\u0393\u00f6\u00c7\u0393\u00f6\u00c7\u0393\u00f6\u00c9\r\n     \u0393\u00e5\u00f4                   \u0393\u00e5\u00f4\r\n   LLM/API            DATABASE\r\n     \u0393\u00e5\u00f4                   \u0393\u00e5\u00f4\r\n     \u0393\u00f6\u00f6\u0393\u00f6\u00c7\u0393\u00f6\u00c7\u0393\u00f6\u00c7\u0393\u00f6\u00c7\u0393\u00f6\u00c7\u0393\u00f6\u00c7\u0393\u00f6\u00c7\u0393\u00f6\u00c7\u0393\u00f6\u00c7\u0393\u00f6\u00bc\u0393\u00f6\u00c7\u0393\u00f6\u00c7\u0393\u00f6\u00c7\u0393\u00f6\u00c7\u0393\u00f6\u00c7\u0393\u00f6\u00c7\u0393\u00f6\u00c7\u0393\u00f6\u00c7\u0393\u00f6\u00c7\u0393\u00f6\u00ff\r\n               \u0393\u00e5\u00f4\r\n        RESPONSE / ACTION\r\n               \u0393\u00e5\u00f4\r\n             USER"
+            },
+            {
+              "heading": "Example \u0393\u00c7\u00f6 AI Customer Support Assistant",
+              "text": "A customer support system could work as:\r\n\r\n\r\n\r\nPotential applications include:\r\n\r\n- Product questions\r\n- Order support\r\n- FAQs\r\n- Troubleshooting\r\n- Automated assistance\r\n\r\n---",
+              "code": "Customer Question\r\n       \u0393\u00e5\u00f4\r\nInput Processing\r\n       \u0393\u00e5\u00f4\r\nRetrieve Relevant Information\r\n       \u0393\u00e5\u00f4\r\nLLM\r\n       \u0393\u00e5\u00f4\r\nGenerate Response\r\n       \u0393\u00e5\u00f4\r\nSafety / Validation\r\n       \u0393\u00e5\u00f4\r\nCustomer"
+            },
+            {
+              "heading": "Example \u0393\u00c7\u00f6 AI Document Assistant",
+              "text": "This architecture provides a foundation for document-question-answering applications.\r\n\r\n---",
+              "code": "PDF / Document\r\n      \u0393\u00e5\u00f4\r\nText Extraction\r\n      \u0393\u00e5\u00f4\r\nChunking\r\n      \u0393\u00e5\u00f4\r\nEmbeddings / Retrieval\r\n      \u0393\u00e5\u00f4\r\nRelevant Context\r\n      \u0393\u00e5\u00f4\r\nLLM\r\n      \u0393\u00e5\u00f4\r\nAnswer"
+            },
+            {
+              "heading": "Practical Project \u0393\u00c7\u00f6 AI Text Assistant",
+              "text": "## Objective\r\n\r\nBuild a simple AI-powered text assistant.\r\n\r\n### Features\r\n\r\n\r\n\r\n### Example Tasks\r\n\r\nThe assistant can:\r\n\r\n- Summarize text.\r\n- Rewrite content.\r\n- Generate ideas.\r\n- Answer questions.\r\n- Extract structured information.\r\n\r\n---",
+              "code": "User Input\r\n     \u0393\u00e5\u00f4\r\nPrompt Template\r\n     \u0393\u00e5\u00f4\r\nLanguage Model\r\n     \u0393\u00e5\u00f4\r\nGenerated Response"
+            },
+            {
+              "heading": "Practical Project \u0393\u00c7\u00f6 Prompt Engineering Lab",
+              "text": "Create prompts for:\r\n\r\n### Task 1 \u0393\u00c7\u00f6 Summarization\r\n\r\n\r\n\r\n### Task 2 \u0393\u00c7\u00f6 Classification\r\n\r\n```text\r\nClassify the following customer review as Positive,\r\nNegative, or Neutral.\r\nReturn only the classification and a one-line reason.\r\n```\r\n\r\n### Task 3 \u0393\u00c7\u00f6 Data Extraction\r\n\r\n```text\r\nExtract the person's name, email, phone number,\r\nand company from the following text.\r\nReturn the result as JSON.\r\n```\r\n\r\n### Task 4 \u0393\u00c7\u00f6 Educational Explanation\r\n\r\n```text\r\nExplain neural networks to a beginner using:\r\n1. A simple definition\r\n2. A real-world analogy\r\n3. A basic mathematical explanation\r\n4. A practical example\r\n```\r\n\r\n---",
+              "code": "Summarize the following article in five bullet points.\r\nFocus on the key concepts and important conclusions."
+            },
+            {
+              "heading": "Practical Project \u0393\u00c7\u00f6 AI Industry Application",
+              "text": "Choose one industry:\r\n\r\n\r\n\r\nDesign an AI application containing:\r\n\r\n1. Problem definition\r\n2. Target users\r\n3. Input data\r\n4. AI model\r\n5. Prompt strategy\r\n6. Output\r\n7. Evaluation method\r\n8. Safety considerations\r\n9. Deployment approach\r\n\r\n---",
+              "code": "Healthcare\r\nFinance\r\nRetail\r\nEducation\r\nManufacturing\r\nTravel\r\nAgriculture\r\nCustomer Service\r\nSoftware Development"
+            },
+            {
+              "heading": "Practice Questions",
+              "text": "## Beginner\r\n\r\n1. What is Artificial Intelligence?\r\n2. What is Machine Learning?\r\n3. What is Deep Learning?\r\n4. What is a Neural Network?\r\n5. What is an activation function?\r\n6. What is a Transformer?\r\n7. What is an LLM?\r\n8. What is tokenization?\r\n9. What is an embedding?\r\n10. What is Prompt Engineering?\r\n\r\n## Intermediate\r\n\r\n11. Explain forward propagation.\r\n12. Explain backpropagation.\r\n13. What is gradient descent?\r\n14. Why are activation functions required?\r\n15. What is self-attention?\r\n16. What are Query, Key, and Value?\r\n17. Why are Transformers important?\r\n18. What is the difference between AI and Generative AI?\r\n19. What is zero-shot prompting?\r\n20. What is few-shot prompting?\r\n\r\n## Advanced\r\n\r\n21. Explain the Transformer architecture.\r\n22. Explain self-attention mathematically.\r\n23. How are LLMs trained?\r\n24. What is next-token prediction?\r\n25. What are embeddings?\r\n26. What is a context window?\r\n27. What causes AI hallucinations?\r\n28. How can LLM outputs be evaluated?\r\n29. How can prompt engineering improve output consistency?\r\n30. Design an architecture for an AI-powered document assistant.\r\n\r\n---"
+            },
+            {
+              "heading": "Interview Questions",
+              "text": "### Artificial Intelligence\r\n\r\n1. What is Artificial Intelligence?\r\n2. What is the difference between AI, ML, and Deep Learning?\r\n3. What are the major applications of AI?\r\n4. What is Narrow AI?\r\n5. What are the limitations of current AI systems?\r\n\r\n### Deep Learning\r\n\r\n6. What is a Neural Network?\r\n7. What is a neuron?\r\n8. What are weights and biases?\r\n9. What is an activation function?\r\n10. Explain ReLU.\r\n11. What is forward propagation?\r\n12. What is backpropagation?\r\n13. What is gradient descent?\r\n14. What is a loss function?\r\n15. What is the learning rate?\r\n\r\n### Transformers and LLMs\r\n\r\n16. What is a Transformer?\r\n17. Why are Transformers important?\r\n18. What is self-attention?\r\n19. Explain Query, Key, and Value.\r\n20. What is tokenization?\r\n21. What are embeddings?\r\n22. What is an LLM?\r\n23. How does an autoregressive LLM generate text?\r\n24. What is a context window?\r\n25. What is Generative AI?\r\n\r\n### Prompt Engineering\r\n\r\n26. What is Prompt Engineering?\r\n27. What is zero-shot prompting?\r\n28. What is few-shot prompting?\r\n29. What makes a good prompt?\r\n30. How can structured output improve AI applications?\r\n31. What are AI hallucinations?\r\n32. How can hallucinations be reduced?\r\n33. Why is context important in prompting?\r\n34. How would you design a prompt for information extraction?\r\n35. How would you evaluate an AI-generated response?\r\n\r\n---"
+            }
+          ],
+          "codeExamples": [
+            {
+              "title": "What is Artificial Intelligence?",
+              "code": "Understanding language\r\nRecognizing images\r\nMaking predictions\r\nPlanning\r\nReasoning\r\nGenerating content\r\nLearning from data",
+              "explanation": "Artificial Intelligence is the field of computing concerned with building systems capable of performing tasks that normally require human-like intelligence.\r \r Examples include:\r \r"
+            },
+            {
+              "title": "AI vs Machine Learning vs Deep Learning",
+              "code": "Artificial Intelligence\r\n        \u0393\u00f6\u00e9\r\n        \u0393\u00f6\u00f6\u0393\u00f6\u00c7\u0393\u00f6\u00c7 Machine Learning\r\n                \u0393\u00f6\u00e9\r\n                \u0393\u00f6\u00f6\u0393\u00f6\u00c7\u0393\u00f6\u00c7 Deep Learning\r\n                        \u0393\u00f6\u00e9\r\n                        \u0393\u00f6\u00f6\u0393\u00f6\u00c7\u0393\u00f6\u00c7 Modern AI Models",
+              "explanation": "These terms are related but not identical.\r \r ### Artificial Intelligence\r \r The broad field of creating intelligent systems.\r \r ### Machine Learning\r \r A subset of AI where system"
+            },
+            {
+              "title": "AI Applications Across Industries",
+              "code": "Medical image analysis\r\nPatient risk prediction\r\nDrug discovery\r\nClinical decision support",
+              "explanation": "Artificial Intelligence is being applied across many industries.\r \r ### Healthcare\r \r \r \r ### Finance\r \r ```text\r Fraud detection\r Credit risk analysis\r Algorithmic trading\r Custom"
+            },
+            {
+              "title": "What is Deep Learning?",
+              "code": "Raw Image\r\n    \u0393\u00e5\u00f4\r\nEarly Layers\r\nEdges / Shapes\r\n    \u0393\u00e5\u00f4\r\nMiddle Layers\r\nPatterns / Objects\r\n    \u0393\u00e5\u00f4\r\nDeep Layers\r\nComplex Features\r\n    \u0393\u00e5\u00f4\r\nPrediction",
+              "explanation": "Deep Learning is a branch of Machine Learning that uses neural networks containing multiple computational layers.\r \r Traditional Machine Learning often relies heavily on manually d"
+            },
+            {
+              "title": "Neural Networks",
+              "code": "Input Layer\r\n     \u0393\u00e5\u00f4\r\nHidden Layer(s)\r\n     \u0393\u00e5\u00f4\r\nOutput Layer",
+              "explanation": "A Neural Network is a computational model inspired loosely by the structure of biological neural systems.\r \r A basic neural network contains:\r \r \r \r Example:\r \r ```text\r Input Feat"
+            },
+            {
+              "title": "Weights and Biases",
+              "code": "Input 1 \u0393\u00e5\u00c6 Weight 0.8\r\nInput 2 \u0393\u00e5\u00c6 Weight 0.2\r\nInput 3 \u0393\u00e5\u00c6 Weight -0.4",
+              "explanation": "### Weights\r \r Weights determine the contribution of each input feature.\r \r For example:\r \r \r \r The model learns these values during training.\r \r ### Bias\r \r Bias provides an addit"
+            },
+            {
+              "title": "Forward Propagation",
+              "code": "Input\r\n  \u0393\u00e5\u00f4\r\nWeighted Sum\r\n  \u0393\u00e5\u00f4\r\nActivation\r\n  \u0393\u00e5\u00f4\r\nHidden Layer\r\n  \u0393\u00e5\u00f4\r\nWeighted Sum\r\n  \u0393\u00e5\u00f4\r\nActivation\r\n  \u0393\u00e5\u00f4\r\nOutput",
+              "explanation": "Forward propagation is the process of passing input data through the network to produce a prediction.\r \r \r \r For example:\r \r ```python\r output = activation(\r     weights @ inputs +"
+            },
+            {
+              "title": "Backpropagation",
+              "code": "Prediction\r\n    \u0393\u00e5\u00f4\r\nCalculate Loss\r\n    \u0393\u00e5\u00f4\r\nCalculate Gradients\r\n    \u0393\u00e5\u00f4\r\nBackpropagate Error\r\n    \u0393\u00e5\u00f4\r\nUpdate Weights\r\n    \u0393\u00e5\u00f4\r\nRepeat",
+              "explanation": "Backpropagation is a key algorithm for training neural networks.\r \r It calculates how changes in model parameters affect the loss and uses those gradients to update the parameters."
+            },
+            {
+              "title": "Epochs, Batches, and Iterations",
+              "code": "10,000 Training Samples\r\nBatch Size = 100\r\n\r\nIterations per Epoch = 100",
+              "explanation": "### Epoch\r \r One complete pass through the training dataset.\r \r ### Batch\r \r A subset of training examples processed together.\r \r ### Iteration\r \r One parameter-update step for a b"
+            },
+            {
+              "title": "What is a Transformer?",
+              "code": "Input Tokens\r\n     \u0393\u00e5\u00f4\r\nEmbeddings\r\n     \u0393\u00e5\u00f4\r\nPositional Information\r\n     \u0393\u00e5\u00f4\r\nSelf-Attention\r\n     \u0393\u00e5\u00f4\r\nFeed-Forward Network\r\n     \u0393\u00e5\u00f4\r\nRepeated Transformer Layers\r\n     \u0393\u00e5\u00f4\r\nOutput Representation",
+              "explanation": "The Transformer is a neural network architecture introduced in the landmark 2017 research paper **\"Attention Is All You Need.\"**\r \r Transformers became foundational to many modern "
+            }
+          ],
+          "bestPractices": [
+            "Provide specific roles, tasks, context, constraints, and output formats in prompts",
+            "Use Few-Shot examples to guide LLM response structure for complex extraction tasks",
+            "Request structured output (JSON/Markdown tables) when integrating LLMs with software APIs",
+            "Implement verification and human oversight to mitigate AI hallucinations",
+            "Design robust fallback strategies and error handling for external LLM API dependencies"
+          ],
+          "commonMistakes": [
+            "Treating AI outputs as automatically accurate without validation",
+            "Using vague, unconstrained prompts leading to inconsistent output formatting",
+            "Ignoring data privacy and sending sensitive credentials to public LLM endpoints",
+            "Overlooking context window limits in long document analysis",
+            "Confusing statistical next-token generation with true logical reasoning or ground-truth database lookups"
+          ],
+          "practiceExercise": {
+            "title": "Structured JSON Data Extraction Prompting",
+            "problem": "Create a Few-Shot prompt instructing an LLM to extract customer name, issue category, sentiment score, and urgency rating from an incoming customer support ticket into valid JSON format.",
+            "solutionCode": "import json\n\nprompt = \"\"\"\nYou are an expert AI Customer Support Analyst.\nExtract key information from customer messages into valid JSON with fields:\n- \"customer_name\": string or null\n- \"category\": \"Billing\" | \"Technical\" | \"General\"\n- \"sentiment\": \"Positive\" | \"Neutral\" | \"Negative\"\n- \"urgency\": \"Low\" | \"Medium\" | \"High\"\n\nExample Input: \"Hi, I'm John Smith. I can't log in to my dashboard! It's urgent!\"\nExample Output:\n{\n  \"customer_name\": \"John Smith\",\n  \"category\": \"Technical\",\n  \"sentiment\": \"Negative\",\n  \"urgency\": \"High\"\n}\n\nTask Input: \"Hey team, Sarah here. Can you send me the invoice for last month? Thanks!\"\nTask Output JSON:\n\"\"\"\n\nprint(prompt)"
+          },
+          "keyTakeaways": [
+            "Deep Learning utilizes multi-layer neural networks to learn hierarchical representations directly from raw data.",
+            "Transformers introduced Self-Attention mechanisms, replacing recurrent networks for scalable sequence modeling.",
+            "LLMs convert text to tokens and embeddings, predicting subsequent tokens iteratively.",
+            "Prompt Engineering optimizes instruction quality using Role, Context, Constraints, and Output Format specifications.",
+            "AI applications require validation, privacy safeguards, and structured output formatting for production safety."
+          ],
+          "references": [
+            {
+              "title": "Attention Is All You Need (Vaswani et al., 2017)",
+              "url": "https://arxiv.org/abs/1706.03762"
+            },
+            {
+              "title": "OpenAI Prompt Engineering Guide",
+              "url": "https://platform.openai.com/docs/guides/prompt-engineering"
+            }
+          ],
+          "mcqs": [
+            {
+              "id": 1,
+              "question": "Which equation defines the core Self-Attention mechanism introduced in the Transformer architecture?",
+              "options": [
+                "Attention(Q, K, V) = softmax((Q * K^T) / sqrt(d_k)) * V",
+                "Attention(X) = sigma(W*X + b)",
+                "Attention(Y) = ReLU(W1*X + W2*Y)",
+                "Attention(Q, K, V) = Q + K + V"
+              ],
+              "correctAnswer": 0,
+              "explanation": "Self-Attention computes compatibility between Queries (Q) and Keys (K), scales by sqrt(d_k), applies Softmax, and weights Values (V)."
+            },
+            {
+              "id": 2,
+              "question": "What are vector embeddings in Large Language Models (LLMs)?",
+              "options": [
+                "Plain-text JSON strings stored on hard drives",
+                "Dense numerical vector representations that capture semantic relationships in high-dimensional vector space",
+                "Hardware chips inside modern GPUs",
+                "Loss functions used exclusively for image classification"
+              ],
+              "correctAnswer": 1,
+              "explanation": "Embeddings map tokens/words into continuous dense vector representations where semantically similar concepts reside near each other."
+            },
+            {
+              "id": 3,
+              "question": "What is Few-Shot Prompting in Prompt Engineering?",
+              "options": [
+                "Prompting an LLM without providing any demonstration examples",
+                "Providing a prompt with a few explicit input-output demonstration examples to guide model output structure and behavior",
+                "Retraining model weights using gradient descent on small datasets",
+                "Running an LLM API call multiple times until it succeeds"
+              ],
+              "correctAnswer": 1,
+              "explanation": "Few-shot prompting includes 2-5 context examples in the prompt to condition the LLM's response pattern."
+            },
+            {
+              "id": 4,
+              "question": "What term describes when a Large Language Model generates plausible-sounding but factually incorrect or invented statements?",
+              "options": [
+                "Overfitting",
+                "AI Hallucination",
+                "Gradient Explosion",
+                "Catastrophic Forgetting"
+              ],
+              "correctAnswer": 1,
+              "explanation": "Hallucination refers to confident, fluent text outputs generated by LLMs that are factually ungrounded or untrue."
+            },
+            {
+              "id": 5,
+              "question": "What architectural pattern connects external search/database document retrieval with an LLM to answer queries accurately?",
+              "options": [
+                "Convolutional Neural Networks (CNN)",
+                "Retrieval-Augmented Generation (RAG)",
+                "Generative Adversarial Networks (GAN)",
+                "Recurrent Neural Networks (RNN)"
+              ],
+              "correctAnswer": 1,
+              "explanation": "RAG retrieves relevant domain documents from a vector database and inserts them into the prompt context for grounded LLM answer generation."
+            }
+          ]
+        }
+      },
+      {
+        "id": "ds-mod-16",
+        "title": "Module 16 \u0393\u00c7\u00f6 AI Data Science Capstone Project",
+        "description": "Comprehensive end-to-end AI project combining data ingestion, cleaning, EDA, model training, hyperparameter tuning, evaluation, and deployment.",
+        "completed": true,
+        "readingMaterial": {
+          "introduction": "The AI Data Science Capstone Project synthesizes all skills acquired across the Boot Camp into a production-grade end-to-end Machine Learning system. This comprehensive module guides learners from initial business problem framing and multi-source data ingestion through cleaning, exploratory visual analysis, feature engineering, model training, hyperparameter tuning, evaluation, containerization, API development, and real-world monitoring.",
+          "objectives": [
+            "Define a real-world AI/Data Science problem.",
+            "Identify appropriate datasets.",
+            "Build a data ingestion workflow.",
+            "Load data from common sources.",
+            "Inspect and understand datasets.",
+            "Clean missing, duplicate, and inconsistent data.",
+            "Perform exploratory data analysis.",
+            "Visualize important patterns and relationships.",
+            "Engineer useful features.",
+            "Encode categorical variables.",
+            "Scale numerical variables when required.",
+            "Split data appropriately.",
+            "Build baseline Machine Learning models.",
+            "Train multiple candidate models.",
+            "Compare model performance.",
+            "Perform hyperparameter tuning.",
+            "Apply cross-validation.",
+            "Evaluate the final model.",
+            "Save trained models.",
+            "Build an inference workflow.",
+            "Develop a simple AI-powered application.",
+            "Deploy the application.",
+            "Document the complete project.",
+            "Communicate technical results to non-technical stakeholders.",
+            "--"
+          ],
+          "sections": [
+            {
+              "heading": "Module 16 \u0393\u00c7\u00f6 AI Data Science Capstone Project Overview",
+              "text": "## End-to-End AI Project: From Data Ingestion to Deployment\r\n\r\n---"
+            },
+            {
+              "heading": "Capstone Project Structure",
+              "text": "The project is divided into major phases:\r\n\r\n### Phase 1 \u0393\u00c7\u00f6 Problem Definition\r\n\r\n\r\n\r\n### Phase 2 \u0393\u00c7\u00f6 Data Preparation\r\n\r\n```text\r\nData Collection\r\n      \u0393\u00e5\u00f4\r\nData Ingestion\r\n      \u0393\u00e5\u00f4\r\nData Cleaning\r\n      \u0393\u00e5\u00f4\r\nData Validation\r\n```\r\n\r\n### Phase 3 \u0393\u00c7\u00f6 Data Analysis\r\n\r\n```text\r\nEDA\r\n \u0393\u00e5\u00f4\r\nVisualization\r\n \u0393\u00e5\u00f4\r\nCorrelation Analysis\r\n \u0393\u00e5\u00f4\r\nPattern Discovery\r\n \u0393\u00e5\u00f4\r\nInsights\r\n```\r\n\r\n### Phase 4 \u0393\u00c7\u00f6 Machine Learning\r\n\r\n```text\r\nFeature Engineering\r\n      \u0393\u00e5\u00f4\r\nPreprocessing\r\n      \u0393\u00e5\u00f4\r\nTrain/Test Split\r\n      \u0393\u00e5\u00f4\r\nBaseline\r\n      \u0393\u00e5\u00f4\r\nModel Training\r\n```\r\n\r\n### Phase 5 \u0393\u00c7\u00f6 Optimization\r\n\r\n```text\r\nCross-Validation\r\n      \u0393\u00e5\u00f4\r\nHyperparameter Tuning\r\n      \u0393\u00e5\u00f4\r\nModel Comparison\r\n```\r\n\r\n### Phase 6 \u0393\u00c7\u00f6 Deployment\r\n\r\n```text\r\nFinal Model\r\n     \u0393\u00e5\u00f4\r\nModel Serialization\r\n     \u0393\u00e5\u00f4\r\nAPI / Application\r\n     \u0393\u00e5\u00f4\r\nDeployment\r\n```\r\n\r\n### Phase 7 \u0393\u00c7\u00f6 Monitoring\r\n\r\n```text\r\nPredictions\r\n     \u0393\u00e5\u00f4\r\nPerformance Monitoring\r\n     \u0393\u00e5\u00f4\r\nError Analysis\r\n     \u0393\u00e5\u00f4\r\nModel Improvement\r\n```\r\n\r\n---",
+              "code": "Business Problem\r\n      \u0393\u00e5\u00f4\r\nProject Objective\r\n      \u0393\u00e5\u00f4\r\nTarget Variable\r\n      \u0393\u00e5\u00f4\r\nSuccess Criteria"
+            },
+            {
+              "heading": "Step 1 \u0393\u00c7\u00f6 Define the Problem",
+              "text": "Every successful Data Science project begins with a clearly defined problem.\r\n\r\nBefore writing code, answer:\r\n\r\n- What problem are we solving?\r\n- Who will use the solution?\r\n- What data is available?\r\n- What should the model predict?\r\n- How will success be measured?\r\n- What business decision will the model support?\r\n\r\n---"
+            },
+            {
+              "heading": "Example Capstone Problem",
+              "text": "## Customer Churn Prediction\r\n\r\nA company wants to predict which customers are likely to stop using its service.\r\n\r\n### Business Objective\r\n\r\nIdentify customers at high risk of churn so that the company can take preventive actions.\r\n\r\n### Machine Learning Objective\r\n\r\nPredict:\r\n\r\n\r\n\r\n### Input Features\r\n\r\nPossible features:\r\n\r\n```text\r\nCustomer Age\r\nSubscription Type\r\nMonthly Charges\r\nTotal Charges\r\nContract Duration\r\nPayment Method\r\nCustomer Support Calls\r\nUsage Frequency\r\n```\r\n\r\n### Target\r\n\r\n```text\r\nChurn\r\n```\r\n\r\n---",
+              "code": "1 \u0393\u00e5\u00c6 Customer likely to churn\r\n0 \u0393\u00e5\u00c6 Customer likely to stay"
+            },
+            {
+              "heading": "Alternative Capstone Project Ideas",
+              "text": "Learners can choose different real-world problems.\r\n\r\n### Healthcare\r\n\r\n\r\n\r\n### Finance\r\n\r\n```text\r\nLoan Default Prediction\r\nFraud Detection\r\nCredit Risk Classification\r\n```\r\n\r\n### Retail\r\n\r\n```text\r\nCustomer Churn\r\nSales Forecasting\r\nProduct Recommendation\r\n```\r\n\r\n### E-Commerce\r\n\r\n```text\r\nPurchase Prediction\r\nCustomer Segmentation\r\nDemand Forecasting\r\n```\r\n\r\n### Education\r\n\r\n```text\r\nStudent Performance Prediction\r\nDropout Prediction\r\n```\r\n\r\n### Agriculture\r\n\r\n```text\r\nCrop Yield Prediction\r\nCrop Disease Classification\r\n```\r\n\r\n### Manufacturing\r\n\r\n```text\r\nPredictive Maintenance\r\nDefect Detection\r\n```\r\n\r\n---",
+              "code": "Disease Risk Prediction\r\nPatient Readmission Prediction"
+            },
+            {
+              "heading": "Step 2 \u0393\u00c7\u00f6 Data Collection",
+              "text": "Data can come from various sources.\r\n\r\nCommon sources include:\r\n\r\n\r\n\r\nThe source should be appropriate, legally usable, and sufficiently representative of the problem.\r\n\r\n---",
+              "code": "CSV Files\r\nExcel Files\r\nDatabases\r\nAPIs\r\nCloud Storage\r\nPublic Datasets\r\nWeb Data\r\nIoT Sensors\r\nApplication Logs"
+            },
+            {
+              "heading": "Step 3 \u0393\u00c7\u00f6 Data Ingestion",
+              "text": "Data ingestion is the process of bringing data into the Data Science workflow.\r\n\r\nExample:\r\n\r\n\r\n\r\nBasic inspection:\r\n\r\n```python\r\nprint(df.shape)\r\nprint(df.columns)\r\nprint(df.info())\r\n```\r\n\r\n---",
+              "code": "import pandas as pd\r\n\r\ndf = pd.read_csv(\r\n    \"customer_data.csv\"\r\n)\r\n\r\nprint(df.head())"
+            },
+            {
+              "heading": "Data Ingestion Pipeline",
+              "text": "A simple ingestion workflow:\r\n\r\n\r\n\r\nData validation should check:\r\n\r\n- Expected columns\r\n- Data types\r\n- Missing values\r\n- Duplicate records\r\n- Unexpected values\r\n- Dataset size\r\n\r\n---",
+              "code": "Data Source\r\n     \u0393\u00e5\u00f4\r\nRead Data\r\n     \u0393\u00e5\u00f4\r\nValidate File\r\n     \u0393\u00e5\u00f4\r\nCheck Schema\r\n     \u0393\u00e5\u00f4\r\nLoad Dataset\r\n     \u0393\u00e5\u00f4\r\nStore / Process Data"
+            },
+            {
+              "heading": "Step 4 \u0393\u00c7\u00f6 Understanding the Dataset",
+              "text": "Before cleaning the data, understand its structure.\r\n\r\nUseful commands:\r\n\r\n\r\n\r\nFor categorical variables:\r\n\r\n```python\r\ndf[\"Contract\"].value_counts()\r\n```\r\n\r\n---",
+              "code": "df.head()\r\ndf.tail()\r\ndf.shape\r\ndf.columns\r\ndf.info()\r\ndf.describe()"
+            },
+            {
+              "heading": "Data Quality Assessment",
+              "text": "A Data Quality Report should investigate:\r\n\r\n\r\n\r\nExample:\r\n\r\n```python\r\nmissing = df.isnull().sum()\r\n\r\nduplicates = df.duplicated().sum()\r\n\r\nprint(\"Missing Values:\")\r\nprint(missing)\r\n\r\nprint(\"Duplicates:\", duplicates)\r\n```\r\n\r\n---",
+              "code": "Missing Values\r\nDuplicate Records\r\nIncorrect Data Types\r\nOutliers\r\nInvalid Categories\r\nInconsistent Values\r\nUnexpected Nulls\r\nData Entry Errors"
+            },
+            {
+              "heading": "Step 5 \u0393\u00c7\u00f6 Data Cleaning",
+              "text": "Data cleaning prepares raw data for reliable analysis and modeling.\r\n\r\nCommon operations include:\r\n\r\n\r\n\r\n---",
+              "code": "Missing Value Handling\r\nDuplicate Removal\r\nData Type Conversion\r\nString Cleaning\r\nOutlier Investigation\r\nInvalid Value Handling\r\nCategory Standardization"
+            },
+            {
+              "heading": "Handling Missing Values",
+              "text": "Example:\r\n\r\n\r\n\r\nFor categorical variables:\r\n\r\n```python\r\ndf[\"City\"] = df[\"City\"].fillna(\r\n    df[\"City\"].mode()[0]\r\n)\r\n```\r\n\r\nHowever, the correct strategy depends on why values are missing and what the variable represents.\r\n\r\n---",
+              "code": "df[\"Age\"] = df[\"Age\"].fillna(\r\n    df[\"Age\"].median()\r\n)"
+            },
+            {
+              "heading": "Duplicate Records",
+              "text": "Check duplicates:\r\n\r\n\r\n\r\nRemove duplicates when they represent accidental repeated records:\r\n\r\n```python\r\ndf = df.drop_duplicates()\r\n```\r\n\r\nDuplicates should be investigated before removal because repeated rows may sometimes represent legitimate observations.\r\n\r\n---",
+              "code": "df.duplicated().sum()"
+            },
+            {
+              "heading": "Data Type Conversion",
+              "text": "Example:\r\n\r\n\r\n\r\nNumerical conversion:\r\n\r\n```python\r\ndf[\"Price\"] = pd.to_numeric(\r\n    df[\"Price\"],\r\n    errors=\"coerce\"\r\n)\r\n```\r\n\r\nCorrect data types are important for analysis and modeling.\r\n\r\n---",
+              "code": "df[\"Order_Date\"] = pd.to_datetime(\r\n    df[\"Order_Date\"],\r\n    errors=\"coerce\"\r\n)"
+            },
+            {
+              "heading": "String Cleaning",
+              "text": "Text fields may contain inconsistent formatting.\r\n\r\nExample:\r\n\r\n\r\n\r\nThis can convert values such as:\r\n\r\n```text\r\n\"bangalore\"\r\n\"Bangalore \"\r\n\"BANGALORE\"\r\n```\r\n\r\ninto a consistent representation.\r\n\r\n---",
+              "code": "df[\"City\"] = (\r\n    df[\"City\"]\r\n    .str.strip()\r\n    .str.title()\r\n)"
+            },
+            {
+              "heading": "Step 6 \u0393\u00c7\u00f6 Exploratory Data Analysis",
+              "text": "Exploratory Data Analysis helps understand the dataset before modeling.\r\n\r\nThe EDA process should answer:\r\n\r\n- What patterns exist?\r\n- Which variables are important?\r\n- Are there outliers?\r\n- Are variables correlated?\r\n- Is the target balanced?\r\n- Are there unexpected relationships?\r\n\r\n---"
+            },
+            {
+              "heading": "Univariate Analysis",
+              "text": "Univariate analysis examines one variable at a time.\r\n\r\nFor numerical variables:\r\n\r\n\r\n\r\nUseful visualizations:\r\n\r\n```text\r\nHistogram\r\nBox Plot\r\nDensity Plot\r\n```\r\n\r\nFor categorical variables:\r\n\r\n```python\r\ndf[\"Contract\"].value_counts()\r\n```\r\n\r\nUseful visualization:\r\n\r\n```text\r\nBar Chart\r\n```\r\n\r\n---",
+              "code": "df[\"MonthlyCharges\"].describe()"
+            },
+            {
+              "heading": "Bivariate Analysis",
+              "text": "Bivariate analysis studies relationships between two variables.\r\n\r\nExamples:\r\n\r\n\r\n\r\nExample:\r\n\r\n```python\r\nimport matplotlib.pyplot as plt\r\n\r\nplt.scatter(\r\n    df[\"Age\"],\r\n    df[\"MonthlyCharges\"]\r\n)\r\n\r\nplt.xlabel(\"Age\")\r\nplt.ylabel(\"Monthly Charges\")\r\nplt.show()\r\n```\r\n\r\n---",
+              "code": "Age vs Churn\r\nIncome vs Purchase\r\nMonthly Charges vs Churn\r\nExperience vs Salary"
+            },
+            {
+              "heading": "Multivariate Analysis",
+              "text": "Multivariate analysis examines relationships among multiple variables.\r\n\r\nExamples include:\r\n\r\n\r\n\r\nA correlation matrix can be calculated using:\r\n\r\n```python\r\ncorrelation = df.corr(\r\n    numeric_only=True\r\n)\r\n\r\nprint(correlation)\r\n```\r\n\r\n---",
+              "code": "Correlation Matrix\r\nPair Plots\r\nGrouped Analysis\r\nFeature Interaction Analysis"
+            },
+            {
+              "heading": "Business Insights from EDA",
+              "text": "EDA should not stop at creating charts.\r\n\r\nLearners should extract meaningful insights.\r\n\r\nExample:\r\n\r\n\r\n\r\nThese observations can guide feature engineering and model development.\r\n\r\n---",
+              "code": "Customers with short contracts\r\nshow a higher churn rate.\r\n\r\nCustomers with high monthly charges\r\nshow increased churn risk.\r\n\r\nCustomers with frequent support calls\r\nmay have higher churn probability."
+            },
+            {
+              "heading": "Step 7 \u0393\u00c7\u00f6 Feature Engineering",
+              "text": "Feature Engineering transforms existing data into useful model features.\r\n\r\nExample:\r\n\r\n\r\n\r\nDate features:\r\n\r\n```python\r\ndf[\"Month\"] = (\r\n    df[\"Order_Date\"].dt.month\r\n)\r\n\r\ndf[\"DayOfWeek\"] = (\r\n    df[\"Order_Date\"].dt.dayofweek\r\n)\r\n```\r\n\r\n---",
+              "code": "df[\"TotalValue\"] = (\r\n    df[\"Price\"] *\r\n    df[\"Quantity\"]\r\n)"
+            },
+            {
+              "heading": "Feature Selection",
+              "text": "Not every feature is useful.\r\n\r\nPotential approaches include:\r\n\r\n\r\n\r\nThe final feature set should be validated experimentally.\r\n\r\n---",
+              "code": "Correlation Analysis\r\nVariance Filtering\r\nMutual Information\r\nRFE\r\nFeature Importance\r\nDomain Knowledge"
+            },
+            {
+              "heading": "Step 8 \u0393\u00c7\u00f6 Define X and y",
+              "text": "For supervised learning:\r\n\r\n\r\n\r\nWhere:\r\n\r\n```text\r\nX \u0393\u00e5\u00c6 Input Features\r\ny \u0393\u00e5\u00c6 Target Variable\r\n```\r\n\r\n---",
+              "code": "X = df.drop(\r\n    \"Churn\",\r\n    axis=1\r\n)\r\n\r\ny = df[\"Churn\"]"
+            },
+            {
+              "heading": "Step 9 \u0393\u00c7\u00f6 Train/Test Split",
+              "text": "The dataset should be divided into training and testing portions.\r\n\r\nExample:\r\n\r\n\r\n\r\nThe exact split strategy should depend on the problem.\r\n\r\nFor time-dependent data, a random split may be inappropriate; chronological validation may be more suitable.\r\n\r\n---",
+              "code": "from sklearn.model_selection import train_test_split\r\n\r\nX_train, X_test, y_train, y_test = train_test_split(\r\n    X,\r\n    y,\r\n    test_size=0.2,\r\n    random_state=42,\r\n    stratify=y\r\n)"
+            },
+            {
+              "heading": "Why Separate Training and Testing Data?",
+              "text": "The model should learn from the training data.\r\n\r\nThe test set should simulate unseen data.\r\n\r\n\r\n\r\nThe test set should not be repeatedly used to choose model settings.\r\n\r\n---",
+              "code": "Training Data\r\n     \u0393\u00e5\u00f4\r\nModel Learning\r\n\r\nTest Data\r\n     \u0393\u00e5\u00f4\r\nFinal Evaluation"
+            },
+            {
+              "heading": "Step 10 \u0393\u00c7\u00f6 Preprocessing Pipeline",
+              "text": "A real-world dataset may contain:\r\n\r\n\r\n\r\nUse `ColumnTransformer` to apply appropriate preprocessing.\r\n\r\nExample:\r\n\r\n```python\r\nfrom sklearn.compose import ColumnTransformer\r\nfrom sklearn.preprocessing import (\r\n    StandardScaler,\r\n    OneHotEncoder\r\n)\r\n\r\npreprocessor = ColumnTransformer([\r\n    (\r\n        \"num\",\r\n        StandardScaler(),\r\n        numerical_features\r\n    ),\r\n    (\r\n        \"cat\",\r\n        OneHotEncoder(\r\n            handle_unknown=\"ignore\"\r\n        ),\r\n        categorical_features\r\n    )\r\n])\r\n```\r\n\r\n---",
+              "code": "Numerical Features\r\nCategorical Features"
+            },
+            {
+              "heading": "Step 11 \u0393\u00c7\u00f6 Baseline Model",
+              "text": "Always create a baseline before extensive optimization.\r\n\r\nFor classification:\r\n\r\n\r\n\r\nThe baseline establishes a reference point.\r\n\r\n---",
+              "code": "from sklearn.dummy import DummyClassifier\r\n\r\nbaseline = DummyClassifier(\r\n    strategy=\"most_frequent\"\r\n)\r\n\r\nbaseline.fit(\r\n    X_train,\r\n    y_train\r\n)"
+            },
+            {
+              "heading": "Step 12 \u0393\u00c7\u00f6 Model Training",
+              "text": "Multiple algorithms can be evaluated.\r\n\r\nFor example:\r\n\r\n\r\n\r\nExample:\r\n\r\n```python\r\nfrom sklearn.ensemble import RandomForestClassifier\r\n\r\nmodel = RandomForestClassifier(\r\n    random_state=42\r\n)\r\n\r\nmodel.fit(\r\n    X_train,\r\n    y_train\r\n)\r\n```\r\n\r\n---",
+              "code": "Logistic Regression\r\nDecision Tree\r\nRandom Forest\r\nKNN\r\nSVM\r\nGradient Boosting"
+            },
+            {
+              "heading": "Model Prediction",
+              "text": "After training:\r\n\r\n\r\n\r\nFor probability estimates:\r\n\r\n```python\r\ny_probability = model.predict_proba(\r\n    X_test\r\n)[:, 1]\r\n```\r\n\r\nProbability outputs can be useful for ranking or threshold-based decisions.\r\n\r\n---",
+              "code": "y_pred = model.predict(\r\n    X_test\r\n)"
+            },
+            {
+              "heading": "Step 13 \u0393\u00c7\u00f6 Model Evaluation",
+              "text": "For classification, common metrics include:\r\n\r\n\r\n\r\nExample:\r\n\r\n```python\r\nfrom sklearn.metrics import (\r\n    accuracy_score,\r\n    precision_score,\r\n    recall_score,\r\n    f1_score\r\n)\r\n\r\nprint(\r\n    \"Accuracy:\",\r\n    accuracy_score(y_test, y_pred)\r\n)\r\n\r\nprint(\r\n    \"Precision:\",\r\n    precision_score(y_test, y_pred)\r\n)\r\n\r\nprint(\r\n    \"Recall:\",\r\n    recall_score(y_test, y_pred)\r\n)\r\n\r\nprint(\r\n    \"F1:\",\r\n    f1_score(y_test, y_pred)\r\n)\r\n```\r\n\r\n---",
+              "code": "Accuracy\r\nPrecision\r\nRecall\r\nF1-Score\r\nROC-AUC\r\nConfusion Matrix"
+            },
+            {
+              "heading": "Confusion Matrix",
+              "text": "The confusion matrix contains:\r\n\r\n\r\n\r\nWhere:\r\n\r\n- TP = True Positive\r\n- TN = True Negative\r\n- FP = False Positive\r\n- FN = False Negative\r\n\r\n---",
+              "code": "Predicted\r\n               0          1\r\nActual 0      TN         FP\r\nActual 1      FN         TP"
+            },
+            {
+              "heading": "Choosing the Right Metric",
+              "text": "Different problems require different metrics.\r\n\r\n### Accuracy\r\n\r\nUseful when classes are reasonably balanced and error costs are similar.\r\n\r\n### Precision\r\n\r\nImportant when false positives are costly.\r\n\r\n### Recall\r\n\r\nImportant when false negatives are costly.\r\n\r\n### F1-Score\r\n\r\nUseful when balancing precision and recall is important.\r\n\r\n### ROC-AUC\r\n\r\nUseful for evaluating ranking/discrimination across classification thresholds.\r\n\r\nThe choice should be driven by the project objective rather than simply selecting the highest accuracy.\r\n\r\n---"
+            },
+            {
+              "heading": "Step 14 \u0393\u00c7\u00f6 Cross-Validation",
+              "text": "Cross-validation provides a more robust estimate of model performance during model selection.\r\n\r\nExample:\r\n\r\n\r\n\r\n---",
+              "code": "from sklearn.model_selection import cross_val_score\r\n\r\nscores = cross_val_score(\r\n    model,\r\n    X_train,\r\n    y_train,\r\n    cv=5,\r\n    scoring=\"f1\"\r\n)\r\n\r\nprint(scores)\r\nprint(scores.mean())"
+            },
+            {
+              "heading": "Step 15 \u0393\u00c7\u00f6 Hyperparameter Tuning",
+              "text": "After establishing candidate models, tune important hyperparameters.\r\n\r\nExample:\r\n\r\n\r\n\r\nThen:\r\n\r\n```python\r\ngrid_search = GridSearchCV(\r\n    pipeline,\r\n    param_grid,\r\n    cv=5,\r\n    scoring=\"f1\",\r\n    n_jobs=-1\r\n)\r\n\r\ngrid_search.fit(\r\n    X_train,\r\n    y_train\r\n)\r\n```\r\n\r\n---",
+              "code": "from sklearn.model_selection import GridSearchCV\r\n\r\nparam_grid = {\r\n    \"model__n_estimators\": [\r\n        100,\r\n        200\r\n    ],\r\n    \"model__max_depth\": [\r\n        5,\r\n        10,\r\n        None\r\n    ]\r\n}"
+            },
+            {
+              "heading": "Randomized Hyperparameter Search",
+              "text": "For larger search spaces:\r\n\r\n\r\n\r\n---",
+              "code": "from sklearn.model_selection import RandomizedSearchCV\r\n\r\nrandom_search = RandomizedSearchCV(\r\n    pipeline,\r\n    param_distributions,\r\n    n_iter=20,\r\n    cv=5,\r\n    scoring=\"f1\",\r\n    random_state=42,\r\n    n_jobs=-1\r\n)\r\n\r\nrandom_search.fit(\r\n    X_train,\r\n    y_train\r\n)"
+            },
+            {
+              "heading": "Model Comparison",
+              "text": "Create a comparison table.\r\n\r\n| Model | CV Score | Test Accuracy | Precision | Recall | F1 |\r\n|---|---:|---:|---:|---:|---:|\r\n| Logistic Regression | \u0393\u00c7\u00f6 | \u0393\u00c7\u00f6 | \u0393\u00c7\u00f6 | \u0393\u00c7\u00f6 | \u0393\u00c7\u00f6 |\r\n| Decision Tree | \u0393\u00c7\u00f6 | \u0393\u00c7\u00f6 | \u0393\u00c7\u00f6 | \u0393\u00c7\u00f6 | \u0393\u00c7\u00f6 |\r\n| Random Forest | \u0393\u00c7\u00f6 | \u0393\u00c7\u00f6 | \u0393\u00c7\u00f6 | \u0393\u00c7\u00f6 | \u0393\u00c7\u00f6 |\r\n| SVM | \u0393\u00c7\u00f6 | \u0393\u00c7\u00f6 | \u0393\u00c7\u00f6 | \u0393\u00c7\u00f6 | \u0393\u00c7\u00f6 |\r\n| Tuned Model | \u0393\u00c7\u00f6 | \u0393\u00c7\u00f6 | \u0393\u00c7\u00f6 | \u0393\u00c7\u00f6 | \u0393\u00c7\u00f6 |\r\n\r\nActual values should come from the capstone experiment.\r\n\r\n---"
+            },
+            {
+              "heading": "Step 16 \u0393\u00c7\u00f6 Error Analysis",
+              "text": "A strong Data Science project does not only report metrics.\r\n\r\nIt also investigates errors.\r\n\r\nQuestions include:\r\n\r\n- Which examples were misclassified?\r\n- Are errors concentrated in one customer group?\r\n- Are certain categories difficult to predict?\r\n- Are there missing or noisy features?\r\n- Does the model perform differently across important segments?\r\n\r\nExample:\r\n\r\n\r\n\r\n---",
+              "code": "errors = X_test[\r\n    y_test != y_pred\r\n]\r\n\r\nprint(errors.head())"
+            },
+            {
+              "heading": "Model Explainability",
+              "text": "Model explainability helps understand why predictions are being made.\r\n\r\nPossible approaches include:\r\n\r\n\r\n\r\nFor tree-based models:\r\n\r\n```python\r\nimportance = (\r\n    model.feature_importances_\r\n)\r\n```\r\n\r\nExplainability methods should be chosen according to the model and project requirements.\r\n\r\n---",
+              "code": "Feature Importance\r\nPermutation Importance\r\nPartial Dependence\r\nSHAP\r\nLocal Explanations"
+            },
+            {
+              "heading": "Step 17 \u0393\u00c7\u00f6 Final Model Selection",
+              "text": "The final model should be selected based on:\r\n\r\n\r\n\r\nThe model with the highest single metric is not always the best production choice.\r\n\r\n---",
+              "code": "Validation Performance\r\nTest Performance\r\nBusiness Requirements\r\nInterpretability\r\nComputational Cost\r\nLatency\r\nReliability\r\nMaintainability"
+            },
+            {
+              "heading": "Step 18 \u0393\u00c7\u00f6 Model Serialization",
+              "text": "Once the final model is selected, it can be saved for later use.\r\n\r\nUsing Joblib:\r\n\r\n\r\n\r\nLoad it later:\r\n\r\n```python\r\nmodel = joblib.load(\r\n    \"model.joblib\"\r\n)\r\n```\r\n\r\nThe exact deployment format depends on the chosen serving environment.\r\n\r\n---",
+              "code": "import joblib\r\n\r\njoblib.dump(\r\n    final_model,\r\n    \"model.joblib\"\r\n)"
+            },
+            {
+              "heading": "Step 19 \u0393\u00c7\u00f6 Prediction Pipeline",
+              "text": "A production prediction workflow should look like:\r\n\r\n\r\n\r\nThe same preprocessing used during training must be applied consistently during inference.\r\n\r\nThis is one reason end-to-end pipelines are valuable.\r\n\r\n---",
+              "code": "User Input\r\n    \u0393\u00e5\u00f4\r\nInput Validation\r\n    \u0393\u00e5\u00f4\r\nPreprocessing\r\n    \u0393\u00e5\u00f4\r\nTrained Model\r\n    \u0393\u00e5\u00f4\r\nPrediction\r\n    \u0393\u00e5\u00f4\r\nPost-processing\r\n    \u0393\u00e5\u00f4\r\nResponse"
+            },
+            {
+              "heading": "Step 20 \u0393\u00c7\u00f6 Build an AI Application",
+              "text": "The trained model can be connected to an application.\r\n\r\nExample:\r\n\r\n\r\n\r\n---",
+              "code": "WEB APPLICATION\r\n                       \u0393\u00f6\u00e9\r\n                       \u0393\u00e5\u00f4\r\n                 USER INPUT\r\n                       \u0393\u00f6\u00e9\r\n                       \u0393\u00e5\u00f4\r\n                API / BACKEND\r\n                       \u0393\u00f6\u00e9\r\n                       \u0393\u00e5\u00f4\r\n                ML PIPELINE\r\n                       \u0393\u00f6\u00e9\r\n                       \u0393\u00e5\u00f4\r\n                  MODEL\r\n                       \u0393\u00f6\u00e9\r\n                       \u0393\u00e5\u00f4\r\n                  PREDICTION\r\n                       \u0393\u00f6\u00e9\r\n                       \u0393\u00e5\u00f4\r\n                 USER RESULT"
+            },
+            {
+              "heading": "Simple Prediction Function",
+              "text": "In production, input validation and proper preprocessing should also be included.\r\n\r\n---",
+              "code": "def predict_churn(\r\n    input_data,\r\n    model\r\n):\r\n    prediction = model.predict(\r\n        input_data\r\n    )\r\n\r\n    probability = model.predict_proba(\r\n        input_data\r\n    )\r\n\r\n    return prediction, probability"
+            },
+            {
+              "heading": "API Layer",
+              "text": "A Machine Learning model can be exposed through an API framework such as FastAPI.\r\n\r\nConceptual example:\r\n\r\n\r\n\r\nA prediction endpoint can then accept structured input and return the model's prediction.\r\n\r\n---",
+              "code": "from fastapi import FastAPI\r\n\r\napp = FastAPI()\r\n\r\n@app.get(\"/\")\r\ndef home():\r\n    return {\r\n        \"message\":\r\n        \"AI Prediction API\"\r\n    }"
+            },
+            {
+              "heading": "Application Interface",
+              "text": "A simple user interface may contain:\r\n\r\n\r\n\r\nThe UI should clearly communicate that model predictions are estimates rather than guaranteed outcomes.\r\n\r\n---",
+              "code": "Customer Information\r\n\u0393\u00f6\u00c7\u0393\u00f6\u00c7\u0393\u00f6\u00c7\u0393\u00f6\u00c7\u0393\u00f6\u00c7\u0393\u00f6\u00c7\u0393\u00f6\u00c7\u0393\u00f6\u00c7\u0393\u00f6\u00c7\u0393\u00f6\u00c7\u0393\u00f6\u00c7\u0393\u00f6\u00c7\u0393\u00f6\u00c7\u0393\u00f6\u00c7\u0393\u00f6\u00c7\u0393\u00f6\u00c7\u0393\u00f6\u00c7\u0393\u00f6\u00c7\u0393\u00f6\u00c7\u0393\u00f6\u00c7\u0393\u00f6\u00c7\u0393\u00f6\u00c7\u0393\u00f6\u00c7\u0393\u00f6\u00c7\r\n\r\nAge:              [ 35 ]\r\n\r\nMonthly Charges:  [ 75 ]\r\n\r\nContract:         [ Month-to-Month ]\r\n\r\nSupport Calls:    [ 4 ]\r\n\r\n        [ Predict ]\r\n\r\n\u0393\u00f6\u00c7\u0393\u00f6\u00c7\u0393\u00f6\u00c7\u0393\u00f6\u00c7\u0393\u00f6\u00c7\u0393\u00f6\u00c7\u0393\u00f6\u00c7\u0393\u00f6\u00c7\u0393\u00f6\u00c7\u0393\u00f6\u00c7\u0393\u00f6\u00c7\u0393\u00f6\u00c7\u0393\u00f6\u00c7\u0393\u00f6\u00c7\u0393\u00f6\u00c7\u0393\u00f6\u00c7\u0393\u00f6\u00c7\u0393\u00f6\u00c7\u0393\u00f6\u00c7\u0393\u00f6\u00c7\u0393\u00f6\u00c7\u0393\u00f6\u00c7\u0393\u00f6\u00c7\u0393\u00f6\u00c7\r\n\r\nPrediction:\r\nHigh Churn Risk\r\n\r\nProbability:\r\n82%"
+            },
+            {
+              "heading": "Step 21 \u0393\u00c7\u00f6 Deployment",
+              "text": "Deployment makes the AI application available to users.\r\n\r\nPossible deployment environments include:\r\n\r\n\r\n\r\nA simplified deployment architecture:\r\n\r\n```text\r\nUser\r\n \u0393\u00e5\u00f4\r\nWeb Application\r\n \u0393\u00e5\u00f4\r\nAPI\r\n \u0393\u00e5\u00f4\r\nML Model\r\n \u0393\u00e5\u00f4\r\nPrediction\r\n```\r\n\r\n---",
+              "code": "Cloud Platforms\r\nVirtual Machines\r\nContainers\r\nServerless Services\r\nManaged ML Platforms"
+            },
+            {
+              "heading": "Containerization",
+              "text": "Docker can package an application and its dependencies.\r\n\r\nTypical project structure:\r\n\r\n\r\n\r\n---",
+              "code": "ai-capstone/\r\n\u0393\u00f6\u00e9\r\n\u0393\u00f6\u00a3\u0393\u00f6\u00c7\u0393\u00f6\u00c7 app/\r\n\u0393\u00f6\u00e9   \u0393\u00f6\u00a3\u0393\u00f6\u00c7\u0393\u00f6\u00c7 main.py\r\n\u0393\u00f6\u00e9   \u0393\u00f6\u00f6\u0393\u00f6\u00c7\u0393\u00f6\u00c7 model.py\r\n\u0393\u00f6\u00e9\r\n\u0393\u00f6\u00a3\u0393\u00f6\u00c7\u0393\u00f6\u00c7 data/\r\n\u0393\u00f6\u00e9\r\n\u0393\u00f6\u00a3\u0393\u00f6\u00c7\u0393\u00f6\u00c7 models/\r\n\u0393\u00f6\u00e9   \u0393\u00f6\u00f6\u0393\u00f6\u00c7\u0393\u00f6\u00c7 model.joblib\r\n\u0393\u00f6\u00e9\r\n\u0393\u00f6\u00a3\u0393\u00f6\u00c7\u0393\u00f6\u00c7 notebooks/\r\n\u0393\u00f6\u00e9\r\n\u0393\u00f6\u00a3\u0393\u00f6\u00c7\u0393\u00f6\u00c7 requirements.txt\r\n\u0393\u00f6\u00e9\r\n\u0393\u00f6\u00a3\u0393\u00f6\u00c7\u0393\u00f6\u00c7 Dockerfile\r\n\u0393\u00f6\u00e9\r\n\u0393\u00f6\u00f6\u0393\u00f6\u00c7\u0393\u00f6\u00c7 README.md"
+            },
+            {
+              "heading": "Requirements File",
+              "text": "Project dependencies can be recorded in:\r\n\r\n\r\n\r\nExample:\r\n\r\n```text\r\npandas\r\nnumpy\r\nscikit-learn\r\nmatplotlib\r\nseaborn\r\nfastapi\r\nuvicorn\r\njoblib\r\n```\r\n\r\nExact versions should be pinned for reproducibility when appropriate.\r\n\r\n---",
+              "code": "requirements.txt"
+            },
+            {
+              "heading": "Step 22 \u0393\u00c7\u00f6 Monitoring",
+              "text": "Deployment is not the end of a Machine Learning project.\r\n\r\nA production system should be monitored.\r\n\r\nImportant areas include:\r\n\r\n\r\n\r\n---",
+              "code": "Prediction Quality\r\nLatency\r\nErrors\r\nInput Distribution\r\nData Drift\r\nModel Drift\r\nResource Usage"
+            },
+            {
+              "heading": "Data Drift",
+              "text": "Data drift occurs when the distribution of incoming data changes over time.\r\n\r\nExample:\r\n\r\n\r\n\r\nA significant distribution change may affect model performance.\r\n\r\n---",
+              "code": "Training Data\r\n     \u0393\u00e5\u00f4\r\nAverage Customer Age = 35\r\n\r\nProduction Data\r\n     \u0393\u00e5\u00f4\r\nAverage Customer Age = 52"
+            },
+            {
+              "heading": "Model Drift",
+              "text": "Model performance can decline as real-world relationships change.\r\n\r\nExample:\r\n\r\n\r\n\r\nModels may therefore require periodic evaluation and retraining.\r\n\r\n---",
+              "code": "Historical Customer Behavior\r\n          \u0393\u00e5\u00f4\r\nModel Trained\r\n          \u0393\u00e5\u00f4\r\nMarket Conditions Change\r\n          \u0393\u00e5\u00f4\r\nCustomer Behavior Changes\r\n          \u0393\u00e5\u00f4\r\nPrediction Quality Declines"
+            },
+            {
+              "heading": "Reproducibility",
+              "text": "A professional project should be reproducible.\r\n\r\nDocument:\r\n\r\n\r\n\r\n---",
+              "code": "Dataset Source\r\nData Processing\r\nFeature Definitions\r\nModel Algorithm\r\nHyperparameters\r\nEvaluation Metrics\r\nPython Version\r\nLibrary Versions\r\nRandom Seeds\r\nDeployment Configuration"
+            },
+            {
+              "heading": "Project Documentation",
+              "text": "Every capstone project should include a professional README.\r\n\r\nRecommended structure:\r\n\r\n\r\n\r\n---",
+              "code": "Project Title\r\n\r\n1. Problem Statement\r\n2. Business Objective\r\n3. Dataset\r\n4. Data Dictionary\r\n5. Data Cleaning\r\n6. EDA\r\n7. Feature Engineering\r\n8. Model Development\r\n9. Hyperparameter Tuning\r\n10. Evaluation\r\n11. Error Analysis\r\n12. Deployment\r\n13. Results\r\n14. Limitations\r\n15. Future Improvements\r\n16. Installation\r\n17. Usage\r\n18. Project Structure"
+            },
+            {
+              "heading": "Recommended Project Structure",
+              "text": "---",
+              "code": "AI-Data-Science-Capstone/\r\n\u0393\u00f6\u00e9\r\n\u0393\u00f6\u00a3\u0393\u00f6\u00c7\u0393\u00f6\u00c7 data/\r\n\u0393\u00f6\u00e9   \u0393\u00f6\u00a3\u0393\u00f6\u00c7\u0393\u00f6\u00c7 raw/\r\n\u0393\u00f6\u00e9   \u0393\u00f6\u00f6\u0393\u00f6\u00c7\u0393\u00f6\u00c7 processed/\r\n\u0393\u00f6\u00e9\r\n\u0393\u00f6\u00a3\u0393\u00f6\u00c7\u0393\u00f6\u00c7 notebooks/\r\n\u0393\u00f6\u00e9   \u0393\u00f6\u00a3\u0393\u00f6\u00c7\u0393\u00f6\u00c7 01_data_ingestion.ipynb\r\n\u0393\u00f6\u00e9   \u0393\u00f6\u00a3\u0393\u00f6\u00c7\u0393\u00f6\u00c7 02_cleaning.ipynb\r\n\u0393\u00f6\u00e9   \u0393\u00f6\u00a3\u0393\u00f6\u00c7\u0393\u00f6\u00c7 03_eda.ipynb\r\n\u0393\u00f6\u00e9   \u0393\u00f6\u00f6\u0393\u00f6\u00c7\u0393\u00f6\u00c7 04_modeling.ipynb\r\n\u0393\u00f6\u00e9\r\n\u0393\u00f6\u00a3\u0393\u00f6\u00c7\u0393\u00f6\u00c7 src/\r\n\u0393\u00f6\u00e9   \u0393\u00f6\u00a3\u0393\u00f6\u00c7\u0393\u00f6\u00c7 data_processing.py\r\n\u0393\u00f6\u00e9   \u0393\u00f6\u00a3\u0393\u00f6\u00c7\u0393\u00f6\u00c7 features.py\r\n\u0393\u00f6\u00e9   \u0393\u00f6\u00a3\u0393\u00f6\u00c7\u0393\u00f6\u00c7 train.py\r\n\u0393\u00f6\u00e9   \u0393\u00f6\u00f6\u0393\u00f6\u00c7\u0393\u00f6\u00c7 predict.py\r\n\u0393\u00f6\u00e9\r\n\u0393\u00f6\u00a3\u0393\u00f6\u00c7\u0393\u00f6\u00c7 models/\r\n\u0393\u00f6\u00e9   \u0393\u00f6\u00f6\u0393\u00f6\u00c7\u0393\u00f6\u00c7 final_model.joblib\r\n\u0393\u00f6\u00e9\r\n\u0393\u00f6\u00a3\u0393\u00f6\u00c7\u0393\u00f6\u00c7 app/\r\n\u0393\u00f6\u00e9   \u0393\u00f6\u00f6\u0393\u00f6\u00c7\u0393\u00f6\u00c7 main.py\r\n\u0393\u00f6\u00e9\r\n\u0393\u00f6\u00a3\u0393\u00f6\u00c7\u0393\u00f6\u00c7 tests/\r\n\u0393\u00f6\u00e9\r\n\u0393\u00f6\u00a3\u0393\u00f6\u00c7\u0393\u00f6\u00c7 requirements.txt\r\n\u0393\u00f6\u00a3\u0393\u00f6\u00c7\u0393\u00f6\u00c7 Dockerfile\r\n\u0393\u00f6\u00f6\u0393\u00f6\u00c7\u0393\u00f6\u00c7 README.md"
+            },
+            {
+              "heading": "Capstone Deliverables",
+              "text": "Learners should submit:\r\n\r\n### 1. Dataset\r\n\r\nThe source or a properly documented reference to the dataset.\r\n\r\n### 2. Data Analysis Notebook\r\n\r\nContains:\r\n\r\n\r\n\r\n### 3. Modeling Notebook\r\n\r\nContains:\r\n\r\n```text\r\nPreprocessing\r\nBaseline\r\nModel Training\r\nTuning\r\nEvaluation\r\n```\r\n\r\n### 4. Trained Model\r\n\r\nExample:\r\n\r\n```text\r\nfinal_model.joblib\r\n```\r\n\r\n### 5. Application\r\n\r\nA working prediction interface or API.\r\n\r\n### 6. Documentation\r\n\r\nA complete README explaining the project.\r\n\r\n### 7. Presentation\r\n\r\nA concise explanation of:\r\n\r\n```text\r\nProblem\r\nApproach\r\nResults\r\nBusiness Impact\r\nFuture Work\r\n```\r\n\r\n---",
+              "code": "Data Inspection\r\nCleaning\r\nEDA\r\nVisualizations\r\nInsights"
+            },
+            {
+              "heading": "Suggested Evaluation Rubric",
+              "text": "| Project Component | Weight |\r\n|---|---:|\r\n| Problem Definition | 5% |\r\n| Data Ingestion | 5% |\r\n| Data Cleaning | 10% |\r\n| EDA & Visualization | 15% |\r\n| Feature Engineering | 10% |\r\n| Model Development | 15% |\r\n| Hyperparameter Tuning | 10% |\r\n| Model Evaluation | 10% |\r\n| Deployment | 10% |\r\n| Documentation & Presentation | 10% |\r\n\r\n**Total: 100%**\r\n\r\n---"
+            },
+            {
+              "heading": "Capstone Milestones",
+              "text": "## Milestone 1 \u0393\u00c7\u00f6 Problem & Dataset\r\n\r\n\r\n\r\n## Milestone 2 \u0393\u00c7\u00f6 Data Preparation\r\n\r\n```text\r\n\u0393\u00ff\u00c9 Load data\r\n\u0393\u00ff\u00c9 Inspect schema\r\n\u0393\u00ff\u00c9 Handle missing values\r\n\u0393\u00ff\u00c9 Remove invalid records\r\n\u0393\u00ff\u00c9 Handle duplicates\r\n```\r\n\r\n## Milestone 3 \u0393\u00c7\u00f6 EDA\r\n\r\n```text\r\n\u0393\u00ff\u00c9 Univariate analysis\r\n\u0393\u00ff\u00c9 Bivariate analysis\r\n\u0393\u00ff\u00c9 Correlation analysis\r\n\u0393\u00ff\u00c9 Visualizations\r\n\u0393\u00ff\u00c9 Business insights\r\n```\r\n\r\n## Milestone 4 \u0393\u00c7\u00f6 Modeling\r\n\r\n```text\r\n\u0393\u00ff\u00c9 Feature engineering\r\n\u0393\u00ff\u00c9 Preprocessing\r\n\u0393\u00ff\u00c9 Train/test split\r\n\u0393\u00ff\u00c9 Baseline\r\n\u0393\u00ff\u00c9 Multiple models\r\n```\r\n\r\n## Milestone 5 \u0393\u00c7\u00f6 Optimization\r\n\r\n```text\r\n\u0393\u00ff\u00c9 Cross-validation\r\n\u0393\u00ff\u00c9 GridSearchCV\r\n\u0393\u00ff\u00c9 RandomizedSearchCV\r\n\u0393\u00ff\u00c9 Model comparison\r\n```\r\n\r\n## Milestone 6 \u0393\u00c7\u00f6 Deployment\r\n\r\n```text\r\n\u0393\u00ff\u00c9 Save model\r\n\u0393\u00ff\u00c9 Build prediction pipeline\r\n\u0393\u00ff\u00c9 Build API/UI\r\n\u0393\u00ff\u00c9 Test application\r\n\u0393\u00ff\u00c9 Deploy\r\n```\r\n\r\n---",
+              "code": "\u0393\u00ff\u00c9 Define problem\r\n\u0393\u00ff\u00c9 Define target\r\n\u0393\u00ff\u00c9 Identify dataset\r\n\u0393\u00ff\u00c9 Create project repository"
+            },
+            {
+              "heading": "Advanced Extension \u0393\u00c7\u00f6 AI + LLM",
+              "text": "The capstone can be extended beyond traditional Machine Learning by integrating an LLM.\r\n\r\nExample:\r\n\r\n\r\n\r\nFor example, the Machine Learning model predicts:\r\n\r\n```text\r\nHigh Churn Risk\r\n```\r\n\r\nAn LLM-powered explanation layer could convert this into a human-readable summary based on approved model outputs and available customer information.\r\n\r\nThis demonstrates how traditional Machine Learning and modern Generative AI can work together.\r\n\r\n---",
+              "code": "User\r\n \u0393\u00e5\u00f4\r\nAI Application\r\n \u0393\u00e5\u00f4\r\nML Prediction\r\n \u0393\u00e5\u00f4\r\nLLM Explanation\r\n \u0393\u00e5\u00f4\r\nHuman-Friendly Result"
+            },
+            {
+              "heading": "Advanced Extension \u0393\u00c7\u00f6 RAG",
+              "text": "The project can also be extended using Retrieval-Augmented Generation.\r\n\r\nExample:\r\n\r\n\r\n\r\nPossible applications:\r\n\r\n```text\r\nCompany Knowledge Assistant\r\nProduct Support Assistant\r\nCourse Assistant\r\nDocument Q&A\r\nPolicy Assistant\r\n```\r\n\r\n---",
+              "code": "User Question\r\n      \u0393\u00e5\u00f4\r\nRetriever\r\n      \u0393\u00e5\u00f4\r\nRelevant Documents\r\n      \u0393\u00e5\u00f4\r\nContext\r\n      \u0393\u00e5\u00f4\r\nLLM\r\n      \u0393\u00e5\u00f4\r\nAnswer"
+            },
+            {
+              "heading": "Advanced Extension \u0393\u00c7\u00f6 AI Agent",
+              "text": "An advanced capstone may include an AI agent capable of using tools.\r\n\r\nConceptual architecture:\r\n\r\n\r\n\r\nThis introduces learners to modern AI application architectures.\r\n\r\n---",
+              "code": "User\r\n \u0393\u00e5\u00f4\r\nAI Agent\r\n \u0393\u00e5\u00f4\r\nReasoning / Planning\r\n \u0393\u00e5\u00f4\r\nTool Selection\r\n \u0393\u00f6\u00a3\u0393\u00f6\u00c7\u0393\u00f6\u00c7 Database\r\n \u0393\u00f6\u00a3\u0393\u00f6\u00c7\u0393\u00f6\u00c7 Search\r\n \u0393\u00f6\u00a3\u0393\u00f6\u00c7\u0393\u00f6\u00c7 ML Model\r\n \u0393\u00f6\u00f6\u0393\u00f6\u00c7\u0393\u00f6\u00c7 Calculator\r\n \u0393\u00e5\u00f4\r\nResult\r\n \u0393\u00e5\u00f4\r\nUser"
+            },
+            {
+              "heading": "Final Capstone Workflow",
+              "text": "---",
+              "code": "BUSINESS PROBLEM\r\n                           \u0393\u00e5\u00f4\r\n                    PROBLEM DEFINITION\r\n                           \u0393\u00e5\u00f4\r\n                     DATA COLLECTION\r\n                           \u0393\u00e5\u00f4\r\n                      DATA INGESTION\r\n                           \u0393\u00e5\u00f4\r\n                    DATA VALIDATION\r\n                           \u0393\u00e5\u00f4\r\n                     DATA CLEANING\r\n                           \u0393\u00e5\u00f4\r\n                         EDA\r\n                           \u0393\u00e5\u00f4\r\n                  FEATURE ENGINEERING\r\n                           \u0393\u00e5\u00f4\r\n                    FEATURE SELECTION\r\n                           \u0393\u00e5\u00f4\r\n                    PREPROCESSING\r\n                           \u0393\u00e5\u00f4\r\n                    TRAIN / TEST SPLIT\r\n                           \u0393\u00e5\u00f4\r\n                     BASELINE MODEL\r\n                           \u0393\u00e5\u00f4\r\n                   MODEL DEVELOPMENT\r\n                           \u0393\u00e5\u00f4\r\n                  CROSS-VALIDATION\r\n                           \u0393\u00e5\u00f4\r\n                HYPERPARAMETER TUNING\r\n                           \u0393\u00e5\u00f4\r\n                   MODEL COMPARISON\r\n                           \u0393\u00e5\u00f4\r\n                    ERROR ANALYSIS\r\n                           \u0393\u00e5\u00f4\r\n                   FINAL MODEL\r\n                           \u0393\u00e5\u00f4\r\n                 MODEL SERIALIZATION\r\n                           \u0393\u00e5\u00f4\r\n                 APPLICATION / API\r\n                           \u0393\u00e5\u00f4\r\n                       DEPLOYMENT\r\n                           \u0393\u00e5\u00f4\r\n                     MONITORING\r\n                           \u0393\u00e5\u00f4\r\n                  CONTINUOUS IMPROVEMENT"
+            }
+          ],
+          "codeExamples": [
+            {
+              "title": "Capstone Project Structure",
+              "code": "Business Problem\r\n      \u0393\u00e5\u00f4\r\nProject Objective\r\n      \u0393\u00e5\u00f4\r\nTarget Variable\r\n      \u0393\u00e5\u00f4\r\nSuccess Criteria",
+              "explanation": "The project is divided into major phases:\r \r ### Phase 1 \u0393\u00c7\u00f6 Problem Definition\r \r \r \r ### Phase 2 \u0393\u00c7\u00f6 Data Preparation\r \r ```text\r Data Collection\r       \u0393\u00e5\u00f4\r Data Ingestion\r       \u0393\u00e5\u00f4\r D"
+            },
+            {
+              "title": "Example Capstone Problem",
+              "code": "1 \u0393\u00e5\u00c6 Customer likely to churn\r\n0 \u0393\u00e5\u00c6 Customer likely to stay",
+              "explanation": "## Customer Churn Prediction\r \r A company wants to predict which customers are likely to stop using its service.\r \r ### Business Objective\r \r Identify customers at high risk of chu"
+            },
+            {
+              "title": "Alternative Capstone Project Ideas",
+              "code": "Disease Risk Prediction\r\nPatient Readmission Prediction",
+              "explanation": "Learners can choose different real-world problems.\r \r ### Healthcare\r \r \r \r ### Finance\r \r ```text\r Loan Default Prediction\r Fraud Detection\r Credit Risk Classification\r ```\r \r ###"
+            },
+            {
+              "title": "Step 2 \u0393\u00c7\u00f6 Data Collection",
+              "code": "CSV Files\r\nExcel Files\r\nDatabases\r\nAPIs\r\nCloud Storage\r\nPublic Datasets\r\nWeb Data\r\nIoT Sensors\r\nApplication Logs",
+              "explanation": "Data can come from various sources.\r \r Common sources include:\r \r \r \r The source should be appropriate, legally usable, and sufficiently representative of the problem.\r \r ---"
+            },
+            {
+              "title": "Step 3 \u0393\u00c7\u00f6 Data Ingestion",
+              "code": "import pandas as pd\r\n\r\ndf = pd.read_csv(\r\n    \"customer_data.csv\"\r\n)\r\n\r\nprint(df.head())",
+              "explanation": "Data ingestion is the process of bringing data into the Data Science workflow.\r \r Example:\r \r \r \r Basic inspection:\r \r ```python\r print(df.shape)\r print(df.columns)\r print(df.info("
+            },
+            {
+              "title": "Data Ingestion Pipeline",
+              "code": "Data Source\r\n     \u0393\u00e5\u00f4\r\nRead Data\r\n     \u0393\u00e5\u00f4\r\nValidate File\r\n     \u0393\u00e5\u00f4\r\nCheck Schema\r\n     \u0393\u00e5\u00f4\r\nLoad Dataset\r\n     \u0393\u00e5\u00f4\r\nStore / Process Data",
+              "explanation": "A simple ingestion workflow:\r \r \r \r Data validation should check:\r \r - Expected columns\r - Data types\r - Missing values\r - Duplicate records\r - Unexpected values\r - Dataset size\r \r"
+            },
+            {
+              "title": "Step 4 \u0393\u00c7\u00f6 Understanding the Dataset",
+              "code": "df.head()\r\ndf.tail()\r\ndf.shape\r\ndf.columns\r\ndf.info()\r\ndf.describe()",
+              "explanation": "Before cleaning the data, understand its structure.\r \r Useful commands:\r \r \r \r For categorical variables:\r \r ```python\r df[\"Contract\"].value_counts()\r ```\r \r ---"
+            },
+            {
+              "title": "Data Quality Assessment",
+              "code": "Missing Values\r\nDuplicate Records\r\nIncorrect Data Types\r\nOutliers\r\nInvalid Categories\r\nInconsistent Values\r\nUnexpected Nulls\r\nData Entry Errors",
+              "explanation": "A Data Quality Report should investigate:\r \r \r \r Example:\r \r ```python\r missing = df.isnull().sum()\r \r duplicates = df.duplicated().sum()\r \r print(\"Missing Values:\")\r print(missing"
+            },
+            {
+              "title": "Step 5 \u0393\u00c7\u00f6 Data Cleaning",
+              "code": "Missing Value Handling\r\nDuplicate Removal\r\nData Type Conversion\r\nString Cleaning\r\nOutlier Investigation\r\nInvalid Value Handling\r\nCategory Standardization",
+              "explanation": "Data cleaning prepares raw data for reliable analysis and modeling.\r \r Common operations include:\r \r \r \r ---"
+            },
+            {
+              "title": "Handling Missing Values",
+              "code": "df[\"Age\"] = df[\"Age\"].fillna(\r\n    df[\"Age\"].median()\r\n)",
+              "explanation": "Example:\r \r \r \r For categorical variables:\r \r ```python\r df[\"City\"] = df[\"City\"].fillna(\r     df[\"City\"].mode()[0]\r )\r ```\r \r However, the correct strategy depends on why values ar"
+            }
+          ],
+          "bestPractices": [
+            "Formulate clear business objectives and target metrics before writing any training code",
+            "Encapsulate preprocessing and estimators inside Scikit-Learn Pipelines to prevent data leakage",
+            "Perform error analysis on misclassified instances to discover missing features or noise",
+            "Pin all environment dependencies in requirements.txt and Dockerfile for exact reproducibility",
+            "Implement continuous data drift and performance monitoring post-deployment"
+          ],
+          "commonMistakes": [
+            "Training models without establishing a simple baseline model first",
+            "Allowing test set information to leak into feature scaling or encoding steps",
+            "Relying solely on Accuracy for imbalanced classification tasks",
+            "Skipping input data validation in production inference endpoints",
+            "Failing to document dataset provenance, feature definitions, and model limitations"
+          ],
+          "practiceExercise": {
+            "title": "End-to-End FastAPI Inference Endpoint with Scikit-Learn Pipeline",
+            "problem": "Create a production-ready FastAPI application that loads a serialized Scikit-Learn pipeline model (.joblib) and serves real-time predictions via POST requests.",
+            "solutionCode": "from fastapi import FastAPI, HTTPException\nfrom pydantic import BaseModel\nimport pandas as pd\nimport joblib\nimport os\n\napp = FastAPI(title=\"AI Capstone Churn Prediction API\")\n\n# Load model pipeline on startup\nMODEL_PATH = \"models/final_model.joblib\"\nif os.path.exists(MODEL_PATH):\n    model = joblib.load(MODEL_PATH)\nelse:\n    model = None\n\nclass CustomerData(BaseModel):\n    age: float\n    monthly_charges: float\n    contract_type: str\n    support_calls: int\n\n@app.post(\"/predict\")\ndef predict_churn(data: CustomerData):\n    if not model:\n        raise HTTPException(status_code=500, detail=\"Model file not found\")\n    \n    input_df = pd.DataFrame([data.dict()])\n    prediction = model.predict(input_df)[0]\n    probability = model.predict_proba(input_df)[0][1]\n    \n    return {\n        \"churn_prediction\": int(prediction),\n        \"churn_probability\": round(float(probability), 4),\n        \"risk_level\": \"High\" if probability > 0.7 else \"Medium\" if probability > 0.4 else \"Low\"\n    }"
+          },
+          "keyTakeaways": [
+            "A production AI project requires an end-to-end lifecycle: Problem Definition -> Data Pipeline -> ML Modeling -> Evaluation -> Deployment -> Monitoring.",
+            "Data Quality, Feature Engineering, and Pipeline cleanliness frequently drive larger real-world accuracy gains than hyperparameter tuning alone.",
+            "Evaluating models requires domain-appropriate metrics (Precision, Recall, F1, ROC-AUC) beyond simple Accuracy.",
+            "Deploying models via REST APIs (FastAPI) and Docker containerization makes AI predictions accessible to web applications.",
+            "Combining traditional Machine Learning with Generative AI (LLMs & RAG) enables rich, human-interpretable AI solutions."
+          ],
+          "references": [
+            {
+              "title": "Scikit-Learn Production Pipeline & Model Persistence",
+              "url": "https://scikit-learn.org/stable/modules/model_persistence.html"
+            },
+            {
+              "title": "FastAPI Documentation for ML Deployment",
+              "url": "https://fastapi.tiangolo.com/"
+            }
+          ],
+          "mcqs": [
+            {
+              "id": 1,
+              "question": "What is the recommended first phase of an end-to-end Data Science Capstone project?",
+              "options": [
+                "Training complex Random Forest models",
+                "Defining the business problem, target variable, and success metrics",
+                "Performing randomized hyperparameter tuning",
+                "Deploying Docker containers to AWS"
+              ],
+              "correctAnswer": 1,
+              "explanation": "Every project starts with Problem Definition: clarifying business objectives, user needs, target prediction outcomes, and evaluation criteria."
+            },
+            {
+              "id": 2,
+              "question": "Which file format/tool is commonly used for serializing trained Scikit-Learn models for production deployment?",
+              "options": [
+                ".joblib / .pkl (Pickle)",
+                ".csv",
+                ".html",
+                ".sql"
+              ],
+              "correctAnswer": 0,
+              "explanation": "`joblib.dump(model, 'model.joblib')` serializes Python ML estimator objects and pipelines to disk for quick loading."
+            },
+            {
+              "id": 3,
+              "question": "What Python web framework is lightweight, asynchronous, and widely used for building high-performance REST APIs for ML inference?",
+              "options": [
+                "FastAPI",
+                "Django Admin",
+                "Jupyter Notebook",
+                "Streamlit"
+              ],
+              "correctAnswer": 0,
+              "explanation": "FastAPI provides modern, asynchronous RESTful API endpoints with automatic Pydantic request validation."
+            },
+            {
+              "id": 4,
+              "question": "What phenomenon occurs when the statistical distribution of real-world production input features shifts away from the original training dataset?",
+              "options": [
+                "Concept Shift / Data Drift",
+                "Underfitting",
+                "Overfitting",
+                "Syntax Error"
+              ],
+              "correctAnswer": 0,
+              "explanation": "Data Drift happens when incoming real-world inputs deviate from training distributions, leading to degraded prediction quality over time."
+            },
+            {
+              "id": 5,
+              "question": "What tool containerizes application code, serialized models, and dependencies into isolated, reproducible runtime packages?",
+              "options": [
+                "Docker",
+                "Pandas",
+                "Matplotlib",
+                "Scikit-Learn"
+              ],
+              "correctAnswer": 0,
+              "explanation": "Docker packages code, runtime libraries, and models into lightweight container images guaranteed to run identically across environments."
             }
           ]
         }
       }
+    ],
+    "finalTest": {
+      "id": "ds-final-test",
+      "title": "Data Science & AI Specialist Comprehensive Certification Exam",
+      "description": "Official 25-Question Final Certification Exam covering Python, NumPy, Pandas, EDA, Statistics, Machine Learning Algorithms, Feature Engineering, Deep Learning, Transformers, LLMs, and Deployment.",
+      "passingScore": 80,
+      "timeLimitMinutes": 60,
+      "maxAttempts": 3,
+      "published": true,
+      "questions": [
+        {
+          "id": "q1",
+          "questionText": "What is the primary first step in the CRISP-DM Data Science project lifecycle?",
+          "options": [
+            "Training Random Forest models",
+            "Business Understanding \u0393\u00c7\u00f6 clarifying business goals and project requirements",
+            "Writing docker container files",
+            "Performing PCA feature reduction"
+          ],
+          "correctAnswer": 1,
+          "explanation": "CRISP-DM begins with Business Understanding to define objectives and success criteria before data collection or modeling."
+        },
+        {
+          "id": "q2",
+          "questionText": "Which type of Machine Learning task operates on unlabeled data to discover hidden patterns and groupings?",
+          "options": [
+            "Supervised Learning",
+            "Unsupervised Learning",
+            "Reinforcement Learning",
+            "Linear Regression"
+          ],
+          "correctAnswer": 1,
+          "explanation": "Unsupervised Learning algorithms (e.g. K-Means, DBSCAN) cluster or reduce dimensions of unlabeled data without target labels."
+        },
+        {
+          "id": "q3",
+          "questionText": "What will `[x * 2 for x in range(5) if x % 2 != 0]` produce in Python?",
+          "options": [
+            "[0, 2, 4, 6, 8]",
+            "[2, 6]",
+            "[1, 3]",
+            "[4, 8]"
+          ],
+          "correctAnswer": 1,
+          "explanation": "`range(5)` yields 0, 1, 2, 3, 4. Odd values are 1 and 3. Multiplying by 2 produces `[2, 6]`."
+        },
+        {
+          "id": "q4",
+          "questionText": "Which Python statement block prevents unhandled runtime exceptions from crashing an application?",
+          "options": [
+            "try / except",
+            "if / else",
+            "do / catch",
+            "while / break"
+          ],
+          "correctAnswer": 0,
+          "explanation": "`try / except` blocks catch exceptions gracefully during execution."
+        },
+        {
+          "id": "q5",
+          "questionText": "Why do NumPy vector operations execute significantly faster than standard Python `for` loops?",
+          "options": [
+            "NumPy bypasses operating system memory limits",
+            "NumPy stores homogeneous data in contiguous memory blocks and executes pre-compiled C routines",
+            "NumPy uses cloud network servers for all additions",
+            "NumPy ignores decimal precision"
+          ],
+          "correctAnswer": 1,
+          "explanation": "NumPy arrays are homogeneous contiguous memory blocks operating via optimized compiled C routines without Python loop overhead."
+        },
+        {
+          "id": "q6",
+          "questionText": "What NumPy mechanism allows arithmetic operations between arrays of different dimensions?",
+          "options": [
+            "Broadcasting",
+            "Reshaping",
+            "Slicing",
+            "Concat"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Broadcasting implicitly stretches smaller array dimensions across larger compatible array dimensions."
+        },
+        {
+          "id": "q7",
+          "questionText": "What is the key difference between `.loc[]` and `.iloc[]` in Pandas?",
+          "options": [
+            ".loc uses explicit labels; .iloc uses integer index positions",
+            ".loc is for rows only; .iloc is for columns only",
+            ".loc is faster than .iloc",
+            ".loc operates on NumPy arrays; .iloc operates on lists"
+          ],
+          "correctAnswer": 0,
+          "explanation": "`.loc` indexes using label names (`.loc['row_a', 'col_b']`), whereas `.iloc` uses 0-based integer positions (`.iloc[0, 1]`)."
+        },
+        {
+          "id": "q8",
+          "questionText": "Which Pandas merge join type preserves ONLY rows that have matching keys in BOTH input DataFrames?",
+          "options": [
+            "Left Join",
+            "Right Join",
+            "Outer Join",
+            "Inner Join"
+          ],
+          "correctAnswer": 3,
+          "explanation": "An `inner` join includes only records where the merge key exists in both left and right DataFrames."
+        },
+        {
+          "id": 9,
+          "questionText": "Under Tukey's box plot rule, how are extreme outliers mathematically identified using Quartiles (Q1, Q3) and Interquartile Range (IQR)?",
+          "options": [
+            "Values below Q1 - 1.5*IQR or above Q3 + 1.5*IQR",
+            "Values outside Mean +/- 1 Standard Deviation",
+            "Values below 0 or above 100",
+            "Values matching missing NaNs"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Outliers are points lying outside the lower fence $Q_1 - 1.5 \\times \\text{IQR}$ or upper fence $Q_3 + 1.5 \\times \\text{IQR}$."
+        },
+        {
+          "id": "q10",
+          "questionText": "Which chart is best suited for visual inspection of bivariate relationships between two continuous numerical variables?",
+          "options": [
+            "Scatter Plot",
+            "Pie Chart",
+            "Bar Graph",
+            "Violin Plot"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Scatter plots map individual data points on X-Y axes to reveal correlation patterns, clusters, and non-linear trends."
+        },
+        {
+          "id": "q11",
+          "questionText": "What statistical chart displays color-coded correlation coefficient matrices in Seaborn?",
+          "options": [
+            "sns.heatmap()",
+            "sns.barplot()",
+            "sns.histplot()",
+            "sns.boxplot()"
+          ],
+          "correctAnswer": 0,
+          "explanation": "`sns.heatmap(df.corr(), annot=True)` renders color-indexed matrices of pairwise correlation coefficients."
+        },
+        {
+          "id": "q12",
+          "questionText": "Under the Empirical Rule for Normal Distributions, what percentage of data falls within 2 standard deviations (+/- 2 sigma) of the mean?",
+          "options": [
+            "68%",
+            "95%",
+            "99.7%",
+            "50%"
+          ],
+          "correctAnswer": 1,
+          "explanation": "In a Normal distribution, approximately 68% of data falls within $\\pm 1\\sigma$, 95% within $\\pm 2\\sigma$, and 99.7% within $\\pm 3\\sigma$."
+        },
+        {
+          "id": "q13",
+          "questionText": "What is a Type I Error in statistical hypothesis testing?",
+          "options": [
+            "Failing to reject a false Null Hypothesis",
+            "Incorrectly rejecting a true Null Hypothesis (False Positive)",
+            "Dividing by zero in standard deviation calculation",
+            "Using a sample size less than 30"
+          ],
+          "correctAnswer": 1,
+          "explanation": "A Type I Error ($alpha$) occurs when a researcher rejects a Null Hypothesis that is actually true in reality."
+        },
+        {
+          "id": "q14",
+          "questionText": "What issue occurs when predictor variables in a regression model are highly correlated with one another?",
+          "options": [
+            "Multicollinearity",
+            "Underfitting",
+            "Homoscedasticity",
+            "Data Drift"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Multicollinearity occurs when independent features are strongly correlated, inflating parameter estimate variance."
+        },
+        {
+          "id": "q15",
+          "questionText": "What characterizes an Overfitted Machine Learning model?",
+          "options": [
+            "High training error and high testing error",
+            "Very low training error, but high error on unseen validation/test data",
+            "Equal performance on both training and test data",
+            "Inability to learn simple linear relationships"
+          ],
+          "correctAnswer": 1,
+          "explanation": "Overfitting (high variance) happens when a model memorizes noise in the training set and fails to generalize to test data."
+        },
+        {
+          "id": "q16",
+          "questionText": "Why should `train_test_split()` be performed BEFORE applying preprocessing scalers or encoders?",
+          "options": [
+            "To prevent Data Leakage from held-out test data statistics into the training model",
+            "Because Scikit-Learn functions fail on unpartitioned data",
+            "To speed up GPU compute execution",
+            "To automatically drop missing values"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Fitting transformers on the complete dataset leaks test statistics (mean, std, categories) into training folds, yielding overly optimistic evaluation scores."
+        },
+        {
+          "id": "q17",
+          "questionText": "What metric measures the proportion of total target variance explained by a regression model?",
+          "options": [
+            "R-Squared (R^2)",
+            "Mean Absolute Error (MAE)",
+            "Precision",
+            "Confusion Matrix"
+          ],
+          "correctAnswer": 0,
+          "explanation": "R-squared ($R^2$, Coefficient of Determination) quantifies the proportion of target variance explained by model features (0 to 1)."
+        },
+        {
+          "id": "q18",
+          "questionText": "What key functional property distinguishes Lasso Regression (L1 regularization) from Ridge Regression (L2)?",
+          "options": [
+            "Lasso shrinks redundant feature weights to exact zero, performing automatic feature selection",
+            "Lasso requires no feature scaling",
+            "Ridge performs feature selection while Lasso does not",
+            "Lasso can only be used for classification"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Lasso uses absolute weight penalties ($L_1$), forcing irrelevant feature coefficients to zero and producing sparse models."
+        },
+        {
+          "id": "q19",
+          "questionText": "What mathematical activation function squashes raw linear regression outputs into probability values between 0 and 1 for binary classification?",
+          "options": [
+            "Sigmoid Function",
+            "ReLU Function",
+            "Linear Identity",
+            "Step Function"
+          ],
+          "correctAnswer": 0,
+          "explanation": "The Sigmoid function $\\sigma(z) = \\frac{1}{1 + e^{-z}}$ converts linear values into valid probabilities between 0.0 and 1.0."
+        },
+        {
+          "id": "q20",
+          "questionText": "How does Random Forest reduce model variance compared to a single deep Decision Tree?",
+          "options": [
+            "By averaging predictions from an ensemble of diverse trees trained on bootstrap samples and random feature subsets (Bagging)",
+            "By enforcing linear equations on decision boundaries",
+            "By eliminating cross-validation",
+            "By increasing single tree depth to infinity"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Random Forest combines Bagging (Bootstrap Aggregation) with feature space randomization, averaging tree outputs to reduce variance."
+        },
+        {
+          "id": "q21",
+          "questionText": "What clustering algorithm clusters based on spatial density and automatically isolates noise points without requiring pre-specified cluster count K?",
+          "options": [
+            "DBSCAN",
+            "K-Means",
+            "Logistic Regression",
+            "Hierarchical Agglomerative"
+          ],
+          "correctAnswer": 0,
+          "explanation": "DBSCAN clusters core points based on density parameters (eps, min_samples) and labels sparse noise points as -1."
+        },
+        {
+          "id": "q22",
+          "questionText": "What is the primary purpose of Principal Component Analysis (PCA)?",
+          "options": [
+            "Dimensionality Reduction: projecting high-dimensional features into uncorrelated orthogonal components while maximizing variance retention",
+            "One-Hot Encoding categorical variables",
+            "Imputing missing values",
+            "Generating synthetic image samples"
+          ],
+          "correctAnswer": 0,
+          "explanation": "PCA transforms correlated features into linearly uncorrelated principal components sorted by explained variance."
+        },
+        {
+          "id": "q23",
+          "questionText": "Which metric is calculated as the harmonic mean of Precision and Recall: 2 * (Precision * Recall) / (Precision + Recall)?",
+          "options": [
+            "F1-Score",
+            "Accuracy",
+            "Specificity",
+            "Mean Absolute Error"
+          ],
+          "correctAnswer": 0,
+          "explanation": "F1-Score provides a balanced harmonic mean of Precision and Recall, ideal for evaluating imbalanced classification tasks."
+        },
+        {
+          "id": "q24",
+          "questionText": "When One-Hot Encoding a categorical variable with K unique categories, how many binary dummy columns should be retained to prevent the Dummy Variable Trap?",
+          "options": [
+            "K - 1 columns",
+            "K columns",
+            "K + 1 columns",
+            "1 column"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Retaining $K-1$ dummy variables (`drop='first'`) prevents perfect multicollinearity, as the $K$-th category is implied when all $K-1$ dummies are zero."
+        },
+        {
+          "id": "q25",
+          "questionText": "Which mathematical equation specifies the Self-Attention mechanism powering modern Transformer and Large Language Models (LLMs)?",
+          "options": [
+            "Attention(Q, K, V) = softmax((Q * K^T) / sqrt(d_k)) * V",
+            "Attention(X) = W*X + b",
+            "Attention(Y) = max(0, Y)",
+            "Attention(Q, K, V) = Q + K - V"
+          ],
+          "correctAnswer": 0,
+          "explanation": "Self-Attention computes dot products between Queries ($Q$) and Keys ($K$), scales by $\\sqrt{d_k}$, applies Softmax, and weights Values ($V$)."
+        }
+      ]
+    },
+    "finalProject": {
+      "id": "ds-final-project",
+      "title": "Customer Churn Prediction & Model Deployment",
+      "description": "Build an end-to-end Machine Learning pipeline to predict customer churn using Pandas, Scikit-Learn, and FastAPI.",
+      "requirements": [
+        "Exploratory Data Analysis notebook",
+        "Feature engineering & preprocessing",
+        "Model training (Random Forest/XGBoost)",
+        "Evaluation report"
+      ],
+      "instructions": "Submit Jupyter Notebook (.ipynb) and GitHub repository.",
+      "allowedFileTypes": [
+        ".ipynb",
+        ".zip",
+        ".pdf"
+      ],
+      "maxFileSizeMb": 50,
+      "githubUrlAllowed": true,
+      "liveProjectUrlAllowed": true,
+      "passingScore": 80,
+      "published": true
+    },
+    "updatedAt": "2026-10-01T11:14:13.849Z",
+    "projects": [
+      {
+        "id": "proj-data-science-ai-1-5083",
+        "courseId": "data-science-ai",
+        "projectNumber": 1,
+        "title": "Exploratory Data Analysis (EDA) Notebook",
+        "shortDescription": "Perform comprehensive exploratory data analysis on a real-world dataset using Pandas, NumPy, and Seaborn.",
+        "detailedDescription": "Clean, transform, and analyze a dataset to uncover patterns, correlation matrices, missing values handling, and distribution plots.",
+        "objective": "Master data cleaning, statistical analysis, and data visualization in Python data science stack.",
+        "requirements": [
+          "Data cleaning & missing value imputation",
+          "Statistical aggregations",
+          "Data visualizations",
+          "Analytical summary text"
+        ],
+        "technologies": [
+          "Python",
+          "Pandas",
+          "NumPy",
+          "Matplotlib / Seaborn",
+          "Jupyter Notebook"
+        ],
+        "expectedOutput": "Jupyter Notebook (.ipynb) with documented findings on GitHub.",
+        "difficulty": "Beginner",
+        "estimatedTime": "2\u0393\u00c7\u00f43 Days",
+        "submissionInstructions": "Push Jupyter Notebook to GitHub repository and submit URL.",
+        "resources": "https://pandas.pydata.org/docs/",
+        "active": true,
+        "createdAt": "2026-10-08T12:55:35.075Z",
+        "updatedAt": "2026-10-08T12:55:35.075Z"
+      },
+      {
+        "id": "proj-data-science-ai-2-5083",
+        "courseId": "data-science-ai",
+        "projectNumber": 2,
+        "title": "Predictive Machine Learning Model",
+        "shortDescription": "Build, train, and evaluate a supervised Machine Learning model using Scikit-Learn.",
+        "detailedDescription": "Construct a Machine Learning pipeline for classification or regression. Preprocess data, train models, tune hyperparameters, and evaluate performance using confusion matrix and ROC-AUC.",
+        "objective": "Master model building, feature engineering, and performance evaluation.",
+        "requirements": [
+          "Feature scaling and encoding",
+          "Model training & cross-validation",
+          "Hyperparameter tuning",
+          "Evaluation metrics report"
+        ],
+        "technologies": [
+          "Python",
+          "Scikit-Learn",
+          "Pandas",
+          "ML Algorithms"
+        ],
+        "expectedOutput": "ML model pipeline script/notebook on GitHub.",
+        "difficulty": "Intermediate",
+        "estimatedTime": "3\u0393\u00c7\u00f44 Days",
+        "submissionInstructions": "Submit GitHub repository URL containing model code and README.",
+        "resources": "https://scikit-learn.org/stable/",
+        "active": true,
+        "createdAt": "2026-10-08T12:55:35.075Z",
+        "updatedAt": "2026-10-08T12:55:35.075Z"
+      },
+      {
+        "id": "proj-data-science-ai-3-5083",
+        "courseId": "data-science-ai",
+        "projectNumber": 3,
+        "title": "Interactive Data Visualization Dashboard",
+        "shortDescription": "Build an interactive web dashboard presenting machine learning predictions and data insights.",
+        "detailedDescription": "Create a Streamlit or Plotly web application allowing users to interactively filter data, adjust input parameters, and visualize model predictions in real time.",
+        "objective": "Deploy machine learning models and visualizations into interactive web applications.",
+        "requirements": [
+          "Interactive filters & charts",
+          "Real-time model inference",
+          "Responsive web UI layout",
+          "Documentation"
+        ],
+        "technologies": [
+          "Python",
+          "Streamlit / Plotly",
+          "Pandas",
+          "Machine Learning"
+        ],
+        "expectedOutput": "Interactive dashboard application repository on GitHub.",
+        "difficulty": "Advanced",
+        "estimatedTime": "4\u0393\u00c7\u00f45 Days",
+        "submissionInstructions": "Commit dashboard app code to GitHub and submit repository URL.",
+        "resources": "https://streamlit.io/",
+        "active": true,
+        "createdAt": "2026-10-08T12:55:35.075Z",
+        "updatedAt": "2026-10-08T12:55:35.075Z"
+      }
     ]
   }
 ];
-
+export const COURSES = INITIAL_COURSES;
 export const CATEGORIES = [
   "All Categories",
   "Programming",
@@ -9084,25 +16867,15 @@ export const STUDENT_PROFILE = {
   certificatesEarned: 1
 };
 
-export const SAMPLE_STUDENT = STUDENT_PROFILE;
-
 export const SAMPLE_CERTIFICATES = [
   {
-    "id": "ABC-2026-PY0128",
-    "courseId": "python-programming",
-    "courseTitle": "Python Programming",
-    "studentName": "Arshith Kumar",
-    "issueDate": "October 1, 2026",
-    "instructorName": "Dr. Ananya Sharma",
-    "grade": "98% Distinction",
-    "skills": [
-      "Python 3",
-      "OOP",
-      "File I/O",
-      "SQLite",
-      "Automation"
-    ]
+    id: "ABC-2026-PY0128",
+    courseId: "python-programming",
+    courseTitle: "Python Programming",
+    studentName: "Arshith Kumar",
+    issueDate: "October 1, 2026",
+    instructorName: "Dr. Ananya Sharma",
+    grade: "98% Distinction",
+    skills: ["Python 3", "OOP", "File I/O", "SQLite", "Automation"]
   }
 ];
-
-export const COURSES = INITIAL_COURSES;

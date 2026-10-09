@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { X, GraduationCap, Mail, Lock, User, ArrowRight } from 'lucide-react';
 
 export default function LoginModal({ isOpen, onClose, initialMode = 'login', onSuccess }) {
@@ -6,6 +6,12 @@ export default function LoginModal({ isOpen, onClose, initialMode = 'login', onS
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [name, setName] = useState('');
+
+  useEffect(() => {
+    if (isOpen) {
+      setMode(initialMode);
+    }
+  }, [isOpen, initialMode]);
 
   if (!isOpen) return null;
 

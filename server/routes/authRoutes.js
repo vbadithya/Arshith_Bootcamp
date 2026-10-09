@@ -162,4 +162,65 @@ router.post('/admin/logout', verifyAdminToken, (req, res) => {
   return res.json({ success: true, message: 'Logout successful.' });
 });
 
+router.post('/register', (req, res) => {
+  const { name, email, password } = req.body;
+  if (!email || !password) {
+    return res.status(400).json({ success: false, message: 'Email and password are required' });
+  }
+  
+  const db = getDb();
+  if (!db.students) db.students = [];
+  
+  const existingUser = db.students.find(s => s.email === email);
+  if (existingUser) {
+    return res.status(400).json({ success: false, message: 'Email already registered' });
+  }
+  
+  const student = {
+    id: 'student_' + Date.now(),
+    name: name || email.split('@')[0],
+    email,
+    passwordHash: bcrypt.hashSync(password, 10),
+    enrolledCourses: [],
+    certificates: [],
+    createdAt: new Date().toISOString()
+  };
+  
+  db.students.push(student);
+  saveDb(db);
+  
+  const token = jwt.sign({ studentId: student.id, email: student.email }, JWT_SECRET, { expiresIn: '7d' });
+  
+  return res.json({
+    success: true,
+    message: 'Registration successful',
+    token,
+    user: { id: student.id, name: student.name, email: student.email }
+  });
+});
+
+router.post('/login', (req, res) => {
+  const { email, password } = req.body;
+  if (!email || !password) {
+    return res.status(400).json({ success: false, message: 'Email and password are required' });
+  }
+  
+  const db = getDb();
+  if (!db.students) db.students = [];
+  
+  const student = db.students.find(s => s.email === email);
+  if (!student || !bcrypt.compareSync(password, student.passwordHash)) {
+    return res.status(401).json({ success: false, message: 'Invalid credentials' });
+  }
+  
+  const token = jwt.sign({ studentId: student.id, email: student.email }, JWT_SECRET, { expiresIn: '7d' });
+  
+  return res.json({
+    success: true,
+    message: 'Login successful',
+    token,
+    user: { id: student.id, name: student.name, email: student.email }
+  });
+});
+
 export default router;
