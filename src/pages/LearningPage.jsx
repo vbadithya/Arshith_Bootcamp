@@ -3,11 +3,12 @@ import confetti from 'canvas-confetti';
 import { 
   ArrowLeft, CheckCircle, Circle, Award, Download, 
   ChevronRight, ChevronLeft, BookOpen, ExternalLink, 
-  Code, Sparkles, AlertTriangle, CheckSquare, HelpCircle, Clock
+  Code, Sparkles, AlertTriangle, CheckSquare, HelpCircle, Clock, Briefcase
 } from 'lucide-react';
 import { generateCoursePDF } from '../utils/pdfGenerator';
 import ModuleQuizModal from '../components/ModuleQuizModal';
 import FinalTestModal from '../components/FinalTestModal';
+import CourseProjectsModal from '../components/CourseProjectsModal';
 
 export default function LearningPage({ 
   course, 
@@ -20,6 +21,7 @@ export default function LearningPage({
   const [showSolution, setShowSolution] = useState(false);
   const [quizModalOpen, setQuizModalOpen] = useState(false);
   const [finalTestModalOpen, setFinalTestModalOpen] = useState(false);
+  const [projectsModalOpen, setProjectsModalOpen] = useState(false);
 
   const savedUser = (() => {
     try {
@@ -128,11 +130,23 @@ export default function LearningPage({
             </div>
           </div>
 
+          {/* 3 Mini Projects Button */}
+          {course?.projects && course.projects.length > 0 && (
+            <button
+              onClick={() => setProjectsModalOpen(true)}
+              className="px-3.5 py-1.5 text-xs font-black text-cyan-300 bg-cyan-950/80 hover:bg-cyan-900 border border-cyan-500/50 rounded-xl shadow-lg flex items-center gap-1.5 transition-all"
+              title="Open Course Projects (3 Mini Projects)"
+            >
+              <Briefcase className="w-4 h-4 text-cyan-400" />
+              <span>3 Mini Projects</span>
+            </button>
+          )}
+
           {/* Final Test Button */}
           <button
             onClick={() => setFinalTestModalOpen(true)}
             className="px-3.5 py-1.5 text-xs font-black text-slate-950 bg-amber-400 hover:bg-amber-300 rounded-xl shadow-lg flex items-center gap-1.5 transition-all"
-            title="Take 45-Minute SQL Final Assessment"
+            title={`Take 45-Minute ${course?.title || 'Course'} Final Assessment`}
           >
             <Clock className="w-4 h-4 text-slate-950" />
             <span>Final Assessment (45m)</span>
@@ -215,6 +229,36 @@ export default function LearningPage({
             })}
           </div>
 
+          {/* Course Projects Card */}
+          {course?.projects && course.projects.length > 0 && (
+            <div className="bg-gradient-to-br from-cyan-950/80 via-slate-900 to-slate-950 p-4 rounded-2xl border-2 border-cyan-500/60 shadow-xl space-y-3 ring-1 ring-cyan-500/30 mt-4">
+              <div className="flex items-center justify-between">
+                <span className="px-2.5 py-0.5 bg-cyan-400 text-slate-950 text-[10px] font-black uppercase rounded-full tracking-wider shadow-sm">
+                  ★ Hands-On Practical
+                </span>
+                <span className="text-[10px] font-bold text-cyan-300 font-mono">3 Mini Projects</span>
+              </div>
+
+              <div>
+                <h4 className="text-sm font-black text-white flex items-center gap-1.5">
+                  <Briefcase className="w-4 h-4 text-cyan-400 shrink-0" />
+                  <span>Course Projects (1-2 Pages)</span>
+                </h4>
+                <p className="text-[11px] text-slate-300 font-medium pt-1 leading-relaxed">
+                  Fast, small, real-world Python mini projects covering file processing, OOP grade tracker, and SQLite database.
+                </p>
+              </div>
+
+              <button
+                onClick={() => setProjectsModalOpen(true)}
+                className="w-full py-2.5 px-4 rounded-xl text-xs font-black text-slate-950 bg-cyan-400 hover:bg-cyan-300 active:scale-95 shadow-lg transition-all flex items-center justify-center gap-2 border border-cyan-300 cursor-pointer"
+              >
+                <Briefcase className="w-4 h-4 text-slate-950 shrink-0" />
+                <span>View & Submit 3 Projects</span>
+              </button>
+            </div>
+          )}
+
           {/* Highlighted Final Assessment Card Down of 15 Modules */}
           <div className="bg-gradient-to-br from-amber-950/90 via-slate-900 to-slate-950 p-4.5 rounded-2xl border-2 border-amber-400 shadow-2xl space-y-3 ring-2 ring-amber-400/40 mt-4">
             <div className="flex items-center justify-between">
@@ -227,7 +271,7 @@ export default function LearningPage({
             <div>
               <h4 className="text-sm font-black text-white flex items-center gap-1.5">
                 <Clock className="w-4 h-4 text-amber-400 shrink-0" />
-                <span>SQL Final Assessment</span>
+                <span>{course.title || 'Course'} Final Assessment</span>
               </h4>
               <p className="text-[11px] text-slate-300 font-medium pt-1 leading-relaxed">
                 Test your mastery across all 15 modules to earn your verified course certificate.
@@ -588,6 +632,13 @@ export default function LearningPage({
         onViewCourseProgress={() => {
           window.scrollTo({ top: 0, behavior: 'smooth' });
         }}
+      />
+
+      {/* Course Mini Projects Modal */}
+      <CourseProjectsModal
+        isOpen={projectsModalOpen}
+        onClose={() => setProjectsModalOpen(false)}
+        course={course}
       />
 
     </div>

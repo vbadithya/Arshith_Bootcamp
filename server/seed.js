@@ -8865,7 +8865,81 @@ export const initialData = {
         "passingScore": 75,
         "published": true
       },
-      "updatedAt": "2026-10-01T11:13:24.675Z"
+      "updatedAt": "2026-10-01T11:13:24.675Z",
+      "projects": [
+        {
+          "id": "py-proj-1",
+          "projectNumber": 1,
+          "title": "Project 1: Automated Server Log Analyzer & Summary Report",
+          "subtitle": "Module 08 & 09 — Strings, File I/O & Dictionaries",
+          "difficulty": "Beginner",
+          "estimatedTime": "1 – 2 Hours",
+          "pageLength": "1 – 2 Pages",
+          "description": "Build a lightweight Python script that opens a web server log file (access.log), parses HTTP status codes and IP addresses, computes error statistics, and writes a clean executive summary report (log_summary.txt).",
+          "objectives": [
+            "Open and read files safely using context managers ('with open')",
+            "Parse and sanitize log text using string split() and strip() methods",
+            "Accumulate frequency counts using Python dictionaries",
+            "Format and write analytical metrics into an output file"
+          ],
+          "requirements": [
+            "Read all lines from a sample access.log file",
+            "Extract client IP address and HTTP status code from each line",
+            "Count total requests, unique IP count, and tally of status codes (200, 404, 500)",
+            "Output a formatted summary report to 'log_summary.txt'"
+          ],
+          "starterCode": "# Project 1: Automated Server Log File Analyzer\n# File: log_analyzer.py\n\ndef analyze_logs(log_filepath, report_filepath):\n    status_counts = {}\n    unique_ips = set()\n    total_requests = 0\n\n    print(f\"Reading log file: {log_filepath}...\")\n    \n    with open(log_filepath, 'r', encoding='utf-8') as f:\n        for line in f:\n            line = line.strip()\n            if not line:\n                continue\n            total_requests += 1\n            parts = line.split()\n            \n            # Extract IP and HTTP Status Code\n            ip = parts[0]\n            status_code = parts[-2] if len(parts) >= 2 else \"UNKNOWN\"\n            \n            unique_ips.add(ip)\n            status_counts[status_code] = status_counts.get(status_code, 0) + 1\n\n    # Write executive summary report\n    with open(report_filepath, 'w', encoding='utf-8') as out:\n        out.write(\"=========================================\\n\")\n        out.write(\"       WEB SERVER LOG SUMMARY REPORT      \\n\")\n        out.write(\"=========================================\\n\")\n        out.write(f\"Total Requests Processed : {total_requests}\\n\")\n        out.write(f\"Unique Client IPs        : {len(unique_ips)}\\n\\n\")\n        out.write(\"HTTP Status Code Breakdown:\\n\")\n        for code, count in sorted(status_counts.items()):\n            pct = (count / total_requests) * 100\n            out.write(f\"  - Status {code}: {count} requests ({pct:.1f}%)\\n\")\n        out.write(\"=========================================\\n\")\n        \n    print(f\"Report generated successfully: {report_filepath}\")\n\nif __name__ == '__main__':\n    # Sample run\n    analyze_logs('sample_access.log', 'log_summary.txt')\n",
+          "expectedOutput": "=========================================\n       WEB SERVER LOG SUMMARY REPORT      \n=========================================\nTotal Requests Processed : 120\nUnique Client IPs        : 34\n\nHTTP Status Code Breakdown:\n  - Status 200: 98 requests (81.7%)\n  - Status 404: 17 requests (14.2%)\n  - Status 500: 5 requests (4.2%)\n========================================="
+        },
+        {
+          "id": "py-proj-2",
+          "projectNumber": 2,
+          "title": "Project 2: Student Grade Tracker & CGPA Calculator",
+          "subtitle": "Module 06, 07 & 11 — Functions, Dictionaries & OOP",
+          "difficulty": "Beginner to Intermediate",
+          "estimatedTime": "2 Hours",
+          "pageLength": "1 – 2 Pages",
+          "description": "Design an Object-Oriented student grading system. Define a Student class that models candidates, stores subject scores, calculates percentage and CGPA, and outputs a formatted terminal grade sheet.",
+          "objectives": [
+            "Construct a clean Student class with __init__ and instance methods",
+            "Manage subject-to-mark mappings using nested dictionaries",
+            "Implement a deterministic CGPA calculation method (10-point scale)",
+            "Format terminal table output with f-string alignment"
+          ],
+          "requirements": [
+            "Class Student with attributes: name, roll_no, subjects (dictionary of subject -> mark)",
+            "Method add_mark(subject, score) with validation (0 to 100)",
+            "Method get_cgpa() returning 10-point grade point average",
+            "Method generate_report_card() printing an aligned terminal report"
+          ],
+          "starterCode": "# Project 2: Student Grade Tracker & CGPA Calculator\n# File: grade_tracker.py\n\nclass Student:\n    def __init__(self, name, roll_no):\n        self.name = name\n        self.roll_no = roll_no\n        self.marks = {}\n\n    def add_mark(self, subject, score):\n        if not (0 <= score <= 100):\n            raise ValueError(f\"Score {score} must be between 0 and 100.\")\n        self.marks[subject] = score\n\n    def get_average(self):\n        if not self.marks:\n            return 0.0\n        return sum(self.marks.values()) / len(self.marks)\n\n    def get_cgpa(self):\n        # 10-point scale: Percentage / 9.5\n        avg = self.get_average()\n        return round(min(10.0, avg / 9.5), 2)\n\n    def print_report_card(self):\n        print(\"\\n\" + \"=\" * 45)\n        print(f\"       STUDENT ACADEMIC REPORT CARD        \")\n        print(\"=\" * 45)\n        print(f\"Candidate Name : {self.name}\")\n        print(f\"Roll Number    : {self.roll_no}\")\n        print(\"-\" * 45)\n        print(f\"{'Subject':<25} {'Score':>10} {'Status':>8}\")\n        print(\"-\" * 45)\n        for sub, score in self.marks.items():\n            status = \"PASS\" if score >= 40 else \"FAIL\"\n            print(f\"{sub:<25} {score:>10} {status:>8}\")\n        print(\"-\" * 45)\n        print(f\"Percentage Score : {self.get_average():.1f}%\")\n        print(f\"Cumulative CGPA  : {self.get_cgpa()} / 10.0\")\n        print(\"=\" * 45)\n\nif __name__ == '__main__':\n    s = Student(\"Arshith Kumar\", \"2026-PY-101\")\n    s.add_mark(\"Python Programming\", 96)\n    s.add_mark(\"Data Structures\", 92)\n    s.add_mark(\"Database Management\", 94)\n    s.add_mark(\"Computer Networks\", 88)\n    s.print_report_card()\n",
+          "expectedOutput": "=============================================\n       STUDENT ACADEMIC REPORT CARD        \n=============================================\nCandidate Name : Arshith Kumar\nRoll Number    : 2026-PY-101\n---------------------------------------------\nSubject                       Score   Status\n---------------------------------------------\nPython Programming               96     PASS\nData Structures                  92     PASS\nDatabase Management              94     PASS\nComputer Networks                88     PASS\n---------------------------------------------\nPercentage Score : 92.5%\nCumulative CGPA  : 9.74 / 10.0\n============================================="
+        },
+        {
+          "id": "py-proj-3",
+          "projectNumber": 3,
+          "title": "Project 3: SQLite Contact Book & Search Utility",
+          "subtitle": "Module 10 & 15 — Exceptions & SQLite Database Connectivity",
+          "difficulty": "Intermediate",
+          "estimatedTime": "2 – 3 Hours",
+          "pageLength": "1 – 2 Pages",
+          "description": "Develop a persistent command-line address book backed by SQLite. Create a contacts table, insert and validate candidate entries, query records using parameterized search filters, and handle duplicate errors gracefully.",
+          "objectives": [
+            "Establish SQLite database connection and cursor lifecycle with sqlite3",
+            "Execute DDL statements to create tables with UNIQUE constraints",
+            "Prevent SQL Injection vulnerabilities using parameterized '?' queries",
+            "Implement interactive CLI menu for inserting and searching contacts"
+          ],
+          "requirements": [
+            "Table 'contacts' with columns: id (INTEGER PRIMARY KEY), name (TEXT), email (TEXT UNIQUE), phone (TEXT)",
+            "Function add_contact(name, email, phone) handling sqlite3.IntegrityError for duplicate emails",
+            "Function search_contacts(keyword) searching name or email via LIKE ? queries",
+            "Automatic connection commit and proper connection close"
+          ],
+          "starterCode": "# Project 3: SQLite Contact Book & Search Utility\n# File: contacts_app.py\n\nimport sqlite3\n\nclass ContactBook:\n    def __init__(self, db_file=\"contacts.db\"):\n        self.conn = sqlite3.connect(db_file)\n        self.cursor = self.conn.cursor()\n        self.setup_table()\n\n    def setup_table(self):\n        self.cursor.execute('''\n            CREATE TABLE IF NOT EXISTS contacts (\n                id INTEGER PRIMARY KEY AUTOINCREMENT,\n                name TEXT NOT NULL,\n                email TEXT UNIQUE NOT NULL,\n                phone TEXT NOT NULL\n            )\n        ''')\n        self.conn.commit()\n\n    def add_contact(self, name, email, phone):\n        try:\n            self.cursor.execute('''\n                INSERT INTO contacts (name, email, phone)\n                VALUES (?, ?, ?)\n            ''', (name, email, phone))\n            self.conn.commit()\n            print(f\"✓ Contact '{name}' added successfully.\")\n            return True\n        except sqlite3.IntegrityError:\n            print(f\"✗ Error: Email '{email}' already exists in database.\")\n            return False\n\n    def search_contacts(self, keyword):\n        query = \"%\" + keyword.strip() + \"%\"\n        self.cursor.execute('''\n            SELECT id, name, email, phone FROM contacts\n            WHERE name LIKE ? OR email LIKE ?\n            ORDER BY name ASC\n        ''', (query, query))\n        rows = self.cursor.fetchall()\n        \n        print(f\"\\nSearch results for '{keyword}' ({len(rows)} found):\")\n        print(\"-\" * 50)\n        for r in rows:\n            print(f\"ID: {r[0]} | Name: {r[1]} | Email: {r[2]} | Phone: {r[3]}\")\n        print(\"-\" * 50)\n        return rows\n\n    def close(self):\n        self.conn.close()\n\nif __name__ == '__main__':\n    cb = ContactBook()\n    cb.add_contact(\"Arshith Kumar\", \"arshith@example.com\", \"+91-9876543210\")\n    cb.add_contact(\"Bhavana Kolla\", \"bhavana@example.com\", \"+91-9876543211\")\n    cb.add_contact(\"Chandan Verma\", \"chandan@example.com\", \"+91-9876543212\")\n    cb.search_contacts(\"Arshith\")\n    cb.close()\n",
+          "expectedOutput": "✓ Contact 'Arshith Kumar' added successfully.\n✓ Contact 'Bhavana Kolla' added successfully.\n✓ Contact 'Chandan Verma' added successfully.\n\nSearch results for 'Arshith' (1 found):\n--------------------------------------------------\nID: 1 | Name: Arshith Kumar | Email: arshith@example.com | Phone: +91-9876543210\n--------------------------------------------------"
+        }
+      ]
     },
     {
       "id": "sql-mastery",
