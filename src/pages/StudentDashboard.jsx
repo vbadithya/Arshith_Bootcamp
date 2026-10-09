@@ -1,7 +1,7 @@
 import React from 'react';
 import { 
   BookOpen, Award, CheckCircle, Clock, PlayCircle, 
-  TrendingUp, Sparkles, ArrowRight, Download, User, Compass, GraduationCap, FolderCheck 
+  TrendingUp, Sparkles, ArrowRight, Download, User, Compass, GraduationCap 
 } from 'lucide-react';
 import { SAMPLE_CERTIFICATES } from '../data/coursesData';
 import { generateCoursePDF } from '../utils/pdfGenerator';
@@ -197,41 +197,6 @@ export default function StudentDashboard({
                       <div className="flex justify-between items-center text-xs font-black text-slate-700">
                         <span>{completedModules} / {totalModules} Modules Completed</span>
                         <span className="text-brand-700 font-extrabold">{course.progress || 0}%</span>
-                      </div>
-
-                      {/* 3 Projects Progress Indicator */}
-                      <div className="p-3 rounded-2xl bg-slate-50 border border-slate-200/80 space-y-1.5">
-                        <div className="flex justify-between items-center text-[11px] font-black">
-                          <span className="text-slate-600 flex items-center gap-1">
-                            <FolderCheck className="w-3.5 h-3.5 text-brand-700" />
-                            <span>Projects: {course.progress === 100 ? '3 / 3' : '1 / 3'} Completed</span>
-                          </span>
-                          <span className="text-brand-700 font-bold">
-                            {course.progress === 100 ? '3/3 Approved' : 'In Progress'}
-                          </span>
-                        </div>
-                        <div className="grid grid-cols-3 gap-1.5 text-[10px] font-bold">
-                          <div className="p-1 rounded-lg bg-emerald-50 text-emerald-800 border border-emerald-200 text-center flex items-center justify-center gap-1">
-                            <span>Project 1</span>
-                            <span>✓</span>
-                          </div>
-                          <div className={`p-1 rounded-lg text-center flex items-center justify-center gap-1 ${
-                            (course.progress || 0) >= 70
-                              ? 'bg-emerald-50 text-emerald-800 border border-emerald-200'
-                              : 'bg-amber-50 text-amber-800 border border-amber-200'
-                          }`}>
-                            <span>Project 2</span>
-                            <span>{(course.progress || 0) >= 70 ? '✓' : '⏳'}</span>
-                          </div>
-                          <div className={`p-1 rounded-lg text-center flex items-center justify-center gap-1 ${
-                            (course.progress || 0) === 100
-                              ? 'bg-emerald-50 text-emerald-800 border border-emerald-200'
-                              : 'bg-slate-100 text-slate-500 border border-slate-200'
-                          }`}>
-                            <span>Project 3</span>
-                            <span>{(course.progress || 0) === 100 ? '✓' : '⏳'}</span>
-                          </div>
-                        </div>
                       </div>
 
                       <div className="w-full h-2.5 bg-slate-100 rounded-full overflow-hidden border border-slate-200">
