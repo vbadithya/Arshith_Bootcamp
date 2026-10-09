@@ -1179,6 +1179,13 @@ export default function LearningPage({
         </div>
       )}
 
+      {/* Course Mini Projects Modal */}
+      <CourseProjectsModal
+        isOpen={projectsModalOpen}
+        onClose={() => setProjectsModalOpen(false)}
+        course={course}
+      />
+
     </div>
   );
 }
