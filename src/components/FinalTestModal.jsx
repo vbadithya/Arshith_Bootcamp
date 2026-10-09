@@ -106,7 +106,12 @@ export default function FinalTestModal({
     }
 
     try {
-      const res = await api.startFinalTest({ userId, studentName, paperCode: overridePaperCode });
+      const res = await api.startFinalTest({ 
+        userId, 
+        studentName, 
+        courseId: course?.id, 
+        paperCode: overridePaperCode 
+      });
       if (res.success && res.questions) {
         setQuestions(res.questions);
         setSessionId(res.sessionId);
@@ -162,6 +167,7 @@ export default function FinalTestModal({
       const res = await api.submitFinalTest({
         userId,
         studentName,
+        courseId: course?.id,
         sessionId,
         paperCode: assignedPaper?.paperCode,
         answers
@@ -217,7 +223,7 @@ export default function FinalTestModal({
             <div>
               <span className="text-[10px] font-black uppercase text-amber-400 tracking-wider">Final Certification Exam</span>
               <h3 className="text-sm font-black text-white truncate max-w-xs sm:max-w-md">
-                SQL Final Assessment
+                {course?.title || 'Course'} Final Assessment
               </h3>
             </div>
           </div>

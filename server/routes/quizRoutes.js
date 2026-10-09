@@ -25,6 +25,22 @@ router.get('/quizzes/module/:moduleId', (req, res) => {
     });
 
   if (questions.length === 0) {
+    for (const c of (db.courses || [])) {
+      const mod = (c.modules || []).find(m => m.id === moduleId);
+      if (mod && mod.quiz && mod.quiz.questions && mod.quiz.questions.length > 0) {
+        const safeQuestions = mod.quiz.questions.map(q => {
+          const { correctAnswer, explanation, ...safeQ } = q;
+          return safeQ;
+        });
+        return res.json({
+          success: true,
+          moduleId,
+          totalQuestions: safeQuestions.length,
+          passingScore: 70,
+          questions: safeQuestions
+        });
+      }
+    }
     return res.status(404).json({
       success: false,
       message: `No active quiz questions found for module ${moduleId}`
@@ -193,7 +209,7 @@ function getPaperSetForStudent(studentName, papers = []) {
  * Starts or resumes a 45-minute (2700 seconds) server-validated test session
  */
 router.post('/final-test/start', (req, res) => {
-  const { userId = 'student-001', studentName = 'Learner', courseId = 'sql-mastery', paperCode } = req.body;
+  const { userId = 'student-001', studentName = 'Learner', courseId = 'python-programming', paperCode } = req.body;
   const db = getDb();
 
   if (!db.finalTestActiveSessions) db.finalTestActiveSessions = {};
@@ -201,7 +217,7 @@ router.post('/final-test/start', (req, res) => {
   const DURATION_SECONDS = 45 * 60; // 45 minutes = 2700s
   const now = Date.now();
 
-  let sessionKey = `${userId}-sql-final`;
+  let sessionKey = `${userId}-${courseId}-final`;
   let session = db.finalTestActiveSessions[sessionKey];
 
   if (!session || session.submitted) {
@@ -222,7 +238,7 @@ router.post('/final-test/start', (req, res) => {
   const remainingSeconds = Math.max(0, DURATION_SECONDS - elapsedSeconds);
 
   // Fetch course question papers
-  const course = (db.courses || []).find(c => c.id === 'sql-mastery' || c.id === 'sql-data-analysis');
+  const course = (db.courses || []).find(c => c.id === courseId) || (db.courses || []).find(c => c.id === 'python-programming') || (db.courses || []).find(c => c.id === 'sql-mastery' || c.id === 'sql-data-analysis');
   const questionPapers = course?.finalTest?.questionPapers || [];
 
   let assignedPaper = null;
@@ -235,7 +251,7 @@ router.post('/final-test/start', (req, res) => {
 
   let rawQuestions = assignedPaper?.questions;
   if (!rawQuestions || rawQuestions.length === 0) {
-    rawQuestions = (db.questionBank || []).filter(q => q.category === 'final-test' && q.status === 'active');
+    rawQuestions = (db.questionBank || []).filter(q => (q.category === 'final-test' || q.courseId === courseId) && q.status === 'active');
   }
 
   // Omit correct answers and explanations for candidate security
@@ -277,18 +293,18 @@ router.post('/final-test/start', (req, res) => {
  * Submits the final assessment, validates server time, scores answers, logs result
  */
 router.post('/final-test/submit', (req, res) => {
-  const { userId = 'student-001', studentName = 'Learner', paperCode, answers = {} } = req.body;
+  const { userId = 'student-001', studentName = 'Learner', courseId = 'python-programming', paperCode, answers = {} } = req.body;
   const db = getDb();
 
   const now = Date.now();
-  const sessionKey = `${userId}-sql-final`;
+  const sessionKey = `${userId}-${courseId}-final`;
   const session = db.finalTestActiveSessions?.[sessionKey];
 
   let startedAt = session ? session.startedAt : now - (10 * 60 * 1000);
   const elapsedSeconds = Math.floor((now - startedAt) / 1000);
   const isAutoSubmitted = elapsedSeconds >= (45 * 60 + 10);
 
-  const course = (db.courses || []).find(c => c.id === 'sql-mastery' || c.id === 'sql-data-analysis');
+  const course = (db.courses || []).find(c => c.id === courseId) || (db.courses || []).find(c => c.id === 'python-programming') || (db.courses || []).find(c => c.id === 'sql-mastery' || c.id === 'sql-data-analysis');
   const questionPapers = course?.finalTest?.questionPapers || [];
 
   let assignedPaper = null;

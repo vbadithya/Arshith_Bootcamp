@@ -52,14 +52,22 @@ export default function ModuleQuizModal({
 
     try {
       const res = await api.getModuleQuiz(module.id);
-      if (res.success && res.questions) {
+      if (res.success && res.questions && res.questions.length > 0) {
         setQuestions(res.questions);
       } else {
         throw new Error('Failed to load quiz questions.');
       }
     } catch (err) {
-      console.error('Quiz load error:', err);
-      setError('Could not load quiz questions. Please check connection.');
+      console.warn('Quiz load API error, checking local module quiz fallback:', err);
+      if (module?.quiz?.questions && module.quiz.questions.length > 0) {
+        const safeQuestions = module.quiz.questions.map(q => {
+          const { correctAnswer, explanation, ...safeQ } = q;
+          return safeQ;
+        });
+        setQuestions(safeQuestions);
+      } else {
+        setError('Could not load quiz questions. Please check connection.');
+      }
     } finally {
       setLoading(false);
     }
