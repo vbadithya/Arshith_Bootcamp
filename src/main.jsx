@@ -14,23 +14,23 @@ class ErrorBoundary extends React.Component {
   }
 
   componentDidCatch(error, errorInfo) {
-    console.error("Critical Application Render Error:", error, errorInfo);
+    console.error("React Error Boundary caught an error:", error, errorInfo);
   }
 
   render() {
     if (this.state.hasError) {
       return (
-        <div style={{ padding: '32px', fontFamily: 'system-ui, sans-serif', maxWidth: '800px', margin: '40px auto', background: '#fff', borderRadius: '24px', border: '2px solid #e11d48', boxShadow: '0 10px 30px rgba(0,0,0,0.1)' }}>
-          <h2 style={{ color: '#e11d48', margin: '0 0 12px', fontSize: '22px' }}>Application Render Error Caught</h2>
-          <p style={{ color: '#475569', fontSize: '14px', lineHeight: '1.6' }}>An unexpected error occurred while rendering the page:</p>
-          <pre style={{ background: '#0f172a', color: '#f8fafc', padding: '16px', borderRadius: '12px', overflowX: 'auto', fontSize: '13px', margin: '16px 0' }}>
-            {this.state.error?.stack || String(this.state.error)}
+        <div style={{ padding: 40, fontFamily: 'sans-serif', color: '#991b1b', backgroundColor: '#fef2f2', minHeight: '100vh' }}>
+          <h1 style={{ fontSize: 24, fontWeight: 'bold' }}>Application Error</h1>
+          <p style={{ marginTop: 10 }}>{this.state.error?.toString()}</p>
+          <pre style={{ marginTop: 10, padding: 10, backgroundColor: '#fee2e2', borderRadius: 6, overflowX: 'auto' }}>
+            {this.state.error?.stack}
           </pre>
           <button 
-            onClick={() => { localStorage.clear(); window.location.reload(); }}
-            style={{ padding: '10px 20px', background: '#013323', color: '#fff', border: 'none', borderRadius: '12px', cursor: 'pointer', fontWeight: 'bold' }}
+            onClick={() => window.location.href = '/'}
+            style={{ marginTop: 20, padding: '10px 20px', backgroundColor: '#dc2626', color: 'white', border: 'none', borderRadius: 6, cursor: 'pointer', fontWeight: 'bold' }}
           >
-            Clear Local Storage & Reload Page
+            Reload Home Page
           </button>
         </div>
       );
@@ -46,4 +46,3 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     </ErrorBoundary>
   </React.StrictMode>,
 )
-

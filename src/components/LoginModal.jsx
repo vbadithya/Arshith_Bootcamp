@@ -11,17 +11,8 @@ export default function LoginModal({ isOpen, onClose, initialMode = 'login', onS
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    let finalName = name.trim();
-    if (!finalName && email) {
-      const emailPrefix = email.split('@')[0];
-      finalName = emailPrefix
-        .replace(/[._-]/g, ' ')
-        .replace(/\b\w/g, l => l.toUpperCase());
-    }
-    if (!finalName) finalName = 'Student';
-
     if (onSuccess) {
-      onSuccess({ name: finalName, email: email.trim(), mode });
+      onSuccess({ name: name || 'Arshith Student', email });
     }
     onClose();
   };
@@ -44,7 +35,7 @@ export default function LoginModal({ isOpen, onClose, initialMode = 'login', onS
             <GraduationCap className="w-6 h-6" />
           </div>
           <h2 className="text-2xl font-extrabold text-slate-900">
-            {mode === 'login' ? 'Welcome Back 👋' : 'Join Arshith Boot Camp 🚀'}
+            {mode === 'login' ? 'Welcome Back 👋' : 'Join ArshithGroup 🚀'}
           </h2>
           <p className="text-xs text-slate-500 font-medium mt-1">
             {mode === 'login' ? 'Enter your details to access your courses' : 'Start your learning journey today'}
@@ -53,22 +44,22 @@ export default function LoginModal({ isOpen, onClose, initialMode = 'login', onS
 
         {/* Form */}
         <form onSubmit={handleSubmit} className="space-y-4">
-          <div>
-            <label className="block text-xs font-bold text-slate-700 mb-1">
-              Full Name {mode === 'login' && <span className="text-slate-400 font-normal">(Optional)</span>}
-            </label>
-            <div className="relative">
-              <input
-                type="text"
-                required={mode === 'signup'}
-                placeholder="e.g. Arshith Kumar"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-                className="w-full pl-10 pr-4 py-2.5 text-sm bg-slate-50 border border-slate-200 rounded-xl focus:bg-white focus:border-brand-500 outline-none"
-              />
-              <User className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
+          {mode === 'signup' && (
+            <div>
+              <label className="block text-xs font-bold text-slate-700 mb-1">Full Name</label>
+              <div className="relative">
+                <input
+                  type="text"
+                  required
+                  placeholder="e.g. Arshith Kumar"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  className="w-full pl-10 pr-4 py-2.5 text-sm bg-slate-50 border border-slate-200 rounded-xl focus:bg-white focus:border-brand-500 outline-none"
+                />
+                <User className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
+              </div>
             </div>
-          </div>
+          )}
 
           <div>
             <label className="block text-xs font-bold text-slate-700 mb-1">Email Address</label>

@@ -24,7 +24,7 @@ export default function Footer({ setActiveTab }) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Top 4 Columns */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-12 pb-12 border-b border-brand-800/80">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-12 border-b border-brand-800/80">
           
           {/* Brand Info */}
           <div className="lg:col-span-4 space-y-4">
@@ -53,25 +53,25 @@ export default function Footer({ setActiveTab }) {
             {/* Social Icons */}
             <div className="flex items-center gap-2 pt-2">
               <a href="#facebook" className="w-9 h-9 rounded-full bg-brand-800/90 hover:bg-brand-600 hover:text-white text-slate-300 flex items-center justify-center transition-all border border-brand-700">
-                <Facebook className="w-4 h-4" />
+                <Facebook className="w-4.5 h-4.5" />
               </a>
               <a href="#instagram" className="w-9 h-9 rounded-full bg-brand-800/90 hover:bg-brand-600 hover:text-white text-slate-300 flex items-center justify-center transition-all border border-brand-700">
-                <Instagram className="w-4 h-4" />
+                <Instagram className="w-4.5 h-4.5" />
               </a>
               <a href="#youtube" className="w-9 h-9 rounded-full bg-brand-800/90 hover:bg-brand-600 hover:text-white text-slate-300 flex items-center justify-center transition-all border border-brand-700">
-                <Youtube className="w-4 h-4" />
+                <Youtube className="w-4.5 h-4.5" />
               </a>
               <a href="#linkedin" className="w-9 h-9 rounded-full bg-brand-800/90 hover:bg-brand-600 hover:text-white text-slate-300 flex items-center justify-center transition-all border border-brand-700">
-                <Linkedin className="w-4 h-4" />
+                <Linkedin className="w-4.5 h-4.5" />
               </a>
               <a href="#x" className="w-9 h-9 rounded-full bg-brand-800/90 hover:bg-brand-600 hover:text-white text-slate-300 flex items-center justify-center transition-all border border-brand-700">
-                <Twitter className="w-4 h-4" />
+                <Twitter className="w-4.5 h-4.5" />
               </a>
             </div>
           </div>
 
           {/* Quick Links */}
-          <div className="lg:col-span-2 space-y-3">
+          <div className="lg:col-span-2.5 space-y-3">
             <h3 className="text-xs font-black text-white uppercase tracking-wider">Quick Links</h3>
             <ul className="space-y-2.5 text-sm font-semibold">
               <li>
@@ -93,7 +93,7 @@ export default function Footer({ setActiveTab }) {
           </div>
 
           {/* Support */}
-          <div className="lg:col-span-2 space-y-3">
+          <div className="lg:col-span-2.5 space-y-3">
             <h3 className="text-xs font-black text-white uppercase tracking-wider">Support</h3>
             <ul className="space-y-2.5 text-sm font-semibold">
               <li>
@@ -112,10 +112,10 @@ export default function Footer({ setActiveTab }) {
           </div>
 
           {/* Newsletter */}
-          <div className="lg:col-span-4 space-y-3">
+          <div className="lg:col-span-3 space-y-3">
             <h3 className="text-xs font-black text-white uppercase tracking-wider">Newsletter</h3>
             <p className="text-xs text-slate-400 font-medium">
-              Get updates on new boot camp courses, tutorials, and certification offers directly in your inbox.
+              Get updates on new boot camp courses and offers...
             </p>
 
             {subscribed ? (
@@ -134,7 +134,7 @@ export default function Footer({ setActiveTab }) {
                 />
                 <button
                   type="submit"
-                  className="absolute right-1 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-emerald-500 hover:bg-emerald-400 text-brand-950 flex items-center justify-center transition-all font-bold cursor-pointer"
+                  className="absolute right-1 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-emerald-500 hover:bg-emerald-400 text-brand-950 flex items-center justify-center transition-all font-bold"
                 >
                   <ArrowRight className="w-4 h-4" />
                 </button>

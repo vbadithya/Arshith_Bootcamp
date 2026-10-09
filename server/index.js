@@ -6,7 +6,6 @@ import studentRoutes from './routes/studentRoutes.js';
 import projectRoutes from './routes/projectRoutes.js';
 import certificateRoutes from './routes/certificateRoutes.js';
 import adminRoutes from './routes/adminRoutes.js';
-import quizRoutes from './routes/quizRoutes.js';
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -39,7 +38,6 @@ app.use('/api', studentRoutes);
 app.use('/api', projectRoutes);
 app.use('/api', certificateRoutes);
 app.use('/api', adminRoutes);
-app.use('/api', quizRoutes);
 
 // Fallback handler for unmatched API routes
 app.use((req, res) => {

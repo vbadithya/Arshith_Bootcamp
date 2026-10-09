@@ -83,6 +83,17 @@ export const api = {
   getPublicCourses: () => request('/courses'),
   getPublicCourse: (id) => request(`/courses/${id}`),
 
+  // Candidate Projects & Submissions
+  getCourseProjects: (courseId) => request(`/courses/${courseId}/projects`),
+  getProjectDetails: (projectId) => request(`/projects/${projectId}`),
+  submitProject: (projectId, submissionData) =>
+    request(`/projects/${projectId}/submit`, {
+      method: 'POST',
+      body: JSON.stringify(submissionData)
+    }),
+  getStudentSubmissions: (studentId, courseId) =>
+    request(`/students/${studentId}/courses/${courseId}/project-submissions`),
+
   // Admin Courses
   getAdminCourses: () => request('/admin/courses'),
   createCourse: (courseData) => request('/admin/courses', { method: 'POST', body: JSON.stringify(courseData) }),
@@ -98,6 +109,47 @@ export const api = {
   updateFinalTest: (courseId, testData) => request(`/admin/courses/${courseId}/final-test`, { method: 'PUT', body: JSON.stringify(testData) }),
   updateFinalProject: (courseId, projectData) => request(`/admin/courses/${courseId}/final-project`, { method: 'PUT', body: JSON.stringify(projectData) }),
 
+  // Admin Project Management
+  getAdminCourseProjects: (courseId) => request(`/admin/courses/${courseId}/projects`),
+  createAdminProject: (courseId, projectData) =>
+    request(`/admin/courses/${courseId}/projects`, {
+      method: 'POST',
+      body: JSON.stringify(projectData)
+    }),
+  updateAdminProject: (courseId, projectId, projectData) =>
+    request(`/admin/courses/${courseId}/projects/${projectId}`, {
+      method: 'PUT',
+      body: JSON.stringify(projectData)
+    }),
+  deleteAdminProject: (courseId, projectId) =>
+    request(`/admin/courses/${courseId}/projects/${projectId}`, { method: 'DELETE' }),
+  reorderAdminProjects: (courseId, projectIds) =>
+    request(`/admin/courses/${courseId}/projects/reorder`, {
+      method: 'PUT',
+      body: JSON.stringify({ projectIds })
+    }),
+
+  // Project Submissions & Review
+  getProjectSubmissionsList: (filters = {}) => {
+    const params = new URLSearchParams();
+    if (filters.courseId) params.append('courseId', filters.courseId);
+    if (filters.status) params.append('status', filters.status);
+    if (filters.search) params.append('search', filters.search);
+    return request(`/admin/projects/submissions?${params.toString()}`);
+  },
+  reviewProjectSubmissionStatus: (id, status, reviewerComments, score) =>
+    request(`/admin/projects/submissions/${id}/review`, {
+      method: 'POST',
+      body: JSON.stringify({ status, reviewerComments, score })
+    }),
+  resendSubmissionEmail: (id) =>
+    request(`/admin/projects/submissions/${id}/resend-email`, { method: 'POST' }),
+
+  // Admin Settings
+  getAdminSettings: () => request('/admin/settings'),
+  updateAdminSettings: (settingsData) =>
+    request('/admin/settings', { method: 'PUT', body: JSON.stringify(settingsData) }),
+
   // Students & Enrollments
   getStudents: () => request('/admin/students'),
   getStudentDetails: (id) => request(`/admin/students/${id}`),
@@ -105,14 +157,6 @@ export const api = {
   resetStudentPassword: (id) => request(`/admin/students/${id}/reset-password`, { method: 'POST' }),
   enrollStudent: (studentId, courseId) => request('/admin/enrollments', { method: 'POST', body: JSON.stringify({ studentId, courseId }) }),
   removeEnrollment: (studentId, courseId) => request(`/admin/enrollments/${studentId}/${courseId}`, { method: 'DELETE' }),
-
-  // Project Submissions
-  getProjectSubmissions: () => request('/admin/projects/submissions'),
-  reviewProjectSubmission: (id, status, score, feedback) => 
-    request(`/admin/projects/submissions/${id}/review`, {
-      method: 'POST',
-      body: JSON.stringify({ status, score, feedback })
-    }),
 
   // Certificates
   getCertificates: () => request('/admin/certificates'),
@@ -132,21 +176,5 @@ export const api = {
 
   // Analytics & Audit Logs
   getAnalytics: () => request('/admin/analytics'),
-  getActivityLogs: () => request('/admin/activity-logs'),
-
-  // Module Quizzes & Final Test System
-  getModuleQuiz: (moduleId) => request(`/quizzes/module/${moduleId}`),
-  submitModuleQuiz: (moduleId, data) => request(`/quizzes/module/${moduleId}/submit`, { method: 'POST', body: JSON.stringify(data) }),
-  getModuleQuizAttempts: (moduleId, userId) => request(`/quizzes/module/${moduleId}/attempts?userId=${userId || ''}`),
-
-  startFinalTest: (data = {}) => request('/final-test/start', { method: 'POST', body: JSON.stringify(data) }),
-  submitFinalTest: (data) => request('/final-test/submit', { method: 'POST', body: JSON.stringify(data) }),
-  getFinalTestAttempts: (userId) => request(`/final-test/attempts?userId=${userId || ''}`),
-
-  // Admin Quiz System Management & Analytics
-  getAdminQuestions: () => request('/admin/questions'),
-  createAdminQuestion: (questionData) => request('/admin/questions', { method: 'POST', body: JSON.stringify(questionData) }),
-  updateAdminQuestion: (id, questionData) => request(`/admin/questions/${id}`, { method: 'PUT', body: JSON.stringify(questionData) }),
-  deleteAdminQuestion: (id) => request(`/admin/questions/${id}`, { method: 'DELETE' }),
-  getQuizAnalytics: () => request('/admin/quiz-analytics')
+  getActivityLogs: () => request('/admin/activity-logs')
 };

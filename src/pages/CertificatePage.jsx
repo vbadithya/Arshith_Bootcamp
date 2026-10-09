@@ -2,6 +2,7 @@ import React, { useRef, useState } from 'react';
 import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';
 import { Download, ShieldCheck, GraduationCap, ArrowLeft, Award } from 'lucide-react';
+import { LOGO_WATERMARK_BASE64 } from '../utils/pdfGenerator.js';
 
 export default function CertificatePage({ certificate, onBack, onVerifyClick }) {
   const certificateRef = useRef(null);
@@ -76,6 +77,13 @@ export default function CertificatePage({ certificate, onBack, onVerifyClick }) 
             className="bg-white text-slate-900 p-8 sm:p-14 rounded-2xl border-[12px] border-double border-brand-900 min-w-[760px] relative overflow-hidden font-sans space-y-8 text-center"
             style={{ backgroundImage: 'radial-gradient(#0FA477 0.5px, transparent 0.5px)', backgroundSize: '24px 24px' }}
           >
+            {/* Watermark Background Overlay */}
+            <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-[0.10] z-0 select-none">
+              <img src={LOGO_WATERMARK_BASE64} alt="ARSHITH Watermark" className="w-[420px] max-w-full object-contain pointer-events-none select-none" />
+            </div>
+
+            {/* Content Wrapper */}
+            <div className="relative z-10 space-y-8">
             
             {/* Header Logo */}
             <div className="flex items-center justify-between border-b-2 border-brand-900 pb-6">
@@ -163,11 +171,10 @@ export default function CertificatePage({ certificate, onBack, onVerifyClick }) 
                 <p className="text-[10px] font-extrabold text-slate-400 uppercase tracking-wider mt-1">Lead Instructor</p>
               </div>
             </div>
-
           </div>
         </div>
-
       </div>
     </div>
-  );
+  </div>
+);
 }

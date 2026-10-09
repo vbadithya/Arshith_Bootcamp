@@ -1,16 +1,7 @@
 import React, { useState } from 'react';
-import { Search, Menu, X, GraduationCap, ChevronRight, LogIn, Sparkles, User, LogOut, LayoutDashboard } from 'lucide-react';
+import { Search, Menu, X, GraduationCap, ChevronRight, LogIn, Sparkles } from 'lucide-react';
 
-export default function Header({ 
-  activeTab, 
-  setActiveTab, 
-  onOpenAuth, 
-  onSearchSubmit, 
-  searchQuery, 
-  setSearchQuery,
-  studentUser,
-  onLogoutStudent 
-}) {
+export default function Header({ activeTab, setActiveTab, onOpenAuth, onSearchSubmit, searchQuery, setSearchQuery }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const navLinks = [
@@ -65,7 +56,7 @@ export default function Header({
                 <button
                   key={link.id}
                   onClick={() => handleNavClick(link.id)}
-                  className={`relative px-4 py-2 text-xs sm:text-sm font-bold rounded-full transition-all duration-200 cursor-pointer ${
+                  className={`relative px-4 py-2 text-xs sm:text-sm font-bold rounded-full transition-all duration-200 ${
                     isActive 
                       ? 'text-white bg-brand-900 shadow-xs border border-brand-800' 
                       : 'text-slate-700 hover:text-brand-700 hover:bg-brand-50/70'
@@ -80,7 +71,7 @@ export default function Header({
           {/* Right Actions */}
           <div className="hidden lg:flex items-center gap-3">
             {/* Search Input */}
-            <div className="relative w-48 xl:w-56">
+            <div className="relative w-52 xl:w-60">
               <input
                 type="text"
                 placeholder="Search courses..."
@@ -92,67 +83,31 @@ export default function Header({
               <Search className="w-4 h-4 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2" />
             </div>
 
-            {studentUser ? (
-              <div className="flex items-center gap-2">
-                <button
-                  onClick={() => handleNavClick('dashboard')}
-                  className={`px-4 py-2 text-xs font-black rounded-full flex items-center gap-2 border-2 transition-all cursor-pointer ${
-                    activeTab === 'dashboard'
-                      ? 'bg-brand-900 text-white border-brand-800'
-                      : 'bg-emerald-50 text-brand-900 border-emerald-300 hover:bg-emerald-100'
-                  }`}
-                >
-                  <LayoutDashboard className="w-4 h-4 text-emerald-600" />
-                  <span className="max-w-[120px] truncate">{studentUser.name}</span>
-                </button>
+            {/* Login Button */}
+            <button
+              onClick={() => onOpenAuth('login')}
+              className="px-4 py-2 text-xs font-bold text-brand-900 bg-white border-2 border-brand-900 hover:bg-brand-50 rounded-full transition-all shadow-xs cursor-pointer"
+            >
+              Login
+            </button>
 
-                <button
-                  onClick={onLogoutStudent}
-                  title="Sign Out"
-                  className="p-2 text-slate-400 hover:text-rose-600 hover:bg-rose-50 rounded-full border border-slate-200 transition-colors cursor-pointer"
-                >
-                  <LogOut className="w-4 h-4" />
-                </button>
-              </div>
-            ) : (
-              <>
-                {/* Login Button */}
-                <button
-                  onClick={() => onOpenAuth('login')}
-                  className="px-4 py-2 text-xs font-bold text-brand-900 bg-white border-2 border-brand-900 hover:bg-brand-50 rounded-full transition-all shadow-xs cursor-pointer"
-                >
-                  Login
-                </button>
-
-                {/* Get Started Button */}
-                <button
-                  onClick={() => onOpenAuth('signup')}
-                  className="px-5 py-2 text-xs font-extrabold text-white bg-brand-600 hover:bg-brand-700 active:scale-[0.98] rounded-full border-2 border-brand-800 shadow-md shadow-brand-600/25 transition-all cursor-pointer"
-                >
-                  Get Started
-                </button>
-              </>
-            )}
+            {/* Get Started Button */}
+            <button
+              onClick={() => onOpenAuth('signup')}
+              className="px-5 py-2 text-xs font-extrabold text-white bg-brand-600 hover:bg-brand-700 active:scale-[0.98] rounded-full border-2 border-brand-800 shadow-md shadow-brand-600/25 transition-all cursor-pointer"
+            >
+              Get Started
+            </button>
           </div>
 
           {/* Mobile Right Controls */}
           <div className="flex md:hidden items-center gap-2">
-            {studentUser ? (
-              <button
-                onClick={() => handleNavClick('dashboard')}
-                className="px-3 py-1.5 text-xs font-black text-brand-900 bg-emerald-100 rounded-full flex items-center gap-1 border border-emerald-300"
-              >
-                <User className="w-4 h-4" />
-                <span className="max-w-[80px] truncate">{studentUser.name}</span>
-              </button>
-            ) : (
-              <button
-                onClick={() => onOpenAuth('login')}
-                className="p-2 text-brand-800 hover:bg-brand-50 rounded-full"
-              >
-                <LogIn className="w-5 h-5" />
-              </button>
-            )}
+            <button
+              onClick={() => onOpenAuth('login')}
+              className="p-2 text-brand-800 hover:bg-brand-50 rounded-full"
+            >
+              <LogIn className="w-5 h-5" />
+            </button>
 
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -201,50 +156,34 @@ export default function Header({
               </button>
             ))}
 
-            {studentUser && (
-              <button
-                onClick={() => handleNavClick('dashboard')}
-                className="flex items-center justify-between w-full px-4 py-3 rounded-xl text-sm font-bold text-brand-900 bg-emerald-50 border border-emerald-200"
-              >
-                <span>Student Dashboard ({studentUser.name})</span>
-                <ChevronRight className="w-4 h-4 text-emerald-600" />
-              </button>
-            )}
+            <button
+              onClick={() => handleNavClick('dashboard')}
+              className="flex items-center justify-between w-full px-4 py-3 rounded-xl text-sm font-bold text-slate-800 hover:bg-slate-50"
+            >
+              <span>Student Dashboard</span>
+              <ChevronRight className="w-4 h-4 text-slate-400" />
+            </button>
           </div>
 
           <div className="pt-3 border-t border-slate-100 flex flex-col gap-2">
-            {studentUser ? (
-              <button
-                onClick={() => {
-                  setMobileMenuOpen(false);
-                  onLogoutStudent();
-                }}
-                className="w-full py-2.5 text-center text-sm font-bold text-rose-700 bg-rose-50 border-2 border-rose-200 rounded-xl"
-              >
-                Sign Out ({studentUser.name})
-              </button>
-            ) : (
-              <>
-                <button
-                  onClick={() => {
-                    setMobileMenuOpen(false);
-                    onOpenAuth('login');
-                  }}
-                  className="w-full py-2.5 text-center text-sm font-bold text-brand-900 border-2 border-brand-900 rounded-xl hover:bg-brand-50"
-                >
-                  Login
-                </button>
-                <button
-                  onClick={() => {
-                    setMobileMenuOpen(false);
-                    onOpenAuth('signup');
-                  }}
-                  className="w-full py-2.5 text-center text-sm font-bold text-white bg-brand-600 rounded-xl border-2 border-brand-800 shadow-md"
-                >
-                  Get Started
-                </button>
-              </>
-            )}
+            <button
+              onClick={() => {
+                setMobileMenuOpen(false);
+                onOpenAuth('login');
+              }}
+              className="w-full py-2.5 text-center text-sm font-bold text-brand-900 border-2 border-brand-900 rounded-xl hover:bg-brand-50"
+            >
+              Login
+            </button>
+            <button
+              onClick={() => {
+                setMobileMenuOpen(false);
+                onOpenAuth('signup');
+              }}
+              className="w-full py-2.5 text-center text-sm font-bold text-white bg-brand-600 rounded-xl border-2 border-brand-800 shadow-md"
+            >
+              Get Started
+            </button>
           </div>
         </div>
       )}
