@@ -25,7 +25,13 @@ export default function ModuleQuizModal({
   const [quizState, setQuizState] = useState('taking');
   const [resultData, setResultData] = useState(null);
 
-  const savedUser = JSON.parse(localStorage.getItem('student_user') || '{}');
+  let savedUser = {};
+  try {
+    const raw = localStorage.getItem('student_user');
+    if (raw && raw !== 'undefined' && raw !== 'null') savedUser = JSON.parse(raw);
+  } catch (e) {
+    savedUser = {};
+  }
   const userId = savedUser?.id || savedUser?.email || 'student-001';
   const studentName = savedUser?.name || 'Arshith Student';
 

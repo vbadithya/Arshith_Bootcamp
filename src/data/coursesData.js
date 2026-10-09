@@ -6925,3 +6925,5 @@ export const SAMPLE_CERTIFICATES = [
     skills: ["Python 3", "OOP", "File I/O", "SQLite", "Automation"]
   }
 ];
+
+export const COURSES = INITIAL_COURSES;

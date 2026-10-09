@@ -27,7 +27,14 @@ export default function LearningPage({
   const [quizModalOpen, setQuizModalOpen] = useState(false);
   const [finalTestModalOpen, setFinalTestModalOpen] = useState(false);
 
-  const savedUser = JSON.parse(localStorage.getItem('student_user') || '{}');
+  const savedUser = (() => {
+    try {
+      const raw = localStorage.getItem('student_user') || localStorage.getItem('studentUser');
+      return raw ? JSON.parse(raw) : {};
+    } catch (e) {
+      return {};
+    }
+  })();
   const studentName = savedUser?.name || 'Arshith Kumar';
 
   // Course Projects State (3 Required Projects)
